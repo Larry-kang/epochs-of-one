@@ -3952,6 +3952,22 @@
    "license": [
     "OECD-terms-data (attribution; CC BY 4.0 open-by-default)"
    ]
+  },
+  {
+   "path": "wpp-extra.json",
+   "sha256": "012f01e8853a7d3acd980991694d48443769e75b1aef631b55b563c8ae04d33b",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "wpp-extra.schema.json",
+   "rows": 237
   }
  ]
 }

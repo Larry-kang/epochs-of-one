@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "wpp-extra.schema.json",
+  "title": "WPP 2024 extra layer: period TFR, e0, under-5 mortality per 1000 (batch 2)",
+  "type": "object",
+  "required": ["note", "from", "tfr", "e0", "q5"],
+  "additionalProperties": false,
+  "$defs": {
+    "byIso": { "type": "object", "propertyNames": { "pattern": "^[A-Z]{3}$" }, "additionalProperties": { "type": "array", "minItems": 2, "items": { "type": "number", "minimum": 0 } } }
+  },
+  "properties": {
+    "note": { "type": "string" }, "from": { "type": "integer" },
+    "tfr": { "$ref": "#/$defs/byIso" }, "e0": { "$ref": "#/$defs/byIso" }, "q5": { "$ref": "#/$defs/byIso" }
+  }
+}

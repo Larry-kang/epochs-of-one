@@ -133,7 +133,7 @@ describe('P1-5 finance screens', () => {
     expect(q40.needIncome).toBeLessThan(q30.needIncome);
   });
   it('no dev strings in UI copy', () => {
-    const ui = readFileSync('src/content/zh-TW/ui.json', 'utf8') + readFileSync('src/content/zh-TW/events.json', 'utf8');
+    const ui = readFileSync('src/content/i18n/table.json', 'utf8');
     for (const bad of ['§', 'DBR22', '総量規制', 'TDSR', 'MSR']) expect(ui.includes(bad), bad).toBe(false);
   });
 });

@@ -1,0 +1,12984 @@
+{
+"langs": [
+"zh-TW",
+"en",
+"ja",
+"ko",
+"vi"
+],
+"note": "One translation table for every string in the app. Columns follow `langs`; null = not translated yet (falls back to en, then zh-TW for UI; content falls back to zh-TW).",
+"strings": {
+"ui": {
+"tagline": [
+"用公開的人口與經濟資料，翻開一本隨機的人生帳本。",
+"Open a random ledger of a life, written from public population and economic data.",
+null,
+null,
+null
+],
+"start": [
+"開始新的人生",
+"Start a new life",
+null,
+null,
+null
+],
+"continue": [
+"繼續上次的人生",
+"Continue your last life",
+"前回の人生を続ける",
+"지난 인생 이어가기",
+"Tiếp tục cuộc đời trước"
+],
+"about": [
+"關於與資料來源",
+"About & data sources",
+"このゲームとデータ",
+"소개 및 데이터 출처",
+"Giới thiệu & nguồn dữ liệu"
+],
+"back": [
+"返回",
+"Back",
+"戻る",
+"뒤로",
+"Quay lại"
+],
+"setupTitle": [
+"出生設定",
+"Birth settings",
+null,
+null,
+null
+],
+"era": [
+"時代",
+"Era",
+null,
+null,
+null
+],
+"eraNow": [
+"現在",
+"Now",
+null,
+null,
+null
+],
+"eraPastRandom": [
+"過去（依各年出生數隨機）",
+"Past (random, weighted by births)",
+null,
+null,
+null
+],
+"eraPastYear": [
+"過去（指定年份）",
+"Past (pick a year)",
+null,
+null,
+null
+],
+"year": [
+"出生年",
+"Birth year",
+null,
+null,
+null
+],
+"pace": [
+"人生節奏（真實時間）",
+"Pace of life (real time)",
+null,
+null,
+null
+],
+"paceMin": [
+"{n} 分鐘",
+"{n} min",
+null,
+null,
+null
+],
+"seed": [
+"種子（留空自動產生）",
+"Seed (blank = auto)",
+null,
+null,
+null
+],
+"seedHint": [
+"1–64 個英數字、底線或連字號",
+"1–64 letters, digits, underscores or hyphens",
+null,
+null,
+null
+],
+"drawBirth": [
+"抽出生卡",
+"Draw a birth",
+null,
+null,
+null
+],
+"birthTitle": [
+"你出生了",
+"You were born",
+null,
+null,
+null
+],
+"country": [
+"國家／地區",
+"Country / area",
+null,
+null,
+null
+],
+"sex": [
+"性別",
+"Sex",
+null,
+null,
+null
+],
+"male": [
+"男",
+"Male",
+null,
+null,
+null
+],
+"female": [
+"女",
+"Female",
+null,
+null,
+null
+],
+"place": [
+"居住地",
+"Lives in",
+null,
+null,
+null
+],
+"urban": [
+"城市",
+"City",
+null,
+null,
+null
+],
+"rural": [
+"鄉村",
+"Countryside",
+null,
+null,
+null
+],
+"quintile": [
+"家庭所得",
+"Family income",
+null,
+null,
+null
+],
+"q1": [
+"最低 20%",
+"Bottom 20%",
+null,
+null,
+null
+],
+"q2": [
+"中下 20%",
+"Lower-middle 20%",
+null,
+null,
+null
+],
+"q3": [
+"中間 20%",
+"Middle 20%",
+null,
+null,
+null
+],
+"q4": [
+"中上 20%",
+"Upper-middle 20%",
+null,
+null,
+null
+],
+"q5": [
+"最高 20%",
+"Top 20%",
+null,
+null,
+null
+],
+"e0": [
+"這一年出生者的平均預期壽命",
+"Life expectancy at birth for this year",
+null,
+null,
+null
+],
+"years": [
+"{n} 歲",
+"{n} y",
+"{n} 歳",
+"{n}세",
+"{n} tuổi"
+],
+"est": [
+"推估",
+"est.",
+"推計",
+"추정",
+"ước tính"
+],
+"beginLife": [
+"開始過日子",
+"Start living",
+null,
+null,
+null
+],
+"age": [
+"年齡",
+"Age",
+null,
+null,
+null
+],
+"calYear": [
+"西元",
+"Year",
+null,
+null,
+null
+],
+"health": [
+"健康",
+"Health",
+"健康",
+"건강",
+"Sức khỏe"
+],
+"happy": [
+"快樂",
+"Happiness",
+"幸福",
+"행복",
+"Hạnh phúc"
+],
+"smart": [
+"學識",
+"Knowledge",
+"知識",
+"지식",
+"Hiểu biết"
+],
+"social": [
+"人際",
+"Social",
+"人間関係",
+"인간관계",
+"Quan hệ"
+],
+"cash": [
+"淨資產",
+"Net worth",
+"純資産",
+"순자산",
+"Tài sản ròng"
+],
+"income": [
+"今年收入",
+"Income this year",
+"今年の収入",
+"올해 소득",
+"Thu nhập năm nay"
+],
+"pause": [
+"暫停",
+"Pause",
+"一時停止",
+"일시정지",
+"Tạm dừng"
+],
+"resume": [
+"繼續",
+"Resume",
+"再開",
+"계속",
+"Tiếp tục"
+],
+"speed": [
+"倍速",
+"Speed",
+null,
+null,
+null
+],
+"skip": [
+"快轉到終點",
+"Skip to the end",
+"最後まで早送り",
+"끝까지 건너뛰기",
+"Tua đến cuối"
+],
+"log": [
+"人生紀錄",
+"Life log",
+"人生の記録",
+"인생 기록",
+"Nhật ký cuộc đời"
+],
+"unemployed": [
+"失業中",
+"Unemployed",
+null,
+null,
+null
+],
+"employed": [
+"就業中",
+"Employed",
+null,
+null,
+null
+],
+"child": [
+"求學／成長中",
+"Growing up / studying",
+null,
+null,
+null
+],
+"retired": [
+"已離開職場",
+"Out of the workforce",
+null,
+null,
+null
+],
+"deathTitle": [
+"人生結算",
+"Life summary",
+"人生のまとめ",
+"인생 결산",
+"Tổng kết cuộc đời"
+],
+"deathPage": [
+"這一生的紀錄",
+"The record of this life",
+"この人生の記録",
+"이 인생의 기록",
+"Hồ sơ cuộc đời này"
+],
+"diedAt": [
+"於 {year} 年離世，享年 {age} 歲。",
+"Died in {year}, aged {age}.",
+null,
+null,
+null
+],
+"cause_infant": [
+"未滿週歲便離開了。",
+"Left before their first birthday.",
+null,
+null,
+null
+],
+"cause_child": [
+"童年早逝。",
+"Died in childhood.",
+null,
+null,
+null
+],
+"cause_young": [
+"英年早逝。",
+"Died young.",
+null,
+null,
+null
+],
+"cause_midlife": [
+"在中年時離開。",
+"Died in midlife.",
+null,
+null,
+null
+],
+"cause_old": [
+"在晚年安詳離開。",
+"Died peacefully in old age.",
+null,
+null,
+null
+],
+"lifetimeIncome": [
+"一生總收入",
+"Lifetime income",
+null,
+null,
+null
+],
+"finalNetWorth": [
+"最終淨資產",
+"Final net worth",
+null,
+null,
+null
+],
+"pctIncome": [
+"一生收入勝過同國同年出生者的",
+"Lifetime income beats peers born same year & country:",
+null,
+null,
+null
+],
+"pctNetWorth": [
+"淨資產勝過同國同年出生者的",
+"Net worth beats peers born same year & country:",
+null,
+null,
+null
+],
+"pctLifespan": [
+"活得比同國同年出生者久的比例",
+"Share of same-year peers you outlived",
+null,
+null,
+null
+],
+"chartNetWorth": [
+"淨資產（實質）",
+"Net worth (real)",
+null,
+null,
+null
+],
+"chartIncome": [
+"年收入（實質）",
+"Annual income (real)",
+null,
+null,
+null
+],
+"copySeed": [
+"複製種子",
+"Copy seed",
+null,
+null,
+null
+],
+"copied": [
+"已複製",
+"Copied",
+null,
+null,
+null
+],
+"again": [
+"再活一次",
+"Live again",
+"もう一度生きる",
+"다시 살기",
+"Sống lại lần nữa"
+],
+"home": [
+"回首頁",
+"Home",
+"ホーム",
+"홈",
+"Trang chủ"
+],
+"money": [
+"金額單位：2021 年購買力平價國際元（實質）。",
+"Amounts in 2021 PPP international dollars (real).",
+null,
+null,
+null
+],
+"estNote": [
+"標示「推估」的數值來自補值或超出資料年份範圍。",
+"Values marked \"est.\" are imputed or outside the data years.",
+null,
+null,
+null
+],
+"pastLives": [
+"過去的人生",
+"Past lives",
+"過去の人生",
+"지난 인생들",
+"Những cuộc đời trước"
+],
+"noPast": [
+"還沒有紀錄。",
+"Nothing yet.",
+"まだ記録がありません。",
+"아직 기록이 없습니다.",
+"Chưa có gì."
+],
+"storageOff": [
+"瀏覽器停用了本機儲存，本次進度只會保留在記憶體中。",
+"Local storage is disabled; progress stays in memory only.",
+null,
+null,
+null
+],
+"aboutTitle": [
+"關於",
+"About",
+null,
+null,
+null
+],
+"aboutBody": [
+"這是一個以公開資料驅動的人生模擬（開發中原型，名稱未定）。所有事件與文字皆為原創；結果是統計抽樣，不代表任何真實個人。",
+"A life simulation driven by public data. All events and text are original; outcomes are statistical draws, not real people.",
+null,
+null,
+null
+],
+"aboutData": [
+"人口：聯合國《世界人口展望 2024》（CC BY 3.0 IGO）。經濟：世界銀行 World Development Indicators（CC BY 4.0），所得分配取自 Poverty and Inequality Platform。",
+"Population: UN World Population Prospects 2024 (CC BY 3.0 IGO). Economy: World Bank World Development Indicators (CC BY 4.0); income distribution from the Poverty and Inequality Platform.",
+null,
+null,
+null
+],
+"aboutMarkets": [
+"台股加權指數與比特幣年收盤價：自行彙整，逐年交叉比對臺灣證券交易所、勞動部開放資料、Wikipedia 及 Bitstamp／Coinbase／Bitfinex 公開行情等來源。",
+"TAIEX and Bitcoin annual closes: self-compiled, cross-checked year by year against public exchange, government open data and exchange price sources.",
+null,
+null,
+null
+],
+"aboutOffline": [
+"本遊戲執行時不連線任何外部伺服器，無追蹤、無 Cookie；進度只存在你的瀏覽器。",
+"The game never contacts outside servers: no tracking, no cookies. Progress lives only in your browser.",
+null,
+null,
+null
+],
+"liquid": [
+"現金",
+"Cash",
+null,
+null,
+null
+],
+"invested": [
+"投資部位",
+"Invested",
+null,
+null,
+null
+],
+"investBtn": [
+"投資配置",
+"Investments",
+null,
+null,
+null
+],
+"investTitle": [
+"投資配置（{year} 年底生效）",
+"Investments (from end of {year})",
+null,
+null,
+null
+],
+"investHelp": [
+"設定每年年底要把多少比例的資產放在各市場（其餘留現金）。每年自動再平衡；報酬依年度資料計算，已扣除通膨。",
+"Choose what share of your assets sits in each market at each year end (the rest stays in cash). Rebalanced yearly; returns use annual data, net of inflation.",
+null,
+null,
+null
+],
+"a_eqHome": [
+"本國股市指數",
+"Home stock index",
+null,
+null,
+null
+],
+"a_eqUS": [
+"美國股市指數",
+"US stock index",
+null,
+null,
+null
+],
+"a_eqWorld": [
+"世界股市（自建合成指數）",
+"World stocks (own composite)",
+null,
+null,
+null
+],
+"a_gold": [
+"黃金",
+"Gold",
+null,
+null,
+null
+],
+"a_btc": [
+"比特幣",
+"Bitcoin",
+null,
+null,
+null
+],
+"btcFuture": [
+"2026 年以後的比特幣報酬為推估：以 2014–2025 年的歷史報酬為基礎，平均漲幅減半、波動逐年縮小。",
+"Bitcoin returns after 2026 are estimates: based on 2014–2025, mean halved and volatility shrinking.",
+null,
+null,
+null
+],
+"aboutBtcFuture": [
+"比特幣（2026 年以後，推估）：未來年份不直接重播 2014–2025 年的歷史報酬，而是把平均報酬減半，並讓波動每 10 年減半（最低保留四分之一），避免早期的爆發性成長被當成常態。",
+"Bitcoin (2026+, estimated): future years do not replay 2014–2025; mean return is halved and volatility halves each decade (floor one quarter).",
+null,
+null,
+null
+],
+"a_levEq": [
+"槓桿股票（融資 2 倍）",
+"Leveraged stocks (2× margin)",
+null,
+null,
+null
+],
+"levBase": [
+"槓桿標的",
+"Leverage base",
+null,
+null,
+null
+],
+"levRisk": [
+"槓桿風險：借錢加倍下注。年內最低點若讓權益低於維持率 25%，會被強制賣出（斷頭），之後 3 年不能再開槓桿。年內最低點＝月資料最大回撤 × 1.25 保守係數（推估，月平均會低估單日崩盤）。",
+"Leverage risk: borrowing to double the bet. If the intra-year low pushes equity below 25% maintenance you are force-sold and cannot lever up for 3 years. Intra-year low = monthly max drawdown × 1.25 (estimate).",
+null,
+null,
+null
+],
+"why_age": [
+"年紀不符",
+"Wrong age",
+"年齢が合わない",
+"나이가 맞지 않음",
+"Không đúng tuổi"
+],
+"why_nodata": [
+"這一年沒有市場資料",
+"No market data this year",
+null,
+null,
+null
+],
+"why_noexchange": [
+"本國尚無證券市場資料，無法投資",
+"No stock market data for this country yet",
+null,
+null,
+null
+],
+"why_outbound": [
+"尚未開放民眾投資海外",
+"Investing abroad not yet allowed",
+null,
+null,
+null
+],
+"why_ban": [
+"當時法規禁止",
+"Prohibited at the time",
+null,
+null,
+null
+],
+"why_cooldown": [
+"最近做過了",
+"Done recently",
+"最近やった",
+"최근에 했음",
+"Vừa làm gần đây"
+],
+"why_frozen": [
+"信用凍結中",
+"Credit frozen",
+null,
+null,
+null
+],
+"proxyWorld": [
+"本國沒有指數資料，以世界股市推估（推估）。",
+"No index data for this country; world stocks used as a proxy (est.).",
+null,
+null,
+null
+],
+"apply": [
+"套用",
+"Apply",
+null,
+null,
+null
+],
+"cancel": [
+"取消",
+"Cancel",
+null,
+null,
+null
+],
+"allocRange": [
+"每項比例需在 0–100 之間",
+"Each share must be 0–100",
+null,
+null,
+null
+],
+"allocSum": [
+"比例合計 {n}%，不可超過 100%",
+"Shares add up to {n}%; the limit is 100%",
+null,
+null,
+null
+],
+"marginCalls": [
+"槓桿斷頭次數",
+"Margin calls",
+null,
+null,
+null
+],
+"mktEstYears": [
+"投資報酬使用推估資料的年數",
+"Years with estimated returns",
+null,
+null,
+null
+],
+"aboutMarkets2": [
+"其他股市：OECD Share prices（月資料，取 12 月為年底值）；世界股市為以世界銀行 GDP 加權的自建合成指數（年底值）；黃金：世界銀行 Commodity Markets（Pink Sheet 月資料取 12 月，CC BY 4.0）。槓桿斷頭以月資料的年內最大回撤 × 1.25 保守係數判定（推估；無月資料者以隨機路徑估計）；匯率、放款利率：世界銀行 WDI。OECD 資料依 OECD 條款署名使用。股價指數不含股利；推估年份會標示「推估」。",
+"Other markets: OECD share prices (December values); world stocks are a GDP-weighted composite built from World Bank data; gold: World Bank Commodity Markets (CC BY 4.0). Exchange and lending rates: World Bank WDI. OECD data used with attribution. Indices exclude dividends; estimated years are marked.",
+null,
+null,
+null
+],
+"houseEq": [
+"房屋淨值",
+"Home equity",
+null,
+null,
+null
+],
+"debt": [
+"負債",
+"Debt",
+null,
+null,
+null
+],
+"houseBtn": [
+"買房／賣房",
+"Buy / sell home",
+null,
+null,
+null
+],
+"loanBtn": [
+"信貸",
+"Loan",
+null,
+null,
+null
+],
+"annuityBtn": [
+"年金",
+"Annuity",
+null,
+null,
+null
+],
+"close": [
+"關閉",
+"Close",
+"閉じる",
+"닫기",
+"Đóng"
+],
+"retiredPension": [
+"已退休 · 年金 {amount}",
+"Retired · pension {amount}",
+null,
+null,
+null
+],
+"houseTitle": [
+"房屋",
+"Home",
+null,
+null,
+null
+],
+"housePrice": [
+"房價（約 5 倍全國平均年收入）",
+"Price (about 5× the national mean income)",
+null,
+null,
+null
+],
+"downPay": [
+"頭期款（30%）",
+"Down payment (30%)",
+null,
+null,
+null
+],
+"mortgage": [
+"房貸",
+"Mortgage",
+null,
+null,
+null
+],
+"floatRate": [
+"浮動利率",
+"Floating rate",
+null,
+null,
+null
+],
+"yearPay": [
+"每年本息",
+"Yearly payment",
+null,
+null,
+null
+],
+"houseHelp": [
+"房價隨 OECD 實質房價指數變動（無資料的國家以 OECD 各國中位數推估）。自住可省下房租；房貸每年依當年放款利率重算，連續兩年繳不出會被法拍。",
+"Prices follow the OECD real house price index (OECD median where missing). Owning saves rent; the mortgage rate resets yearly, and two missed years mean foreclosure.",
+null,
+null,
+null
+],
+"buyHouse": [
+"買下這間房子",
+"Buy this home",
+null,
+null,
+null
+],
+"houseValue": [
+"目前市值",
+"Current value",
+null,
+null,
+null
+],
+"mortgageLeft": [
+"房貸餘額",
+"Mortgage left",
+null,
+null,
+null
+],
+"sellNet": [
+"賣出後可拿回",
+"You would get back",
+null,
+null,
+null
+],
+"sellHelp": [
+"賣房需付約 6% 交易成本，並先清償房貸。",
+"Selling costs about 6% and repays the mortgage first.",
+null,
+null,
+null
+],
+"sellHouse": [
+"賣掉房子",
+"Sell the home",
+null,
+null,
+null
+],
+"loanTitle": [
+"信用貸款（信貸）",
+"Personal loan",
+null,
+null,
+null
+],
+"bridgeTitle": [
+"現金不足：要用信貸周轉嗎？",
+"Short of cash: bridge it with a loan?",
+null,
+null,
+null
+],
+"bridgeMsg": [
+"今年現金缺口 {amount}。可以申請信貸補上，但之後每年都要從收入攤還本息。",
+"This year's cash gap is {amount}. A loan can cover it, repaid from income every year after.",
+null,
+null,
+null
+],
+"bridgeOk": [
+"申請周轉",
+"Take the loan",
+null,
+null,
+null
+],
+"loanMax": [
+"可貸上限",
+"Limit",
+null,
+null,
+null
+],
+"ruleNote": [
+"額度規則",
+"Rule",
+null,
+null,
+null
+],
+"loanAmt": [
+"金額",
+"Amount",
+null,
+null,
+null
+],
+"loanTerm": [
+"年限（1–7）",
+"Term (1–7)",
+null,
+null,
+null
+],
+"loanUse": [
+"用途",
+"Use",
+null,
+null,
+null
+],
+"useCash": [
+"保留現金",
+"Keep as cash",
+null,
+null,
+null
+],
+"useInvest": [
+"投入目前的投資配置",
+"Invest per current mix",
+null,
+null,
+null
+],
+"loanRisk": [
+"利率會隨市場浮動。收入不足時會逾期；連續兩年繳不出即違約：債務轉呆帳、每年收入被扣 10%，並凍結信用 7 年。",
+"The rate floats. Two missed years mean default: written off, 10% of income garnished each year, credit frozen 7 years.",
+null,
+null,
+null
+],
+"loanAmtErr": [
+"金額需介於 1 與 {max} 之間",
+"Amount must be between 1 and {max}",
+null,
+null,
+null
+],
+"loanTermErr": [
+"年限需為 1–7 的整數",
+"Term must be a whole number 1–7",
+null,
+null,
+null
+],
+"annuityTitle": [
+"終身年金",
+"Life annuity",
+null,
+null,
+null
+],
+"annuityHelp": [
+"把一筆現金交給保險公司，換成每年給付直到過世（依你出生年的生命表定價，已含 5% 附加費用）。",
+"Hand cash to an insurer for a yearly payment until death (priced from your cohort's life table, 5% loading).",
+null,
+null,
+null
+],
+"annuityRate": [
+"每投入 $10,000，每年可領 {amount}。",
+"Each $10,000 pays {amount} a year.",
+null,
+null,
+null
+],
+"annuityAmt": [
+"投入金額",
+"Amount",
+null,
+null,
+null
+],
+"annuityHave": [
+"目前每年年金給付：{amount}",
+"Current annuity: {amount} a year",
+null,
+null,
+null
+],
+"w5_age": [
+"年齡未達門檻",
+"Below the age threshold",
+null,
+null,
+null
+],
+"w5_owned": [
+"已經有房子了",
+"You already own a home",
+null,
+null,
+null
+],
+"w5_frozen": [
+"信用凍結中",
+"Credit frozen",
+null,
+null,
+null
+],
+"w5_noincome": [
+"目前沒有工作收入",
+"No earned income right now",
+null,
+null,
+null
+],
+"w5_nodown": [
+"現金不夠付頭期款",
+"Not enough cash for the down payment",
+null,
+null,
+null
+],
+"w5_dsr": [
+"負債比過高（每年本息會超過收入的 40%）",
+"Debt service would exceed 40% of income",
+null,
+null,
+null
+],
+"w5_nodata": [
+"沒有房價資料",
+"No house price data",
+null,
+null,
+null
+],
+"w5_country": [
+"這個國家／年代的信貸規則資料不足，暫不開放",
+"Not enough credit-rule data for this country/era yet",
+null,
+null,
+null
+],
+"w5_minincome": [
+"收入未達法定門檻",
+"Income below the legal minimum",
+null,
+null,
+null
+],
+"w5_cap": [
+"已達可貸上限",
+"At the borrowing limit",
+null,
+null,
+null
+],
+"w5_nocash": [
+"沒有可投入的現金",
+"No cash to invest",
+null,
+null,
+null
+],
+"lifePension": [
+"一生領到的退休金",
+"Lifetime pension received",
+null,
+null,
+null
+],
+"defaults": [
+"違約次數",
+"Defaults",
+null,
+null,
+null
+],
+"chartDebt": [
+"負債（實質）",
+"Debt (real)",
+null,
+null,
+null
+],
+"aboutM5": [
+"房價：OECD 實質房價指數；退休年齡與所得替代率：OECD《Pensions at a Glance 2024》；信貸額度：台灣、日本、南韓、新加坡、中國依各國主管機關的公開規定，其餘國家以參數推估。房價水準、頭期款比例、利差等尚無公開資料的參數皆為暫定值。稅率、生活開銷、房租、養育成本為依世界銀行資料與參數推估，並以 OECD 家戶財富資料庫校準。",
+"House prices: OECD real house price index; retirement ages and replacement rates: OECD Pensions at a Glance 2024; credit limits follow published rules in Taiwan, Japan, Korea, Singapore and China, parameters elsewhere. Taxes, living costs, rent and child costs are estimated from World Bank data and calibrated to the OECD wealth database.",
+null,
+null,
+null
+],
+"countryPick": [
+"出生國家／地區",
+"Birth country / area",
+null,
+null,
+null
+],
+"countryRandom": [
+"隨機（依當年各國出生人數）",
+"Random (by births that year)",
+null,
+null,
+null
+],
+"countryNote": [
+"指定國家只決定出生地；結算時仍與同國、同年出生的人比較。",
+"Picking a country only sets the birthplace; you are still compared with peers born the same year there.",
+null,
+null,
+null
+],
+"nameLabel": [
+"名字",
+"Name",
+null,
+null,
+null
+],
+"familyLabel": [
+"家人",
+"Family",
+null,
+null,
+null
+],
+"familyLine": [
+"爸爸 {father}（{fa} 歲）、媽媽 {mother}（{ma} 歲）",
+"Father {father} ({fa}), mother {mother} ({ma})",
+null,
+null,
+null
+],
+"siblingsLine": [
+"兄弟姊妹 {n} 人：{names}",
+"{n} siblings: {names}",
+null,
+null,
+null
+],
+"siblingsNone": [
+"獨生子女",
+"Only child",
+null,
+null,
+null
+],
+"reroll": [
+"重抽一張",
+"Reroll",
+"引き直す",
+"다시 뽑기",
+"Rút lại"
+],
+"eduLabel": [
+"學歷",
+"Education",
+null,
+null,
+null
+],
+"trackLabel": [
+"工作型態",
+"Work",
+null,
+null,
+null
+],
+"spouseLabel": [
+"配偶",
+"Spouse",
+null,
+null,
+null
+],
+"childrenLabel": [
+"子女",
+"Children",
+null,
+null,
+null
+],
+"edu_none": [
+"未受正式教育",
+"No schooling",
+null,
+null,
+null
+],
+"edu_primary": [
+"小學",
+"Primary",
+null,
+null,
+null
+],
+"edu_secondary": [
+"高中",
+"High school",
+null,
+null,
+null
+],
+"edu_vocational": [
+"職業學校",
+"Vocational school",
+null,
+null,
+null
+],
+"edu_tertiary": [
+"大學",
+"University",
+null,
+null,
+null
+],
+"edu_graduate": [
+"研究所",
+"Graduate school",
+null,
+null,
+null
+],
+"track_stable": [
+"穩定工作",
+"Stable job",
+null,
+null,
+null
+],
+"track_private": [
+"民間企業",
+"Private sector",
+null,
+null,
+null
+],
+"track_startup": [
+"創業",
+"Own business",
+null,
+null,
+null
+],
+"track_informal": [
+"非正式工作",
+"Informal work",
+null,
+null,
+null
+],
+"studying": [
+"求學中",
+"Studying",
+null,
+null,
+null
+],
+"studyingWork": [
+"求學中（打工）",
+"Studying (part-time job)",
+null,
+null,
+null
+],
+"choiceKicker": [
+"人生抉擇",
+"Life choice",
+null,
+null,
+null
+],
+"choicePick": [
+"選這個",
+"Choose this",
+null,
+null,
+null
+],
+"ct_vaccine": [
+"要帶孩子去打疫苗嗎？（父母的選擇）",
+"Take the child for vaccination? (parents' choice)",
+null,
+null,
+null
+],
+"cb_vaccine": [
+"最近的診所要走上大半天。",
+"The nearest clinic is most of a day's walk away.",
+null,
+null,
+null
+],
+"ct_school": [
+"要送孩子去上學嗎？（父母的選擇）",
+"Send the child to school? (parents' choice)",
+null,
+null,
+null
+],
+"cb_school": [
+"家裡的農活和弟妹都需要人手。",
+"The farm work and the younger ones need hands at home.",
+null,
+null,
+null
+],
+"ct_hs": [
+"國中畢業了，接下來呢？",
+"Middle school is done. What next?",
+null,
+null,
+null
+],
+"cb_hs": [
+"這會決定你什麼時候開始全職工作，以及往後的起薪。",
+"This sets when full-time work starts and your starting pay.",
+null,
+null,
+null
+],
+"ct_uni": [
+"高中（職）畢業了，要讀大學嗎？",
+"High school is done. Go to university?",
+null,
+null,
+null
+],
+"cb_uni": [
+"大學畢業的薪水平均高出不少，但要多花 4 年。",
+"Graduates earn clearly more on average, but it takes 4 more years.",
+null,
+null,
+null
+],
+"ct_grad": [
+"大學畢業了，要繼續念研究所嗎？",
+"University is done. Graduate school?",
+null,
+null,
+null
+],
+"cb_grad": [
+"再讀 2 年，薪水起點更高，但晚 2 年賺錢。",
+"Two more years: a higher starting salary, but earning starts later.",
+null,
+null,
+null
+],
+"ct_career": [
+"要找哪一種工作？",
+"What kind of work?",
+null,
+null,
+null
+],
+"cb_career": [
+"工作型態會影響薪水、被裁員的機率和升遷。",
+"The type of work affects pay, layoff risk and promotions.",
+null,
+null,
+null
+],
+"ct_move": [
+"要不要搬到大城市？",
+"Move to a big city?",
+null,
+null,
+null
+],
+"cb_move": [
+"大城市機會多，但房租和生活費也高。",
+"More opportunity in the city, but rent and living costs are higher.",
+null,
+null,
+null
+],
+"ct_marry": [
+"有人想和你共度一生。",
+"Someone wants to spend their life with you.",
+null,
+null,
+null
+],
+"cb_marry": [
+"結婚會帶來陪伴，也會帶來開銷與責任。",
+"Marriage brings company — and costs and responsibilities.",
+null,
+null,
+null
+],
+"ct_child": [
+"要再迎接一個孩子嗎？",
+"Welcome another child?",
+null,
+null,
+null
+],
+"cb_child": [
+"每個孩子到 18 歲前，每年都會增加家裡的開銷。",
+"Each child adds to household costs every year until 18.",
+null,
+null,
+null
+],
+"ct_parents": [
+"父母年紀大了，需要人照顧。",
+"Your parents are old and need care.",
+null,
+null,
+null
+],
+"cb_parents": [
+"照顧家人需要時間，也需要錢。",
+"Caring takes time and money.",
+null,
+null,
+null
+],
+"ct_treat": [
+"你被診斷出重病。",
+"You are diagnosed with a serious illness.",
+null,
+null,
+null
+],
+"cb_treat": [
+"治療方式會影響花費和之後的健康。",
+"The treatment affects the cost and your health afterwards.",
+null,
+null,
+null
+],
+"o_vaccine_go": [
+"帶去打疫苗",
+"Get the vaccine",
+null,
+null,
+null
+],
+"c_vaccine_go": [
+"健康 +6；要請一天假。",
+"Health +6; a day off work.",
+null,
+null,
+null
+],
+"o_vaccine_skip": [
+"這次先不去",
+"Not this time",
+null,
+null,
+null
+],
+"c_vaccine_skip": [
+"沒有花費，也沒有保護。",
+"No cost, no protection.",
+null,
+null,
+null
+],
+"o_school_school": [
+"送去上學",
+"Send to school",
+null,
+null,
+null
+],
+"c_school_school": [
+"學識會增加，以後的工作選擇更多。",
+"Knowledge grows; more job choices later.",
+null,
+null,
+null
+],
+"o_school_help": [
+"留在家幫忙",
+"Keep at home to help",
+null,
+null,
+null
+],
+"c_school_help": [
+"學識 −8；15 歲起只能做零工或農事，薪水偏低。",
+"Knowledge −8; from 15 only casual or farm work, low pay.",
+null,
+null,
+null
+],
+"o_hs_academic": [
+"讀高中",
+"High school",
+null,
+null,
+null
+],
+"c_hs_academic": [
+"3 年沒有全職收入（可打工）；之後可以考大學。",
+"3 years without full-time income (part-time possible); university afterwards.",
+null,
+null,
+null
+],
+"o_hs_vocational": [
+"讀職業學校",
+"Vocational school",
+null,
+null,
+null
+],
+"c_hs_vocational": [
+"3 年沒有全職收入；畢業後起薪略高於高中，但較少人升大學。",
+"3 years without full-time income; slightly higher start pay, fewer go to university.",
+null,
+null,
+null
+],
+"o_hs_work": [
+"開始工作",
+"Start working",
+null,
+null,
+null
+],
+"c_hs_work": [
+"馬上有收入，但學歷只有國中／小學，薪水成長有限。",
+"Income now, but limited pay growth.",
+null,
+null,
+null
+],
+"o_uni_uni": [
+"讀大學",
+"University",
+null,
+null,
+null
+],
+"c_uni_uni": [
+"再 4 年沒有全職收入；學費由家裡負擔。畢業後平均薪水約為高中學歷的 1.5 倍，失業率較低。",
+"4 more years without full-time income, fees paid by family. Graduates earn about 1.5× and face less unemployment.",
+null,
+null,
+null
+],
+"o_uni_work": [
+"直接就業",
+"Start working",
+null,
+null,
+null
+],
+"c_uni_work": [
+"提早 4 年開始賺錢與累積年資。",
+"Start earning and building experience 4 years earlier.",
+null,
+null,
+null
+],
+"o_grad_grad": [
+"念研究所",
+"Graduate school",
+null,
+null,
+null
+],
+"c_grad_grad": [
+"再 2 年沒有全職收入；之後薪水更高。",
+"2 more years without full-time income; higher pay afterwards.",
+null,
+null,
+null
+],
+"o_grad_work": [
+"先去工作",
+"Work first",
+null,
+null,
+null
+],
+"c_grad_work": [
+"現在就開始賺錢。",
+"Start earning now.",
+null,
+null,
+null
+],
+"o_career_stable": [
+"穩定工作（公職或大企業）",
+"Stable job (public sector / large firm)",
+null,
+null,
+null
+],
+"c_career_stable": [
+"薪水略低（−5%），失業機率減半。",
+"Pay −5%, half the layoff risk.",
+null,
+null,
+null
+],
+"o_career_private": [
+"民間企業",
+"Private company",
+null,
+null,
+null
+],
+"c_career_private": [
+"一般薪水與升遷機會。",
+"Ordinary pay and promotions.",
+null,
+null,
+null
+],
+"o_career_startup": [
+"創業",
+"Start a business",
+null,
+null,
+null
+],
+"c_career_startup": [
+"收入每年大起大落，失業風險較高，但可能翻倍。",
+"Income swings each year, higher risk, could double.",
+null,
+null,
+null
+],
+"o_career_informal": [
+"做零工或農事",
+"Casual or farm work",
+null,
+null,
+null
+],
+"c_career_informal": [
+"不太會失業，但收入只有一般的七成。",
+"Rarely unemployed, but about 70% of typical pay.",
+null,
+null,
+null
+],
+"o_move_city": [
+"搬去大城市",
+"Move to the city",
+null,
+null,
+null
+],
+"c_move_city": [
+"薪水 +15%；房租 ×1.4；人際 −4。",
+"Pay +15%; rent ×1.4; social −4.",
+null,
+null,
+null
+],
+"o_move_stay": [
+"留在家鄉",
+"Stay home",
+null,
+null,
+null
+],
+"c_move_stay": [
+"開銷較低，離家人近（快樂 +2）。",
+"Lower costs, close to family (happiness +2).",
+null,
+null,
+null
+],
+"o_marry_marry": [
+"結婚",
+"Marry",
+null,
+null,
+null
+],
+"c_marry_marry": [
+"婚禮花費約 3 個月收入；兩人分攤房租，但之後孩子的開銷也會增加。",
+"Wedding costs about 3 months of income; rent shared, child costs may follow.",
+null,
+null,
+null
+],
+"o_marry_wait": [
+"再等等",
+"Wait",
+null,
+null,
+null
+],
+"c_marry_wait": [
+"保持單身，以後還可能遇到。",
+"Stay single for now; there may be others.",
+null,
+null,
+null
+],
+"o_child_have": [
+"生",
+"Yes",
+null,
+null,
+null
+],
+"c_child_have": [
+"快樂 +7；到 18 歲前每年多一筆養育費用。",
+"Happiness +7; a yearly child cost until 18.",
+null,
+null,
+null
+],
+"o_child_notnow": [
+"先不要",
+"Not now",
+null,
+null,
+null
+],
+"c_child_notnow": [
+"維持現在的開銷。",
+"Keep costs as they are.",
+null,
+null,
+null
+],
+"o_parents_self": [
+"自己照顧",
+"Care for them yourself",
+null,
+null,
+null
+],
+"c_parents_self": [
+"兩年內收入 −30%；快樂 −3、人際 +3。",
+"Income −30% for two years; happiness −3, social +3.",
+null,
+null,
+null
+],
+"o_parents_hire": [
+"請看護",
+"Hire a carer",
+null,
+null,
+null
+],
+"c_parents_hire": [
+"三年內每年多一筆約 4 個月收入的開銷。",
+"About 4 months of income a year for three years.",
+null,
+null,
+null
+],
+"o_parents_siblings": [
+"交給兄弟姊妹",
+"Leave it to siblings",
+null,
+null,
+null
+],
+"c_parents_siblings": [
+"沒有花費；人際 −6。",
+"No cost; social −6.",
+null,
+null,
+null
+],
+"o_treat_treat": [
+"積極治療",
+"Aggressive treatment",
+null,
+null,
+null
+],
+"c_treat_treat": [
+"自付費用約 7 個月收入（有健保的國家較少）；健康 −6。",
+"Out-of-pocket about 7 months of income (less with public insurance); health −6.",
+null,
+null,
+null
+],
+"o_treat_basic": [
+"保守治療",
+"Conservative treatment",
+null,
+null,
+null
+],
+"c_treat_basic": [
+"費用較少；健康 −18。",
+"Cheaper; health −18.",
+null,
+null,
+null
+],
+"nudge_invest": [
+"第一份薪水入帳了！要不要開始把一部分收入拿去投資？",
+"First paycheck is in! Start investing part of your income?",
+null,
+null,
+null
+],
+"nudge_house": [
+"成家了。要不要看看買房需要多少頭期款和收入？",
+"You've started a family. See what a home would take?",
+null,
+null,
+null
+],
+"nudge_annuity": [
+"快退休了。可以考慮把部分存款換成每年給付的終身年金。",
+"Retirement is near. Consider turning savings into a life annuity.",
+null,
+null,
+null
+],
+"nudge_loan": [
+"現金快不夠用了，可以看看信貸能借多少。",
+"Cash is running low. See how much you could borrow.",
+null,
+null,
+null
+],
+"nudgeOpen": [
+"打開看看",
+"Take a look",
+null,
+null,
+null
+],
+"nudgeLater": [
+"之後再說",
+"Later",
+null,
+null,
+null
+],
+"termLabel": [
+"房貸年限",
+"Mortgage term",
+null,
+null,
+null
+],
+"termYears": [
+"{n} 年",
+"{n} years",
+null,
+null,
+null
+],
+"needIncome": [
+"需要的年收入",
+"Income needed",
+null,
+null,
+null
+],
+"needIncomeNote": [
+"每年房貸本息不能超過收入的 40%。",
+"Mortgage payments may not exceed 40% of income.",
+null,
+null,
+null
+],
+"needDown": [
+"需要的頭期款",
+"Down payment needed",
+null,
+null,
+null
+],
+"yourIncome": [
+"你目前的工作年收入",
+"Your current earned income",
+null,
+null,
+null
+],
+"recTitle": [
+"人生紀錄卡",
+"Life record card",
+null,
+null,
+null
+],
+"bornDied": [
+"{born}–{died}",
+"{born}–{died}",
+null,
+null,
+null
+],
+"happiest": [
+"最快樂的一年",
+"Happiest year",
+"いちばん幸せだった年",
+"가장 행복했던 해",
+"Năm hạnh phúc nhất"
+],
+"happiestLine": [
+"{age} 歲（{year} 年）",
+"Age {age} ({year})",
+null,
+null,
+null
+],
+"deathCause": [
+"死因",
+"Cause of death",
+"死因",
+"사인",
+"Nguyên nhân"
+],
+"lastWords": [
+"留下的話",
+"Last words",
+"最後の言葉",
+"마지막 말",
+"Lời cuối"
+],
+"pctNA": [
+"—（未成年即離世，不比較）",
+"— (died before adulthood; not compared)",
+null,
+null,
+null
+],
+"beatsNote": [
+"「勝過」只計算嚴格低於你的人，同分不算；金額只和活到 18 歲以上的人比較。",
+"\"Beats\" counts only people strictly below you; money is compared only with those who reached 18.",
+null,
+null,
+null
+],
+"dc_neonatal": [
+"新生兒疾病",
+"Newborn illness",
+null,
+null,
+null
+],
+"dc_infection": [
+"感染症",
+"Infection",
+null,
+null,
+null
+],
+"dc_malaria": [
+"瘧疾等熱帶疾病",
+"Malaria or tropical disease",
+null,
+null,
+null
+],
+"dc_accident": [
+"意外",
+"Accident",
+null,
+null,
+null
+],
+"dc_illness": [
+"急病",
+"Sudden illness",
+null,
+null,
+null
+],
+"dc_violence": [
+"暴力事件",
+"Violence",
+null,
+null,
+null
+],
+"dc_heart": [
+"心臟病",
+"Heart disease",
+null,
+null,
+null
+],
+"dc_cancer": [
+"癌症",
+"Cancer",
+null,
+null,
+null
+],
+"dc_stroke": [
+"中風",
+"Stroke",
+null,
+null,
+null
+],
+"dc_pneumonia": [
+"肺炎",
+"Pneumonia",
+null,
+null,
+null
+],
+"dc_oldage": [
+"衰老",
+"Old age",
+null,
+null,
+null
+],
+"lw_infant": [
+"（來不及說話。家人記得你小小的手。）",
+"(Too young to speak. The family remembers your tiny hands.)",
+null,
+null,
+null
+],
+"lw_kids": [
+"「{child}，要好好吃飯，別太晚睡。」",
+"\"{child}, eat properly and don't stay up too late.\"",
+null,
+null,
+null
+],
+"lw_spouse": [
+"「{spouse}，謝謝你陪我走了這麼久。」",
+"\"{spouse}, thank you for walking with me so long.\"",
+null,
+null,
+null
+],
+"lw_home": [
+"「替我回老家看看，那條路應該還在。」",
+"\"Go back home for me. That road should still be there.\"",
+null,
+null,
+null
+],
+"lw_work": [
+"「那份交接表……在第二個抽屜。」",
+"\"The handover notes… second drawer.\"",
+null,
+null,
+null
+],
+"lw_young": [
+"「我還想再長大一點。」",
+"\"I wanted to grow up a little more.\"",
+null,
+null,
+null
+],
+"lw_rich": [
+"「錢都留下了，帶走的是那些一起吃過的飯。」",
+"\"The money stays. What I take are the meals we shared.\"",
+null,
+null,
+null
+],
+"lw_poor": [
+"「日子苦過，也甜過，夠了。」",
+"\"Hard days, sweet days. It was enough.\"",
+null,
+null,
+null
+],
+"lw_dream": [
+"「如果能重來，我還是會去試試看。」",
+"\"If I could do it again, I'd still give it a try.\"",
+null,
+null,
+null
+],
+"lw_generic1": [
+"「窗外的天氣真好。」",
+"\"The weather outside is lovely.\"",
+null,
+null,
+null
+],
+"lw_generic2": [
+"「別難過，我只是先走一步。」",
+"\"Don't be sad. I'm just going ahead.\"",
+null,
+null,
+null
+],
+"taxPaid": [
+"一生繳的稅",
+"Lifetime taxes",
+null,
+null,
+null
+],
+"rentPaid": [
+"一生付的房租",
+"Lifetime rent",
+null,
+null,
+null
+],
+"rn_country": [
+"這個國家目前還沒有足夠的信貸法規資料，所以暫不開放信貸。",
+"Not enough credit-rule data for this country yet, so loans are closed.",
+null,
+null,
+null
+],
+"rn_pre1970": [
+"1970 年以前，一般人很難取得消費信貸，所以暫不開放。",
+"Before 1970 consumer credit was hard to get, so loans are closed.",
+null,
+null,
+null
+],
+"rn_proxy": [
+"這個國家沒有明確的法定額度，先以年收入的一半估算上限（推估）。",
+"No legal cap here; the limit is estimated at half a year's income (est.).",
+null,
+null,
+null
+],
+"rn_tw": [
+"台灣規定：無擔保借款總額不能超過月收入的 22 倍。",
+"Taiwan: unsecured borrowing may not exceed 22× monthly income.",
+null,
+null,
+null
+],
+"rn_jp": [
+"日本規定：向貸款業者借的總額不能超過年收入的三分之一。",
+"Japan: money-lender borrowing may not exceed one third of annual income.",
+null,
+null,
+null
+],
+"rn_kr": [
+"南韓規定：信用貸款總額不能超過年收入。",
+"Korea: credit loans may not exceed annual income.",
+null,
+null,
+null
+],
+"rn_sgLow": [
+"新加坡規定：年收入未滿 2 萬新幣，不能申請無擔保信貸。",
+"Singapore: under S$20,000 a year, no unsecured credit.",
+null,
+null,
+null
+],
+"rn_sg2": [
+"新加坡規定：年收入 2 萬到 3 萬新幣，額度最多 2 個月收入。",
+"Singapore: S$20,000–30,000 a year, up to 2 months' income.",
+null,
+null,
+null
+],
+"rn_sg4": [
+"新加坡規定：年收入 3 萬到 12 萬新幣，額度最多 4 個月收入。",
+"Singapore: S$30,000–120,000 a year, up to 4 months' income.",
+null,
+null,
+null
+],
+"rn_sgHigh": [
+"新加坡規定：年收入 12 萬新幣以上沒有法定上限（先以年收入的一半估算）。",
+"Singapore: above S$120,000 no legal cap (estimated at half a year's income).",
+null,
+null,
+null
+],
+"rn_cn": [
+"中國規定：網路消費貸款額度最多 20 萬人民幣。",
+"China: online consumer loans up to CNY 200,000.",
+null,
+null,
+null
+],
+"rn_none": [
+"",
+"",
+null,
+null,
+null
+],
+"heroKicker": [
+"v{ver} · 一段人生的帳本 · 統計來自聯合國與世界銀行",
+"v{ver} · a ledger of one life · statistics from the UN and World Bank",
+"v{ver} · ひとつの人生の帳簿 · 国連と世界銀行の統計",
+"v{ver} · 한 인생의 장부 · 유엔과 세계은행 통계",
+"v{ver} · sổ cái của một đời người · số liệu LHQ và Ngân hàng Thế giới"
+],
+"heroA": [
+"時代",
+"Epochs",
+null,
+null,
+null
+],
+"heroB": [
+"人",
+"of",
+null,
+null,
+null
+],
+"heroC": [
+"生",
+"One",
+null,
+null,
+null
+],
+"heroIntro": [
+"每一秒，世界上大約有 {n} 個嬰兒出生。按下按鈕，你就是其中一個：生在哪個國家、哪個年代、什麼樣的家庭，全看機率。之後的一輩子，照那個時代的真實數據一年一年走下去。",
+"Every second about {n} babies are born. Press the button and you are one of them: the country, the decade, the family are all down to the odds. Then a whole life, year by year, follows the real data of its time.",
+"毎秒およそ {n} 人の赤ちゃんが生まれます。ボタンを押せば、あなたもその一人。国も時代も家庭も確率しだい。そこから一生を、その時代の実データに沿って一年ずつ歩みます。",
+"매초 약 {n}명의 아기가 태어납니다. 버튼을 누르면 당신도 그중 하나입니다. 나라도, 시대도, 가정도 확률에 달려 있습니다. 그 뒤의 평생은 그 시대의 실제 데이터를 따라 한 해씩 흘러갑니다.",
+"Mỗi giây có khoảng {n} em bé chào đời. Nhấn nút và bạn là một trong số đó: quốc gia, thời đại, gia đình đều do xác suất. Rồi cả một đời người, từng năm một, đi theo dữ liệu thật của thời đó."
+],
+"counterBorn": [
+"你打開這頁之後，世界上出生的嬰兒",
+"Babies born since you opened this page",
+"このページを開いてから生まれた赤ちゃん",
+"이 페이지를 연 뒤 태어난 아기",
+"Số em bé chào đời từ khi bạn mở trang"
+],
+"counterLives": [
+"你在這台裝置上活過的人生",
+"Lives lived on this device",
+"この端末で生きた人生",
+"이 기기에서 산 인생",
+"Số cuộc đời đã sống trên thiết bị này"
+],
+"oddsTitleNow": [
+"如果你此刻出生",
+"If you were born right now",
+"いま生まれるとしたら",
+"지금 태어난다면",
+"Nếu bạn sinh ra ngay bây giờ"
+],
+"oddsTitleYear": [
+"如果你在 {year} 年出生",
+"If you were born in {year}",
+"{year} 年に生まれるとしたら",
+"{year}년에 태어난다면",
+"Nếu bạn sinh năm {year}"
+],
+"oddsTitleRange": [
+"如果你在 {from}–{to} 年間出生",
+"If you were born in {from}–{to}",
+"{from}–{to} 年に生まれるとしたら",
+"{from}–{to}년에 태어난다면",
+"Nếu bạn sinh trong {from}–{to}"
+],
+"oddsCaption": [
+"聯合國《世界人口展望 2024》（CC BY 3.0 IGO）· 以約 {total} 名新生兒計算",
+"UN World Population Prospects 2024 (CC BY 3.0 IGO) · based on about {total} births",
+null,
+null,
+null
+],
+"oddsCaptionFuture": [
+"聯合國《世界人口展望 2024》中推估（CC BY 3.0 IGO）· 以約 {total} 名新生兒計算",
+"UN World Population Prospects 2024, medium projection (CC BY 3.0 IGO) · about {total} births",
+null,
+null,
+null
+],
+"oddsOther": [
+"其他 {n} 個國家與地區",
+"Other {n} countries and areas",
+"その他 {n} の国と地域",
+"기타 {n}개 국가·지역",
+"{n} quốc gia và vùng khác"
+],
+"oddsAll": [
+"看全部 {n} 個國家與地區",
+"See all {n} countries and areas",
+"全 {n} の国と地域を見る",
+"{n}개 국가·지역 모두 보기",
+"Xem cả {n} quốc gia và vùng"
+],
+"oddsTableTitle": [
+"各國出生機率",
+"Odds of birth by country",
+"国別の出生確率",
+"국가별 출생 확률",
+"Xác suất sinh theo quốc gia"
+],
+"colCountry": [
+"國家／地區",
+"Country / area",
+"国・地域",
+"국가·지역",
+"Quốc gia / vùng"
+],
+"colShare": [
+"機率",
+"Odds",
+"確率",
+"확률",
+"Xác suất"
+],
+"colBirths": [
+"出生數（千人）",
+"Births (thousands)",
+"出生数（千人）",
+"출생아 수(천 명)",
+"Số ca sinh (nghìn)"
+],
+"colE0": [
+"平均餘命",
+"Life expectancy",
+"平均寿命",
+"기대수명",
+"Tuổi thọ"
+],
+"colQ5": [
+"5 歲前死亡（‰）",
+"Under-5 deaths (‰)",
+"5歳未満死亡（‰）",
+"5세 미만 사망(‰)",
+"Tử vong dưới 5 tuổi (‰)"
+],
+"colGdp": [
+"人均 GDP（PPP）",
+"GDP per capita (PPP)",
+"1人当たりGDP（PPP）",
+"1인당 GDP(PPP)",
+"GDP bình quân (PPP)"
+],
+"sortBy": [
+"排序",
+"Sort",
+null,
+null,
+null
+],
+"eraLabel": [
+"出生的年代",
+"Era of birth",
+"生まれる時代",
+"태어날 시대",
+"Thời đại sinh ra"
+],
+"era_past": [
+"過去",
+"Past",
+"過去",
+"과거",
+"Quá khứ"
+],
+"era_now": [
+"當代",
+"Today",
+"現代",
+"오늘날",
+"Ngày nay"
+],
+"era_future": [
+"未來",
+"The future",
+"未来",
+"미래",
+"Tương lai"
+],
+"era_any": [
+"隨便哪個",
+"Any",
+"どれでも",
+"아무 때나",
+"Bất kỳ"
+],
+"eraHint_past": [
+"從 1950 年到去年，挑一個年份，或依當年出生人數隨機抽一年。之後每一年都照真實歷史發生。",
+"Pick a year from 1950 to last year, or draw one weighted by births. Every year then follows real history.",
+null,
+null,
+null
+],
+"eraHint_now": [
+"就是今年。從今年起的經濟與市場以歷史資料重抽推估。",
+"This year. From now on, economy and markets are resampled from history.",
+null,
+null,
+null
+],
+"eraHint_future": [
+"出生在接下來幾年，人口用聯合國推估，經濟與市場以歷史重抽，全部標示推估。",
+"Born in the next few years: UN population projections, economy resampled from history, all marked as estimates.",
+null,
+null,
+null
+],
+"eraHint_any": [
+"先隨機決定過去、現在或未來，再決定年份。",
+"First draw past, present or future, then the year.",
+null,
+null,
+null
+],
+"yearRandom": [
+"隨機（依出生人數加權）",
+"Random (weighted by births)",
+"ランダム（出生数で重み付け）",
+"무작위(출생아 수 가중)",
+"Ngẫu nhiên (theo số ca sinh)"
+],
+"paceLabel": [
+"一輩子要過多久",
+"How long should a life take",
+"一生の長さ",
+"한 인생의 길이",
+"Một đời dài bao lâu"
+],
+"pace_30": [
+"約 30 分鐘",
+"About 30 min",
+"約30分",
+"약 30분",
+"Khoảng 30 phút"
+],
+"pace_60": [
+"約 1 小時",
+"About 1 hour",
+"約1時間",
+"약 1시간",
+"Khoảng 1 giờ"
+],
+"pace_90": [
+"約 1.5 小時",
+"About 1.5 hours",
+"約1.5時間",
+"약 1.5시간",
+"Khoảng 1,5 giờ"
+],
+"advanced": [
+"進階：指定出生國家與種子",
+"Advanced: birth country and seed",
+"詳細：出生国とシード",
+"고급: 출생 국가와 시드",
+"Nâng cao: quốc gia sinh và seed"
+],
+"bornCta": [
+"出生",
+"Be born",
+"生まれる",
+"태어나기",
+"Chào đời"
+],
+"resumeTitle": [
+"上次的人生還沒過完",
+"Your last life isn't over",
+null,
+null,
+null
+],
+"resumeAt": [
+"停在第 {n} 年",
+"Stopped at year {n}",
+null,
+null,
+null
+],
+"rollCaption": [
+"正在決定你的出生地……",
+"Deciding where you are born…",
+"生まれる場所を決めています……",
+"태어날 곳을 정하는 중……",
+"Đang quyết định nơi bạn chào đời…"
+],
+"rollProb": [
+"機率 {p}",
+"odds {p}",
+null,
+null,
+null
+],
+"certTitle": [
+"出生登記",
+"Birth registration",
+"出生登録",
+"출생 등록",
+"Đăng ký khai sinh"
+],
+"certNo": [
+"No. {no}",
+"No. {no}",
+null,
+null,
+null
+],
+"certStory": [
+"{year} 年，你出生在{country}的{place}，是個{sex}孩。家裡的收入在全國{q}。{sib}",
+"In {year} you were born in {place} {country}, a {sex}. Your family's income was in the {q} of the country. {sib}",
+null,
+null,
+null
+],
+"certSib": [
+"上面有 {n} 個兄弟姊妹。",
+"You have {n} older siblings.",
+null,
+null,
+null
+],
+"certOnly": [
+"你是家裡第一個孩子。",
+"You are the first child.",
+null,
+null,
+null
+],
+"certPace": [
+"照平均壽命，這一生大約要 {min} 分鐘（1 年 ≈ {sec} 秒）。進度會存在這個瀏覽器裡，關掉也能回來接著過。",
+"At average life expectancy this life takes about {min} minutes (1 year ≈ {sec} s). Progress is saved in this browser.",
+null,
+null,
+null
+],
+"certOdds": [
+"同一年出生的嬰兒中，約 {p} 生在{country}，大約每 {n} 個新生兒就有 1 個。",
+"Of the babies born that year about {p} were born in {country} — roughly 1 in {n}.",
+null,
+null,
+null
+],
+"f_sex": [
+"性別",
+"Sex",
+"性別",
+"성별",
+"Giới tính"
+],
+"f_country": [
+"出生國家／地區",
+"Birth country / area",
+"出生国・地域",
+"출생 국가·지역",
+"Quốc gia sinh"
+],
+"f_place": [
+"出生地",
+"Birthplace",
+"出生地",
+"출생지",
+"Nơi sinh"
+],
+"f_parents": [
+"父母年齡",
+"Parents' ages",
+"両親の年齢",
+"부모 나이",
+"Tuổi cha mẹ"
+],
+"f_quintile": [
+"家境",
+"Family income",
+"家庭の所得",
+"가정 소득",
+"Thu nhập gia đình"
+],
+"f_e0": [
+"平均餘命",
+"Life expectancy",
+"平均余命",
+"기대수명",
+"Tuổi thọ trung bình"
+],
+"f_q5": [
+"5 歲前死亡機率",
+"Chance of dying before 5",
+"5歳までに亡くなる確率",
+"5세 전 사망 확률",
+"Xác suất tử vong trước 5 tuổi"
+],
+"f_gdp": [
+"人均 GDP（PPP）",
+"GDP per capita (PPP)",
+"1人当たりGDP（PPP）",
+"1인당 GDP(PPP)",
+"GDP bình quân (PPP)"
+],
+"f_siblings": [
+"兄弟姊妹",
+"Siblings",
+"きょうだい",
+"형제자매",
+"Anh chị em"
+],
+"parentsAges": [
+"母親 {ma} 歲 · 父親 {fa} 歲",
+"Mother {ma} · father {fa}",
+null,
+null,
+null
+],
+"quintileOf": [
+"第 {q} 級（共 5 級）",
+"Level {q} of 5",
+null,
+null,
+null
+],
+"girl": [
+"女",
+"girl",
+"女の子",
+"여자아이",
+"bé gái"
+],
+"boy": [
+"男",
+"boy",
+"男の子",
+"남자아이",
+"bé trai"
+],
+"startThis": [
+"開始這一生",
+"Begin this life",
+"この人生を始める",
+"이 인생 시작하기",
+"Bắt đầu cuộc đời này"
+],
+"shareBirth": [
+"分享出生卡",
+"Share birth card",
+"出生カードを共有",
+"출생 카드 공유",
+"Chia sẻ thẻ khai sinh"
+],
+"homeBack": [
+"← 首頁",
+"← Home",
+"← ホーム",
+"← 홈",
+"← Trang chủ"
+],
+"skipDecision": [
+"跳到下一個抉擇",
+"Skip to next decision",
+"次の選択まで進む",
+"다음 선택까지 건너뛰기",
+"Đến lựa chọn tiếp theo"
+],
+"autoLabel": [
+"自動抉擇",
+"Auto-decide",
+"自動で選ぶ",
+"자동 선택",
+"Tự quyết định"
+],
+"moreMenu": [
+"更多",
+"More",
+"その他",
+"더보기",
+"Thêm"
+],
+"leave": [
+"離開",
+"Leave",
+"やめる",
+"나가기",
+"Rời đi"
+],
+"toastDecision": [
+"停下來了：有個抉擇要做。",
+"Paused: there is a decision to make.",
+"一時停止：選択があります。",
+"일시정지: 선택할 일이 있습니다.",
+"Tạm dừng: có một lựa chọn."
+],
+"toastTragic": [
+"停下來了：{what}",
+"Paused: {what}",
+null,
+null,
+null
+],
+"yearOf": [
+"{year} 年",
+"{year}",
+"{year} 年",
+"{year}년",
+"Năm {year}"
+],
+"paceShort": [
+"{min} 分鐘一生",
+"{min}-minute life",
+"{min} 分の一生",
+"{min}분 인생",
+"Một đời {min} phút"
+],
+"idTitle": [
+"身分紀錄",
+"Identity record",
+"身分記録",
+"신분 기록",
+"Hồ sơ danh tính"
+],
+"f_born": [
+"出生",
+"Born",
+"生年",
+"출생",
+"Sinh"
+],
+"f_lives": [
+"居住地",
+"Lives in",
+"居住地",
+"거주지",
+"Nơi sống"
+],
+"f_edu": [
+"學歷",
+"Education",
+"学歴",
+"학력",
+"Học vấn"
+],
+"f_name": [
+"姓名",
+"Name",
+null,
+null,
+null
+],
+"statusTitle": [
+"狀態",
+"Status",
+"状態",
+"상태",
+"Trạng thái"
+],
+"statsExplain": [
+"這些數字代表什麼？",
+"What do these numbers mean?",
+"この数字の意味は？",
+"이 숫자들은 무엇인가요?",
+"Những con số này nghĩa là gì?"
+],
+"statsExplainBody": [
+"四個數值都是 0–100。健康影響生病的機率，快樂會被生活事件和選擇推高或拉低，學識影響升學與工作，人際影響結婚與交朋友。它們不會改變真實的死亡率資料。",
+"All four run 0–100. Health affects illness, happiness moves with events and choices, knowledge affects school and work, social affects marriage and friends. None of them change the real mortality data.",
+null,
+null,
+null
+],
+"famTitle": [
+"家人",
+"Family",
+"家族",
+"가족",
+"Gia đình"
+],
+"rel_mother": [
+"母親",
+"Mother",
+"母",
+"어머니",
+"Mẹ"
+],
+"rel_father": [
+"父親",
+"Father",
+"父",
+"아버지",
+"Cha"
+],
+"rel_sibling": [
+"兄弟姊妹",
+"Sibling",
+"きょうだい",
+"형제자매",
+"Anh chị em"
+],
+"rel_spouse": [
+"配偶",
+"Spouse",
+"配偶者",
+"배우자",
+"Vợ/chồng"
+],
+"rel_child": [
+"孩子",
+"Child",
+"子ども",
+"자녀",
+"Con"
+],
+"deceased": [
+"已過世",
+"deceased",
+"故人",
+"고인",
+"đã mất"
+],
+"mapTitle": [
+"人生地圖",
+"Life map",
+"人生マップ",
+"인생 지도",
+"Bản đồ cuộc đời"
+],
+"mapNote": [
+"一格 = 1 年",
+"1 cell = 1 year",
+"1マス＝1年",
+"한 칸 = 1년",
+"1 ô = 1 năm"
+],
+"dec_major": [
+"重大抉擇",
+"Major decision",
+"大きな選択",
+"중요한 선택",
+"Lựa chọn lớn"
+],
+"dec_family": [
+"家人的抉擇",
+"Family decision",
+"家族の選択",
+"가족의 선택",
+"Lựa chọn của gia đình"
+],
+"dec_small": [
+"小抉擇",
+"Small decision",
+"小さな選択",
+"작은 선택",
+"Lựa chọn nhỏ"
+],
+"minimise": [
+"先收起來 ▾",
+"Minimise ▾",
+"しまう ▾",
+"접기 ▾",
+"Thu nhỏ ▾"
+],
+"restore": [
+"回到抉擇 ▴",
+"Back to decision ▴",
+"選択に戻る ▴",
+"선택으로 돌아가기 ▴",
+"Quay lại lựa chọn ▴"
+],
+"autoFromNow": [
+"之後都交給自動決定",
+"Auto-decide from now on",
+"これ以降は自動で選ぶ",
+"이제부터 자동 선택",
+"Từ giờ tự quyết định"
+],
+"autoStop": [
+"這次我自己選",
+"I'll choose this one",
+"今回は自分で選ぶ",
+"이번엔 직접 고르기",
+"Lần này tôi tự chọn"
+],
+"factSrc": [
+"資料",
+"Source",
+"出典",
+"출처",
+"Nguồn"
+],
+"logEarlier": [
+"顯示更早的 {n} 年",
+"Show {n} earlier years",
+"それ以前の {n} 年を表示",
+"이전 {n}년 보기",
+"Xem {n} năm trước đó"
+],
+"logLess": [
+"收起較早的紀錄",
+"Hide earlier years",
+"以前の記録をたたむ",
+"이전 기록 접기",
+"Ẩn các năm trước"
+],
+"star": [
+"標記這一行",
+"Star this line",
+null,
+null,
+null
+],
+"endSkipArm": [
+"再按一次跳過",
+"Press again to skip",
+"もう一度押すとスキップ",
+"한 번 더 누르면 건너뜀",
+"Nhấn lần nữa để bỏ qua"
+],
+"endDone": [
+"完成",
+"Done",
+"完了",
+"완료",
+"Xong"
+],
+"endReplay": [
+"重播最後時刻",
+"Replay final moments",
+"最期の時をもう一度",
+"마지막 순간 다시 보기",
+"Xem lại những khoảnh khắc cuối"
+],
+"cap_born": [
+"{year} 年，出生在{country}",
+"{year}, born in {country}",
+null,
+null,
+null
+],
+"cap_graduated": [
+"{age} 歲，畢業了",
+"Age {age}, graduated",
+null,
+null,
+null
+],
+"cap_first_paycheck": [
+"{age} 歲，第一份薪水",
+"Age {age}, first paycheck",
+null,
+null,
+null
+],
+"cap_wedding": [
+"{age} 歲，結婚",
+"Age {age}, married",
+null,
+null,
+null
+],
+"cap_child": [
+"{age} 歲，孩子出生",
+"Age {age}, a child is born",
+null,
+null,
+null
+],
+"cap_promotion": [
+"{age} 歲，升遷",
+"Age {age}, promoted",
+null,
+null,
+null
+],
+"cap_retire": [
+"{age} 歲，退休",
+"Age {age}, retired",
+null,
+null,
+null
+],
+"cap_happiest": [
+"{age} 歲，最快樂的一年",
+"Age {age}, the happiest year",
+null,
+null,
+null
+],
+"cap_final": [
+"{age} 歲，因{cause}離開",
+"Age {age}, gone — {cause}",
+null,
+null,
+null
+],
+"deathRecTitle": [
+"死亡紀錄",
+"Death record",
+"死亡記録",
+"사망 기록",
+"Hồ sơ qua đời"
+],
+"deathStory": [
+"{name}在 {year} 年出生於{country}，活了 {age} 年。{edu}{work}{family}",
+"{name} was born in {country} in {year} and lived {age} years. {edu}{work}{family}",
+null,
+null,
+null
+],
+"ds_edu": [
+"讀到{edu}。",
+"Studied up to {edu}. ",
+null,
+null,
+null
+],
+"ds_work": [
+"工作是{track}。",
+"Worked in: {track}. ",
+null,
+null,
+null
+],
+"ds_family_kids": [
+"和{spouse}有 {n} 個孩子。",
+"Had {n} children with {spouse}.",
+null,
+null,
+null
+],
+"ds_family_spouse": [
+"和{spouse}共度了一段人生。",
+"Shared a life with {spouse}.",
+null,
+null,
+null
+],
+"ctxLonger": [
+"同國同年出生的模擬人生中，有 {p} 活得比你久。",
+"Among simulated peers born the same year and place, {p} lived longer.",
+null,
+null,
+null
+],
+"ctxVsE0": [
+"你出生時當地的平均餘命是 {e0} 歲，你{diff}。",
+"Life expectancy where you were born was {e0}; you {diff}.",
+null,
+null,
+null
+],
+"ctxMore": [
+"多活了 {n} 年",
+"lived {n} years longer",
+null,
+null,
+null
+],
+"ctxLess": [
+"少了 {n} 年",
+"fell {n} years short",
+null,
+null,
+null
+],
+"ctxSame": [
+"剛好活到平均",
+"matched it exactly",
+null,
+null,
+null
+],
+"g_span": [
+"一生",
+"Life",
+"生涯",
+"생애",
+"Cuộc đời"
+],
+"g_place": [
+"地點",
+"Place",
+"場所",
+"장소",
+"Nơi chốn"
+],
+"g_edu": [
+"學歷",
+"Education",
+"学歴",
+"학력",
+"Học vấn"
+],
+"g_job": [
+"最後的工作",
+"Last job",
+"最後の仕事",
+"마지막 직업",
+"Công việc cuối"
+],
+"g_partner": [
+"伴侶",
+"Partner",
+"パートナー",
+"배우자",
+"Bạn đời"
+],
+"g_kids": [
+"孩子",
+"Children",
+"子ども",
+"자녀",
+"Con cái"
+],
+"g_happiest": [
+"最快樂的一年",
+"Happiest year",
+"いちばん幸せな年",
+"가장 행복한 해",
+"Năm hạnh phúc nhất"
+],
+"g_countries": [
+"住過的國家",
+"Countries lived in",
+"住んだ国",
+"살았던 나라",
+"Các nước đã sống"
+],
+"g_estate": [
+"留下的財產",
+"Estate left",
+"遺した財産",
+"남긴 재산",
+"Tài sản để lại"
+],
+"none": [
+"沒有",
+"None",
+"なし",
+"없음",
+"Không có"
+],
+"shareTitle": [
+"分享這張卡",
+"Share this card",
+"このカードを共有",
+"이 카드 공유",
+"Chia sẻ thẻ này"
+],
+"shareImage": [
+"分享圖片",
+"Share image",
+"画像を共有",
+"이미지 공유",
+"Chia sẻ ảnh"
+],
+"saveImage": [
+"儲存圖片",
+"Save image",
+"画像を保存",
+"이미지 저장",
+"Lưu ảnh"
+],
+"copyText": [
+"複製文字",
+"Copy text",
+"テキストをコピー",
+"텍스트 복사",
+"Sao chép chữ"
+],
+"copiedText": [
+"已複製",
+"Copied",
+null,
+null,
+null
+],
+"longPress": [
+"在手機上可以長按圖片儲存。",
+"On a phone, long-press the image to save it.",
+null,
+null,
+null
+],
+"shareOpen": [
+"分享人生卡",
+"Share life card",
+"人生カードを共有",
+"인생 카드 공유",
+"Chia sẻ thẻ cuộc đời"
+],
+"shareTextT": [
+"{name}（{born}–{died}），{country}，享年 {age} 歲。{cause}。—— {app}",
+"{name} ({born}–{died}), {country}, aged {age}. {cause}. — {app}",
+null,
+null,
+null
+],
+"shareFact1": [
+"一生總收入 {v}",
+"Lifetime income {v}",
+null,
+null,
+null
+],
+"shareFact2": [
+"最快樂：{age} 歲",
+"Happiest: age {age}",
+null,
+null,
+null
+],
+"shareFact3": [
+"活得比 {p} 的同齡人久",
+"Outlived {p} of peers",
+null,
+null,
+null
+],
+"focusTitle": [
+"今年的重心",
+"This year's focus",
+"今年の重点",
+"올해의 중점",
+"Trọng tâm năm nay"
+],
+"focusNote": [
+"點一下增加這一項分到的時間（0–3 份），會一直持續到你改",
+"Tap to give a chip more of your year (0–3 shares); it stays until you change it",
+"タップで時間配分を増やす（0〜3）。変えるまで続きます",
+"눌러서 시간 비중을 늘리세요(0–3). 바꿀 때까지 유지됩니다",
+"Chạm để dành thêm thời gian (0–3 phần); giữ nguyên đến khi bạn đổi"
+],
+"focus_none": [
+"順其自然",
+"Go with the flow",
+"流れにまかせる",
+"흘러가는 대로",
+"Thuận theo tự nhiên"
+],
+"focus_study": [
+"用功讀書",
+"Study hard",
+"しっかり勉強",
+"열심히 공부",
+"Học chăm chỉ"
+],
+"focus_play": [
+"盡情玩耍",
+"Play freely",
+"思いきり遊ぶ",
+"마음껏 놀기",
+"Vui chơi thỏa thích"
+],
+"focus_helpHome": [
+"幫忙家裡",
+"Help at home",
+"家の手伝い",
+"집안일 돕기",
+"Phụ giúp gia đình"
+],
+"focus_friends": [
+"多交朋友",
+"Make friends",
+"友だちづくり",
+"친구 사귀기",
+"Kết bạn"
+],
+"focus_health": [
+"照顧身體",
+"Look after health",
+"体を大事に",
+"건강 챙기기",
+"Chăm sóc sức khỏe"
+],
+"focus_hobby": [
+"培養興趣",
+"A hobby",
+"趣味を育てる",
+"취미 키우기",
+"Nuôi dưỡng sở thích"
+],
+"focus_workHard": [
+"拚工作",
+"Work hard",
+"仕事に打ち込む",
+"일에 매진",
+"Làm việc chăm chỉ"
+],
+"focus_sideGig": [
+"兼差賺外快",
+"Side gig",
+"副業で稼ぐ",
+"부업하기",
+"Làm thêm"
+],
+"focus_family": [
+"陪伴家人",
+"Family time",
+"家族と過ごす",
+"가족과 함께",
+"Dành thời gian cho gia đình"
+],
+"focus_care": [
+"照顧爸媽",
+"Care for parents",
+"親の世話",
+"부모님 돌보기",
+"Chăm sóc cha mẹ"
+],
+"focus_learn": [
+"進修學習",
+"Keep learning",
+"学び直し",
+"배움 계속하기",
+"Học thêm"
+],
+"focus_rest": [
+"好好休息",
+"Rest well",
+"ゆっくり休む",
+"푹 쉬기",
+"Nghỉ ngơi"
+],
+"focus_volunteer": [
+"當志工",
+"Volunteer",
+"ボランティア",
+"봉사활동",
+"Làm tình nguyện"
+],
+"incomeShort": [
+"收入",
+"Income",
+"収入",
+"소득",
+"Thu nhập"
+],
+"it_library": [
+"去圖書館",
+"Visit the library",
+null,
+null,
+null
+],
+"it_parkWalk": [
+"到公園散步",
+"Walk in the park",
+null,
+null,
+null
+],
+"it_callFriend": [
+"打電話給老朋友",
+"Call an old friend",
+null,
+null,
+null
+],
+"it_toys": [
+"買玩具",
+"Toys",
+null,
+null,
+null
+],
+"it_bike": [
+"一台腳踏車",
+"A bicycle",
+null,
+null,
+null
+],
+"it_tutor": [
+"請家教",
+"Private tutor",
+null,
+null,
+null
+],
+"it_summerCamp": [
+"暑期營隊",
+"Summer camp",
+null,
+null,
+null
+],
+"it_musicLessons": [
+"學樂器課",
+"Music lessons",
+null,
+null,
+null
+],
+"it_sportsClub": [
+"加入運動社團",
+"Sports club",
+null,
+null,
+null
+],
+"it_console": [
+"遊戲機",
+"Game console",
+null,
+null,
+null
+],
+"it_phone": [
+"換新手機",
+"New phone",
+null,
+null,
+null
+],
+"it_laptop": [
+"買筆電",
+"Laptop",
+null,
+null,
+null
+],
+"it_onlineCourse": [
+"線上課程",
+"Online course",
+null,
+null,
+null
+],
+"it_languageCourse": [
+"語言班",
+"Language class",
+null,
+null,
+null
+],
+"it_license": [
+"考駕照",
+"Driving licence",
+null,
+null,
+null
+],
+"it_car": [
+"買車",
+"Car",
+null,
+null,
+null
+],
+"it_motorbike": [
+"買機車",
+"Motorbike",
+null,
+null,
+null
+],
+"it_ebike": [
+"電動腳踏車",
+"E-bike",
+null,
+null,
+null
+],
+"it_tripHome": [
+"國內小旅行",
+"Short trip at home",
+null,
+null,
+null
+],
+"it_tripAbroad": [
+"出國旅行",
+"Trip abroad",
+null,
+null,
+null
+],
+"it_cruise": [
+"郵輪假期",
+"Cruise",
+null,
+null,
+null
+],
+"it_concert": [
+"看演唱會",
+"Concert",
+null,
+null,
+null
+],
+"it_dining": [
+"吃頓好的",
+"A good meal out",
+null,
+null,
+null
+],
+"it_spa": [
+"按摩放鬆",
+"Massage & spa",
+null,
+null,
+null
+],
+"it_camera": [
+"相機",
+"Camera",
+null,
+null,
+null
+],
+"it_instrument": [
+"買一把樂器",
+"An instrument",
+null,
+null,
+null
+],
+"it_artClass": [
+"畫畫課",
+"Art class",
+null,
+null,
+null
+],
+"it_collection": [
+"收藏嗜好",
+"A collection",
+null,
+null,
+null
+],
+"it_gym": [
+"健身房會員",
+"Gym membership",
+null,
+null,
+null
+],
+"it_checkup": [
+"健康檢查",
+"Health check-up",
+null,
+null,
+null
+],
+"it_dental": [
+"看牙醫",
+"Dentist",
+null,
+null,
+null
+],
+"it_laser": [
+"近視雷射",
+"Eye laser surgery",
+null,
+null,
+null
+],
+"it_therapy": [
+"心理諮商",
+"Counselling",
+null,
+null,
+null
+],
+"it_hearingAid": [
+"助聽器",
+"Hearing aid",
+null,
+null,
+null
+],
+"it_scooter": [
+"代步車",
+"Mobility scooter",
+null,
+null,
+null
+],
+"it_banquet": [
+"辦喜宴",
+"Wedding banquet",
+null,
+null,
+null
+],
+"it_honeymoon": [
+"蜜月旅行",
+"Honeymoon",
+null,
+null,
+null
+],
+"it_anniversary": [
+"紀念日禮物",
+"Anniversary gift",
+null,
+null,
+null
+],
+"it_eduFund": [
+"孩子教育基金",
+"Child's education fund",
+null,
+null,
+null
+],
+"it_familyPhoto": [
+"拍全家福",
+"Family portrait",
+null,
+null,
+null
+],
+"it_pet": [
+"養寵物",
+"Adopt a pet",
+null,
+null,
+null
+],
+"it_giftParents": [
+"孝親紅包",
+"Gift money for parents",
+null,
+null,
+null
+],
+"it_tripParents": [
+"帶爸媽出遊",
+"Trip with parents",
+null,
+null,
+null
+],
+"it_parentsCare": [
+"爸媽的醫療費",
+"Parents' medical bills",
+null,
+null,
+null
+],
+"it_donateSmall": [
+"小額捐款",
+"Small donation",
+null,
+null,
+null
+],
+"it_donateBig": [
+"大筆捐款",
+"Large donation",
+null,
+null,
+null
+],
+"it_renovate": [
+"裝修房子",
+"Renovate the home",
+null,
+null,
+null
+],
+"it_furniture": [
+"換家具",
+"New furniture",
+null,
+null,
+null
+],
+"it_biggerFlat": [
+"租大一點的房子",
+"Rent a bigger flat",
+null,
+null,
+null
+],
+"it_garden": [
+"整理庭院",
+"Tend the garden",
+null,
+null,
+null
+],
+"it_mba": [
+"讀在職碩士",
+"Part-time master's",
+null,
+null,
+null
+],
+"it_certificate": [
+"專業證照",
+"Professional certificate",
+null,
+null,
+null
+],
+"it_seniorUni": [
+"樂齡大學",
+"Senior university",
+null,
+null,
+null
+],
+"spendBtn": [
+"花錢與生活",
+"Spending & lifestyle",
+"お金と暮らし",
+"소비와 생활",
+"Chi tiêu & lối sống"
+],
+"spendTitle": [
+"花錢與生活",
+"Spending & lifestyle",
+"お金と暮らし",
+"소비와 생활",
+"Chi tiêu & lối sống"
+],
+"spendPaused": [
+"打開時時間暫停",
+"time is paused while open",
+"開いている間は時間が止まります",
+"열려 있는 동안 시간이 멈춥니다",
+"thời gian tạm dừng khi mở"
+],
+"spendSavings": [
+"存款",
+"Savings",
+"貯金",
+"저축",
+"Tiền tiết kiệm"
+],
+"spendIncome": [
+"今年收入",
+"Income this year",
+"今年の収入",
+"올해 소득",
+"Thu nhập năm nay"
+],
+"spendNow": [
+"現在值得做",
+"Worth doing now",
+"今やる価値があること",
+"지금 해볼 만한 것",
+"Đáng làm ngay"
+],
+"spendMore": [
+"更多（{n}）",
+"More ({n})",
+"もっと見る（{n}）",
+"더보기({n})",
+"Thêm ({n})"
+],
+"spendFree": [
+"免費",
+"Free",
+"無料",
+"무료",
+"Miễn phí"
+],
+"spendBuy": [
+"買",
+"Buy",
+"買う",
+"구매",
+"Mua"
+],
+"spendBought": [
+"已完成：{name}",
+"Done: {name}",
+null,
+null,
+null
+],
+"why_need": [
+"條件不符",
+"Requirements not met",
+"条件を満たしていない",
+"조건 미충족",
+"Chưa đủ điều kiện"
+],
+"why_cash": [
+"錢不夠",
+"Not enough money",
+"お金が足りない",
+"돈이 부족함",
+"Không đủ tiền"
+],
+"lifestyle": [
+"生活方式",
+"Lifestyle",
+"暮らし方",
+"생활 방식",
+"Lối sống"
+],
+"lsSavings": [
+"存款放在哪裡",
+"Where savings sit",
+null,
+null,
+null
+],
+"lsSavingsBtn": [
+"打開投資配置",
+"Open investments",
+null,
+null,
+null
+],
+"ls_diet": [
+"飲食",
+"Diet",
+null,
+null,
+null
+],
+"ls_diet_frugal": [
+"省吃儉用",
+"Frugal",
+null,
+null,
+null
+],
+"ls_diet_normal": [
+"一般",
+"Normal",
+null,
+null,
+null
+],
+"ls_diet_healthy": [
+"吃得健康",
+"Healthy",
+null,
+null,
+null
+],
+"ls_gifts": [
+"紅白包",
+"Wedding & funeral gifts",
+null,
+null,
+null
+],
+"ls_gifts_low": [
+"少包",
+"Small",
+null,
+null,
+null
+],
+"ls_gifts_normal": [
+"一般",
+"Normal",
+null,
+null,
+null
+],
+"ls_gifts_generous": [
+"大方",
+"Generous",
+null,
+null,
+null
+],
+"ls_insure": [
+"保險",
+"Insurance",
+null,
+null,
+null
+],
+"ls_insure_none": [
+"不買",
+"None",
+null,
+null,
+null
+],
+"ls_insure_basic": [
+"基本醫療險",
+"Basic medical",
+null,
+null,
+null
+],
+"lsRoutines": [
+"自動習慣（存款超過費用 3 倍時每年自動做）",
+"Auto-habits (done each year when savings exceed 3× the cost)",
+"自動の習慣（貯金が費用の3倍を超えると毎年）",
+"자동 습관(저축이 비용의 3배를 넘으면 매년)",
+"Thói quen tự động (mỗi năm khi tiết kiệm > 3× chi phí)"
+],
+"lsNote": [
+"設定從今年起生效，直到你改掉。",
+"Settings apply from this year until you change them.",
+null,
+null,
+null
+],
+"peersTitle": [
+"同一秒出生的人",
+"Born the same second",
+"同じ瞬間に生まれた人たち",
+"같은 순간에 태어난 사람들",
+"Những người sinh cùng giây"
+],
+"peersNote": [
+"依各國出生人數抽樣",
+"sampled by births per country",
+"各国の出生数で抽出",
+"국가별 출생아 수로 표본 추출",
+"chọn mẫu theo số ca sinh"
+],
+"peersLoading": [
+"正在找他們……",
+"Finding them…",
+"探しています……",
+"찾는 중……",
+"Đang tìm họ…"
+],
+"stage_baby": [
+"還是小寶寶",
+"still a baby",
+"まだ赤ちゃん",
+"아직 아기",
+"còn là em bé"
+],
+"stage_school": [
+"在上學",
+"at school",
+"学校に通っている",
+"학교에 다님",
+"đang đi học"
+],
+"stage_work": [
+"在工作",
+"working",
+"働いている",
+"일하는 중",
+"đang đi làm"
+],
+"stage_home": [
+"在家",
+"at home",
+"家にいる",
+"집에 있음",
+"ở nhà"
+],
+"stage_retired": [
+"退休了",
+"retired",
+"引退した",
+"은퇴함",
+"đã nghỉ hưu"
+],
+"stage_dead": [
+"已離世",
+"gone",
+"亡くなった",
+"세상을 떠남",
+"đã mất"
+],
+"langLabel": [
+"語言",
+"Language",
+"言語",
+"언어",
+"Ngôn ngữ"
+],
+"musicOn": [
+"音樂：開",
+"Music: on",
+"音楽：オン",
+"음악: 켬",
+"Nhạc: bật"
+],
+"musicOff": [
+"音樂：關",
+"Music: off",
+"音楽：オフ",
+"음악: 끔",
+"Nhạc: tắt"
+],
+"contentNote": [
+"人生事件的文字目前只有繁體中文。",
+"Life-event text is currently in Traditional Chinese only.",
+"ライフイベントの文章はまだ繁体字中国語のみです。",
+"인생 사건 문장은 아직 번체 중국어로만 제공됩니다.",
+"Nội dung sự kiện hiện chỉ có tiếng Trung phồn thể."
+],
+"fact_q5": [
+"{year} 年前後，{name}每 1,000 名新生兒約有 {n} 名活不到 5 歲。",
+"Around {year}, about {n} of every 1,000 babies in {name} did not live to 5.",
+null,
+null,
+null
+],
+"fact_sec": [
+"{name}的中學毛入學率約 {p}（毛入學率可能超過 100%，因為包含重讀與超齡學生）。",
+"Gross secondary enrolment in {name} was about {p} (it can exceed 100% because it counts repeaters and over-age pupils).",
+null,
+null,
+null
+],
+"fact_ter": [
+"{name}的高等教育毛入學率約 {p}。",
+"Gross tertiary enrolment in {name} was about {p}.",
+null,
+null,
+null
+],
+"fact_unemp": [
+"{name}當年的失業率約 {p}。",
+"Unemployment in {name} that year was about {p}.",
+null,
+null,
+null
+],
+"fact_urban": [
+"{name}約有 {p} 的人住在都市地區。",
+"About {p} of people in {name} lived in urban areas.",
+null,
+null,
+null
+],
+"fact_e0": [
+"{year} 年前後，{name}的出生時平均餘命約 {v} 歲。",
+"Around {year}, life expectancy at birth in {name} was about {v} years.",
+null,
+null,
+null
+],
+"fact_tfr": [
+"{year} 年前後，{name}平均每位女性一生約生 {v} 個孩子。",
+"Around {year}, women in {name} had about {v} children each over a lifetime.",
+null,
+null,
+null
+],
+"fact_gdp": [
+"{name}當年的人均 GDP（購買力平價，2021 年國際元）約 {v}。",
+"GDP per capita in {name} that year (PPP, 2021 international $) was about {v}.",
+null,
+null,
+null
+],
+"fact_gini": [
+"{name}的吉尼係數約 {v}（0 代表完全平均，100 代表完全集中）。",
+"The Gini index in {name} was about {v} (0 = perfectly equal, 100 = all to one).",
+null,
+null,
+null
+],
+"cite_wdi": [
+"世界銀行 WDI {code}（CC BY 4.0）",
+"World Bank WDI {code} (CC BY 4.0)",
+null,
+null,
+null
+],
+"cite_wpp": [
+"聯合國《世界人口展望 2024》（CC BY 3.0 IGO）",
+"UN World Population Prospects 2024 (CC BY 3.0 IGO)",
+null,
+null,
+null
+],
+"seedBad": [
+"種子格式不正確：",
+"Invalid seed: ",
+null,
+null,
+null
+],
+"termLeft": [
+"（{n} 年）",
+" ({n} years)",
+null,
+null,
+null
+],
+"rateTitle": [
+"放款利率＋利差參數",
+"Lending rate + spread parameter",
+null,
+null,
+null
+],
+"causeTitle": [
+"依年齡、國家所得與健康狀態推估",
+"Estimated from age, national income and health",
+null,
+null,
+null
+],
+"peersLine": [
+"比較對象：同國、同年出生的 {n} 段模擬人生。",
+"Compared with {n} simulated lives born the same year in the same country.",
+null,
+null,
+null
+],
+"peersEst": [
+"其中 {n} 年使用了推估資料。",
+" {n} of those years used estimated data.",
+null,
+null,
+null
+],
+"wdiCite": [
+"世界銀行 WDI（CC BY 4.0）",
+"World Bank WDI (CC BY 4.0)",
+null,
+null,
+null
+],
+"livedN": [
+"{n}",
+"{n}",
+"{n}",
+"{n}",
+"{n}"
+],
+"livedLabel": [
+"年的人生",
+"years lived",
+"年の人生",
+"년의 삶",
+"năm cuộc đời"
+],
+"livedSub": [
+"{name} · {born}–{died} · {country}",
+"{name} · {born}–{died} · {country}",
+"{name} · {born}–{died} · {country}",
+"{name} · {born}–{died} · {country}",
+"{name} · {born}–{died} · {country}"
+],
+"epiTitle": [
+"人生的尾聲",
+"Epilogue",
+"人生の終わりに",
+"삶의 끝에서",
+"Lời kết"
+],
+"seeOffTitle": [
+"送你最後一程的人",
+"Who saw you off",
+"見送ってくれた人",
+"배웅해 준 사람들",
+"Những người tiễn đưa"
+],
+"friendsN": [
+"{n} 位朋友",
+"{n} friends",
+"友人 {n} 人",
+"친구 {n}명",
+"{n} người bạn"
+],
+"seeOffAlone": [
+"走的時候身邊沒有人。",
+"No one was there at the end.",
+"最期は一人だった。",
+"마지막에 곁에 아무도 없었다.",
+"Lúc ra đi không có ai bên cạnh."
+],
+"hobbiesTitle": [
+"興趣",
+"Hobbies",
+"趣味",
+"취미",
+"Sở thích"
+],
+"hob_music": [
+"音樂",
+"Music",
+"音楽",
+"음악",
+"Âm nhạc"
+],
+"hob_art": [
+"畫畫",
+"Painting",
+"絵画",
+"그림",
+"Vẽ"
+],
+"hob_photo": [
+"攝影",
+"Photography",
+"写真",
+"사진",
+"Nhiếp ảnh"
+],
+"hob_sport": [
+"運動",
+"Sport",
+"スポーツ",
+"운동",
+"Thể thao"
+],
+"hob_cycling": [
+"騎單車",
+"Cycling",
+"サイクリング",
+"자전거",
+"Đạp xe"
+],
+"hob_collecting": [
+"收藏",
+"Collecting",
+"収集",
+"수집",
+"Sưu tầm"
+],
+"hob_pets": [
+"養寵物",
+"Pets",
+"ペット",
+"반려동물",
+"Thú cưng"
+],
+"hob_games": [
+"玩遊戲",
+"Games",
+"ゲーム",
+"게임",
+"Trò chơi"
+],
+"hob_reading": [
+"閱讀",
+"Reading",
+"読書",
+"독서",
+"Đọc sách"
+],
+"hob_learning": [
+"學新東西",
+"Learning",
+"学び",
+"배움",
+"Học hỏi"
+],
+"hob_languages": [
+"外語",
+"Languages",
+"語学",
+"외국어",
+"Ngoại ngữ"
+],
+"hob_walking": [
+"散步",
+"Walking",
+"散歩",
+"산책",
+"Đi dạo"
+],
+"hob_travel": [
+"旅行",
+"Travel",
+"旅行",
+"여행",
+"Du lịch"
+],
+"hob_food": [
+"美食",
+"Good food",
+"グルメ",
+"맛집",
+"Ẩm thực"
+],
+"hob_dance": [
+"跳舞",
+"Dancing",
+"ダンス",
+"춤",
+"Khiêu vũ"
+],
+"hob_crafts": [
+"手作",
+"Crafts",
+"手芸",
+"공예",
+"Thủ công"
+],
+"hob_volunteering": [
+"志工",
+"Volunteering",
+"ボランティア",
+"봉사",
+"Tình nguyện"
+],
+"hob_friends": [
+"和朋友相聚",
+"Time with friends",
+"友人との時間",
+"친구들과의 시간",
+"Gặp gỡ bạn bè"
+],
+"visitedTitle": [
+"去過的國家",
+"Countries visited",
+"訪れた国",
+"가 본 나라",
+"Các nước đã đến"
+],
+"livedIn": [
+"住過：{list}",
+"Lived in: {list}",
+"住んだ国：{list}",
+"살았던 곳: {list}",
+"Đã sống: {list}"
+],
+"tripsTo": [
+"旅行去過：{list}",
+"Travelled to: {list}",
+"旅した国：{list}",
+"여행한 곳: {list}",
+"Đã du lịch: {list}"
+],
+"noTrips": [
+"沒有出過國旅行。",
+"Never travelled abroad.",
+"海外旅行はしなかった。",
+"해외여행은 가 보지 못했다.",
+"Chưa từng đi du lịch nước ngoài."
+],
+"sameSecTitle": [
+"同一秒出生的五個人",
+"Five people born the same second",
+"同じ瞬間に生まれた5人",
+"같은 순간 태어난 다섯 사람",
+"Năm người sinh cùng giây"
+],
+"memTitle": [
+"難忘的時刻",
+"Memorable moments",
+"忘れられない瞬間",
+"잊지 못할 순간",
+"Khoảnh khắc đáng nhớ"
+],
+"memEmpty": [
+"在人生紀錄裡點 ☆，就會出現在這裡。",
+"Star lines in the life log (☆) to keep them here.",
+"人生の記録で☆を付けるとここに残ります。",
+"인생 기록에서 ☆를 누르면 여기에 남습니다.",
+"Đánh dấu ☆ trong nhật ký để giữ lại ở đây."
+],
+"fullLogTitle": [
+"完整人生紀錄",
+"Full life log",
+"人生の全記録",
+"전체 인생 기록",
+"Toàn bộ nhật ký"
+],
+"era_postwar": [
+"戰後年代",
+"Post-war years",
+"戦後",
+"전후 시대",
+"Thời hậu chiến"
+],
+"era_boom": [
+"經濟起飛",
+"The boom years",
+"高度成長期",
+"고도성장기",
+"Thời kỳ bùng nổ"
+],
+"era_late20": [
+"世紀末",
+"Late 20th century",
+"世紀末",
+"20세기 말",
+"Cuối thế kỷ 20"
+],
+"era_digital": [
+"網路時代",
+"The internet age",
+"ネット時代",
+"인터넷 시대",
+"Thời đại internet"
+],
+"themeLabel": [
+"主題",
+"Theme",
+"テーマ",
+"테마",
+"Giao diện"
+],
+"theme_auto": [
+"主題：跟隨系統",
+"Theme: system",
+"テーマ：自動",
+"테마: 시스템",
+"Giao diện: hệ thống"
+],
+"theme_light": [
+"主題：淺色",
+"Theme: light",
+"テーマ：ライト",
+"테마: 라이트",
+"Giao diện: sáng"
+],
+"theme_dark": [
+"主題：深色",
+"Theme: dark",
+"テーマ：ダーク",
+"테마: 다크",
+"Giao diện: tối"
+],
+"journal": [
+"日記",
+"Journal",
+"日記",
+"일기",
+"Nhật ký"
+],
+"journalTitle": [
+"人生日記",
+"Life journal",
+"人生日記",
+"인생 일기",
+"Nhật ký cuộc đời"
+],
+"journalNote": [
+"只存在這台裝置上，不會上傳。",
+"Stored on this device only; never uploaded.",
+"この端末にのみ保存され、送信されません。",
+"이 기기에만 저장되며 업로드되지 않습니다.",
+"Chỉ lưu trên thiết bị này, không tải lên."
+],
+"journalPlaceholder": [
+"寫下 {age} 歲這一年的心情…",
+"Write something about age {age}…",
+"{age}歳の一年について書く…",
+"{age}세의 한 해를 적어 보세요…",
+"Viết gì đó về năm {age} tuổi…"
+],
+"journalSave": [
+"存下這一則",
+"Save entry",
+"保存",
+"저장",
+"Lưu"
+],
+"journalEmpty": [
+"還沒有日記。點 ☆ 的紀錄也會出現在這裡。",
+"No entries yet. Starred log lines show up here too.",
+"まだ日記はありません。☆を付けた記録もここに表示されます。",
+"아직 일기가 없습니다. ☆ 표시한 기록도 여기에 나옵니다.",
+"Chưa có ghi chép. Các dòng gắn ☆ cũng hiện ở đây."
+],
+"familyTree": [
+"家族樹",
+"Family tree",
+"家系図",
+"가계도",
+"Cây gia đình"
+],
+"treeYou": [
+"你",
+"You",
+"あなた",
+"나",
+"Bạn"
+],
+"treeParents": [
+"父母",
+"Parents",
+"両親",
+"부모",
+"Cha mẹ"
+],
+"treeYourGen": [
+"你這一代",
+"Your generation",
+"あなたの世代",
+"내 세대",
+"Thế hệ của bạn"
+],
+"treeChildren": [
+"子女",
+"Children",
+"子ども",
+"자녀",
+"Con cái"
+],
+"treeNone": [
+"（還沒有）",
+"(none yet)",
+"（まだいない）",
+"(아직 없음)",
+"(chưa có)"
+],
+"sfxOn": [
+"音效：開",
+"Sound: on",
+"効果音：オン",
+"효과음: 켬",
+"Âm thanh: bật"
+],
+"sfxOff": [
+"音效：關",
+"Sound: off",
+"効果音：オフ",
+"효과음: 끔",
+"Âm thanh: tắt"
+],
+"focusClear": [
+"順其自然",
+"Go with the flow",
+"成り行きに任せる",
+"흐름대로",
+"Thuận theo tự nhiên"
+],
+"focusAuto": [
+"自動安排",
+"Auto",
+"自動",
+"자동",
+"Tự động"
+],
+"focusShare": [
+"{p}% 的時間",
+"{p}% of the year",
+"時間の{p}%",
+"시간의 {p}%",
+"{p}% thời gian"
+],
+"focus_help": [
+"幫忙家裡",
+"Help at home",
+"家の手伝い",
+"집안일 돕기",
+"Phụ giúp gia đình"
+],
+"focus_parttime": [
+"打工",
+"Part-time job",
+"アルバイト",
+"아르바이트",
+"Làm thêm"
+],
+"focus_career": [
+"職涯準備",
+"Career prep",
+"キャリア準備",
+"진로 준비",
+"Chuẩn bị nghề nghiệp"
+],
+"focus_sport": [
+"運動",
+"Sport",
+"スポーツ",
+"운동",
+"Thể thao"
+],
+"focus_work": [
+"工作",
+"Work",
+"仕事",
+"일",
+"Công việc"
+],
+"focus_balance": [
+"生活平衡",
+"Balance",
+"ワークライフバランス",
+"워라밸",
+"Cân bằng"
+],
+"focus_mind": [
+"動動腦",
+"Keep the mind sharp",
+"頭の体操",
+"두뇌 활동",
+"Rèn trí óc"
+],
+"focus_faith": [
+"信仰與心靈",
+"Faith & spirit",
+"信仰と心",
+"신앙과 마음",
+"Tín ngưỡng & tâm hồn"
+],
+"focusPromo": [
+"升遷",
+"promotion",
+"昇進",
+"승진",
+"thăng chức"
+],
+"focusCost": [
+"花費",
+"cost",
+"費用",
+"비용",
+"chi phí"
+],
+"it_house": [
+"買房子",
+"Buy a home",
+"家を買う",
+"집 사기",
+"Mua nhà"
+],
+"it_gift": [
+"送禮",
+"Give a gift",
+"贈り物",
+"선물하기",
+"Tặng quà"
+],
+"it_allowance": [
+"給爸媽孝親費",
+"Allowance to parents",
+"親への仕送り",
+"부모님 용돈",
+"Biếu tiền bố mẹ"
+],
+"spendInvBtn": [
+"花錢·投資",
+"Spend · Invest",
+"お金・投資",
+"지출·투자",
+"Chi tiêu · Đầu tư"
+],
+"spendInvTitle": [
+"花錢·投資",
+"Spend · Invest",
+"お金・投資",
+"지출·투자",
+"Chi tiêu · Đầu tư"
+],
+"tabSpend": [
+"花錢",
+"Spend",
+"使う",
+"지출",
+"Chi tiêu"
+],
+"tabFinance": [
+"投資與貸款",
+"Invest & loans",
+"投資とローン",
+"투자·대출",
+"Đầu tư & vay"
+],
+"tabHabits": [
+"習慣與生活",
+"Habits & lifestyle",
+"習慣と暮らし",
+"습관·생활",
+"Thói quen & lối sống"
+],
+"cat_item": [
+"東西",
+"Things",
+"モノ",
+"물건",
+"Đồ dùng"
+],
+"cat_family": [
+"家人朋友",
+"Family & friends",
+"家族・友人",
+"가족·친구",
+"Gia đình & bạn bè"
+],
+"cat_health": [
+"健康",
+"Health",
+"健康",
+"건강",
+"Sức khỏe"
+],
+"cat_learn": [
+"學習",
+"Learning",
+"学び",
+"배움",
+"Học tập"
+],
+"cat_give": [
+"捐款",
+"Giving",
+"寄付",
+"기부",
+"Từ thiện"
+],
+"cat_home": [
+"居家",
+"Home",
+"住まい",
+"집",
+"Nhà cửa"
+],
+"cat_fun": [
+"娛樂",
+"Fun",
+"娯楽",
+"여가",
+"Giải trí"
+],
+"cat_other": [
+"其他",
+"Other",
+"その他",
+"기타",
+"Khác"
+],
+"spendSell": [
+"賣掉 {name}",
+"Sell: {name}",
+"売る：{name}",
+"팔기: {name}",
+"Bán: {name}"
+],
+"spendSellBtn": [
+"賣",
+"Sell",
+"売る",
+"팔기",
+"Bán"
+],
+"spendSold": [
+"已賣掉：{name}",
+"Sold: {name}",
+"売却：{name}",
+"판매함: {name}",
+"Đã bán: {name}"
+],
+"spendOwned": [
+"擁有",
+"owned",
+"所有",
+"보유",
+"đang có"
+],
+"spendHouseGo": [
+"去買房",
+"Open house panel",
+"住宅へ",
+"주택 패널",
+"Mở mục nhà"
+],
+"spendNeedCash": [
+"要有 {x} 倍價錢的存款",
+"needs savings of {x}× the price",
+"価格の{x}倍の貯金が必要",
+"가격의 {x}배 저축 필요",
+"cần tiết kiệm gấp {x} lần giá"
+],
+"spendHintOld": [
+"爸媽年紀大了，孝親費排在最前面",
+"Your parents are getting old: allowance comes first",
+"親が高齢なので仕送りを最優先",
+"부모님이 연로하셔서 용돈이 먼저",
+"Bố mẹ đã già: biếu tiền lên đầu"
+],
+"spendHintDebt": [
+"負債很重：先考慮賣掉東西",
+"Heavy debt: consider selling things first",
+"借金が重い：まず売却を",
+"빚이 많음: 먼저 팔기를",
+"Nợ nặng: cân nhắc bán đồ trước"
+],
+"spendAutoOn": [
+"自動選擇開著：系統會替你管理習慣",
+"Auto-choice is on: habits are managed for you",
+"自動選択中：習慣は自動管理",
+"자동 선택: 습관을 자동 관리",
+"Tự chọn đang bật: thói quen được quản lý tự động"
+],
+"bond": [
+"家人感情",
+"Family bond",
+"家族の絆",
+"가족 유대",
+"Gắn kết gia đình"
+]
+},
+"events": {
+"study_prize": [
+"期末成績單上多了一張獎狀。你偷偷把它貼在書桌前。",
+null,
+null,
+null,
+null
+],
+"first_paycheck": [
+"第一份薪水入帳：{amount}。你盯著存摺看了好久。",
+null,
+null,
+null,
+null
+],
+"jobless_year": [
+"這一年沒有找到工作。履歷寄出去，回音很少。這一年的收入（失業給付）：{amount}。",
+null,
+null,
+null,
+null
+],
+"promotion": [
+"主管把你叫進辦公室——是好消息，你升職了，薪水調高約 {pct}%。",
+null,
+null,
+null,
+null
+],
+"illness": [
+"一場病讓你躺了好幾週。自付醫療費：{cost}。",
+null,
+null,
+null,
+null
+],
+"windfall": [
+"意外之財：{amount}。可能是遺產、獎金，或一張中獎發票。",
+null,
+null,
+null,
+null
+],
+"friend_leaves": [
+"一位好朋友搬去很遠的地方，聯絡漸漸少了。",
+null,
+null,
+null,
+null
+],
+"new_hobby": [
+"你迷上了一項新嗜好，週末終於有了期待。",
+null,
+null,
+null,
+null
+],
+"marginCall": [
+"市場急跌，融資部位被斷頭。這一年槓桿讓你損失了 {loss}。（年內低點為推估）",
+null,
+null,
+null,
+null
+],
+"forcedSale": [
+"現金不夠用，只好賣掉 {amount} 的投資。",
+null,
+null,
+null,
+null
+],
+"levClosed": [
+"為了周轉，槓桿部位全數平倉。",
+null,
+null,
+null,
+null
+],
+"retire": [
+"你在 {age} 歲退休了。每年退休金：{pension}。",
+null,
+null,
+null,
+null
+],
+"mortgagePaid": [
+"房貸終於繳清了，房子完全屬於你。",
+null,
+null,
+null,
+null
+],
+"paymentMissed": [
+"這一年繳不出貸款，帳單上多了一筆滯納金。",
+null,
+null,
+null,
+null
+],
+"foreclosure": [
+"連續繳不出房貸，房子被法拍。結清後剩下：{amount}。",
+null,
+null,
+null,
+null
+],
+"loanPaid": [
+"一筆信貸還清了。",
+null,
+null,
+null,
+null
+],
+"loanDefault": [
+"信貸違約：{amount} 轉成呆帳，信用被凍結。",
+null,
+null,
+null,
+null
+],
+"loanRateUp": [
+"利率調升，信貸利率從 {from}% 升到 {to}%。",
+null,
+null,
+null,
+null
+],
+"illness_child": [
+"你生了一場病，躺了好幾週。醫藥費由家人張羅。",
+null,
+null,
+null,
+null
+],
+"divorce": [
+"你們決定分開。簽字那天，天氣好得不像話。",
+null,
+null,
+null,
+null
+],
+"study_start": [
+"你開始了新的學業階段。",
+null,
+null,
+null,
+null
+],
+"part_time": [
+"課餘時間你打工賺一點零用錢。",
+null,
+null,
+null,
+null
+],
+"graduated": [
+"你畢業了（{edu}），開始找第一份全職工作。",
+null,
+null,
+null,
+null
+],
+"ch_vaccine_go": [
+"爸媽走了很遠的路，帶你去打疫苗。",
+null,
+null,
+null,
+null
+],
+"ch_vaccine_skip": [
+"家裡離診所太遠，這次沒去打疫苗。",
+null,
+null,
+null,
+null
+],
+"ch_school_school": [
+"爸媽決定送你去上學。你背著新書包，走進教室。",
+null,
+null,
+null,
+null
+],
+"ch_school_help": [
+"家裡需要人手，你留在家裡幫忙，沒有去上學。",
+null,
+null,
+null,
+null
+],
+"ch_hs_academic": [
+"你選擇繼續讀高中，目標是升大學。",
+null,
+null,
+null,
+null
+],
+"ch_hs_vocational": [
+"你選擇讀職業學校，學一技之長。",
+null,
+null,
+null,
+null
+],
+"ch_hs_work": [
+"你決定不再升學，開始工作賺錢。",
+null,
+null,
+null,
+null
+],
+"ch_uni_uni": [
+"你考上大學，接下來 4 年要邊讀書邊打工。",
+null,
+null,
+null,
+null
+],
+"ch_uni_work": [
+"你決定不讀大學，直接進入職場。",
+null,
+null,
+null,
+null
+],
+"ch_grad_grad": [
+"你繼續念研究所，再多讀兩年。",
+null,
+null,
+null,
+null
+],
+"ch_grad_work": [
+"拿到學位後，你決定先工作。",
+null,
+null,
+null,
+null
+],
+"ch_career_stable": [
+"你選擇了一份穩定的工作：薪水不會暴衝，但不容易被裁員。",
+null,
+null,
+null,
+null
+],
+"ch_career_private": [
+"你進了一家民間公司，打拚看看。",
+null,
+null,
+null,
+null
+],
+"ch_career_startup": [
+"你決定創業。收入可能大起大落，但這是你自己的事業。",
+null,
+null,
+null,
+null
+],
+"ch_career_informal": [
+"你在非正式的工作中討生活：做零工、幫忙農事或擺攤。",
+null,
+null,
+null,
+null
+],
+"ch_move_city": [
+"你搬到大城市：薪水比較高，房租也比較貴。",
+null,
+null,
+null,
+null
+],
+"ch_move_stay": [
+"你決定留在家鄉，離家人近一點。",
+null,
+null,
+null,
+null
+],
+"ch_marry_marry": [
+"你和{spouse}結婚了。喜帖寄出那天，手有點抖。婚禮花了 {cost}。",
+null,
+null,
+null,
+null
+],
+"ch_marry_wait": [
+"有人向你求婚／你想過要結婚，但你決定再等等。",
+null,
+null,
+null,
+null
+],
+"ch_child_have": [
+"第 {nth} 個孩子{name}出生了。家裡從此更吵，也更暖。",
+null,
+null,
+null,
+null
+],
+"ch_child_notnow": [
+"你們討論過要不要再生一個，決定先不要。",
+null,
+null,
+null,
+null
+],
+"ch_parents_self": [
+"父母需要照顧。你減少工作時間，親自照顧他們。",
+null,
+null,
+null,
+null
+],
+"ch_parents_hire": [
+"父母需要照顧。你請了看護，每年多一筆開銷。",
+null,
+null,
+null,
+null
+],
+"ch_parents_siblings": [
+"父母需要照顧。你請兄弟姊妹多擔待，心裡有點過意不去。",
+null,
+null,
+null,
+null
+],
+"ch_treat_treat": [
+"你被診斷出重病，選擇積極治療。自付醫療費：{cost}。",
+null,
+null,
+null,
+null
+],
+"ch_treat_basic": [
+"你被診斷出重病，選擇保守治療，花費較少（{cost}），但身體更虛弱了。",
+null,
+null,
+null,
+null
+],
+"fl_first_steps": [
+"你搖搖晃晃走出了人生的第一步，全家都在拍手。",
+null,
+null,
+null,
+null
+],
+"fl_first_word": [
+"你說出了第一個詞。大人們為了那到底是不是在叫自己，爭論了一整晚。",
+null,
+null,
+null,
+null
+],
+"fl_night_fever": [
+"半夜發燒，家人輪流抱著你到天亮。",
+null,
+null,
+null,
+null
+],
+"fl_sibling_fight": [
+"你和兄弟姊妹為了一件小事大吵，晚餐時又和好了。",
+null,
+null,
+null,
+null
+],
+"fl_lost_market": [
+"在市場走失了十分鐘，那是你記得最久的十分鐘。",
+null,
+null,
+null,
+null
+],
+"fl_kindergarten": [
+"第一天上學，你緊抓著門框不肯放手。",
+null,
+null,
+null,
+null
+],
+"fl_best_friend": [
+"你交到第一個好朋友，兩人約好長大要一起做大事。",
+null,
+null,
+null,
+null
+],
+"fl_bike": [
+"學會騎腳踏車，膝蓋上多了兩道疤。",
+null,
+null,
+null,
+null
+],
+"fl_stray_cat": [
+"你偷偷餵了一隻流浪貓，還幫牠取了名字。",
+null,
+null,
+null,
+null
+],
+"fl_storm": [
+"一場暴風雨讓全家守在屋裡，聽著窗外的風聲。",
+null,
+null,
+null,
+null
+],
+"fl_grandma_story": [
+"祖父母說了一個很久以前的故事，你一直記到老。",
+null,
+null,
+null,
+null
+],
+"fl_broken_arm": [
+"從樹上摔下來，手臂打了六週石膏。",
+null,
+null,
+null,
+null
+],
+"fl_class_play": [
+"學校表演你只演一棵樹，但你很認真地站好。",
+null,
+null,
+null,
+null
+],
+"fl_math_tears": [
+"一道數學題讓你哭了一整晚，隔天終於懂了。",
+null,
+null,
+null,
+null
+],
+"fl_library": [
+"你發現了圖書館，整個暑假都泡在那裡。",
+null,
+null,
+null,
+null
+],
+"fl_chores": [
+"放學後要幫家裡做事，功課只能在燈下趕。",
+null,
+null,
+null,
+null
+],
+"fl_new_shoes": [
+"家裡終於買了一雙新鞋給你，你捨不得穿。",
+null,
+null,
+null,
+null
+],
+"fl_moving_house": [
+"全家搬家了，你得重新認識一整條街的人。",
+null,
+null,
+null,
+null
+],
+"fl_pet_dies": [
+"家裡的寵物走了，你第一次懂得什麼叫告別。",
+null,
+null,
+null,
+null
+],
+"fl_birthday_cake": [
+"這年的生日蛋糕上插滿了蠟燭，你許的願到現在還沒告訴任何人。",
+null,
+null,
+null,
+null
+],
+"fl_crush": [
+"你暗戀一個人，卻一句話也沒說出口。",
+null,
+null,
+null,
+null
+],
+"fl_first_phone": [
+"你有了第一支手機，晚上偷偷在被窩裡傳訊息。",
+null,
+null,
+null,
+null
+],
+"fl_radio": [
+"你守在收音機旁，等一首喜歡的歌。",
+null,
+null,
+null,
+null
+],
+"fl_exam_stress": [
+"考試季來了，桌上的參考書堆得比你還高。",
+null,
+null,
+null,
+null
+],
+"fl_band": [
+"你和朋友組了一個樂團，只會三個和弦。",
+null,
+null,
+null,
+null
+],
+"fl_sports_win": [
+"你的隊伍拿下了校際比賽冠軍。",
+null,
+null,
+null,
+null
+],
+"fl_detention": [
+"你被留校察看，原因你到現在還覺得冤枉。",
+null,
+null,
+null,
+null
+],
+"fl_part_time": [
+"第一份打工：時薪不高，但你第一次用自己賺的錢買東西。",
+null,
+null,
+null,
+null
+],
+"fl_rebel": [
+"你和父母大吵一架，摔門而出，半夜又自己回家。",
+null,
+null,
+null,
+null
+],
+"fl_diary": [
+"你開始寫日記，寫滿了一整本。",
+null,
+null,
+null,
+null
+],
+"fl_mentor": [
+"一位老師看見了你的潛力，說了一句你一直記得的話。",
+null,
+null,
+null,
+null
+],
+"fl_first_apartment": [
+"你搬進第一間自己的小套房，房租讓你心疼。",
+null,
+null,
+null,
+null
+],
+"fl_roadtrip": [
+"和朋友來了一趟說走就走的旅行。",
+null,
+null,
+null,
+null
+],
+"fl_heartbreak": [
+"一段感情結束了，你聽了好幾個月的悲傷情歌。",
+null,
+null,
+null,
+null
+],
+"fl_night_shift": [
+"連續上了好幾個月的夜班，生理時鐘全亂了。",
+null,
+null,
+null,
+null
+],
+"fl_driving": [
+"考到駕照，第一次自己開車上路。",
+null,
+null,
+null,
+null
+],
+"fl_coworker_friend": [
+"你和一位同事成了真正的朋友。",
+null,
+null,
+null,
+null
+],
+"fl_bad_boss": [
+"新主管很難相處，每天上班都像打仗。",
+null,
+null,
+null,
+null
+],
+"fl_side_project": [
+"你在下班後做了一個小專案，竟然有人喜歡。",
+null,
+null,
+null,
+null
+],
+"fl_gym": [
+"你開始規律運動，爬樓梯不再喘。",
+null,
+null,
+null,
+null
+],
+"fl_wedding_guest": [
+"這年喝了好幾場喜酒，紅包花了 {amount}。",
+null,
+null,
+null,
+null
+],
+"fl_reunion": [
+"同學會上，大家都變了，又好像都沒變。",
+null,
+null,
+null,
+null
+],
+"fl_language": [
+"你開始學一門新的語言，從「你好」開始。",
+null,
+null,
+null,
+null
+],
+"fl_volunteer": [
+"你去當志工，回家時很累，心裡卻很踏實。",
+null,
+null,
+null,
+null
+],
+"fl_burnout": [
+"工作壓力讓你失眠，第一次覺得自己快撐不下去。",
+null,
+null,
+null,
+null
+],
+"fl_raise_small": [
+"年終考績不錯，加薪幅度不大，還是讓你開心了一下。",
+null,
+null,
+null,
+null
+],
+"fl_layoff_scare": [
+"公司傳出裁員風聲，你提心吊膽了好幾個月。",
+null,
+null,
+null,
+null
+],
+"fl_concert": [
+"你終於看到了喜歡多年的歌手現場演出。",
+null,
+null,
+null,
+null
+],
+"fl_scam": [
+"差點被詐騙集團騙走錢，好險及時發現。",
+null,
+null,
+null,
+null
+],
+"fl_scam_lost": [
+"被詐騙損失了 {amount}，你很久都不好意思說。",
+null,
+null,
+null,
+null
+],
+"fl_kid_first_word": [
+"孩子說出第一個詞，你錄了下來，重看了好幾遍。",
+null,
+null,
+null,
+null
+],
+"fl_kid_school": [
+"孩子第一天上學，換你在門口捨不得離開。",
+null,
+null,
+null,
+null
+],
+"fl_kid_sick": [
+"孩子半夜發燒，你抱著孩子等天亮。",
+null,
+null,
+null,
+null
+],
+"fl_kid_teen": [
+"孩子進入青春期，房門關上的時間越來越長。",
+null,
+null,
+null,
+null
+],
+"fl_kid_grad": [
+"孩子畢業了，你在台下比孩子還緊張。",
+null,
+null,
+null,
+null
+],
+"fl_kid_moves_out": [
+"孩子搬出去住，家裡突然安靜得不習慣。",
+null,
+null,
+null,
+null
+],
+"fl_anniversary": [
+"結婚紀念日，你們回到第一次約會的地方。",
+null,
+null,
+null,
+null
+],
+"fl_marital_fight": [
+"和另一半為了錢吵了一架，冷戰了三天。",
+null,
+null,
+null,
+null
+],
+"fl_inlaws": [
+"逢年過節回老家，被親戚問東問西。",
+null,
+null,
+null,
+null
+],
+"fl_grandchild": [
+"你當祖父母了。抱著小小的孫子，覺得時間繞了一圈。",
+null,
+null,
+null,
+null
+],
+"fl_family_dinner": [
+"一家人難得到齊吃一頓飯，大家都捨不得離席。",
+null,
+null,
+null,
+null
+],
+"fl_parent_dies": [
+"你的父親或母親走了。整理遺物時，你找到一張自己小時候的照片。",
+null,
+null,
+null,
+null
+],
+"fl_new_skill": [
+"公司導入新系統，你硬著頭皮學會了。",
+null,
+null,
+null,
+null
+],
+"fl_career_doubt": [
+"你開始懷疑這份工作是不是自己想要的。",
+null,
+null,
+null,
+null
+],
+"fl_back_pain": [
+"腰痛找上門，你開始認真挑椅子。",
+null,
+null,
+null,
+null
+],
+"fl_glasses": [
+"你發現看字要拿遠一點——老花眼來了。",
+null,
+null,
+null,
+null
+],
+"fl_house_repair": [
+"房子漏水，修繕花了 {amount}。",
+null,
+null,
+null,
+null
+],
+"fl_garden": [
+"你在陽台種了一排植物，每天早上都去看它們長了多少。",
+null,
+null,
+null,
+null
+],
+"fl_cooking": [
+"你學會了一道拿手菜，從此家族聚餐都由你掌廚。",
+null,
+null,
+null,
+null
+],
+"fl_mid_trip": [
+"你去了一個從小就想去的地方。",
+null,
+null,
+null,
+null
+],
+"fl_health_check": [
+"健康檢查有幾項紅字，醫生要你少吃鹽。",
+null,
+null,
+null,
+null
+],
+"fl_quit_smoking": [
+"你戒掉了一個壞習慣，前三個月最難熬。",
+null,
+null,
+null,
+null
+],
+"fl_lottery_small": [
+"中了一張小獎發票，剛好夠請大家喝飲料。",
+null,
+null,
+null,
+null
+],
+"fl_award_work": [
+"你拿到公司年度表揚，上台時腦袋一片空白。",
+null,
+null,
+null,
+null
+],
+"fl_teach": [
+"你開始帶新人，發現教別人比自己做還難。",
+null,
+null,
+null,
+null
+],
+"fl_economy_bad": [
+"景氣變差，物價上漲，薪水卻沒動。",
+null,
+null,
+null,
+null
+],
+"fl_neighbors": [
+"新鄰居搬來，送了一盤自己做的點心。",
+null,
+null,
+null,
+null
+],
+"fl_retire_hobby": [
+"退休後你學起書法和木工，每天都有事做。",
+null,
+null,
+null,
+null
+],
+"fl_grandkid_visit": [
+"孫子來家裡過暑假，屋子又熱鬧了起來。",
+null,
+null,
+null,
+null
+],
+"fl_old_friend": [
+"老朋友打電話來，兩人聊到電話發燙。",
+null,
+null,
+null,
+null
+],
+"fl_fall": [
+"在家裡滑了一跤，休養了好一陣子。",
+null,
+null,
+null,
+null
+],
+"fl_memory": [
+"你開始忘記一些小事，鑰匙常常找不到。",
+null,
+null,
+null,
+null
+],
+"fl_photo_album": [
+"你翻出一本舊相簿，一張張看到半夜。",
+null,
+null,
+null,
+null
+],
+"fl_walk_park": [
+"每天早上去公園走一圈，和一群老朋友打招呼。",
+null,
+null,
+null,
+null
+],
+"fl_hospital_stay": [
+"住院一週，護理師都叫得出你的名字了。",
+null,
+null,
+null,
+null
+],
+"fl_digital": [
+"孫子教你用視訊通話，你學得比想像中快。",
+null,
+null,
+null,
+null
+],
+"fl_funeral_friend": [
+"參加了一位老友的告別式，回家的路走得特別慢。",
+null,
+null,
+null,
+null
+],
+"fl_will": [
+"你寫好了遺囑，心裡反而踏實了。",
+null,
+null,
+null,
+null
+],
+"fl_birthday_old": [
+"全家人為你慶生，蠟燭多到要分兩次吹。",
+null,
+null,
+null,
+null
+],
+"fl_moon_landing": [
+"全家擠在電視前，看人類第一次登上月球。",
+null,
+null,
+null,
+null
+],
+"fl_internet": [
+"你第一次上網，撥接數據機的聲音你一直記得。",
+null,
+null,
+null,
+null
+],
+"fl_pandemic": [
+"疫情來了，街上空蕩蕩，大家都戴上了口罩。",
+null,
+null,
+null,
+null
+],
+"fl_financial_crisis": [
+"金融海嘯，新聞每天都在報誰又被裁員。",
+null,
+null,
+null,
+null
+],
+"fl_oil_shock": [
+"石油危機，加油站排起長龍，物價一路上漲。",
+null,
+null,
+null,
+null
+],
+"fl_y2k": [
+"跨年夜大家擔心電腦會出錯，結果什麼事也沒發生。",
+null,
+null,
+null,
+null
+],
+"fl_smartphone": [
+"你換了智慧型手機，從此低頭的時間變多了。",
+null,
+null,
+null,
+null
+],
+"fl_drought": [
+"乾旱讓收成大減，全家省吃儉用。",
+null,
+null,
+null,
+null
+],
+"fl_rainy_harvest": [
+"這年雨水剛好，田裡收成不錯。",
+null,
+null,
+null,
+null
+],
+"fl_power_cut": [
+"停電好幾天，晚上全家點著蠟燭聊天。",
+null,
+null,
+null,
+null
+],
+"fl_city_lights": [
+"你第一次進城，被滿街的燈光嚇了一跳。",
+null,
+null,
+null,
+null
+],
+"fl_festival": [
+"過節的夜裡，全家圍在一起，屋外熱鬧得不得了。",
+null,
+null,
+null,
+null
+],
+"rt_giftParents": [
+"照例給爸媽包了紅包（{amount}）。",
+null,
+null,
+null,
+null
+],
+"rt_tripHome": [
+"照每年的習慣，出門小旅行了一趟（{amount}）。",
+null,
+null,
+null,
+null
+],
+"rt_donateSmall": [
+"今年也固定捐了一筆小錢（{amount}）。",
+null,
+null,
+null,
+null
+],
+"rt_gym": [
+"健身房會員又續了一年（{amount}）。",
+null,
+null,
+null,
+null
+],
+"rt_checkup": [
+"做了每年一次的健康檢查（{amount}）。",
+null,
+null,
+null,
+null
+],
+"ev_lost_tooth": [
+"門牙掉了，你把它放在枕頭底下。",
+null,
+null,
+null,
+null
+],
+"ev_snow_day": [
+"難得下了一場大雪，你堆了人生第一個雪人。",
+null,
+null,
+null,
+null
+],
+"ev_spelling_bee": [
+"你在拼字比賽拿了第三名。",
+null,
+null,
+null,
+null
+],
+"ev_tree_climb": [
+"你爬上了家附近最高的那棵樹。",
+null,
+null,
+null,
+null
+],
+"ev_school_lunch": [
+"學校開始供應免費營養午餐。",
+null,
+null,
+null,
+null
+],
+"ev_measles": [
+"你出了麻疹，在床上躺了兩個星期。",
+null,
+null,
+null,
+null
+],
+"ev_vaccine_day": [
+"你哭著打完了預防針，換到一支棒棒糖。",
+null,
+null,
+null,
+null
+],
+"ev_first_swim": [
+"你第一次不靠游泳圈游完一段距離。",
+null,
+null,
+null,
+null
+],
+"ev_puppy_love": [
+"你偷偷在課本上寫了某個同學的名字。",
+null,
+null,
+null,
+null
+],
+"ev_grandparent_dies": [
+"疼你的祖父母走了，你第一次參加告別式。",
+null,
+null,
+null,
+null
+],
+"ev_family_trip_kid": [
+"全家第一次搭飛機出去玩。",
+null,
+null,
+null,
+null
+],
+"ev_hand_me_down": [
+"你又穿上哥哥姊姊留下來的舊衣服。",
+null,
+null,
+null,
+null
+],
+"ev_school_bus": [
+"你開始自己搭公車上學。",
+null,
+null,
+null,
+null
+],
+"ev_long_walk_school": [
+"上學要走一個多小時的路。",
+null,
+null,
+null,
+null
+],
+"ev_comic_hero": [
+"你迷上一部漫畫，每週等著新的一集。",
+null,
+null,
+null,
+null
+],
+"ev_star_gazing": [
+"夏夜裡第一次認出了北斗七星。",
+null,
+null,
+null,
+null
+],
+"ev_class_leader": [
+"你被選為班長。",
+null,
+null,
+null,
+null
+],
+"ev_teacher_praise": [
+"老師在全班面前稱讚你的作業。",
+null,
+null,
+null,
+null
+],
+"ev_puberty": [
+"身體開始變化，你對著鏡子看了好久。",
+null,
+null,
+null,
+null
+],
+"ev_acne": [
+"臉上冒出好多痘痘。",
+null,
+null,
+null,
+null
+],
+"ev_growth_spurt": [
+"一年之內你長高了快十公分。",
+null,
+null,
+null,
+null
+],
+"ev_first_paycheck_teen": [
+"你拿到第一份打工薪水，請家人吃了一頓飯。",
+null,
+null,
+null,
+null
+],
+"ev_school_trip": [
+"畢業旅行，你們整晚沒睡。",
+null,
+null,
+null,
+null
+],
+"ev_yearbook": [
+"同學在你的畢業紀念冊上寫滿了留言。",
+null,
+null,
+null,
+null
+],
+"ev_exam_pass": [
+"放榜了，你考得比預期還好。",
+null,
+null,
+null,
+null
+],
+"ev_exam_fail": [
+"放榜了，結果不如預期。",
+null,
+null,
+null,
+null
+],
+"ev_bad_haircut": [
+"理髮師把你的頭髮剪壞了，你戴了一個月帽子。",
+null,
+null,
+null,
+null
+],
+"ev_lost_phone": [
+"手機掉在計程車上，再也找不回來。",
+null,
+null,
+null,
+null
+],
+"ev_first_kiss": [
+"你的初吻，緊張到忘了呼吸。",
+null,
+null,
+null,
+null
+],
+"ev_friend_betray": [
+"最信任的朋友把你的祕密說了出去。",
+null,
+null,
+null,
+null
+],
+"ev_campus_love": [
+"你在學校裡談了一場戀愛。",
+null,
+null,
+null,
+null
+],
+"ev_all_nighter": [
+"期末週連續熬了三個通宵。",
+null,
+null,
+null,
+null
+],
+"ev_scholarship": [
+"你拿到一筆獎學金。",
+null,
+null,
+null,
+null
+],
+"ev_interview_fail": [
+"面試了十家公司，只收到一封回覆。",
+null,
+null,
+null,
+null
+],
+"ev_commute_long": [
+"每天通勤來回要三個小時。",
+null,
+null,
+null,
+null
+],
+"ev_office_crush": [
+"你對隔壁部門的同事有好感。",
+null,
+null,
+null,
+null
+],
+"ev_pay_raise_big": [
+"老闆主動幫你大幅加薪。",
+null,
+null,
+null,
+null
+],
+"ev_team_dinner": [
+"部門聚餐，大家喝到很晚。",
+null,
+null,
+null,
+null
+],
+"ev_work_trip": [
+"第一次出差到國外。",
+null,
+null,
+null,
+null
+],
+"ev_coworker_leaves": [
+"最合得來的同事離職了。",
+null,
+null,
+null,
+null
+],
+"ev_back_to_school": [
+"你重新坐進教室，這次是自己想學。",
+null,
+null,
+null,
+null
+],
+"ev_moving_city": [
+"你搬到一個新的城市，一切從頭開始。",
+null,
+null,
+null,
+null
+],
+"ev_robbery": [
+"你在街上被搶了。",
+null,
+null,
+null,
+null
+],
+"ev_car_accident": [
+"出了一場車禍，幸好沒有大礙。",
+null,
+null,
+null,
+null
+],
+"ev_jury_story": [
+"你在法院旁聽了一場審判，回家想了很久。",
+null,
+null,
+null,
+null
+],
+"ev_fine_ticket": [
+"收到一張超速罰單。",
+null,
+null,
+null,
+null
+],
+"ev_arrested_wrong": [
+"你被誤認成嫌犯，在警局待了一整夜。",
+null,
+null,
+null,
+null
+],
+"ev_back_injury": [
+"搬東西時閃到腰，躺了一個星期。",
+null,
+null,
+null,
+null
+],
+"ev_chronic": [
+"醫生說你有慢性病，要長期吃藥。",
+null,
+null,
+null,
+null
+],
+"ev_disability": [
+"一場意外讓你的行動變得不方便。",
+null,
+null,
+null,
+null
+],
+"ev_recover": [
+"你從一場大病中慢慢康復。",
+null,
+null,
+null,
+null
+],
+"ev_insomnia": [
+"你連續好幾個月睡不好。",
+null,
+null,
+null,
+null
+],
+"ev_depression": [
+"有一段時間，你每天都提不起勁。",
+null,
+null,
+null,
+null
+],
+"ev_therapy_help": [
+"找人談過之後，心裡輕鬆了很多。",
+null,
+null,
+null,
+null
+],
+"ev_newborn_night": [
+"孩子每兩個小時就哭一次，你幾乎沒睡。",
+null,
+null,
+null,
+null
+],
+"ev_kid_award": [
+"孩子在學校得了獎，你比他還高興。",
+null,
+null,
+null,
+null
+],
+"ev_kid_trouble": [
+"老師打電話來，說孩子在學校惹了麻煩。",
+null,
+null,
+null,
+null
+],
+"ev_kid_wedding": [
+"你看著孩子走上紅毯。",
+null,
+null,
+null,
+null
+],
+"ev_empty_nest": [
+"最小的孩子也搬出去了，家裡突然好安靜。",
+null,
+null,
+null,
+null
+],
+"ev_parent_sick": [
+"爸媽住院了，你請假在醫院陪了幾天。",
+null,
+null,
+null,
+null
+],
+"ev_sibling_wedding": [
+"兄弟姊妹結婚了，你當伴郎伴娘。",
+null,
+null,
+null,
+null
+],
+"ev_niece_born": [
+"你當上了舅舅、阿姨或叔叔、姑姑。",
+null,
+null,
+null,
+null
+],
+"ev_family_feud": [
+"為了一點小事，你和兄弟姊妹好幾年不說話。",
+null,
+null,
+null,
+null
+],
+"ev_reconcile": [
+"多年的心結，終於在一頓飯裡解開。",
+null,
+null,
+null,
+null
+],
+"ev_pet_old": [
+"陪你很多年的寵物離開了。",
+null,
+null,
+null,
+null
+],
+"ev_new_pet": [
+"家裡多了一隻新來的毛孩。",
+null,
+null,
+null,
+null
+],
+"ev_church_choir": [
+"你加入了社區的合唱團。",
+null,
+null,
+null,
+null
+],
+"ev_pilgrimage": [
+"你完成了一趟心願中的朝聖之旅。",
+null,
+null,
+null,
+null
+],
+"ev_bonus": [
+"今年公司業績好，獎金比預期多。",
+null,
+null,
+null,
+null
+],
+"ev_tax_refund": [
+"收到一筆退稅。",
+null,
+null,
+null,
+null
+],
+"ev_broken_fridge": [
+"冰箱壞了，只好換一台新的。",
+null,
+null,
+null,
+null
+],
+"ev_debt_paid": [
+"終於把學貸還清了。",
+null,
+null,
+null,
+null
+],
+"ev_inheritance_small": [
+"一位遠親過世，留給你一筆錢。",
+null,
+null,
+null,
+null
+],
+"ev_price_up": [
+"菜價又漲了，你在市場裡算了好久。",
+null,
+null,
+null,
+null
+],
+"ev_flood_damage": [
+"一場大水沖壞了家裡的東西。",
+null,
+null,
+null,
+null
+],
+"ev_earthquake": [
+"半夜一場大地震，你抱著家人躲在桌下。",
+null,
+null,
+null,
+null
+],
+"ev_heat_stroke": [
+"熱浪那幾天，你中暑進了急診。",
+null,
+null,
+null,
+null
+],
+"ev_war_news": [
+"新聞每天都在報導遠方的戰爭。",
+null,
+null,
+null,
+null
+],
+"ev_refugee_neighbor": [
+"逃離戰火的一家人搬到你家隔壁。",
+null,
+null,
+null,
+null
+],
+"ev_retire_party": [
+"同事為你辦了一場退休歡送會。",
+null,
+null,
+null,
+null
+],
+"ev_grandkid_born": [
+"你當阿公阿嬤了。",
+null,
+null,
+null,
+null
+],
+"ev_dance_square": [
+"你每天傍晚去公園跳舞。",
+null,
+null,
+null,
+null
+],
+"ev_cataract": [
+"做了白內障手術，世界又清楚起來。",
+null,
+null,
+null,
+null
+],
+"ev_old_classmate_dies": [
+"又一位老同學走了。",
+null,
+null,
+null,
+null
+],
+"ev_birthday_party_old": [
+"孩子們幫你辦了一場熱鬧的壽宴。",
+null,
+null,
+null,
+null
+],
+"ev_slow_walk": [
+"你走路越來越慢，上樓梯要扶著欄杆。",
+null,
+null,
+null,
+null
+],
+"ev_tell_stories": [
+"孫子坐在你身邊，聽你講以前的事。",
+null,
+null,
+null,
+null
+],
+"ev_bank_account": [
+"你開了人生第一個銀行帳戶。",
+null,
+null,
+null,
+null
+],
+"ev_garage_sale": [
+"你把用不到的東西拿去二手市集賣掉。",
+null,
+null,
+null,
+null
+],
+"ev_spouse_hospital": [
+"另一半住院了，你每天往返醫院。",
+null,
+null,
+null,
+null
+],
+"ch_d_pet_ask_beg": [
+"「你一直吵著想養一隻狗」——你決定：每天纏著爸媽。",
+null,
+null,
+null,
+null
+],
+"ch_d_pet_ask_drop": [
+"「你一直吵著想養一隻狗」——你決定：算了，改養金魚。",
+null,
+null,
+null,
+null
+],
+"ch_d_lost_wallet_return": [
+"「放學路上撿到一個鼓鼓的錢包」——你決定：交給警察局。",
+null,
+null,
+null,
+null
+],
+"ch_d_lost_wallet_keep": [
+"「放學路上撿到一個鼓鼓的錢包」——你決定：偷偷留下零錢。",
+null,
+null,
+null,
+null
+],
+"ch_d_bully_seen_help": [
+"「同學在走廊被欺負，大家都假裝沒看到」——你決定：站出來幫他。",
+null,
+null,
+null,
+null
+],
+"ch_d_bully_seen_tell": [
+"「同學在走廊被欺負，大家都假裝沒看到」——你決定：去告訴老師。",
+null,
+null,
+null,
+null
+],
+"ch_d_bully_seen_walk": [
+"「同學在走廊被欺負，大家都假裝沒看到」——你決定：低頭走過去。",
+null,
+null,
+null,
+null
+],
+"ch_d_piano_quit_keep": [
+"「學了兩年的鋼琴，你說想放棄」——你決定：再撐一下。",
+null,
+null,
+null,
+null
+],
+"ch_d_piano_quit_quit": [
+"「學了兩年的鋼琴，你說想放棄」——你決定：說停就停。",
+null,
+null,
+null,
+null
+],
+"ch_d_school_play_try": [
+"「老師要選人演學校話劇的主角」——你決定：舉手試試。",
+null,
+null,
+null,
+null
+],
+"ch_d_school_play_back": [
+"「老師要選人演學校話劇的主角」——你決定：躲在後排。",
+null,
+null,
+null,
+null
+],
+"ch_d_comic_or_book_comic": [
+"「零用錢只夠買一樣東西」——你決定：整套漫畫。",
+null,
+null,
+null,
+null
+],
+"ch_d_comic_or_book_book": [
+"「零用錢只夠買一樣東西」——你決定：一本百科全書。",
+null,
+null,
+null,
+null
+],
+"ch_d_cheat_test_no": [
+"「隔壁同學考試時把答案推過來」——你決定：推回去。",
+null,
+null,
+null,
+null
+],
+"ch_d_cheat_test_peek": [
+"「隔壁同學考試時把答案推過來」——你決定：偷看一眼。",
+null,
+null,
+null,
+null
+],
+"ch_d_sick_day_rest": [
+"「你有點咳嗽，明天要不要請假」——你決定：在家休息。",
+null,
+null,
+null,
+null
+],
+"ch_d_sick_day_go": [
+"「你有點咳嗽，明天要不要請假」——你決定：硬撐去上學。",
+null,
+null,
+null,
+null
+],
+"ch_d_new_kid_friend": [
+"「班上轉來一個不太會說本地話的同學」——你決定：主動跟他當朋友。",
+null,
+null,
+null,
+null
+],
+"ch_d_new_kid_watch": [
+"「班上轉來一個不太會說本地話的同學」——你決定：先觀察看看。",
+null,
+null,
+null,
+null
+],
+"ch_d_field_trip_go": [
+"「校外教學要繳一筆不小的費用」——你決定：求爸媽讓你去。",
+null,
+null,
+null,
+null
+],
+"ch_d_field_trip_skip": [
+"「校外教學要繳一筆不小的費用」——你決定：說自己不想去。",
+null,
+null,
+null,
+null
+],
+"ch_d_grandpa_farm_help": [
+"「爺爺問你暑假要不要去田裡幫忙」——你決定：跟著下田。",
+null,
+null,
+null,
+null
+],
+"ch_d_grandpa_farm_play": [
+"「爺爺問你暑假要不要去田裡幫忙」——你決定：留在家玩。",
+null,
+null,
+null,
+null
+],
+"ch_d_tv_time_hw": [
+"「卡通播完了，作業還沒寫」——你決定：關掉電視寫作業。",
+null,
+null,
+null,
+null
+],
+"ch_d_tv_time_more": [
+"「卡通播完了，作業還沒寫」——你決定：再看一集。",
+null,
+null,
+null,
+null
+],
+"ch_d_broken_vase_admit": [
+"「你不小心打破了媽媽最喜歡的花瓶」——你決定：老實承認。",
+null,
+null,
+null,
+null
+],
+"ch_d_broken_vase_hide": [
+"「你不小心打破了媽媽最喜歡的花瓶」——你決定：偷偷藏起碎片。",
+null,
+null,
+null,
+null
+],
+"ch_d_sports_day_run": [
+"「運動會的接力賽少一個人」——你決定：報名跑最後一棒。",
+null,
+null,
+null,
+null
+],
+"ch_d_sports_day_cheer": [
+"「運動會的接力賽少一個人」——你決定：在旁邊加油。",
+null,
+null,
+null,
+null
+],
+"ch_d_secret_club_join": [
+"「鄰居小孩找你一起蓋祕密基地」——你決定：加入。",
+null,
+null,
+null,
+null
+],
+"ch_d_secret_club_home": [
+"「鄰居小孩找你一起蓋祕密基地」——你決定：太危險，不去。",
+null,
+null,
+null,
+null
+],
+"ch_d_glasses_kid_tell": [
+"「你看黑板越來越模糊」——你決定：告訴爸媽去配眼鏡。",
+null,
+null,
+null,
+null
+],
+"ch_d_glasses_kid_squint": [
+"「你看黑板越來越模糊」——你決定：瞇著眼撐著。",
+null,
+null,
+null,
+null
+],
+"ch_d_sibling_toy_share": [
+"「弟妹想玩你最寶貝的玩具」——你決定：借他玩。",
+null,
+null,
+null,
+null
+],
+"ch_d_sibling_toy_keep": [
+"「弟妹想玩你最寶貝的玩具」——你決定：藏起來。",
+null,
+null,
+null,
+null
+],
+"ch_d_chores_pay_help": [
+"「家裡請你下課後幫忙顧攤子」——你決定：每天去幫忙。",
+null,
+null,
+null,
+null
+],
+"ch_d_chores_pay_study": [
+"「家裡請你下課後幫忙顧攤子」——你決定：先把功課顧好。",
+null,
+null,
+null,
+null
+],
+"ch_d_essay_contest_enter": [
+"「老師推薦你參加作文比賽」——你決定：參加。",
+null,
+null,
+null,
+null
+],
+"ch_d_essay_contest_pass": [
+"「老師推薦你參加作文比賽」——你決定：太麻煩了。",
+null,
+null,
+null,
+null
+],
+"ch_d_lunch_money_tell": [
+"「午餐錢被高年級的拿走了」——你決定：告訴大人。",
+null,
+null,
+null,
+null
+],
+"ch_d_lunch_money_quiet": [
+"「午餐錢被高年級的拿走了」——你決定：默默餓肚子。",
+null,
+null,
+null,
+null
+],
+"ch_d_club_choice_sport": [
+"「社團博覽會，你要加入哪一個」——你決定：球隊。",
+null,
+null,
+null,
+null
+],
+"ch_d_club_choice_science": [
+"「社團博覽會，你要加入哪一個」——你決定：科學社。",
+null,
+null,
+null,
+null
+],
+"ch_d_club_choice_music": [
+"「社團博覽會，你要加入哪一個」——你決定：熱音社。",
+null,
+null,
+null,
+null
+],
+"ch_d_cram_school_go": [
+"「同學都去補習班了」——你決定：也去報名。",
+null,
+null,
+null,
+null
+],
+"ch_d_cram_school_self": [
+"「同學都去補習班了」——你決定：自己讀。",
+null,
+null,
+null,
+null
+],
+"ch_d_party_invite_go": [
+"「週末有人約你去一個大人不在的派對」——你決定：去看看。",
+null,
+null,
+null,
+null
+],
+"ch_d_party_invite_stay": [
+"「週末有人約你去一個大人不在的派對」——你決定：找藉口不去。",
+null,
+null,
+null,
+null
+],
+"ch_d_first_date_yes": [
+"「喜歡的人約你週末去看電影」——你決定：答應。",
+null,
+null,
+null,
+null
+],
+"ch_d_first_date_shy": [
+"「喜歡的人約你週末去看電影」——你決定：害羞拒絕。",
+null,
+null,
+null,
+null
+],
+"ch_d_smoke_offer_no": [
+"「朋友遞給你一根菸」——你決定：搖頭。",
+null,
+null,
+null,
+null
+],
+"ch_d_smoke_offer_try": [
+"「朋友遞給你一根菸」——你決定：抽一口試試。",
+null,
+null,
+null,
+null
+],
+"ch_d_summer_job_work": [
+"「暑假可以去打工」——你決定：去超商打工。",
+null,
+null,
+null,
+null
+],
+"ch_d_summer_job_rest": [
+"「暑假可以去打工」——你決定：好好放假。",
+null,
+null,
+null,
+null
+],
+"ch_d_stream_choice_sci": [
+"「要選文組還是理組」——你決定：理組。",
+null,
+null,
+null,
+null
+],
+"ch_d_stream_choice_arts": [
+"「要選文組還是理組」——你決定：文組。",
+null,
+null,
+null,
+null
+],
+"ch_d_stream_choice_art": [
+"「要選文組還是理組」——你決定：藝術班。",
+null,
+null,
+null,
+null
+],
+"ch_d_phone_night_sleep": [
+"「凌晨一點了，你還在滑手機」——你決定：放下去睡。",
+null,
+null,
+null,
+null
+],
+"ch_d_phone_night_scroll": [
+"「凌晨一點了，你還在滑手機」——你決定：再滑一下。",
+null,
+null,
+null,
+null
+],
+"ch_d_exchange_go": [
+"「學校有一個出國交換一年的名額」——你決定：申請。",
+null,
+null,
+null,
+null
+],
+"ch_d_exchange_stay": [
+"「學校有一個出國交換一年的名額」——你決定：留在家鄉。",
+null,
+null,
+null,
+null
+],
+"ch_d_fight_parents_sorry": [
+"「和爸媽為了門禁大吵一架」——你決定：先低頭道歉。",
+null,
+null,
+null,
+null
+],
+"ch_d_fight_parents_door": [
+"「和爸媽為了門禁大吵一架」——你決定：甩門回房間。",
+null,
+null,
+null,
+null
+],
+"ch_d_dropout_friend_stay": [
+"「好朋友說要休學去工作，問你要不要一起」——你決定：留在學校。",
+null,
+null,
+null,
+null
+],
+"ch_d_dropout_friend_join": [
+"「好朋友說要休學去工作，問你要不要一起」——你決定：一起去工作。",
+null,
+null,
+null,
+null
+],
+"ch_d_volunteer_teen_elder": [
+"「學校要求志工時數」——你決定：去養老院陪長輩。",
+null,
+null,
+null,
+null
+],
+"ch_d_volunteer_teen_beach": [
+"「學校要求志工時數」——你決定：去淨灘。",
+null,
+null,
+null,
+null
+],
+"ch_d_band_teen_join": [
+"「朋友組樂團缺一個鼓手」——你決定：加入。",
+null,
+null,
+null,
+null
+],
+"ch_d_band_teen_no": [
+"「朋友組樂團缺一個鼓手」——你決定：專心念書。",
+null,
+null,
+null,
+null
+],
+"ch_d_driving_teen_now": [
+"「可以去考機車或汽車駕照了」——你決定：馬上去考。",
+null,
+null,
+null,
+null
+],
+"ch_d_driving_teen_later": [
+"「可以去考機車或汽車駕照了」——你決定：以後再說。",
+null,
+null,
+null,
+null
+],
+"ch_d_diet_teen_sport": [
+"「你開始在意自己的身材」——你決定：多運動。",
+null,
+null,
+null,
+null
+],
+"ch_d_diet_teen_skip": [
+"「你開始在意自己的身材」——你決定：不吃晚餐。",
+null,
+null,
+null,
+null
+],
+"ch_d_diet_teen_ok": [
+"「你開始在意自己的身材」——你決定：覺得現在就很好。",
+null,
+null,
+null,
+null
+],
+"ch_d_olympiad_join": [
+"「老師問你要不要參加數理競賽集訓」——你決定：參加。",
+null,
+null,
+null,
+null
+],
+"ch_d_olympiad_no": [
+"「老師問你要不要參加數理競賽集訓」——你決定：不了。",
+null,
+null,
+null,
+null
+],
+"ch_d_gaming_teen_play": [
+"「新出的線上遊戲大家都在玩」——你決定：每天打到半夜。",
+null,
+null,
+null,
+null
+],
+"ch_d_gaming_teen_limit": [
+"「新出的線上遊戲大家都在玩」——你決定：只在週末玩。",
+null,
+null,
+null,
+null
+],
+"ch_d_part_love_long": [
+"「交往的對象要搬到別的城市」——你決定：試試遠距離。",
+null,
+null,
+null,
+null
+],
+"ch_d_part_love_end": [
+"「交往的對象要搬到別的城市」——你決定：好好分手。",
+null,
+null,
+null,
+null
+],
+"ch_d_tattoo_do": [
+"「你想去刺青」——你決定：刺一個小圖案。",
+null,
+null,
+null,
+null
+],
+"ch_d_tattoo_wait": [
+"「你想去刺青」——你決定：再想想。",
+null,
+null,
+null,
+null
+],
+"ch_d_mock_exam_push": [
+"「模擬考考砸了」——你決定：更拚命念。",
+null,
+null,
+null,
+null
+],
+"ch_d_mock_exam_relax": [
+"「模擬考考砸了」——你決定：放過自己。",
+null,
+null,
+null,
+null
+],
+"ch_d_major_switch_switch": [
+"「讀了一年，發現自己不喜歡這個科系」——你決定：轉系。",
+null,
+null,
+null,
+null
+],
+"ch_d_major_switch_stay": [
+"「讀了一年，發現自己不喜歡這個科系」——你決定：撐到畢業。",
+null,
+null,
+null,
+null
+],
+"ch_d_dorm_or_home_dorm": [
+"「要住學校宿舍還是通勤」——你決定：住宿舍。",
+null,
+null,
+null,
+null
+],
+"ch_d_dorm_or_home_home": [
+"「要住學校宿舍還是通勤」——你決定：住家裡。",
+null,
+null,
+null,
+null
+],
+"ch_d_gap_year_go": [
+"「你想休學一年去打工旅行」——你決定：出發。",
+null,
+null,
+null,
+null
+],
+"ch_d_gap_year_stay": [
+"「你想休學一年去打工旅行」——你決定：照原計畫。",
+null,
+null,
+null,
+null
+],
+"ch_d_first_job_offer_big": [
+"「兩個工作機會同時來了」——你決定：大公司、穩定。",
+null,
+null,
+null,
+null
+],
+"ch_d_first_job_offer_small": [
+"「兩個工作機會同時來了」——你決定：小公司、有趣。",
+null,
+null,
+null,
+null
+],
+"ch_d_credit_card_get": [
+"「銀行打電話推銷信用卡」——你決定：辦一張。",
+null,
+null,
+null,
+null
+],
+"ch_d_credit_card_no": [
+"「銀行打電話推銷信用卡」——你決定：不需要。",
+null,
+null,
+null,
+null
+],
+"ch_d_move_out_out": [
+"「要不要搬出去自己住」——你決定：搬出去。",
+null,
+null,
+null,
+null
+],
+"ch_d_move_out_stay": [
+"「要不要搬出去自己住」——你決定：繼續住家裡省錢。",
+null,
+null,
+null,
+null
+],
+"ch_d_roommate_talk": [
+"「室友常常不付水電費」——你決定：好好談一次。",
+null,
+null,
+null,
+null
+],
+"ch_d_roommate_move": [
+"「室友常常不付水電費」——你決定：乾脆搬走。",
+null,
+null,
+null,
+null
+],
+"ch_d_night_school_join": [
+"「公司附近有夜間進修課程」——你決定：報名。",
+null,
+null,
+null,
+null
+],
+"ch_d_night_school_no": [
+"「公司附近有夜間進修課程」——你決定：下班只想休息。",
+null,
+null,
+null,
+null
+],
+"ch_d_save_or_spend_save": [
+"「領到年終獎金」——你決定：全部存起來。",
+null,
+null,
+null,
+null
+],
+"ch_d_save_or_spend_trip": [
+"「領到年終獎金」——你決定：出國犒賞自己。",
+null,
+null,
+null,
+null
+],
+"ch_d_save_or_spend_parents": [
+"「領到年終獎金」——你決定：包給爸媽。",
+null,
+null,
+null,
+null
+],
+"ch_d_friend_loan_lend": [
+"「老朋友開口跟你借錢」——你決定：借給他。",
+null,
+null,
+null,
+null
+],
+"ch_d_friend_loan_no": [
+"「老朋友開口跟你借錢」——你決定：婉拒。",
+null,
+null,
+null,
+null
+],
+"ch_d_dating_app_try": [
+"「朋友勸你下載交友軟體」——你決定：試試看。",
+null,
+null,
+null,
+null
+],
+"ch_d_dating_app_no": [
+"「朋友勸你下載交友軟體」——你決定：還是隨緣。",
+null,
+null,
+null,
+null
+],
+"ch_d_blind_date_go": [
+"「長輩幫你安排了一場相親」——你決定：去見一面。",
+null,
+null,
+null,
+null
+],
+"ch_d_blind_date_refuse": [
+"「長輩幫你安排了一場相親」——你決定：堅決不去。",
+null,
+null,
+null,
+null
+],
+"ch_d_overtime_yes": [
+"「主管問你週末能不能加班」——你決定：答應。",
+null,
+null,
+null,
+null
+],
+"ch_d_overtime_no": [
+"「主管問你週末能不能加班」——你決定：說已經有安排。",
+null,
+null,
+null,
+null
+],
+"ch_d_job_hop_jump": [
+"「獵頭打來，說有一個薪水高三成的位置」——你決定：跳槽。",
+null,
+null,
+null,
+null
+],
+"ch_d_job_hop_stay": [
+"「獵頭打來，說有一個薪水高三成的位置」——你決定：留下來。",
+null,
+null,
+null,
+null
+],
+"ch_d_startup_idea_try": [
+"「你和朋友有一個創業點子」——你決定：晚上兼著做。",
+null,
+null,
+null,
+null
+],
+"ch_d_startup_idea_drop": [
+"「你和朋友有一個創業點子」——你決定：想想就好。",
+null,
+null,
+null,
+null
+],
+"ch_d_gym_join_join": [
+"「公司附近開了一家健身房」——你決定：辦年費。",
+null,
+null,
+null,
+null
+],
+"ch_d_gym_join_run": [
+"「公司附近開了一家健身房」——你決定：去公園跑步就好。",
+null,
+null,
+null,
+null
+],
+"ch_d_wedding_far_go": [
+"「大學同學在國外辦婚禮，邀你參加」——你決定：飛過去。",
+null,
+null,
+null,
+null
+],
+"ch_d_wedding_far_gift": [
+"「大學同學在國外辦婚禮，邀你參加」——你決定：包紅包祝福。",
+null,
+null,
+null,
+null
+],
+"ch_d_family_business_take": [
+"「爸媽希望你回家接手家裡的生意」——你決定：回家接班。",
+null,
+null,
+null,
+null
+],
+"ch_d_family_business_own": [
+"「爸媽希望你回家接手家裡的生意」——你決定：走自己的路。",
+null,
+null,
+null,
+null
+],
+"ch_d_army_now": [
+"「兵役通知來了」——你決定：馬上去當。",
+null,
+null,
+null,
+null
+],
+"ch_d_army_defer": [
+"「兵役通知來了」——你決定：先延後。",
+null,
+null,
+null,
+null
+],
+"ch_d_city_or_home_city": [
+"「大城市有工作機會，但家鄉有爸媽」——你決定：去城市打拚。",
+null,
+null,
+null,
+null
+],
+"ch_d_city_or_home_home": [
+"「大城市有工作機會，但家鄉有爸媽」——你決定：留在家鄉。",
+null,
+null,
+null,
+null
+],
+"ch_d_phd_yes": [
+"「教授問你要不要繼續讀博士」——你決定：讀下去。",
+null,
+null,
+null,
+null
+],
+"ch_d_phd_no": [
+"「教授問你要不要繼續讀博士」——你決定：去業界。",
+null,
+null,
+null,
+null
+],
+"ch_d_cohabit_yes": [
+"「交往三年的對象提議同居」——你決定：搬在一起。",
+null,
+null,
+null,
+null
+],
+"ch_d_cohabit_wait": [
+"「交往三年的對象提議同居」——你決定：再等等。",
+null,
+null,
+null,
+null
+],
+"ch_d_house_hunt_pay": [
+"「房東說要漲房租」——你決定：忍痛續租。",
+null,
+null,
+null,
+null
+],
+"ch_d_house_hunt_move": [
+"「房東說要漲房租」——你決定：搬到郊區。",
+null,
+null,
+null,
+null
+],
+"ch_d_car_buy_buy": [
+"「通勤越來越累，要不要買車」——你決定：買一台。",
+null,
+null,
+null,
+null
+],
+"ch_d_car_buy_transit": [
+"「通勤越來越累，要不要買車」——你決定：繼續搭大眾運輸。",
+null,
+null,
+null,
+null
+],
+"ch_d_promotion_move_go": [
+"「升職的條件是外派到另一個城市」——你決定：接受外派。",
+null,
+null,
+null,
+null
+],
+"ch_d_promotion_move_stay": [
+"「升職的條件是外派到另一個城市」——你決定：留在原地。",
+null,
+null,
+null,
+null
+],
+"ch_d_boss_unfair_speak": [
+"「主管把你的功勞算到別人頭上」——你決定：找主管談。",
+null,
+null,
+null,
+null
+],
+"ch_d_boss_unfair_swallow": [
+"「主管把你的功勞算到別人頭上」——你決定：吞下去。",
+null,
+null,
+null,
+null
+],
+"ch_d_kid_school_choice_near": [
+"「孩子要上學了，要選哪間學校」——你決定：家附近的公立學校。",
+null,
+null,
+null,
+null
+],
+"ch_d_kid_school_choice_private": [
+"「孩子要上學了，要選哪間學校」——你決定：昂貴的私立學校。",
+null,
+null,
+null,
+null
+],
+"ch_d_kid_school_choice_move": [
+"「孩子要上學了，要選哪間學校」——你決定：搬到好學區。",
+null,
+null,
+null,
+null
+],
+"ch_d_kid_phone_buy": [
+"「孩子吵著要一支自己的手機」——你決定：買給他。",
+null,
+null,
+null,
+null
+],
+"ch_d_kid_phone_wait": [
+"「孩子吵著要一支自己的手機」——你決定：等他大一點。",
+null,
+null,
+null,
+null
+],
+"ch_d_parent_visit_home": [
+"「爸媽打電話問你過年會不會回家」——你決定：一定回去。",
+null,
+null,
+null,
+null
+],
+"ch_d_parent_visit_work": [
+"「爸媽打電話問你過年會不會回家」——你決定：工作走不開。",
+null,
+null,
+null,
+null
+],
+"ch_d_side_hustle_take": [
+"「有人找你週末接案」——你決定：接下來。",
+null,
+null,
+null,
+null
+],
+"ch_d_side_hustle_rest": [
+"「有人找你週末接案」——你決定：週末要休息。",
+null,
+null,
+null,
+null
+],
+"ch_d_health_warning_change": [
+"「健康檢查報告有幾個紅字」——你決定：開始運動、少吃油。",
+null,
+null,
+null,
+null
+],
+"ch_d_health_warning_ignore": [
+"「健康檢查報告有幾個紅字」——你決定：下次再說。",
+null,
+null,
+null,
+null
+],
+"ch_d_midlife_hobby_do": [
+"「你很想重拾年輕時的興趣」——你決定：去報名課程。",
+null,
+null,
+null,
+null
+],
+"ch_d_midlife_hobby_later": [
+"「你很想重拾年輕時的興趣」——你決定：等退休再說。",
+null,
+null,
+null,
+null
+],
+"ch_d_marriage_counsel_counsel": [
+"「你們最近常常吵架」——你決定：一起去諮商。",
+null,
+null,
+null,
+null
+],
+"ch_d_marriage_counsel_ignore": [
+"「你們最近常常吵架」——你決定：冷處理。",
+null,
+null,
+null,
+null
+],
+"ch_d_second_house_buy": [
+"「有人推薦你投資第二間房子」——你決定：買下來出租。",
+null,
+null,
+null,
+null
+],
+"ch_d_second_house_no": [
+"「有人推薦你投資第二間房子」——你決定：一間就夠了。",
+null,
+null,
+null,
+null
+],
+"ch_d_layoff_offer_take": [
+"「公司提出優退方案」——你決定：領錢走人。",
+null,
+null,
+null,
+null
+],
+"ch_d_layoff_offer_stay": [
+"「公司提出優退方案」——你決定：繼續做。",
+null,
+null,
+null,
+null
+],
+"ch_d_kids_activity_music": [
+"「孩子想學一樣才藝」——你決定：學樂器。",
+null,
+null,
+null,
+null
+],
+"ch_d_kids_activity_sport": [
+"「孩子想學一樣才藝」——你決定：學游泳。",
+null,
+null,
+null,
+null
+],
+"ch_d_kids_activity_none": [
+"「孩子想學一樣才藝」——你決定：先不用。",
+null,
+null,
+null,
+null
+],
+"ch_d_family_trip_abroad": [
+"「暑假要不要全家出國」——你決定：出國玩。",
+null,
+null,
+null,
+null
+],
+"ch_d_family_trip_local": [
+"「暑假要不要全家出國」——你決定：附近露營。",
+null,
+null,
+null,
+null
+],
+"ch_d_insurance_pitch_buy": [
+"「親戚來推銷保險」——你決定：買一份。",
+null,
+null,
+null,
+null
+],
+"ch_d_insurance_pitch_no": [
+"「親戚來推銷保險」——你決定：客氣拒絕。",
+null,
+null,
+null,
+null
+],
+"ch_d_charity_ask_give": [
+"「慈善團體在街上募款」——你決定：捐一點。",
+null,
+null,
+null,
+null
+],
+"ch_d_charity_ask_pass": [
+"「慈善團體在街上募款」——你決定：快步走過。",
+null,
+null,
+null,
+null
+],
+"ch_d_neighbor_noise_talk": [
+"「樓上鄰居每天半夜都很吵」——你決定：上樓溝通。",
+null,
+null,
+null,
+null
+],
+"ch_d_neighbor_noise_endure": [
+"「樓上鄰居每天半夜都很吵」——你決定：戴耳塞忍耐。",
+null,
+null,
+null,
+null
+],
+"ch_d_sabbatical_go": [
+"「你考慮停薪留職一年」——你決定：去做想做的事。",
+null,
+null,
+null,
+null
+],
+"ch_d_sabbatical_no": [
+"「你考慮停薪留職一年」——你決定：不敢停下來。",
+null,
+null,
+null,
+null
+],
+"ch_d_reunion_invite_go": [
+"「同學會邀請你出席」——你決定：去聊聊近況。",
+null,
+null,
+null,
+null
+],
+"ch_d_reunion_invite_skip": [
+"「同學會邀請你出席」——你決定：不太想見面。",
+null,
+null,
+null,
+null
+],
+"ch_d_old_flame_no": [
+"「以前的戀人傳訊息約你吃飯」——你決定：禮貌拒絕。",
+null,
+null,
+null,
+null
+],
+"ch_d_old_flame_lunch": [
+"「以前的戀人傳訊息約你吃飯」——你決定：吃頓飯敘舊。",
+null,
+null,
+null,
+null
+],
+"ch_d_pet_adult_adopt": [
+"「收容所有一隻老狗沒人要」——你決定：帶牠回家。",
+null,
+null,
+null,
+null
+],
+"ch_d_pet_adult_donate": [
+"「收容所有一隻老狗沒人要」——你決定：捐一筆飼料錢。",
+null,
+null,
+null,
+null
+],
+"ch_d_lend_family_help": [
+"「兄弟姊妹做生意周轉不靈」——你決定：拿出積蓄幫忙。",
+null,
+null,
+null,
+null
+],
+"ch_d_lend_family_no": [
+"「兄弟姊妹做生意周轉不靈」——你決定：說自己也很緊。",
+null,
+null,
+null,
+null
+],
+"ch_d_learn_tech_learn": [
+"「公司導入新的系統，很多人跟不上」——你決定：主動去學。",
+null,
+null,
+null,
+null
+],
+"ch_d_learn_tech_avoid": [
+"「公司導入新的系統，很多人跟不上」——你決定：能閃就閃。",
+null,
+null,
+null,
+null
+],
+"ch_d_burnout_rest_leave": [
+"「你覺得自己快撐不下去了」——你決定：請長假。",
+null,
+null,
+null,
+null
+],
+"ch_d_burnout_rest_push": [
+"「你覺得自己快撐不下去了」——你決定：再撐一下。",
+null,
+null,
+null,
+null
+],
+"ch_d_downsize_sell": [
+"「孩子都搬出去了，房子空蕩蕩的」——你決定：換小一點的房子。",
+null,
+null,
+null,
+null
+],
+"ch_d_downsize_keep": [
+"「孩子都搬出去了，房子空蕩蕩的」——你決定：留著等他們回來。",
+null,
+null,
+null,
+null
+],
+"ch_d_mentor_young_mentor": [
+"「新來的年輕人很迷惘」——你決定：花時間帶他。",
+null,
+null,
+null,
+null
+],
+"ch_d_mentor_young_busy": [
+"「新來的年輕人很迷惘」——你決定：自己都忙不完。",
+null,
+null,
+null,
+null
+],
+"ch_d_politics_family_calm": [
+"「家族聚餐時大家吵起政治」——你決定：轉移話題。",
+null,
+null,
+null,
+null
+],
+"ch_d_politics_family_argue": [
+"「家族聚餐時大家吵起政治」——你決定：據理力爭。",
+null,
+null,
+null,
+null
+],
+"ch_d_inheritance_equal": [
+"「爸媽問你們兄弟姊妹遺產要怎麼分」——你決定：平均分。",
+null,
+null,
+null,
+null
+],
+"ch_d_inheritance_care": [
+"「爸媽問你們兄弟姊妹遺產要怎麼分」——你決定：照顧最多的人多拿。",
+null,
+null,
+null,
+null
+],
+"ch_d_retire_early_retire": [
+"「你可以提早退休，但退休金會少一些」——你決定：提早退休。",
+null,
+null,
+null,
+null
+],
+"ch_d_retire_early_work": [
+"「你可以提早退休，但退休金會少一些」——你決定：再做幾年。",
+null,
+null,
+null,
+null
+],
+"ch_d_grandkid_care_yes": [
+"「孩子問你能不能幫忙帶孫子」——你決定：每天幫忙帶。",
+null,
+null,
+null,
+null
+],
+"ch_d_grandkid_care_weekend": [
+"「孩子問你能不能幫忙帶孫子」——你決定：只有週末。",
+null,
+null,
+null,
+null
+],
+"ch_d_senior_class_join": [
+"「社區開了長青學苑」——你決定：去上課。",
+null,
+null,
+null,
+null
+],
+"ch_d_senior_class_home": [
+"「社區開了長青學苑」——你決定：在家看電視。",
+null,
+null,
+null,
+null
+],
+"ch_d_move_kids_move": [
+"「孩子邀你搬去和他們一起住」——你決定：搬過去。",
+null,
+null,
+null,
+null
+],
+"ch_d_move_kids_stay": [
+"「孩子邀你搬去和他們一起住」——你決定：住慣了，不搬。",
+null,
+null,
+null,
+null
+],
+"ch_d_nursing_home_go": [
+"「家人提到養老院」——你決定：去看看環境。",
+null,
+null,
+null,
+null
+],
+"ch_d_nursing_home_home": [
+"「家人提到養老院」——你決定：堅持住在家裡。",
+null,
+null,
+null,
+null
+],
+"ch_d_write_memoir_write": [
+"「你想把一生的故事寫下來」——你決定：開始動筆。",
+null,
+null,
+null,
+null
+],
+"ch_d_write_memoir_tell": [
+"「你想把一生的故事寫下來」——你決定：講給孫子聽就好。",
+null,
+null,
+null,
+null
+],
+"ch_d_old_travel_go": [
+"「趁還走得動，要不要去遠一點的地方」——你決定：報名旅行團。",
+null,
+null,
+null,
+null
+],
+"ch_d_old_travel_near": [
+"「趁還走得動，要不要去遠一點的地方」——你決定：附近走走就好。",
+null,
+null,
+null,
+null
+],
+"ch_d_scam_call_hang": [
+"「電話裡自稱是銀行的人，說你的帳戶有問題」——你決定：直接掛斷。",
+null,
+null,
+null,
+null
+],
+"ch_d_scam_call_check": [
+"「電話裡自稱是銀行的人，說你的帳戶有問題」——你決定：打給孩子確認。",
+null,
+null,
+null,
+null
+],
+"ch_d_scam_call_follow": [
+"「電話裡自稱是銀行的人，說你的帳戶有問題」——你決定：照他說的做。",
+null,
+null,
+null,
+null
+],
+"ch_d_health_surgery_operate": [
+"「醫生建議動一個不算小的手術」——你決定：開刀。",
+null,
+null,
+null,
+null
+],
+"ch_d_health_surgery_meds": [
+"「醫生建議動一個不算小的手術」——你決定：吃藥控制。",
+null,
+null,
+null,
+null
+],
+"ch_d_reconnect_call": [
+"「你翻到一張很久沒聯絡的朋友的照片」——你決定：打電話給他。",
+null,
+null,
+null,
+null
+],
+"ch_d_reconnect_keep": [
+"「你翻到一張很久沒聯絡的朋友的照片」——你決定：收回抽屜。",
+null,
+null,
+null,
+null
+],
+"ch_d_will_write_write": [
+"「律師提醒你該立遺囑了」——你決定：好好寫下來。",
+null,
+null,
+null,
+null
+],
+"ch_d_will_write_later": [
+"「律師提醒你該立遺囑了」——你決定：不吉利，以後再說。",
+null,
+null,
+null,
+null
+],
+"ch_d_tech_old_learn": [
+"「孫子要教你用視訊通話」——你決定：認真學。",
+null,
+null,
+null,
+null
+],
+"ch_d_tech_old_phone": [
+"「孫子要教你用視訊通話」——你決定：打電話就好。",
+null,
+null,
+null,
+null
+],
+"ch_d_garden_old_plant": [
+"「陽台還有一點空間」——你決定：種些花草蔬菜。",
+null,
+null,
+null,
+null
+],
+"ch_d_garden_old_leave": [
+"「陽台還有一點空間」——你決定：維持原樣。",
+null,
+null,
+null,
+null
+],
+"ch_d_volunteer_old_join": [
+"「醫院在招募退休志工」——你決定：每週去兩天。",
+null,
+null,
+null,
+null
+],
+"ch_d_volunteer_old_no": [
+"「醫院在招募退休志工」——你決定：想多休息。",
+null,
+null,
+null,
+null
+],
+"ch_d_driving_old_stop": [
+"「家人勸你不要再開車了」——你決定：交出鑰匙。",
+null,
+null,
+null,
+null
+],
+"ch_d_driving_old_keep": [
+"「家人勸你不要再開車了」——你決定：我還可以。",
+null,
+null,
+null,
+null
+],
+"ch_d_last_trip_home_go": [
+"「你很想回到出生的地方看看」——你決定：讓家人陪你回去。",
+null,
+null,
+null,
+null
+],
+"ch_d_last_trip_home_photo": [
+"「你很想回到出生的地方看看」——你決定：看看老照片就好。",
+null,
+null,
+null,
+null
+],
+"ch_d_water_walk_go": [
+"「井離家很遠，每天要有人去提水」——你決定：你去提水。",
+null,
+null,
+null,
+null
+],
+"ch_d_water_walk_school": [
+"「井離家很遠，每天要有人去提水」——你決定：先去上學。",
+null,
+null,
+null,
+null
+],
+"ch_d_mosquito_net_queue": [
+"「診所在發免費的蚊帳」——你決定：排隊去領。",
+null,
+null,
+null,
+null
+],
+"ch_d_mosquito_net_skip": [
+"「診所在發免費的蚊帳」——你決定：懶得排隊。",
+null,
+null,
+null,
+null
+],
+"ch_d_harvest_help_farm": [
+"「收成季到了，家裡需要人手」——你決定：請假幫忙收割。",
+null,
+null,
+null,
+null
+],
+"ch_d_harvest_help_school": [
+"「收成季到了，家裡需要人手」——你決定：繼續上學。",
+null,
+null,
+null,
+null
+],
+"ch_d_migrant_work_go": [
+"「親戚說城裡的工地在缺人」——你決定：去城裡做工。",
+null,
+null,
+null,
+null
+],
+"ch_d_migrant_work_stay": [
+"「親戚說城裡的工地在缺人」——你決定：留在村裡。",
+null,
+null,
+null,
+null
+],
+"ch_d_remit_send": [
+"「家鄉的爸媽需要錢」——你決定：每月寄錢回去。",
+null,
+null,
+null,
+null
+],
+"ch_d_remit_save": [
+"「家鄉的爸媽需要錢」——你決定：先存自己的。",
+null,
+null,
+null,
+null
+],
+"ch_d_microloan_borrow": [
+"「合作社可以借你一小筆創業金」——你決定：借來開小店。",
+null,
+null,
+null,
+null
+],
+"ch_d_microloan_no": [
+"「合作社可以借你一小筆創業金」——你決定：不想欠錢。",
+null,
+null,
+null,
+null
+],
+"ch_d_clinic_far_walk": [
+"「孩子發燒了，診所要走兩小時」——你決定：馬上出發。",
+null,
+null,
+null,
+null
+],
+"ch_d_clinic_far_herbs": [
+"「孩子發燒了，診所要走兩小時」——你決定：先用土方。",
+null,
+null,
+null,
+null
+],
+"ch_d_girls_school_study": [
+"「村裡有人說女孩讀書沒有用」——你決定：堅持讀下去。",
+null,
+null,
+null,
+null
+],
+"ch_d_girls_school_home": [
+"「村裡有人說女孩讀書沒有用」——你決定：留在家幫忙。",
+null,
+null,
+null,
+null
+],
+"ch_d_solar_panel_buy": [
+"「有人在賣小型太陽能板」——你決定：買一片。",
+null,
+null,
+null,
+null
+],
+"ch_d_solar_panel_no": [
+"「有人在賣小型太陽能板」——你決定：用油燈就好。",
+null,
+null,
+null,
+null
+],
+"ch_d_mobile_money_try": [
+"「大家開始用手機轉帳了」——你決定：開一個帳戶。",
+null,
+null,
+null,
+null
+],
+"ch_d_mobile_money_cash": [
+"「大家開始用手機轉帳了」——你決定：還是用現金。",
+null,
+null,
+null,
+null
+],
+"ch_d_abroad_work_go": [
+"「仲介說可以去國外當看護或工人」——你決定：簽約出國。",
+null,
+null,
+null,
+null
+],
+"ch_d_abroad_work_stay": [
+"「仲介說可以去國外當看護或工人」——你決定：留在家人身邊。",
+null,
+null,
+null,
+null
+],
+"ch_d_stock_tip_ignore": [
+"「同事說他有一支一定會漲的股票」——你決定：不理他。",
+null,
+null,
+null,
+null
+],
+"ch_d_stock_tip_small": [
+"「同事說他有一支一定會漲的股票」——你決定：丟一點點錢。",
+null,
+null,
+null,
+null
+],
+"ch_d_mortgage_fix_fix": [
+"「銀行問你房貸要不要轉固定利率」——你決定：轉固定。",
+null,
+null,
+null,
+null
+],
+"ch_d_mortgage_fix_float": [
+"「銀行問你房貸要不要轉固定利率」——你決定：維持浮動。",
+null,
+null,
+null,
+null
+],
+"ch_d_ev_car_ev": [
+"「換車時要選電動車嗎」——你決定：選電動車。",
+null,
+null,
+null,
+null
+],
+"ch_d_ev_car_gas": [
+"「換車時要選電動車嗎」——你決定：還是油車。",
+null,
+null,
+null,
+null
+],
+"ch_d_remote_work_home": [
+"「公司開放永久遠距上班」——你決定：在家工作。",
+null,
+null,
+null,
+null
+],
+"ch_d_remote_work_office": [
+"「公司開放永久遠距上班」——你決定：還是進辦公室。",
+null,
+null,
+null,
+null
+],
+"ch_d_gig_driver_drive": [
+"「下班後可以開車接單」——你決定：接幾單。",
+null,
+null,
+null,
+null
+],
+"ch_d_gig_driver_rest": [
+"「下班後可以開車接單」——你決定：算了。",
+null,
+null,
+null,
+null
+],
+"ch_d_crypto_watch": [
+"「朋友都在討論虛擬貨幣」——你決定：只是看看。",
+null,
+null,
+null,
+null
+],
+"ch_d_crypto_bet": [
+"「朋友都在討論虛擬貨幣」——你決定：買一點試試。",
+null,
+null,
+null,
+null
+],
+"ch_d_social_post_delete": [
+"「你寫的一則貼文意外爆紅，留言很兇」——你決定：刪掉。",
+null,
+null,
+null,
+null
+],
+"ch_d_social_post_reply": [
+"「你寫的一則貼文意外爆紅，留言很兇」——你決定：一則一則回。",
+null,
+null,
+null,
+null
+],
+"ch_d_social_post_off": [
+"「你寫的一則貼文意外爆紅，留言很兇」——你決定：關掉手機出門走走。",
+null,
+null,
+null,
+null
+],
+"ch_d_ai_tools_learn": [
+"「公司開始使用 AI 工具」——你決定：花時間學會。",
+null,
+null,
+null,
+null
+],
+"ch_d_ai_tools_avoid": [
+"「公司開始使用 AI 工具」——你決定：不太信任。",
+null,
+null,
+null,
+null
+],
+"ch_d_plastic_surgery_do": [
+"「你考慮去做醫美」——你決定：預約看看。",
+null,
+null,
+null,
+null
+],
+"ch_d_plastic_surgery_no": [
+"「你考慮去做醫美」——你決定：接受自己的樣子。",
+null,
+null,
+null,
+null
+],
+"ch_d_vegetarian_try": [
+"「你想試試吃素」——你決定：吃一個月看看。",
+null,
+null,
+null,
+null
+],
+"ch_d_vegetarian_no": [
+"「你想試試吃素」——你決定：太難了。",
+null,
+null,
+null,
+null
+],
+"ch_d_marathon_train": [
+"「朋友約你一起報名馬拉松」——你決定：開始練跑。",
+null,
+null,
+null,
+null
+],
+"ch_d_marathon_cheer": [
+"「朋友約你一起報名馬拉松」——你決定：去終點幫他加油。",
+null,
+null,
+null,
+null
+],
+"ch_d_language_app_daily": [
+"「你下載了一個學外語的程式」——你決定：每天練十分鐘。",
+null,
+null,
+null,
+null
+],
+"ch_d_language_app_forget": [
+"「你下載了一個學外語的程式」——你決定：放著吃灰。",
+null,
+null,
+null,
+null
+],
+"ch_d_home_cook_cook": [
+"「外食吃膩了」——你決定：開始自己煮。",
+null,
+null,
+null,
+null
+],
+"ch_d_home_cook_delivery": [
+"「外食吃膩了」——你決定：繼續叫外送。",
+null,
+null,
+null,
+null
+],
+"ch_d_quit_drinking_stop": [
+"「你發現自己每天下班都要喝一杯」——你決定：戒掉。",
+null,
+null,
+null,
+null
+],
+"ch_d_quit_drinking_keep": [
+"「你發現自己每天下班都要喝一杯」——你決定：只是放鬆而已。",
+null,
+null,
+null,
+null
+],
+"ch_d_night_market_queue": [
+"「夜市新開了一家很紅的攤子」——你決定：排隊一小時。",
+null,
+null,
+null,
+null
+],
+"ch_d_night_market_skip": [
+"「夜市新開了一家很紅的攤子」——你決定：下次再說。",
+null,
+null,
+null,
+null
+],
+"ch_d_bike_commute_bike": [
+"「城市多了好多自行車道」——你決定：騎車上班。",
+null,
+null,
+null,
+null
+],
+"ch_d_bike_commute_drive": [
+"「城市多了好多自行車道」——你決定：照舊。",
+null,
+null,
+null,
+null
+],
+"ch_d_community_garden_join": [
+"「社區要成立共享菜園」——你決定：認養一塊。",
+null,
+null,
+null,
+null
+],
+"ch_d_community_garden_no": [
+"「社區要成立共享菜園」——你決定：沒時間。",
+null,
+null,
+null,
+null
+],
+"ch_d_fostering_yes": [
+"「社工問你們願不願意寄養一個孩子」——你決定：願意。",
+null,
+null,
+null,
+null
+],
+"ch_d_fostering_no": [
+"「社工問你們願不願意寄養一個孩子」——你決定：還沒準備好。",
+null,
+null,
+null,
+null
+],
+"ch_d_ivf_try": [
+"「你們一直沒有孩子，醫生提到人工生殖」——你決定：試試看。",
+null,
+null,
+null,
+null
+],
+"ch_d_ivf_accept": [
+"「你們一直沒有孩子，醫生提到人工生殖」——你決定：兩個人也很好。",
+null,
+null,
+null,
+null
+],
+"ch_d_kid_abroad_pay": [
+"「孩子想出國讀書」——你決定：全力支持。",
+null,
+null,
+null,
+null
+],
+"ch_d_kid_abroad_loan": [
+"「孩子想出國讀書」——你決定：讓他申請助學貸款。",
+null,
+null,
+null,
+null
+],
+"ch_d_kid_abroad_local": [
+"「孩子想出國讀書」——你決定：讀國內就好。",
+null,
+null,
+null,
+null
+],
+"ch_d_kid_marry_welcome": [
+"「孩子帶了交往對象回家」——你決定：熱情招待。",
+null,
+null,
+null,
+null
+],
+"ch_d_kid_marry_strict": [
+"「孩子帶了交往對象回家」——你決定：嚴格盤問。",
+null,
+null,
+null,
+null
+],
+"ch_d_kid_career_support": [
+"「孩子想辭掉穩定工作去追夢」——你決定：支持他。",
+null,
+null,
+null,
+null
+],
+"ch_d_kid_career_oppose": [
+"「孩子想辭掉穩定工作去追夢」——你決定：勸他再想想。",
+null,
+null,
+null,
+null
+],
+"ch_d_elder_care_cost_hire": [
+"「爸媽需要有人全天照顧」——你決定：請看護。",
+null,
+null,
+null,
+null
+],
+"ch_d_elder_care_cost_self": [
+"「爸媽需要有人全天照顧」——你決定：自己辭職照顧。",
+null,
+null,
+null,
+null
+],
+"ch_d_elder_care_cost_share": [
+"「爸媽需要有人全天照顧」——你決定：兄弟姊妹輪流。",
+null,
+null,
+null,
+null
+],
+"ch_d_parent_dementia_visit": [
+"「媽媽開始忘記你的名字」——你決定：每週都回去陪她。",
+null,
+null,
+null,
+null
+],
+"ch_d_parent_dementia_call": [
+"「媽媽開始忘記你的名字」——你決定：每天打電話。",
+null,
+null,
+null,
+null
+],
+"ch_d_disaster_donate_donate": [
+"「遠方發生了大地震」——你決定：捐款。",
+null,
+null,
+null,
+null
+],
+"ch_d_disaster_donate_go": [
+"「遠方發生了大地震」——你決定：去當救災志工。",
+null,
+null,
+null,
+null
+],
+"ch_d_disaster_donate_pray": [
+"「遠方發生了大地震」——你決定：默默祈禱。",
+null,
+null,
+null,
+null
+],
+"ch_d_protest_join": [
+"「街上有一場大型集會」——你決定：上街表達意見。",
+null,
+null,
+null,
+null
+],
+"ch_d_protest_watch": [
+"「街上有一場大型集會」——你決定：在家看直播。",
+null,
+null,
+null,
+null
+],
+"ch_d_vote_vote": [
+"「明天是投票日，天氣很差」——你決定：冒雨去投票。",
+null,
+null,
+null,
+null
+],
+"ch_d_vote_skip": [
+"「明天是投票日，天氣很差」——你決定：待在家。",
+null,
+null,
+null,
+null
+],
+"ch_d_religion_go": [
+"「朋友邀你去參加一場宗教聚會」——你決定：去看看。",
+null,
+null,
+null,
+null
+],
+"ch_d_religion_no": [
+"「朋友邀你去參加一場宗教聚會」——你決定：謝謝不用。",
+null,
+null,
+null,
+null
+],
+"ch_d_jury_duty_serve": [
+"「你被抽中擔任陪審員或國民法官」——你決定：認真參與。",
+null,
+null,
+null,
+null
+],
+"ch_d_jury_duty_excuse": [
+"「你被抽中擔任陪審員或國民法官」——你決定：找理由推掉。",
+null,
+null,
+null,
+null
+],
+"ch_d_witness_help": [
+"「你目睹了一場車禍」——你決定：留下來作證。",
+null,
+null,
+null,
+null
+],
+"ch_d_witness_leave": [
+"「你目睹了一場車禍」——你決定：趕時間離開。",
+null,
+null,
+null,
+null
+],
+"ch_d_lawsuit_settle": [
+"「一筆生意糾紛可能要上法院」——你決定：和解。",
+null,
+null,
+null,
+null
+],
+"ch_d_lawsuit_fight": [
+"「一筆生意糾紛可能要上法院」——你決定：打官司。",
+null,
+null,
+null,
+null
+],
+"ch_d_disability_help_help": [
+"「同事受傷後要坐輪椅上班」——你決定：主動幫忙調整環境。",
+null,
+null,
+null,
+null
+],
+"ch_d_disability_help_respect": [
+"「同事受傷後要坐輪椅上班」——你決定：尊重他自己處理。",
+null,
+null,
+null,
+null
+],
+"ch_d_hearing_aid": [
+"「你聽不太清楚別人說話了」——你決定：去配助聽器。",
+null,
+null,
+null,
+null
+],
+"ch_d_hearing_nod": [
+"「你聽不太清楚別人說話了」——你決定：笑笑點頭就好。",
+null,
+null,
+null,
+null
+],
+"ch_d_fall_prevent_fix": [
+"「浴室地板很滑」——你決定：裝扶手和止滑墊。",
+null,
+null,
+null,
+null
+],
+"ch_d_fall_prevent_careful": [
+"「浴室地板很滑」——你決定：自己小心就好。",
+null,
+null,
+null,
+null
+],
+"ch_d_war_flee_flee": [
+"「附近傳來戰事的消息」——你決定：帶著家人先離開。",
+null,
+null,
+null,
+null
+],
+"ch_d_war_flee_stay": [
+"「附近傳來戰事的消息」——你決定：守著家園。",
+null,
+null,
+null,
+null
+],
+"ch_d_famine_ration_share": [
+"「糧食短缺，家裡只剩一點米」——你決定：分給鄰居。",
+null,
+null,
+null,
+null
+],
+"ch_d_famine_ration_keep": [
+"「糧食短缺，家裡只剩一點米」——你決定：留給自己家。",
+null,
+null,
+null,
+null
+],
+"ch_d_blackout_70s_candles": [
+"「石油危機，晚上要限電」——你決定：點蠟燭聊天。",
+null,
+null,
+null,
+null
+],
+"ch_d_blackout_70s_sleep": [
+"「石油危機，晚上要限電」——你決定：早早睡覺。",
+null,
+null,
+null,
+null
+],
+"ch_d_tv_buy_buy": [
+"「街上的電器行開始賣彩色電視」——你決定：咬牙買一台。",
+null,
+null,
+null,
+null
+],
+"ch_d_tv_buy_neighbor": [
+"「街上的電器行開始賣彩色電視」——你決定：去鄰居家看。",
+null,
+null,
+null,
+null
+],
+"ch_d_computer_90s_buy": [
+"「個人電腦越來越便宜了」——你決定：買一台。",
+null,
+null,
+null,
+null
+],
+"ch_d_computer_90s_no": [
+"「個人電腦越來越便宜了」——你決定：用不到。",
+null,
+null,
+null,
+null
+],
+"ch_d_pager_buy": [
+"「大家都在用呼叫器」——你決定：辦一個。",
+null,
+null,
+null,
+null
+],
+"ch_d_pager_no": [
+"「大家都在用呼叫器」——你決定：打公共電話就好。",
+null,
+null,
+null,
+null
+],
+"ch_d_dotcom_jump": [
+"「網路公司開出高薪挖角」——你決定：加入網路公司。",
+null,
+null,
+null,
+null
+],
+"ch_d_dotcom_stay": [
+"「網路公司開出高薪挖角」——你決定：留在傳統產業。",
+null,
+null,
+null,
+null
+],
+"ch_d_sars_mask_home": [
+"「新的傳染病出現，藥局口罩都賣光了」——你決定：減少出門。",
+null,
+null,
+null,
+null
+],
+"ch_d_sars_mask_normal": [
+"「新的傳染病出現，藥局口罩都賣光了」——你決定：照常生活。",
+null,
+null,
+null,
+null
+],
+"ch_d_covid_vax_vax": [
+"「疫苗開放施打了」——你決定：預約接種。",
+null,
+null,
+null,
+null
+],
+"ch_d_covid_vax_wait": [
+"「疫苗開放施打了」——你決定：再觀察一下。",
+null,
+null,
+null,
+null
+],
+"ch_d_lockdown_hobby_bake": [
+"「封城在家，時間突然多了起來」——你決定：學做麵包。",
+null,
+null,
+null,
+null
+],
+"ch_d_lockdown_hobby_study": [
+"「封城在家，時間突然多了起來」——你決定：上網課。",
+null,
+null,
+null,
+null
+],
+"ch_d_lockdown_hobby_call": [
+"「封城在家，時間突然多了起來」——你決定：每天視訊家人。",
+null,
+null,
+null,
+null
+],
+"ch_d_gfc_job_accept": [
+"「金融海嘯，公司要大家減薪共體時艱」——你決定：接受減薪。",
+null,
+null,
+null,
+null
+],
+"ch_d_gfc_job_leave": [
+"「金融海嘯，公司要大家減薪共體時艱」——你決定：另找出路。",
+null,
+null,
+null,
+null
+],
+"ch_d_asia_crisis_hold": [
+"「貨幣暴跌，存款一夕縮水」——你決定：咬牙撐過。",
+null,
+null,
+null,
+null
+],
+"ch_d_asia_crisis_gold": [
+"「貨幣暴跌，存款一夕縮水」——你決定：把存款換成黃金。",
+null,
+null,
+null,
+null
+],
+"ch_d_olympics_watch_watch": [
+"「奧運開幕了」——你決定：熬夜看轉播。",
+null,
+null,
+null,
+null
+],
+"ch_d_olympics_watch_sleep": [
+"「奧運開幕了」——你決定：看隔天的新聞。",
+null,
+null,
+null,
+null
+],
+"ch_d_worldcup_bar": [
+"「世界盃決賽今晚開踢」——你決定：去餐廳和大家一起看。",
+null,
+null,
+null,
+null
+],
+"ch_d_worldcup_home": [
+"「世界盃決賽今晚開踢」——你決定：在家看。",
+null,
+null,
+null,
+null
+],
+"ch_d_heatwave_ac": [
+"「熱浪來襲，氣溫創下紀錄」——你決定：開冷氣。",
+null,
+null,
+null,
+null
+],
+"ch_d_heatwave_library": [
+"「熱浪來襲，氣溫創下紀錄」——你決定：去圖書館避暑。",
+null,
+null,
+null,
+null
+],
+"ch_d_flood_home_help": [
+"「大雨讓街道淹水了」——你決定：幫鄰居搬東西。",
+null,
+null,
+null,
+null
+],
+"ch_d_flood_home_upstairs": [
+"「大雨讓街道淹水了」——你決定：把家當搬上樓。",
+null,
+null,
+null,
+null
+],
+"ch_d_typhoon_stock": [
+"「颱風要來了」——你決定：去超市囤貨。",
+null,
+null,
+null,
+null
+],
+"ch_d_typhoon_ignore": [
+"「颱風要來了」——你決定：應該還好。",
+null,
+null,
+null,
+null
+],
+"ch_d_name_change_change": [
+"「你一直不喜歡自己的名字」——你決定：去改名。",
+null,
+null,
+null,
+null
+],
+"ch_d_name_change_keep": [
+"「你一直不喜歡自己的名字」——你決定：習慣就好。",
+null,
+null,
+null,
+null
+],
+"ch_d_ancestry_test": [
+"「有人送你一份基因檢測組」——你決定：寄去檢測。",
+null,
+null,
+null,
+null
+],
+"ch_d_ancestry_no": [
+"「有人送你一份基因檢測組」——你決定：不想知道。",
+null,
+null,
+null,
+null
+],
+"ch_d_lottery_buy_buy": [
+"「頭獎累積到天文數字」——你決定：買一張。",
+null,
+null,
+null,
+null
+],
+"ch_d_lottery_buy_no": [
+"「頭獎累積到天文數字」——你決定：機率太小。",
+null,
+null,
+null,
+null
+],
+"ch_d_haircut_bold_do": [
+"「你想剪一個大膽的髮型」——你決定：剪了。",
+null,
+null,
+null,
+null
+],
+"ch_d_haircut_bold_safe": [
+"「你想剪一個大膽的髮型」——你決定：照舊。",
+null,
+null,
+null,
+null
+],
+"ch_d_cat_rescue_vet": [
+"「路邊有一隻受傷的小貓」——你決定：帶去看獸醫。",
+null,
+null,
+null,
+null
+],
+"ch_d_cat_rescue_call": [
+"「路邊有一隻受傷的小貓」——你決定：打電話給動保團體。",
+null,
+null,
+null,
+null
+],
+"ch_d_night_walk_walk": [
+"「睡不著，凌晨想出去走走」——你決定：出門散步。",
+null,
+null,
+null,
+null
+],
+"ch_d_night_walk_bed": [
+"「睡不著，凌晨想出去走走」——你決定：躺著數羊。",
+null,
+null,
+null,
+null
+],
+"ch_d_letter_old_send": [
+"「你找到一封年輕時沒寄出的信」——你決定：查地址寄出去。",
+null,
+null,
+null,
+null
+],
+"ch_d_letter_old_burn": [
+"「你找到一封年輕時沒寄出的信」——你決定：燒掉。",
+null,
+null,
+null,
+null
+],
+"fc_switch": [
+"人生換了階段，重心自動調整：{from} → {to}。",
+"A new stage of life — your focus shifted: {from} → {to}.",
+null,
+null,
+null
+],
+"fc_auto": [
+"你替這個階段定下了重心。",
+"You settled on a focus for this stage of life.",
+null,
+null,
+null
+],
+"job_change": [
+"你換了一份新工作，薪水多了約 {pct}%。",
+"You moved to a new job, about {pct}% better paid.",
+null,
+null,
+null
+],
+"rt_allowance": [
+"照例給了爸媽孝親費（{amount}）。",
+"As every year, you gave your parents an allowance ({amount}).",
+null,
+null,
+null
+],
+"rt_dining": [
+"和朋友固定聚餐，吃了好幾頓（{amount}）。",
+"Regular dinners out with friends ({amount}).",
+null,
+null,
+null
+],
+"rt_onlineCourse": [
+"又報名了一門線上課程（{amount}）。",
+"You signed up for another online course ({amount}).",
+null,
+null,
+null
+]
+},
+"decisions": {
+"ct_d_pet_ask": [
+"你一直吵著想養一隻狗。",
+null,
+null,
+null,
+null
+],
+"o_d_pet_ask_beg": [
+"每天纏著爸媽",
+null,
+null,
+null,
+null
+],
+"o_d_pet_ask_drop": [
+"算了，改養金魚",
+null,
+null,
+null,
+null
+],
+"ct_d_lost_wallet": [
+"放學路上撿到一個鼓鼓的錢包。",
+null,
+null,
+null,
+null
+],
+"o_d_lost_wallet_return": [
+"交給警察局",
+null,
+null,
+null,
+null
+],
+"o_d_lost_wallet_keep": [
+"偷偷留下零錢",
+null,
+null,
+null,
+null
+],
+"ct_d_bully_seen": [
+"同學在走廊被欺負，大家都假裝沒看到。",
+null,
+null,
+null,
+null
+],
+"o_d_bully_seen_help": [
+"站出來幫他",
+null,
+null,
+null,
+null
+],
+"o_d_bully_seen_tell": [
+"去告訴老師",
+null,
+null,
+null,
+null
+],
+"o_d_bully_seen_walk": [
+"低頭走過去",
+null,
+null,
+null,
+null
+],
+"ct_d_piano_quit": [
+"學了兩年的鋼琴，你說想放棄。",
+null,
+null,
+null,
+null
+],
+"o_d_piano_quit_keep": [
+"再撐一下",
+null,
+null,
+null,
+null
+],
+"o_d_piano_quit_quit": [
+"說停就停",
+null,
+null,
+null,
+null
+],
+"ct_d_school_play": [
+"老師要選人演學校話劇的主角。",
+null,
+null,
+null,
+null
+],
+"o_d_school_play_try": [
+"舉手試試",
+null,
+null,
+null,
+null
+],
+"o_d_school_play_back": [
+"躲在後排",
+null,
+null,
+null,
+null
+],
+"ct_d_comic_or_book": [
+"零用錢只夠買一樣東西。",
+null,
+null,
+null,
+null
+],
+"o_d_comic_or_book_comic": [
+"整套漫畫",
+null,
+null,
+null,
+null
+],
+"o_d_comic_or_book_book": [
+"一本百科全書",
+null,
+null,
+null,
+null
+],
+"ct_d_cheat_test": [
+"隔壁同學考試時把答案推過來。",
+null,
+null,
+null,
+null
+],
+"o_d_cheat_test_no": [
+"推回去",
+null,
+null,
+null,
+null
+],
+"o_d_cheat_test_peek": [
+"偷看一眼",
+null,
+null,
+null,
+null
+],
+"ct_d_sick_day": [
+"你有點咳嗽，明天要不要請假？",
+null,
+null,
+null,
+null
+],
+"o_d_sick_day_rest": [
+"在家休息",
+null,
+null,
+null,
+null
+],
+"o_d_sick_day_go": [
+"硬撐去上學",
+null,
+null,
+null,
+null
+],
+"ct_d_new_kid": [
+"班上轉來一個不太會說本地話的同學。",
+null,
+null,
+null,
+null
+],
+"o_d_new_kid_friend": [
+"主動跟他當朋友",
+null,
+null,
+null,
+null
+],
+"o_d_new_kid_watch": [
+"先觀察看看",
+null,
+null,
+null,
+null
+],
+"ct_d_field_trip": [
+"校外教學要繳一筆不小的費用。",
+null,
+null,
+null,
+null
+],
+"o_d_field_trip_go": [
+"求爸媽讓你去",
+null,
+null,
+null,
+null
+],
+"o_d_field_trip_skip": [
+"說自己不想去",
+null,
+null,
+null,
+null
+],
+"ct_d_grandpa_farm": [
+"爺爺問你暑假要不要去田裡幫忙。",
+null,
+null,
+null,
+null
+],
+"o_d_grandpa_farm_help": [
+"跟著下田",
+null,
+null,
+null,
+null
+],
+"o_d_grandpa_farm_play": [
+"留在家玩",
+null,
+null,
+null,
+null
+],
+"ct_d_tv_time": [
+"卡通播完了，作業還沒寫。",
+null,
+null,
+null,
+null
+],
+"o_d_tv_time_hw": [
+"關掉電視寫作業",
+null,
+null,
+null,
+null
+],
+"o_d_tv_time_more": [
+"再看一集",
+null,
+null,
+null,
+null
+],
+"ct_d_broken_vase": [
+"你不小心打破了媽媽最喜歡的花瓶。",
+null,
+null,
+null,
+null
+],
+"o_d_broken_vase_admit": [
+"老實承認",
+null,
+null,
+null,
+null
+],
+"o_d_broken_vase_hide": [
+"偷偷藏起碎片",
+null,
+null,
+null,
+null
+],
+"ct_d_sports_day": [
+"運動會的接力賽少一個人。",
+null,
+null,
+null,
+null
+],
+"o_d_sports_day_run": [
+"報名跑最後一棒",
+null,
+null,
+null,
+null
+],
+"o_d_sports_day_cheer": [
+"在旁邊加油",
+null,
+null,
+null,
+null
+],
+"ct_d_secret_club": [
+"鄰居小孩找你一起蓋祕密基地。",
+null,
+null,
+null,
+null
+],
+"o_d_secret_club_join": [
+"加入",
+null,
+null,
+null,
+null
+],
+"o_d_secret_club_home": [
+"太危險，不去",
+null,
+null,
+null,
+null
+],
+"ct_d_glasses_kid": [
+"你看黑板越來越模糊。",
+null,
+null,
+null,
+null
+],
+"o_d_glasses_kid_tell": [
+"告訴爸媽去配眼鏡",
+null,
+null,
+null,
+null
+],
+"o_d_glasses_kid_squint": [
+"瞇著眼撐著",
+null,
+null,
+null,
+null
+],
+"ct_d_sibling_toy": [
+"弟妹想玩你最寶貝的玩具。",
+null,
+null,
+null,
+null
+],
+"o_d_sibling_toy_share": [
+"借他玩",
+null,
+null,
+null,
+null
+],
+"o_d_sibling_toy_keep": [
+"藏起來",
+null,
+null,
+null,
+null
+],
+"ct_d_chores_pay": [
+"家裡請你下課後幫忙顧攤子。",
+null,
+null,
+null,
+null
+],
+"o_d_chores_pay_help": [
+"每天去幫忙",
+null,
+null,
+null,
+null
+],
+"o_d_chores_pay_study": [
+"先把功課顧好",
+null,
+null,
+null,
+null
+],
+"ct_d_essay_contest": [
+"老師推薦你參加作文比賽。",
+null,
+null,
+null,
+null
+],
+"o_d_essay_contest_enter": [
+"參加",
+null,
+null,
+null,
+null
+],
+"o_d_essay_contest_pass": [
+"太麻煩了",
+null,
+null,
+null,
+null
+],
+"ct_d_lunch_money": [
+"午餐錢被高年級的拿走了。",
+null,
+null,
+null,
+null
+],
+"o_d_lunch_money_tell": [
+"告訴大人",
+null,
+null,
+null,
+null
+],
+"o_d_lunch_money_quiet": [
+"默默餓肚子",
+null,
+null,
+null,
+null
+],
+"ct_d_club_choice": [
+"社團博覽會，你要加入哪一個？",
+null,
+null,
+null,
+null
+],
+"o_d_club_choice_sport": [
+"球隊",
+null,
+null,
+null,
+null
+],
+"o_d_club_choice_science": [
+"科學社",
+null,
+null,
+null,
+null
+],
+"o_d_club_choice_music": [
+"熱音社",
+null,
+null,
+null,
+null
+],
+"ct_d_cram_school": [
+"同學都去補習班了。",
+null,
+null,
+null,
+null
+],
+"o_d_cram_school_go": [
+"也去報名",
+null,
+null,
+null,
+null
+],
+"o_d_cram_school_self": [
+"自己讀",
+null,
+null,
+null,
+null
+],
+"ct_d_party_invite": [
+"週末有人約你去一個大人不在的派對。",
+null,
+null,
+null,
+null
+],
+"o_d_party_invite_go": [
+"去看看",
+null,
+null,
+null,
+null
+],
+"o_d_party_invite_stay": [
+"找藉口不去",
+null,
+null,
+null,
+null
+],
+"ct_d_first_date": [
+"喜歡的人約你週末去看電影。",
+null,
+null,
+null,
+null
+],
+"o_d_first_date_yes": [
+"答應",
+null,
+null,
+null,
+null
+],
+"o_d_first_date_shy": [
+"害羞拒絕",
+null,
+null,
+null,
+null
+],
+"ct_d_smoke_offer": [
+"朋友遞給你一根菸。",
+null,
+null,
+null,
+null
+],
+"o_d_smoke_offer_no": [
+"搖頭",
+null,
+null,
+null,
+null
+],
+"o_d_smoke_offer_try": [
+"抽一口試試",
+null,
+null,
+null,
+null
+],
+"ct_d_summer_job": [
+"暑假可以去打工。",
+null,
+null,
+null,
+null
+],
+"o_d_summer_job_work": [
+"去超商打工",
+null,
+null,
+null,
+null
+],
+"o_d_summer_job_rest": [
+"好好放假",
+null,
+null,
+null,
+null
+],
+"ct_d_stream_choice": [
+"要選文組還是理組？",
+null,
+null,
+null,
+null
+],
+"o_d_stream_choice_sci": [
+"理組",
+null,
+null,
+null,
+null
+],
+"o_d_stream_choice_arts": [
+"文組",
+null,
+null,
+null,
+null
+],
+"o_d_stream_choice_art": [
+"藝術班",
+null,
+null,
+null,
+null
+],
+"ct_d_phone_night": [
+"凌晨一點了，你還在滑手機。",
+null,
+null,
+null,
+null
+],
+"o_d_phone_night_sleep": [
+"放下去睡",
+null,
+null,
+null,
+null
+],
+"o_d_phone_night_scroll": [
+"再滑一下",
+null,
+null,
+null,
+null
+],
+"ct_d_exchange": [
+"學校有一個出國交換一年的名額。",
+null,
+null,
+null,
+null
+],
+"o_d_exchange_go": [
+"申請",
+null,
+null,
+null,
+null
+],
+"o_d_exchange_stay": [
+"留在家鄉",
+null,
+null,
+null,
+null
+],
+"ct_d_fight_parents": [
+"和爸媽為了門禁大吵一架。",
+null,
+null,
+null,
+null
+],
+"o_d_fight_parents_sorry": [
+"先低頭道歉",
+null,
+null,
+null,
+null
+],
+"o_d_fight_parents_door": [
+"甩門回房間",
+null,
+null,
+null,
+null
+],
+"ct_d_dropout_friend": [
+"好朋友說要休學去工作，問你要不要一起。",
+null,
+null,
+null,
+null
+],
+"o_d_dropout_friend_stay": [
+"留在學校",
+null,
+null,
+null,
+null
+],
+"o_d_dropout_friend_join": [
+"一起去工作",
+null,
+null,
+null,
+null
+],
+"ct_d_volunteer_teen": [
+"學校要求志工時數。",
+null,
+null,
+null,
+null
+],
+"o_d_volunteer_teen_elder": [
+"去養老院陪長輩",
+null,
+null,
+null,
+null
+],
+"o_d_volunteer_teen_beach": [
+"去淨灘",
+null,
+null,
+null,
+null
+],
+"ct_d_band_teen": [
+"朋友組樂團缺一個鼓手。",
+null,
+null,
+null,
+null
+],
+"o_d_band_teen_join": [
+"加入",
+null,
+null,
+null,
+null
+],
+"o_d_band_teen_no": [
+"專心念書",
+null,
+null,
+null,
+null
+],
+"ct_d_driving_teen": [
+"可以去考機車或汽車駕照了。",
+null,
+null,
+null,
+null
+],
+"o_d_driving_teen_now": [
+"馬上去考",
+null,
+null,
+null,
+null
+],
+"o_d_driving_teen_later": [
+"以後再說",
+null,
+null,
+null,
+null
+],
+"ct_d_diet_teen": [
+"你開始在意自己的身材。",
+null,
+null,
+null,
+null
+],
+"o_d_diet_teen_sport": [
+"多運動",
+null,
+null,
+null,
+null
+],
+"o_d_diet_teen_skip": [
+"不吃晚餐",
+null,
+null,
+null,
+null
+],
+"o_d_diet_teen_ok": [
+"覺得現在就很好",
+null,
+null,
+null,
+null
+],
+"ct_d_olympiad": [
+"老師問你要不要參加數理競賽集訓。",
+null,
+null,
+null,
+null
+],
+"o_d_olympiad_join": [
+"參加",
+null,
+null,
+null,
+null
+],
+"o_d_olympiad_no": [
+"不了",
+null,
+null,
+null,
+null
+],
+"ct_d_gaming_teen": [
+"新出的線上遊戲大家都在玩。",
+null,
+null,
+null,
+null
+],
+"o_d_gaming_teen_play": [
+"每天打到半夜",
+null,
+null,
+null,
+null
+],
+"o_d_gaming_teen_limit": [
+"只在週末玩",
+null,
+null,
+null,
+null
+],
+"ct_d_part_love": [
+"交往的對象要搬到別的城市。",
+null,
+null,
+null,
+null
+],
+"o_d_part_love_long": [
+"試試遠距離",
+null,
+null,
+null,
+null
+],
+"o_d_part_love_end": [
+"好好分手",
+null,
+null,
+null,
+null
+],
+"ct_d_tattoo": [
+"你想去刺青。",
+null,
+null,
+null,
+null
+],
+"o_d_tattoo_do": [
+"刺一個小圖案",
+null,
+null,
+null,
+null
+],
+"o_d_tattoo_wait": [
+"再想想",
+null,
+null,
+null,
+null
+],
+"ct_d_mock_exam": [
+"模擬考考砸了。",
+null,
+null,
+null,
+null
+],
+"o_d_mock_exam_push": [
+"更拚命念",
+null,
+null,
+null,
+null
+],
+"o_d_mock_exam_relax": [
+"放過自己",
+null,
+null,
+null,
+null
+],
+"ct_d_major_switch": [
+"讀了一年，發現自己不喜歡這個科系。",
+null,
+null,
+null,
+null
+],
+"o_d_major_switch_switch": [
+"轉系",
+null,
+null,
+null,
+null
+],
+"o_d_major_switch_stay": [
+"撐到畢業",
+null,
+null,
+null,
+null
+],
+"ct_d_dorm_or_home": [
+"要住學校宿舍還是通勤？",
+null,
+null,
+null,
+null
+],
+"o_d_dorm_or_home_dorm": [
+"住宿舍",
+null,
+null,
+null,
+null
+],
+"o_d_dorm_or_home_home": [
+"住家裡",
+null,
+null,
+null,
+null
+],
+"ct_d_gap_year": [
+"你想休學一年去打工旅行。",
+null,
+null,
+null,
+null
+],
+"o_d_gap_year_go": [
+"出發",
+null,
+null,
+null,
+null
+],
+"o_d_gap_year_stay": [
+"照原計畫",
+null,
+null,
+null,
+null
+],
+"ct_d_first_job_offer": [
+"兩個工作機會同時來了。",
+null,
+null,
+null,
+null
+],
+"o_d_first_job_offer_big": [
+"大公司、穩定",
+null,
+null,
+null,
+null
+],
+"o_d_first_job_offer_small": [
+"小公司、有趣",
+null,
+null,
+null,
+null
+],
+"ct_d_credit_card": [
+"銀行打電話推銷信用卡。",
+null,
+null,
+null,
+null
+],
+"o_d_credit_card_get": [
+"辦一張",
+null,
+null,
+null,
+null
+],
+"o_d_credit_card_no": [
+"不需要",
+null,
+null,
+null,
+null
+],
+"ct_d_move_out": [
+"要不要搬出去自己住？",
+null,
+null,
+null,
+null
+],
+"o_d_move_out_out": [
+"搬出去",
+null,
+null,
+null,
+null
+],
+"o_d_move_out_stay": [
+"繼續住家裡省錢",
+null,
+null,
+null,
+null
+],
+"ct_d_roommate": [
+"室友常常不付水電費。",
+null,
+null,
+null,
+null
+],
+"o_d_roommate_talk": [
+"好好談一次",
+null,
+null,
+null,
+null
+],
+"o_d_roommate_move": [
+"乾脆搬走",
+null,
+null,
+null,
+null
+],
+"ct_d_night_school": [
+"公司附近有夜間進修課程。",
+null,
+null,
+null,
+null
+],
+"o_d_night_school_join": [
+"報名",
+null,
+null,
+null,
+null
+],
+"o_d_night_school_no": [
+"下班只想休息",
+null,
+null,
+null,
+null
+],
+"ct_d_save_or_spend": [
+"領到年終獎金。",
+null,
+null,
+null,
+null
+],
+"o_d_save_or_spend_save": [
+"全部存起來",
+null,
+null,
+null,
+null
+],
+"o_d_save_or_spend_trip": [
+"出國犒賞自己",
+null,
+null,
+null,
+null
+],
+"o_d_save_or_spend_parents": [
+"包給爸媽",
+null,
+null,
+null,
+null
+],
+"ct_d_friend_loan": [
+"老朋友開口跟你借錢。",
+null,
+null,
+null,
+null
+],
+"o_d_friend_loan_lend": [
+"借給他",
+null,
+null,
+null,
+null
+],
+"o_d_friend_loan_no": [
+"婉拒",
+null,
+null,
+null,
+null
+],
+"ct_d_dating_app": [
+"朋友勸你下載交友軟體。",
+null,
+null,
+null,
+null
+],
+"o_d_dating_app_try": [
+"試試看",
+null,
+null,
+null,
+null
+],
+"o_d_dating_app_no": [
+"還是隨緣",
+null,
+null,
+null,
+null
+],
+"ct_d_blind_date": [
+"長輩幫你安排了一場相親。",
+null,
+null,
+null,
+null
+],
+"o_d_blind_date_go": [
+"去見一面",
+null,
+null,
+null,
+null
+],
+"o_d_blind_date_refuse": [
+"堅決不去",
+null,
+null,
+null,
+null
+],
+"ct_d_overtime": [
+"主管問你週末能不能加班。",
+null,
+null,
+null,
+null
+],
+"o_d_overtime_yes": [
+"答應",
+null,
+null,
+null,
+null
+],
+"o_d_overtime_no": [
+"說已經有安排",
+null,
+null,
+null,
+null
+],
+"ct_d_job_hop": [
+"獵頭打來，說有一個薪水高三成的位置。",
+null,
+null,
+null,
+null
+],
+"o_d_job_hop_jump": [
+"跳槽",
+null,
+null,
+null,
+null
+],
+"o_d_job_hop_stay": [
+"留下來",
+null,
+null,
+null,
+null
+],
+"ct_d_startup_idea": [
+"你和朋友有一個創業點子。",
+null,
+null,
+null,
+null
+],
+"o_d_startup_idea_try": [
+"晚上兼著做",
+null,
+null,
+null,
+null
+],
+"o_d_startup_idea_drop": [
+"想想就好",
+null,
+null,
+null,
+null
+],
+"ct_d_gym_join": [
+"公司附近開了一家健身房。",
+null,
+null,
+null,
+null
+],
+"o_d_gym_join_join": [
+"辦年費",
+null,
+null,
+null,
+null
+],
+"o_d_gym_join_run": [
+"去公園跑步就好",
+null,
+null,
+null,
+null
+],
+"ct_d_wedding_far": [
+"大學同學在國外辦婚禮，邀你參加。",
+null,
+null,
+null,
+null
+],
+"o_d_wedding_far_go": [
+"飛過去",
+null,
+null,
+null,
+null
+],
+"o_d_wedding_far_gift": [
+"包紅包祝福",
+null,
+null,
+null,
+null
+],
+"ct_d_family_business": [
+"爸媽希望你回家接手家裡的生意。",
+null,
+null,
+null,
+null
+],
+"o_d_family_business_take": [
+"回家接班",
+null,
+null,
+null,
+null
+],
+"o_d_family_business_own": [
+"走自己的路",
+null,
+null,
+null,
+null
+],
+"ct_d_army": [
+"兵役通知來了。",
+null,
+null,
+null,
+null
+],
+"o_d_army_now": [
+"馬上去當",
+null,
+null,
+null,
+null
+],
+"o_d_army_defer": [
+"先延後",
+null,
+null,
+null,
+null
+],
+"ct_d_city_or_home": [
+"大城市有工作機會，但家鄉有爸媽。",
+null,
+null,
+null,
+null
+],
+"o_d_city_or_home_city": [
+"去城市打拚",
+null,
+null,
+null,
+null
+],
+"o_d_city_or_home_home": [
+"留在家鄉",
+null,
+null,
+null,
+null
+],
+"ct_d_phd": [
+"教授問你要不要繼續讀博士。",
+null,
+null,
+null,
+null
+],
+"o_d_phd_yes": [
+"讀下去",
+null,
+null,
+null,
+null
+],
+"o_d_phd_no": [
+"去業界",
+null,
+null,
+null,
+null
+],
+"ct_d_cohabit": [
+"交往三年的對象提議同居。",
+null,
+null,
+null,
+null
+],
+"o_d_cohabit_yes": [
+"搬在一起",
+null,
+null,
+null,
+null
+],
+"o_d_cohabit_wait": [
+"再等等",
+null,
+null,
+null,
+null
+],
+"ct_d_house_hunt": [
+"房東說要漲房租。",
+null,
+null,
+null,
+null
+],
+"o_d_house_hunt_pay": [
+"忍痛續租",
+null,
+null,
+null,
+null
+],
+"o_d_house_hunt_move": [
+"搬到郊區",
+null,
+null,
+null,
+null
+],
+"ct_d_car_buy": [
+"通勤越來越累，要不要買車？",
+null,
+null,
+null,
+null
+],
+"o_d_car_buy_buy": [
+"買一台",
+null,
+null,
+null,
+null
+],
+"o_d_car_buy_transit": [
+"繼續搭大眾運輸",
+null,
+null,
+null,
+null
+],
+"ct_d_promotion_move": [
+"升職的條件是外派到另一個城市。",
+null,
+null,
+null,
+null
+],
+"o_d_promotion_move_go": [
+"接受外派",
+null,
+null,
+null,
+null
+],
+"o_d_promotion_move_stay": [
+"留在原地",
+null,
+null,
+null,
+null
+],
+"ct_d_boss_unfair": [
+"主管把你的功勞算到別人頭上。",
+null,
+null,
+null,
+null
+],
+"o_d_boss_unfair_speak": [
+"找主管談",
+null,
+null,
+null,
+null
+],
+"o_d_boss_unfair_swallow": [
+"吞下去",
+null,
+null,
+null,
+null
+],
+"ct_d_kid_school_choice": [
+"孩子要上學了，要選哪間學校？",
+null,
+null,
+null,
+null
+],
+"o_d_kid_school_choice_near": [
+"家附近的公立學校",
+null,
+null,
+null,
+null
+],
+"o_d_kid_school_choice_private": [
+"昂貴的私立學校",
+null,
+null,
+null,
+null
+],
+"o_d_kid_school_choice_move": [
+"搬到好學區",
+null,
+null,
+null,
+null
+],
+"ct_d_kid_phone": [
+"孩子吵著要一支自己的手機。",
+null,
+null,
+null,
+null
+],
+"o_d_kid_phone_buy": [
+"買給他",
+null,
+null,
+null,
+null
+],
+"o_d_kid_phone_wait": [
+"等他大一點",
+null,
+null,
+null,
+null
+],
+"ct_d_parent_visit": [
+"爸媽打電話問你過年會不會回家。",
+null,
+null,
+null,
+null
+],
+"o_d_parent_visit_home": [
+"一定回去",
+null,
+null,
+null,
+null
+],
+"o_d_parent_visit_work": [
+"工作走不開",
+null,
+null,
+null,
+null
+],
+"ct_d_side_hustle": [
+"有人找你週末接案。",
+null,
+null,
+null,
+null
+],
+"o_d_side_hustle_take": [
+"接下來",
+null,
+null,
+null,
+null
+],
+"o_d_side_hustle_rest": [
+"週末要休息",
+null,
+null,
+null,
+null
+],
+"ct_d_health_warning": [
+"健康檢查報告有幾個紅字。",
+null,
+null,
+null,
+null
+],
+"o_d_health_warning_change": [
+"開始運動、少吃油",
+null,
+null,
+null,
+null
+],
+"o_d_health_warning_ignore": [
+"下次再說",
+null,
+null,
+null,
+null
+],
+"ct_d_midlife_hobby": [
+"你很想重拾年輕時的興趣。",
+null,
+null,
+null,
+null
+],
+"o_d_midlife_hobby_do": [
+"去報名課程",
+null,
+null,
+null,
+null
+],
+"o_d_midlife_hobby_later": [
+"等退休再說",
+null,
+null,
+null,
+null
+],
+"ct_d_marriage_counsel": [
+"你們最近常常吵架。",
+null,
+null,
+null,
+null
+],
+"o_d_marriage_counsel_counsel": [
+"一起去諮商",
+null,
+null,
+null,
+null
+],
+"o_d_marriage_counsel_ignore": [
+"冷處理",
+null,
+null,
+null,
+null
+],
+"ct_d_second_house": [
+"有人推薦你投資第二間房子。",
+null,
+null,
+null,
+null
+],
+"o_d_second_house_buy": [
+"買下來出租",
+null,
+null,
+null,
+null
+],
+"o_d_second_house_no": [
+"一間就夠了",
+null,
+null,
+null,
+null
+],
+"ct_d_layoff_offer": [
+"公司提出優退方案。",
+null,
+null,
+null,
+null
+],
+"o_d_layoff_offer_take": [
+"領錢走人",
+null,
+null,
+null,
+null
+],
+"o_d_layoff_offer_stay": [
+"繼續做",
+null,
+null,
+null,
+null
+],
+"ct_d_kids_activity": [
+"孩子想學一樣才藝。",
+null,
+null,
+null,
+null
+],
+"o_d_kids_activity_music": [
+"學樂器",
+null,
+null,
+null,
+null
+],
+"o_d_kids_activity_sport": [
+"學游泳",
+null,
+null,
+null,
+null
+],
+"o_d_kids_activity_none": [
+"先不用",
+null,
+null,
+null,
+null
+],
+"ct_d_family_trip": [
+"暑假要不要全家出國？",
+null,
+null,
+null,
+null
+],
+"o_d_family_trip_abroad": [
+"出國玩",
+null,
+null,
+null,
+null
+],
+"o_d_family_trip_local": [
+"附近露營",
+null,
+null,
+null,
+null
+],
+"ct_d_insurance_pitch": [
+"親戚來推銷保險。",
+null,
+null,
+null,
+null
+],
+"o_d_insurance_pitch_buy": [
+"買一份",
+null,
+null,
+null,
+null
+],
+"o_d_insurance_pitch_no": [
+"客氣拒絕",
+null,
+null,
+null,
+null
+],
+"ct_d_charity_ask": [
+"慈善團體在街上募款。",
+null,
+null,
+null,
+null
+],
+"o_d_charity_ask_give": [
+"捐一點",
+null,
+null,
+null,
+null
+],
+"o_d_charity_ask_pass": [
+"快步走過",
+null,
+null,
+null,
+null
+],
+"ct_d_neighbor_noise": [
+"樓上鄰居每天半夜都很吵。",
+null,
+null,
+null,
+null
+],
+"o_d_neighbor_noise_talk": [
+"上樓溝通",
+null,
+null,
+null,
+null
+],
+"o_d_neighbor_noise_endure": [
+"戴耳塞忍耐",
+null,
+null,
+null,
+null
+],
+"ct_d_sabbatical": [
+"你考慮停薪留職一年。",
+null,
+null,
+null,
+null
+],
+"o_d_sabbatical_go": [
+"去做想做的事",
+null,
+null,
+null,
+null
+],
+"o_d_sabbatical_no": [
+"不敢停下來",
+null,
+null,
+null,
+null
+],
+"ct_d_reunion_invite": [
+"同學會邀請你出席。",
+null,
+null,
+null,
+null
+],
+"o_d_reunion_invite_go": [
+"去聊聊近況",
+null,
+null,
+null,
+null
+],
+"o_d_reunion_invite_skip": [
+"不太想見面",
+null,
+null,
+null,
+null
+],
+"ct_d_old_flame": [
+"以前的戀人傳訊息約你吃飯。",
+null,
+null,
+null,
+null
+],
+"o_d_old_flame_no": [
+"禮貌拒絕",
+null,
+null,
+null,
+null
+],
+"o_d_old_flame_lunch": [
+"吃頓飯敘舊",
+null,
+null,
+null,
+null
+],
+"ct_d_pet_adult": [
+"收容所有一隻老狗沒人要。",
+null,
+null,
+null,
+null
+],
+"o_d_pet_adult_adopt": [
+"帶牠回家",
+null,
+null,
+null,
+null
+],
+"o_d_pet_adult_donate": [
+"捐一筆飼料錢",
+null,
+null,
+null,
+null
+],
+"ct_d_lend_family": [
+"兄弟姊妹做生意周轉不靈。",
+null,
+null,
+null,
+null
+],
+"o_d_lend_family_help": [
+"拿出積蓄幫忙",
+null,
+null,
+null,
+null
+],
+"o_d_lend_family_no": [
+"說自己也很緊",
+null,
+null,
+null,
+null
+],
+"ct_d_learn_tech": [
+"公司導入新的系統，很多人跟不上。",
+null,
+null,
+null,
+null
+],
+"o_d_learn_tech_learn": [
+"主動去學",
+null,
+null,
+null,
+null
+],
+"o_d_learn_tech_avoid": [
+"能閃就閃",
+null,
+null,
+null,
+null
+],
+"ct_d_burnout_rest": [
+"你覺得自己快撐不下去了。",
+null,
+null,
+null,
+null
+],
+"o_d_burnout_rest_leave": [
+"請長假",
+null,
+null,
+null,
+null
+],
+"o_d_burnout_rest_push": [
+"再撐一下",
+null,
+null,
+null,
+null
+],
+"ct_d_downsize": [
+"孩子都搬出去了，房子空蕩蕩的。",
+null,
+null,
+null,
+null
+],
+"o_d_downsize_sell": [
+"換小一點的房子",
+null,
+null,
+null,
+null
+],
+"o_d_downsize_keep": [
+"留著等他們回來",
+null,
+null,
+null,
+null
+],
+"ct_d_mentor_young": [
+"新來的年輕人很迷惘。",
+null,
+null,
+null,
+null
+],
+"o_d_mentor_young_mentor": [
+"花時間帶他",
+null,
+null,
+null,
+null
+],
+"o_d_mentor_young_busy": [
+"自己都忙不完",
+null,
+null,
+null,
+null
+],
+"ct_d_politics_family": [
+"家族聚餐時大家吵起政治。",
+null,
+null,
+null,
+null
+],
+"o_d_politics_family_calm": [
+"轉移話題",
+null,
+null,
+null,
+null
+],
+"o_d_politics_family_argue": [
+"據理力爭",
+null,
+null,
+null,
+null
+],
+"ct_d_inheritance": [
+"爸媽問你們兄弟姊妹遺產要怎麼分。",
+null,
+null,
+null,
+null
+],
+"o_d_inheritance_equal": [
+"平均分",
+null,
+null,
+null,
+null
+],
+"o_d_inheritance_care": [
+"照顧最多的人多拿",
+null,
+null,
+null,
+null
+],
+"ct_d_retire_early": [
+"你可以提早退休，但退休金會少一些。",
+null,
+null,
+null,
+null
+],
+"o_d_retire_early_retire": [
+"提早退休",
+null,
+null,
+null,
+null
+],
+"o_d_retire_early_work": [
+"再做幾年",
+null,
+null,
+null,
+null
+],
+"ct_d_grandkid_care": [
+"孩子問你能不能幫忙帶孫子。",
+null,
+null,
+null,
+null
+],
+"o_d_grandkid_care_yes": [
+"每天幫忙帶",
+null,
+null,
+null,
+null
+],
+"o_d_grandkid_care_weekend": [
+"只有週末",
+null,
+null,
+null,
+null
+],
+"ct_d_senior_class": [
+"社區開了長青學苑。",
+null,
+null,
+null,
+null
+],
+"o_d_senior_class_join": [
+"去上課",
+null,
+null,
+null,
+null
+],
+"o_d_senior_class_home": [
+"在家看電視",
+null,
+null,
+null,
+null
+],
+"ct_d_move_kids": [
+"孩子邀你搬去和他們一起住。",
+null,
+null,
+null,
+null
+],
+"o_d_move_kids_move": [
+"搬過去",
+null,
+null,
+null,
+null
+],
+"o_d_move_kids_stay": [
+"住慣了，不搬",
+null,
+null,
+null,
+null
+],
+"ct_d_nursing_home": [
+"家人提到養老院。",
+null,
+null,
+null,
+null
+],
+"o_d_nursing_home_go": [
+"去看看環境",
+null,
+null,
+null,
+null
+],
+"o_d_nursing_home_home": [
+"堅持住在家裡",
+null,
+null,
+null,
+null
+],
+"ct_d_write_memoir": [
+"你想把一生的故事寫下來。",
+null,
+null,
+null,
+null
+],
+"o_d_write_memoir_write": [
+"開始動筆",
+null,
+null,
+null,
+null
+],
+"o_d_write_memoir_tell": [
+"講給孫子聽就好",
+null,
+null,
+null,
+null
+],
+"ct_d_old_travel": [
+"趁還走得動，要不要去遠一點的地方？",
+null,
+null,
+null,
+null
+],
+"o_d_old_travel_go": [
+"報名旅行團",
+null,
+null,
+null,
+null
+],
+"o_d_old_travel_near": [
+"附近走走就好",
+null,
+null,
+null,
+null
+],
+"ct_d_scam_call": [
+"電話裡自稱是銀行的人，說你的帳戶有問題。",
+null,
+null,
+null,
+null
+],
+"o_d_scam_call_hang": [
+"直接掛斷",
+null,
+null,
+null,
+null
+],
+"o_d_scam_call_check": [
+"打給孩子確認",
+null,
+null,
+null,
+null
+],
+"o_d_scam_call_follow": [
+"照他說的做",
+null,
+null,
+null,
+null
+],
+"ct_d_health_surgery": [
+"醫生建議動一個不算小的手術。",
+null,
+null,
+null,
+null
+],
+"o_d_health_surgery_operate": [
+"開刀",
+null,
+null,
+null,
+null
+],
+"o_d_health_surgery_meds": [
+"吃藥控制",
+null,
+null,
+null,
+null
+],
+"ct_d_reconnect": [
+"你翻到一張很久沒聯絡的朋友的照片。",
+null,
+null,
+null,
+null
+],
+"o_d_reconnect_call": [
+"打電話給他",
+null,
+null,
+null,
+null
+],
+"o_d_reconnect_keep": [
+"收回抽屜",
+null,
+null,
+null,
+null
+],
+"ct_d_will_write": [
+"律師提醒你該立遺囑了。",
+null,
+null,
+null,
+null
+],
+"o_d_will_write_write": [
+"好好寫下來",
+null,
+null,
+null,
+null
+],
+"o_d_will_write_later": [
+"不吉利，以後再說",
+null,
+null,
+null,
+null
+],
+"ct_d_tech_old": [
+"孫子要教你用視訊通話。",
+null,
+null,
+null,
+null
+],
+"o_d_tech_old_learn": [
+"認真學",
+null,
+null,
+null,
+null
+],
+"o_d_tech_old_phone": [
+"打電話就好",
+null,
+null,
+null,
+null
+],
+"ct_d_garden_old": [
+"陽台還有一點空間。",
+null,
+null,
+null,
+null
+],
+"o_d_garden_old_plant": [
+"種些花草蔬菜",
+null,
+null,
+null,
+null
+],
+"o_d_garden_old_leave": [
+"維持原樣",
+null,
+null,
+null,
+null
+],
+"ct_d_volunteer_old": [
+"醫院在招募退休志工。",
+null,
+null,
+null,
+null
+],
+"o_d_volunteer_old_join": [
+"每週去兩天",
+null,
+null,
+null,
+null
+],
+"o_d_volunteer_old_no": [
+"想多休息",
+null,
+null,
+null,
+null
+],
+"ct_d_driving_old": [
+"家人勸你不要再開車了。",
+null,
+null,
+null,
+null
+],
+"o_d_driving_old_stop": [
+"交出鑰匙",
+null,
+null,
+null,
+null
+],
+"o_d_driving_old_keep": [
+"我還可以",
+null,
+null,
+null,
+null
+],
+"ct_d_last_trip_home": [
+"你很想回到出生的地方看看。",
+null,
+null,
+null,
+null
+],
+"o_d_last_trip_home_go": [
+"讓家人陪你回去",
+null,
+null,
+null,
+null
+],
+"o_d_last_trip_home_photo": [
+"看看老照片就好",
+null,
+null,
+null,
+null
+],
+"ct_d_water_walk": [
+"井離家很遠，每天要有人去提水。",
+null,
+null,
+null,
+null
+],
+"o_d_water_walk_go": [
+"你去提水",
+null,
+null,
+null,
+null
+],
+"o_d_water_walk_school": [
+"先去上學",
+null,
+null,
+null,
+null
+],
+"ct_d_mosquito_net": [
+"診所在發免費的蚊帳。",
+null,
+null,
+null,
+null
+],
+"o_d_mosquito_net_queue": [
+"排隊去領",
+null,
+null,
+null,
+null
+],
+"o_d_mosquito_net_skip": [
+"懶得排隊",
+null,
+null,
+null,
+null
+],
+"ct_d_harvest_help": [
+"收成季到了，家裡需要人手。",
+null,
+null,
+null,
+null
+],
+"o_d_harvest_help_farm": [
+"請假幫忙收割",
+null,
+null,
+null,
+null
+],
+"o_d_harvest_help_school": [
+"繼續上學",
+null,
+null,
+null,
+null
+],
+"ct_d_migrant_work": [
+"親戚說城裡的工地在缺人。",
+null,
+null,
+null,
+null
+],
+"o_d_migrant_work_go": [
+"去城裡做工",
+null,
+null,
+null,
+null
+],
+"o_d_migrant_work_stay": [
+"留在村裡",
+null,
+null,
+null,
+null
+],
+"ct_d_remit": [
+"家鄉的爸媽需要錢。",
+null,
+null,
+null,
+null
+],
+"o_d_remit_send": [
+"每月寄錢回去",
+null,
+null,
+null,
+null
+],
+"o_d_remit_save": [
+"先存自己的",
+null,
+null,
+null,
+null
+],
+"ct_d_microloan": [
+"合作社可以借你一小筆創業金。",
+null,
+null,
+null,
+null
+],
+"o_d_microloan_borrow": [
+"借來開小店",
+null,
+null,
+null,
+null
+],
+"o_d_microloan_no": [
+"不想欠錢",
+null,
+null,
+null,
+null
+],
+"ct_d_clinic_far": [
+"孩子發燒了，診所要走兩小時。",
+null,
+null,
+null,
+null
+],
+"o_d_clinic_far_walk": [
+"馬上出發",
+null,
+null,
+null,
+null
+],
+"o_d_clinic_far_herbs": [
+"先用土方",
+null,
+null,
+null,
+null
+],
+"ct_d_girls_school": [
+"村裡有人說女孩讀書沒有用。",
+null,
+null,
+null,
+null
+],
+"o_d_girls_school_study": [
+"堅持讀下去",
+null,
+null,
+null,
+null
+],
+"o_d_girls_school_home": [
+"留在家幫忙",
+null,
+null,
+null,
+null
+],
+"ct_d_solar_panel": [
+"有人在賣小型太陽能板。",
+null,
+null,
+null,
+null
+],
+"o_d_solar_panel_buy": [
+"買一片",
+null,
+null,
+null,
+null
+],
+"o_d_solar_panel_no": [
+"用油燈就好",
+null,
+null,
+null,
+null
+],
+"ct_d_mobile_money": [
+"大家開始用手機轉帳了。",
+null,
+null,
+null,
+null
+],
+"o_d_mobile_money_try": [
+"開一個帳戶",
+null,
+null,
+null,
+null
+],
+"o_d_mobile_money_cash": [
+"還是用現金",
+null,
+null,
+null,
+null
+],
+"ct_d_abroad_work": [
+"仲介說可以去國外當看護或工人。",
+null,
+null,
+null,
+null
+],
+"o_d_abroad_work_go": [
+"簽約出國",
+null,
+null,
+null,
+null
+],
+"o_d_abroad_work_stay": [
+"留在家人身邊",
+null,
+null,
+null,
+null
+],
+"ct_d_stock_tip": [
+"同事說他有一支一定會漲的股票。",
+null,
+null,
+null,
+null
+],
+"o_d_stock_tip_ignore": [
+"不理他",
+null,
+null,
+null,
+null
+],
+"o_d_stock_tip_small": [
+"丟一點點錢",
+null,
+null,
+null,
+null
+],
+"ct_d_mortgage_fix": [
+"銀行問你房貸要不要轉固定利率。",
+null,
+null,
+null,
+null
+],
+"o_d_mortgage_fix_fix": [
+"轉固定",
+null,
+null,
+null,
+null
+],
+"o_d_mortgage_fix_float": [
+"維持浮動",
+null,
+null,
+null,
+null
+],
+"ct_d_ev_car": [
+"換車時要選電動車嗎？",
+null,
+null,
+null,
+null
+],
+"o_d_ev_car_ev": [
+"選電動車",
+null,
+null,
+null,
+null
+],
+"o_d_ev_car_gas": [
+"還是油車",
+null,
+null,
+null,
+null
+],
+"ct_d_remote_work": [
+"公司開放永久遠距上班。",
+null,
+null,
+null,
+null
+],
+"o_d_remote_work_home": [
+"在家工作",
+null,
+null,
+null,
+null
+],
+"o_d_remote_work_office": [
+"還是進辦公室",
+null,
+null,
+null,
+null
+],
+"ct_d_gig_driver": [
+"下班後可以開車接單。",
+null,
+null,
+null,
+null
+],
+"o_d_gig_driver_drive": [
+"接幾單",
+null,
+null,
+null,
+null
+],
+"o_d_gig_driver_rest": [
+"算了",
+null,
+null,
+null,
+null
+],
+"ct_d_crypto": [
+"朋友都在討論虛擬貨幣。",
+null,
+null,
+null,
+null
+],
+"o_d_crypto_watch": [
+"只是看看",
+null,
+null,
+null,
+null
+],
+"o_d_crypto_bet": [
+"買一點試試",
+null,
+null,
+null,
+null
+],
+"ct_d_social_post": [
+"你寫的一則貼文意外爆紅，留言很兇。",
+null,
+null,
+null,
+null
+],
+"o_d_social_post_delete": [
+"刪掉",
+null,
+null,
+null,
+null
+],
+"o_d_social_post_reply": [
+"一則一則回",
+null,
+null,
+null,
+null
+],
+"o_d_social_post_off": [
+"關掉手機出門走走",
+null,
+null,
+null,
+null
+],
+"ct_d_ai_tools": [
+"公司開始使用 AI 工具。",
+null,
+null,
+null,
+null
+],
+"o_d_ai_tools_learn": [
+"花時間學會",
+null,
+null,
+null,
+null
+],
+"o_d_ai_tools_avoid": [
+"不太信任",
+null,
+null,
+null,
+null
+],
+"ct_d_plastic_surgery": [
+"你考慮去做醫美。",
+null,
+null,
+null,
+null
+],
+"o_d_plastic_surgery_do": [
+"預約看看",
+null,
+null,
+null,
+null
+],
+"o_d_plastic_surgery_no": [
+"接受自己的樣子",
+null,
+null,
+null,
+null
+],
+"ct_d_vegetarian": [
+"你想試試吃素。",
+null,
+null,
+null,
+null
+],
+"o_d_vegetarian_try": [
+"吃一個月看看",
+null,
+null,
+null,
+null
+],
+"o_d_vegetarian_no": [
+"太難了",
+null,
+null,
+null,
+null
+],
+"ct_d_marathon": [
+"朋友約你一起報名馬拉松。",
+null,
+null,
+null,
+null
+],
+"o_d_marathon_train": [
+"開始練跑",
+null,
+null,
+null,
+null
+],
+"o_d_marathon_cheer": [
+"去終點幫他加油",
+null,
+null,
+null,
+null
+],
+"ct_d_language_app": [
+"你下載了一個學外語的程式。",
+null,
+null,
+null,
+null
+],
+"o_d_language_app_daily": [
+"每天練十分鐘",
+null,
+null,
+null,
+null
+],
+"o_d_language_app_forget": [
+"放著吃灰",
+null,
+null,
+null,
+null
+],
+"ct_d_home_cook": [
+"外食吃膩了。",
+null,
+null,
+null,
+null
+],
+"o_d_home_cook_cook": [
+"開始自己煮",
+null,
+null,
+null,
+null
+],
+"o_d_home_cook_delivery": [
+"繼續叫外送",
+null,
+null,
+null,
+null
+],
+"ct_d_quit_drinking": [
+"你發現自己每天下班都要喝一杯。",
+null,
+null,
+null,
+null
+],
+"o_d_quit_drinking_stop": [
+"戒掉",
+null,
+null,
+null,
+null
+],
+"o_d_quit_drinking_keep": [
+"只是放鬆而已",
+null,
+null,
+null,
+null
+],
+"ct_d_night_market": [
+"夜市新開了一家很紅的攤子。",
+null,
+null,
+null,
+null
+],
+"o_d_night_market_queue": [
+"排隊一小時",
+null,
+null,
+null,
+null
+],
+"o_d_night_market_skip": [
+"下次再說",
+null,
+null,
+null,
+null
+],
+"ct_d_bike_commute": [
+"城市多了好多自行車道。",
+null,
+null,
+null,
+null
+],
+"o_d_bike_commute_bike": [
+"騎車上班",
+null,
+null,
+null,
+null
+],
+"o_d_bike_commute_drive": [
+"照舊",
+null,
+null,
+null,
+null
+],
+"ct_d_community_garden": [
+"社區要成立共享菜園。",
+null,
+null,
+null,
+null
+],
+"o_d_community_garden_join": [
+"認養一塊",
+null,
+null,
+null,
+null
+],
+"o_d_community_garden_no": [
+"沒時間",
+null,
+null,
+null,
+null
+],
+"ct_d_fostering": [
+"社工問你們願不願意寄養一個孩子。",
+null,
+null,
+null,
+null
+],
+"o_d_fostering_yes": [
+"願意",
+null,
+null,
+null,
+null
+],
+"o_d_fostering_no": [
+"還沒準備好",
+null,
+null,
+null,
+null
+],
+"ct_d_ivf": [
+"你們一直沒有孩子，醫生提到人工生殖。",
+null,
+null,
+null,
+null
+],
+"o_d_ivf_try": [
+"試試看",
+null,
+null,
+null,
+null
+],
+"o_d_ivf_accept": [
+"兩個人也很好",
+null,
+null,
+null,
+null
+],
+"ct_d_kid_abroad": [
+"孩子想出國讀書。",
+null,
+null,
+null,
+null
+],
+"o_d_kid_abroad_pay": [
+"全力支持",
+null,
+null,
+null,
+null
+],
+"o_d_kid_abroad_loan": [
+"讓他申請助學貸款",
+null,
+null,
+null,
+null
+],
+"o_d_kid_abroad_local": [
+"讀國內就好",
+null,
+null,
+null,
+null
+],
+"ct_d_kid_marry": [
+"孩子帶了交往對象回家。",
+null,
+null,
+null,
+null
+],
+"o_d_kid_marry_welcome": [
+"熱情招待",
+null,
+null,
+null,
+null
+],
+"o_d_kid_marry_strict": [
+"嚴格盤問",
+null,
+null,
+null,
+null
+],
+"ct_d_kid_career": [
+"孩子想辭掉穩定工作去追夢。",
+null,
+null,
+null,
+null
+],
+"o_d_kid_career_support": [
+"支持他",
+null,
+null,
+null,
+null
+],
+"o_d_kid_career_oppose": [
+"勸他再想想",
+null,
+null,
+null,
+null
+],
+"ct_d_elder_care_cost": [
+"爸媽需要有人全天照顧。",
+null,
+null,
+null,
+null
+],
+"o_d_elder_care_cost_hire": [
+"請看護",
+null,
+null,
+null,
+null
+],
+"o_d_elder_care_cost_self": [
+"自己辭職照顧",
+null,
+null,
+null,
+null
+],
+"o_d_elder_care_cost_share": [
+"兄弟姊妹輪流",
+null,
+null,
+null,
+null
+],
+"ct_d_parent_dementia": [
+"媽媽開始忘記你的名字。",
+null,
+null,
+null,
+null
+],
+"o_d_parent_dementia_visit": [
+"每週都回去陪她",
+null,
+null,
+null,
+null
+],
+"o_d_parent_dementia_call": [
+"每天打電話",
+null,
+null,
+null,
+null
+],
+"ct_d_disaster_donate": [
+"遠方發生了大地震。",
+null,
+null,
+null,
+null
+],
+"o_d_disaster_donate_donate": [
+"捐款",
+null,
+null,
+null,
+null
+],
+"o_d_disaster_donate_go": [
+"去當救災志工",
+null,
+null,
+null,
+null
+],
+"o_d_disaster_donate_pray": [
+"默默祈禱",
+null,
+null,
+null,
+null
+],
+"ct_d_protest": [
+"街上有一場大型集會。",
+null,
+null,
+null,
+null
+],
+"o_d_protest_join": [
+"上街表達意見",
+null,
+null,
+null,
+null
+],
+"o_d_protest_watch": [
+"在家看直播",
+null,
+null,
+null,
+null
+],
+"ct_d_vote": [
+"明天是投票日，天氣很差。",
+null,
+null,
+null,
+null
+],
+"o_d_vote_vote": [
+"冒雨去投票",
+null,
+null,
+null,
+null
+],
+"o_d_vote_skip": [
+"待在家",
+null,
+null,
+null,
+null
+],
+"ct_d_religion": [
+"朋友邀你去參加一場宗教聚會。",
+null,
+null,
+null,
+null
+],
+"o_d_religion_go": [
+"去看看",
+null,
+null,
+null,
+null
+],
+"o_d_religion_no": [
+"謝謝不用",
+null,
+null,
+null,
+null
+],
+"ct_d_jury_duty": [
+"你被抽中擔任陪審員或國民法官。",
+null,
+null,
+null,
+null
+],
+"o_d_jury_duty_serve": [
+"認真參與",
+null,
+null,
+null,
+null
+],
+"o_d_jury_duty_excuse": [
+"找理由推掉",
+null,
+null,
+null,
+null
+],
+"ct_d_witness": [
+"你目睹了一場車禍。",
+null,
+null,
+null,
+null
+],
+"o_d_witness_help": [
+"留下來作證",
+null,
+null,
+null,
+null
+],
+"o_d_witness_leave": [
+"趕時間離開",
+null,
+null,
+null,
+null
+],
+"ct_d_lawsuit": [
+"一筆生意糾紛可能要上法院。",
+null,
+null,
+null,
+null
+],
+"o_d_lawsuit_settle": [
+"和解",
+null,
+null,
+null,
+null
+],
+"o_d_lawsuit_fight": [
+"打官司",
+null,
+null,
+null,
+null
+],
+"ct_d_disability_help": [
+"同事受傷後要坐輪椅上班。",
+null,
+null,
+null,
+null
+],
+"o_d_disability_help_help": [
+"主動幫忙調整環境",
+null,
+null,
+null,
+null
+],
+"o_d_disability_help_respect": [
+"尊重他自己處理",
+null,
+null,
+null,
+null
+],
+"ct_d_hearing": [
+"你聽不太清楚別人說話了。",
+null,
+null,
+null,
+null
+],
+"o_d_hearing_aid": [
+"去配助聽器",
+null,
+null,
+null,
+null
+],
+"o_d_hearing_nod": [
+"笑笑點頭就好",
+null,
+null,
+null,
+null
+],
+"ct_d_fall_prevent": [
+"浴室地板很滑。",
+null,
+null,
+null,
+null
+],
+"o_d_fall_prevent_fix": [
+"裝扶手和止滑墊",
+null,
+null,
+null,
+null
+],
+"o_d_fall_prevent_careful": [
+"自己小心就好",
+null,
+null,
+null,
+null
+],
+"ct_d_war_flee": [
+"附近傳來戰事的消息。",
+null,
+null,
+null,
+null
+],
+"o_d_war_flee_flee": [
+"帶著家人先離開",
+null,
+null,
+null,
+null
+],
+"o_d_war_flee_stay": [
+"守著家園",
+null,
+null,
+null,
+null
+],
+"ct_d_famine_ration": [
+"糧食短缺，家裡只剩一點米。",
+null,
+null,
+null,
+null
+],
+"o_d_famine_ration_share": [
+"分給鄰居",
+null,
+null,
+null,
+null
+],
+"o_d_famine_ration_keep": [
+"留給自己家",
+null,
+null,
+null,
+null
+],
+"ct_d_blackout_70s": [
+"石油危機，晚上要限電。",
+null,
+null,
+null,
+null
+],
+"o_d_blackout_70s_candles": [
+"點蠟燭聊天",
+null,
+null,
+null,
+null
+],
+"o_d_blackout_70s_sleep": [
+"早早睡覺",
+null,
+null,
+null,
+null
+],
+"ct_d_tv_buy": [
+"街上的電器行開始賣彩色電視。",
+null,
+null,
+null,
+null
+],
+"o_d_tv_buy_buy": [
+"咬牙買一台",
+null,
+null,
+null,
+null
+],
+"o_d_tv_buy_neighbor": [
+"去鄰居家看",
+null,
+null,
+null,
+null
+],
+"ct_d_computer_90s": [
+"個人電腦越來越便宜了。",
+null,
+null,
+null,
+null
+],
+"o_d_computer_90s_buy": [
+"買一台",
+null,
+null,
+null,
+null
+],
+"o_d_computer_90s_no": [
+"用不到",
+null,
+null,
+null,
+null
+],
+"ct_d_pager": [
+"大家都在用呼叫器。",
+null,
+null,
+null,
+null
+],
+"o_d_pager_buy": [
+"辦一個",
+null,
+null,
+null,
+null
+],
+"o_d_pager_no": [
+"打公共電話就好",
+null,
+null,
+null,
+null
+],
+"ct_d_dotcom": [
+"網路公司開出高薪挖角。",
+null,
+null,
+null,
+null
+],
+"o_d_dotcom_jump": [
+"加入網路公司",
+null,
+null,
+null,
+null
+],
+"o_d_dotcom_stay": [
+"留在傳統產業",
+null,
+null,
+null,
+null
+],
+"ct_d_sars_mask": [
+"新的傳染病出現，藥局口罩都賣光了。",
+null,
+null,
+null,
+null
+],
+"o_d_sars_mask_home": [
+"減少出門",
+null,
+null,
+null,
+null
+],
+"o_d_sars_mask_normal": [
+"照常生活",
+null,
+null,
+null,
+null
+],
+"ct_d_covid_vax": [
+"疫苗開放施打了。",
+null,
+null,
+null,
+null
+],
+"o_d_covid_vax_vax": [
+"預約接種",
+null,
+null,
+null,
+null
+],
+"o_d_covid_vax_wait": [
+"再觀察一下",
+null,
+null,
+null,
+null
+],
+"ct_d_lockdown_hobby": [
+"封城在家，時間突然多了起來。",
+null,
+null,
+null,
+null
+],
+"o_d_lockdown_hobby_bake": [
+"學做麵包",
+null,
+null,
+null,
+null
+],
+"o_d_lockdown_hobby_study": [
+"上網課",
+null,
+null,
+null,
+null
+],
+"o_d_lockdown_hobby_call": [
+"每天視訊家人",
+null,
+null,
+null,
+null
+],
+"ct_d_gfc_job": [
+"金融海嘯，公司要大家減薪共體時艱。",
+null,
+null,
+null,
+null
+],
+"o_d_gfc_job_accept": [
+"接受減薪",
+null,
+null,
+null,
+null
+],
+"o_d_gfc_job_leave": [
+"另找出路",
+null,
+null,
+null,
+null
+],
+"ct_d_asia_crisis": [
+"貨幣暴跌，存款一夕縮水。",
+null,
+null,
+null,
+null
+],
+"o_d_asia_crisis_hold": [
+"咬牙撐過",
+null,
+null,
+null,
+null
+],
+"o_d_asia_crisis_gold": [
+"把存款換成黃金",
+null,
+null,
+null,
+null
+],
+"ct_d_olympics_watch": [
+"奧運開幕了。",
+null,
+null,
+null,
+null
+],
+"o_d_olympics_watch_watch": [
+"熬夜看轉播",
+null,
+null,
+null,
+null
+],
+"o_d_olympics_watch_sleep": [
+"看隔天的新聞",
+null,
+null,
+null,
+null
+],
+"ct_d_worldcup": [
+"世界盃決賽今晚開踢。",
+null,
+null,
+null,
+null
+],
+"o_d_worldcup_bar": [
+"去餐廳和大家一起看",
+null,
+null,
+null,
+null
+],
+"o_d_worldcup_home": [
+"在家看",
+null,
+null,
+null,
+null
+],
+"ct_d_heatwave": [
+"熱浪來襲，氣溫創下紀錄。",
+null,
+null,
+null,
+null
+],
+"o_d_heatwave_ac": [
+"開冷氣",
+null,
+null,
+null,
+null
+],
+"o_d_heatwave_library": [
+"去圖書館避暑",
+null,
+null,
+null,
+null
+],
+"ct_d_flood_home": [
+"大雨讓街道淹水了。",
+null,
+null,
+null,
+null
+],
+"o_d_flood_home_help": [
+"幫鄰居搬東西",
+null,
+null,
+null,
+null
+],
+"o_d_flood_home_upstairs": [
+"把家當搬上樓",
+null,
+null,
+null,
+null
+],
+"ct_d_typhoon": [
+"颱風要來了。",
+null,
+null,
+null,
+null
+],
+"o_d_typhoon_stock": [
+"去超市囤貨",
+null,
+null,
+null,
+null
+],
+"o_d_typhoon_ignore": [
+"應該還好",
+null,
+null,
+null,
+null
+],
+"ct_d_name_change": [
+"你一直不喜歡自己的名字。",
+null,
+null,
+null,
+null
+],
+"o_d_name_change_change": [
+"去改名",
+null,
+null,
+null,
+null
+],
+"o_d_name_change_keep": [
+"習慣就好",
+null,
+null,
+null,
+null
+],
+"ct_d_ancestry": [
+"有人送你一份基因檢測組。",
+null,
+null,
+null,
+null
+],
+"o_d_ancestry_test": [
+"寄去檢測",
+null,
+null,
+null,
+null
+],
+"o_d_ancestry_no": [
+"不想知道",
+null,
+null,
+null,
+null
+],
+"ct_d_lottery_buy": [
+"頭獎累積到天文數字。",
+null,
+null,
+null,
+null
+],
+"o_d_lottery_buy_buy": [
+"買一張",
+null,
+null,
+null,
+null
+],
+"o_d_lottery_buy_no": [
+"機率太小",
+null,
+null,
+null,
+null
+],
+"ct_d_haircut_bold": [
+"你想剪一個大膽的髮型。",
+null,
+null,
+null,
+null
+],
+"o_d_haircut_bold_do": [
+"剪了",
+null,
+null,
+null,
+null
+],
+"o_d_haircut_bold_safe": [
+"照舊",
+null,
+null,
+null,
+null
+],
+"ct_d_cat_rescue": [
+"路邊有一隻受傷的小貓。",
+null,
+null,
+null,
+null
+],
+"o_d_cat_rescue_vet": [
+"帶去看獸醫",
+null,
+null,
+null,
+null
+],
+"o_d_cat_rescue_call": [
+"打電話給動保團體",
+null,
+null,
+null,
+null
+],
+"ct_d_night_walk": [
+"睡不著，凌晨想出去走走。",
+null,
+null,
+null,
+null
+],
+"o_d_night_walk_walk": [
+"出門散步",
+null,
+null,
+null,
+null
+],
+"o_d_night_walk_bed": [
+"躺著數羊",
+null,
+null,
+null,
+null
+],
+"ct_d_letter_old": [
+"你找到一封年輕時沒寄出的信。",
+null,
+null,
+null,
+null
+],
+"o_d_letter_old_send": [
+"查地址寄出去",
+null,
+null,
+null,
+null
+],
+"o_d_letter_old_burn": [
+"燒掉",
+null,
+null,
+null,
+null
+]
+},
+"pool": {
+"h_oil_1973": [
+"石油價格在幾個月內翻了好幾倍，加油站前排起長龍。",
+null,
+null,
+null,
+null
+],
+"h_asia_1997": [
+"亞洲金融風暴襲來，貨幣一夕重貶，很多公司撐不下去。",
+null,
+null,
+null,
+null
+],
+"h_gfc_2008": [
+"全球金融海嘯，新聞每天都在報哪家銀行又出事了。",
+null,
+null,
+null,
+null
+],
+"h_covid_2020": [
+"新冠疫情擴散，學校和辦公室都改成在家進行。",
+null,
+null,
+null,
+null
+],
+"h_moon_1969": [
+"人類第一次踏上月球，全世界的人守在電視前。",
+null,
+null,
+null,
+null
+]
+}
+}
+}

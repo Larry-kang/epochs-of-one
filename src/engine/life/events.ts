@@ -9,6 +9,8 @@ export interface EventCtx {
   /** P0/P1 context */
   studying: boolean; married: boolean; kids: number; siblings: number; retired: boolean; owner: boolean; city: boolean;
   careerMult: number; gdp: number; oop: number;
+  /** v0.8.0 yearly focus multipliers (absent = 1) */
+  focusPromo?: number; focusFamily?: number;
 }
 export interface EventOut {
   stats: Stats; cash: number; income: number; pct: number; flags: Record<string, number | boolean | string>;

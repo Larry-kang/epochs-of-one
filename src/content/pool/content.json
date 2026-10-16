@@ -1,0 +1,5417 @@
+{
+"note": "Batch 2 content pool (C1/C2). Original text in src/content/<lang>/; effects are game-design content.",
+"events": [
+[
+"ev_lost_tooth",
+5,
+8,
+0.4,
+{
+"ha": 1
+},
+0
+],
+[
+"ev_snow_day",
+4,
+14,
+0.04,
+{
+"ha": 3
+},
+6
+],
+[
+"ev_spelling_bee",
+8,
+12,
+0.05,
+{
+"sm": 2
+},
+0,
+[
+"student"
+]
+],
+[
+"ev_tree_climb",
+6,
+12,
+0.06,
+{
+"h": 1,
+"ha": 2
+},
+5
+],
+[
+"ev_school_lunch",
+6,
+12,
+0.08,
+{
+"h": 1
+},
+6,
+[
+"student",
+"poor"
+]
+],
+[
+"ev_measles",
+1,
+10,
+0.02,
+{
+"h": -5
+},
+0,
+[
+"lowgdp"
+]
+],
+[
+"ev_vaccine_day",
+1,
+6,
+0.2,
+{
+"h": 2
+},
+0
+],
+[
+"ev_first_swim",
+5,
+12,
+0.08,
+{
+"h": 2,
+"ha": 2
+},
+0
+],
+[
+"ev_puppy_love",
+9,
+13,
+0.06,
+{
+"ha": 2
+},
+0
+],
+[
+"ev_grandparent_dies",
+6,
+30,
+0.03,
+{
+"ha": -6
+},
+0
+],
+[
+"ev_family_trip_kid",
+5,
+14,
+0.05,
+{
+"ha": 4,
+"so": 1
+},
+6,
+[
+"rich"
+]
+],
+[
+"ev_hand_me_down",
+5,
+14,
+0.08,
+{
+"ha": -1
+},
+5,
+[
+"sibs",
+"poor"
+]
+],
+[
+"ev_school_bus",
+6,
+12,
+0.06,
+{
+"so": 2
+},
+0,
+[
+"student",
+"city"
+]
+],
+[
+"ev_long_walk_school",
+6,
+14,
+0.08,
+{
+"h": 2,
+"sm": -1
+},
+0,
+[
+"student",
+"rural",
+"lowgdp"
+]
+],
+[
+"ev_comic_hero",
+8,
+14,
+0.06,
+{
+"ha": 3
+},
+0
+],
+[
+"ev_star_gazing",
+8,
+16,
+0.04,
+{
+"sm": 2,
+"ha": 2
+},
+0
+],
+[
+"ev_class_leader",
+9,
+15,
+0.05,
+{
+"so": 3
+},
+0,
+[
+"student"
+]
+],
+[
+"ev_teacher_praise",
+7,
+15,
+0.06,
+{
+"sm": 2,
+"ha": 3
+},
+4,
+[
+"student"
+]
+],
+[
+"ev_puberty",
+11,
+14,
+0.3,
+{
+"ha": -1
+},
+0
+],
+[
+"ev_acne",
+13,
+18,
+0.15,
+{
+"ha": -2
+},
+0
+],
+[
+"ev_growth_spurt",
+11,
+16,
+0.2,
+{
+"h": 1
+},
+0
+],
+[
+"ev_first_paycheck_teen",
+15,
+18,
+0.08,
+{
+"ha": 3
+},
+0
+],
+[
+"ev_school_trip",
+13,
+18,
+0.06,
+{
+"so": 3,
+"ha": 3
+},
+0,
+[
+"student"
+]
+],
+[
+"ev_yearbook",
+17,
+18,
+0.3,
+{
+"so": 1
+},
+0,
+[
+"student"
+]
+],
+[
+"ev_exam_pass",
+17,
+19,
+0.2,
+{
+"ha": 5
+},
+0,
+[
+"student",
+"smart"
+]
+],
+[
+"ev_exam_fail",
+17,
+19,
+0.08,
+{
+"ha": -5
+},
+0,
+[
+"student"
+]
+],
+[
+"ev_bad_haircut",
+12,
+25,
+0.05,
+{
+"ha": -1
+},
+0
+],
+[
+"ev_lost_phone",
+14,
+70,
+0.03,
+{
+"ha": -2
+},
+10,
+[
+"y2008-2100"
+]
+],
+[
+"ev_first_kiss",
+14,
+22,
+0.15,
+{
+"ha": 4
+},
+0
+],
+[
+"ev_friend_betray",
+14,
+40,
+0.03,
+{
+"so": -3,
+"ha": -3
+},
+0
+],
+[
+"ev_campus_love",
+18,
+24,
+0.08,
+{
+"ha": 4,
+"so": 2
+},
+0,
+[
+"student"
+]
+],
+[
+"ev_all_nighter",
+18,
+24,
+0.1,
+{
+"h": -1,
+"sm": 1
+},
+3,
+[
+"student"
+]
+],
+[
+"ev_scholarship",
+18,
+24,
+0.06,
+{
+"sm": 2,
+"ha": 3,
+"$": 0.05
+},
+0,
+[
+"student",
+"smart"
+]
+],
+[
+"ev_interview_fail",
+21,
+35,
+0.08,
+{
+"ha": -2
+},
+4
+],
+[
+"ev_commute_long",
+22,
+60,
+0.05,
+{
+"h": -1,
+"ha": -1
+},
+10,
+[
+"work",
+"city"
+]
+],
+[
+"ev_office_crush",
+22,
+40,
+0.04,
+{
+"ha": 2
+},
+0,
+[
+"work",
+"single"
+]
+],
+[
+"ev_pay_raise_big",
+25,
+55,
+0.03,
+{
+"ha": 4,
+"career": 0.06
+},
+8,
+[
+"work"
+]
+],
+[
+"ev_team_dinner",
+22,
+60,
+0.06,
+{
+"so": 2
+},
+4,
+[
+"work"
+]
+],
+[
+"ev_work_trip",
+24,
+60,
+0.05,
+{
+"so": 1,
+"ha": 2
+},
+5,
+[
+"work"
+]
+],
+[
+"ev_coworker_leaves",
+24,
+60,
+0.05,
+{
+"so": -2
+},
+6,
+[
+"work"
+]
+],
+[
+"ev_back_to_school",
+28,
+50,
+0.02,
+{
+"sm": 4
+},
+0,
+[
+"work"
+]
+],
+[
+"ev_moving_city",
+22,
+50,
+0.03,
+{
+"so": -2,
+"ha": 1
+},
+10
+],
+[
+"ev_robbery",
+18,
+80,
+0.01,
+{
+"ha": -4,
+"$": -0.02
+},
+20,
+[
+"city"
+]
+],
+[
+"ev_car_accident",
+18,
+80,
+0.01,
+{
+"h": -6,
+"$": -0.03
+},
+20
+],
+[
+"ev_jury_story",
+25,
+75,
+0.01,
+{
+"sm": 1
+},
+0
+],
+[
+"ev_fine_ticket",
+18,
+80,
+0.04,
+{
+"$": -0.005
+},
+6
+],
+[
+"ev_arrested_wrong",
+18,
+60,
+0.003,
+{
+"ha": -6
+},
+0
+],
+[
+"ev_back_injury",
+30,
+70,
+0.02,
+{
+"h": -4
+},
+10,
+[
+"work"
+]
+],
+[
+"ev_chronic",
+40,
+90,
+0.03,
+{
+"h": -5
+},
+0
+],
+[
+"ev_disability",
+20,
+90,
+0.005,
+{
+"h": -8,
+"ha": -4
+},
+0
+],
+[
+"ev_recover",
+20,
+90,
+0.02,
+{
+"h": 5,
+"ha": 3
+},
+10
+],
+[
+"ev_insomnia",
+25,
+80,
+0.03,
+{
+"h": -2,
+"ha": -2
+},
+8
+],
+[
+"ev_depression",
+16,
+80,
+0.015,
+{
+"ha": -8
+},
+10
+],
+[
+"ev_therapy_help",
+18,
+80,
+0.01,
+{
+"ha": 4
+},
+10
+],
+[
+"ev_newborn_night",
+23,
+45,
+0.2,
+{
+"h": -2,
+"ha": 2
+},
+0,
+[
+"kids"
+]
+],
+[
+"ev_kid_award",
+30,
+60,
+0.05,
+{
+"ha": 4
+},
+6,
+[
+"kids"
+]
+],
+[
+"ev_kid_trouble",
+33,
+60,
+0.04,
+{
+"ha": -3
+},
+8,
+[
+"kids"
+]
+],
+[
+"ev_kid_wedding",
+48,
+75,
+0.08,
+{
+"ha": 6,
+"$": -0.05
+},
+0,
+[
+"kids"
+]
+],
+[
+"ev_empty_nest",
+45,
+70,
+0.08,
+{
+"ha": -2
+},
+0,
+[
+"kids"
+]
+],
+[
+"ev_parent_sick",
+35,
+65,
+0.04,
+{
+"ha": -3
+},
+8
+],
+[
+"ev_sibling_wedding",
+20,
+50,
+0.05,
+{
+"so": 2,
+"ha": 2
+},
+0,
+[
+"sibs"
+]
+],
+[
+"ev_niece_born",
+25,
+60,
+0.05,
+{
+"ha": 2
+},
+0,
+[
+"sibs"
+]
+],
+[
+"ev_family_feud",
+30,
+80,
+0.02,
+{
+"so": -3
+},
+15,
+[
+"sibs"
+]
+],
+[
+"ev_reconcile",
+35,
+90,
+0.02,
+{
+"so": 3,
+"ha": 3
+},
+0,
+[
+"sibs"
+]
+],
+[
+"ev_pet_old",
+20,
+80,
+0.03,
+{
+"ha": -4
+},
+10
+],
+[
+"ev_new_pet",
+15,
+85,
+0.03,
+{
+"ha": 4
+},
+10
+],
+[
+"ev_church_choir",
+20,
+90,
+0.02,
+{
+"so": 3
+},
+0
+],
+[
+"ev_pilgrimage",
+30,
+90,
+0.01,
+{
+"ha": 4
+},
+0
+],
+[
+"ev_bonus",
+25,
+60,
+0.05,
+{
+"ha": 3,
+"$": 0.05
+},
+4,
+[
+"work"
+]
+],
+[
+"ev_tax_refund",
+22,
+90,
+0.05,
+{
+"ha": 1,
+"$": 0.01
+},
+3,
+[
+"work"
+]
+],
+[
+"ev_broken_fridge",
+22,
+90,
+0.04,
+{
+"$": -0.02
+},
+8
+],
+[
+"ev_debt_paid",
+25,
+70,
+0.02,
+{
+"ha": 4
+},
+0
+],
+[
+"ev_inheritance_small",
+30,
+80,
+0.01,
+{
+"$": 0.15,
+"ha": -1
+},
+0
+],
+[
+"ev_price_up",
+20,
+90,
+0.03,
+{
+"ha": -1
+},
+5
+],
+[
+"ev_flood_damage",
+10,
+90,
+0.01,
+{
+"$": -0.05,
+"ha": -3
+},
+20,
+[
+"lowgdp"
+]
+],
+[
+"ev_earthquake",
+5,
+95,
+0.01,
+{
+"ha": -3
+},
+15
+],
+[
+"ev_heat_stroke",
+60,
+100,
+0.02,
+{
+"h": -4
+},
+8,
+[
+"y2010-2100"
+]
+],
+[
+"ev_war_news",
+10,
+90,
+0.02,
+{
+"ha": -2
+},
+10
+],
+[
+"ev_refugee_neighbor",
+20,
+90,
+0.01,
+{
+"so": 2
+},
+0
+],
+[
+"ev_retire_party",
+55,
+70,
+0.3,
+{
+"ha": 4,
+"so": 2
+},
+0,
+[
+"retired"
+]
+],
+[
+"ev_grandkid_born",
+50,
+85,
+0.06,
+{
+"ha": 6
+},
+0,
+[
+"kids"
+]
+],
+[
+"ev_dance_square",
+55,
+90,
+0.04,
+{
+"h": 2,
+"so": 3
+},
+0
+],
+[
+"ev_cataract",
+60,
+95,
+0.05,
+{
+"h": -1
+},
+0
+],
+[
+"ev_old_classmate_dies",
+65,
+100,
+0.06,
+{
+"ha": -3
+},
+5
+],
+[
+"ev_birthday_party_old",
+70,
+110,
+0.08,
+{
+"ha": 4,
+"so": 2
+},
+10,
+[
+"kids"
+]
+],
+[
+"ev_slow_walk",
+75,
+110,
+0.08,
+{
+"h": -1
+},
+10
+],
+[
+"ev_tell_stories",
+70,
+110,
+0.06,
+{
+"so": 2,
+"ha": 2
+},
+6,
+[
+"kids"
+]
+],
+[
+"ev_bank_account",
+12,
+20,
+0.15,
+{
+"sm": 1
+},
+0
+],
+[
+"ev_garage_sale",
+20,
+80,
+0.03,
+{
+"ha": 1,
+"$": 0.005
+},
+10
+],
+[
+"ev_spouse_hospital",
+55,
+100,
+0.03,
+{
+"ha": -4
+},
+8,
+[
+"married"
+]
+]
+],
+"decisions": [
+{
+"id": "d_pet_ask",
+"from": 6,
+"to": 12,
+"p": 0.05,
+"cond": [],
+"fact": "q5",
+"opts": [
+{
+"id": "beg",
+"fx": {
+"ha": 3,
+"so": -1
+}
+},
+{
+"id": "drop",
+"fx": {
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_lost_wallet",
+"from": 6,
+"to": 14,
+"p": 0.03,
+"cond": [],
+"fact": "gdp",
+"opts": [
+{
+"id": "return",
+"fx": {
+"so": 2,
+"ha": 1
+}
+},
+{
+"id": "keep",
+"fx": {
+"ha": 1,
+"so": -2
+}
+}
+]
+},
+{
+"id": "d_bully_seen",
+"from": 7,
+"to": 14,
+"p": 0.04,
+"cond": [
+"student"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "help",
+"fx": {
+"so": 3,
+"ha": -1
+}
+},
+{
+"id": "tell",
+"fx": {
+"so": 1
+}
+},
+{
+"id": "walk",
+"fx": {
+"ha": -2
+}
+}
+]
+},
+{
+"id": "d_piano_quit",
+"from": 7,
+"to": 13,
+"p": 0.04,
+"cond": [],
+"fact": "sec",
+"opts": [
+{
+"id": "keep",
+"fx": {
+"sm": 2,
+"ha": -2
+}
+},
+{
+"id": "quit",
+"fx": {
+"ha": 2
+}
+}
+]
+},
+{
+"id": "d_school_play",
+"from": 7,
+"to": 12,
+"p": 0.04,
+"cond": [
+"student"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "try",
+"fx": {
+"so": 3,
+"ha": 2
+}
+},
+{
+"id": "back",
+"fx": {
+"ha": -1
+}
+}
+]
+},
+{
+"id": "d_comic_or_book",
+"from": 7,
+"to": 13,
+"p": 0.04,
+"cond": [],
+"fact": "sec",
+"opts": [
+{
+"id": "comic",
+"fx": {
+"ha": 3
+}
+},
+{
+"id": "book",
+"fx": {
+"sm": 3
+}
+}
+]
+},
+{
+"id": "d_cheat_test",
+"from": 8,
+"to": 15,
+"p": 0.03,
+"cond": [
+"student"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "no",
+"fx": {
+"sm": 1,
+"so": -1
+}
+},
+{
+"id": "peek",
+"fx": {
+"sm": -1,
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_sick_day",
+"from": 6,
+"to": 12,
+"p": 0.04,
+"cond": [
+"student"
+],
+"fact": "q5",
+"opts": [
+{
+"id": "rest",
+"fx": {
+"h": 2,
+"sm": -1
+}
+},
+{
+"id": "go",
+"fx": {
+"h": -1,
+"sm": 1
+}
+}
+]
+},
+{
+"id": "d_new_kid",
+"from": 6,
+"to": 12,
+"p": 0.04,
+"cond": [
+"student"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "friend",
+"fx": {
+"so": 3
+}
+},
+{
+"id": "watch",
+"fx": {}
+}
+]
+},
+{
+"id": "d_field_trip",
+"from": 8,
+"to": 14,
+"p": 0.04,
+"cond": [
+"student"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "go",
+"fx": {
+"so": 2,
+"ha": 2,
+"$": -0.01
+}
+},
+{
+"id": "skip",
+"fx": {
+"ha": -2
+}
+}
+]
+},
+{
+"id": "d_grandpa_farm",
+"from": 6,
+"to": 12,
+"p": 0.03,
+"cond": [
+"rural"
+],
+"fact": "urban",
+"opts": [
+{
+"id": "help",
+"fx": {
+"h": 2,
+"so": 1
+}
+},
+{
+"id": "play",
+"fx": {
+"ha": 2
+}
+}
+]
+},
+{
+"id": "d_tv_time",
+"from": 6,
+"to": 12,
+"p": 0.04,
+"cond": [
+"y1960-2100"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "hw",
+"fx": {
+"sm": 2
+}
+},
+{
+"id": "more",
+"fx": {
+"ha": 2,
+"sm": -1
+}
+}
+]
+},
+{
+"id": "d_broken_vase",
+"from": 6,
+"to": 11,
+"p": 0.03,
+"cond": [],
+"fact": "gdp",
+"opts": [
+{
+"id": "admit",
+"fx": {
+"so": 1,
+"ha": -1
+}
+},
+{
+"id": "hide",
+"fx": {
+"ha": -2
+}
+}
+]
+},
+{
+"id": "d_sports_day",
+"from": 7,
+"to": 13,
+"p": 0.04,
+"cond": [
+"student"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "run",
+"fx": {
+"h": 2,
+"so": 2
+}
+},
+{
+"id": "cheer",
+"fx": {
+"so": 1
+}
+}
+]
+},
+{
+"id": "d_secret_club",
+"from": 8,
+"to": 12,
+"p": 0.03,
+"cond": [],
+"fact": "sec",
+"opts": [
+{
+"id": "join",
+"fx": {
+"so": 3,
+"ha": 2
+}
+},
+{
+"id": "home",
+"fx": {
+"h": 1
+}
+}
+]
+},
+{
+"id": "d_glasses_kid",
+"from": 8,
+"to": 14,
+"p": 0.03,
+"cond": [],
+"fact": "gdp",
+"opts": [
+{
+"id": "tell",
+"fx": {
+"sm": 2,
+"$": -0.01
+}
+},
+{
+"id": "squint",
+"fx": {
+"sm": -2
+}
+}
+]
+},
+{
+"id": "d_sibling_toy",
+"from": 4,
+"to": 12,
+"p": 0.05,
+"cond": [
+"sibs"
+],
+"fact": "tfr",
+"opts": [
+{
+"id": "share",
+"fx": {
+"so": 2,
+"ha": -1
+}
+},
+{
+"id": "keep",
+"fx": {
+"ha": 1,
+"so": -1
+}
+}
+]
+},
+{
+"id": "d_chores_pay",
+"from": 8,
+"to": 14,
+"p": 0.04,
+"cond": [
+"poor"
+],
+"fact": "gini",
+"opts": [
+{
+"id": "help",
+"fx": {
+"so": 1,
+"sm": -1,
+"$": 0.005
+}
+},
+{
+"id": "study",
+"fx": {
+"sm": 2
+}
+}
+]
+},
+{
+"id": "d_essay_contest",
+"from": 9,
+"to": 15,
+"p": 0.03,
+"cond": [
+"student",
+"smart"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "enter",
+"fx": {
+"sm": 3,
+"ha": 1
+}
+},
+{
+"id": "pass",
+"fx": {}
+}
+]
+},
+{
+"id": "d_lunch_money",
+"from": 6,
+"to": 13,
+"p": 0.03,
+"cond": [
+"poor"
+],
+"fact": "gini",
+"opts": [
+{
+"id": "tell",
+"fx": {
+"so": 1
+}
+},
+{
+"id": "quiet",
+"fx": {
+"h": -1,
+"ha": -2
+}
+}
+]
+},
+{
+"id": "d_club_choice",
+"from": 13,
+"to": 17,
+"p": 0.06,
+"cond": [
+"student"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "sport",
+"fx": {
+"h": 3,
+"so": 2
+}
+},
+{
+"id": "science",
+"fx": {
+"sm": 3
+}
+},
+{
+"id": "music",
+"fx": {
+"ha": 3,
+"so": 1
+}
+}
+]
+},
+{
+"id": "d_cram_school",
+"from": 13,
+"to": 18,
+"p": 0.05,
+"cond": [
+"student"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "go",
+"fx": {
+"sm": 3,
+"ha": -2,
+"$": -0.02
+}
+},
+{
+"id": "self",
+"fx": {
+"sm": 1,
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_party_invite",
+"from": 14,
+"to": 18,
+"p": 0.05,
+"cond": [],
+"fact": "sec",
+"opts": [
+{
+"id": "go",
+"fx": {
+"so": 3,
+"h": -1
+}
+},
+{
+"id": "stay",
+"fx": {
+"so": -1
+}
+}
+]
+},
+{
+"id": "d_first_date",
+"from": 14,
+"to": 19,
+"p": 0.05,
+"cond": [
+"single"
+],
+"fact": "tfr",
+"opts": [
+{
+"id": "yes",
+"fx": {
+"ha": 4,
+"so": 2
+}
+},
+{
+"id": "shy",
+"fx": {
+"ha": -2
+}
+}
+]
+},
+{
+"id": "d_smoke_offer",
+"from": 13,
+"to": 19,
+"p": 0.04,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "no",
+"fx": {
+"h": 1
+}
+},
+{
+"id": "try",
+"fx": {
+"h": -3,
+"so": 1
+}
+}
+]
+},
+{
+"id": "d_summer_job",
+"from": 15,
+"to": 18,
+"p": 0.05,
+"cond": [],
+"fact": "unemp",
+"opts": [
+{
+"id": "work",
+"fx": {
+"so": 1,
+"$": 0.02,
+"ha": -1
+}
+},
+{
+"id": "rest",
+"fx": {
+"ha": 3
+}
+}
+]
+},
+{
+"id": "d_stream_choice",
+"from": 15,
+"to": 17,
+"p": 0.05,
+"cond": [
+"student"
+],
+"fact": "ter",
+"opts": [
+{
+"id": "sci",
+"fx": {
+"sm": 2
+}
+},
+{
+"id": "arts",
+"fx": {
+"ha": 2
+}
+},
+{
+"id": "art",
+"fx": {
+"ha": 3,
+"sm": -1
+}
+}
+]
+},
+{
+"id": "d_phone_night",
+"from": 13,
+"to": 19,
+"p": 0.05,
+"cond": [
+"y2008-2100"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "sleep",
+"fx": {
+"h": 2
+}
+},
+{
+"id": "scroll",
+"fx": {
+"h": -2,
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_exchange",
+"from": 15,
+"to": 18,
+"p": 0.02,
+"cond": [
+"student",
+"rich"
+],
+"fact": "ter",
+"opts": [
+{
+"id": "go",
+"fx": {
+"sm": 3,
+"so": 2,
+"$": -0.15
+}
+},
+{
+"id": "stay",
+"fx": {
+"so": 1
+}
+}
+]
+},
+{
+"id": "d_fight_parents",
+"from": 13,
+"to": 18,
+"p": 0.05,
+"cond": [],
+"fact": "sec",
+"opts": [
+{
+"id": "sorry",
+"fx": {
+"so": 2,
+"ha": -1
+}
+},
+{
+"id": "door",
+"fx": {
+"ha": -2,
+"so": -1
+}
+}
+]
+},
+{
+"id": "d_dropout_friend",
+"from": 14,
+"to": 18,
+"p": 0.03,
+"cond": [
+"poor"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "stay",
+"fx": {
+"sm": 2,
+"so": -1
+}
+},
+{
+"id": "join",
+"fx": {
+"sm": -3,
+"$": 0.03
+}
+}
+]
+},
+{
+"id": "d_volunteer_teen",
+"from": 14,
+"to": 18,
+"p": 0.04,
+"cond": [],
+"fact": "sec",
+"opts": [
+{
+"id": "elder",
+"fx": {
+"so": 3,
+"ha": 1
+}
+},
+{
+"id": "beach",
+"fx": {
+"h": 1,
+"so": 1
+}
+}
+]
+},
+{
+"id": "d_band_teen",
+"from": 14,
+"to": 19,
+"p": 0.03,
+"cond": [],
+"fact": "sec",
+"opts": [
+{
+"id": "join",
+"fx": {
+"ha": 3,
+"so": 2,
+"sm": -1
+}
+},
+{
+"id": "no",
+"fx": {
+"sm": 2
+}
+}
+]
+},
+{
+"id": "d_driving_teen",
+"from": 16,
+"to": 19,
+"p": 0.04,
+"cond": [],
+"fact": "urban",
+"opts": [
+{
+"id": "now",
+"fx": {
+"ha": 2,
+"$": -0.01
+}
+},
+{
+"id": "later",
+"fx": {}
+}
+]
+},
+{
+"id": "d_diet_teen",
+"from": 13,
+"to": 19,
+"p": 0.04,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "sport",
+"fx": {
+"h": 3
+}
+},
+{
+"id": "skip",
+"fx": {
+"h": -3,
+"ha": -1
+}
+},
+{
+"id": "ok",
+"fx": {
+"ha": 2
+}
+}
+]
+},
+{
+"id": "d_olympiad",
+"from": 14,
+"to": 18,
+"p": 0.02,
+"cond": [
+"student",
+"smart"
+],
+"fact": "ter",
+"opts": [
+{
+"id": "join",
+"fx": {
+"sm": 4,
+"ha": -1
+}
+},
+{
+"id": "no",
+"fx": {
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_gaming_teen",
+"from": 12,
+"to": 19,
+"p": 0.05,
+"cond": [
+"y1985-2100"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "play",
+"fx": {
+"ha": 3,
+"sm": -2,
+"h": -1
+}
+},
+{
+"id": "limit",
+"fx": {
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_part_love",
+"from": 15,
+"to": 19,
+"p": 0.03,
+"cond": [
+"single"
+],
+"fact": "tfr",
+"opts": [
+{
+"id": "long",
+"fx": {
+"ha": -1,
+"so": 1
+}
+},
+{
+"id": "end",
+"fx": {
+"ha": -3
+}
+}
+]
+},
+{
+"id": "d_tattoo",
+"from": 16,
+"to": 25,
+"p": 0.02,
+"cond": [],
+"fact": "sec",
+"opts": [
+{
+"id": "do",
+"fx": {
+"ha": 2
+}
+},
+{
+"id": "wait",
+"fx": {}
+}
+]
+},
+{
+"id": "d_mock_exam",
+"from": 16,
+"to": 18,
+"p": 0.05,
+"cond": [
+"student"
+],
+"fact": "ter",
+"opts": [
+{
+"id": "push",
+"fx": {
+"sm": 3,
+"h": -2
+}
+},
+{
+"id": "relax",
+"fx": {
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_major_switch",
+"from": 18,
+"to": 22,
+"p": 0.04,
+"cond": [
+"student"
+],
+"fact": "ter",
+"opts": [
+{
+"id": "switch",
+"fx": {
+"ha": 3,
+"sm": 1
+}
+},
+{
+"id": "stay",
+"fx": {
+"ha": -2,
+"sm": 1
+}
+}
+]
+},
+{
+"id": "d_dorm_or_home",
+"from": 18,
+"to": 22,
+"p": 0.04,
+"cond": [
+"student"
+],
+"fact": "urban",
+"opts": [
+{
+"id": "dorm",
+"fx": {
+"so": 3,
+"$": -0.02
+}
+},
+{
+"id": "home",
+"fx": {
+"$": 0.01
+}
+}
+]
+},
+{
+"id": "d_gap_year",
+"from": 18,
+"to": 24,
+"p": 0.02,
+"cond": [],
+"fact": "ter",
+"opts": [
+{
+"id": "go",
+"fx": {
+"ha": 4,
+"so": 2,
+"sm": -1
+}
+},
+{
+"id": "stay",
+"fx": {
+"sm": 1
+}
+}
+]
+},
+{
+"id": "d_first_job_offer",
+"from": 21,
+"to": 28,
+"p": 0.05,
+"cond": [
+"work"
+],
+"fact": "unemp",
+"opts": [
+{
+"id": "big",
+"fx": {
+"ha": -1,
+"$": 0.02
+}
+},
+{
+"id": "small",
+"fx": {
+"ha": 3
+}
+}
+]
+},
+{
+"id": "d_credit_card",
+"from": 18,
+"to": 30,
+"p": 0.04,
+"cond": [],
+"fact": "gdp",
+"opts": [
+{
+"id": "get",
+"fx": {
+"ha": 1,
+"$": -0.02
+}
+},
+{
+"id": "no",
+"fx": {}
+}
+]
+},
+{
+"id": "d_move_out",
+"from": 20,
+"to": 30,
+"p": 0.05,
+"cond": [
+"work"
+],
+"fact": "urban",
+"opts": [
+{
+"id": "out",
+"fx": {
+"ha": 3,
+"$": -0.05
+}
+},
+{
+"id": "stay",
+"fx": {
+"$": 0.03,
+"ha": -1
+}
+}
+]
+},
+{
+"id": "d_roommate",
+"from": 19,
+"to": 30,
+"p": 0.03,
+"cond": [
+"renter"
+],
+"fact": "urban",
+"opts": [
+{
+"id": "talk",
+"fx": {
+"so": 1
+}
+},
+{
+"id": "move",
+"fx": {
+"$": -0.02,
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_night_school",
+"from": 20,
+"to": 40,
+"p": 0.03,
+"cond": [
+"work"
+],
+"fact": "ter",
+"opts": [
+{
+"id": "join",
+"fx": {
+"sm": 4,
+"ha": -2,
+"$": -0.03
+}
+},
+{
+"id": "no",
+"fx": {
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_save_or_spend",
+"from": 22,
+"to": 35,
+"p": 0.05,
+"cond": [
+"work"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "save",
+"fx": {
+"$": 0.05
+}
+},
+{
+"id": "trip",
+"fx": {
+"ha": 5
+}
+},
+{
+"id": "parents",
+"fx": {
+"so": 3
+}
+}
+]
+},
+{
+"id": "d_friend_loan",
+"from": 20,
+"to": 60,
+"p": 0.04,
+"cond": [],
+"fact": "gini",
+"opts": [
+{
+"id": "lend",
+"fx": {
+"so": 2,
+"$": -0.05
+}
+},
+{
+"id": "no",
+"fx": {
+"so": -2
+}
+}
+]
+},
+{
+"id": "d_dating_app",
+"from": 20,
+"to": 40,
+"p": 0.04,
+"cond": [
+"single",
+"y2012-2100"
+],
+"fact": "tfr",
+"opts": [
+{
+"id": "try",
+"fx": {
+"so": 2,
+"ha": 1
+}
+},
+{
+"id": "no",
+"fx": {}
+}
+]
+},
+{
+"id": "d_blind_date",
+"from": 22,
+"to": 38,
+"p": 0.04,
+"cond": [
+"single"
+],
+"fact": "tfr",
+"opts": [
+{
+"id": "go",
+"fx": {
+"so": 2
+}
+},
+{
+"id": "refuse",
+"fx": {
+"so": -1,
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_overtime",
+"from": 22,
+"to": 60,
+"p": 0.05,
+"cond": [
+"work"
+],
+"fact": "unemp",
+"opts": [
+{
+"id": "yes",
+"fx": {
+"$": 0.02,
+"h": -1,
+"ha": -1
+}
+},
+{
+"id": "no",
+"fx": {
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_job_hop",
+"from": 24,
+"to": 45,
+"p": 0.04,
+"cond": [
+"work"
+],
+"fact": "unemp",
+"opts": [
+{
+"id": "jump",
+"fx": {
+"$": 0.04,
+"so": -1
+}
+},
+{
+"id": "stay",
+"fx": {
+"so": 1
+}
+}
+]
+},
+{
+"id": "d_startup_idea",
+"from": 22,
+"to": 40,
+"p": 0.03,
+"cond": [
+"work"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "try",
+"fx": {
+"sm": 2,
+"h": -1,
+"ha": 1
+}
+},
+{
+"id": "drop",
+"fx": {}
+}
+]
+},
+{
+"id": "d_gym_join",
+"from": 20,
+"to": 55,
+"p": 0.04,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "join",
+"fx": {
+"h": 3,
+"$": -0.02
+}
+},
+{
+"id": "run",
+"fx": {
+"h": 2
+}
+}
+]
+},
+{
+"id": "d_wedding_far",
+"from": 22,
+"to": 40,
+"p": 0.04,
+"cond": [],
+"fact": "gdp",
+"opts": [
+{
+"id": "go",
+"fx": {
+"so": 3,
+"ha": 2,
+"$": -0.04
+}
+},
+{
+"id": "gift",
+"fx": {
+"so": 1,
+"$": -0.01
+}
+}
+]
+},
+{
+"id": "d_family_business",
+"from": 22,
+"to": 35,
+"p": 0.03,
+"cond": [
+"rich"
+],
+"fact": "gini",
+"opts": [
+{
+"id": "take",
+"fx": {
+"so": 2,
+"ha": -1,
+"$": 0.03
+}
+},
+{
+"id": "own",
+"fx": {
+"ha": 2,
+"so": -1
+}
+}
+]
+},
+{
+"id": "d_army",
+"from": 18,
+"to": 22,
+"p": 0.03,
+"cond": [
+"y1950-2018"
+],
+"fact": "unemp",
+"opts": [
+{
+"id": "now",
+"fx": {
+"h": 2,
+"so": 2,
+"ha": -2
+}
+},
+{
+"id": "defer",
+"fx": {
+"sm": 1
+}
+}
+]
+},
+{
+"id": "d_city_or_home",
+"from": 22,
+"to": 32,
+"p": 0.04,
+"cond": [
+"rural"
+],
+"fact": "urban",
+"opts": [
+{
+"id": "city",
+"fx": {
+"$": 0.03,
+"so": -2
+}
+},
+{
+"id": "home",
+"fx": {
+"so": 2,
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_phd",
+"from": 22,
+"to": 30,
+"p": 0.02,
+"cond": [
+"smart"
+],
+"fact": "ter",
+"opts": [
+{
+"id": "yes",
+"fx": {
+"sm": 5,
+"$": -0.05
+}
+},
+{
+"id": "no",
+"fx": {
+"$": 0.03
+}
+}
+]
+},
+{
+"id": "d_cohabit",
+"from": 22,
+"to": 38,
+"p": 0.04,
+"cond": [
+"single"
+],
+"fact": "tfr",
+"opts": [
+{
+"id": "yes",
+"fx": {
+"ha": 3,
+"$": 0.02
+}
+},
+{
+"id": "wait",
+"fx": {}
+}
+]
+},
+{
+"id": "d_house_hunt",
+"from": 28,
+"to": 45,
+"p": 0.04,
+"cond": [
+"renter",
+"work"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "pay",
+"fx": {
+"$": -0.02,
+"ha": -1
+}
+},
+{
+"id": "move",
+"fx": {
+"ha": -1,
+"$": 0.01
+}
+}
+]
+},
+{
+"id": "d_car_buy",
+"from": 25,
+"to": 50,
+"p": 0.04,
+"cond": [
+"work"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "buy",
+"fx": {
+"ha": 2,
+"$": -0.2
+}
+},
+{
+"id": "transit",
+"fx": {
+"h": 1
+}
+}
+]
+},
+{
+"id": "d_promotion_move",
+"from": 28,
+"to": 50,
+"p": 0.03,
+"cond": [
+"work"
+],
+"fact": "unemp",
+"opts": [
+{
+"id": "go",
+"fx": {
+"$": 0.04,
+"so": -2
+}
+},
+{
+"id": "stay",
+"fx": {
+"so": 1
+}
+}
+]
+},
+{
+"id": "d_boss_unfair",
+"from": 25,
+"to": 58,
+"p": 0.04,
+"cond": [
+"work"
+],
+"fact": "unemp",
+"opts": [
+{
+"id": "speak",
+"fx": {
+"so": -1,
+"ha": 1
+}
+},
+{
+"id": "swallow",
+"fx": {
+"ha": -3
+}
+}
+]
+},
+{
+"id": "d_kid_school_choice",
+"from": 30,
+"to": 50,
+"p": 0.05,
+"cond": [
+"kids"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "near",
+"fx": {
+"so": 1
+}
+},
+{
+"id": "private",
+"fx": {
+"$": -0.1,
+"ha": 1
+}
+},
+{
+"id": "move",
+"fx": {
+"$": -0.15
+}
+}
+]
+},
+{
+"id": "d_kid_phone",
+"from": 32,
+"to": 55,
+"p": 0.04,
+"cond": [
+"kids",
+"y2008-2100"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "buy",
+"fx": {
+"ha": 1,
+"$": -0.01
+}
+},
+{
+"id": "wait",
+"fx": {
+"so": -1
+}
+}
+]
+},
+{
+"id": "d_parent_visit",
+"from": 28,
+"to": 60,
+"p": 0.05,
+"cond": [
+"parents"
+],
+"fact": "e0",
+"opts": [
+{
+"id": "home",
+"fx": {
+"so": 3,
+"$": -0.01
+}
+},
+{
+"id": "work",
+"fx": {
+"so": -2,
+"$": 0.01
+}
+}
+]
+},
+{
+"id": "d_side_hustle",
+"from": 25,
+"to": 55,
+"p": 0.04,
+"cond": [
+"work"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "take",
+"fx": {
+"$": 0.03,
+"h": -1
+}
+},
+{
+"id": "rest",
+"fx": {
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_health_warning",
+"from": 35,
+"to": 60,
+"p": 0.05,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "change",
+"fx": {
+"h": 4,
+"ha": -1
+}
+},
+{
+"id": "ignore",
+"fx": {
+"h": -2
+}
+}
+]
+},
+{
+"id": "d_midlife_hobby",
+"from": 35,
+"to": 55,
+"p": 0.04,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "do",
+"fx": {
+"ha": 4,
+"$": -0.02
+}
+},
+{
+"id": "later",
+"fx": {}
+}
+]
+},
+{
+"id": "d_marriage_counsel",
+"from": 28,
+"to": 60,
+"p": 0.03,
+"cond": [
+"married"
+],
+"fact": "tfr",
+"opts": [
+{
+"id": "counsel",
+"fx": {
+"ha": 2,
+"$": -0.02
+}
+},
+{
+"id": "ignore",
+"fx": {
+"ha": -3
+}
+}
+]
+},
+{
+"id": "d_second_house",
+"from": 35,
+"to": 60,
+"p": 0.02,
+"cond": [
+"owner",
+"rich"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "buy",
+"fx": {
+"$": -0.1,
+"ha": -1
+}
+},
+{
+"id": "no",
+"fx": {
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_layoff_offer",
+"from": 40,
+"to": 60,
+"p": 0.03,
+"cond": [
+"work"
+],
+"fact": "unemp",
+"opts": [
+{
+"id": "take",
+"fx": {
+"$": 0.1,
+"ha": 1
+}
+},
+{
+"id": "stay",
+"fx": {}
+}
+]
+},
+{
+"id": "d_kids_activity",
+"from": 30,
+"to": 55,
+"p": 0.05,
+"cond": [
+"kids"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "music",
+"fx": {
+"$": -0.03,
+"ha": 1
+}
+},
+{
+"id": "sport",
+"fx": {
+"$": -0.02,
+"h": 1
+}
+},
+{
+"id": "none",
+"fx": {}
+}
+]
+},
+{
+"id": "d_family_trip",
+"from": 30,
+"to": 60,
+"p": 0.05,
+"cond": [
+"kids"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "abroad",
+"fx": {
+"ha": 4,
+"so": 2,
+"$": -0.1
+}
+},
+{
+"id": "local",
+"fx": {
+"ha": 3,
+"$": -0.02
+}
+}
+]
+},
+{
+"id": "d_insurance_pitch",
+"from": 28,
+"to": 60,
+"p": 0.04,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "buy",
+"fx": {
+"ha": 1,
+"$": -0.03
+}
+},
+{
+"id": "no",
+"fx": {
+"so": -1
+}
+}
+]
+},
+{
+"id": "d_charity_ask",
+"from": 25,
+"to": 90,
+"p": 0.04,
+"cond": [],
+"fact": "gini",
+"opts": [
+{
+"id": "give",
+"fx": {
+"ha": 2,
+"$": -0.005
+}
+},
+{
+"id": "pass",
+"fx": {}
+}
+]
+},
+{
+"id": "d_neighbor_noise",
+"from": 25,
+"to": 90,
+"p": 0.04,
+"cond": [],
+"fact": "urban",
+"opts": [
+{
+"id": "talk",
+"fx": {
+"so": 1
+}
+},
+{
+"id": "endure",
+"fx": {
+"h": -1
+}
+}
+]
+},
+{
+"id": "d_sabbatical",
+"from": 35,
+"to": 55,
+"p": 0.02,
+"cond": [
+"work",
+"rich"
+],
+"fact": "unemp",
+"opts": [
+{
+"id": "go",
+"fx": {
+"ha": 5,
+"$": -0.2
+}
+},
+{
+"id": "no",
+"fx": {
+"ha": -1
+}
+}
+]
+},
+{
+"id": "d_reunion_invite",
+"from": 30,
+"to": 70,
+"p": 0.04,
+"cond": [],
+"fact": "sec",
+"opts": [
+{
+"id": "go",
+"fx": {
+"so": 3
+}
+},
+{
+"id": "skip",
+"fx": {}
+}
+]
+},
+{
+"id": "d_old_flame",
+"from": 30,
+"to": 60,
+"p": 0.02,
+"cond": [
+"married"
+],
+"fact": "tfr",
+"opts": [
+{
+"id": "no",
+"fx": {
+"ha": 1
+}
+},
+{
+"id": "lunch",
+"fx": {
+"ha": 1,
+"so": -1
+}
+}
+]
+},
+{
+"id": "d_pet_adult",
+"from": 25,
+"to": 70,
+"p": 0.04,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "adopt",
+"fx": {
+"ha": 4,
+"$": -0.02
+}
+},
+{
+"id": "donate",
+"fx": {
+"ha": 1,
+"$": -0.005
+}
+}
+]
+},
+{
+"id": "d_lend_family",
+"from": 30,
+"to": 70,
+"p": 0.03,
+"cond": [
+"sibs"
+],
+"fact": "gini",
+"opts": [
+{
+"id": "help",
+"fx": {
+"so": 3,
+"$": -0.1
+}
+},
+{
+"id": "no",
+"fx": {
+"so": -3
+}
+}
+]
+},
+{
+"id": "d_learn_tech",
+"from": 35,
+"to": 65,
+"p": 0.04,
+"cond": [
+"work"
+],
+"fact": "ter",
+"opts": [
+{
+"id": "learn",
+"fx": {
+"sm": 3
+}
+},
+{
+"id": "avoid",
+"fx": {
+"sm": -1
+}
+}
+]
+},
+{
+"id": "d_burnout_rest",
+"from": 28,
+"to": 60,
+"p": 0.04,
+"cond": [
+"work"
+],
+"fact": "unemp",
+"opts": [
+{
+"id": "leave",
+"fx": {
+"h": 3,
+"ha": 3,
+"$": -0.03
+}
+},
+{
+"id": "push",
+"fx": {
+"h": -3
+}
+}
+]
+},
+{
+"id": "d_downsize",
+"from": 50,
+"to": 75,
+"p": 0.03,
+"cond": [
+"owner"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "sell",
+"fx": {
+"$": 0.1,
+"ha": -1
+}
+},
+{
+"id": "keep",
+"fx": {
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_mentor_young",
+"from": 40,
+"to": 65,
+"p": 0.04,
+"cond": [
+"work"
+],
+"fact": "unemp",
+"opts": [
+{
+"id": "mentor",
+"fx": {
+"so": 3,
+"ha": 1
+}
+},
+{
+"id": "busy",
+"fx": {}
+}
+]
+},
+{
+"id": "d_politics_family",
+"from": 25,
+"to": 90,
+"p": 0.03,
+"cond": [],
+"fact": "gdp",
+"opts": [
+{
+"id": "calm",
+"fx": {
+"so": 1
+}
+},
+{
+"id": "argue",
+"fx": {
+"so": -2,
+"ha": -1
+}
+}
+]
+},
+{
+"id": "d_inheritance",
+"from": 40,
+"to": 75,
+"p": 0.02,
+"cond": [
+"parents",
+"sibs"
+],
+"fact": "gini",
+"opts": [
+{
+"id": "equal",
+"fx": {
+"so": 2
+}
+},
+{
+"id": "care",
+"fx": {
+"so": -1,
+"$": 0.05
+}
+}
+]
+},
+{
+"id": "d_retire_early",
+"from": 55,
+"to": 64,
+"p": 0.04,
+"cond": [
+"work"
+],
+"fact": "e0",
+"opts": [
+{
+"id": "retire",
+"fx": {
+"ha": 4,
+"$": -0.1
+}
+},
+{
+"id": "work",
+"fx": {
+"$": 0.05,
+"h": -1
+}
+}
+]
+},
+{
+"id": "d_grandkid_care",
+"from": 55,
+"to": 80,
+"p": 0.05,
+"cond": [
+"kids"
+],
+"fact": "tfr",
+"opts": [
+{
+"id": "yes",
+"fx": {
+"so": 3,
+"h": -1
+}
+},
+{
+"id": "weekend",
+"fx": {
+"ha": 2
+}
+}
+]
+},
+{
+"id": "d_senior_class",
+"from": 60,
+"to": 90,
+"p": 0.04,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "join",
+"fx": {
+"sm": 3,
+"so": 3
+}
+},
+{
+"id": "home",
+"fx": {
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_move_kids",
+"from": 65,
+"to": 95,
+"p": 0.03,
+"cond": [
+"kids"
+],
+"fact": "e0",
+"opts": [
+{
+"id": "move",
+"fx": {
+"so": 2,
+"ha": 1
+}
+},
+{
+"id": "stay",
+"fx": {
+"ha": 1,
+"so": -1
+}
+}
+]
+},
+{
+"id": "d_nursing_home",
+"from": 75,
+"to": 100,
+"p": 0.03,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "go",
+"fx": {
+"h": 2,
+"so": -1
+}
+},
+{
+"id": "home",
+"fx": {
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_write_memoir",
+"from": 60,
+"to": 95,
+"p": 0.03,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "write",
+"fx": {
+"sm": 2,
+"ha": 3
+}
+},
+{
+"id": "tell",
+"fx": {
+"so": 2
+}
+}
+]
+},
+{
+"id": "d_old_travel",
+"from": 60,
+"to": 85,
+"p": 0.04,
+"cond": [],
+"fact": "gdp",
+"opts": [
+{
+"id": "go",
+"fx": {
+"ha": 5,
+"$": -0.05
+}
+},
+{
+"id": "near",
+"fx": {
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_scam_call",
+"from": 60,
+"to": 95,
+"p": 0.05,
+"cond": [],
+"fact": "gdp",
+"opts": [
+{
+"id": "hang",
+"fx": {
+"sm": 1
+}
+},
+{
+"id": "check",
+"fx": {
+"so": 1
+}
+},
+{
+"id": "follow",
+"fx": {
+"$": -0.1,
+"ha": -4
+}
+}
+]
+},
+{
+"id": "d_health_surgery",
+"from": 65,
+"to": 95,
+"p": 0.04,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "operate",
+"fx": {
+"h": 3,
+"$": -0.05
+}
+},
+{
+"id": "meds",
+"fx": {
+"h": -1
+}
+}
+]
+},
+{
+"id": "d_reconnect",
+"from": 60,
+"to": 95,
+"p": 0.04,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "call",
+"fx": {
+"so": 3,
+"ha": 2
+}
+},
+{
+"id": "keep",
+"fx": {}
+}
+]
+},
+{
+"id": "d_will_write",
+"from": 65,
+"to": 100,
+"p": 0.04,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "write",
+"fx": {
+"ha": 1,
+"$": -0.01
+}
+},
+{
+"id": "later",
+"fx": {}
+}
+]
+},
+{
+"id": "d_tech_old",
+"from": 60,
+"to": 95,
+"p": 0.04,
+"cond": [
+"y2010-2100"
+],
+"fact": "e0",
+"opts": [
+{
+"id": "learn",
+"fx": {
+"so": 3,
+"sm": 1
+}
+},
+{
+"id": "phone",
+"fx": {}
+}
+]
+},
+{
+"id": "d_garden_old",
+"from": 60,
+"to": 95,
+"p": 0.04,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "plant",
+"fx": {
+"ha": 3,
+"h": 1
+}
+},
+{
+"id": "leave",
+"fx": {}
+}
+]
+},
+{
+"id": "d_volunteer_old",
+"from": 60,
+"to": 85,
+"p": 0.04,
+"cond": [
+"retired"
+],
+"fact": "e0",
+"opts": [
+{
+"id": "join",
+"fx": {
+"so": 3,
+"ha": 2
+}
+},
+{
+"id": "no",
+"fx": {
+"h": 1
+}
+}
+]
+},
+{
+"id": "d_driving_old",
+"from": 75,
+"to": 95,
+"p": 0.04,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "stop",
+"fx": {
+"h": 1,
+"ha": -2
+}
+},
+{
+"id": "keep",
+"fx": {
+"ha": 1,
+"h": -1
+}
+}
+]
+},
+{
+"id": "d_last_trip_home",
+"from": 70,
+"to": 100,
+"p": 0.03,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "go",
+"fx": {
+"ha": 4,
+"$": -0.02
+}
+},
+{
+"id": "photo",
+"fx": {
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_water_walk",
+"from": 6,
+"to": 14,
+"p": 0.05,
+"cond": [
+"lowgdp",
+"rural"
+],
+"fact": "q5",
+"opts": [
+{
+"id": "go",
+"fx": {
+"h": 1,
+"sm": -2,
+"so": 1
+}
+},
+{
+"id": "school",
+"fx": {
+"sm": 2,
+"ha": -1
+}
+}
+]
+},
+{
+"id": "d_mosquito_net",
+"from": 0,
+"to": 40,
+"p": 0.04,
+"cond": [
+"lowgdp"
+],
+"fact": "q5",
+"opts": [
+{
+"id": "queue",
+"fx": {
+"h": 3
+}
+},
+{
+"id": "skip",
+"fx": {
+"h": -2
+}
+}
+]
+},
+{
+"id": "d_harvest_help",
+"from": 10,
+"to": 16,
+"p": 0.05,
+"cond": [
+"lowgdp",
+"rural"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "farm",
+"fx": {
+"so": 2,
+"sm": -2,
+"$": 0.01
+}
+},
+{
+"id": "school",
+"fx": {
+"sm": 2
+}
+}
+]
+},
+{
+"id": "d_migrant_work",
+"from": 18,
+"to": 40,
+"p": 0.04,
+"cond": [
+"lowgdp"
+],
+"fact": "urban",
+"opts": [
+{
+"id": "go",
+"fx": {
+"$": 0.05,
+"so": -2,
+"h": -1
+}
+},
+{
+"id": "stay",
+"fx": {
+"so": 2
+}
+}
+]
+},
+{
+"id": "d_remit",
+"from": 20,
+"to": 55,
+"p": 0.05,
+"cond": [
+"lowgdp",
+"work"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "send",
+"fx": {
+"so": 3,
+"$": -0.05
+}
+},
+{
+"id": "save",
+"fx": {
+"$": 0.03,
+"so": -2
+}
+}
+]
+},
+{
+"id": "d_microloan",
+"from": 20,
+"to": 55,
+"p": 0.03,
+"cond": [
+"lowgdp"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "borrow",
+"fx": {
+"$": 0.03,
+"ha": 1,
+"sm": 1
+}
+},
+{
+"id": "no",
+"fx": {}
+}
+]
+},
+{
+"id": "d_clinic_far",
+"from": 0,
+"to": 90,
+"p": 0.04,
+"cond": [
+"lowgdp"
+],
+"fact": "q5",
+"opts": [
+{
+"id": "walk",
+"fx": {
+"h": 2,
+"$": -0.01
+}
+},
+{
+"id": "herbs",
+"fx": {
+"h": -2
+}
+}
+]
+},
+{
+"id": "d_girls_school",
+"from": 10,
+"to": 16,
+"p": 0.03,
+"cond": [
+"lowgdp"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "study",
+"fx": {
+"sm": 3,
+"so": -1
+}
+},
+{
+"id": "home",
+"fx": {
+"sm": -2,
+"so": 1
+}
+}
+]
+},
+{
+"id": "d_solar_panel",
+"from": 25,
+"to": 80,
+"p": 0.03,
+"cond": [
+"lowgdp",
+"y2010-2100"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "buy",
+"fx": {
+"ha": 2,
+"sm": 1,
+"$": -0.03
+}
+},
+{
+"id": "no",
+"fx": {}
+}
+]
+},
+{
+"id": "d_mobile_money",
+"from": 18,
+"to": 80,
+"p": 0.04,
+"cond": [
+"lowgdp",
+"y2008-2100"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "try",
+"fx": {
+"sm": 1,
+"$": 0.01
+}
+},
+{
+"id": "cash",
+"fx": {}
+}
+]
+},
+{
+"id": "d_abroad_work",
+"from": 22,
+"to": 45,
+"p": 0.03,
+"cond": [
+"lowgdp"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "go",
+"fx": {
+"$": 0.1,
+"so": -3,
+"ha": -1
+}
+},
+{
+"id": "stay",
+"fx": {
+"so": 2
+}
+}
+]
+},
+{
+"id": "d_stock_tip",
+"from": 25,
+"to": 70,
+"p": 0.04,
+"cond": [
+"work"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "ignore",
+"fx": {}
+},
+{
+"id": "small",
+"fx": {
+"ha": 1,
+"$": -0.01
+}
+}
+]
+},
+{
+"id": "d_mortgage_fix",
+"from": 30,
+"to": 60,
+"p": 0.03,
+"cond": [
+"owner"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "fix",
+"fx": {
+"ha": 1
+}
+},
+{
+"id": "float",
+"fx": {}
+}
+]
+},
+{
+"id": "d_ev_car",
+"from": 25,
+"to": 75,
+"p": 0.03,
+"cond": [
+"y2015-2100",
+"work"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "ev",
+"fx": {
+"ha": 2,
+"$": -0.05
+}
+},
+{
+"id": "gas",
+"fx": {}
+}
+]
+},
+{
+"id": "d_remote_work",
+"from": 22,
+"to": 60,
+"p": 0.05,
+"cond": [
+"work",
+"y2020-2100"
+],
+"fact": "unemp",
+"opts": [
+{
+"id": "home",
+"fx": {
+"ha": 3,
+"so": -2
+}
+},
+{
+"id": "office",
+"fx": {
+"so": 2
+}
+}
+]
+},
+{
+"id": "d_gig_driver",
+"from": 20,
+"to": 60,
+"p": 0.04,
+"cond": [
+"y2014-2100"
+],
+"fact": "unemp",
+"opts": [
+{
+"id": "drive",
+"fx": {
+"$": 0.02,
+"h": -1
+}
+},
+{
+"id": "rest",
+"fx": {
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_crypto",
+"from": 20,
+"to": 60,
+"p": 0.03,
+"cond": [
+"y2017-2100"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "watch",
+"fx": {
+"sm": 1
+}
+},
+{
+"id": "bet",
+"fx": {
+"ha": 1,
+"$": -0.01
+}
+}
+]
+},
+{
+"id": "d_social_post",
+"from": 15,
+"to": 60,
+"p": 0.04,
+"cond": [
+"y2010-2100"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "delete",
+"fx": {
+"ha": -1
+}
+},
+{
+"id": "reply",
+"fx": {
+"ha": -2,
+"so": 1
+}
+},
+{
+"id": "off",
+"fx": {
+"ha": 1,
+"h": 1
+}
+}
+]
+},
+{
+"id": "d_ai_tools",
+"from": 20,
+"to": 70,
+"p": 0.04,
+"cond": [
+"work",
+"y2023-2100"
+],
+"fact": "ter",
+"opts": [
+{
+"id": "learn",
+"fx": {
+"sm": 3
+}
+},
+{
+"id": "avoid",
+"fx": {}
+}
+]
+},
+{
+"id": "d_plastic_surgery",
+"from": 22,
+"to": 55,
+"p": 0.02,
+"cond": [
+"rich"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "do",
+"fx": {
+"ha": 2,
+"$": -0.05
+}
+},
+{
+"id": "no",
+"fx": {
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_vegetarian",
+"from": 18,
+"to": 80,
+"p": 0.03,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "try",
+"fx": {
+"h": 2
+}
+},
+{
+"id": "no",
+"fx": {}
+}
+]
+},
+{
+"id": "d_marathon",
+"from": 22,
+"to": 60,
+"p": 0.03,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "train",
+"fx": {
+"h": 4,
+"ha": 2
+}
+},
+{
+"id": "cheer",
+"fx": {
+"so": 1
+}
+}
+]
+},
+{
+"id": "d_language_app",
+"from": 15,
+"to": 80,
+"p": 0.04,
+"cond": [
+"y2012-2100"
+],
+"fact": "sec",
+"opts": [
+{
+"id": "daily",
+"fx": {
+"sm": 3
+}
+},
+{
+"id": "forget",
+"fx": {}
+}
+]
+},
+{
+"id": "d_home_cook",
+"from": 22,
+"to": 80,
+"p": 0.04,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "cook",
+"fx": {
+"h": 2,
+"$": 0.01
+}
+},
+{
+"id": "delivery",
+"fx": {
+"ha": 1,
+"$": -0.01
+}
+}
+]
+},
+{
+"id": "d_quit_drinking",
+"from": 25,
+"to": 75,
+"p": 0.03,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "stop",
+"fx": {
+"h": 3,
+"ha": -1
+}
+},
+{
+"id": "keep",
+"fx": {
+"h": -2
+}
+}
+]
+},
+{
+"id": "d_night_market",
+"from": 15,
+"to": 80,
+"p": 0.04,
+"cond": [
+"city"
+],
+"fact": "urban",
+"opts": [
+{
+"id": "queue",
+"fx": {
+"ha": 2
+}
+},
+{
+"id": "skip",
+"fx": {}
+}
+]
+},
+{
+"id": "d_bike_commute",
+"from": 18,
+"to": 65,
+"p": 0.03,
+"cond": [
+"city"
+],
+"fact": "urban",
+"opts": [
+{
+"id": "bike",
+"fx": {
+"h": 3
+}
+},
+{
+"id": "drive",
+"fx": {}
+}
+]
+},
+{
+"id": "d_community_garden",
+"from": 25,
+"to": 90,
+"p": 0.03,
+"cond": [
+"city"
+],
+"fact": "urban",
+"opts": [
+{
+"id": "join",
+"fx": {
+"so": 2,
+"ha": 2,
+"h": 1
+}
+},
+{
+"id": "no",
+"fx": {}
+}
+]
+},
+{
+"id": "d_fostering",
+"from": 30,
+"to": 60,
+"p": 0.02,
+"cond": [
+"married"
+],
+"fact": "tfr",
+"opts": [
+{
+"id": "yes",
+"fx": {
+"so": 3,
+"ha": 2,
+"$": -0.05
+}
+},
+{
+"id": "no",
+"fx": {}
+}
+]
+},
+{
+"id": "d_ivf",
+"from": 30,
+"to": 44,
+"p": 0.02,
+"cond": [
+"married"
+],
+"fact": "tfr",
+"opts": [
+{
+"id": "try",
+"fx": {
+"ha": -1,
+"$": -0.2
+}
+},
+{
+"id": "accept",
+"fx": {
+"ha": 1
+}
+}
+]
+},
+{
+"id": "d_kid_abroad",
+"from": 40,
+"to": 65,
+"p": 0.03,
+"cond": [
+"kids",
+"rich"
+],
+"fact": "ter",
+"opts": [
+{
+"id": "pay",
+"fx": {
+"so": 2,
+"$": -0.3
+}
+},
+{
+"id": "loan",
+"fx": {
+"so": 1
+}
+},
+{
+"id": "local",
+"fx": {
+"so": -1
+}
+}
+]
+},
+{
+"id": "d_kid_marry",
+"from": 45,
+"to": 75,
+"p": 0.04,
+"cond": [
+"kids"
+],
+"fact": "tfr",
+"opts": [
+{
+"id": "welcome",
+"fx": {
+"so": 3,
+"ha": 2
+}
+},
+{
+"id": "strict",
+"fx": {
+"so": -2
+}
+}
+]
+},
+{
+"id": "d_kid_career",
+"from": 40,
+"to": 70,
+"p": 0.04,
+"cond": [
+"kids"
+],
+"fact": "unemp",
+"opts": [
+{
+"id": "support",
+"fx": {
+"so": 2,
+"ha": 1
+}
+},
+{
+"id": "oppose",
+"fx": {
+"so": -2
+}
+}
+]
+},
+{
+"id": "d_elder_care_cost",
+"from": 45,
+"to": 70,
+"p": 0.04,
+"cond": [
+"parents"
+],
+"fact": "e0",
+"opts": [
+{
+"id": "hire",
+"fx": {
+"$": -0.15,
+"ha": -1
+}
+},
+{
+"id": "self",
+"fx": {
+"so": 3,
+"$": -0.2,
+"h": -2
+}
+},
+{
+"id": "share",
+"fx": {
+"so": 1
+}
+}
+]
+},
+{
+"id": "d_parent_dementia",
+"from": 45,
+"to": 70,
+"p": 0.03,
+"cond": [
+"parents"
+],
+"fact": "e0",
+"opts": [
+{
+"id": "visit",
+"fx": {
+"so": 3,
+"ha": -2
+}
+},
+{
+"id": "call",
+"fx": {
+"so": 1,
+"ha": -1
+}
+}
+]
+},
+{
+"id": "d_disaster_donate",
+"from": 20,
+"to": 90,
+"p": 0.03,
+"cond": [],
+"fact": "gini",
+"opts": [
+{
+"id": "donate",
+"fx": {
+"ha": 2,
+"$": -0.01
+}
+},
+{
+"id": "go",
+"fx": {
+"so": 3,
+"h": -1
+}
+},
+{
+"id": "pray",
+"fx": {}
+}
+]
+},
+{
+"id": "d_protest",
+"from": 16,
+"to": 60,
+"p": 0.03,
+"cond": [],
+"fact": "gdp",
+"opts": [
+{
+"id": "join",
+"fx": {
+"so": 3,
+"h": -1
+}
+},
+{
+"id": "watch",
+"fx": {
+"sm": 1
+}
+}
+]
+},
+{
+"id": "d_vote",
+"from": 20,
+"to": 95,
+"p": 0.05,
+"cond": [
+"y1950-2100"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "vote",
+"fx": {
+"so": 1,
+"ha": 1
+}
+},
+{
+"id": "skip",
+"fx": {}
+}
+]
+},
+{
+"id": "d_religion",
+"from": 16,
+"to": 90,
+"p": 0.03,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "go",
+"fx": {
+"so": 2,
+"ha": 1
+}
+},
+{
+"id": "no",
+"fx": {}
+}
+]
+},
+{
+"id": "d_jury_duty",
+"from": 25,
+"to": 70,
+"p": 0.02,
+"cond": [],
+"fact": "gdp",
+"opts": [
+{
+"id": "serve",
+"fx": {
+"sm": 2,
+"so": 1
+}
+},
+{
+"id": "excuse",
+"fx": {}
+}
+]
+},
+{
+"id": "d_witness",
+"from": 18,
+"to": 80,
+"p": 0.02,
+"cond": [],
+"fact": "gdp",
+"opts": [
+{
+"id": "help",
+"fx": {
+"so": 2,
+"ha": -1
+}
+},
+{
+"id": "leave",
+"fx": {
+"ha": -1
+}
+}
+]
+},
+{
+"id": "d_lawsuit",
+"from": 30,
+"to": 80,
+"p": 0.02,
+"cond": [],
+"fact": "gdp",
+"opts": [
+{
+"id": "settle",
+"fx": {
+"$": -0.05,
+"ha": 1
+}
+},
+{
+"id": "fight",
+"fx": {
+"$": -0.1,
+"ha": -2
+}
+}
+]
+},
+{
+"id": "d_disability_help",
+"from": 20,
+"to": 80,
+"p": 0.02,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "help",
+"fx": {
+"so": 3
+}
+},
+{
+"id": "respect",
+"fx": {
+"so": 1
+}
+}
+]
+},
+{
+"id": "d_hearing",
+"from": 60,
+"to": 95,
+"p": 0.04,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "aid",
+"fx": {
+"so": 2,
+"$": -0.03
+}
+},
+{
+"id": "nod",
+"fx": {
+"so": -2
+}
+}
+]
+},
+{
+"id": "d_fall_prevent",
+"from": 70,
+"to": 100,
+"p": 0.04,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "fix",
+"fx": {
+"h": 2,
+"$": -0.01
+}
+},
+{
+"id": "careful",
+"fx": {
+"h": -1
+}
+}
+]
+},
+{
+"id": "d_war_flee",
+"from": 5,
+"to": 60,
+"p": 0.02,
+"cond": [
+"lowgdp"
+],
+"fact": "urban",
+"opts": [
+{
+"id": "flee",
+"fx": {
+"h": 1,
+"$": -0.1,
+"so": -2
+}
+},
+{
+"id": "stay",
+"fx": {
+"h": -3,
+"so": 2
+}
+}
+]
+},
+{
+"id": "d_famine_ration",
+"from": 3,
+"to": 80,
+"p": 0.02,
+"cond": [
+"lowgdp",
+"y1950-1990"
+],
+"fact": "q5",
+"opts": [
+{
+"id": "share",
+"fx": {
+"so": 3,
+"h": -2
+}
+},
+{
+"id": "keep",
+"fx": {
+"h": 1,
+"so": -2
+}
+}
+]
+},
+{
+"id": "d_blackout_70s",
+"from": 10,
+"to": 70,
+"p": 0.03,
+"cond": [
+"y1970-1985"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "candles",
+"fx": {
+"so": 2,
+"ha": 1
+}
+},
+{
+"id": "sleep",
+"fx": {
+"h": 1
+}
+}
+]
+},
+{
+"id": "d_tv_buy",
+"from": 20,
+"to": 70,
+"p": 0.04,
+"cond": [
+"y1960-1985"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "buy",
+"fx": {
+"ha": 3,
+"so": 2,
+"$": -0.1
+}
+},
+{
+"id": "neighbor",
+"fx": {
+"so": 1
+}
+}
+]
+},
+{
+"id": "d_computer_90s",
+"from": 15,
+"to": 60,
+"p": 0.04,
+"cond": [
+"y1990-2002"
+],
+"fact": "ter",
+"opts": [
+{
+"id": "buy",
+"fx": {
+"sm": 3,
+"$": -0.08
+}
+},
+{
+"id": "no",
+"fx": {}
+}
+]
+},
+{
+"id": "d_pager",
+"from": 15,
+"to": 40,
+"p": 0.03,
+"cond": [
+"y1988-1999"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "buy",
+"fx": {
+"so": 2,
+"$": -0.01
+}
+},
+{
+"id": "no",
+"fx": {}
+}
+]
+},
+{
+"id": "d_dotcom",
+"from": 22,
+"to": 55,
+"p": 0.03,
+"cond": [
+"y1998-2001",
+"work"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "jump",
+"fx": {
+"ha": 2,
+"$": 0.03
+}
+},
+{
+"id": "stay",
+"fx": {}
+}
+]
+},
+{
+"id": "d_sars_mask",
+"from": 5,
+"to": 90,
+"p": 0.3,
+"cond": [
+"y2003-2003"
+],
+"fact": "e0",
+"opts": [
+{
+"id": "home",
+"fx": {
+"h": 1,
+"so": -2
+}
+},
+{
+"id": "normal",
+"fx": {
+"h": -1
+}
+}
+]
+},
+{
+"id": "d_covid_vax",
+"from": 12,
+"to": 100,
+"p": 0.4,
+"cond": [
+"y2021-2021"
+],
+"fact": "e0",
+"opts": [
+{
+"id": "vax",
+"fx": {
+"h": 2
+}
+},
+{
+"id": "wait",
+"fx": {
+"h": -1
+}
+}
+]
+},
+{
+"id": "d_lockdown_hobby",
+"from": 10,
+"to": 90,
+"p": 0.3,
+"cond": [
+"y2020-2020"
+],
+"fact": "e0",
+"opts": [
+{
+"id": "bake",
+"fx": {
+"ha": 3
+}
+},
+{
+"id": "study",
+"fx": {
+"sm": 3
+}
+},
+{
+"id": "call",
+"fx": {
+"so": 3
+}
+}
+]
+},
+{
+"id": "d_gfc_job",
+"from": 22,
+"to": 60,
+"p": 0.15,
+"cond": [
+"y2008-2009",
+"work"
+],
+"fact": "unemp",
+"opts": [
+{
+"id": "accept",
+"fx": {
+"$": -0.03,
+"so": 1
+}
+},
+{
+"id": "leave",
+"fx": {
+"ha": -1
+}
+}
+]
+},
+{
+"id": "d_asia_crisis",
+"from": 20,
+"to": 65,
+"p": 0.2,
+"cond": [
+"y1997-1998",
+"work"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "hold",
+"fx": {
+"ha": -2
+}
+},
+{
+"id": "gold",
+"fx": {
+"ha": -1
+}
+}
+]
+},
+{
+"id": "d_olympics_watch",
+"from": 8,
+"to": 90,
+"p": 0.15,
+"cond": [
+"y1964-2100"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "watch",
+"fx": {
+"ha": 3,
+"h": -1
+}
+},
+{
+"id": "sleep",
+"fx": {
+"h": 1
+}
+}
+]
+},
+{
+"id": "d_worldcup",
+"from": 8,
+"to": 80,
+"p": 0.12,
+"cond": [
+"y1970-2100"
+],
+"fact": "gdp",
+"opts": [
+{
+"id": "bar",
+"fx": {
+"so": 3,
+"$": -0.005
+}
+},
+{
+"id": "home",
+"fx": {
+"ha": 2
+}
+}
+]
+},
+{
+"id": "d_heatwave",
+"from": 30,
+"to": 95,
+"p": 0.04,
+"cond": [
+"y2010-2100"
+],
+"fact": "e0",
+"opts": [
+{
+"id": "ac",
+"fx": {
+"h": 1,
+"$": -0.01
+}
+},
+{
+"id": "library",
+"fx": {
+"sm": 1,
+"so": 1
+}
+}
+]
+},
+{
+"id": "d_flood_home",
+"from": 10,
+"to": 90,
+"p": 0.02,
+"cond": [],
+"fact": "urban",
+"opts": [
+{
+"id": "help",
+"fx": {
+"so": 3,
+"h": -1
+}
+},
+{
+"id": "upstairs",
+"fx": {
+"$": -0.01
+}
+}
+]
+},
+{
+"id": "d_typhoon",
+"from": 10,
+"to": 90,
+"p": 0.03,
+"cond": [
+"y1950-2100"
+],
+"fact": "urban",
+"opts": [
+{
+"id": "stock",
+"fx": {
+"$": -0.005,
+"ha": 1
+}
+},
+{
+"id": "ignore",
+"fx": {
+"ha": -1
+}
+}
+]
+},
+{
+"id": "d_name_change",
+"from": 18,
+"to": 60,
+"p": 0.01,
+"cond": [],
+"fact": "sec",
+"opts": [
+{
+"id": "change",
+"fx": {
+"ha": 3
+}
+},
+{
+"id": "keep",
+"fx": {}
+}
+]
+},
+{
+"id": "d_ancestry",
+"from": 30,
+"to": 80,
+"p": 0.02,
+"cond": [
+"y2015-2100"
+],
+"fact": "e0",
+"opts": [
+{
+"id": "test",
+"fx": {
+"sm": 1,
+"ha": 1
+}
+},
+{
+"id": "no",
+"fx": {}
+}
+]
+},
+{
+"id": "d_lottery_buy",
+"from": 20,
+"to": 90,
+"p": 0.04,
+"cond": [],
+"fact": "gini",
+"opts": [
+{
+"id": "buy",
+"fx": {
+"ha": 1,
+"$": -0.001
+}
+},
+{
+"id": "no",
+"fx": {}
+}
+]
+},
+{
+"id": "d_haircut_bold",
+"from": 14,
+"to": 60,
+"p": 0.03,
+"cond": [],
+"fact": "sec",
+"opts": [
+{
+"id": "do",
+"fx": {
+"ha": 2
+}
+},
+{
+"id": "safe",
+"fx": {}
+}
+]
+},
+{
+"id": "d_cat_rescue",
+"from": 10,
+"to": 80,
+"p": 0.03,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "vet",
+"fx": {
+"ha": 3,
+"$": -0.01
+}
+},
+{
+"id": "call",
+"fx": {
+"so": 1
+}
+}
+]
+},
+{
+"id": "d_night_walk",
+"from": 15,
+"to": 85,
+"p": 0.03,
+"cond": [],
+"fact": "urban",
+"opts": [
+{
+"id": "walk",
+"fx": {
+"ha": 2,
+"h": 1
+}
+},
+{
+"id": "bed",
+"fx": {}
+}
+]
+},
+{
+"id": "d_letter_old",
+"from": 40,
+"to": 95,
+"p": 0.03,
+"cond": [],
+"fact": "e0",
+"opts": [
+{
+"id": "send",
+"fx": {
+"so": 2,
+"ha": 2
+}
+},
+{
+"id": "burn",
+"fx": {
+"ha": 1
+}
+}
+]
+}
+]
+}

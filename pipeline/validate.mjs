@@ -7,7 +7,7 @@ import Ajv2020 from 'ajv/dist/2020.js';
 
 export function makeAjv(root) {
   const ajv = new Ajv2020({ allErrors: true, strict: true, strictTuples: false });
-  for (const s of ['series', 'manifest', 'countries', 'demography-country', 'annual-closes', 'markets', 'housing-pension']) {
+  for (const s of ['series', 'manifest', 'countries', 'demography-country', 'annual-closes', 'markets', 'housing-pension', 'wpp-extra']) {
     ajv.addSchema(JSON.parse(readFileSync(join(root, 'schemas', `${s}.schema.json`), 'utf8')));
   }
   return ajv;

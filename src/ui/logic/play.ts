@@ -15,10 +15,15 @@ export const bornBy = <T extends { born: number }>(people: readonly T[], year: n
 /** real seconds per sim year at a given speed (the play loop accrues dt·speed/yearSec) */
 export const secPerYear = (yearSec: number, speed: number) => yearSec / Math.max(1, speed);
 /** events that stop "skip to next decision" */
-export const TRAGIC_EVENTS = new Set(['fl_parent_dies', 'illness', 'divorce', 'jobless_year', 'foreclosure', 'loanDefault', 'marginCall', 'fl_pet_dies']);
+export const TRAGIC_EVENTS = new Set(['fl_parent_dies', 'illness', 'divorce', 'jobless_year', 'foreclosure', 'loanDefault', 'marginCall', 'fl_pet_dies',
+  // batch 2 pool events: a death, serious injury/illness, or disaster loss halts skip-to-end
+  'ev_grandparent_dies', 'ev_old_classmate_dies', 'ev_car_accident', 'ev_robbery', 'ev_chronic', 'ev_disability', 'ev_depression', 'ev_spouse_hospital', 'ev_flood_damage', 'ev_earthquake']);
 
 /** "Show earlier N years" button state for the life log; N is clamped so it can never go negative. */
 export const logMore = (years: number, limit: number, expanded: boolean) => {
   const earlier = Math.max(0, years - limit);
   return { hidden: earlier === 0, earlier, expanded: expanded && earlier > 0 };
 };
+
+/** batch 3 #7: staged birth-card reveal — delay between fields follows the chosen speed (600 ms at 1×, ≥ 60 ms) */
+export const revealStepMs = (speed: number) => Math.max(60, 600 / Math.max(1, speed));

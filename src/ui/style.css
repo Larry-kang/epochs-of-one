@@ -2,16 +2,19 @@
 /* "Ledger & lamplight" theme. Our own CSS.
    Fonts are self-hosted OFL subsets (public/fonts, see licences/ASSETS.md) → precached, works offline. */
 @font-face { font-family: "EO Serif TC"; src: url("/fonts/serif-tc.woff2") format("woff2"); font-weight: 200 900; font-display: swap; }
+@font-face { font-family: "EO Sans TC"; src: url("/fonts/sans-tc.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
 @font-face { font-family: "EO Fraunces"; src: url("/fonts/fraunces.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
 @font-face { font-family: "EO Inter"; src: url("/fonts/inter.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
 @font-face { font-family: "EO Mono"; src: url("/fonts/mono.woff2") format("woff2"); font-weight: 100 800; font-display: swap; }
 :root {
   --paper: #F6F1E7; --card: #FFFDF8; --ink: #1F2433; --ink2: #4A5063; --ink3: #8A8F9C; --rule: #E3DACB;
   --accent: #C2671D; --accent-ink: #FFF8EF; --stamp: #2F5D8A; --good: #4E7D4A; --bad: #8E3B5A; --gold: #B8902E; --focus: rgba(47,93,138,.4);
-  --serif: "EO Fraunces", "EO Serif TC", "Noto Serif TC", serif; --sans: "EO Inter", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif; --mono: "EO Mono", ui-monospace, monospace;
+  --serif: "EO Fraunces", "EO Serif TC", "Noto Serif TC", serif; --sans: "EO Inter", "EO Sans TC", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif; --mono: "EO Mono", ui-monospace, monospace;
   color-scheme: light dark;
 }
-@media (prefers-color-scheme: dark) { :root { --paper: #14161C; --card: #1C1F27; --ink: #ECE7DC; --ink2: #B9B4AA; --ink3: #7E8290; --rule: #2E323D; --accent: #E08A3C; --accent-ink: #1A1209; --stamp: #6E9BCB; --good: #7FB27A; --bad: #C46D8D; --gold: #D9B456; --focus: rgba(110,155,203,.5); } }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --paper: #14161C; --card: #1C1F27; --ink: #ECE7DC; --ink2: #B9B4AA; --ink3: #7E8290; --rule: #2E323D; --accent: #E08A3C; --accent-ink: #1A1209; --stamp: #6E9BCB; --good: #7FB27A; --bad: #C46D8D; --gold: #D9B456; --focus: rgba(110,155,203,.5); } }
+:root[data-theme="dark"] { --paper: #14161C; --card: #1C1F27; --ink: #ECE7DC; --ink2: #B9B4AA; --ink3: #7E8290; --rule: #2E323D; --accent: #E08A3C; --accent-ink: #1A1209; --stamp: #6E9BCB; --good: #7FB27A; --bad: #C46D8D; --gold: #D9B456; --focus: rgba(110,155,203,.5); color-scheme: dark; }
+:root[data-theme="light"] { color-scheme: light; }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.65 var(--sans); }
 main#app { max-width: 1200px; margin: 0 auto; padding: 16px 24px 48px; }
@@ -281,3 +284,92 @@ blockquote { margin: 12px 0 0; padding: 8px 14px; border-left: 3px solid var(--g
   .facts { grid-template-columns: 1fr; gap: 0; } .facts dd { margin-bottom: 6px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .ending .scene .portrait { clip-path: none; } .ending .cap { opacity: 1; } }
+
+/* batch 2: yearly focus pills */
+.focuscard h2 small { font-family: var(--sans); font-size: 12px; font-weight: 400; margin-left: 6px; }
+.focus-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.fpill { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 6px 10px; border: 1px solid var(--rule); border-radius: 8px; background: var(--card); color: var(--ink); cursor: pointer; font: inherit; font-size: 13px; }
+.fpill small { font-size: 11px; color: var(--ink3); }
+.fpill[aria-checked="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.fpill[aria-checked="true"] small { color: inherit; opacity: .8; }
+
+/* batch 2: spend & lifestyle sheet */
+dialog.spend { width: min(620px, calc(100vw - 16px)); max-height: 86vh; overflow: auto; border: 1px solid var(--rule); border-radius: 12px; background: var(--card); color: var(--ink); padding: 18px 20px; }
+dialog.spend::backdrop { background: rgba(20, 22, 30, .45); }
+.sheet-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.sheet-head h2 { margin: 0; }
+.spend-sum { display: flex; gap: 18px; flex-wrap: wrap; margin: 8px 0 4px; }
+dialog.spend h3 { font-size: 14px; margin: 14px 0 6px; color: var(--ink2); }
+.items { list-style: none; margin: 0; padding: 0; }
+.items .item { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+.items .item.off { opacity: .55; }
+.items .buy { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 3px; }
+.chip { font-size: 11px; padding: 1px 6px; border-radius: 99px; background: var(--paper); color: var(--ink2); }
+.chip.up { color: var(--good); } .chip.down { color: var(--bad); }
+dialog.spend details { margin-top: 10px; } dialog.spend summary { cursor: pointer; font-weight: 600; padding: 6px 0; }
+.ls-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 6px 0; flex-wrap: wrap; }
+.routines { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 14px; }
+.fin-btns .wide { grid-column: 1 / -1; }
+@media (max-width: 700px) { dialog.spend { margin: auto 8px 0; border-radius: 12px 12px 0 0; max-height: 90vh; } }
+
+/* batch 2: same-second companions */
+.peers { list-style: none; margin: 0; padding: 0; }
+.peers li { display: flex; justify-content: space-between; gap: 8px; padding: 6px 0; border-bottom: 1px dashed var(--rule); font-size: 14px; }
+.peers li.gone { color: var(--ink3); }
+
+/* batch 2: language picker */
+.lang-sel { font: inherit; font-size: 13px; padding: 4px 6px; border: 1px solid var(--rule); border-radius: 6px; background: var(--card); color: var(--ink); }
+.menu .lang { display: block; padding: 6px 10px; }
+.foot .lang { margin-left: auto; }
+/* batch 3: ending "lived N years" card */
+.ending .lived { display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; animation: fade .6s ease; }
+.ending .lived[hidden] { display: none; }
+.ending .lived b { font-size: clamp(72px, 16vw, 128px); line-height: 1; color: #ECE7DC; font-weight: 700; }
+.ending .lived span { font-size: 18px; letter-spacing: .08em; color: #B9B4AA; }
+.ending .lived small { color: #7E8290; font-size: 12px; margin-top: 6px; }
+.ending .scene.done .portrait { width: 96px; height: 96px; clip-path: none !important; animation: none !important; }
+/* batch 3: death-page epilogue */
+.epilogue { margin-top: 16px; }
+.epi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 24px; }
+.epilogue h3 { font-size: 15px; margin: 10px 0 6px; }
+.chips-l { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.chips-l li { border: 1px solid var(--rule); border-radius: 99px; padding: 2px 10px; font-size: 13px; }
+.mem { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+.full-log summary { cursor: pointer; padding: 8px 0; font-weight: 600; }
+.full-log .log { max-height: 60vh; overflow: auto; }
+@media (max-width: 700px) { .epi-grid { grid-template-columns: 1fr; } }
+/* batch 3: scene banner */
+.scene-banner { position: relative; height: 72px; margin: -8px 0 16px; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; background: var(--card); }
+.scene-banner .scene-svg { display: block; width: 100%; height: 100%; }
+.scene-banner .scene-label, .scene-banner .scene-year { position: absolute; bottom: 4px; font-size: 11px; color: #fffdf8; background: rgba(20,22,28,.45); padding: 0 6px; border-radius: 3px; }
+.scene-banner .scene-label { left: 8px; } .scene-banner .scene-year { right: 8px; }
+@media (max-width: 440px) { .scene-banner { height: 30px; margin: -8px 0 8px; } .status h2, .idcard h2 { font-size: 16px; margin-bottom: 4px; } .stat .bar { height: 6px; } }
+/* batch 3: menu sheets (journal, family tree) */
+.menu .pill { border: none; border-radius: 0; justify-content: flex-start; }
+#journal textarea { width: 100%; font: inherit; border: 1px solid var(--rule); background: var(--card); color: var(--ink); border-radius: 4px; padding: 8px; }
+.tree .tg { color: var(--ink3); font-size: 11px; margin: 12px 0 4px; letter-spacing: .06em; }
+.tree .tr { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; position: relative; }
+.tree .tn { display: flex; flex-direction: column; border: 1px solid var(--rule); border-radius: 6px; padding: 6px 10px; min-width: 7em; background: var(--card); }
+.tree .tn.me { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+/* batch 3: milestone toasts */
+.toasts { position: fixed; top: 76px; right: 16px; z-index: 45; display: flex; flex-direction: column; gap: 6px; max-width: min(340px, calc(100vw - 32px)); pointer-events: none; }
+.mtoast { background: var(--card); color: var(--ink); border: 1px solid var(--rule); border-left: 4px solid var(--good); border-radius: 4px; padding: 8px 12px; font-size: 14px; box-shadow: 0 6px 20px rgba(0,0,0,.12); animation: fade .25s ease; }
+.mtoast.mt-big { border-left-color: var(--gold); } .mtoast.mt-sad { border-left-color: var(--bad); }
+@media (max-width: 440px) { .toasts { top: auto; bottom: 16px; right: 12px; left: 12px; max-width: none; } }
+/* batch 3: staged birth-card reveal */
+.stage-hide { opacity: 0; transform: translateY(4px); }
+.cert-body > *, .cert .grid > div { transition: opacity .35s ease, transform .35s ease; }
+
+/* v0.8.0 spend · invest entry and sheet */
+.spendcard { display: grid; gap: 8px; }
+.spend-entry { width: 100%; min-height: 44px; font-size: 15px; }
+.spendcard .fin-btns { grid-template-columns: repeat(4, 1fr); margin-top: 0; }
+.spendcard .fin-btns button { min-height: 32px; padding: 2px 4px; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.spend .tabs { display: flex; gap: 4px; margin: 8px 0; }
+.spend .tabs button { flex: 1; }
+.spend .tabs button[aria-selected="true"] { background: var(--ink); color: var(--paper); }
+.spend .cat { font-size: 10px; padding: 1px 5px; border-radius: 4px; border: 1px solid var(--rule); color: var(--ink3); }
+.spend .spend-hint { background: var(--card); border-left: 3px solid var(--gold); padding: 6px 8px; }
+.spend .item.sell b { color: var(--bad); }
+.sheet-fin { grid-template-columns: 1fr 1fr; }
