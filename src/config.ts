@@ -1,3 +1,4 @@
+import pkg from '../package.json' with { type: 'json' };
 /**
  * Single source of truth for product identity and feature flags.
  * Product name finalized 2026-10-16: 時代人生 / Epochs of One.
@@ -14,7 +15,9 @@ export const APP = {
 /** NOW_Y comes from config, not new Date(). */
 export const NOW_YEAR = 2026;
 
-export const ENGINE_VERSION = '0.9.0';
+export const ENGINE_VERSION = '0.9.1';
+/** v0.8.1: the app (release) version from package.json is the user-facing label; the engine version lives in About */
+export const APP_VERSION: string = pkg.version;
 
 export const FEATURES = {
   /** Owner re-enabled BTC (2026-10-16) using self-compiled annual closes; investing UI lands in M4/M5. */

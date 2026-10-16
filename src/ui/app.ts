@@ -1,6 +1,6 @@
 // Single-page UI (batch 1 layout): home → roll → birth record → play → final moments → death record (+ about).
 // Vanilla TS, no framework. All copy lives in the one translation table src/content/i18n/table.json.
-import { APP, NOW_YEAR, ENGINE_VERSION, BTC_FUTURE_DAMPENED } from '../config.ts';
+import { APP, NOW_YEAR, ENGINE_VERSION, APP_VERSION, BTC_FUTURE_DAMPENED } from '../config.ts';
 import { loadIndex, preloadDemography, bundle, loadFinance, loadWpp, wppLoaded } from './data.ts';
 import { wppAt } from '../engine/life/fertility.ts';
 import { t, tMaybe, compact, locale, LANGS, LANG_NAMES, getLang, setLang, type Lang, eventText, esc, contentLangAttr, countryName, money, pctText } from './i18n.ts';
@@ -18,11 +18,11 @@ import { contentEvents } from '../engine/content/registry.ts';
 import { ITEMS, itemById, itemState, lifestyleAt, LIFESTYLE, ROUTINES, spendOpen, situationSort, sellState, owned, heavyDebt, parentOld, autoHabits, bondOf, type Item } from '../engine/life/spend.ts';
 import { sameSecondConfigs, sameSecond, statusAt } from '../engine/life/sameSecond.ts';
 import { startMusic, stopMusic, musicOn } from './music.ts';
-import { focusStage, chipsFor, activeAlloc, mapToStage, weights, focusEffects, autoAlloc, type Stage } from '../engine/life/focus.ts';
+import { focusStage, chipsFor, activeAlloc, mapToStage, focusEffects, autoAlloc, single, type Stage } from '../engine/life/focus.ts';
 import { companions, ranks, summarize } from '../engine/life/companions.ts';
 import { seedFromBytes, SEED_RE } from '../engine/rng/streams.ts';
 import { PARAMS } from '../engine/params.ts';
-import { loadSave, writeSave, clearSave, pastLives, addPastLife, storageAvailable, type PastLife } from '../storage/save.ts';
+import { loadSave, writeSave, clearSave, pastLives, addPastLife, storageAvailable, type PastLife, type PastRecord } from '../storage/save.ts';
 import type { CountryIndex } from '../engine/data/types.ts';
 import { birthShares, allShares, sharePct } from './logic/odds.ts';
 import { ERA_CHOICES, resolveEra, oddsRange, type EraChoice } from './logic/era.ts';
@@ -48,6 +48,8 @@ let root: HTMLElement;
 let index: CountryIndex;
 let choiceResume = false;
 let autoTimer = 0;
+/** v0.8.1: true only while the player paused by hand (auto-choice never overrides a manual pause) */
+let userPaused = false;
 const starred = new Set<string>();
 let logAll = false;
 const K_AUTO = `${APP.storagePrefix}.auto.v1`, K_SPEED = `${APP.storagePrefix}.speed.v1`;
@@ -89,7 +91,7 @@ function intro(): void {
   const perSec = (birthShares(index, NOW_YEAR, NOW_YEAR).total * 1000) / (365.25 * 86400);
   view(`<div class="home">
 <section class="hero">
-  <p class="mono kicker-line">${esc(t('heroKicker', { ver: ENGINE_VERSION }))}</p>
+  <p class="mono kicker-line">${esc(t('heroKicker', { ver: APP_VERSION }))}</p>
   <h1 tabindex="-1" class="wordmark" aria-label="${esc(APP.title)}"><span>${esc(t('heroA'))}</span><span>${esc(t('heroB'))}<em>${esc(t('heroC'))}</em></span></h1>
   <p class="hero-intro">${esc(t('heroIntro', { n: perSec.toFixed(1) }))}</p>
   <div class="counters"><div><b id="ctr-born" class="serif">0</b><small>${esc(t('counterBorn'))}</small></div><div><b class="serif">${lives.length}</b><small>${esc(t('counterLives'))}</small></div></div>
@@ -117,7 +119,7 @@ ${storageAvailable() ? '' : `<p class="warn">${esc(t('storageOff'))}</p>`}
 <section class="past-lives card"><h2>${esc(t('pastLives'))}</h2>
   ${lives.length ? `<ol class="past">${lives.slice(0, 10).map((l, i) => `<li><button class="link past-open" data-i="${i}" ${l.cfg ? '' : 'disabled'}>${esc(l.name)} · ${l.year}–${l.at} · ${esc(t('years', { n: l.age }))}</button> <span class="mono small">${esc(money(l.netWorth))}</span></li>`).join('')}</ol>` : `<p class="muted">${esc(t('noPast'))}</p>`}
 </section>
-${getLang() !== 'zh-TW' ? `<p class="muted small content-note">${esc(t('contentNote'))}</p>` : ''}<footer class="foot"><button id="about" class="ghost">${esc(t('about'))}</button>${musicBtn()}${sfxBtn()}${themeBtn()}${langPicker()}<span class="muted small">engine ${ENGINE_VERSION} · data ${esc(index.dataVersion)}</span></footer>
+${getLang() !== 'zh-TW' ? `<p class="muted small content-note">${esc(t('contentNote'))}</p>` : ''}<footer class="foot"><button id="about" class="ghost">${esc(t('about'))}</button>${musicBtn()}${sfxBtn()}${themeBtn()}${langPicker()}<span class="muted small" id="app-ver">v${esc(APP_VERSION)}</span></footer>
 </div>`);
   renderOdds();
   const ctr = root.querySelector('#ctr-born') as HTMLElement;
@@ -205,7 +207,7 @@ function about(): void {
 ${BTC_FUTURE_DAMPENED ? `<p id="btc-future-about">${esc(t('aboutBtcFuture'))}</p>` : ''}
 <p>${esc(t('aboutOffline'))}</p>
 <p class="muted">${esc(t('money'))} ${esc(t('estNote'))}</p>
-<p class="muted">engine ${ENGINE_VERSION} · data ${esc(index.dataVersion)}</p>
+<p class="muted" id="about-ver">v${esc(APP_VERSION)} · engine ${ENGINE_VERSION} · data ${esc(index.dataVersion)}</p>
 <button id="back">${esc(t('back'))}</button></section>`);
   on('#back', intro);
 }
@@ -298,6 +300,7 @@ function yearSecFor(s: LifeState, paceMin: number): number {
 
 // ---------- play (P1–P4, P6, P7, P10, P11, P13, P16)
 function startLife(s: LifeState, cfg: LifeConfig, paceMin: 30 | 60 | 90, speed: Speed): void {
+  userPaused = false;
   run = { s, cfg, paceMin, speed, paused: false, acc: 0, yearSec: yearSecFor(s, paceMin), raf: 0, last: performance.now(), skipping: false };
   logAll = false; starred.clear(); sceneKey = '';
   peers = []; void loadPeers(s);
@@ -336,7 +339,7 @@ function lifeView(): void {
   </aside>
   <main class="col-mid">
     <section id="panel" class="panel card" hidden></section>
-    <section class="card focuscard" id="focuscard" hidden><h2 class="serif">${esc(t('focusTitle'))} <small class="muted">${esc(t('focusNote'))}</small></h2><div class="focus-pills" id="focus-pills" role="radiogroup" aria-label="${esc(t('focusTitle'))}"></div></section>
+    <section class="card focuscard" id="focuscard" hidden><h2 class="serif">${esc(t('focusTitle'))} <small class="muted">${esc(t('focusNote'))}</small></h2><div class="focus-pills" id="focus-pills" role="radiogroup" aria-label="${esc(t('focusTitle'))}"></div><p class="small muted fc-feedback" id="fc-feedback" hidden></p></section>
     <section class="card spendcard" id="spendcard" hidden><button id="spend" class="primary wide spend-entry"></button><p class="muted small" id="spend-hint" hidden></p>
       <div class="fin-btns" id="fin-btns"><button id="invest" class="ghost">${esc(t('investBtn'))}</button><button id="house" class="ghost">${esc(t('houseBtn'))}</button><button id="loan" class="ghost">${esc(t('loanBtn'))}</button><button id="annuity" class="ghost">${esc(t('annuityBtn'))}</button></div></section>
     <section class="card logcard"><h2 class="serif">${esc(t('log'))}</h2><ol id="log" class="log" aria-live="polite"${contentLangAttr()}></ol>${getLang() !== 'zh-TW' ? `<p class="muted small content-note">${esc(t('contentNote'))}</p>` : ''}<button class="ghost small" id="log-more" hidden></button></section>
@@ -374,7 +377,7 @@ function lifeView(): void {
 }
 const closeMenu = () => { const m = root.querySelector('#menu') as HTMLElement | null; if (m) m.hidden = true; };
 function syncPause(): void { const b = root.querySelector('#pause') as HTMLElement | null; if (b && run) b.textContent = t(run.paused ? 'resume' : 'pause'); }
-function togglePause(): void { const r = run!; r.paused = !r.paused; r.skipping = false; r.last = performance.now(); syncPause(); persist(); }
+function togglePause(): void { const r = run!; r.paused = !r.paused; userPaused = r.paused; r.skipping = false; r.last = performance.now(); syncPause(); persist(); }
 function setSpeed(x: Speed): void {
   const r = run!; r.speed = x; pref.set(K_SPEED, String(x));
   root.querySelectorAll<HTMLElement>('.spd').forEach((b) => b.setAttribute('aria-pressed', String(Number(b.dataset.speed) === x)));
@@ -423,15 +426,19 @@ function loop(): void {
   r.raf = requestAnimationFrame((now) => {
     const dt = Math.min((now - r.last) / 1000, 1);
     r.last = now;
+    // v0.8.1 auto-choice watchdog: overlapping prompts (bridge-loan panel + decision card) could restore each other's paused
+    // state and leave an auto life paused with nothing open — resume when nothing is waiting and the player did not pause
+    if (r.paused && autoOn() && !userPaused && !r.s.death && (root.querySelector('#choice') as HTMLElement | null)?.hidden !== false
+      && (root.querySelector('#panel') as HTMLElement | null)?.hidden !== false && !document.querySelector('dialog[open]') && !root.querySelector('#ending')) { r.paused = false; syncPause(); }
     if (!r.paused) {
       r.acc += (dt * (r.skipping ? SKIP_SPEED : r.speed)) / r.yearSec;
       let steps = 0;
       while (r.acc >= 1 && steps < PARAMS.maxYearsPerFrame.value && !r.s.death) {
-        if (pendingOffers(bundle(), r.s).length) { r.acc = Math.min(r.acc, 1); /* v0.7.1: keep the elapsed year so the card costs only its own wait */ if (r.skipping) { r.skipping = false; toast(t('toastDecision')); } showChoice(); break; }
+        if (pendingOffers(bundle(), r.s).length) { r.acc = Math.min(r.acc, 1); /* v0.7.1: keep the elapsed year so the card costs only its own wait */ if (r.skipping) { r.skipping = false; toast(t('toastDecision')); } const cb = root.querySelector('#choice') as HTMLElement | null; if (cb && !cb.hidden) { r.paused = true; syncPause(); } else showChoice(); break; } // v0.8.1: never re-render an open card every frame (resume while a card is open used to wipe its countdown and clicks)
         r.s = advanceYear(bundle(), r.s, contentEvents);
         r.acc -= 1; steps++;
         if (!r.skipping) milestoneToasts(r.s);
-        if (r.skipping) { const sad = r.s.years.at(-1)!.eventIds.find((id) => TRAGIC_EVENTS.has(id)); if (sad) { r.skipping = false; r.paused = true; syncPause(); toast(t('toastTragic', { what: eventText(sad, {}).replace(/\{\w+\}/g, '').slice(0, 40) })); break; } }
+        if (r.skipping) { const sad = r.s.years.at(-1)!.eventIds.find((id) => TRAGIC_EVENTS.has(id)); if (sad) { r.skipping = false; r.paused = true; userPaused = true; syncPause(); toast(t('toastTragic', { what: eventText(sad, {}).replace(/\{\w+\}/g, '').slice(0, 40) })); break; } }
         if (nudgeDue()) { r.acc = Math.min(r.acc, 1); break; }
       }
       if (steps) { renderLife(false); persist(); }
@@ -534,6 +541,15 @@ function stageOf(s: LifeState): Stage {
   return focusStage({ age: s.age, studying, uni: studying && (k.plan === 'tertiary' || k.plan === 'graduate'), inLabor: !s.econ.retired && s.age >= Math.max(15, k.studyUntil), unemployed: !!y?.unemployed, retired: s.econ.retired });
 }
 let autoFocusStage = '';
+/** v0.8.1 yearly feedback line from the engine's last focus summary (flags.fcLast) */
+function focusFeedback(s: LifeState): string {
+  if (typeof s.flags.fcLast !== 'string') return '';
+  const f = JSON.parse(s.flags.fcLast) as Record<string, number>; const sg = (v: number) => (v > 0 ? `+${v}%` : `${v}%`);
+  const parts = [f.inc ? t('fcfInc', { v: sg(f.inc) }) : '', f.grow ? t('fcfGrow', { v: f.grow }) : '', f.promo ? t('fcfPromo', { v: sg(f.promo) }) : '',
+    f.hz ? t('fcfHz', { v: sg(f.hz) }) : '', f.cost ? t('fcfCost', { v: f.cost }) : '', f.marry ? t('fcfMarry', { v: f.marry + '%' }) : '', f.bond ? t('fcfBond', { v: Math.round(f.bond * 10) / 10 }) : '', f.school ? t('fcfSchool', { v: f.school + '%' }) : '', f.part ? t('fcfPart', { v: f.part + '%' }) : ''].filter(Boolean);
+  return parts.length ? t('fcFeedback') + parts.join(' · ') : '';
+}
+
 function renderFocus(): void {
   const s = run!.s; const card = root.querySelector('#focuscard') as HTMLElement;
   const st = s.death ? 'none' : stageOf(s); const chips = chipsFor(st);
@@ -542,27 +558,28 @@ function renderFocus(): void {
   // auto-choice: pick a focus for a new stage when nothing chosen applies here
   if (autoOn() && !Object.keys(eff).length && autoFocusStage !== `${s.age}:${st}`) {
     autoFocusStage = `${s.age}:${st}`;
-    decide({ t: 'focus', age: s.age, w: autoAlloc(st, s.stats, s.seed, s.age) }); return;
+    decide({ t: 'focus', age: s.age, w: single(autoAlloc(st, s.stats, s.seed, s.age)) }); return;
   }
-  const w = weights(eff);
   const ar = (v: number) => (v > 0 ? '↑' : '↓');
   const hint = (c: string) => { const f = focusEffects({ [c]: 1 });
     return [...(Object.entries(f.fx) as [string, number][]).filter(([, v]) => v).map(([k, v]) => t(k as 'health') + ar(v)),
       ...(f.incomeMult > 1 ? [t('incomeShort') + '↑'] : []), ...(f.promoMult !== 1 ? [t('focusPromo') + ar(f.promoMult - 1)] : []), ...(f.costShare > 0 ? [t('focusCost') + '↑'] : [])].join(' '); };
-  const pill = (c: string) => { const n = Math.round(eff[c] ?? 0); return `<button class="fpill" data-focus="${c}" aria-pressed="${n > 0}" aria-checked="${n > 0}" data-n="${n}"><b>${esc(t(('focus_' + c) as 'focus_none'))} <span class="dots" aria-hidden="true">${'●'.repeat(Math.min(3, n))}${'○'.repeat(Math.max(0, 3 - n))}</span></b><small class="mono">${esc(n > 0 ? t('focusShare', { p: Math.round((w[c] ?? 0) * 100) }) + ' · ' : '')}${esc(hint(c))}</small></button>`; };
-  (root.querySelector('#focus-pills') as HTMLElement).innerHTML = chips.map(pill).join('') + `<button class="fpill clear" data-focus="" aria-pressed="${!Object.keys(eff).length}"><b>${esc(t('focusClear'))}</b></button>`;
+  // v0.8.1 single-select: exactly one chip is on; picking another replaces it
+  const pill = (c: string) => { const on = (eff[c] ?? 0) > 0; return `<button class="fpill" role="radio" data-focus="${c}" aria-pressed="${on}" aria-checked="${on}" data-n="${on ? 1 : 0}"><b>${esc(t(('focus_' + c) as 'focus_none'))}</b><small class="mono">${esc(hint(c))}</small></button>`; };
+  const fb = root.querySelector('#fc-feedback') as HTMLElement; fb.textContent = focusFeedback(s); fb.hidden = !fb.textContent;
+  (root.querySelector('#focus-pills') as HTMLElement).innerHTML = chips.map(pill).join('') + `<button class="fpill clear" role="radio" aria-checked="${!Object.keys(eff).length}" data-focus="" aria-pressed="${!Object.keys(eff).length}"><b>${esc(t('focusClear'))}</b></button>`;
   root.querySelectorAll<HTMLButtonElement>('.fpill').forEach((b) => b.addEventListener('click', () => {
     const c = b.dataset.focus!;
     if (!c) { if (Object.keys(eff).length) decide({ t: 'focus', age: s.age, w: {} }); return; }
-    const next = { ...eff, [c]: ((Math.round(eff[c] ?? 0)) + 1) % 4 };
-    decide({ t: 'focus', age: s.age, w: Object.fromEntries(Object.entries(next).filter(([, v]) => v > 0)) });
+    if ((eff[c] ?? 0) > 0 && Object.keys(eff).length === 1) return; // already the one focus
+    decide({ t: 'focus', age: s.age, w: { [c]: 1 } });
   }));
 }
 // ---------- batch 2 P14 spend & lifestyle sheet (time pauses while open)
 /** v0.8.0 entry card under the ID card / focus area: "花錢·投資" from 15 (spend + invest/house/loan/annuity merged) */
 function renderSpendCard(): void {
   const s = run!.s; const card = root.querySelector('#spendcard') as HTMLElement | null; if (!card) return;
-  card.hidden = !!s.death || s.age < 6; if (card.hidden) return;
+  card.hidden = !!s.death || !spendOpen(s.age); if (card.hidden) return; // v0.8.1: only from 15
   const open = spendOpen(s.age);
   (root.querySelector('#spend') as HTMLElement).textContent = t(open ? 'spendInvBtn' : 'spendBtn');
   (root.querySelector('#fin-btns') as HTMLElement).hidden = !open;
@@ -602,7 +619,9 @@ function spendSheet(tab0: 'spend' | 'fin' | 'habits' = 'spend'): void {
     const habits = auto ? autoHabits(s) : [];
     const tabs = open ? `<div class="tabs seg" role="tablist">${(['spend', 'fin', 'habits'] as const).map((k) => `<button role="tab" data-tab="${k}" aria-selected="${tab === k}">${esc(t(k === 'spend' ? 'tabSpend' : k === 'fin' ? 'tabFinance' : 'tabHabits'))}</button>`).join('')}</div>` : '';
     const hint = heavyDebt(bundle(), s) ? t('spendHintDebt') : parentOld(s) && sorted[0] === 'allowance' ? t('spendHintOld') : '';
-    const body = tab === 'spend' ? `${hint ? `<p class="spend-hint small">${esc(hint)}</p>` : ''}<h3>${esc(t('spendNow'))}</h3><ul class="items" id="spend-list">${[...shown, ...houseRow].map(row).join('')}</ul>
+    const invRow = open && bundle().markets && !Object.keys(s.portfolio.target).length
+      ? `<div class="spend-invest card-lite"><div><b>${esc(t('spendInvestRow'))}</b><p class="muted small">${esc(t('spendInvestHint'))}</p></div><button class="small primary" data-fin="invest" id="spend-invest">${esc(t('investBtn'))}</button></div>` : '';
+    const body = tab === 'spend' ? `${hint ? `<p class="spend-hint small">${esc(hint)}</p>` : ''}${invRow}<h3>${esc(t('spendNow'))}</h3><ul class="items" id="spend-list">${[...shown, ...houseRow].map(row).join('')}</ul>
         <details${more ? ' open' : ''} id="spend-more"><summary>${esc(t('spendMore', { n: sorted.length - shown.length + rest.length }))}</summary><ul class="items">${[...sorted.slice(8), ...rest].map(row).join('')}</ul></details>`
       : tab === 'fin' ? `<div class="fin-btns sheet-fin"><button class="ghost" data-fin="invest">${esc(t('investBtn'))}</button><button class="ghost" data-fin="house">${esc(t('houseBtn'))}</button><button class="ghost" data-fin="loan">${esc(t('loanBtn'))}</button><button class="ghost" data-fin="annuity">${esc(t('annuityBtn'))}</button></div>`
       : `<div class="lifestyle">${LIFESTYLE.map((l) => seg(l.key, l.opts)).join('')}
@@ -748,11 +767,12 @@ function showChoice(): void {
   const body = tMaybe('cb_' + o.id);
   const auto = autoOn();
   box.classList.remove('min');
-  box.innerHTML = `<header class="dec-head"><span class="kicker">${esc(t(label))}</span><span class="mono small">${esc(t('years', { n: r.s.age }))} · ${cal}</span><button class="ghost small" id="dec-min">${esc(t('minimise'))}</button></header>
+  box.innerHTML = `<header class="dec-head"><span class="kicker">${esc(t(label))}</span><span class="mono small">${esc(t('years', { n: r.s.age }))} · ${cal}</span></header>
     <h2 tabindex="-1" id="choice-title" class="serif">${esc(t(k('ct_')))}</h2>${body ? `<p>${esc(body)}</p>` : ''}
     ${fact ? `<aside class="fact"><p>${esc(fact.text)}${fact.est ? ` <span class="badge">${esc(t('est'))}</span>` : ''}</p><p class="mono cite">${esc(t('factSrc'))}：${esc(fact.cite)}</p></aside>` : ''}
     <div class="opts">${o.opts.map((op, i) => `<button class="opt${auto && op === pre ? ' pre' : ''}" data-opt="${op}"><span class="mono num">${i + 1}</span><span><b>${esc(t(('o_' + o.id + '_' + op) as 'o_hs_work'))}</b><small>${esc(tMaybe('c_' + o.id + '_' + op) || minorChips(o.id, op))}</small></span></button>`).join('')}</div>
-    ${auto ? `<div class="autobar" aria-hidden="true"><i id="auto-i"></i></div><div class="row"><button class="ghost small" id="auto-stop">${esc(t('autoStop'))}</button></div>` : `<div class="row"><button class="ghost small" id="auto-now">${esc(t('autoFromNow'))}</button></div>`}`;
+    ${auto ? `<div class="autobar" aria-hidden="true"><i id="auto-i"></i></div><div class="row"><button class="ghost small" id="auto-stop">${esc(t('autoStop'))}</button></div>` : `<div class="row"><button class="ghost small" id="auto-now">${esc(t('autoFromNow'))}</button></div>`}
+    <div class="row dec-foot"><button class="link small muted" id="dec-min">${esc(t('minimise'))}</button></div>`; // v0.8.1: collapse is last and secondary (was first; easy to tap by mistake)
   box.hidden = false;
   (box.querySelector('h2') as HTMLElement).focus();
   const pick = (opt: string) => { clearTimeout(autoTimer); decide({ t: 'choice', age: r.s.age, id: o.id, opt }); showChoice(); };
@@ -944,7 +964,7 @@ function nudgeDue(): string | null {
   const s = run!.s; if (s.death) return null;
   const last = s.age - 1;
   const had = (id: string) => s.events.some((e) => e.age === last && e.id === id);
-  if (!nudged.has('invest') && bundle().markets && had('first_paycheck') && !Object.keys(s.portfolio.target).length) return 'invest';
+  // v0.8.1: no standalone first-salary invest prompt — investing lives in the spend·invest sheet (top row until a target is set)
   if (!nudged.has('house') && had('ch_marry_marry') && !s.house) return 'house';
   if (!nudged.has('annuity') && s.age === PARAMS.annuityMinAge.value + 5 && s.econ.cash > 0) return 'annuity';
   return null;
@@ -987,24 +1007,30 @@ async function resume(sv: NonNullable<ReturnType<typeof loadSave>>): Promise<voi
 }
 // H11: reopen a past life's death record
 async function reopen(l: PastLife): Promise<void> {
-  if (!l.cfg) return;
-  const s = await replay(l.cfg, l.years ?? 200, l.actions ?? []);
-  if (!s || !s.death) return;
+  if (!l.cfg) { toast(t('reopenNA')); return; }
+  let s = await replay(l.cfg, l.years ?? 200, l.actions ?? []);
+  if (!s) { toast(t('reopenNA')); return; }
+  // v0.8.1: never depend on the recorded year count — if the replay stops short of death, run the life on to its end
+  for (let i = 0; i < 200 && !s.death; i++) s = advanceYear(bundle(), s, contentEvents);
+  if (!s.death) { toast(t('reopenNA')); return; }
   run = { s, cfg: l.cfg, paceMin: l.paceMin ?? 60, speed: 1, paused: true, acc: 0, yearSec: 1, raf: 0, last: 0, skipping: false };
-  death(false, true);
+  death(false, true, l.rec);
 }
 
 // ---------- final moments (E1) + death record (E2) + share (E4)
-function death(withEnding = false, reopened = false): void {
+function death(withEnding = false, reopened = false, rec?: PastRecord): void {
   const r = run!; const s = r.s; const d = s.death!;
   cancelAnimationFrame(r.raf);
   clearTimeout(autoTimer);
   const me = summarize(s);
-  const peers = companions(bundle(), s, PARAMS.companionsN.value, contentEvents);
-  const rk = ranks(me, peers);
+  // v0.8.1: a reopened record renders from its stored snapshot (old saves without one fall back to re-simulating the peers)
+  const peersN = rec?.peersN ?? 0;
+  const peers = rec ? [] : companions(bundle(), s, PARAMS.companionsN.value, contentEvents);
+  const rk = rec?.rk ?? ranks(me, peers);
+  const nPeers = rec ? peersN : peers.length;
   if (!reopened) {
     clearSave();
-    addPastLife({ id: s.id, seed: s.seed, iso: s.born.iso, name: `${s.name.full}（${nameOf(s.born.iso)}）`, year: s.born.year, age: d.age, netWorth: me.finalNetWorth, at: s.born.year + d.age, cfg: r.cfg, years: s.years.length, actions: s.actions.filter((a) => 'age' in a), paceMin: r.paceMin });
+    addPastLife({ id: s.id, seed: s.seed, iso: s.born.iso, name: `${s.name.full}（${nameOf(s.born.iso)}）`, year: s.born.year, age: d.age, netWorth: me.finalNetWorth, at: s.born.year + d.age, cfg: r.cfg, years: s.years.length, actions: s.actions.filter((a) => 'age' in a), paceMin: r.paceMin, rec: { rk, peersN: peers.length } });
   }
   const estYears = s.years.filter((y) => y.est.length).length;
   const calls = s.events.filter((e) => e.id === 'marginCall').length;
@@ -1013,6 +1039,9 @@ function death(withEnding = false, reopened = false): void {
   const pctOr = (x: number | null) => (x === null ? esc(t('pctNA')) : pctText(x));
   const adult = d.age >= 18;
   const hap = end.happiest;
+  // v0.8.1: fill the happiest-year line from that year's own event vars (amounts were empty: 「孝親費（）」); drop leftover empty brackets
+  const hapEv = hap?.eventId ? s.events.find((e) => e.age === hap.age && e.id === hap.eventId) ?? { id: hap.eventId } : undefined;
+  const hapLine = hapEv ? evLine(hapEv).replace(/\{\w+\}/g, '').replace(/[（(]\s*[）)]/g, '') : '';
   const country = nameOf(s.born.iso);
   const cause = t(('dc_' + end.cause) as 'dc_heart');
   const e0 = lifeExpectancy(tableFor(bundle(), { ...s, age: 0 }));
@@ -1042,7 +1071,7 @@ function death(withEnding = false, reopened = false): void {
       ${adult ? `<div><dt>${esc(t('g_edu'))}</dt><dd>${esc(edu)}</dd></div><div><dt>${esc(t('g_job'))}</dt><dd>${esc(track || t('none'))}</dd></div>` : ''}
       <div><dt>${esc(t('g_partner'))}</dt><dd>${esc(s.family.spouse?.name ?? t('none'))}</dd></div>
       <div><dt>${esc(t('g_kids'))}</dt><dd>${esc(s.family.children.length ? s.family.children.map((c) => c.name).join('、') : t('none'))}</dd></div>
-      ${hap ? `<div><dt>${esc(t('g_happiest'))}</dt><dd id="happiest">${esc(t('happiestLine', { age: hap.age, year: hap.year }))}${hap.eventId ? `<br><small>${esc(eventText(hap.eventId, {}).replace(/\{\w+\}/g, ''))}</small>` : ''}</dd></div>` : ''}
+      ${hap ? `<div><dt>${esc(t('g_happiest'))}</dt><dd id="happiest">${esc(t('happiestLine', { age: hap.age, year: hap.year }))}${hapLine ? `<br><small>${esc(hapLine)}</small>` : ''}</dd></div>` : ''}
       <div><dt>${esc(t('g_countries'))}</dt><dd>${esc(countries)}</dd></div>
       <div><dt>${esc(t('g_estate'))}</dt><dd>${esc(money(me.finalNetWorth))}</dd></div>
     </dl>
@@ -1065,7 +1094,7 @@ ${epilogueHtml(s)}
   ${s.actions.some((a) => a.t === 'alloc') ? `<dt>${esc(t('marginCalls'))}</dt><dd id="calls">${calls}</dd><dt>${esc(t('mktEstYears'))}</dt><dd>${mktEst}</dd>` : ''}
 </dl>
 <p class="muted small">${esc(t('beatsNote'))}</p>
-<p class="muted">${esc(t('peersLine', { n: peers.length }))}${estYears ? esc(t('peersEst', { n: estYears })) : ''}</p>
+<p class="muted">${esc(t('peersLine', { n: nPeers }))}${estYears ? esc(t('peersEst', { n: estYears })) : ''}</p>
 <h3 class="serif">${esc(t('mapTitle'))} <small class="mono">${esc(t('mapNote'))}</small></h3><div class="lifemap">${lifeMapHtml(s, e0)}</div>
 ${lineChart(s.years.map((y) => y.netWorth), { label: t('chartNetWorth'), color: '#2F5D8A' })}
 ${s.years.some((y) => y.debt > 0) ? lineChart(s.years.map((y) => y.debt), { label: t('chartDebt'), color: '#8E3B5A' }) : ''}

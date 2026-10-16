@@ -36,7 +36,7 @@ const CORE: EventDef[] = [
     apply: (_c, o) => { o.stats.social -= 6; o.stats.happy -= 2; } },
   { id: 'new_hobby', cd: 12, p: 0.06, when: (c) => c.age >= 8 && c.age <= 80,
     apply: (_c, o) => { o.stats.happy += 6; o.stats.health += 2; } },
-  { id: 'divorce', cd: 0, p: 0.006, when: (c) => c.married && c.age >= 28 && c.age <= 65,
+  { id: 'divorce', cd: 0, p: (c) => 0.006 * (c.focusDivorce ?? 1), when: (c) => c.married && c.age >= 28 && c.age <= 65,
     apply: (_c, o) => { o.married = false; o.stats.happy -= 10; } },
 ];
 

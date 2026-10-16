@@ -61,7 +61,7 @@ describe('v0.8.0 focus: stage swaps', () => {
     let s = newLife(data, cfg('focus-swap')) as LifeState;
     while (s.age < 7) s = advanceYear(data, s, registry);
     s = applyAction(data, s, { t: 'focus', age: s.age, w: { study: 2, play: 1 } });
-    expect(activeAlloc(s.actions, s.age)).toEqual({ study: 2, play: 1 });
+    expect(activeAlloc(s.actions, s.age)).toEqual({ study: 1 }); // v0.8.1 single-select: a legacy multi-chip pick collapses to its largest share
     while (!s.death && s.age < 45) s = advanceYear(data, s, registry);
     const sw = s.events.filter((e) => e.id === 'fc_switch');
     expect(sw.length).toBeGreaterThan(0);
@@ -74,7 +74,11 @@ describe('v0.8.0 focus: calibration (comparison-life Monte Carlo)', () => {
   const off = run(false), on = run(true);
   const mean = (a: number[]) => a.reduce((x, y) => x + y, 0) / a.length;
   const life = (s: LifeState) => s.years.reduce((a, y) => a + y.income, 0);
-  it('auto focus never changes mortality', () => { expect(on.map((s) => s.death?.age)).toEqual(off.map((s) => s.death?.age)); });
+  it('auto focus keeps e0 within 2% (the m2 calibration band) and never changes deaths before 15 (v0.8.1 health→hazard link is adult-only)', () => {
+    const e0 = (a: LifeState[]) => mean(a.map((s) => s.death!.age + s.death!.frac));
+    expect(Math.abs(e0(on) / e0(off) - 1)).toBeLessThan(0.02);
+    on.forEach((s, i) => { if (off[i]!.death!.age < 15 || s.death!.age < 15) expect(s.death!.age).toBe(off[i]!.death!.age); });
+  });
   it('mean lifetime income stays within ±8% and final net worth within ±20%', () => {
     const ri = mean(on.map(life)) / mean(off.map(life));
     const nw = (s: LifeState) => s.years.at(-1)!.netWorth;

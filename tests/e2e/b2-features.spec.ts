@@ -1,6 +1,6 @@
 // Batch 2 e2e: language picker, yearly focus, spend sheet, same-second companions, small decision card.
 import { test, expect } from '@playwright/test';
-import { toBirth } from './auto.ts';
+import { toBirth, playToAge } from './auto.ts';
 
 test('B2 language picker switches the whole UI and persists', async ({ page }) => {
   await page.goto('./');
@@ -24,6 +24,7 @@ test('B2 music toggle (generated in the browser, off by default)', async ({ page
 });
 
 test('B2 focus pills, spend sheet (pauses time, buy), companions panel', async ({ page }) => {
+  test.setTimeout(180_000); // v0.8.1: now plays on to 15 for the spend card
   await toBirth(page, 'b2-feat', { country: 'TWN', year: 1990 });
   await page.locator('#begin').click();
   await page.locator('.spd[data-speed="16"]').click();
@@ -33,6 +34,7 @@ test('B2 focus pills, spend sheet (pauses time, buy), companions panel', async (
   await pill.click();
   await expect(page.locator('.fpill[data-focus="study"]')).toHaveAttribute('aria-checked', 'true');
   await expect(page.locator('#peers li')).toHaveCount(5);
+  await playToAge(page, 15); // v0.8.1: the spend card exists from 15
   await page.locator('#spend').click();
   await expect(page.locator('#spend-sheet')).toBeVisible();
   const age = await page.locator('#age').textContent();

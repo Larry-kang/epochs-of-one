@@ -1,6 +1,6 @@
 // Batch 2 screenshots (desktop + 390px): odds table with WPP columns, English home, focus/companions, spend sheet.
 import { test, expect } from '@playwright/test';
-import { toBirth } from './auto.ts';
+import { toBirth, playToAge } from './auto.ts';
 
 for (const [tag, vp] of [['desktop', { width: 1280, height: 860 }], ['m390', { width: 390, height: 844 }]] as const) {
   test(`B2 shots ${tag}`, async ({ page }) => {
@@ -32,6 +32,7 @@ for (const [tag, vp] of [['desktop', { width: 1280, height: 860 }], ['m390', { w
     await page.locator('#pause').click();
     await page.locator('.fpill[data-focus="study"]').click();
     await page.screenshot({ path: `shots/batch2/${tag}-focus-companions.png`, fullPage: true });
+    await playToAge(page, 15); // v0.8.1: the spend card exists from 15
     await page.locator('#spend').click();
     await expect(page.locator('#spend-sheet')).toBeVisible();
     await page.screenshot({ path: `shots/batch2/${tag}-spend-sheet.png` });

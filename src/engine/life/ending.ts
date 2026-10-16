@@ -6,12 +6,14 @@ import type { LifeState } from './state.ts';
 
 export interface Ending { happiest?: { age: number; year: number; eventId?: string }; cause: string; lastWords: string; vars: Record<string, string> }
 
+/** v0.8.1: never caption the happiest year with a hardship line (an infant's fever, illness, loss…) — omit it instead */
+const SAD = /fever|sick|ill|injur|hospital|funeral|death|dies|died|grief|mourn|accident|flood|fire|quake|storm|heatwave|war|hunger|famine|jobless|unemploy|loss|lost|debt|default|foreclos|margin|divorce|bully|fight|robbed|theft|scam|evict|disab|lonely|leaves/;
 export function ending(s: LifeState, gdpPc: number): Ending {
   const r = stream(s.seed, 'ending');
   const d = s.death!;
   let best: LifeState['years'][number] | undefined;
   for (const y of s.years) if (y.age >= 3 && (!best || y.stats.happy > best.stats.happy)) best = y;
-  const happiest = best ? { age: best.age, year: best.calYear, eventId: [...best.eventIds].reverse().find((e) => !e.startsWith('ch_') && e !== 'jobless_year') } : undefined;
+  const happiest = best ? { age: best.age, year: best.calYear, eventId: [...best.eventIds].reverse().find((e) => !e.startsWith('ch_') && !SAD.test(e)) } : undefined;
   const poor = gdpPc < 8000, weak = s.stats.health < 40;
   const bands: [string, number][] =
     d.age < 1 ? [['neonatal', 0.6], ['infection', 0.4]]

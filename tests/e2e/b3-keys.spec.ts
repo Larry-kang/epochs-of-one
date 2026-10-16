@@ -1,6 +1,6 @@
 // batch 3 #8: Enter takes the default choice; Esc closes the menu, panels, prompts and sheets.
 import { test, expect } from '@playwright/test';
-import { toBirth } from './auto.ts';
+import { toBirth, playToAge } from './auto.ts';
 
 test('B3 Enter = default choice, Esc closes menu / panel / sheet', async ({ page }) => {
   test.setTimeout(120000);
@@ -25,6 +25,7 @@ test('B3 Enter = default choice, Esc closes menu / panel / sheet', async ({ page
   await page.locator('body').click({ position: { x: 5, y: 300 } });
   await page.keyboard.press('Escape'); await expect(page.locator('#panel')).toBeHidden();
   // native dialog sheet → Esc
+  await playToAge(page, 15); // v0.8.1: the spend card exists from 15
   await page.locator('#spend').click(); await expect(page.locator('#spend-sheet')).toBeVisible();
   await page.keyboard.press('Escape'); await expect(page.locator('#spend-sheet')).toHaveCount(0);
 });

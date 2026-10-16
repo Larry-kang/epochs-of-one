@@ -1,4 +1,4 @@
-// v0.8.0 yearly focus. The player splits the year between a few chips for their life stage; each chip's share is its
+// v0.8.0 yearly focus (single-select since v0.8.1: one chip at a time; older multi-chip saves collapse via single()). Originally the player split the year between a few chips for their life stage; each chip's share is its
 // weight W (shares sum to 1). Recorded as {t:'focus', age, w:{chip: share}} and kept until changed. When the life
 // stage changes, the allocation is mapped onto the closest chips of the new stage (and maps back when the stage
 // returns); each such swap is logged. Game-design content: it never touches the mortality draw. With no focus recorded
@@ -43,10 +43,10 @@ const FX_SCALE = 0.15;
 const FX: Record<Chip, Partial<Record<keyof Stats, number>>> = {
   study: { smart: 4, happy: -1 }, play: { happy: 3, social: 1, smart: -1 }, help: { social: 2, happy: -1 }, parttime: { social: 1, happy: -1, smart: -1 },
   career: { smart: 2, social: 1 }, sport: { health: 4, happy: 1 }, hobby: { happy: 3, smart: 1 },
-  work: { happy: -2, health: -1 }, balance: { happy: 2, health: 1 }, family: { happy: 2, social: 2 }, health: { health: 4, happy: 1 }, learn: { smart: 3 },
+  work: { happy: -2, health: -1 }, balance: { happy: 2, health: 1 }, family: { happy: 6, social: 4 }, health: { health: 4, happy: 1 }, learn: { smart: 3 },
   rest: { health: 2, happy: 2, smart: -1 }, mind: { smart: 3, happy: 1 }, faith: { happy: 3, social: 2 },
 };
-export interface FocusFx { incomeMult: number; promoMult: number; jobMult: number; familyMult: number; marryAdd: number; schoolAdd: number; costShare: number; parttime: number; fx: Partial<Record<keyof Stats, number>> }
+export interface FocusFx { learnGrowth: number; divorceMult: number; childAdd: number; bondAdd: number; hazardMult: number; incomeMult: number; promoMult: number; jobMult: number; familyMult: number; marryAdd: number; schoolAdd: number; costShare: number; parttime: number; fx: Partial<Record<keyof Stats, number>> }
 /** effects of a weighted allocation (weights or raw shares; normalised here) */
 export function focusEffects(a: Alloc): FocusFx {
   const tot = Object.values(a).reduce((x: number, v) => x + Math.max(0, v ?? 0), 0);
@@ -55,11 +55,21 @@ export function focusEffects(a: Alloc): FocusFx {
   for (const [k, v] of Object.entries(w)) for (const [s, d] of Object.entries(FX[k as Chip] ?? {}) as [keyof Stats, number][]) fx[s] = (fx[s] ?? 0) + FX_SCALE * d * v;
   return {
     // time is finite: hours given to leisure/family chips cost a little pay (opportunity cost keeps the economy calibrated)
-    incomeMult: (1 + 0.1 * W('work') + 0.03 * W('career')) * (1 - 0.08 * (W('balance') + W('family') + W('hobby') + W('health') + W('rest'))),
-    promoMult: 1 + 0.12 * W('work') + 0.15 * W('learn') - 0.15 * W('family'),
+    // learn is an investment: ~10% fewer paid hours now (time cost), +0.6%/yr permanent wage growth and better promotion odds later.
+    // Grounding: one year of formal adult/on-the-job training raises later wages by roughly 2–5% (Bassanini, Booth, Brunello,
+    // De Paola & Leuven 2007, "Workplace training in Europe", in Education and Training in Europe, OUP; Frazis & Loewenstein 2005,
+    // J. Human Resources 40(2)); W=1 here is a year mostly spent on it, but only part of the year's hours go to it and returns decay, so 0.6%/yr compounding is conservative.
+    incomeMult: (1 + 0.1 * W('work') + 0.03 * W('career')) * (1 - 0.08 * (W('balance') + W('family') + W('hobby') + W('health') + W('rest')) - 0.1 * W('learn')),
+    learnGrowth: 0.006 * W('learn'),
+    promoMult: 1 + 0.12 * W('work') + 0.3 * W('learn') - 0.15 * W('family'),
+    // family: stronger marriage odds, fewer divorces, more wanted children (still capped by the WPP TFR target), bond and happiness
+    divorceMult: 1 - 0.6 * W('family'), childAdd: 0.3 * W('family'), bondAdd: 3 * W('family'),
+    // health chip: regular activity lowers adult mortality ~20–30% at guideline levels (Arem et al. 2015, JAMA Intern Med 175(6);
+    // Warburton, Nicol & Bredin 2006, CMAJ 174(6)); we use a modest 12% at full weight
+    hazardMult: 1 - 0.12 * W('health'),
     jobMult: 1 + 1.5 * W('learn') + 0.8 * W('career'),
     familyMult: 1 + 0.8 * W('family'),
-    marryAdd: 0.05 * W('family') + 0.02 * W('balance'),
+    marryAdd: 0.14 * W('family') + 0.02 * W('balance'),
     schoolAdd: 0.02 * W('study'),
     costShare: 0.02 * W('learn') + 0.02 * W('health') + 0.01 * W('hobby'),
     parttime: W('parttime'),
@@ -84,7 +94,9 @@ export function mapToStage(a: Alloc, st: Stage): Record<string, number> {
   return out;
 }
 
-/** auto policy (auto-choice and comparison lives): mostly the stage's main chip, plus support for the weakest stat */
+/** auto policy for comparison lives (cfg.autoFocus, engine-internal and never shown as chips): mostly the stage's main chip, plus
+ *  support for the weakest stat. Kept as a blend so the comparison-life calibration is unchanged; the player-facing auto-choice
+ *  records single(autoAlloc(...)) since v0.8.1. */
 export function autoAlloc(st: Stage, stats: Stats, seed: string, age: number): Record<string, number> {
   const main: Partial<Record<Stage, Chip>> = { school: 'study', uni: 'study', work: 'work', idle: 'learn', elder: 'health' };
   const support: Record<keyof Stats, Chip[]> = { health: ['health', 'sport', 'rest'], happy: ['hobby', 'play', 'balance', 'faith'], smart: ['learn', 'study', 'mind'], social: ['family', 'help', 'faith'] };
@@ -97,6 +109,17 @@ export function autoAlloc(st: Stage, stats: Stats, seed: string, age: number): R
   return extra ? { [m]: 2, [sup]: 1, [extra]: 1 } : { [m]: 2, [sup]: 1 };
 }
 
+/** v0.8.1 the yearly focus is single-select: one chip at weight 1. Older multi-chip allocations collapse deterministically to
+ *  the chip with the largest share; ties go to the chip listed first in ALL_CHIPS. */
+const ALL_CHIPS: Chip[] = ['study', 'play', 'help', 'parttime', 'career', 'sport', 'hobby', 'work', 'balance', 'family', 'health', 'learn', 'rest', 'mind', 'faith'];
+export function single(a: Alloc): Record<string, number> {
+  const e = Object.entries(a).filter(([, v]) => (v ?? 0) > 0) as [string, number][];
+  if (!e.length) return {};
+  const rank = (k: string) => { const i = ALL_CHIPS.indexOf(k as Chip); return i < 0 ? ALL_CHIPS.length : i; };
+  e.sort((x, y) => y[1] - x[1] || rank(x[0]) - rank(y[0]) || x[0].localeCompare(y[0]));
+  return { [e[0]![0]]: 1 };
+}
+
 const LEGACY: Record<string, string> = { workHard: 'work', sideGig: 'parttime', friends: 'balance', helpHome: 'help', care: 'family', volunteer: 'faith' };
 /** allocation in force at `age`: the latest recorded focus action at or before that age ({} = none) */
 export function activeAlloc(actions: Action[], age: number): Record<string, number> {
@@ -105,6 +128,15 @@ export function activeAlloc(actions: Action[], age: number): Record<string, numb
     at = a.age;
     out = 'w' in a && a.w ? Object.fromEntries(Object.entries(a.w).filter(([, v]) => (v ?? 0) > 0)) as Record<string, number> : 'id' in a && a.id ? { [LEGACY[a.id] ?? a.id]: 1 } : {};
   }
-  return out;
+  return single(out);
 }
 export const allocKey = (a: Alloc) => Object.keys(weights(a)).sort().join('+');
+
+/** v0.8.1: adult mortality hazard multiplier from the health stat (only for lives with a focus in force; never under 15, so
+ *  under-5 mortality is untouched). Self-rated/overall health strongly predicts mortality — poor vs excellent RR ≈ 1.9
+ *  (DeSalvo et al. 2006, J Gen Intern Med 21(3)); we use a modest 6% per 10 stat points around 70 (the engine's mean adult health, so the average life is unchanged), clamped to [0.75, 1.35]. */
+export function healthHazard(health: number, age: number, fx?: FocusFx): number {
+  if (age < 15) return 1;
+  const hr = Math.min(1.35, Math.max(0.75, 0.94 ** ((health - 70) / 10)));
+  return hr * (fx?.hazardMult ?? 1);
+}
