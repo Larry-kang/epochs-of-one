@@ -1,4 +1,4 @@
-// v0.8.0 SPEND: "花錢·投資" entry from 15 under the ID card / focus area; tabs merge spend, invest/house/loan/annuity
+// v0.8.0 SPEND (v0.8.1: card hidden before 15): "花錢·投資" entry from 15 under the ID card / focus area; tabs merge spend, invest/house/loan/annuity
 // and habits; situation-sorted list; buy, then sell an owned item; lifestyle setting persists.
 import { test, expect, type Page } from '@playwright/test';
 import { toBirth } from './auto.ts';
@@ -20,8 +20,9 @@ for (const [name, vp] of [['desktop', { width: 1280, height: 860 }], ['m390', { 
     await toBirth(page, `v080-spend-${name}`, { country: 'TWN', year: 1990 });
     await page.locator('#begin').click();
     await page.evaluate(() => (document.querySelector('.spd[data-speed="16"]') as HTMLButtonElement | null)?.click());
-    await expect(page.locator('#spendcard')).toBeVisible({ timeout: 90_000 });
-    await expect(page.locator('#fin-btns')).toBeHidden();
+    await playTo(page, 10);
+    await expect(page.locator('#spendcard')).toBeHidden(); // v0.8.1: nothing before 15
+    await page.evaluate(() => (document.querySelector('#pause') as HTMLButtonElement).click());
     await playTo(page, 16);
     await expect(page.locator('#spend')).toContainText('花錢·投資');
     await expect(page.locator('#fin-btns')).toBeVisible();

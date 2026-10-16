@@ -1,0 +1,40 @@
+{
+ "epochs.lives.v1": [
+  {
+   "id": "v07-dead-PHL-2026",
+   "seed": "v07-dead",
+   "iso": "PHL",
+   "name": "阿迪·雷耶斯（菲律賓）",
+   "year": 2026,
+   "age": 63,
+   "netWorth": 1127.400165458781,
+   "at": 2089,
+   "cfg": {
+    "seed": "v07-dead",
+    "era": {
+     "kind": "now"
+    },
+    "nowYear": 2026,
+    "engineVersion": "0.6.0"
+   },
+   "years": 64,
+   "actions": [],
+   "paceMin": 60
+  }
+ ],
+ "epochs.save.v1": {
+  "v": 1,
+  "cfg": {
+   "seed": "v07-alive",
+   "era": {
+    "kind": "now"
+   },
+   "nowYear": 2026,
+   "engineVersion": "0.6.0"
+  },
+  "paceMin": 60,
+  "years": 0,
+  "speed": 1,
+  "actions": []
+ }
+}

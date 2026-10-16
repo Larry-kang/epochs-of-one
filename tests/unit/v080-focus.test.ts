@@ -61,7 +61,7 @@ describe('v0.8.0 focus: stage swaps', () => {
     let s = newLife(data, cfg('focus-swap')) as LifeState;
     while (s.age < 7) s = advanceYear(data, s, registry);
     s = applyAction(data, s, { t: 'focus', age: s.age, w: { study: 2, play: 1 } });
-    expect(activeAlloc(s.actions, s.age)).toEqual({ study: 2, play: 1 });
+    expect(activeAlloc(s.actions, s.age)).toEqual({ study: 1 }); // v0.8.1 single-select: a legacy multi-chip pick collapses to its largest share
     while (!s.death && s.age < 45) s = advanceYear(data, s, registry);
     const sw = s.events.filter((e) => e.id === 'fc_switch');
     expect(sw.length).toBeGreaterThan(0);

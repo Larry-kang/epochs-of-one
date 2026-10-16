@@ -13,11 +13,11 @@ const data = loadBundleFromDisk();
 const COUNTRIES = ['TWN', 'USA', 'IND'] as const;
 // one recorded focus at age 6, persisting all life; mapToStage moves chips the stage lacks to the nearest chip
 const STRATS: Record<string, Action[] | 'auto'> = {
-  work: [{ t: 'focus', age: FOCUS_FROM, w: { work: 3 } }],
-  family: [{ t: 'focus', age: FOCUS_FROM, w: { family: 3 } }],
-  learn: [{ t: 'focus', age: FOCUS_FROM, w: { learn: 3 } }],
-  health: [{ t: 'focus', age: FOCUS_FROM, w: { health: 3 } }],
-  balance: [{ t: 'focus', age: FOCUS_FROM, w: { work: 1, balance: 1, family: 1, health: 1, learn: 1, hobby: 1 } }],
+  work: [{ t: 'focus', age: FOCUS_FROM, w: { work: 1 } }],
+  family: [{ t: 'focus', age: FOCUS_FROM, w: { family: 1 } }],
+  learn: [{ t: 'focus', age: FOCUS_FROM, w: { learn: 1 } }],
+  health: [{ t: 'focus', age: FOCUS_FROM, w: { health: 1 } }],
+  balance: [{ t: 'focus', age: FOCUS_FROM, w: { balance: 1 } }], // v0.8.1 single-select: the balance chip alone
   auto: 'auto',
 };
 const cfg = (seed: string, iso: string, autoFocus: boolean): LifeConfig => ({ seed, era: { kind: 'past', year: 1990 }, nowYear: 2026, engineVersion: 'mc', autoSpend: true, ...(autoFocus ? { autoFocus } : {}),

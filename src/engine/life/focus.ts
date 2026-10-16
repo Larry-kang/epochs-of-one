@@ -1,4 +1,4 @@
-// v0.8.0 yearly focus. The player splits the year between a few chips for their life stage; each chip's share is its
+// v0.8.0 yearly focus (single-select since v0.8.1: one chip at a time; older multi-chip saves collapse via single()). Originally the player split the year between a few chips for their life stage; each chip's share is its
 // weight W (shares sum to 1). Recorded as {t:'focus', age, w:{chip: share}} and kept until changed. When the life
 // stage changes, the allocation is mapped onto the closest chips of the new stage (and maps back when the stage
 // returns); each such swap is logged. Game-design content: it never touches the mortality draw. With no focus recorded
@@ -94,7 +94,9 @@ export function mapToStage(a: Alloc, st: Stage): Record<string, number> {
   return out;
 }
 
-/** auto policy (auto-choice and comparison lives): mostly the stage's main chip, plus support for the weakest stat */
+/** auto policy for comparison lives (cfg.autoFocus, engine-internal and never shown as chips): mostly the stage's main chip, plus
+ *  support for the weakest stat. Kept as a blend so the comparison-life calibration is unchanged; the player-facing auto-choice
+ *  records single(autoAlloc(...)) since v0.8.1. */
 export function autoAlloc(st: Stage, stats: Stats, seed: string, age: number): Record<string, number> {
   const main: Partial<Record<Stage, Chip>> = { school: 'study', uni: 'study', work: 'work', idle: 'learn', elder: 'health' };
   const support: Record<keyof Stats, Chip[]> = { health: ['health', 'sport', 'rest'], happy: ['hobby', 'play', 'balance', 'faith'], smart: ['learn', 'study', 'mind'], social: ['family', 'help', 'faith'] };
@@ -107,6 +109,17 @@ export function autoAlloc(st: Stage, stats: Stats, seed: string, age: number): R
   return extra ? { [m]: 2, [sup]: 1, [extra]: 1 } : { [m]: 2, [sup]: 1 };
 }
 
+/** v0.8.1 the yearly focus is single-select: one chip at weight 1. Older multi-chip allocations collapse deterministically to
+ *  the chip with the largest share; ties go to the chip listed first in ALL_CHIPS. */
+const ALL_CHIPS: Chip[] = ['study', 'play', 'help', 'parttime', 'career', 'sport', 'hobby', 'work', 'balance', 'family', 'health', 'learn', 'rest', 'mind', 'faith'];
+export function single(a: Alloc): Record<string, number> {
+  const e = Object.entries(a).filter(([, v]) => (v ?? 0) > 0) as [string, number][];
+  if (!e.length) return {};
+  const rank = (k: string) => { const i = ALL_CHIPS.indexOf(k as Chip); return i < 0 ? ALL_CHIPS.length : i; };
+  e.sort((x, y) => y[1] - x[1] || rank(x[0]) - rank(y[0]) || x[0].localeCompare(y[0]));
+  return { [e[0]![0]]: 1 };
+}
+
 const LEGACY: Record<string, string> = { workHard: 'work', sideGig: 'parttime', friends: 'balance', helpHome: 'help', care: 'family', volunteer: 'faith' };
 /** allocation in force at `age`: the latest recorded focus action at or before that age ({} = none) */
 export function activeAlloc(actions: Action[], age: number): Record<string, number> {
@@ -115,7 +128,7 @@ export function activeAlloc(actions: Action[], age: number): Record<string, numb
     at = a.age;
     out = 'w' in a && a.w ? Object.fromEntries(Object.entries(a.w).filter(([, v]) => (v ?? 0) > 0)) as Record<string, number> : 'id' in a && a.id ? { [LEGACY[a.id] ?? a.id]: 1 } : {};
   }
-  return out;
+  return single(out);
 }
 export const allocKey = (a: Alloc) => Object.keys(weights(a)).sort().join('+');
 

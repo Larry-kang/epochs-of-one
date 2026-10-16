@@ -107,6 +107,18 @@ export function newLife(data: DataBundle, cfg: LifeConfig): LifeState | Infeasib
 }
 
 /** Simulate the year from exact age `s.age` to `s.age+1`. Returns a new state. */
+/** v0.8.1: the focus effect in force from last year, or undefined when none — a cleared focus ("{}"), null or a malformed value
+ *  is no effect at all (it must not keep the health→hazard link or offer modifiers alive). Shared by advanceYear and pendingOffers. */
+export function focusInForce(flags: LifeState['flags']): FocusFx | undefined {
+  const raw = flags.fcEff;
+  if (typeof raw !== 'string' || !raw) return undefined;
+  let eff: unknown;
+  try { eff = JSON.parse(raw); } catch { return undefined; }
+  if (!eff || typeof eff !== 'object' || !Object.values(eff as Record<string, unknown>).some((v) => typeof v === 'number' && v > 0)) return undefined;
+  return focusEffects(eff as Record<string, number>);
+}
+/** adult mortality multiplier applied to this year's draw: 1 (the calibrated baseline) unless a focus is in force */
+export function hazardMult(s: LifeState): number { const fx = focusInForce(s.flags); return fx ? healthHazard(s.stats.health, s.age, fx) : 1; }
 export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem): LifeState {
   if (s.death) return s;
   const age = s.age;
@@ -116,8 +128,8 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   // draw order is fixed: [0] death, [1] death frac, [2] unemployment
   const uDeath = r.next(), uFrac = r.next(), uUnemp = r.next(), uLuck = r.next();
   const t = tableFor(data, s);
-  const fxPrev: FocusFx | undefined = typeof s.flags.fcEff === 'string' ? focusEffects(JSON.parse(s.flags.fcEff) as Record<string, number>) : undefined;
-  const hzd = fxPrev ? healthHazard(s.stats.health, age, fxPrev) : 1; // v0.8.1: only lives with a focus in force
+  const fxPrev = focusInForce(s.flags);
+  const hzd = hazardMult(s); // v0.8.1: only lives with a focus in force
   const dies = age >= MAX_AGE || uDeath < Math.min(1, t.p[Math.min(age, MAX_AGE)]! * hzd);
 
   const est: string[] = [];
@@ -205,6 +217,8 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
       const prev = typeof flags.fcEff === 'string' ? JSON.parse(flags.fcEff) as Record<string, number> : {};
       if (flags.fcStage !== undefined && flags.fcStage !== stage && Object.keys(intended).length && allocKey(eff) !== allocKey(prev)) emit('fc_switch', { from: allocKey(prev) || '-', to: allocKey(eff) || '-', stage });
       flags.fcStage = stage; flags.fcEff = JSON.stringify(eff);
+      if (!Object.values(eff).some((v) => v > 0)) delete flags.fcLast; // v0.8.1: a cleared focus has no effect and no feedback line
+      else {
       const fx = focusEffects(eff); fxNow = fx;
       for (const [k, v] of Object.entries(fx.fx) as [keyof typeof stats, number][]) stats[k] += v;
       if (inLabor && !unemployed) { income *= fx.incomeMult; if (fx.learnGrowth > 0) career.mult *= 1 + fx.learnGrowth; }
@@ -216,6 +230,7 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
         career.mult *= 1.06; stats.happy += 2; emit('job_change', { pct: 6 });
       }
     }
+      }
   }
   income += s.econ.annuity; // a purchased annuity pays for life, working or not
   if (retired && data.hp && !s.econ.retired) emit('retire', { age: retireAge, pension: Math.round(pension) });
@@ -457,7 +472,8 @@ export const MORTGAGE_TERMS = [20, 30, 40] as const;
 export function pendingOffers(data: DataBundle, s: LifeState) {
   if (s.death) return [];
   const c = data.country(s.cur), calYear = s.born.year + s.age;
-  return offersAt({ s, c, calYear, meanIncome: incomeDist(c, calYear).d.mean, tfr: cohortTfr(data.wpp, s.born.iso, s.born.year) }).filter((o) => !s.actions.some((a) => a.t === 'choice' && a.age === s.age && a.id === o.id));
+  const fx = focusInForce(s.flags); // v0.8.1: same previous-year focus effect advanceYear uses, so the offers match exactly
+  return offersAt({ s, c, calYear, meanIncome: incomeDist(c, calYear).d.mean, tfr: cohortTfr(data.wpp, s.born.iso, s.born.year), ...(fx ? { focus: fx } : {}) }).filter((o) => !s.actions.some((a) => a.t === 'choice' && a.age === s.age && a.id === o.id));
 }
 export function decisionQuote(data: DataBundle, s: LifeState, term: number = PARAMS.mortgageTerm.value): DecisionQuote {
   const year = s.born.year + s.age;

@@ -2739,6 +2739,27 @@ null
 "나가기",
 "Rời đi"
 ],
+"reopenNA": [
+"這份紀錄無法重新打開。",
+"This record can no longer be reopened.",
+"この記録は再表示できません。",
+"이 기록은 다시 열 수 없습니다.",
+"Không thể mở lại hồ sơ này."
+],
+"spendInvestRow": [
+"把存款拿去投資",
+"Invest your savings",
+"貯金を投資する",
+"저축을 투자하기",
+"Đầu tư tiền tiết kiệm"
+],
+"spendInvestHint": [
+"不選的話，錢就一直放在存款裡。",
+"If you don't choose, it stays in deposits.",
+"選ばなければ、預金のままです。",
+"선택하지 않으면 예금으로 남습니다.",
+"Nếu không chọn, tiền vẫn để trong tiền gửi."
+],
 "toastDecision": [
 "停下來了：有個抉擇要做。",
 "Paused: there is a decision to make.",
@@ -3279,11 +3300,11 @@ null
 "Trọng tâm năm nay"
 ],
 "focusNote": [
-"點一下增加這一項分到的時間（0–3 份），會一直持續到你改",
-"Tap to give a chip more of your year (0–3 shares); it stays until you change it",
-"タップで時間配分を増やす（0〜3）。変えるまで続きます",
-"눌러서 시간 비중을 늘리세요(0–3). 바꿀 때까지 유지됩니다",
-"Chạm để dành thêm thời gian (0–3 phần); giữ nguyên đến khi bạn đổi"
+"一次選一項，選別的就換掉，會一直持續到你改",
+"Pick one; picking another replaces it. It stays until you change it",
+"一つ選ぶ。別のを選ぶと入れ替わり、変えるまで続きます",
+"하나만 고르세요. 다른 것을 고르면 바뀌고, 바꿀 때까지 유지됩니다",
+"Chọn một; chọn mục khác sẽ thay thế. Giữ nguyên đến khi bạn đổi"
 ],
 "focus_none": [
 "順其自然",

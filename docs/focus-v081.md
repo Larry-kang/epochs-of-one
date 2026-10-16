@@ -54,3 +54,14 @@ Baseline MC: main 4498469 (before). Script: scripts/focus-mc.test.ts
 | TWN | 0.886 | 1.068 | 11% / 3% |
 | USA | 0.885 | 1.062 | 11% / 3% |
 | IND | 0.893 | 1.076 | 10% / 2% |
+
+## Single-select (v0.8.1 release)
+
+The yearly focus is single-select: one chip at a time, picking another replaces it. Recorded multi-chip allocations from
+older saves collapse deterministically to the chip with the largest share (ties: fixed chip order) — `single()` in
+src/engine/life/focus.ts. Comparison lives keep the engine-internal auto blend, so the comparison calibration is unchanged; the
+player-facing auto-choice records `single(autoAlloc(...))`. MC rerun (N=200/cell, same seeds; strategies now single chips,
+"balance" = the balance chip alone): work / family / learn / health / auto rows are identical to the table above
+(work vs family median lifetime income TWN +33.2%, USA +33.4%, IND +47.4%; learn/work 25–34 ≈ 0.89×, 45–54 ≈ 1.07×; divorce 11% / 3%).
+Balance chip alone: TWN median income 2.17M, USA 2.72M, IND 227k; lifespans 71.4 / 72.5 / 56.6. No weight recalibration needed.
+A cleared focus ("{}") is no effect at all (hazard multiplier back to 1, no feedback line).
