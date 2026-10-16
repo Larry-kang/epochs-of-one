@@ -48,7 +48,7 @@ export function guardrail(iso: string, years: number[] = [1970, 1990], N = GUARD
         expect(mNw).toBeGreaterThan(0.8); expect(mNw).toBeLessThan(1.2);
         expect(Math.abs(mE0 - 1)).toBeLessThan(0.01);
         for (const g of ENTRY_GROUPS) expect(Math.abs(mix[g]!), `${iso} ${year} ${g}`).toBeLessThan(0.05);
-      });
+      }, 900_000); // CI runners are ~2–4× slower than the dev box; one cell is ≈ 70 s locally
     }
   });
 }
