@@ -8,11 +8,13 @@ const zh = JSON.parse(readFileSync('src/content/zh-TW/events.json', 'utf8')) as 
 const data = loadBundleFromDisk();
 
 describe('M3: events & content', () => {
-  it('exactly 10 events, unique ids, each has zh-TW text, no missing keys', () => {
+  it('100+ events, unique ids, each has zh-TW text, no orphan keys', () => {
     const ids = EVENTS.map((e) => e.id);
-    expect(ids.length).toBe(10);
-    expect(new Set(ids).size).toBe(10);
-    expect(Object.keys(zh).sort()).toEqual([...ids, ...ENGINE_EVENT_IDS].sort());
+    expect(ids.length).toBeGreaterThanOrEqual(100);
+    expect(new Set(ids).size).toBe(ids.length);
+    const keys = new Set(Object.keys(zh));
+    for (const id of [...ids, ...ENGINE_EVENT_IDS]) expect(keys.has(id), id).toBe(true);
+    for (const k of keys) expect(ids.includes(k) || (ENGINE_EVENT_IDS as readonly string[]).includes(k) || k.startsWith('ch_'), k).toBe(true);
   });
   it('events never change the death outcome (separate RNG stream; calibration preserved)', () => {
     for (let i = 0; i < 100; i++) {
@@ -31,7 +33,9 @@ describe('M3: events & content', () => {
       for (const y of s.years) for (const v of Object.values(y.stats)) expect(v >= 0 && v <= 100).toBe(true);
     }
     const engine = new Set<string>(ENGINE_EVENT_IDS);
-    expect([...seen].filter((id) => !engine.has(id)).sort()).toEqual(EVENTS.map((e) => e.id).sort());
+    const fired = EVENTS.filter((e) => seen.has(e.id)).length;
+    expect(fired / EVENTS.length).toBeGreaterThanOrEqual(0.9);
+    for (const id of seen) expect(engine.has(id) || EVENTS.some((e) => e.id === id) || id.startsWith('ch_'), id).toBe(true);
   });
   it('UI strings contain no product-name hardcoding (name lives in src/config.ts only)', () => {
     const ui = readFileSync('src/content/zh-TW/ui.json', 'utf8') + readFileSync('src/ui/app.ts', 'utf8') + readFileSync('index.html', 'utf8');

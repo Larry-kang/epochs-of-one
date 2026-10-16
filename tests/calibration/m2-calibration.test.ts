@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { loadBundleFromDisk } from '../../src/engine/data/nodeLoader.ts';
 import { calibrate } from '../../src/engine/calibrate.ts';
 
-// Brief M2 acceptance: N = 100k, e0/u5 within 2% of WPP. Full 10-target table: `pnpm calibrate` → docs/calibration-report.md.
+// M2 acceptance: N = 100k, e0/u5 within 2% of WPP. Full 10-target table: `pnpm calibrate` → docs/calibration-report.md.
 describe('M2: calibration N=100k (subset in test suite)', () => {
   const data = loadBundleFromDisk();
   for (const [iso, y] of [['NGA', 2000], ['TWN', 1960]] as const) {

@@ -4,7 +4,7 @@ export type Sex = 'M' | 'F';
 export type ImpFlag = '' | 'interp' | 'nearest' | 'region' | 'world';
 export interface Series { from: number; v: number[]; imp: ImpFlag[] }
 export interface SimpleSeries { from: number; v: number[] }
-export type SeriesKey = 'gdpPcPpp' | 'cpi' | 'gini' | 'q1' | 'q2' | 'q3' | 'q4' | 'q5' | 'urban' | 'unemp' | 'hhCons';
+export type SeriesKey = 'gdpPcPpp' | 'cpi' | 'gini' | 'q1' | 'q2' | 'q3' | 'q4' | 'q5' | 'urban' | 'unemp' | 'hhCons' | 'tax' | 'secEnr' | 'terEnr' | 'prmAge';
 export interface CountryRec {
   iso: Iso3; iso2: string; name: string; sub: number;
   births: SimpleSeries; srb: SimpleSeries;

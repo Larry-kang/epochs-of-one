@@ -24,9 +24,11 @@ export const WDI = {
   gdpPcPpp: 'NY.GDP.PCAP.PP.KD', cpi: 'FP.CPI.TOTL.ZG', gini: 'SI.POV.GINI',
   q1: 'SI.DST.FRST.20', q2: 'SI.DST.02ND.20', q3: 'SI.DST.03RD.20', q4: 'SI.DST.04TH.20', q5: 'SI.DST.05TH.20',
   urban: 'SP.URB.TOTL.IN.ZS', unemp: 'SL.UEM.TOTL.ZS', hhCons: 'NE.CON.PRVT.ZS',
+  // P0 revamp: taxes (tax revenue % GDP), schooling (gross secondary / tertiary enrolment, primary entrance age)
+  tax: 'GC.TAX.TOTL.GD.ZS', secEnr: 'SE.SEC.ENRR', terEnr: 'SE.TER.ENRR', prmAge: 'SE.PRM.AGES',
 };
 // percent-valued indicators are stored as proportions (0..1)
-const PCT = new Set(['cpi', 'gini', 'q1', 'q2', 'q3', 'q4', 'q5', 'urban', 'unemp', 'hhCons']);
+const PCT = new Set(['cpi', 'gini', 'q1', 'q2', 'q3', 'q4', 'q5', 'urban', 'unemp', 'hhCons', 'tax', 'secEnr', 'terEnr']);
 
 const sig = (x, d = 5) => (x === 0 ? 0 : Number(x.toPrecision(d)));
 
@@ -194,7 +196,7 @@ function writeCoverage(rows, n) {
   const ks = Object.keys(WDI);
   const nYears = W_TO - W_FROM + 1;
   const lines = [`# 資料覆蓋率報告（自動產生：pipeline/run.mjs，${RETRIEVED}）`, '',
-    `WDI 視窗 ${W_FROM}–${W_TO}（${nYears} 年）× ${n} 國。數字＝來源原值占比；其餘依補值規則（interp→region→world；邊界外延 nearest）。WPP 出生數/SRB ${B_FROM}–${B_TO}、生命表 ${LT_FROM}–${LT_TO}：全部國家 100% 原值。`, '',
+    `WDI 視窗 ${W_FROM}–${W_TO}（${nYears} 年）× ${n} 國。數字＝來源原值占比；其餘依 補值（interp→region→world；邊界外延 nearest）。WPP 出生數/SRB ${B_FROM}–${B_TO}、生命表 ${LT_FROM}–${LT_TO}：全部國家 100% 原值。`, '',
     '## 各指標整體覆蓋', '', '| 指標 | WDI 代碼 | 原值比例 | 完全無原值的國家數 |', '|---|---|---|---|'];
   for (const k of ks) {
     const tot = rows.reduce((a, r) => a + r[k], 0);

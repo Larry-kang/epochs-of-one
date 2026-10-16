@@ -2,7 +2,7 @@
 import { sha256, utf8 } from './sha256.ts';
 import { Xoshiro128 } from './xoshiro128.ts';
 
-export type Domain = 'birth' | 'year' | 'market' | 'companions' | 'decision' | 'events';
+export type Domain = 'birth' | 'year' | 'market' | 'companions' | 'decision' | 'events' | 'choice' | 'family' | 'ending';
 
 export interface Rng {
   /** uniform [0,1) */

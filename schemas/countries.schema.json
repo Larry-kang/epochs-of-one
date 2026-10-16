@@ -127,7 +127,11 @@
               "q5",
               "urban",
               "unemp",
-              "hhCons"
+              "hhCons",
+              "tax",
+              "secEnr",
+              "terEnr",
+              "prmAge"
             ],
             "additionalProperties": false,
             "properties": {
@@ -162,6 +166,18 @@
                 "$ref": "series.schema.json"
               },
               "hhCons": {
+                "$ref": "series.schema.json"
+              },
+              "tax": {
+                "$ref": "series.schema.json"
+              },
+              "secEnr": {
+                "$ref": "series.schema.json"
+              },
+              "terEnr": {
+                "$ref": "series.schema.json"
+              },
+              "prmAge": {
                 "$ref": "series.schema.json"
               }
             }

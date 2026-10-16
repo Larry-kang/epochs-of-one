@@ -1,0 +1,85 @@
+{
+ "note": "Median household net wealth (OECD WDD) ÷ adults per household ÷ GDP per capita (current LCU, WDI). Used only for engine calibration/tests; not shipped to the app.",
+ "sources": [
+  {
+   "id": "oecd",
+   "dataset": "DSD_WEALTH@DF_WEALTH",
+   "url": "https://sdmx.oecd.org/public/rest/data/OECD.WISE.INE,DSD_WEALTH@DF_WEALTH,1.0/all?format=csvfilewithlabels",
+   "license": "OECD terms (attribution)"
+  },
+  {
+   "id": "wdi",
+   "indicator": "NY.GDP.PCAP.CN",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.CN?format=json&per_page=20000&date=2009:2023",
+   "license": "CC-BY-4.0"
+  }
+ ],
+ "retrieved": "2026-10-16",
+ "adultsPerHousehold": 1.9,
+ "targets": [
+  {
+   "iso": "USA",
+   "year": 2022,
+   "medianHhNetWealthLcu": 165700,
+   "gdpPcLcu": 78008.6895811877,
+   "ratioPerAdult": 1.118,
+   "status": "A"
+  },
+  {
+   "iso": "JPN",
+   "year": 2019,
+   "medianHhNetWealthLcu": 14718000,
+   "gdpPcLcu": 4515710.75470059,
+   "ratioPerAdult": 1.715,
+   "status": "B"
+  },
+  {
+   "iso": "KOR",
+   "year": 2023,
+   "medianHhNetWealthLcu": 239100000,
+   "gdpPcLcu": 46578329.3628969,
+   "ratioPerAdult": 2.702,
+   "status": "A"
+  },
+  {
+   "iso": "DEU",
+   "year": 2021,
+   "medianHhNetWealthLcu": 106652.4,
+   "gdpPcLcu": 44260.9806678627,
+   "ratioPerAdult": 1.268,
+   "status": "A"
+  },
+  {
+   "iso": "ITA",
+   "year": 2020,
+   "medianHhNetWealthLcu": 159000,
+   "gdpPcLcu": 28096.3018615552,
+   "ratioPerAdult": 2.978,
+   "status": "B"
+  },
+  {
+   "iso": "GBR",
+   "year": 2017,
+   "medianHhNetWealthLcu": 182500,
+   "gdpPcLcu": 31793.4327815172,
+   "ratioPerAdult": 3.021,
+   "status": "A"
+  },
+  {
+   "iso": "FRA",
+   "year": 2020,
+   "medianHhNetWealthLcu": 125673,
+   "gdpPcLcu": 34293.4635244895,
+   "ratioPerAdult": 1.929,
+   "status": "A"
+  },
+  {
+   "iso": "CAN",
+   "year": 2023,
+   "medianHhNetWealthLcu": 428300,
+   "gdpPcLcu": 74039.1641377701,
+   "ratioPerAdult": 3.045,
+   "status": "A"
+  }
+ ]
+}

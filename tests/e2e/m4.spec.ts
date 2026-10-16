@@ -1,8 +1,10 @@
 import { test, expect, type Page } from '@playwright/test';
+import { autoAnswer } from './auto.ts';
 
 const shot = (page: Page, name: string) => page.screenshot({ path: `shots/${name}.png`, fullPage: true });
 // Resume a deterministic life at a given age via the versioned save (same path as "繼續上次的人生").
 async function resumeAt(page: Page, seed: string, year: number, years: number) {
+  await autoAnswer(page);
   await page.addInitScript(([s, y, n]) => {
     if (!sessionStorage.getItem('seeded')) {
       localStorage.setItem('epochs.save.v1', JSON.stringify({ v: 1, cfg: { seed: s, era: { kind: 'past', year: y }, nowYear: 2026, engineVersion: '0.4.0' }, paceMin: 90, years: n, speed: 1 }));

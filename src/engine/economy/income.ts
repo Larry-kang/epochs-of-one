@@ -1,4 +1,4 @@
-// Income distribution: country-year mean (WDI GDP pc PPP, 2021 intl $) × quintile shares (WDI/PIP),
+// Income distribution (R16, ): country-year mean (WDI GDP pc PPP, 2021 intl $) × quintile shares (WDI/PIP),
 // with a log-normal shape inside each quintile whose σ is implied by the Gini (σ = √2·Φ⁻¹((G+1)/2)).
 import { phi, phiInv } from '../math/normal.ts';
 

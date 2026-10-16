@@ -14,7 +14,7 @@ export const APP = {
 /** NOW_Y comes from config, not new Date(). */
 export const NOW_YEAR = 2026;
 
-export const ENGINE_VERSION = '0.5.0';
+export const ENGINE_VERSION = '0.6.0';
 
 export const FEATURES = {
   /** Owner re-enabled BTC (2026-10-16) using self-compiled annual closes; investing UI lands in M4/M5. */
@@ -26,7 +26,17 @@ export const FEATURES = {
   investing: true,
 } as const;
 
-/** Owner decision 2026-10-16: OECD / Pink Sheet monthly values are monthly AVERAGES, which understate
+/** Owner decision 2026-10-16 : OECD / Pink Sheet monthly values are monthly AVERAGES, which understate
  *  true intra-year lows (e.g. the 1987-10-19 crash). The margin-call check scales the recorded monthly max intra-year drawdown
  *  by this conservative factor (推估). Applies only to recorded drawdowns, not to the Brownian-bridge fallback. */
 export const DRAWDOWN_SAFETY_FACTOR = 1.25;
+
+/** Owner decision 2026-10-16 (BTC future option A): years after the last data year no longer
+ *  replay raw BTC returns from the 2014–2025 pool. The bootstrapped real log return is re-centred:
+ *    l' = μ · BTC_FUTURE_MEAN_SCALE + (l − μ) · v(t),   v(t) = max(BTC_FUTURE_VOL_FLOOR, 0.5^((t − 2025) / BTC_FUTURE_VOL_HALFLIFE))
+ *  μ = mean real log return of the pool (same country), so the drift is halved and the swings shrink over time (推估).
+ *  Rollback: set BTC_FUTURE_DAMPENED = false to restore the plain bootstrap. */
+export const BTC_FUTURE_DAMPENED = true;
+export const BTC_FUTURE_MEAN_SCALE = 0.5;
+export const BTC_FUTURE_VOL_HALFLIFE = 10;
+export const BTC_FUTURE_VOL_FLOOR = 0.25;

@@ -32,28 +32,30 @@ export interface CreditRule {
   enabled: boolean; src: 'official' | 'proxy';
   /** max unsecured balance (real) given annual income (real) and existing unsecured debt; Infinity = no explicit cap */
   cap: number; dsrMax: number; legalCap?: number; minIncomeOk: boolean; note: string;
+  /** plain-language key for the UI (ui.json rn_<key>); `note` stays as the technical/source note */
+  noteKey: string;
 }
 const ENABLED = new Set(['TWN', 'USA', 'JPN', 'KOR', 'GBR', 'DEU', 'CHN', 'SGP', 'AUS']); // 9 enabled countries
 
-/** country rules. Rules with effective dates use the proxy before that date (flagged).  */
+/** country rules. Rules with effective dates use the proxy before that date (flagged). Sources in */
 export function creditRule(m: MarketsData, iso: string, y: number, incomeY: number, unsecured: number, piUS: (y: number) => number): CreditRule {
   const proxyCap = PARAMS.dtiProxy.value * incomeY;
-  const base: CreditRule = { enabled: false, src: 'proxy', cap: 0, dsrMax: PARAMS.dsrProxy.value, minIncomeOk: true, note: 'disabled' };
-  if (!ENABLED.has(iso) || y < 1970) return { ...base, note: y < 1970 ? 'pre-1970: consumer credit disabled' : 'country rules not compiled' };
-  const r: CreditRule = { ...base, enabled: true, cap: Math.max(0, proxyCap - unsecured), note: 'capProxy (推估)' };
+  const base: CreditRule = { enabled: false, src: 'proxy', cap: 0, dsrMax: PARAMS.dsrProxy.value, minIncomeOk: true, note: 'disabled', noteKey: 'country' };
+  if (!ENABLED.has(iso) || y < 1970) return { ...base, noteKey: y < 1970 ? 'pre1970' : 'country', note: y < 1970 ? 'pre-1970: consumer credit disabled' : 'country rules not compiled' };
+  const r: CreditRule = { ...base, enabled: true, cap: Math.max(0, proxyCap - unsecured), note: 'capProxy (推估)', noteKey: 'proxy' };
   switch (iso) {
     case 'TWN':
       // DBR22: unsecured total ≤ 22 × average monthly income (FSC; in force by 2006-09 at the latest); mortgages excluded
-      if (y >= 2006) Object.assign(r, { src: 'official', cap: Math.max(0, (22 * incomeY) / 12 - unsecured), note: 'DBR22' });
+      if (y >= 2006) Object.assign(r, { src: 'official', cap: Math.max(0, (22 * incomeY) / 12 - unsecured), note: 'DBR22', noteKey: 'tw' });
       r.legalCap = y >= 2021 ? 0.16 : 0.2; // 民法 §205 (2021 修正 16%【待驗證】; 之前 20%)
       break;
     case 'JPN':
       // 総量規制 (貸金業者): total ≤ 1/3 annual income, from 2010-06-18; 利息制限法 15–20% (use 15% for ≥¥1M, 18% for ¥100k–1M, 20% below)
-      if (y >= 2010) Object.assign(r, { src: 'official', cap: Math.max(0, incomeY / 3 - unsecured), note: '総量規制 1/3' });
+      if (y >= 2010) Object.assign(r, { src: 'official', cap: Math.max(0, incomeY / 3 - unsecured), note: '総量規制 1/3', noteKey: 'jp' });
       r.legalCap = 0.18;
       break;
     case 'KOR':
-      if (y >= 2025) Object.assign(r, { src: 'official', cap: Math.max(0, incomeY - unsecured), note: 'credit ≤ 100% annual income (2025-06-28)' });
+      if (y >= 2025) Object.assign(r, { src: 'official', cap: Math.max(0, incomeY - unsecured), note: 'credit ≤ 100% annual income (2025-06-28)', noteKey: 'kr' });
       if (y >= 2022) r.dsrMax = 0.4; // bank DSR 40% (2022-01)
       r.legalCap = 0.2;
       break;
@@ -63,10 +65,10 @@ export function creditRule(m: MarketsData, iso: string, y: number, incomeY: numb
         const monthly = incomeY / 12;
         // / MAS unsecured-credit rule (owner decision 2026-10-16): eligibility needs ≥ S$20k
         // annual income; S$20k–30k → limit 2 × monthly income; S$30k–120k → 4 × monthly; ≥ S$120k → no regulatory cap
-        if (!(sgd >= 20000)) Object.assign(r, { src: 'official', minIncomeOk: false, cap: 0, note: 'income < S$20k: not eligible for unsecured credit (MAS)' });
-        else if (sgd < 30000) Object.assign(r, { src: 'official', cap: Math.max(0, 2 * monthly - unsecured), note: '2 × monthly income' });
-        else if (sgd < 120000) Object.assign(r, { src: 'official', cap: Math.max(0, 4 * monthly - unsecured), note: '4 × monthly income' });
-        else Object.assign(r, { src: 'official', note: '≥ S$120k: no regulatory cap (capProxy applies)' });
+        if (!(sgd >= 20000)) Object.assign(r, { src: 'official', minIncomeOk: false, cap: 0, note: 'income < S$20k: not eligible for unsecured credit (MAS)', noteKey: 'sgLow' });
+        else if (sgd < 30000) Object.assign(r, { src: 'official', cap: Math.max(0, 2 * monthly - unsecured), note: '2 × monthly income', noteKey: 'sg2' });
+        else if (sgd < 120000) Object.assign(r, { src: 'official', cap: Math.max(0, 4 * monthly - unsecured), note: '4 × monthly income', noteKey: 'sg4' });
+        else Object.assign(r, { src: 'official', note: '≥ S$120k: no regulatory cap (capProxy applies)', noteKey: 'sgHigh' });
       }
       break;
     }
@@ -74,7 +76,7 @@ export function creditRule(m: MarketsData, iso: string, y: number, incomeY: numb
       if (y >= 2020) { // 2020 互聯網貸款辦法: consumer credit line ≤ CNY 200,000 (online loans; offline 【待驗證】)
         const cnyPerReal = toLocalNominal(m, 'CHN', y, 1, piUS).v;
         const capReal = 200000 / cnyPerReal;
-        Object.assign(r, { src: 'official', cap: Math.max(0, Math.min(capReal, Infinity) - unsecured), note: 'CNY 200k cap' });
+        Object.assign(r, { src: 'official', cap: Math.max(0, Math.min(capReal, Infinity) - unsecured), note: 'CNY 200k cap', noteKey: 'cn' });
       }
       r.legalCap = 0.15; // 4×LPR (≈15% in 2020) 【待驗證】
       break;

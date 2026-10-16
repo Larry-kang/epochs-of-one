@@ -2,13 +2,13 @@
 //   foreign (USD-priced) asset → home nominal:  R_h = (1 + r_usd) · FX_t/FX_{t−1} − 1     (FX = LCU per USD, WDI PA.NUS.FCRF)
 //   real:                                        r   = (1 + R_h)/(1 + π_h) − 1              (π_h = home CPI inflation, WDI)
 // Missing FX (e.g. TWN is not in WDI) → relative-PPP fallback FX_t/FX_{t−1} = (1+π_h)/(1+π_US), flagged 'fx' (推估).
-// Price indices only (no dividend data in the allowed sources yet; dy proxy = TODO(param), ).
+// Price indices only (no dividend data in the allowed sources yet; dy proxy = TODO(param)).
 // Future years (> LAST_DATA_YEAR) bootstrap a historical year from the market stream (seed, year) — same draw for
 // every asset in that year (keeps cross-asset correlation); all such returns are flagged 推估.
 import type { MarketsData, Priced } from './marketData.ts';
 import { denseAt, lastYear } from './marketData.ts';
 import type { InvestAsset } from './access.ts';
-import { DRAWDOWN_SAFETY_FACTOR } from '../../config.ts';
+import { DRAWDOWN_SAFETY_FACTOR, BTC_FUTURE_DAMPENED, BTC_FUTURE_MEAN_SCALE, BTC_FUTURE_VOL_HALFLIFE, BTC_FUTURE_VOL_FLOOR } from '../../config.ts';
 
 export const LAST_DATA_YEAR = 2025;
 export const BOOT_FROM = 1991;      // bootstrap pool for equities/gold (world index has ≥16 countries from 1960; FX for most from 1960)
@@ -66,6 +66,17 @@ function historical(c: ReturnCtx, y: number): YearReturns {
   return { real, nomHome, dd, est, homeSrc, fxEst: fx.est, piHome: piH };
 }
 
+/** BTC future model (config BTC_FUTURE_*): volatility scale for future year t (1 at the last data year, halving every HALFLIFE years, floored). */
+export const btcVolFactor = (t: number) => Math.max(BTC_FUTURE_VOL_FLOOR, Math.pow(0.5, (t - LAST_DATA_YEAR) / BTC_FUTURE_VOL_HALFLIFE));
+const muCache = new Map<string, number>();
+/** mean real log BTC return over the bootstrap pool, in this country's purchasing power */
+export function btcPoolMean(c: ReturnCtx): number {
+  const hit = muCache.get(c.iso); if (hit !== undefined) return hit;
+  let s = 0, n = 0;
+  for (let y = BTC_BOOT_FROM; y <= LAST_DATA_YEAR; y++) { const r = historical(c, y).real.btc; if (r != null) { s += Math.log(1 + r); n++; } }
+  const mu = n ? s / n : 0; muCache.set(c.iso, mu); return mu;
+}
+
 export function yearReturns(c: ReturnCtx): YearReturns {
   if (c.year <= LAST_DATA_YEAR) return historical(c, c.year);
   // future: bootstrap one historical year (real returns of that year, home-country inflation of that year)
@@ -79,6 +90,13 @@ export function yearReturns(c: ReturnCtx): YearReturns {
   }
   const yBtc = BTC_BOOT_FROM + Math.floor(u * (LAST_DATA_YEAR - BTC_BOOT_FROM + 1));
   const hb = historical(c, yBtc); h.real.btc = hb.real.btc; h.nomHome.btc = hb.nomHome.btc; h.dd.btc = hb.dd.btc;
+  if (BTC_FUTURE_DAMPENED && hb.real.btc != null) {
+    const mu = btcPoolMean(c), v = btcVolFactor(c.year);
+    const l = mu * BTC_FUTURE_MEAN_SCALE + (Math.log(1 + hb.real.btc) - mu) * v;
+    h.real.btc = Math.exp(l) - 1;
+    h.nomHome.btc = (1 + h.real.btc) * (1 + h.piHome) - 1;
+    if (h.dd.btc != null) h.dd.btc = Math.pow(1 + h.dd.btc, v) - 1;
+  }
   for (const a of PRICE_ASSETS) h.est[a] = true;
   return { ...h, bootYear: yb };
 }
@@ -90,7 +108,7 @@ export function bridgeMinReturn(r: number, sigma: number, u: number): number {
   return Math.exp(Math.min(m, 0, x)) - 1;
 }
 
-/** step 2 intra-year low: the recorded monthly drawdown × DRAWDOWN_SAFETY_FACTOR (推估) when the series has one,
+/** step 2 intra-year low: the recorded monthly drawdown × DRAWDOWN_SAFETY_FACTOR (推估, ) when the series has one,
  *  else the Brownian bridge. Clamped above −99%. */
 export function intraYearMin(r: number, dd: number | null | undefined, sigma: number, u: number, factor = DRAWDOWN_SAFETY_FACTOR): number {
   return dd != null ? Math.max(-0.99, Math.min(dd * factor, r, 0)) : bridgeMinReturn(r, sigma, u);
