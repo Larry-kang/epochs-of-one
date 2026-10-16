@@ -1,12 +1,15 @@
 // Single-page UI: intro → setup → birth → life → death (+ about). Vanilla TS, no framework.
-import { APP, NOW_YEAR, ENGINE_VERSION } from '../config.ts';
+import { APP, NOW_YEAR, ENGINE_VERSION, BTC_FUTURE_DAMPENED } from '../config.ts';
 import { loadIndex, preloadDemography, bundle, loadFinance } from './data.ts';
 import { t, eventText, esc, countryName, money, pctText } from './i18n.ts';
 import { lineChart } from './charts.ts';
-import { drawBirth, newLife, advanceYear, applyAction, decisionQuote, tableFor, type LifeConfig, type Era } from '../engine/life/sim.ts';
+import { drawBirth, newLife, advanceYear, applyAction, decisionQuote, tableFor, pendingOffers, MORTGAGE_TERMS, type LifeConfig, type Era } from '../engine/life/sim.ts';
+import { ending } from '../engine/life/ending.ts';
+import { seriesAt } from '../engine/data/types.ts';
+import type { ChoiceOffer } from '../engine/life/choices.ts';
 import type { Action, LifeState } from '../engine/life/state.ts';
 import { available, INVEST_ASSETS, type InvestAsset } from '../engine/finance/access.ts';
-import type { PriceAsset } from '../engine/finance/returns.ts';
+import { LAST_DATA_YEAR, type PriceAsset } from '../engine/finance/returns.ts';
 import { investedValue } from '../engine/finance/portfolio.ts';
 import { lifeExpectancy } from '../engine/demography/lifeTable.ts';
 import { contentEvents } from '../engine/content/registry.ts';
@@ -22,6 +25,7 @@ type Speed = (typeof SPEEDS)[number];
 interface Run { s: LifeState; cfg: LifeConfig; paceMin: 30 | 60 | 90; speed: Speed; paused: boolean; acc: number; yearSec: number; raf: number; last: number }
 let run: Run | null = null;
 let bridgePrompted = -1;
+let nudged = new Set<string>();
 let root: HTMLElement;
 let index: CountryIndex;
 
@@ -72,6 +76,7 @@ function about(): void {
 <p id="markets-sources">${esc(t('aboutMarkets'))}</p>
 <p id="markets-sources-2">${esc(t('aboutMarkets2'))}</p>
 <p id="m5-sources">${esc(t('aboutM5'))}</p>
+${BTC_FUTURE_DAMPENED ? `<p id="btc-future-about">${esc(t('aboutBtcFuture'))}</p>` : ''}
 <p>${esc(t('aboutOffline'))}</p>
 <p class="muted">${esc(t('money'))} ${esc(t('estNote'))}</p>
 <p class="muted">engine ${ENGINE_VERSION} · data ${esc(index.dataVersion)}</p>
@@ -93,6 +98,8 @@ function setup(): void {
   <fieldset><legend>${esc(t('pace'))}</legend>
     ${[30, 60, 90].map((m) => `<label><input type="radio" name="pace" value="${m}" ${m === 60 ? 'checked' : ''}> ${esc(t('paceMin', { n: m }))}</label>`).join('')}
   </fieldset>
+  <label class="block">${esc(t('countryPick'))} <select name="country" id="country"><option value="">${esc(t('countryRandom'))}</option>${[...index.countries].map((c) => ({ iso: c.iso, n: nameOf(c.iso) })).sort((a, b) => a.n.localeCompare(b.n, 'zh-Hant-TW')).map((c) => `<option value="${c.iso}">${esc(c.n)}</option>`).join('')}</select></label>
+  <p class="muted small">${esc(t('countryNote'))}</p>
   <label class="block">${esc(t('seed'))} <input name="seed" maxlength="64" autocomplete="off" placeholder="${esc(t('seedHint'))}"></label>
   <ul class="errors" id="errs" role="alert"></ul>
   <div class="row"><button class="primary" id="draw" type="submit">${esc(t('drawBirth'))}</button><button type="button" id="back">${esc(t('back'))}</button></div>
@@ -117,7 +124,9 @@ function setup(): void {
     const ul = root.querySelector('#errs')!;
     ul.innerHTML = errs.map((x) => `<li>${esc(x)}</li>`).join('');
     if (errs.length) return;
-    void birth({ seed, era, nowYear: NOW_YEAR, engineVersion: ENGINE_VERSION }, pace);
+    const iso = String(fd.get('country') ?? '');
+    const constraints = iso ? { country: { kind: 'fixed' as const, value: iso }, sex: { kind: 'random' as const }, quintile: { kind: 'random' as const }, urban: { kind: 'random' as const } } : undefined;
+    void birth({ seed, era, nowYear: NOW_YEAR, engineVersion: ENGINE_VERSION, ...(constraints ? { constraints } : {}) }, pace);
   });
 }
 
@@ -132,6 +141,7 @@ async function birth(cfg: LifeConfig, paceMin: 30 | 60 | 90): Promise<void> {
   const est = (k: string) => (s.born.estimated.includes(k) ? ` <span class="badge">${esc(t('est'))}</span>` : '');
   view(`${header()}
 <section class="card birth"><h1 tabindex="-1">${esc(t('birthTitle'))}</h1>
+<p class="lead" id="b-name">${esc(s.name.full)}</p>
 <dl class="facts">
   <dt>${esc(t('country'))}</dt><dd id="b-country" dir="auto">${esc(nameOf(s.born.iso))} <small>${s.born.iso}</small></dd>
   <dt>${esc(t('calYear'))}</dt><dd>${s.born.year}</dd>
@@ -139,11 +149,13 @@ async function birth(cfg: LifeConfig, paceMin: 30 | 60 | 90): Promise<void> {
   <dt>${esc(t('place'))}</dt><dd>${esc(t(s.born.urban ? 'urban' : 'rural'))}${est('urban')}</dd>
   <dt>${esc(t('quintile'))}</dt><dd>${esc(t(`q${s.born.quintile}` as 'q1'))}</dd>
   <dt>${esc(t('e0'))}</dt><dd>${esc(t('years', { n: e0.toFixed(1) }))}${est('lifeTable')}</dd>
+  <dt>${esc(t('familyLabel'))}</dt><dd id="b-family">${esc(t('familyLine', { father: s.family.father.name, fa: s.born.year - s.family.father.born, mother: s.family.mother.name, ma: s.born.year - s.family.mother.born }))}<br>${esc(s.family.siblings.length ? t('siblingsLine', { n: s.family.siblings.length, names: s.family.siblings.map((x) => x.name).join('、') }) : t('siblingsNone'))}</dd>
 </dl>
 <p class="muted">seed <code id="seed">${esc(s.seed)}</code></p>
-<div class="row"><button class="primary" id="begin">${esc(t('beginLife'))}</button><button id="back">${esc(t('back'))}</button></div>
+<div class="row"><button class="primary" id="begin">${esc(t('beginLife'))}</button><button id="reroll">${esc(t('reroll'))}</button><button id="back">${esc(t('back'))}</button></div>
 </section>`);
   on('#back', setup);
+  on('#reroll', () => { void birth({ ...cfg, seed: seedFromBytes(crypto.getRandomValues(new Uint8Array(10))) }, paceMin); });
   on('#begin', () => startLife(s, cfg, paceMin, 1));
 }
 
@@ -159,8 +171,10 @@ function startLife(s: LifeState, cfg: LifeConfig, paceMin: 30 | 60 | 90, speed: 
 
 function lifeView(): void {
   const r = run!;
-  view(`${header('<span class="sep">·</span><span id="where"></span>')}
+  nudged = new Set();
+  view(`${header('<span class="sep">·</span><span id="who"></span><span class="sep">·</span><span id="where"></span>')}
 <section class="card life">
+  <section id="choice" class="choice" hidden aria-live="assertive"></section>
   <h1 tabindex="-1" class="sr-only">${esc(t('age'))}</h1>
   <div class="hud"><div class="big"><span id="age"></span></div><div id="cal" class="muted"></div><div id="status" class="pill"></div></div>
   <div class="stats" id="stats"></div>
@@ -184,7 +198,7 @@ function lifeView(): void {
     root.querySelectorAll('.spd').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
     persist();
   }));
-  on('#skip', () => { while (!r.s.death) r.s = advanceYear(bundle(), r.s, contentEvents); persist(); death(); });
+  on('#skip', () => { hideChoice(); while (!r.s.death) r.s = advanceYear(bundle(), r.s, contentEvents); persist(); death(); });
   on('#invest', () => investPanel());
   on('#house', () => housePanel());
   on('#loan', () => loanPanel(false));
@@ -201,11 +215,14 @@ function loop(): void {
       r.acc += (dt * r.speed) / r.yearSec;
       let steps = 0;
       while (r.acc >= 1 && steps < PARAMS.maxYearsPerFrame.value && !r.s.death) {
+        if (pendingOffers(bundle(), r.s).length) { r.acc = 0; showChoice(); break; }
         r.s = advanceYear(bundle(), r.s, contentEvents);
         r.acc -= 1; steps++;
+        if (nudgeDue()) { r.acc = 0; break; }
       }
       if (steps) { renderLife(false); persist(); }
       if (r.s.death) { death(); return; }
+      if (steps && nudgeDue()) showNudge();
       if (steps && r.s.econ.cash < 0 && bridgePrompted !== r.s.age) {
         bridgePrompted = r.s.age;
         if (decisionQuote(bundle(), r.s).loan.ok) { loanPanel(true); }
@@ -217,7 +234,7 @@ function loop(): void {
 
 function statusText(s: LifeState): string {
   const y = s.years[s.years.length - 1];
-  if (!y || s.age < PARAMS.laborEntryAge.value) return t('child');
+  if (!y || (!y.inLabor && !y.pension && s.age < s.career.studyUntil + 1 && !s.econ.retired)) return y?.studying ? t(y.income > 0 ? 'studyingWork' : 'studying') : t('child');
   if (!y.inLabor) return y.pension > 0 ? t('retiredPension', { amount: money(y.pension) }) : t('retired');
   return t(y.unemployed ? 'unemployed' : 'employed');
 }
@@ -226,13 +243,16 @@ function renderLife(full: boolean): void {
   const r = run!; const s = r.s;
   const q = (id: string) => root.querySelector('#' + id) as HTMLElement;
   q('where').textContent = nameOf(s.cur);
+  q('who').textContent = s.name.full;
   q('age').textContent = t('years', { n: s.age });
   q('cal').textContent = `${t('calYear')} ${s.born.year + s.age}`;
   q('status').textContent = statusText(s);
   q('stats').innerHTML = (['health', 'happy', 'smart', 'social'] as const).map((k) =>
     `<div class="stat"><span>${esc(t(k))}</span><meter min="0" max="100" value="${s.stats[k]}" aria-label="${esc(t(k))}"></meter><b>${s.stats[k]}</b></div>`).join('');
   const last = s.years[s.years.length - 1];
-  const estBadge = last && last.est.length ? ` <span class="badge" title="${esc(last.est.join(', '))}">${esc(t('est'))}</span>` : '';
+  const nwNow = s.econ.cash + investedValue(s.portfolio) + (s.house ? s.house.value - s.house.balance : 0) - (s.loans.filter((l) => l.status === 'active').reduce((a, l) => a + l.balance, 0) + s.credit.unsecuredDebt);
+  // 推估 badge only when an estimated input actually moved a non-zero amount
+  const estBadge = last && last.est.length && Math.round(nwNow) !== 0 ? ` <span class="badge" title="${esc(last.est.join(', '))}">${esc(t('est'))}</span>` : '';
   // live balance sheet from the current state (reflects decisions taken while paused)
   const inv = investedValue(s.portfolio);
   const heq = s.house ? s.house.value - s.house.balance : 0;
@@ -252,7 +272,7 @@ function renderLife(full: boolean): void {
     if (have.has(k)) continue;
     const li = document.createElement('li');
     li.dataset.k = k;
-    const vars = Object.fromEntries(Object.entries(e.vars ?? {}).map(([a, v]) => [a, typeof v === 'number' && /amount|cost|loss|price|pay|pension/.test(a) ? money(v) : v]));
+    const vars = Object.fromEntries(Object.entries(e.vars ?? {}).map(([a, v]) => [a, typeof v === 'number' && /amount|cost|loss|price|pay|pension/.test(a) ? money(v) : a === 'edu' ? t(('edu_' + v) as 'edu_none') : v]));
     li.innerHTML = `<span class="la">${e.age} 歲</span> ${esc(eventText(e.id, vars))}`;
     log.prepend(li);
   }
@@ -281,7 +301,8 @@ function investPanel(): void {
     return `<div class="alloc-row"><label for="w-${a}">${esc(t(ASSET_LABEL[a]))}${est ? ` <span class="badge">${esc(t('est'))}</span>` : ''}</label>
       <input type="number" id="w-${a}" data-a="${a}" min="0" max="100" step="5" value="${v}" ${av.ok ? '' : 'disabled'} inputmode="numeric"> %
       ${av.ok ? '' : `<small class="why">${esc(t(('why_' + av.why) as 'why_age'))}</small>`}
-      ${a === 'eqHome' && proxy && av.ok ? `<small class="why">${esc(t('proxyWorld'))}</small>` : ''}</div>`;
+      ${a === 'eqHome' && proxy && av.ok ? `<small class="why">${esc(t('proxyWorld'))}</small>` : ''}
+      ${a === 'btc' && av.ok && calYear > LAST_DATA_YEAR && BTC_FUTURE_DAMPENED ? `<small class="why" id="btc-future">${esc(t('btcFuture'))}</small>` : ''}</div>`;
   }).join('');
   panel.innerHTML = `<h2 tabindex="-1">${esc(t('investTitle', { year: calYear }))}</h2>
     <p class="muted">${esc(t('investHelp'))}</p>
@@ -327,7 +348,7 @@ function openPanel(html: string, onOk: ((panel: HTMLElement) => boolean | void) 
 const pctR = (x: number) => `${(x * 100).toFixed(1)}%`;
 const whyText = (k?: string) => (k ? t(('w5_' + k) as 'w5_age') : '');
 function housePanel(): void {
-  const s = run!.s; const q = decisionQuote(bundle(), s).house;
+  const s = run!.s;
   if (s.house) {
     const h = s.house;
     openPanel(`<h2 tabindex="-1">${esc(t('houseTitle'))}</h2>
@@ -338,15 +359,36 @@ function housePanel(): void {
     (root.querySelector('#p-ok') as HTMLElement).textContent = t('sellHouse');
     return;
   }
-  openPanel(`<h2 tabindex="-1">${esc(t('houseTitle'))}</h2>
-    <dl class="facts"><dt>${esc(t('housePrice'))}</dt><dd id="h-price">${esc(money(q.price))}${q.est ? ` <span class="badge">${esc(t('est'))}</span>` : ''}</dd>
-    <dt>${esc(t('downPay'))}</dt><dd>${esc(money(q.down))}</dd>
-    <dt>${esc(t('mortgage'))}</dt><dd>${esc(money(q.loan))} · ${PARAMS.mortgageTerm.value} 年 · ${esc(t('floatRate'))} ${pctR(q.rate)}</dd>
-    <dt>${esc(t('yearPay'))}</dt><dd>${esc(money(q.pmt))}</dd></dl>
+  let term: number = houseTerm;
+  const render = () => {
+    const q2 = decisionQuote(bundle(), s, term).house;
+    return `<label class="inline">${esc(t('termLabel'))} <select id="h-term">${MORTGAGE_TERMS.map((n) => `<option value="${n}" ${n === term ? 'selected' : ''}>${esc(t('termYears', { n }))}</option>`).join('')}</select></label>
+    <dl class="facts"><dt>${esc(t('housePrice'))}</dt><dd id="h-price">${esc(money(q2.price))}${q2.est ? ` <span class="badge">${esc(t('est'))}</span>` : ''}</dd>
+    <dt>${esc(t('downPay'))}</dt><dd>${esc(money(q2.down))}</dd>
+    <dt>${esc(t('mortgage'))}</dt><dd>${esc(money(q2.loan))} · ${esc(t('termYears', { n: q2.term }))} · ${esc(t('floatRate'))} ${pctR(q2.rate)}</dd>
+    <dt>${esc(t('yearPay'))}</dt><dd id="h-pmt">${esc(money(q2.pmt))}</dd>
+    <dt>${esc(t('needIncome'))}</dt><dd id="h-need-inc">${esc(money(q2.needIncome))} <small class="muted">${esc(t('needIncomeNote'))}</small></dd>
+    <dt>${esc(t('yourIncome'))}</dt><dd>${esc(money(s.econ.employed ? s.econ.incomeReal : 0))}</dd>
+    <dt>${esc(t('needDown'))}</dt><dd id="h-need-down">${esc(money(q2.needDown))}（${esc(t('cash'))} ${esc(money(s.econ.cash))}）</dd></dl>
     <p class="muted">${esc(t('houseHelp'))}</p>
-    ${q.ok ? '' : `<p class="warn" id="h-why">${esc(whyText(q.why))}</p>`}`, q.ok ? () => { decide({ t: 'buyHouse', age: s.age }); } : null);
-  if (q.ok) (root.querySelector('#p-ok') as HTMLElement).textContent = t('buyHouse');
+    ${q2.ok ? '' : `<p class="warn" id="h-why">${esc(whyText(q2.why))}</p>`}`;
+  };
+  const q0 = decisionQuote(bundle(), s, term).house;
+  openPanel(`<h2 tabindex="-1">${esc(t('houseTitle'))}</h2><div id="h-body">${render()}</div>`, () => {
+    const qq = decisionQuote(bundle(), s, term).house;
+    if (!qq.ok) return false;
+    houseTerm = term; decide({ t: 'buyHouse', age: s.age, term }); return true;
+  });
+  const okBtn = root.querySelector('#p-ok') as HTMLButtonElement;
+  okBtn.textContent = t('buyHouse'); okBtn.disabled = !q0.ok;
+  const bind = () => root.querySelector('#h-term')?.addEventListener('change', (e) => {
+    term = Number((e.target as HTMLSelectElement).value);
+    (root.querySelector('#h-body') as HTMLElement).innerHTML = render(); bind();
+    okBtn.disabled = !decisionQuote(bundle(), s, term).house.ok;
+  });
+  bind();
 }
+let houseTerm = 30;
 function loanPanel(bridge: boolean): void {
   const s = run!.s; const q = decisionQuote(bundle(), s).loan;
   const def = bridge ? Math.min(q.max, Math.ceil(q.bridgeNeed)) : Math.floor(q.max / 2);
@@ -354,7 +396,7 @@ function loanPanel(bridge: boolean): void {
     ${bridge ? `<p class="prompt" id="bridge-msg">${esc(t('bridgeMsg', { amount: money(q.bridgeNeed) }))}</p>` : ''}
     <dl class="facts"><dt>${esc(t('loanMax'))}</dt><dd id="l-max">${esc(money(q.max))}${q.src === 'proxy' ? ` <span class="badge">${esc(t('est'))}</span>` : ''}</dd>
     <dt>${esc(t('floatRate'))}</dt><dd>${pctR(q.rate)} <span class="badge" title="放款利率＋利差參數">${esc(t('est'))}</span></dd>
-    <dt>${esc(t('ruleNote'))}</dt><dd><small>${esc(q.note)}</small></dd></dl>
+    ${q.noteKey && q.noteKey !== 'none' ? `<dt>${esc(t('ruleNote'))}</dt><dd><small id="l-rule">${esc(t(('rn_' + q.noteKey) as 'rn_tw'))}</small></dd>` : ''}</dl>
     ${q.ok ? `<label class="inline">${esc(t('loanAmt'))} <input type="number" id="l-amt" min="1" max="${Math.floor(q.max)}" value="${Math.max(1, def)}" inputmode="numeric"></label>
     <label class="inline">${esc(t('loanTerm'))} <input type="number" id="l-term" min="1" max="7" value="${bridge ? 3 : PARAMS.creditTerm.value}" inputmode="numeric"></label>
     ${bridge ? '' : `<fieldset><legend>${esc(t('loanUse'))}</legend><label><input type="radio" name="l-use" value="cash" checked> ${esc(t('useCash'))}</label><label><input type="radio" name="l-use" value="invest"> ${esc(t('useInvest'))}</label></fieldset>`}
@@ -387,6 +429,55 @@ function annuityPanel(): void {
   } : null);
 }
 
+// ---------- P0-3 life choices & finance nudges (pause the clock; answers are recorded actions → replay)
+let choiceResume = false;
+function showChoice(): void {
+  const r = run!; const box = root.querySelector('#choice') as HTMLElement | null;
+  if (!box) return;
+  const offers = pendingOffers(bundle(), r.s);
+  if (!offers.length) { hideChoice(); return; }
+  if (box.hidden) { choiceResume = !r.paused; r.paused = true; (root.querySelector('#pause') as HTMLElement).textContent = t('resume'); }
+  const o: ChoiceOffer = offers[0]!;
+  const k = (p: string) => (p + o.id) as 'ct_hs';
+  box.innerHTML = `<p class="kicker">${esc(t('choiceKicker'))} · ${esc(t('years', { n: r.s.age }))}</p>
+    <h2 tabindex="-1" id="choice-title">${esc(t(k('ct_')))}</h2><p class="muted">${esc(t(k('cb_')))}</p>
+    <div class="opts">${o.opts.map((op) => `<button class="opt" data-opt="${op}"><b>${esc(t(('o_' + o.id + '_' + op) as 'o_hs_work'))}</b><small>${esc(t(('c_' + o.id + '_' + op) as 'c_hs_work'))}</small></button>`).join('')}</div>`;
+  box.hidden = false;
+  (box.querySelector('h2') as HTMLElement).focus();
+  box.querySelectorAll<HTMLButtonElement>('.opt').forEach((b) => b.addEventListener('click', () => {
+    decide({ t: 'choice', age: r.s.age, id: o.id, opt: b.dataset.opt! });
+    showChoice();
+  }));
+}
+function hideChoice(): void {
+  const r = run; const box = root.querySelector('#choice') as HTMLElement | null;
+  if (!r || !box || box.hidden) return;
+  box.hidden = true; box.innerHTML = '';
+  if (choiceResume) { r.paused = false; r.last = performance.now(); }
+  choiceResume = false;
+  (root.querySelector('#pause') as HTMLElement).textContent = t(r.paused ? 'resume' : 'pause');
+}
+function nudgeDue(): string | null {
+  const s = run!.s; if (s.death) return null;
+  const last = s.age - 1;
+  const had = (id: string) => s.events.some((e) => e.age === last && e.id === id);
+  if (!nudged.has('invest') && bundle().markets && had('first_paycheck') && !Object.keys(s.portfolio.target).length) return 'invest';
+  if (!nudged.has('house') && had('ch_marry_marry') && !s.house) return 'house';
+  if (!nudged.has('annuity') && s.age === PARAMS.annuityMinAge.value + 5 && s.econ.cash > 0) return 'annuity';
+  return null;
+}
+function showNudge(): void {
+  const r = run!; const key = nudgeDue(); const box = root.querySelector('#choice') as HTMLElement | null;
+  if (!key || !box) return;
+  nudged.add(key);
+  choiceResume = !r.paused; r.paused = true; (root.querySelector('#pause') as HTMLElement).textContent = t('resume');
+  box.innerHTML = `<p class="kicker">${esc(t('years', { n: r.s.age }))}</p><h2 tabindex="-1" id="nudge-title">${esc(t(('nudge_' + key) as 'nudge_invest'))}</h2>
+    <div class="row"><button class="primary" id="nudge-open">${esc(t('nudgeOpen'))}</button><button id="nudge-later">${esc(t('nudgeLater'))}</button></div>`;
+  box.hidden = false; (box.querySelector('h2') as HTMLElement).focus();
+  on('#nudge-later', hideChoice);
+  on('#nudge-open', () => { const resume = choiceResume; hideChoice(); r.paused = true; if (key === 'invest') investPanel(); else if (key === 'house') housePanel(); else annuityPanel(); void resume; });
+}
+
 function persist(): void {
   if (!run) return;
   writeSave({ v: 1, cfg: run.cfg, paceMin: run.paceMin, years: run.s.years.length, speed: run.speed, actions: run.s.actions.filter((a) => 'age' in a) });
@@ -414,23 +505,41 @@ function death(): void {
   const peers = companions(bundle(), s, PARAMS.companionsN.value, contentEvents);
   const rk = ranks(me, peers);
   clearSave();
-  addPastLife({ id: s.id, seed: s.seed, iso: s.born.iso, name: nameOf(s.born.iso), year: s.born.year, age: d.age, netWorth: me.finalNetWorth, at: s.born.year + d.age });
+  addPastLife({ id: s.id, seed: s.seed, iso: s.born.iso, name: `${s.name.full}（${nameOf(s.born.iso)}）`, year: s.born.year, age: d.age, netWorth: me.finalNetWorth, at: s.born.year + d.age });
   const estYears = s.years.filter((y) => y.est.length).length;
   const calls = s.events.filter((e) => e.id === 'marginCall').length;
   const mktEst = s.years.filter((y) => y.est.some((k) => k.startsWith('mkt:'))).length;
+  const end = ending(s, seriesAt(bundle().country(s.born.iso).series.gdpPcPpp, d.year).v);
+  const pctOr = (x: number | null) => (x === null ? esc(t('pctNA')) : pctText(x));
+  const adult = d.age >= 18;
+  const hap = end.happiest;
   view(`${header()}
 <section class="card death"><h1 tabindex="-1">${esc(t('deathTitle'))}</h1>
-<p class="lead" id="died">${esc(nameOf(s.born.iso))} · ${esc(t('diedAt', { year: d.year, age: d.age }))} ${esc(t(`cause_${d.cause}` as 'cause_old'))}</p>
+<article class="record" id="record" aria-label="${esc(t('recTitle'))}">
+  <p class="kicker">${esc(t('recTitle'))}</p>
+  <h2 id="rec-name">${esc(s.name.full)}</h2>
+  <p class="lead" id="died">${esc(nameOf(s.born.iso))} · ${esc(t('bornDied', { born: s.born.year, died: d.year }))} · ${esc(t('diedAt', { year: d.year, age: d.age }))}</p>
+  <dl class="facts">
+    <dt>${esc(t('deathCause'))}</dt><dd id="cause">${esc(t(('dc_' + end.cause) as 'dc_heart'))} <span class="badge" title="依年齡、國家所得與健康狀態推估">${esc(t('est'))}</span></dd>
+    ${hap ? `<dt>${esc(t('happiest'))}</dt><dd id="happiest">${esc(t('happiestLine', { age: hap.age, year: hap.year }))}${hap.eventId ? `<br><small>${esc(eventText(hap.eventId, {}).replace(/\{\w+\}/g, ''))}</small>` : ''}</dd>` : ''}
+    ${adult ? `<dt>${esc(t('eduLabel'))}</dt><dd>${esc(t(('edu_' + s.career.plan) as 'edu_none'))}${s.career.trackSet ? ` · ${esc(t(('track_' + s.career.track) as 'track_private'))}` : ''}</dd>` : ''}
+    ${s.family.spouse ? `<dt>${esc(t('spouseLabel'))}</dt><dd>${esc(s.family.spouse.name)}</dd>` : ''}
+    ${s.family.children.length ? `<dt>${esc(t('childrenLabel'))}</dt><dd>${esc(s.family.children.map((c) => c.name).join('、'))}</dd>` : ''}
+  </dl>
+  <blockquote id="last-words"><span class="muted small">${esc(t('lastWords'))}</span><br>${esc(t(end.lastWords as 'lw_generic1', end.vars))}</blockquote>
+</article>
 <dl class="facts">
   <dt>${esc(t('lifetimeIncome'))}</dt><dd>${esc(money(me.lifetimeIncome))}</dd>
+  <dt>${esc(t('taxPaid'))}</dt><dd id="tax">${esc(money(s.years.reduce((a, y) => a + y.tax, 0)))}</dd>
   <dt>${esc(t('finalNetWorth'))}</dt><dd id="nw">${esc(money(me.finalNetWorth))}</dd>
   <dt>${esc(t('pctLifespan'))}</dt><dd>${pctText(rk.lifespan)}</dd>
-  <dt>${esc(t('pctIncome'))}</dt><dd>${pctText(rk.lifetimeIncome)}</dd>
-  <dt>${esc(t('pctNetWorth'))}</dt><dd id="pct-nw">${pctText(rk.finalNetWorth)}</dd>
+  <dt>${esc(t('pctIncome'))}</dt><dd>${pctOr(rk.lifetimeIncome)}</dd>
+  <dt>${esc(t('pctNetWorth'))}</dt><dd id="pct-nw">${pctOr(rk.finalNetWorth)}</dd>
   <dt>${esc(t('lifePension'))}</dt><dd id="pen">${esc(money(s.years.reduce((a, y) => a + y.pension, 0)))}</dd>
   ${s.credit.defaults ? `<dt>${esc(t('defaults'))}</dt><dd id="defaults">${s.credit.defaults}</dd>` : ''}
   ${s.actions.some((a) => a.t === 'alloc') ? `<dt>${esc(t('marginCalls'))}</dt><dd id="calls">${calls}</dd><dt>${esc(t('mktEstYears'))}</dt><dd>${mktEst}</dd>` : ''}
 </dl>
+<p class="muted small">${esc(t('beatsNote'))}</p>
 <p class="muted">比較對象：同國、同年出生的 ${peers.length} 段模擬人生。${estYears ? `其中 ${estYears} 年使用了推估資料。` : ''}</p>
 ${lineChart(s.years.map((y) => y.netWorth), { label: t('chartNetWorth'), color: '#1C4532' })}
 ${s.years.some((y) => y.debt > 0) ? lineChart(s.years.map((y) => y.debt), { label: t('chartDebt'), color: '#C0392B' }) : ''}

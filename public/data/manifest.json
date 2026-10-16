@@ -82,7 +82,7 @@
  "files": [
   {
    "path": "countries.json",
-   "sha256": "5fcee696ed965e9dbc1d9e1e6e2ae4e819c1aaed37c7d298907bf9620d88b618",
+   "sha256": "4950e6db4dcdd842ca496c89e256ceb978a03bc1a6a72572bcb6f697abd6ca4f",
    "src": [
     "wpp2024",
     "wdi"

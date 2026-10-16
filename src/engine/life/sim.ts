@@ -16,6 +16,11 @@ import { clampStat, type Action, type House, type LifeState, type YearRow } from
 import type { PersonalLoan } from '../finance/types.ts';
 import { pmt, creditRule, annuityPayout, houseReturn, pensionFor } from '../finance/credit.ts';
 import type { EventSystem } from './events.ts';
+import { phiInv } from '../math/normal.ts';
+import { EDU_PREMIUM, benefitRate, entryAge, experienceFactor, gradAge, premiumNorm, schoolingOdds, spending, taxRate } from '../economy/household.ts';
+import { makeFamily } from './family.ts';
+import { applyChoice, defaultPick, offersAt } from './choices.ts';
+import type { Career } from './state.ts';
 
 export interface DataBundle {
   index: CountryIndex;
@@ -78,13 +83,17 @@ export function newLife(data: DataBundle, cfg: LifeConfig): LifeState | Infeasib
   if (b.urbanEst) estimated.push('urban');
   // initial stats: game-design content (not empirical); drawn from the birth stream
   const stats = { health: 60 + rng.int(31), happy: 50 + rng.int(31), smart: 40 + rng.int(41), social: 40 + rng.int(41) };
+  const fam = makeFamily(data.country(b.iso), year, b.sex, cfg.seed);
+  const entry = entryAge(data.country(b.iso), year);
+  const plan = schoolingOdds(data.country(b.iso), year).pPrimary >= 0.97 ? 'primary' as const : 'none' as const;
+  const career: Career = { plan, studyUntil: gradAge(plan, entry), entry, track: 'private', mult: 1, city: false, lastWage: 0, promotions: 0 };
   const sandbox = { on: cfg.constraints !== undefined && Object.values(cfg.constraints).some((k) => k.kind === 'fixed'), reasons: [] as string[] };
   if (sandbox.on) sandbox.reasons.push('constraint');
   return {
-    v: 2, id: cfg.id ?? `${cfg.seed}-${b.iso}-${year}`, seed: cfg.seed, engineVersion: cfg.engineVersion, dataVersion: data.index.dataVersion,
+    v: 3, id: cfg.id ?? `${cfg.seed}-${b.iso}-${year}`, seed: cfg.seed, engineVersion: cfg.engineVersion, dataVersion: data.index.dataVersion,
     mode: 'normal', sandbox, phase: 'birth',
     born: { iso: b.iso, year, urban: b.urban, quintile: b.quintile, sex: b.sex, pct: b.pct, lifeTableYear: ltYear, estimated },
-    cur: b.iso, age: 0, stats, econ: { cash: 0, incomeReal: 0, pct: b.pct, employed: false, earnSum: 0, earnN: 0, annuity: 0, retired: false },
+    cur: b.iso, age: 0, stats, name: fam.name, family: fam.family, career, econ: { cash: 0, incomeReal: 0, pct: b.pct, employed: false, earnSum: 0, earnN: 0, annuity: 0, retired: false },
     portfolio: emptyPortfolio(), credit: emptyCredit(), loans: [], flags: {}, actions: [], years: [], events: [],
   };
 }
@@ -97,7 +106,7 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   const c = data.country(s.cur);
   const r = stream(s.seed, 'year', age);
   // draw order is fixed: [0] death, [1] death frac, [2] unemployment
-  const uDeath = r.next(), uFrac = r.next(), uUnemp = r.next();
+  const uDeath = r.next(), uFrac = r.next(), uUnemp = r.next(), uLuck = r.next();
   const t = tableFor(data, s);
   const dies = age >= MAX_AGE || uDeath < t.p[Math.min(age, MAX_AGE)]!;
 
@@ -105,15 +114,15 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   let pct = s.econ.pct;
   const pen = pensionFor(data.hp, s.cur, s.born.sex);
   const retireAge = data.hp ? pen.age : PARAMS.retireAge.value;
-  const inLabor = age >= PARAMS.laborEntryAge.value && age < retireAge;
-  const retired = age >= retireAge;
   const { d, est: dEst } = incomeDist(c, calYear);
   const unempR = seriesAt(c.series.unemp, calYear);
   const consR = seriesAt(c.series.hhCons, calYear);
   const cpiR = seriesAt(c.series.cpi, calYear);
   const pi = cpiR.v;
-  let unemployed = false, income = 0, consumption = 0, pension = 0;
-  let earnSum = s.econ.earnSum, earnN = s.econ.earnN;
+  const gdpPc = seriesAt(c.series.gdpPcPpp, calYear).v;
+  const meanTax = taxRate(c, calYear, d.mean, d.mean).rate;
+  const meanDisp = d.mean * (1 - meanTax);
+  const oop = gdpPc >= 15000 ? PARAMS.medicalOop.value : 1;
   let stats = { ...s.stats };
   let cash = s.econ.cash;
   const eventIds: string[] = [];
@@ -122,32 +131,80 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   const credit = { ...s.credit };
   const emit = (id: string, vars?: Record<string, number | string>) => { eventIds.push(id); evs.push({ age, id, vars }); };
 
+  // ---- P0-3 life choices at the start of the year (recorded answer, else default policy)
+  const career: Career = { ...s.career };
+  const family = { ...s.family, siblings: [...s.family.siblings], children: [...s.family.children] };
+  for (const o of offersAt({ s, c, calYear, meanIncome: d.mean })) {
+    const rec = s.actions.find((x) => x.t === 'choice' && x.age === age && x.id === o.id);
+    const opt = rec && rec.t === 'choice' && o.opts.includes(rec.opt) ? rec.opt : defaultPick(s.seed, age, o);
+    const draft = { career, family, stats, cash, calYear, age, meanDisp, oop, seed: s.seed };
+    const vars = applyChoice(draft, o.id, opt);
+    cash = draft.cash;
+    emit(`ch_${o.id}_${opt}`, vars);
+  }
+
+  // ---- P0-2 study / work / retirement
+  const studying = age >= career.entry && age < career.studyUntil && career.plan !== 'none';
+  const inLabor = age >= Math.max(15, career.studyUntil) && age < retireAge;
+  const retired = age >= retireAge;
+  if (inLabor && career.workStart === undefined) {
+    career.workStart = age;
+    if (career.plan !== 'none' && career.plan !== 'primary') emit('graduated', { edu: career.plan });
+  }
+  let unemployed = false, income = 0, pension = 0, partTime = false;
+  let earnSum = s.econ.earnSum, earnN = s.econ.earnN;
+  const base = incomeAt(d, pct);
+  const eduF = EDU_PREMIUM[career.plan] / premiumNorm(c, s.born.year);
   if (inLabor) {
-    est.push(...dEst);
+    est.push(...dEst, 'tax');
     if (unempR.est) est.push('unemp');
-    if (consR.est) est.push('hhCons');
-    unemployed = uUnemp < unempR.v;
-    const permanent = incomeAt(d, pct);
+    const uMult = { stable: 0.5, private: 1, startup: 1.3, informal: 0.6 }[career.track] * (career.plan === 'tertiary' || career.plan === 'graduate' ? 0.75 : career.plan === 'none' ? 1.1 : 1);
+    unemployed = uUnemp < unempR.v * uMult;
     // nominal wages only catch up λπ of this year's inflation → real wage factor (1+λπ)/(1+π)
     const lag = pi > 0 ? (1 + PARAMS.wageLag.value * pi) / (1 + pi) : 1;
-    income = unemployed ? 0 : permanent * lag;
-    consumption = consR.v * permanent;
-    earnSum += permanent; earnN += 1; // earnings history for the pension
+    const luck = career.track === 'startup' ? Math.exp(0.6 * phiInv(Math.min(0.999, Math.max(0.001, uLuck))) - 0.18) : 1;
+    const trackF = { stable: 0.95, private: 1, startup: luck, informal: 0.7 }[career.track];
+    const careF = career.careUntil !== undefined && age < career.careUntil ? 0.7 : 1;
+    const wage = base * eduF * experienceFactor(age - career.workStart!) * career.mult * trackF * (career.city ? 1.15 : 1) * careF;
+    if (unemployed) { income = benefitRate(c, calYear) * career.lastWage; if (income > 0) est.push('benefit'); }
+    else { income = wage * lag; career.lastWage = wage; }
+    earnSum += wage; earnN += 1; // earnings history for the pension
+  } else if (studying && age >= 16) {
+    income = PARAMS.studentWork.value * base * experienceFactor(0) * 0.75; partTime = true;
   } else if (retired && data.hp) {
     // OECD gross replacement rate × average real lifetime earnings (+ any purchased annuity)
     pension = earnN > 0 ? pen.grr * (earnSum / earnN) : 0;
     if (pen.est) est.push('pension');
-    income = pension + s.econ.annuity;
-    consumption = consR.v * income;
-    if (s.econ.annuity > 0 && !s.econ.retired) { /* annuity already flowing */ }
+    income = pension;
   }
+  income += s.econ.annuity; // a purchased annuity pays for life, working or not
   if (retired && data.hp && !s.econ.retired) emit('retire', { age: retireAge, pension: Math.round(pension) });
+  const married0 = !!family.spouse;
+  const kids0 = family.children.filter((k) => calYear - k.born < 18).length;
   if (events) {
-    const out = events.run({ seed: s.seed, age, calYear, country: c, stats, cash, income, pct, unemployed, inLabor, flags, quintile: s.born.quintile, urban: s.born.urban, sex: s.born.sex, meanIncome: d.mean });
+    const out = events.run({ seed: s.seed, age, calYear, country: c, stats, cash, income, pct, unemployed, inLabor, flags, quintile: s.born.quintile, urban: s.born.urban, sex: s.born.sex, meanIncome: d.mean,
+      studying, married: married0, kids: kids0, siblings: family.siblings.length, retired, owner: !!s.house, city: career.city, careerMult: career.mult, gdp: gdpPc, oop });
     stats = out.stats; cash = out.cash; income = out.income; pct = out.pct;
+    if (out.careerMult > career.mult * 1.05) career.promotions += 1;
+    career.mult = out.careerMult;
+    if (out.married === false && family.spouse) { family.spouse = undefined; flags.divorced = age; }
     for (const e of out.fired) emit(e.id, e.vars);
     Object.assign(flags, out.flags);
   }
+  // ---- P0-1 taxes and consumption (income-, family- and rent-linked); children/students living at home are covered by the family
+  const tax = income * taxRate(c, calYear, income, d.mean).rate * (retired ? 0.5 : 1);
+  const disp = income - tax;
+  const independent = inLabor || retired;
+  let consumption = 0, rent = 0;
+  if (independent) {
+    const liquid = Math.max(0, cash) + investedValue(s.portfolio);
+    let yl = 0, l = 1; for (let a2 = age; a2 <= MAX_AGE; a2++) { l *= 1 - t.p[a2]!; yl += l; }
+    const sp = spending({ disp, meanDisp, renter: !s.house, married: !!family.spouse, kids: family.children.filter((k) => calYear - k.born < 18).length, city: career.city, retired, wealth: retired ? liquid : 0, yearsLeft: yl, cash });
+    consumption = sp.total; rent = Math.min(sp.rent, sp.total);
+    if (career.careCostUntil !== undefined && age < career.careCostUntil) consumption += 0.3 * meanDisp;
+    if (consR.est) est.push('hhCons');
+  } else if (partTime) consumption = 0.5 * disp;
+  void consR;
   if (cpiR.est) est.push('cpi');
   const frac = dies ? (age === 0 ? Math.min(0.999, uFrac * 2 * t.ax0) : uFrac) : 1;
 
@@ -194,11 +251,9 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   // written-off debt: garnish a share of income
   let garnish = 0;
   if (credit.unsecuredDebt > 0 && income > 0) { garnish = Math.min(credit.unsecuredDebt, PARAMS.garnish.value * income * frac); credit.unsecuredDebt -= garnish; }
-  // owner-occupier saves imputed rent (net of maintenance)
-  const rentSave = house ? Math.min(consumption * 0.5, PARAMS.rentYieldNet.value * house.value) : 0;
   // a dying person's flows are pro-rated to the fraction of the year lived
-  const inc = income * frac, cons = (consumption - rentSave) * frac;
-  cash = settleCash({ cash, income: inc - garnish - totalDue * frac, consumption: cons, inflation: pi * frac });
+  const inc = income * frac, cons = consumption * frac, taxF = tax * frac;
+  cash = settleCash({ cash, income: inc - taxF - garnish - totalDue * frac, consumption: cons, inflation: pi * frac });
   // liquidity: cover a deficit by selling investments (always, even without targets)
   if (cash < 0 && investedValue(portfolio) > 0) {
     const lq = rebalanceStep({ ...portfolio, rebalance: false }, cash, () => false);
@@ -251,11 +306,11 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   const houseEquity = house ? house.value - house.balance : 0;
   const debt = loans.reduce((a, l) => a + (l.status === 'active' ? l.balance : 0), 0) + credit.unsecuredDebt;
   const row: YearRow = { age, calYear, income: inc, consumption: cons, cash, invested, houseEquity, debt, netWorth: cash + invested + houseEquity - debt, pension: pension * frac,
-    debtService: totalDue * frac, unemployed, inLabor, inflation: pi, est: [...new Set(est)], stats: { ...stats }, eventIds };
+    debtService: totalDue * frac, unemployed, inLabor, inflation: pi, est: [...new Set(est)], stats: { ...stats }, eventIds, tax: taxF, rent: rent * frac, studying };
   const next: LifeState = {
     ...s, phase: dies ? 'dead' : 'life', age: dies ? age : age + 1, stats: { health: clampStat(stats.health), happy: clampStat(stats.happy), smart: clampStat(stats.smart), social: clampStat(stats.social) },
     econ: { cash, incomeReal: inc, pct, employed: inLabor && !unemployed, earnSum, earnN, annuity: s.econ.annuity, retired: retired && !!data.hp },
-    portfolio, house, loans, credit, years: [...s.years, row], events: evs, flags,
+    career, family, portfolio, house, loans, credit, years: [...s.years, row], events: evs, flags,
   };
   if (dies) next.death = { age, frac, year: calYear, cause: causeLabel(age) };
   return next;
@@ -295,9 +350,10 @@ export function applyAction(_data: DataBundle, s: LifeState, a: Action): LifeSta
   const q = decisionQuote(_data, s);
   const year = s.born.year + s.age;
   if (a.t === 'buyHouse') {
-    if (!q.house.ok || s.house) return s; // invalid in this state → ignored (not recorded)
-    const h: House = { value: q.house.price, price0: q.house.price, boughtYear: year, balance: q.house.loan, termLeft: PARAMS.mortgageTerm.value, missed: 0, est: q.house.est };
-    return { ...s, house: h, econ: { ...s.econ, cash: s.econ.cash - q.house.down }, actions };
+    const qq = a.term ? decisionQuote(_data, s, a.term) : q;
+    if (!qq.house.ok || s.house) return s; // invalid in this state → ignored (not recorded)
+    const h: House = { value: qq.house.price, price0: qq.house.price, boughtYear: year, balance: qq.house.loan, termLeft: qq.house.term, missed: 0, est: qq.house.est };
+    return { ...s, house: h, econ: { ...s.econ, cash: s.econ.cash - qq.house.down }, actions };
   }
   if (a.t === 'sellHouse') {
     if (!s.house) return s;
@@ -326,12 +382,21 @@ export function applyAction(_data: DataBundle, s: LifeState, a: Action): LifeSta
 }
 
 export interface DecisionQuote {
-  house: { ok: boolean; why?: string; price: number; down: number; loan: number; rate: number; pmt: number; est: boolean };
-  loan: { ok: boolean; why?: string; max: number; rate: number; src: 'official' | 'proxy'; note: string; term: number; bridgeNeed: number };
+  house: { ok: boolean; why?: string; price: number; down: number; loan: number; rate: number; pmt: number; est: boolean; term: number;
+    /** income needed for this payment under the debt-service limit, and cash needed for the down payment */
+    needIncome: number; needDown: number; dsrMax: number };
+  loan: { ok: boolean; why?: string; max: number; rate: number; src: 'official' | 'proxy'; note: string; noteKey: string; term: number; bridgeNeed: number };
   annuity: { ok: boolean; why?: string; max: number; per1000: number };
 }
 /** What the player can do right now (before the year at s.age is simulated). Pure; UI and tests use the same numbers. */
-export function decisionQuote(data: DataBundle, s: LifeState): DecisionQuote {
+export const MORTGAGE_TERMS = [20, 30, 40] as const;
+/** Choices offered at the start of the current year that the player has not answered yet (UI pauses on these). */
+export function pendingOffers(data: DataBundle, s: LifeState) {
+  if (s.death) return [];
+  const c = data.country(s.cur), calYear = s.born.year + s.age;
+  return offersAt({ s, c, calYear, meanIncome: incomeDist(c, calYear).d.mean }).filter((o) => !s.actions.some((a) => a.t === 'choice' && a.age === s.age && a.id === o.id));
+}
+export function decisionQuote(data: DataBundle, s: LifeState, term: number = PARAMS.mortgageTerm.value): DecisionQuote {
   const year = s.born.year + s.age;
   const c = data.country(s.cur);
   const m = data.markets;
@@ -346,7 +411,9 @@ export function decisionQuote(data: DataBundle, s: LifeState): DecisionQuote {
   const price = PARAMS.priceToIncome.value * d.mean;
   const loanAmt = PARAMS.ltv.value * price, down = price - loanAmt;
   const mRate = lr.i + PARAMS.mortgageSpread.value;
-  const mPmt = pmt(loanAmt, mRate, PARAMS.mortgageTerm.value);
+  const mTerm = Math.min(40, Math.max(5, Math.round(term)));
+  const mPmt = pmt(loanAmt, mRate, mTerm);
+  const needIncome = (existingService + mPmt) / PARAMS.dsrProxy.value;
   let hWhy: string | undefined;
   if (!data.hp) hWhy = 'nodata';
   else if (s.age < PARAMS.creditMinAge.value) hWhy = 'age';
@@ -360,9 +427,9 @@ export function decisionQuote(data: DataBundle, s: LifeState): DecisionQuote {
   const unsecured = s.loans.filter((l) => l.status === 'active').reduce((a, l) => a + l.balance, 0) + s.credit.unsecuredDebt;
   const rule = m ? creditRule(m, s.cur, year, incomeY, unsecured, (y) => piOf('USA', y)) : null;
   const rate = Math.min(lr.i + PARAMS.creditSpread.value, rule?.legalCap ?? Infinity);
-  const term = PARAMS.creditTerm.value;
+  const cTerm = PARAMS.creditTerm.value;
   const dsrRoom = Math.max(0, (rule?.dsrMax ?? PARAMS.dsrProxy.value) * incomeY - existingService);
-  const maxByDsr = dsrRoom > 0 ? dsrRoom / (pmt(1, rate, term)) : 0;
+  const maxByDsr = dsrRoom > 0 ? dsrRoom / (pmt(1, rate, cTerm)) : 0;
   const max = rule ? Math.max(0, Math.min(rule.cap, maxByDsr)) : 0;
   let lWhy: string | undefined;
   if (!rule || !rule.enabled) lWhy = 'country';
@@ -376,8 +443,8 @@ export function decisionQuote(data: DataBundle, s: LifeState): DecisionQuote {
   const aWhy = s.age < PARAMS.annuityMinAge.value ? 'age' : aMax <= 0 ? 'nocash' : undefined;
   const per1000 = aWhy === 'age' ? 0 : annuityPayout(1000, tableFor(data, s).p, s.age);
   return {
-    house: { ok: !hWhy, why: hWhy, price, down, loan: loanAmt, rate: mRate, pmt: mPmt, est: hEst },
-    loan: { ok: !lWhy, why: lWhy, max, rate, src: rule?.src ?? 'proxy', note: rule?.note ?? '', term, bridgeNeed: Math.max(0, -s.econ.cash) },
+    house: { ok: !hWhy, why: hWhy, price, down, loan: loanAmt, rate: mRate, pmt: mPmt, est: hEst, term: mTerm, needIncome, needDown: down, dsrMax: PARAMS.dsrProxy.value },
+    loan: { ok: !lWhy, why: lWhy, max, rate, src: rule?.src ?? 'proxy', note: rule?.note ?? '', noteKey: rule?.noteKey ?? 'none', term: cTerm, bridgeNeed: Math.max(0, -s.econ.cash) },
     annuity: { ok: !aWhy, why: aWhy, max: aMax, per1000 },
   };
 }

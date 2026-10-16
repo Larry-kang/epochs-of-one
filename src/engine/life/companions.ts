@@ -3,13 +3,14 @@ import { runLife, type DataBundle, type LifeConfig } from './sim.ts';
 import type { LifeState } from './state.ts';
 import type { EventSystem } from './events.ts';
 import { sha256Hex } from '../rng/sha256.ts';
-import { percentileOf } from '../economy/income.ts';
 
 export interface Summary { lifespan: number; lifetimeIncome: number; finalNetWorth: number }
+/** adults only are compared on money (a child who dies has no income or wealth of their own) */
+export const ADULT_AGE = 18;
 export const summarize = (s: LifeState): Summary => ({
   lifespan: (s.death?.age ?? s.age) + (s.death?.frac ?? 0),
   lifetimeIncome: s.years.reduce((a, y) => a + y.income, 0),
-  finalNetWorth: s.econ.cash,
+  finalNetWorth: s.years.length ? s.years[s.years.length - 1]!.netWorth : 0,
 });
 
 export function companions(data: DataBundle, s: LifeState, n: number, events?: EventSystem): Summary[] {
@@ -26,10 +27,15 @@ export function companions(data: DataBundle, s: LifeState, n: number, events?: E
   return out;
 }
 
-export function ranks(me: Summary, peers: Summary[]) {
+/** Share of peers strictly below ("beats X%"): ties never count as beaten. Money ranks are null for lives that ended
+ *  before adulthood and are computed among adult peers only. */
+export const beats = (sample: number[], x: number) => (sample.length ? sample.filter((v) => v < x).length / sample.length : 0);
+export function ranks(me: Summary, peers: Summary[]): { lifespan: number; lifetimeIncome: number | null; finalNetWorth: number | null } {
+  const adults = peers.filter((p) => p.lifespan >= ADULT_AGE);
+  const adult = me.lifespan >= ADULT_AGE && adults.length > 0;
   return {
-    lifespan: percentileOf(peers.map((p) => p.lifespan), me.lifespan),
-    lifetimeIncome: percentileOf(peers.map((p) => p.lifetimeIncome), me.lifetimeIncome),
-    finalNetWorth: percentileOf(peers.map((p) => p.finalNetWorth), me.finalNetWorth),
+    lifespan: beats(peers.map((p) => p.lifespan), me.lifespan),
+    lifetimeIncome: adult ? beats(adults.map((p) => p.lifetimeIncome), me.lifetimeIncome) : null,
+    finalNetWorth: adult ? beats(adults.map((p) => p.finalNetWorth), me.finalNetWorth) : null,
   };
 }

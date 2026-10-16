@@ -32,7 +32,7 @@ describe('M5 tests (credit rules)', () => {
   it('JPN annual income 3,000,000 → cap 1,000,000 (総量規制, from 2010)', () => {
     expect(creditRule(m, 'JPN', 2015, 3e6, 0, piUS).cap).toBeCloseTo(1e6, 6);
   });
-  it('SGP (MAS): < S$20k not eligible; S$25k → 2 months ≈ S$4,167; S$60k → 4 months = S$20k', () => {
+  it('SGP (MAS / , ): < S$20k not eligible; S$25k → 2 months ≈ S$4,167; S$60k → 4 months = S$20k', () => {
     const perReal = toLocalNominal(m, 'SGP', 2024, 1, piUS).v;
     expect(creditRule(m, 'SGP', 2024, 19000 / perReal, 0, piUS).minIncomeOk).toBe(false);
     const r25 = creditRule(m, 'SGP', 2024, 25000 / perReal, 0, piUS);
@@ -80,7 +80,7 @@ describe('M5 pension & annuity', () => {
     expect(s2.econ.cash).toBeCloseTo(s.econ.cash - amt, 6);
     expect(s2.econ.annuity).toBeCloseTo(q.annuity.per1000 * amt / 1000, 6);
     const s3 = advanceYear(data, s2);
-    expect(s3.years.at(-1)!.income).toBeGreaterThan(s.years.at(-1)!.income);
+    expect(s3.years.at(-1)!.income).toBeCloseTo(advanceYear(data, s).years.at(-1)!.income + s2.econ.annuity, 6);
   });
 });
 

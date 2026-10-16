@@ -1,6 +1,6 @@
 # 市場資料覆蓋（自動產生：pipeline/markets-ext.mjs，2026-10-16）
 
-所有水準皆為**年底值**：OECD 月股價、Pink Sheet 月金價取 12 月（12 月月平均）；TAIEX/BTC 為自行彙整年底收盤。`dd`＝當年月資料路徑的最大峰谷回撤（前一年 12 月為起始高點），無月資料者為 null → 引擎改用 Brownian bridge。引擎斷頭檢查使用 dd × DRAWDOWN_SAFETY_FACTOR（1.25，src/config.ts，推估；見 questions.md Q31）。
+所有水準皆為**年底值**：OECD 月股價、Pink Sheet 月金價取 12 月（12 月月平均）；TAIEX/BTC 為自行彙整年底收盤。`dd`＝當年月資料路徑的最大峰谷回撤（前一年 12 月為起始高點），無月資料者為 null → 引擎改用 Brownian bridge。引擎斷頭檢查使用 dd × DRAWDOWN_SAFETY_FACTOR（1.25，src/config.ts，推估）。
 
 | 序列 | kind | 年份 | 有 dd 的年數 |
 |---|---|---|---|

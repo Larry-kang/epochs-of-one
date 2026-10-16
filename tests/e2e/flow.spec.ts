@@ -13,7 +13,7 @@ async function toBirth(page: Page, seed: string, pace = '30') {
 
 test('normal flow: intro → setup → birth → life (pause / speed) → death', async ({ page }) => {
   const external: string[] = [];
-  page.on('request', (r) => { if (!r.url().startsWith('http://127.0.0.1:4173/')) external.push(r.url()); });
+  page.on('request', (r) => { if (!r.url().startsWith(`http://127.0.0.1:${process.env.E2E_PORT ?? 4317}/`)) external.push(r.url()); });
   await page.goto('./');
   await expect(page.getByRole('heading', { level: 1 })).toContainText('時代人生');
   await shot(page, '01-intro');

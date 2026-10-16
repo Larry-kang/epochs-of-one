@@ -1,5 +1,5 @@
 // Engine parameters. Every entry has a `source`. Values marked TODO(param) are NOT sourced
-// and NOT derivable from the allowed data yet — they are placeholders listed in docs/questions.md.
+// and NOT derivable from the allowed data yet — they are placeholders listed in.
 export interface Param { value: number; unit: string; desc: string; source: string }
 
 export const PARAMS = {
@@ -37,4 +37,18 @@ export const PARAMS = {
   annuityMinAge: { value: 55, unit: 'years', desc: 'earliest age to buy a life annuity', source: 'TODO(param)' },
   annuityRate: { value: 0.02, unit: 'real rate', desc: 'real discount rate used to price the life annuity', source: 'TODO(param)' },
   annuityLoad: { value: 0.05, unit: 'ratio', desc: 'insurer loading on the actuarially fair annuity price', source: 'TODO(param)' },
+  // ---- P0 household economics (src/engine/economy/household.ts) — docs/calibration-wealth.md
+  expB1: { value: 0.04, unit: '1/yr', desc: 'earnings–experience slope (Mincer linear term)', source: 'design within the usual 0.03–0.06 range of Mincer estimates; TODO(param) per country' },
+  expB2: { value: 0.0007, unit: '1/yr²', desc: 'earnings–experience curvature (peak ≈ b1/(2·b2) ≈ 28 years)', source: 'design; TODO(param)' },
+  promoStep: { value: 0.12, unit: 'ratio', desc: 'persistent pay rise per promotion (career multiplier)', source: 'design (feedback: ≥ +10–20%)' },
+  taxProgress: { value: 0.25, unit: 'elasticity', desc: 'tax-rate elasticity to relative income (progressivity)', source: 'TODO(param) — design' },
+  benefitRate: { value: 0.5, unit: '× previous wage', desc: 'unemployment benefit replacement rate where a scheme exists', source: 'TODO(param) — typical OECD initial net replacement ~50–60%' },
+  benefitGdpMin: { value: 20000, unit: 'PPP$', desc: 'GDP pc PPP above which an unemployment-insurance scheme is assumed', source: 'TODO(param) — design proxy' },
+  consBase: { value: 0.54, unit: 'share', desc: 'core (non-housing, non-child) consumption share of disposable income at the typical income', source: 'CALIBRATED: 400 lives × 6 countries vs OECD Wealth Distribution Database (docs/calibration-wealth.md)' },
+  consElastic: { value: 0.12, unit: 'elasticity', desc: 'core consumption share falls with relative income (higher saving rate when richer)', source: 'design; TODO(param)' },
+  rentShare: { value: 0.18, unit: 'share', desc: 'rent as share of a blend of own and typical disposable income (city ×1.4; couple ×0.6 own share)', source: 'TODO(param) — design' },
+  childCost: { value: 0.12, unit: 'share', desc: 'annual cost per dependent child (age < 18 or still studying) as share of blended income', source: 'TODO(param) — OECD equivalence scale gives a child 0.3 of an adult' },
+  subsistence: { value: 0.25, unit: '× typical disp. income', desc: 'basic consumption floor financed from savings when income is lower', source: 'design' },
+  studentWork: { value: 0.1, unit: '× entry wage', desc: 'part-time earnings while studying (age ≥ 16)', source: 'design' },
+  medicalOop: { value: 0.35, unit: 'share', desc: 'out-of-pocket share of medical costs where universal coverage is assumed (GDP pc ≥ 15k); 1.0 otherwise', source: 'TODO(param) — design proxy' },
 } as const satisfies Record<string, Param>;

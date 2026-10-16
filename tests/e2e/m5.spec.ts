@@ -1,7 +1,9 @@
 import { test, expect, type Page } from '@playwright/test';
+import { autoAnswer } from './auto.ts';
 
 const shot = (page: Page, name: string) => page.screenshot({ path: `shots/${name}.png`, fullPage: true });
-async function resumeAt(page: Page, seed: string, year: number, years: number, actions: unknown[] = [], pause = true) {
+async function resumeAt(page: Page, seed: string, year: number, years: number, actions: unknown[] = [], pause = true, auto = true) {
+  if (auto) await autoAnswer(page);
   await page.addInitScript(([s, y, n, a]) => {
     if (!sessionStorage.getItem('seeded')) {
       localStorage.setItem('epochs.save.v1', JSON.stringify({ v: 1, cfg: { seed: s, era: { kind: 'past', year: y }, nowYear: 2026, engineVersion: '0.5.0' }, paceMin: 30, years: n, speed: 8, actions: a }));
@@ -15,7 +17,7 @@ async function resumeAt(page: Page, seed: string, year: number, years: number, a
 }
 
 test('M5 house + mortgage, then a normal-mode credit loan', async ({ page }) => {
-  await resumeAt(page, 'demo55', 1965, 29); // JPN, can afford a house at 29
+  await resumeAt(page, 'demo68', 1965, 29); // JPN, can afford a house at 29 (P01 economy)
   await page.getByRole('button', { name: '買房／賣房' }).click();
   await expect(page.locator('#h-price')).toBeVisible();
   await shot(page, 'm5-01-house-quote');
@@ -54,7 +56,7 @@ test('M5 retirement pension + life annuity', async ({ page }) => {
 });
 
 test('M5 financial-distress bridge prompt appears when cash turns negative', async ({ page }) => {
-  await resumeAt(page, 'br2650', 1975, 19, [], false); // USA: cash goes negative in the year at age 19→20
+  await resumeAt(page, 'br8', 1975, 24, [], false, false); // JPN: cash goes negative in the year at age 24→25
   await expect(page.locator('#bridge-msg')).toBeVisible({ timeout: 60000 });
   await shot(page, 'm5-06-bridge-prompt');
   await page.getByRole('button', { name: '申請周轉' }).click();

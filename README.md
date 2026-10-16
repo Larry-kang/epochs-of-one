@@ -20,4 +20,4 @@ pnpm build && pnpm preview      # 開 http://localhost:4173/
 | `pnpm sim --seed X --n N [--country ISO --year Y]` | CLI 模擬 |
 | `pnpm calibrate [--n 100000]` | 校準報告 → `docs/calibration-report.md` |
 
-名稱與功能旗標集中於 `src/config.ts`。文件：`docs/calibration-report.md`、`docs/license-gate-report.md`、`docs/data-coverage.md`、`docs/data-imputation.md`。
+名稱與功能旗標集中於 `src/config.ts`。文件：`CHANGELOG.md`、`docs/calibration-report.md`、`docs/calibration-wealth.md`、`docs/license-gate-report.md`、`docs/data-coverage.md`、`docs/data-imputation.md`。

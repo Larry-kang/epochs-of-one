@@ -1,6 +1,6 @@
 // Imputation rules (fixed order), applied per series:
 //  1. linear interpolation for interior gaps ≤ 3 years  → 'interp'
-//  2. edge extension from nearest observed value (before first / after last obs) → 'nearest'   [decision Q6]
+//  2. edge extension from nearest observed value (before first / after last obs) → 'nearest'
 //  3. country with no observations: sub-region median of that year → 'region'
 //  4. else world median of that year → 'world'
 const median = (xs) => { const s = [...xs].sort((a, b) => a - b); const m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };

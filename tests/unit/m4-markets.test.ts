@@ -22,7 +22,7 @@ describe('M4 data layer', () => {
     expect(m.eq.USA!.from).toBeLessThanOrEqual(1960);
     expect(m.world.from).toBe(1960);
     expect(m.gold.from).toBe(1960);
-    expect(m.btc.from).toBe(2011); // BTC 2010 stays off (owner Q9)
+    expect(m.btc.from).toBe(2011); // BTC 2010 stays off (owner decision)
     expect(m.eq.TWN!.src).toBe('epochs-compiled');
     for (const s of [...Object.values(m.eq), m.world, m.gold, m.btc]) for (const v of s.v) expect(Number.isFinite(v) && v > 0).toBe(true);
     expect(m.fxEuroRebased).toContain('DEU');
@@ -104,7 +104,7 @@ describe('M4 leverage ', () => {
     expect(available(m, 'levEq', 'USA', 2002, 40, { levBase: 'eqUS', cooldownUntil: 2004 }).why).toBe('cooldown');
     expect(available(m, 'levEq', 'USA', 2004, 40, { levBase: 'eqUS', cooldownUntil: 2004 }).ok).toBe(true);
   });
-  it('US backtest 1960–2025, k=2, m=0.25 at intra-year path quantiles u=0.5 and u=0.9: margin-call years', () => {
+  it('US backtest 1960–2025, k=2, m=0.25 at intra-year path quantiles u=0.5 and u=0.9: margin-call years (golden list in)', () => {
     const out: Record<string, number[]> = {};
     for (const u of [0.5, 0.9]) out['u' + u] = backtest(u);
     expect(out).toMatchSnapshot();
@@ -127,7 +127,7 @@ describe('M4 leverage ', () => {
   });
   const line = (y: number) => (1 + lendingRate(m, 'USA', y, pi).i) / (2 * (1 - PARAMS.levMaint.value)) - 1; // A=2, L=1
   const scaled = (y: number) => m.eq.USA!.dd![y - m.eq.USA!.from]! * DRAWDOWN_SAFETY_FACTOR;
-  it('backtest acceptance (×1.25 safety factor, Q31): fresh 2× each year is liquidated in US 1974, 1987 and 2008 at any bridge quantile', () => {
+  it('backtest acceptance (×1.25 safety factor, ): fresh 2× each year is liquidated in US 1974, 1987 and 2008 at any bridge quantile', () => {
     for (const u of [0, 0.5, 0.9]) { const c = backtest(u); for (const y of [1974, 1987, 2008]) expect(c).toContain(y); }
     for (const y of [1974, 1987, 2008]) expect(scaled(y)).toBeLessThan(line(y));
   });
@@ -181,13 +181,18 @@ describe('M4 future years & wage lag', () => {
     const cfg: LifeConfig = { seed: 'wl', era: { kind: 'past', year: 1960 }, nowYear: 2026, engineVersion: 't',
       constraints: { country: { kind: 'fixed', value: 'ARG' }, sex: { kind: 'random' }, quintile: { kind: 'fixed', value: 3 }, urban: { kind: 'fixed', value: true } } };
     let s = newLife(data, cfg); if ('infeasible' in s) throw new Error();
-    while (!s.death && s.age < 60) s = advanceYear(data, s);
-    const row = s.years.find((y) => y.inLabor && !y.unemployed && y.inflation > 0.1)!;
-    expect(row).toBeDefined();
-    const lam = PARAMS.wageLag.value;
-    // income/consumption ratio reveals the lag factor (consumption = hhCons · permanent)
-    const hh = seriesAt(data.country('ARG').series.hhCons, row.calYear).v;
-    expect(row.income / (row.consumption / hh)).toBeCloseTo((1 + lam * row.inflation) / (1 + row.inflation), 6);
+    let found = false;
+    while (!s.death && s.age < 60 && !found) {
+      s = advanceYear(data, s);
+      const row = s.years.at(-1)!;
+      if (row.inLabor && !row.unemployed && row.inflation > 0.1 && s.career.lastWage > 0 && row.income > 0) {
+        const lam = PARAMS.wageLag.value;
+        // income booked this year = real wage × lag factor (lastWage holds the un-lagged wage)
+        expect(row.income / s.career.lastWage).toBeCloseTo((1 + lam * row.inflation) / (1 + row.inflation), 6);
+        found = true;
+      }
+    }
+    expect(found).toBe(true);
   });
 });
 
