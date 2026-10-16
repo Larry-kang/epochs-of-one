@@ -434,7 +434,7 @@ function loop(): void {
       r.acc += (dt * (r.skipping ? SKIP_SPEED : r.speed)) / r.yearSec;
       let steps = 0;
       while (r.acc >= 1 && steps < PARAMS.maxYearsPerFrame.value && !r.s.death) {
-        if (pendingOffers(bundle(), r.s).length) { r.acc = Math.min(r.acc, 1); /* v0.7.1: keep the elapsed year so the card costs only its own wait */ if (r.skipping) { r.skipping = false; toast(t('toastDecision')); } showChoice(); break; }
+        if (pendingOffers(bundle(), r.s).length) { r.acc = Math.min(r.acc, 1); /* v0.7.1: keep the elapsed year so the card costs only its own wait */ if (r.skipping) { r.skipping = false; toast(t('toastDecision')); } const cb = root.querySelector('#choice') as HTMLElement | null; if (cb && !cb.hidden) { r.paused = true; syncPause(); } else showChoice(); break; } // v0.8.1: never re-render an open card every frame (resume while a card is open used to wipe its countdown and clicks)
         r.s = advanceYear(bundle(), r.s, contentEvents);
         r.acc -= 1; steps++;
         if (!r.skipping) milestoneToasts(r.s);

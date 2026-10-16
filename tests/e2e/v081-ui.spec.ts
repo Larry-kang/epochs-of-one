@@ -98,3 +98,17 @@ test('v081 auto-choice never leaves the life paused with nothing open (390px, 16
     await page.waitForTimeout(300);
   }
 });
+
+test('v081 pressing resume while a decision card is open keeps the card answerable', async ({ page }) => {
+  test.setTimeout(120_000);
+  await toBirth(page, 'v081-resume-card', { country: 'TWN', year: 1995 });
+  await page.locator('#begin').click();
+  await page.evaluate(() => (document.querySelector('.spd[data-speed="16"]') as HTMLButtonElement | null)?.click());
+  const opt = page.locator('#choice:not([hidden]) button.opt').first();
+  await expect(opt).toBeVisible({ timeout: 60000 });
+  await page.locator('#pause').click(); // the player presses 繼續 with the card still open
+  await page.waitForTimeout(500);
+  const h = await page.locator('#choice h2').textContent();
+  await opt.click();
+  await expect(page.locator('#choice h2')).not.toHaveText(h!, { timeout: 5000 }).catch(async () => { await expect(page.locator('#choice')).toBeHidden(); });
+});
