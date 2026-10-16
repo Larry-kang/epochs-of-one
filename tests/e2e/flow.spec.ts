@@ -113,9 +113,10 @@ test('offline: after first load the game (incl. fonts) is playable with network 
   await page.evaluate(async () => { await navigator.serviceWorker.ready; });
   await page.reload();
   await expect.poll(() => page.evaluate(() => !!navigator.serviceWorker.controller)).toBe(true);
-  const keys = await page.evaluate(async () => { const ks = await caches.keys(); const c = await caches.open(ks[0]!); return (await c.keys()).map((r) => r.url); });
-  expect(keys.length).toBeGreaterThan(200);
-  expect(keys.filter((u) => u.endsWith('.woff2')).length).toBe(4);
+  // the precache fills asynchronously after install; under a loaded CI box it can lag, so wait for it (was flaky)
+  const cached = () => page.evaluate(async () => { const out: string[] = []; for (const k of await caches.keys()) out.push(...(await (await caches.open(k)).keys()).map((r) => r.url)); return out; });
+  await expect.poll(async () => (await cached()).filter((u) => u.endsWith('.woff2')).length, { timeout: 30000, intervals: [250, 500, 1000] }).toBe(5);
+  await expect.poll(async () => (await cached()).length, { timeout: 30000 }).toBeGreaterThan(200);
   await context.setOffline(true);
   await toBirth(page, 'offline-1', { year: 1975 });
   await begin(page);

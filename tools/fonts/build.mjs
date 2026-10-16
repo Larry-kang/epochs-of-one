@@ -20,6 +20,8 @@ writeFileSync('/tmp/fontchars.txt', chars);
 console.log('glyph set', chars.length);
 const jobs = [
   ['NotoSerifTC[wght].ttf', 'serif-tc.woff2', '--text-file=/tmp/fontchars.txt'],
+  // batch 2: CJK sans for body text (was system fallback)
+  ['NotoSansTC[wght].ttf', 'sans-tc.woff2', '--text-file=/tmp/fontchars.txt'],
   ['Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf', 'fraunces.woff2', '--unicodes=U+0020-007E,U+00B7,U+2013-2014,U+2190-2193'],
   ['Inter-VariableFont_opsz,wght.ttf', 'inter.woff2', '--unicodes=U+0020-007E,U+00A0-00FF,U+2013-2014,U+2018-201D,U+2026,U+2190-2193,U+2212'],
   ['JetBrainsMono-VariableFont_wght.ttf', 'mono.woff2', '--unicodes=U+0020-007E,U+00B7,U+2212,U+00D7'],

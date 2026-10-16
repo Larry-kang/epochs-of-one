@@ -1,3 +1,6 @@
+import { focusStage, activeAlloc, autoAlloc, mapToStage, focusEffects, allocKey, type FocusFx } from './focus.ts';
+import { buy, sell, autoHabits, bondAdd, LIFESTYLE, lifestyleAt, lifestyleYear, routineOn, ROUTINES, itemById } from './spend.ts';
+import { cohortTfr, wppAt, type WppExtra } from './fertility.ts';
 // Life engine: newLife() + advanceYear() (pure, deterministic given seed + data).
 // Year systems run in fixed order: mortality draw → labor/income → events → finance → record.
 import type { CountryIndex, CountryRec, Demography, Iso3 } from '../data/types.ts';
@@ -30,8 +33,10 @@ export interface DataBundle {
   markets?: MarketsData;
   /** M5 housing & pension layer */
   hp?: HousingPension;
+  /** batch 2 WPP extra layer (TFR, e0, q5) */
+  wpp?: WppExtra;
 }
-export function makeBundle(index: CountryIndex, demo: (iso: Iso3) => Demography, extra: { markets?: MarketsData; hp?: HousingPension } = {}): DataBundle {
+export function makeBundle(index: CountryIndex, demo: (iso: Iso3) => Demography, extra: { markets?: MarketsData; hp?: HousingPension; wpp?: WppExtra } = {}): DataBundle {
   const by = new Map(index.countries.map((c) => [c.iso, c]));
   const cache = new Map<Iso3, Demography>();
   return {
@@ -43,7 +48,7 @@ export function makeBundle(index: CountryIndex, demo: (iso: Iso3) => Demography,
 
 /** 'future' (batch 1): births after nowYear up to the last projected WPP year (UN medium variant → 推估). */
 export type Era = { kind: 'now' } | { kind: 'past'; year: number | 'random' } | { kind: 'future'; year: number | 'random' };
-export interface LifeConfig { seed: string; era: Era; nowYear: number; constraints?: BirthConstraints; id?: string; engineVersion: string }
+export interface LifeConfig { seed: string; era: Era; nowYear: number; constraints?: BirthConstraints; id?: string; engineVersion: string; /** v0.8.0: auto focus policy (comparison lives, MC) */ autoFocus?: boolean; /** v0.8.0: auto spending habits */ autoSpend?: boolean }
 
 const tableCache = new Map<string, AnnualTable>();
 export function tableFor(data: DataBundle, s: LifeState): AnnualTable {
@@ -86,7 +91,7 @@ export function newLife(data: DataBundle, cfg: LifeConfig): LifeState | Infeasib
   if (b.urbanEst) estimated.push('urban');
   // initial stats: game-design content (not empirical); drawn from the birth stream
   const stats = { health: 60 + rng.int(31), happy: 50 + rng.int(31), smart: 40 + rng.int(41), social: 40 + rng.int(41) };
-  const fam = makeFamily(data.country(b.iso), year, b.sex, cfg.seed);
+  const fam = makeFamily(data.country(b.iso), year, b.sex, cfg.seed, data.wpp?.tfr[b.iso] ? (y: number) => wppAt(data.wpp, 'tfr', b.iso, y) : undefined);
   const entry = entryAge(data.country(b.iso), year);
   const plan = schoolingOdds(data.country(b.iso), year).pPrimary >= 0.97 ? 'primary' as const : 'none' as const;
   const career: Career = { plan, studyUntil: gradAge(plan, entry), entry, track: 'private', mult: 1, city: false, lastWage: 0, promotions: 0 };
@@ -97,7 +102,7 @@ export function newLife(data: DataBundle, cfg: LifeConfig): LifeState | Infeasib
     mode: 'normal', sandbox, phase: 'birth',
     born: { iso: b.iso, year, urban: b.urban, quintile: b.quintile, sex: b.sex, pct: b.pct, lifeTableYear: ltYear, estimated },
     cur: b.iso, age: 0, stats, name: fam.name, family: fam.family, career, econ: { cash: 0, incomeReal: 0, pct: b.pct, employed: false, earnSum: 0, earnN: 0, annuity: 0, retired: false },
-    portfolio: emptyPortfolio(), credit: emptyCredit(), loans: [], flags: {}, actions: [], years: [], events: [],
+    portfolio: emptyPortfolio(), credit: emptyCredit(), loans: [], flags: { ...(cfg.autoFocus ? { autoFocus: true } : {}), ...(cfg.autoSpend ? { autoSpend: true } : {}) }, actions: [], years: [], events: [],
   };
 }
 
@@ -125,7 +130,9 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   const gdpPc = seriesAt(c.series.gdpPcPpp, calYear).v;
   const meanTax = taxRate(c, calYear, d.mean, d.mean).rate;
   const meanDisp = d.mean * (1 - meanTax);
-  const oop = gdpPc >= 15000 ? PARAMS.medicalOop.value : 1;
+  // batch 2 P14 lifestyle (recorded; defaults neutral)
+  const ls = lifestyleAt(s.actions, age); const lsy = lifestyleYear(ls);
+  const oop = (gdpPc >= 15000 ? PARAMS.medicalOop.value : 1) * lsy.oopMult;
   let stats = { ...s.stats };
   let cash = s.econ.cash;
   const eventIds: string[] = [];
@@ -137,7 +144,9 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   // ---- P0-3 life choices at the start of the year (recorded answer, else default policy)
   const career: Career = { ...s.career };
   const family = { ...s.family, siblings: [...s.family.siblings], children: [...s.family.children] };
-  for (const o of offersAt({ s, c, calYear, meanIncome: d.mean })) {
+  // v0.8.0 focus in force last year shapes this year's offers (marriage, schooling)
+  const fx0: FocusFx | undefined = typeof s.flags.fcEff === 'string' ? focusEffects(JSON.parse(s.flags.fcEff) as Record<string, number>) : undefined;
+  for (const o of offersAt({ s, c, calYear, meanIncome: d.mean, tfr: cohortTfr(data.wpp, s.born.iso, s.born.year), ...(fx0 ? { focus: fx0 } : {}) })) {
     const rec = s.actions.find((x) => x.t === 'choice' && x.age === age && x.id === o.id);
     const opt = rec && rec.t === 'choice' && o.opts.includes(rec.opt) ? rec.opt : defaultPick(s.seed, age, o);
     const draft = { career, family, stats, cash, calYear, age, meanDisp, oop, seed: s.seed };
@@ -180,13 +189,38 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
     if (pen.est) est.push('pension');
     income = pension;
   }
+  // ---- v0.8.0 yearly focus: recorded allocation (or the auto policy), mapped onto this life stage
+  let focusCost = 0, fxNow: FocusFx | undefined;
+  {
+    const stage = focusStage({ age, studying, uni: studying && (career.plan === 'tertiary' || career.plan === 'graduate'), inLabor, unemployed, retired });
+    let intended: Record<string, number> = activeAlloc(s.actions, age);
+    if (!Object.keys(intended).length && flags.autoFocus && stage !== 'none') {
+      if (flags.fcStage !== stage || typeof flags.fcAuto !== 'string') { flags.fcAuto = JSON.stringify(autoAlloc(stage, stats, s.seed, age)); emit('fc_auto', { stage }); }
+      intended = JSON.parse(flags.fcAuto as string) as Record<string, number>;
+    }
+    if (Object.keys(intended).length || flags.fcEff !== undefined) {
+      const eff = mapToStage(intended, stage);
+      const prev = typeof flags.fcEff === 'string' ? JSON.parse(flags.fcEff) as Record<string, number> : {};
+      if (flags.fcStage !== undefined && flags.fcStage !== stage && Object.keys(intended).length && allocKey(eff) !== allocKey(prev)) emit('fc_switch', { from: allocKey(prev) || '-', to: allocKey(eff) || '-', stage });
+      flags.fcStage = stage; flags.fcEff = JSON.stringify(eff);
+      const fx = focusEffects(eff); fxNow = fx;
+      for (const [k, v] of Object.entries(fx.fx) as [keyof typeof stats, number][]) stats[k] += v;
+      if (inLabor && !unemployed) income *= fx.incomeMult;
+      if (partTime && fx.parttime > 0) income *= 1 + fx.parttime;
+      focusCost = fx.costShare * Math.max(0, income);
+      if (inLabor && !unemployed && age >= 22 && age <= 58 && fx.jobMult > 1 && stream(s.seed, 'focus', age).next() < 0.04 * (fx.jobMult - 1)) {
+        career.mult *= 1.06; stats.happy += 2; emit('job_change', { pct: 6 });
+      }
+    }
+  }
   income += s.econ.annuity; // a purchased annuity pays for life, working or not
   if (retired && data.hp && !s.econ.retired) emit('retire', { age: retireAge, pension: Math.round(pension) });
   const married0 = !!family.spouse;
   const kids0 = family.children.filter((k) => calYear - k.born < 18).length;
   if (events) {
     const out = events.run({ seed: s.seed, age, calYear, country: c, stats, cash, income, pct, unemployed, inLabor, flags, quintile: s.born.quintile, urban: s.born.urban, sex: s.born.sex, meanIncome: d.mean,
-      studying, married: married0, kids: kids0, siblings: family.siblings.length, retired, owner: !!s.house, city: career.city, careerMult: career.mult, gdp: gdpPc, oop });
+      studying, married: married0, kids: kids0, siblings: family.siblings.length, retired, owner: !!s.house, city: career.city, careerMult: career.mult, gdp: gdpPc, oop,
+      ...(fxNow ? { focusPromo: fxNow.promoMult, focusFamily: fxNow.familyMult } : {}) });
     stats = out.stats; cash = out.cash; income = out.income; pct = out.pct;
     if (out.careerMult > career.mult * 1.05) career.promotions += 1;
     career.mult = out.careerMult;
@@ -207,6 +241,18 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
     if (career.careCostUntil !== undefined && age < career.careCostUntil) consumption += 0.3 * meanDisp;
     if (consR.est) est.push('hhCons');
   } else if (partTime) consumption = 0.5 * disp;
+  consumption += focusCost;
+  if (independent) {
+    consumption = Math.max(0, consumption + lsy.cost * d.mean);
+    for (const [k, v] of Object.entries(lsy.fx) as [keyof typeof stats, number][]) stats[k] += v;
+    const auto = flags.autoSpend || ls.auto === 'on' ? autoHabits(s) : [];
+    for (const id of ROUTINES) {
+      const it = itemById(id)!;
+      if (!(routineOn(ls, id) || auto.includes(id)) || age < it.from || age > it.to || (it.needs.includes('parents') && !family.parentsAlive)) continue;
+      const price = it.price * d.mean;
+      if (cash - consumption > 3 * price) { consumption += price; for (const [k, v] of Object.entries(it.fx) as [keyof typeof stats, number][]) stats[k] += v; if (it.bond) flags.bond = bondAdd({ ...s, flags }, it.bond); emit('rt_' + id, { amount: Math.round(price) }); }
+    }
+  }
   void consR;
   if (cpiR.est) est.push('cpi');
   const frac = dies ? (age === 0 ? Math.min(0.999, uFrac * 2 * t.ax0) : uFrac) : 1;
@@ -267,6 +313,8 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   const shortfall = cash < 0 ? Math.min(-cash, totalDue * frac) / (1 + pi * frac) : 0;
   const payShare = totalDue > 0 ? 1 - shortfall / (totalDue * frac / (1 + pi * frac)) : 1;
   if (shortfall > 0) cash += shortfall;
+  // v0.8.0: a minor's savings never go negative — parents cover any gap
+  if (age < 18 && cash < 0) cash = 0;
   const freeze = () => { credit.frozenUntil = Math.max(credit.frozenUntil ?? 0, calYear + 1 + PARAMS.freezeYears.value); };
   for (const du of dues) {
     const paid = du.due * payShare;
@@ -350,6 +398,14 @@ export function applyAction(_data: DataBundle, s: LifeState, a: Action): LifeSta
     const p: Portfolio = { ...s.portfolio, target: { ...a.target }, levBase: a.levBase ?? s.portfolio.levBase, levK: a.levK ?? s.portfolio.levK };
     return { ...s, portfolio: p, actions };
   }
+  if (a.t === 'buy') {
+    const b = buy(_data, s, a.id); if (!b) return s;
+    const flags = { ...s.flags, ...(b.bond !== Number(s.flags.bond ?? 50) ? { bond: b.bond } : {}), ...(b.allow ? { ['allow:' + s.age]: Number(s.flags['allow:' + s.age] ?? 0) + b.allow } : {}) };
+    return { ...s, stats: b.stats, econ: { ...s.econ, cash: b.cash }, flags, actions };
+  }
+  if (a.t === 'sell') { const b = sell(_data, s, a.id); return b ? { ...s, stats: b.stats, econ: { ...s.econ, cash: b.cash }, actions } : s; }
+  if (a.t === 'life') { const def = LIFESTYLE.find((l) => l.key === a.key); const okKey = def ? def.opts.includes(a.value) : (a.key.startsWith('rt:') || a.key === 'auto') && ['on', 'off'].includes(a.value);
+    return okKey ? { ...s, actions } : s; }
   const q = decisionQuote(_data, s);
   const year = s.born.year + s.age;
   if (a.t === 'buyHouse') {
@@ -397,7 +453,7 @@ export const MORTGAGE_TERMS = [20, 30, 40] as const;
 export function pendingOffers(data: DataBundle, s: LifeState) {
   if (s.death) return [];
   const c = data.country(s.cur), calYear = s.born.year + s.age;
-  return offersAt({ s, c, calYear, meanIncome: incomeDist(c, calYear).d.mean }).filter((o) => !s.actions.some((a) => a.t === 'choice' && a.age === s.age && a.id === o.id));
+  return offersAt({ s, c, calYear, meanIncome: incomeDist(c, calYear).d.mean, tfr: cohortTfr(data.wpp, s.born.iso, s.born.year) }).filter((o) => !s.actions.some((a) => a.t === 'choice' && a.age === s.age && a.id === o.id));
 }
 export function decisionQuote(data: DataBundle, s: LifeState, term: number = PARAMS.mortgageTerm.value): DecisionQuote {
   const year = s.born.year + s.age;

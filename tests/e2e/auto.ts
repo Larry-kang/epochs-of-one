@@ -15,6 +15,10 @@ export async function autoAnswer(page: Page): Promise<void> {
 export async function skipToEnd(page: Page): Promise<void> {
   await page.locator('#more').click();
   await page.locator('#skip').click();
+  // batch 3: skipping now plays the ending sequence too; close it to reach the record
+  await page.locator('#ending').waitFor({ timeout: 30000 });
+  await page.keyboard.press('Escape');
+  await page.locator('#ending').waitFor({ state: 'detached' });
 }
 
 /** Home → (advanced: country/seed) → roll → birth certificate. Reduced motion skips the roll animation. */

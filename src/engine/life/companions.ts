@@ -19,7 +19,7 @@ export function companions(data: DataBundle, s: LifeState, n: number, events?: E
     const cfg: LifeConfig = {
       seed: sha256Hex(`${s.seed}:companions:${i}`).slice(0, 16), era: { kind: 'past', year: s.born.year }, nowYear: s.born.year,
       constraints: { country: { kind: 'fixed', value: s.born.iso }, sex: { kind: 'random' }, quintile: { kind: 'random' }, urban: { kind: 'random' } },
-      engineVersion: s.engineVersion,
+      engineVersion: s.engineVersion, autoFocus: true, autoSpend: true,
     };
     const c = runLife(data, cfg, events);
     if (!('infeasible' in c)) out.push(summarize(c));

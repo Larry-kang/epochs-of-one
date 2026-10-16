@@ -1,12 +1,17 @@
 // Browser data loader: same-origin static JSON only (precached by sw.js → works offline).
 import type { CountryIndex, Demography, Iso3 } from '../engine/data/types.ts';
 import { makeBundle, type DataBundle } from '../engine/life/sim.ts';
+import type { WppExtra } from '../engine/life/fertility.ts';
 import type { HousingPension, MarketsData } from '../engine/finance/marketData.ts';
 
 let index: CountryIndex | null = null;
 const demo = new Map<Iso3, Demography>();
 let markets: MarketsData | undefined;
 let hp: HousingPension | undefined;
+let wpp: WppExtra | undefined;
+/** batch 2 WPP extra layer (TFR, e0, q5): loaded with the index; also feeds the home odds table */
+export async function loadWpp(): Promise<WppExtra> { wpp ??= await getJson<WppExtra>('./data/wpp-extra.json'); return wpp; }
+export const wppLoaded = () => wpp;
 
 async function getJson<T>(path: string): Promise<T> {
   const r = await fetch(path);
@@ -24,6 +29,7 @@ export async function preloadDemography(iso: Iso3): Promise<void> {
 export async function loadFinance(): Promise<void> {
   markets ??= await getJson<MarketsData>('./data/markets/markets.json');
   hp ??= await getJson<HousingPension>('./data/markets/housing-pension.json');
+  await loadWpp();
 }
 export function bundle(): DataBundle {
   if (!index) throw new Error('index not loaded');
@@ -31,5 +37,5 @@ export function bundle(): DataBundle {
     const d = demo.get(iso);
     if (!d) throw new Error('demography not preloaded: ' + iso);
     return d;
-  }, { markets, hp });
+  }, { markets, hp, wpp });
 }

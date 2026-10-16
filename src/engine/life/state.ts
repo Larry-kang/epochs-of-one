@@ -19,12 +19,14 @@ export type Action = { t: 'speed'; speed: number } | { t: 'pause'; paused: boole
   | { t: 'buyHouse'; age: number; term?: number } | { t: 'sellHouse'; age: number }
   | { t: 'loan'; age: number; amount: number; term: number; purpose: 'invest' | 'cash' | 'bridge' }
   | { t: 'annuity'; age: number; amount: number }
-  | { t: 'choice'; age: number; id: string; opt: string };
+  | { t: 'choice'; age: number; id: string; opt: string }
+  | { t: 'focus'; age: number; id?: string; w?: Record<string, number> }
+  | { t: 'buy'; age: number; id: string } | { t: 'sell'; age: number; id: string } | { t: 'life'; age: number; key: string; value: string };
 /** M5 owner-occupied house + floating-rate mortgage (real values; nominal rate applied then deflated) */
 export interface House { value: number; price0: number; boughtYear: number; balance: number; termLeft: number; missed: number; est: boolean }
 
 export interface Person { name: string; born: number }
-export interface Family { mother: Person; father: Person; siblings: Person[]; spouse?: Person; children: Person[]; parentsAlive: boolean; region: string }
+export interface Family { mother: Person; father: Person; siblings: Person[]; spouse?: Person; children: Person[]; parentsAlive: boolean; region: string; /** batch 2: no child card before this age (cooldown / spacing) */ childCoolUntil?: number }
 export type Track = 'stable' | 'private' | 'startup' | 'informal';
 export interface Career {
   /** planned / completed education and the age full-time study ends (full-time work can start then) */

@@ -30,3 +30,8 @@ describe('v0.7.1 timing model', () => {
     expect(bornBy([{ born: 1990 }, { born: 1993 }], 1992)).toEqual([{ born: 1990 }]);
   });
 });
+
+import { revealStepMs } from '../../src/ui/logic/play.ts';
+describe('b3 staged birth card', () => {
+  it('reveal step follows speed, never under 60 ms', () => { expect(revealStepMs(1)).toBe(600); expect(revealStepMs(4)).toBe(150); expect(revealStepMs(16)).toBe(60); });
+});

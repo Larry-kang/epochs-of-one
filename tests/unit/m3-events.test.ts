@@ -4,7 +4,7 @@ import { EVENTS, contentEvents, ENGINE_EVENT_IDS } from '../../src/engine/conten
 import { loadBundleFromDisk } from '../../src/engine/data/nodeLoader.ts';
 import { runLife, deathAgeOnly } from '../../src/engine/life/sim.ts';
 
-const zh = JSON.parse(readFileSync('src/content/zh-TW/events.json', 'utf8')) as Record<string, string>;
+const zh = Object.fromEntries(Object.entries((JSON.parse(readFileSync('src/content/i18n/table.json', 'utf8')) as { strings: { events: Record<string, string[]> } }).strings.events).map(([k, v]) => [k, v[0]!]));
 const data = loadBundleFromDisk();
 
 describe('M3: events & content', () => {
@@ -38,11 +38,11 @@ describe('M3: events & content', () => {
     for (const id of seen) expect(engine.has(id) || EVENTS.some((e) => e.id === id) || id.startsWith('ch_'), id).toBe(true);
   });
   it('UI strings contain no product-name hardcoding (name lives in src/config.ts only)', () => {
-    const ui = readFileSync('src/content/zh-TW/ui.json', 'utf8') + readFileSync('src/ui/app.ts', 'utf8') + readFileSync('index.html', 'utf8');
+    const ui = readFileSync('src/content/i18n/table.json', 'utf8') + readFileSync('src/ui/app.ts', 'utf8') + readFileSync('index.html', 'utf8');
     expect(ui.includes('百年帳本')).toBe(false);
     expect(ui.includes('Ledger of a Life')).toBe(false);
     // index.html carries the static <title>; UI code/strings must read the name from APP
-    const code = readFileSync('src/content/zh-TW/ui.json', 'utf8') + readFileSync('src/ui/app.ts', 'utf8');
+    const code = readFileSync('src/content/i18n/table.json', 'utf8') + readFileSync('src/ui/app.ts', 'utf8');
     expect(code.includes('時代人生')).toBe(false);
     expect(code.includes('Epochs of One')).toBe(false);
   });
