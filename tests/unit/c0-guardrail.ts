@@ -1,8 +1,8 @@
 // C0 pooled multi-seed guardrail (shared by tests/unit/c0-guardrail-<iso>.test.ts; one file per country so vitest runs them in parallel).
 // SETS independent seed sets × N lives, occupations on vs off (same seed): set 0 = c0-<ISO>-<i>, set j = c0s<j>-<ISO>-<i>, i.e. the
 // first SETS of the 20 sets in tools/c0/multiseed.test.ts. The MEAN of the per-set ratios must be within the band:
-// lifetime income ±8%, net worth ±20%, e0 ±1%; under-5 deaths identical; occupation mix within ±5 pts of the 推估 structure on set 0
-// (as before rc4; the pooled mix is logged and reported in docs/careers-c0-guardrail-seeds.md).
+// lifetime income ±8%, net worth ±20%, e0 ±1%; under-5 deaths identical; occupation mix within ±5 pts of the 推估 structure POOLED over the same SETS seed sets (CEO decision, v0.10.0 / L1:
+// replaces the set-0-only check; same ±5-pt band, not loosened). Set-0 mix is still logged for comparison.
 import { describe, it, expect } from 'vitest';
 import { appendFileSync } from 'node:fs';
 import { loadBundleFromDisk } from '../../src/engine/data/nodeLoader.ts';
@@ -20,7 +20,7 @@ export function guardrail(iso: string, years: number[] = [1970, 1990], N = GUARD
   const data = loadBundleFromDisk();
   describe(`C0 guardrails ${iso} (pooled, ${SETS} seed sets × N=${N})`, () => {
     for (const year of years) {
-      it(`${iso} ${year}: mean income ratio ±8%, net worth ±20%, e0 ±1%, under-5 deaths identical, mix ±5 pts`, () => {
+      it(`${iso} ${year}: mean income ratio ±8%, net worth ±20%, e0 ±1%, under-5 deaths identical, mix ±5 pts pooled`, () => {
         const rInc: number[] = [], rNw: number[] = [], rE0: number[] = [];
         const cnt: Record<string, number> = {}; let tot = 0; const want: Record<string, number> = {}; // mix: set 0 (as before rc4)
         const pc: Record<string, number> = {}; let ptot = 0; const pw: Record<string, number> = {}; // mix pooled over all sets (reported)
@@ -47,7 +47,7 @@ export function guardrail(iso: string, years: number[] = [1970, 1990], N = GUARD
         expect(mInc).toBeGreaterThan(0.92); expect(mInc).toBeLessThan(1.08);
         expect(mNw).toBeGreaterThan(0.8); expect(mNw).toBeLessThan(1.2);
         expect(Math.abs(mE0 - 1)).toBeLessThan(0.01);
-        for (const g of ENTRY_GROUPS) expect(Math.abs(mix[g]!), `${iso} ${year} ${g}`).toBeLessThan(0.05);
+        for (const g of ENTRY_GROUPS) expect(Math.abs(pmix[g]!), `${iso} ${year} ${g} (pooled ${SETS} sets)`).toBeLessThan(0.05);
       }, 900_000); // CI runners are ~2–4× slower than the dev box; one cell is ≈ 70 s locally
     }
   });

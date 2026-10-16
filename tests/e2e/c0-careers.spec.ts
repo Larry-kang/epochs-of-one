@@ -54,8 +54,12 @@ for (const [name, vp] of VPS) {
     await expect(page.locator('#id-job')).not.toHaveAttribute('data-occ', before!, { timeout: 30000 });
     await pause(page);
     await page.locator('#idcard').scrollIntoViewIfNeeded();
-    const chip = page.locator('#idcard .occ-est');
+    const chip = page.locator('#idcard .occ-est').first();
     if (await chip.count()) await expect(chip).toHaveAttribute('title', /ILOSTAT/);
+    // L1 provenance chip: TWN has ILOSTAT sex×ISCO data → "ILOSTAT" chip naming the year and licence
+    const src = page.locator('#idcard #id-job-src');
+    await expect(src).toHaveText('ILOSTAT');
+    await expect(src).toHaveAttribute('title', /CC BY 4\.0/);
     await page.screenshot({ path: `shots/c0/idcard-${name}.png` });
   });
 

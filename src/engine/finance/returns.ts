@@ -50,10 +50,11 @@ function historical(c: ReturnCtx, y: number): YearReturns {
   const fx = fxFactor(m, iso, y, c.pi);
   const usd = { eqUS: pr(m.eq.USA, y), eqWorld: pr(m.world, y), gold: pr(m.gold, y), btc: pr(m.btc, y) };
   const toHome = (r: number | null) => (r == null ? null : (1 + r) * fx.f - 1);
-  let eqHome: number | null, homeSrc: YearReturns['homeSrc'], homeEst = false;
+  let eqHome: number | null, homeSrc: YearReturns['homeSrc'], homeEst: boolean;
   const own = m.eq[iso];
-  if (iso === 'USA') { eqHome = usd.eqUS; homeSrc = 'data'; }
-  else if (own) { eqHome = pr(own, y); homeSrc = eqHome == null ? 'none' : 'data'; homeEst = !!own.unverified?.includes(y) || !!own.unverified?.includes(y - 1); }
+  // v0.10.0: series flagged est (US / world equity = nominal-GDP model, no open index licence) are always 推估
+  if (iso === 'USA') { eqHome = usd.eqUS; homeSrc = 'data'; homeEst = !!m.eq.USA?.est; }
+  else if (own) { eqHome = pr(own, y); homeSrc = eqHome == null ? 'none' : 'data'; homeEst = !!own.est || !!own.unverified?.includes(y) || !!own.unverified?.includes(y - 1); }
   else { eqHome = toHome(usd.eqWorld); homeSrc = eqHome == null ? 'none' : 'proxy_world'; homeEst = true; }
   const nomHome: YearReturns['nomHome'] = { eqHome, eqUS: toHome(usd.eqUS), eqWorld: toHome(usd.eqWorld), gold: toHome(usd.gold), btc: toHome(usd.btc) };
   const dd: YearReturns['dd'] = {
@@ -62,7 +63,7 @@ function historical(c: ReturnCtx, y: number): YearReturns {
   };
   const real = Object.fromEntries(PRICE_ASSETS.map((a) => [a, nomHome[a] == null ? null : (1 + nomHome[a]!) / (1 + piH) - 1])) as YearReturns['real'];
   const btcEst = !!m.btc.unverified?.includes(y) || !!m.btc.unverified?.includes(y - 1);
-  const est = { eqHome: homeEst || (fx.est && homeSrc === 'proxy_world'), eqUS: fx.est, eqWorld: fx.est, gold: fx.est, btc: fx.est || btcEst };
+  const est = { eqHome: homeEst || (fx.est && homeSrc === 'proxy_world'), eqUS: fx.est || !!m.eq.USA?.est, eqWorld: fx.est || !!m.world.est, gold: fx.est, btc: fx.est || btcEst };
   return { real, nomHome, dd, est, homeSrc, fxEst: fx.est, piHome: piH };
 }
 

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "l1-pag.schema.json",
+  "title": "L1 OECD PaG (model measures only)",
+  "type": "object",
+  "required": [
+    "attribution",
+    "data"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "attribution": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Z]{3}$": {
+          "type": "object",
+          "patternProperties": {
+            "^(CRPLF22|FRPLF22|GPRR100|NPRR100)_[MF]$": {
+              "type": "object",
+              "required": [
+                "y",
+                "v"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "y": {
+                  "type": "integer"
+                },
+                "v": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "keep": {
+      "type": "object"
+    },
+    "dropped": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -773,8 +773,8 @@ null,
 null
 ],
 "aboutMarkets2": [
-"其他股市：OECD Share prices（月資料，取 12 月為年底值）；世界股市為以世界銀行 GDP 加權的自建合成指數（年底值）；黃金：世界銀行 Commodity Markets（Pink Sheet 月資料取 12 月，CC BY 4.0）。槓桿斷頭以月資料的年內最大回撤 × 1.25 保守係數判定（推估；無月資料者以隨機路徑估計）；匯率、放款利率：世界銀行 WDI。OECD 資料依 OECD 條款署名使用。股價指數不含股利；推估年份會標示「推估」。",
-"Other markets: OECD share prices (December values); world stocks are a GDP-weighted composite built from World Bank data; gold: World Bank Commodity Markets (CC BY 4.0). Exchange and lending rates: World Bank WDI. OECD data used with attribution. Indices exclude dividends; estimated years are marked.",
+"其他股市（推估）：美國與世界股價沒有可公開授權的指數資料，改用模型——股價水準跟著名目 GDP（美元，世界銀行 WDI，CC BY 4.0）走；其他國家以世界指數代理。黃金：世界銀行 Commodity Markets（Pink Sheet 月資料取 12 月，CC BY 4.0）。槓桿斷頭以月資料的年內最大回撤 × 1.25 保守係數判定（推估；無月資料者以隨機路徑估計）；匯率、放款利率：世界銀行 WDI。",
+"Other stock markets (estimate): no openly licensed index exists for US and world stocks, so a model is used — the price level follows nominal GDP in USD (World Bank WDI, CC BY 4.0); other countries use the world index as a proxy. Gold: World Bank Commodity Markets (Pink Sheet, December of the monthly series, CC BY 4.0). Margin calls use the intra-year maximum drawdown of monthly data × 1.25 (estimate; a random path where there is no monthly data); FX and lending rates: World Bank WDI.",
 null,
 null,
 null
@@ -1151,7 +1151,7 @@ null,
 null
 ],
 "aboutM5": [
-"房價：OECD 實質房價指數；退休年齡與所得替代率：OECD《Pensions at a Glance 2024》；信貸額度：台灣、日本、南韓、新加坡、中國依各國主管機關的公開規定，其餘國家以參數推估。房價水準、頭期款比例、利差等尚無公開資料的參數皆為暫定值。稅率、生活開銷、房租、養育成本為依世界銀行資料與參數推估，並以 OECD 家戶財富資料庫校準。",
+"房價：OECD 實質房價指數；退休年齡與所得替代率：OECD《Pensions at a Glance》；信貸額度：台灣、日本、南韓、新加坡、中國依各國主管機關的公開規定，其餘國家以參數推估。房價水準、頭期款比例、利差等尚無公開資料的參數皆為暫定值。稅率、生活開銷、房租、養育成本為依世界銀行資料與參數推估，並以 OECD 家戶財富資料庫校準。",
 "House prices: OECD real house price index; retirement ages and replacement rates: OECD Pensions at a Glance 2024; credit limits follow published rules in Taiwan, Japan, Korea, Singapore and China, parameters elsewhere. Taxes, living costs, rent and child costs are estimated from World Bank data and calibrated to the OECD wealth database.",
 null,
 null,
@@ -5036,8 +5036,8 @@ null
 "ước tính"
 ],
 "occSrc": [
-"職業資料：設計推估（tools/careers-draft.csv）；L1 起改用 ILOSTAT（CC BY 4.0）、勞動部職類別薪資（政府資料開放授權 1.0）、美國 BLS（公有領域）",
-"Occupation data: design estimates (tools/careers-draft.csv); from L1 sourced from ILOSTAT (CC BY 4.0), TW MOL (OGDL-1), US BLS (public domain)",
+"職業資料：薪資倍數仍為設計推估（careers-draft，執行長核可）；入行機率的性別權重來自 ILOSTAT（CC BY 4.0）",
+"Occupation data: wage multipliers are still design estimates (careers-draft, approved); sex weights in entry odds come from ILOSTAT (CC BY 4.0)",
 null,
 null,
 null
@@ -5076,6 +5076,41 @@ null
 "あとで",
 "나중에",
 "Để sau"
+],
+"occIlo": [
+"ILOSTAT",
+"ILOSTAT",
+"ILOSTAT",
+"ILOSTAT",
+"ILOSTAT"
+],
+"occIloSrc": [
+"入行機率依性別加權，反映觀察到的資料：ILOSTAT 各國依性別與職業（ISCO 大類）的就業資料，{year} 年（CC BY 4.0，國際勞工組織；經本遊戲改寫）。只是機率權重，不會限制任何人選擇。",
+"Entry odds are weighted by sex to reflect observed data: ILOSTAT employment by sex and occupation (ISCO major groups), {year} (CC BY 4.0, International Labour Organization; adapted). A probability weight only — it never blocks a choice.",
+null,
+null,
+null
+],
+"occSexEst": [
+"入行機率的性別權重：此國沒有 ILOSTAT 資料，使用設計推估。",
+"Sex weight in entry odds: no ILOSTAT data for this country, design estimate used.",
+null,
+null,
+null
+],
+"eqModel": [
+"推估：美國與世界股價沒有可公開使用的指數資料，改用模型——股價水準跟著名目 GDP（美元，世界銀行 WDI，CC BY 4.0）走；年內最低點用隨機路徑估計。",
+"Estimate: no openly licensed index exists for US and world stocks, so a model is used — the price level follows nominal GDP in USD (World Bank WDI, CC BY 4.0); the intra-year low is simulated.",
+null,
+null,
+null
+],
+"aboutL1": [
+"職業與制度資料：國際勞工組織 ILOSTAT（依性別×職業的就業、非正式就業率；CC BY 4.0，經本遊戲改寫，ILO 不為改寫背書）；OECD《Pensions at a Glance 2025》（只用 OECD 年金模型指標，CC BY 4.0；本改寫不代表 OECD 或其會員國的官方觀點）；UNESCO 統計研究所 UIS 高等教育毛入學率——此資料放在獨立檔案 data/sa/uis-tertiary.json，該檔以 CC BY-SA 4.0 授權（相同方式分享）。",
+"Occupation and institution data: International Labour Organization, ILOSTAT (employment by sex × occupation, informal employment rate; CC BY 4.0, adapted — the ILO does not endorse this adaptation); OECD, Pensions at a Glance 2025 (OECD pension-model indicators only, CC BY 4.0; this adaptation does not represent the official views of the OECD or its member countries); UNESCO Institute for Statistics (UIS) tertiary gross enrolment — kept in its own file data/sa/uis-tertiary.json, which is licensed CC BY-SA 4.0 (share-alike).",
+null,
+null,
+null
 ]
 },
 "events": {

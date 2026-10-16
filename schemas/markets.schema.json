@@ -72,7 +72,8 @@
             "oecd_avg",
             "close",
             "annual_avg",
-            "synthetic_gdp_weighted"
+            "synthetic_gdp_weighted",
+            "model_ngdp"
           ]
         },
         "src": {
@@ -101,6 +102,9 @@
             "maximum": 0,
             "minimum": -1
           }
+        },
+        "est": {
+          "type": "boolean"
         }
       }
     },

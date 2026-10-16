@@ -1,4 +1,4 @@
-// Focus-strategy Monte Carlo. Usage: MC_N=200 MC_LABEL=current npx vitest run --dir scripts scripts/focus-mc.test.ts
+// Focus-strategy Monte Carlo. Usage: MC_N=400 MC_LABEL=current npx vitest run --dir scripts scripts/focus-mc.test.ts
 import { loadBundleFromDisk } from '../src/engine/data/nodeLoader.ts';
 import { runLife, type LifeConfig } from '../src/engine/life/sim.ts';
 import { contentEvents as registry } from '../src/engine/content/registry.ts';
@@ -7,7 +7,8 @@ import type { LifeState, Action } from '../src/engine/life/state.ts';
 
 import { it } from 'vitest';
 import { writeFileSync } from 'node:fs';
-const N = Number(process.env.MC_N ?? 200); const label = process.env.MC_LABEL ?? 'current';
+// v0.10.0: N=400 per cell (CEO decision; N=200 medians were too noisy for NGA)
+const N = Number(process.env.MC_N ?? 400); const label = process.env.MC_LABEL ?? 'current';
 it('focus MC', () => {
 const data = loadBundleFromDisk();
 const COUNTRIES = (process.env.MC_COUNTRIES ? process.env.MC_COUNTRIES.split(',') : ['TWN', 'USA', 'IND']) as readonly string[];

@@ -1,0 +1,566 @@
+{
+ "year": 1990,
+ "N": 200,
+ "sets": 4,
+ "out": {
+  "TWN": {
+   "M": {
+    "n": 414,
+    "incOnOff": 1.0243,
+    "incNeutralOff": 1.0051,
+    "nwOnOff": 1.039,
+    "e0OnOff": 1.0008,
+    "mix": {
+     "professional": 0.308,
+     "services": 0.362,
+     "agri": 0.029,
+     "trades": 0.202,
+     "public": 0.088,
+     "special": 0.01
+    },
+    "meanOff": 3064380,
+    "meanOn": 3138897
+   },
+   "F": {
+    "n": 386,
+    "incOnOff": 1.0162,
+    "incNeutralOff": 1.0246,
+    "nwOnOff": 0.988,
+    "e0OnOff": 1.0031,
+    "mix": {
+     "professional": 0.292,
+     "services": 0.325,
+     "trades": 0.24,
+     "public": 0.108,
+     "special": 0.01,
+     "agri": 0.024
+    },
+    "meanOff": 3264808,
+    "meanOn": 3317833
+   },
+   "fmOff": 1.0654,
+   "fmOn": 1.057,
+   "fmNeutral": 1.0861,
+   "allOnOff": 1.0203
+  },
+  "USA": {
+   "M": {
+    "n": 414,
+    "incOnOff": 0.9753,
+    "incNeutralOff": 0.9765,
+    "nwOnOff": 1.019,
+    "e0OnOff": 0.9977,
+    "mix": {
+     "trades": 0.227,
+     "professional": 0.3,
+     "services": 0.292,
+     "agri": 0.041,
+     "public": 0.122,
+     "special": 0.018
+    },
+    "meanOff": 4157812,
+    "meanOn": 4055301
+   },
+   "F": {
+    "n": 386,
+    "incOnOff": 0.999,
+    "incNeutralOff": 0.9949,
+    "nwOnOff": 1.055,
+    "e0OnOff": 1.0015,
+    "mix": {
+     "public": 0.076,
+     "agri": 0.051,
+     "trades": 0.214,
+     "services": 0.352,
+     "professional": 0.304,
+     "special": 0.003
+    },
+    "meanOff": 4626117,
+    "meanOn": 4621582
+   },
+   "fmOff": 1.1126,
+   "fmOn": 1.1396,
+   "fmNeutral": 1.1336,
+   "allOnOff": 0.9874
+  },
+  "CHN": {
+   "M": {
+    "n": 413,
+    "incOnOff": 0.9448,
+    "incNeutralOff": 0.9391,
+    "nwOnOff": 0.882,
+    "e0OnOff": 0.9955,
+    "mix": {
+     "services": 0.282,
+     "agri": 0.279,
+     "professional": 0.181,
+     "trades": 0.19,
+     "public": 0.048,
+     "special": 0.02
+    },
+    "meanOff": 1344187,
+    "meanOn": 1270022
+   },
+   "F": {
+    "n": 387,
+    "incOnOff": 0.9553,
+    "incNeutralOff": 0.9726,
+    "nwOnOff": 0.893,
+    "e0OnOff": 0.9989,
+    "mix": {
+     "services": 0.261,
+     "trades": 0.231,
+     "agri": 0.282,
+     "professional": 0.143,
+     "public": 0.077,
+     "special": 0.006
+    },
+    "meanOff": 1298007,
+    "meanOn": 1239937
+   },
+   "fmOff": 0.9656,
+   "fmOn": 0.9763,
+   "fmNeutral": 1,
+   "allOnOff": 0.9498
+  },
+  "IND": {
+   "M": {
+    "n": 410,
+    "incOnOff": 1.0568,
+    "incNeutralOff": 1.0449,
+    "nwOnOff": 1.201,
+    "e0OnOff": 0.9973,
+    "mix": {
+     "agri": 0.379,
+     "professional": 0.121,
+     "trades": 0.183,
+     "services": 0.26,
+     "public": 0.053,
+     "special": 0.004
+    },
+    "meanOff": 403819,
+    "meanOn": 426772
+   },
+   "F": {
+    "n": 390,
+    "incOnOff": 0.9868,
+    "incNeutralOff": 1.0335,
+    "nwOnOff": 0.916,
+    "e0OnOff": 1.003,
+    "mix": {
+     "professional": 0.09,
+     "agri": 0.368,
+     "trades": 0.184,
+     "services": 0.273,
+     "public": 0.069,
+     "special": 0.016
+    },
+    "meanOff": 415882,
+    "meanOn": 410406
+   },
+   "fmOff": 1.0299,
+   "fmOn": 0.9617,
+   "fmNeutral": 1.0187,
+   "allOnOff": 1.0222
+  },
+  "JPN": {
+   "M": {
+    "n": 398,
+    "incOnOff": 0.9921,
+    "incNeutralOff": 1.0062,
+    "nwOnOff": 1.009,
+    "e0OnOff": 1,
+    "mix": {
+     "trades": 0.217,
+     "services": 0.312,
+     "professional": 0.325,
+     "agri": 0.026,
+     "public": 0.119,
+     "special": 0.001
+    },
+    "meanOff": 2836814,
+    "meanOn": 2814436
+   },
+   "F": {
+    "n": 402,
+    "incOnOff": 0.9961,
+    "incNeutralOff": 1.0329,
+    "nwOnOff": 1.004,
+    "e0OnOff": 1.0012,
+    "mix": {
+     "trades": 0.219,
+     "services": 0.316,
+     "professional": 0.308,
+     "public": 0.107,
+     "agri": 0.046,
+     "special": 0.005
+    },
+    "meanOff": 3087545,
+    "meanOn": 3075656
+   },
+   "fmOff": 1.0884,
+   "fmOn": 1.0928,
+   "fmNeutral": 1.1174,
+   "allOnOff": 0.9942
+  },
+  "KOR": {
+   "M": {
+    "n": 439,
+    "incOnOff": 1.0757,
+    "incNeutralOff": 1.0271,
+    "nwOnOff": 1.142,
+    "e0OnOff": 0.9977,
+    "mix": {
+     "services": 0.362,
+     "public": 0.111,
+     "trades": 0.188,
+     "professional": 0.294,
+     "agri": 0.044,
+     "special": 0.003
+    },
+    "meanOff": 2629173,
+    "meanOn": 2828164
+   },
+   "F": {
+    "n": 361,
+    "incOnOff": 1.0145,
+    "incNeutralOff": 1.0213,
+    "nwOnOff": 1.035,
+    "e0OnOff": 1.0019,
+    "mix": {
+     "services": 0.329,
+     "professional": 0.323,
+     "trades": 0.229,
+     "public": 0.073,
+     "agri": 0.037,
+     "special": 0.009
+    },
+    "meanOff": 3000094,
+    "meanOn": 3043517
+   },
+   "fmOff": 1.1411,
+   "fmOn": 1.0761,
+   "fmNeutral": 1.1346,
+   "allOnOff": 1.0461
+  },
+  "DEU": {
+   "M": {
+    "n": 397,
+    "incOnOff": 0.957,
+    "incNeutralOff": 0.9864,
+    "nwOnOff": 0.98,
+    "e0OnOff": 1.0029,
+    "mix": {
+     "trades": 0.25,
+     "professional": 0.278,
+     "public": 0.105,
+     "services": 0.315,
+     "agri": 0.043,
+     "special": 0.01
+    },
+    "meanOff": 3802598,
+    "meanOn": 3639147
+   },
+   "F": {
+    "n": 403,
+    "incOnOff": 1.0049,
+    "incNeutralOff": 0.9882,
+    "nwOnOff": 0.981,
+    "e0OnOff": 1.0003,
+    "mix": {
+     "services": 0.302,
+     "professional": 0.31,
+     "public": 0.115,
+     "agri": 0.036,
+     "trades": 0.233,
+     "special": 0.004
+    },
+    "meanOff": 3735206,
+    "meanOn": 3753384
+   },
+   "fmOff": 0.9823,
+   "fmOn": 1.0314,
+   "fmNeutral": 0.9841,
+   "allOnOff": 0.9809
+  },
+  "GBR": {
+   "M": {
+    "n": 401,
+    "incOnOff": 0.9387,
+    "incNeutralOff": 0.9525,
+    "nwOnOff": 0.893,
+    "e0OnOff": 0.999,
+    "mix": {
+     "special": 0.003,
+     "services": 0.325,
+     "professional": 0.292,
+     "trades": 0.225,
+     "public": 0.104,
+     "agri": 0.052
+    },
+    "meanOff": 3211907,
+    "meanOn": 3015085
+   },
+   "F": {
+    "n": 399,
+    "incOnOff": 1.0351,
+    "incNeutralOff": 1.009,
+    "nwOnOff": 1.055,
+    "e0OnOff": 1.001,
+    "mix": {
+     "services": 0.279,
+     "trades": 0.211,
+     "professional": 0.332,
+     "public": 0.131,
+     "special": 0.01,
+     "agri": 0.037
+    },
+    "meanOff": 3386550,
+    "meanOn": 3505466
+   },
+   "fmOff": 1.0544,
+   "fmOn": 1.1626,
+   "fmNeutral": 1.1168,
+   "allOnOff": 0.9881
+  },
+  "FRA": {
+   "M": {
+    "n": 425,
+    "incOnOff": 0.9541,
+    "incNeutralOff": 0.9678,
+    "nwOnOff": 0.937,
+    "e0OnOff": 0.9973,
+    "mix": {
+     "professional": 0.257,
+     "public": 0.122,
+     "services": 0.346,
+     "trades": 0.225,
+     "special": 0.013,
+     "agri": 0.036
+    },
+    "meanOff": 3253351,
+    "meanOn": 3104111
+   },
+   "F": {
+    "n": 375,
+    "incOnOff": 0.9968,
+    "incNeutralOff": 1.0232,
+    "nwOnOff": 1.011,
+    "e0OnOff": 0.9954,
+    "mix": {
+     "trades": 0.239,
+     "services": 0.311,
+     "professional": 0.303,
+     "public": 0.113,
+     "agri": 0.034
+    },
+    "meanOff": 3360037,
+    "meanOn": 3349312
+   },
+   "fmOff": 1.0328,
+   "fmOn": 1.079,
+   "fmNeutral": 1.0919,
+   "allOnOff": 0.9745
+  },
+  "BRA": {
+   "M": {
+    "n": 414,
+    "incOnOff": 1.0036,
+    "incNeutralOff": 1.0222,
+    "nwOnOff": 1.02,
+    "e0OnOff": 1.0003,
+    "mix": {
+     "agri": 0.145,
+     "trades": 0.237,
+     "public": 0.092,
+     "services": 0.301,
+     "professional": 0.216,
+     "special": 0.009
+    },
+    "meanOff": 1255105,
+    "meanOn": 1259590
+   },
+   "F": {
+    "n": 386,
+    "incOnOff": 0.9783,
+    "incNeutralOff": 0.9831,
+    "nwOnOff": 1.02,
+    "e0OnOff": 1.0011,
+    "mix": {
+     "services": 0.32,
+     "trades": 0.276,
+     "professional": 0.188,
+     "agri": 0.124,
+     "public": 0.09,
+     "special": 0.001
+    },
+    "meanOff": 1139314,
+    "meanOn": 1114561
+   },
+   "fmOff": 0.9077,
+   "fmOn": 0.8849,
+   "fmNeutral": 0.8731,
+   "allOnOff": 0.992
+  },
+  "IDN": {
+   "M": {
+    "n": 433,
+    "incOnOff": 1.0273,
+    "incNeutralOff": 1.0435,
+    "nwOnOff": 1.053,
+    "e0OnOff": 0.9999,
+    "mix": {
+     "services": 0.272,
+     "professional": 0.112,
+     "agri": 0.355,
+     "public": 0.063,
+     "trades": 0.191,
+     "special": 0.006
+    },
+    "meanOff": 647184,
+    "meanOn": 664870
+   },
+   "F": {
+    "n": 367,
+    "incOnOff": 1.0473,
+    "incNeutralOff": 1.0218,
+    "nwOnOff": 1.082,
+    "e0OnOff": 1.0001,
+    "mix": {
+     "trades": 0.202,
+     "services": 0.288,
+     "professional": 0.113,
+     "agri": 0.318,
+     "public": 0.071,
+     "special": 0.008
+    },
+    "meanOff": 696070,
+    "meanOn": 728966
+   },
+   "fmOff": 1.0755,
+   "fmOn": 1.0964,
+   "fmNeutral": 1.0532,
+   "allOnOff": 1.0368
+  },
+  "NGA": {
+   "M": {
+    "n": 412,
+    "incOnOff": 1.0419,
+    "incNeutralOff": 1.0298,
+    "nwOnOff": 0.952,
+    "e0OnOff": 0.9986,
+    "mix": {
+     "agri": 0.352,
+     "professional": 0.069,
+     "services": 0.325,
+     "public": 0.056,
+     "trades": 0.18,
+     "special": 0.018
+    },
+    "meanOff": 239790,
+    "meanOn": 249846
+   },
+   "F": {
+    "n": 388,
+    "incOnOff": 1.0573,
+    "incNeutralOff": 1.0365,
+    "nwOnOff": 1.102,
+    "e0OnOff": 0.9953,
+    "mix": {
+     "trades": 0.219,
+     "services": 0.279,
+     "public": 0.058,
+     "professional": 0.072,
+     "agri": 0.366,
+     "special": 0.004
+    },
+    "meanOff": 279941,
+    "meanOn": 295972
+   },
+   "fmOff": 1.1674,
+   "fmOn": 1.1846,
+   "fmNeutral": 1.1751,
+   "allOnOff": 1.05
+  },
+  "MEX": {
+   "M": {
+    "n": 395,
+    "incOnOff": 0.971,
+    "incNeutralOff": 0.9703,
+    "nwOnOff": 0.946,
+    "e0OnOff": 0.9987,
+    "mix": {
+     "services": 0.33,
+     "trades": 0.262,
+     "public": 0.108,
+     "professional": 0.145,
+     "agri": 0.148,
+     "special": 0.008
+    },
+    "meanOff": 1346651,
+    "meanOn": 1307566
+   },
+   "F": {
+    "n": 405,
+    "incOnOff": 1.0039,
+    "incNeutralOff": 0.9947,
+    "nwOnOff": 0.93,
+    "e0OnOff": 0.9987,
+    "mix": {
+     "services": 0.293,
+     "trades": 0.261,
+     "professional": 0.18,
+     "public": 0.117,
+     "agri": 0.142,
+     "special": 0.006
+    },
+    "meanOff": 1390654,
+    "meanOn": 1396092
+   },
+   "fmOff": 1.0327,
+   "fmOn": 1.0677,
+   "fmNeutral": 1.0586,
+   "allOnOff": 0.9879
+  },
+  "ETH": {
+   "M": {
+    "n": 422,
+    "incOnOff": 1.0694,
+    "incNeutralOff": 1.0434,
+    "nwOnOff": 1.022,
+    "e0OnOff": 1.003,
+    "mix": {
+     "agri": 0.543,
+     "trades": 0.139,
+     "services": 0.26,
+     "special": 0.003,
+     "public": 0.03,
+     "professional": 0.026
+    },
+    "meanOff": 79074,
+    "meanOn": 84562
+   },
+   "F": {
+    "n": 378,
+    "incOnOff": 0.9281,
+    "incNeutralOff": 0.9527,
+    "nwOnOff": 0.922,
+    "e0OnOff": 0.9892,
+    "mix": {
+     "services": 0.231,
+     "agri": 0.502,
+     "trades": 0.206,
+     "public": 0.008,
+     "professional": 0.034,
+     "special": 0.019
+    },
+    "meanOff": 91605,
+    "meanOn": 85015
+   },
+   "fmOff": 1.1585,
+   "fmOn": 1.0054,
+   "fmNeutral": 1.0577,
+   "allOnOff": 0.9974
+  }
+ }
+}

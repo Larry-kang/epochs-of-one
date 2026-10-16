@@ -67,7 +67,10 @@ test('M4 proxy home market is labelled 推估; validation rejects >100%', async 
 test('M4 About lists market sources', async ({ page }) => {
   await page.goto('./');
   await page.getByRole('button', { name: '關於與資料來源' }).click();
-  await expect(page.locator('#markets-sources-2')).toContainText('OECD');
+  await expect(page.locator('#markets-sources-2')).toContainText('推估'); // v0.10.0: OECD share prices removed → GDP model
+  await expect(page.locator('#markets-sources-2')).not.toContainText('OECD');
+  await expect(page.locator('#l1-sources')).toContainText('ILOSTAT');
+  await expect(page.locator('#l1-sources')).toContainText('CC BY-SA 4.0');
   await expect(page.locator('#markets-sources-2')).toContainText('Pink Sheet');
   await shot(page, 'm4-05-about');
 });

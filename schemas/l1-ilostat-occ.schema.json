@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "l1-ilostat-occ.schema.json",
+  "title": "L1 ILOSTAT employment shares by sex × ISCO major",
+  "type": "object",
+  "required": [
+    "attribution",
+    "data"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "attribution": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Z]{3}$": {
+          "type": "object",
+          "patternProperties": {
+            "^\\d{4}$": {
+              "type": "object",
+              "required": [
+                "y",
+                "cls",
+                "M",
+                "F"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "y": {
+                  "type": "integer"
+                },
+                "cls": {
+                  "enum": [
+                    "ISCO08",
+                    "ISCO88"
+                  ]
+                },
+                "M": {
+                  "type": "array",
+                  "minItems": 10,
+                  "maxItems": 10,
+                  "items": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  }
+                },
+                "F": {
+                  "type": "array",
+                  "minItems": 10,
+                  "maxItems": 10,
+                  "items": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  }
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

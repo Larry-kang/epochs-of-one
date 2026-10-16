@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "l1-ilostat-inf.schema.json",
+  "title": "L1 ILOSTAT informality rate by sex",
+  "type": "object",
+  "required": [
+    "attribution",
+    "data"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "attribution": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Z]{3}$": {
+          "type": "object",
+          "patternProperties": {
+            "^(\\d{4}|latest)$": {
+              "type": "object",
+              "required": [
+                "y",
+                "M",
+                "F"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "y": {
+                  "type": "integer"
+                },
+                "T": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "M": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "F": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

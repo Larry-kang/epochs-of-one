@@ -1,15 +1,17 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`M4 leverage  > US backtest 1960–2025, k=2, m=0.25 at intra-year path quantiles u=0.5 and u=0.9: margin-call years (golden list in) 1`] = `
+exports[`M4 leverage > US stress-path backtest 1960–2025 (synthetic fixture), k=2, m=0.25 at u=0.5 and u=0.9: margin-call years 1`] = `
 {
   "u0.5": [
     1974,
     1987,
+    2002,
     2008,
   ],
   "u0.9": [
     1974,
     1987,
+    2002,
     2008,
   ],
 }

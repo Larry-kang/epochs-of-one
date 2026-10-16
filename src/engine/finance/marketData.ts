@@ -1,6 +1,6 @@
 // Contracts for public/data/markets/markets.json (schemas/markets.schema.json) and housing-pension.json.
 export interface Dense { from: number; v: (number | null)[] }
-export interface Priced { from: number; v: number[]; kind: 'dec_monthly' | 'oecd_avg' | 'close' | 'annual_avg' | 'synthetic_gdp_weighted'; src: string; dd?: (number | null)[]; unverified?: number[]; n?: number[] }
+export interface Priced { from: number; v: number[]; kind: 'dec_monthly' | 'oecd_avg' | 'close' | 'annual_avg' | 'synthetic_gdp_weighted' | 'model_ngdp'; src: string; est?: boolean; dd?: (number | null)[]; unverified?: number[]; n?: number[] }
 export interface MarketsData {
   note: string; retrieved: string;
   eq: Record<string, Priced>; fxEuroRebased: string[]; world: Priced; gold: Priced; btc: Priced;

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "l1-uis.schema.json",
+  "title": "L1 UIS tertiary GER (CC BY-SA 4.0, separate file)",
+  "type": "object",
+  "required": [
+    "attribution",
+    "data"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "attribution": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Z]{3}$": {
+          "type": "object",
+          "patternProperties": {
+            "^\\d{4}$": {
+              "type": "object",
+              "required": [
+                "y",
+                "ger"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "y": {
+                  "type": "integer"
+                },
+                "ger": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 3
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "licence": {
+      "type": "string"
+    }
+  }
+}
