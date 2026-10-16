@@ -1,0 +1,11 @@
+{
+  "events": [],
+  "decisions": [],
+  "history": [
+    { "id": "h_oil_1973", "from": 1973, "to": 1974, "iso": "*", "kind": "econ" },
+    { "id": "h_asia_1997", "from": 1997, "to": 1998, "iso": ["THA", "IDN", "KOR", "MYS", "PHL"], "kind": "econ" },
+    { "id": "h_gfc_2008", "from": 2008, "to": 2009, "iso": "*", "kind": "econ" },
+    { "id": "h_covid_2020", "from": 2020, "to": 2021, "iso": "*", "kind": "crisis" },
+    { "id": "h_moon_1969", "from": 1969, "to": 1969, "iso": "*", "kind": "milestone" }
+  ]
+}

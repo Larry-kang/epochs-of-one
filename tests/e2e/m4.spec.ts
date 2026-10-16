@@ -1,5 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
-import { autoAnswer } from './auto.ts';
+import { autoAnswer, skipToEnd } from './auto.ts';
 
 const shot = (page: Page, name: string) => page.screenshot({ path: `shots/${name}.png`, fullPage: true });
 // Resume a deterministic life at a given age via the versioned save (same path as "繼續上次的人生").
@@ -46,7 +46,7 @@ test('M4 invest panel: allocate, leverage risk notice, replay after reload, sett
   await page.getByRole('button', { name: '繼續上次的人生' }).click();
   await page.getByRole('button', { name: '暫停' }).click();
   if ((await page.locator('#age').textContent()) === age) await expect(page.locator('#inv')).toHaveText(nw!);
-  await page.getByRole('button', { name: '快轉到終點' }).click();
+  await skipToEnd(page);
   await expect(page.getByRole('heading', { name: '人生結算' })).toBeVisible();
   await expect(page.locator('#calls')).toBeVisible();
   await shot(page, 'm4-03-death');

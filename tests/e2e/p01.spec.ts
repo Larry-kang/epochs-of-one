@@ -1,4 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
+import { skipToEnd, toBirth } from './auto.ts';
 
 const TW = { country: { kind: 'fixed', value: 'TWN' }, sex: { kind: 'fixed', value: 'F' }, quintile: { kind: 'fixed', value: 4 }, urban: { kind: 'fixed', value: true } };
 async function resumeAt(page: Page, seed: string, year: number, years: number, constraints: unknown = TW) {
@@ -14,11 +15,7 @@ async function resumeAt(page: Page, seed: string, year: number, years: number, c
 }
 
 test('P01 birth-country picker, name/family on the birth card, quick reroll', async ({ page }) => {
-  await page.goto('./');
-  await page.getByRole('button', { name: '開始新的人生' }).click();
-  await page.locator('#country').selectOption('TWN');
-  await page.locator('input[name=seed]').fill('p01-pick');
-  await page.getByRole('button', { name: '抽出生卡' }).click();
+  await toBirth(page, 'p01-pick', { country: 'TWN' });
   await expect(page.locator('#b-country')).toContainText('TWN');
   const before = await page.locator('main').textContent();
   await page.locator('#reroll').click();
@@ -52,7 +49,7 @@ test('P01 house panel: 30/40-year terms with required income and down payment; p
 
 test('P01 death screen: record card with name, cause, happiest year and last words', async ({ page }) => {
   await resumeAt(page, 'p01-d', 1950, 40);
-  await page.getByRole('button', { name: '快轉到終點' }).click();
+  await skipToEnd(page);
   await expect(page.getByRole('heading', { name: '人生結算' })).toBeVisible({ timeout: 30000 });
   for (const id of ['#rec-name', '#cause', '#last-words']) await expect(page.locator(id)).not.toBeEmpty();
   await expect(page.locator('main')).not.toContainText('§');

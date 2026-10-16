@@ -14,7 +14,7 @@ export const APP = {
 /** NOW_Y comes from config, not new Date(). */
 export const NOW_YEAR = 2026;
 
-export const ENGINE_VERSION = '0.6.0';
+export const ENGINE_VERSION = '0.7.0';
 
 export const FEATURES = {
   /** Owner re-enabled BTC (2026-10-16) using self-compiled annual closes; investing UI lands in M4/M5. */
