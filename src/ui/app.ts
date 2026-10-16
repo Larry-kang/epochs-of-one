@@ -336,7 +336,7 @@ function lifeView(): void {
   </aside>
   <main class="col-mid">
     <section id="panel" class="panel card" hidden></section>
-    <section class="card focuscard" id="focuscard" hidden><h2 class="serif">${esc(t('focusTitle'))} <small class="muted">${esc(t('focusNote'))}</small></h2><div class="focus-pills" id="focus-pills" role="radiogroup" aria-label="${esc(t('focusTitle'))}"></div></section>
+    <section class="card focuscard" id="focuscard" hidden><h2 class="serif">${esc(t('focusTitle'))} <small class="muted">${esc(t('focusNote'))}</small></h2><div class="focus-pills" id="focus-pills" role="radiogroup" aria-label="${esc(t('focusTitle'))}"></div><p class="small muted fc-feedback" id="fc-feedback" hidden></p></section>
     <section class="card spendcard" id="spendcard" hidden><button id="spend" class="primary wide spend-entry"></button><p class="muted small" id="spend-hint" hidden></p>
       <div class="fin-btns" id="fin-btns"><button id="invest" class="ghost">${esc(t('investBtn'))}</button><button id="house" class="ghost">${esc(t('houseBtn'))}</button><button id="loan" class="ghost">${esc(t('loanBtn'))}</button><button id="annuity" class="ghost">${esc(t('annuityBtn'))}</button></div></section>
     <section class="card logcard"><h2 class="serif">${esc(t('log'))}</h2><ol id="log" class="log" aria-live="polite"${contentLangAttr()}></ol>${getLang() !== 'zh-TW' ? `<p class="muted small content-note">${esc(t('contentNote'))}</p>` : ''}<button class="ghost small" id="log-more" hidden></button></section>
@@ -534,6 +534,15 @@ function stageOf(s: LifeState): Stage {
   return focusStage({ age: s.age, studying, uni: studying && (k.plan === 'tertiary' || k.plan === 'graduate'), inLabor: !s.econ.retired && s.age >= Math.max(15, k.studyUntil), unemployed: !!y?.unemployed, retired: s.econ.retired });
 }
 let autoFocusStage = '';
+/** v0.8.1 yearly feedback line from the engine's last focus summary (flags.fcLast) */
+function focusFeedback(s: LifeState): string {
+  if (typeof s.flags.fcLast !== 'string') return '';
+  const f = JSON.parse(s.flags.fcLast) as Record<string, number>; const sg = (v: number) => (v > 0 ? `+${v}%` : `${v}%`);
+  const parts = [f.inc ? t('fcfInc', { v: sg(f.inc) }) : '', f.grow ? t('fcfGrow', { v: f.grow }) : '', f.promo ? t('fcfPromo', { v: sg(f.promo) }) : '',
+    f.hz ? t('fcfHz', { v: sg(f.hz) }) : '', f.cost ? t('fcfCost', { v: f.cost }) : '', f.marry ? t('fcfMarry', { v: f.marry + '%' }) : '', f.bond ? t('fcfBond', { v: Math.round(f.bond * 10) / 10 }) : '', f.school ? t('fcfSchool', { v: f.school + '%' }) : '', f.part ? t('fcfPart', { v: f.part + '%' }) : ''].filter(Boolean);
+  return parts.length ? t('fcFeedback') + parts.join(' · ') : '';
+}
+
 function renderFocus(): void {
   const s = run!.s; const card = root.querySelector('#focuscard') as HTMLElement;
   const st = s.death ? 'none' : stageOf(s); const chips = chipsFor(st);
@@ -550,6 +559,7 @@ function renderFocus(): void {
     return [...(Object.entries(f.fx) as [string, number][]).filter(([, v]) => v).map(([k, v]) => t(k as 'health') + ar(v)),
       ...(f.incomeMult > 1 ? [t('incomeShort') + '↑'] : []), ...(f.promoMult !== 1 ? [t('focusPromo') + ar(f.promoMult - 1)] : []), ...(f.costShare > 0 ? [t('focusCost') + '↑'] : [])].join(' '); };
   const pill = (c: string) => { const n = Math.round(eff[c] ?? 0); return `<button class="fpill" data-focus="${c}" aria-pressed="${n > 0}" aria-checked="${n > 0}" data-n="${n}"><b>${esc(t(('focus_' + c) as 'focus_none'))} <span class="dots" aria-hidden="true">${'●'.repeat(Math.min(3, n))}${'○'.repeat(Math.max(0, 3 - n))}</span></b><small class="mono">${esc(n > 0 ? t('focusShare', { p: Math.round((w[c] ?? 0) * 100) }) + ' · ' : '')}${esc(hint(c))}</small></button>`; };
+  const fb = root.querySelector('#fc-feedback') as HTMLElement; fb.textContent = focusFeedback(s); fb.hidden = !fb.textContent;
   (root.querySelector('#focus-pills') as HTMLElement).innerHTML = chips.map(pill).join('') + `<button class="fpill clear" data-focus="" aria-pressed="${!Object.keys(eff).length}"><b>${esc(t('focusClear'))}</b></button>`;
   root.querySelectorAll<HTMLButtonElement>('.fpill').forEach((b) => b.addEventListener('click', () => {
     const c = b.dataset.focus!;

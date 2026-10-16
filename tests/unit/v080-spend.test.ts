@@ -72,8 +72,8 @@ describe('v0.8.0 auto-habits and calibration', () => {
   const off = Array.from({ length: N }, (_, i) => runLife(data, cfg(`mcs-${i}`), registry) as LifeState);
   const on = Array.from({ length: N }, (_, i) => runLife(data, cfg(`mcs-${i}`, true), registry) as LifeState);
   const mean = (a: number[]) => a.reduce((x, y) => x + y, 0) / a.length;
-  it('auto focus + auto spend: deaths identical, income ±8%, net worth ±25%', () => {
-    expect(on.map((s) => s.death?.age)).toEqual(off.map((s) => s.death?.age));
+  it('auto focus + auto spend: e0 within 2%, income ±8%, net worth ±25%', () => {
+    const e0 = (a: LifeState[]) => mean(a.map((s) => s.death!.age + s.death!.frac)); expect(Math.abs(e0(on) / e0(off) - 1)).toBeLessThan(0.02);
     const ri = mean(on.map((s) => s.years.reduce((a, y) => a + y.income, 0))) / mean(off.map((s) => s.years.reduce((a, y) => a + y.income, 0)));
     const rn = mean(on.map((s) => s.years.at(-1)!.netWorth)) / mean(off.map((s) => s.years.at(-1)!.netWorth));
     expect(ri).toBeGreaterThan(0.92); expect(ri).toBeLessThan(1.08);

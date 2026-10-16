@@ -22,6 +22,15 @@ for (const [name, vp] of [['desktop', { width: 1280, height: 860 }], ['m390', { 
     await expect(page.locator('.fpill[data-focus="study"]')).toHaveAttribute('data-n', '2');
     await expect(page.locator('.fpill[data-focus="study"] small')).toContainText('67%');
     await expect(page.locator('.fpill[data-focus="play"] small')).toContainText('33%');
+    // v0.8.1: after a year with this focus, a feedback line explains its effects
+    await page.evaluate(() => (document.querySelector('#pause') as HTMLButtonElement).click());
+    for (let i = 0; i < 150 && !(await page.locator('#fc-feedback').isVisible()); i++) {
+      const opt = page.locator('#choice:not([hidden]) button.opt, dialog[open] button.opt').first();
+      if (await opt.isVisible().catch(() => false)) await opt.click().catch(() => {}); else await page.waitForTimeout(200);
+    }
+    await expect(page.locator('#fc-feedback')).toBeVisible();
+    await expect(page.locator('#fc-feedback')).toContainText('升學機會');
+    await page.evaluate(() => (document.querySelector('#pause') as HTMLButtonElement).click());
     await page.locator('#focuscard').scrollIntoViewIfNeeded();
     await page.screenshot({ path: `shots/v080/focus-${name}.png` });
     await page.locator('.fpill.clear').click();

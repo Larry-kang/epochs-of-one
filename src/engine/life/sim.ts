@@ -1,4 +1,4 @@
-import { focusStage, activeAlloc, autoAlloc, mapToStage, focusEffects, allocKey, type FocusFx } from './focus.ts';
+import { healthHazard, focusStage, activeAlloc, autoAlloc, mapToStage, focusEffects, allocKey, type FocusFx } from './focus.ts';
 import { buy, sell, autoHabits, bondAdd, LIFESTYLE, lifestyleAt, lifestyleYear, routineOn, ROUTINES, itemById } from './spend.ts';
 import { cohortTfr, wppAt, type WppExtra } from './fertility.ts';
 // Life engine: newLife() + advanceYear() (pure, deterministic given seed + data).
@@ -116,7 +116,9 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   // draw order is fixed: [0] death, [1] death frac, [2] unemployment
   const uDeath = r.next(), uFrac = r.next(), uUnemp = r.next(), uLuck = r.next();
   const t = tableFor(data, s);
-  const dies = age >= MAX_AGE || uDeath < t.p[Math.min(age, MAX_AGE)]!;
+  const fxPrev: FocusFx | undefined = typeof s.flags.fcEff === 'string' ? focusEffects(JSON.parse(s.flags.fcEff) as Record<string, number>) : undefined;
+  const hzd = fxPrev ? healthHazard(s.stats.health, age, fxPrev) : 1; // v0.8.1: only lives with a focus in force
+  const dies = age >= MAX_AGE || uDeath < Math.min(1, t.p[Math.min(age, MAX_AGE)]! * hzd);
 
   const est: string[] = [];
   let pct = s.econ.pct;
@@ -145,7 +147,7 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   const career: Career = { ...s.career };
   const family = { ...s.family, siblings: [...s.family.siblings], children: [...s.family.children] };
   // v0.8.0 focus in force last year shapes this year's offers (marriage, schooling)
-  const fx0: FocusFx | undefined = typeof s.flags.fcEff === 'string' ? focusEffects(JSON.parse(s.flags.fcEff) as Record<string, number>) : undefined;
+  const fx0 = fxPrev;
   for (const o of offersAt({ s, c, calYear, meanIncome: d.mean, tfr: cohortTfr(data.wpp, s.born.iso, s.born.year), ...(fx0 ? { focus: fx0 } : {}) })) {
     const rec = s.actions.find((x) => x.t === 'choice' && x.age === age && x.id === o.id);
     const opt = rec && rec.t === 'choice' && o.opts.includes(rec.opt) ? rec.opt : defaultPick(s.seed, age, o);
@@ -205,7 +207,9 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
       flags.fcStage = stage; flags.fcEff = JSON.stringify(eff);
       const fx = focusEffects(eff); fxNow = fx;
       for (const [k, v] of Object.entries(fx.fx) as [keyof typeof stats, number][]) stats[k] += v;
-      if (inLabor && !unemployed) income *= fx.incomeMult;
+      if (inLabor && !unemployed) { income *= fx.incomeMult; if (fx.learnGrowth > 0) career.mult *= 1 + fx.learnGrowth; }
+      { const b = Number(flags.bond ?? 50); flags.bond = Math.round(Math.max(0, Math.min(100, b + fx.bondAdd - 0.08 * (b - 50))) * 10) / 10; } // bond drifts back toward 50 unless tended
+      flags.fcLast = JSON.stringify({ inc: Math.round((fx.incomeMult - 1) * 100), grow: Math.round(fx.learnGrowth * 1000) / 10, promo: Math.round((fx.promoMult - 1) * 100), hz: Math.round((healthHazard(stats.health, age, fx) - 1) * 100), cost: Math.round(fx.costShare * 100), marry: Math.round(fx.marryAdd * 100), bond: fx.bondAdd, school: Math.round(fx.schoolAdd * 1000) / 10, part: Math.round(fx.parttime * 100) });
       if (partTime && fx.parttime > 0) income *= 1 + fx.parttime;
       focusCost = fx.costShare * Math.max(0, income);
       if (inLabor && !unemployed && age >= 22 && age <= 58 && fx.jobMult > 1 && stream(s.seed, 'focus', age).next() < 0.04 * (fx.jobMult - 1)) {
@@ -220,7 +224,7 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   if (events) {
     const out = events.run({ seed: s.seed, age, calYear, country: c, stats, cash, income, pct, unemployed, inLabor, flags, quintile: s.born.quintile, urban: s.born.urban, sex: s.born.sex, meanIncome: d.mean,
       studying, married: married0, kids: kids0, siblings: family.siblings.length, retired, owner: !!s.house, city: career.city, careerMult: career.mult, gdp: gdpPc, oop,
-      ...(fxNow ? { focusPromo: fxNow.promoMult, focusFamily: fxNow.familyMult } : {}) });
+      ...(fxNow ? { focusPromo: fxNow.promoMult, focusFamily: fxNow.familyMult, focusDivorce: fxNow.divorceMult } : {}) });
     stats = out.stats; cash = out.cash; income = out.income; pct = out.pct;
     if (out.careerMult > career.mult * 1.05) career.promotions += 1;
     career.mult = out.careerMult;

@@ -8,7 +8,7 @@ import { seriesAt } from '../data/types.ts';
 import { stream } from '../rng/streams.ts';
 import { gradAge, schoolingOdds, type Edu } from '../economy/household.ts';
 import { makeName, type NameRegion } from '../content/names.ts';
-import { BIRTH_SPACING, CHILD_COOLDOWN, FERTILE, childOfferP, familyTarget } from './fertility.ts';
+import { BIRTH_SPACING, CHILD_COOLDOWN, FERTILE, MARRIED_SHARE, childOfferP, familyTarget } from './fertility.ts';
 import type { Career, Family, LifeState, Stats } from './state.ts';
 
 export type ChoiceId = 'vaccine' | 'school' | 'hs' | 'uni' | 'grad' | 'career' | 'move' | 'marry' | 'child' | 'parents' | 'treat';
@@ -57,9 +57,13 @@ export function offersAt(x: ChoiceCtx): ChoiceOffer[] {
   if (!f.spouse && age >= 22 && age <= 40 && uMarry < 0.07 + s.stats.social / 900 + (x.focus?.marryAdd ?? 0)) out.push({ id: 'marry', opts: ['marry', 'wait'], weights: [0.7, 0.3] });
   if (x.tfr !== undefined) {
     if (f.spouse && age >= FERTILE.from && age <= FERTILE.to && age >= (f.childCoolUntil ?? 0) && f.children.length < 8) {
-      const target = familyTarget(x.tfr, stream(s.seed, 'family', 'fert').next());
+      const uT = stream(s.seed, 'family', 'fert').next();
+      const t0 = familyTarget(x.tfr, uT);
+      // v0.8.1 family focus: may lift the target by one, but never above the WPP-aligned ceiling ⌈TFR / married share⌉
+      const cap = Math.ceil(x.tfr / MARRIED_SHARE);
+      const target = t0 < cap && (x.focus?.childAdd ?? 0) > 0 && (uT * 7919) % 1 < (x.focus?.childAdd ?? 0) ? t0 + 1 : t0;
       if (uChild < childOfferP(target, f.children.length, age)) {
-        const want = f.children.length < target ? 0.9 : 0.12;
+        const want = f.children.length < target ? Math.min(0.97, 0.9 + (x.focus?.childAdd ?? 0) * 0.2) : 0.12 + (x.focus?.childAdd ?? 0) * 0.2;
         out.push({ id: 'child', opts: ['have', 'notnow'], weights: [want, 1 - want], vars: { nth: f.children.length + 1 } });
       }
     }
