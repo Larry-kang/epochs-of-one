@@ -14,18 +14,3 @@ exports[`M4 leverage  > US backtest 1960–2025, k=2, m=0.25 at intra-year path 
   ],
 }
 `;
-
-exports[`M4 leverage > US backtest 1960–2025, k=2, m=0.25 at intra-year path quantiles u=0.5 and u=0.9: margin-call years (golden list in) 1`] = `
-{
-  "u0.5": [
-    1974,
-    1987,
-    2008,
-  ],
-  "u0.9": [
-    1974,
-    1987,
-    2008,
-  ],
-}
-`;
