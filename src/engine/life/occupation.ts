@@ -92,8 +92,8 @@ export const occHazard = (id: string | undefined, gdp: number, age: number): num
 /** wage factor of an occupation at rung r (rel × ladder / norm); startups use their own luck draw on top */
 /** per-country normalising term (推估, fitted by tools/c0/ratios.test.ts): within an income group, countries differ in how
  *  education, quintile and drivers co-move with occupation, so mean lifetime income under C0 can drift from the pre-C0
- *  engine. Key ISO; missing keys → 1. Refit whenever the occupation table, GROUP_ADJ or NORM_K change. */
-export const COUNTRY_K: Record<string, number> = { IND: 1.026, NGA: 1.179, BRA: 1.0035, TWN: 0.9872, USA: 1.0105, DEU: 0.9663, KOR: 0.9483, CHN: 1.0229, ETH: 0.9657, MEX: 1.0557, IDN: 1.0385 };
+ *  engine. Key ISO; missing keys → 1. v0.9.0 rc4: fitted on the mean over 20 seed sets × N=200, 1970 + 1990 cohorts (tools/c0/multiseed.test.ts). Refit whenever the occupation table, GROUP_ADJ or NORM_K change. */
+export const COUNTRY_K: Record<string, number> = { IND: 0.9997, NGA: 1.0452, BRA: 1.0887, TWN: 0.9875, USA: 0.9808, DEU: 0.9847, KOR: 0.9449, CHN: 1.0053, ETH: 0.9363, MEX: 1.11, IDN: 1.079 };
 export function occWageF(id: string, rung: number, gdp: number, plan?: Edu, iso?: string): number {
   const o = occById(id); if (!o) return 1;
   const r = Math.max(0, Math.min(rung, o.ladder.length - 1));

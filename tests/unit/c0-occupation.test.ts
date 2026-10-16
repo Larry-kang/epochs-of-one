@@ -1,9 +1,9 @@
-// C0 core careers: occupation table, entry draw, startups, illicit rules, rare roles, legacy mapping, and MC guardrails.
+// C0 core careers: occupation table, entry draw, startups, illicit rules, rare roles, legacy mapping (MC guardrails: c0-guardrail-*.test.ts).
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { loadBundleFromDisk } from '../../src/engine/data/nodeLoader.ts';
 import { runLife, newLife, advanceYear, type LifeConfig } from '../../src/engine/life/sim.ts';
-import { OCCS, occById, entryDraw, GROUP_TARGET, bizHazard, BIZ, RARE_PATHS, ILLICIT, legacyOcc, ENTRY_GROUPS, type Biz, type EntryCtx } from '../../src/engine/life/occupation.ts';
+import { OCCS, occById, entryDraw, bizHazard, BIZ, RARE_PATHS, ILLICIT, legacyOcc, ENTRY_GROUPS, type Biz, type EntryCtx } from '../../src/engine/life/occupation.ts';
 import type { LifeState } from '../../src/engine/life/state.ts';
 import { contentEvents as registry, ENGINE_EVENT_IDS } from '../../src/engine/content/registry.ts';
 import { stream } from '../../src/engine/rng/streams.ts';
@@ -12,7 +12,6 @@ import tableJson from '../../src/content/i18n/table.json';
 const data = loadBundleFromDisk();
 const cfg = (seed: string, iso: string, year: number, occ: boolean, extra: Partial<LifeConfig> = {}): LifeConfig => ({ seed, era: { kind: 'past', year }, nowYear: 2026, engineVersion: 't', ...(occ ? { occ: true } : {}), ...extra,
   constraints: { country: { kind: 'fixed', value: iso as never }, sex: { kind: 'random' }, quintile: { kind: 'random' }, urban: { kind: 'random' } } });
-const mean = (a: number[]) => a.reduce((x, y) => x + y, 0) / a.length;
 
 describe('C0 table', () => {
   it('80 occupations, unique ids, ISCO-08 codes, 1–5 ladder rungs, every number 推估', () => {
@@ -86,27 +85,4 @@ describe('C0 startups, illicit, rare roles', () => {
     if (!s.death && s.career.trackSet) expect(occById(s.career.occ)).toBeTruthy();
   });
 });
-
-describe('C0 guardrails (MC)', () => {
-  const N = 200;
-  for (const [iso, year] of [['TWN', 1970], ['USA', 1970], ['IND', 1970], ['NGA', 1970], ['TWN', 1990], ['USA', 1990], ['IND', 1990], ['NGA', 1990]] as const) {
-    it(`${iso} ${year}: lifetime income ±8%, net worth ±20%, e0 ±2%, under-5 deaths identical, mix within ±5 pts`, () => {
-      const off = Array.from({ length: N }, (_, i) => runLife(data, cfg(`c0-${iso}-${i}`, iso, year, false), registry) as LifeState);
-      const on = Array.from({ length: N }, (_, i) => runLife(data, cfg(`c0-${iso}-${i}`, iso, year, true), registry) as LifeState);
-      const inc = (a: LifeState[]) => mean(a.map((s) => s.years.reduce((x, y) => x + y.income, 0)));
-      const nw = (a: LifeState[]) => mean(a.map((s) => s.years.at(-1)!.netWorth));
-      const e0 = (a: LifeState[]) => mean(a.map((s) => s.death!.age + s.death!.frac));
-      expect(inc(on) / inc(off)).toBeGreaterThan(0.92); expect(inc(on) / inc(off)).toBeLessThan(1.08);
-      expect(nw(on) / nw(off)).toBeGreaterThan(0.8); expect(nw(on) / nw(off)).toBeLessThan(1.2);
-      expect(Math.abs(e0(on) / e0(off) - 1)).toBeLessThan(0.02);
-      on.forEach((s, i) => { if (s.death!.age < 5 || off[i]!.death!.age < 5) expect(s.death!.age).toBe(off[i]!.death!.age); });
-      // occupation mix (working-age employed person-years 25–64) vs the 推估 national structure for the income group of 2000
-      const cnt: Record<string, number> = {}; let tot = 0; const want: Record<string, number> = {};
-      for (const s of on) for (const [a, g] of Object.entries((s.flags.occYears as string | undefined) ? JSON.parse(s.flags.occYears as string) as Record<string, string> : {})) {
-        if (Number(a) < 25 || Number(a) > 64 || !ENTRY_GROUPS.includes(g as never)) continue; cnt[g] = (cnt[g] ?? 0) + 1; tot++; for (const h of ENTRY_GROUPS) want[h] = (want[h] ?? 0) + GROUP_TARGET[(s.flags.occIg as 'L') ?? 'H'][h]!; }
-      const ig = 'entry-year groups';
-      const mix = Object.fromEntries(ENTRY_GROUPS.map((g) => [g, +((cnt[g] ?? 0) / tot).toFixed(3)])); console.log(iso, ig, JSON.stringify(mix), 'inc', (inc(on) / inc(off)).toFixed(3), 'nw', (nw(on) / nw(off)).toFixed(3), 'e0', (e0(on) / e0(off)).toFixed(4));
-      for (const g of ENTRY_GROUPS) expect(Math.abs((cnt[g] ?? 0) / tot - want[g]! / tot), `${iso} ${g}`).toBeLessThan(0.05);
-    });
-  }
-});
+// MC guardrails: pooled multi-seed checks live in tests/unit/c0-guardrail-<iso>.test.ts (one file per country, run in parallel)

@@ -10,7 +10,7 @@ import { writeFileSync } from 'node:fs';
 const N = Number(process.env.MC_N ?? 200); const label = process.env.MC_LABEL ?? 'current';
 it('focus MC', () => {
 const data = loadBundleFromDisk();
-const COUNTRIES = ['TWN', 'USA', 'IND'] as const;
+const COUNTRIES = (process.env.MC_COUNTRIES ? process.env.MC_COUNTRIES.split(',') : ['TWN', 'USA', 'IND']) as readonly string[];
 // one recorded focus at age 6, persisting all life; mapToStage moves chips the stage lacks to the nearest chip
 const STRATS: Record<string, Action[] | 'auto'> = {
   work: [{ t: 'focus', age: FOCUS_FROM, w: { work: 1 } }],
