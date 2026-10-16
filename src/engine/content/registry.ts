@@ -2,6 +2,8 @@
 // Conditions/weights/effects only — text lives in the translation table src/content/i18n/table.json (strings.events) keyed by id.
 // Probabilities are game-design content (pacing), not empirical parameters; they never affect mortality.
 // Repetition control: every event has a cooldown (years) stored in flags `cd:<id>` (0 = once per life).
+import occEvents from '../../content/occ-events.json' with { type: 'json' };
+import { occById } from '../life/occupation.ts';
 import type { EventCtx, EventOut, EventSystem } from '../life/events.ts';
 import { stream } from '../rng/streams.ts';
 import { PARAMS } from '../params.ts';
@@ -24,8 +26,8 @@ const CORE: EventDef[] = [
     apply: (c, o) => { o.flags.firstJob = c.age; o.stats.happy += 5; return { amount: Math.round(c.income) }; } },
   { id: 'jobless_year', cd: 1, p: 1, when: (c) => c.inLabor && c.unemployed,
     apply: (c, o) => { o.stats.happy -= 8; o.stats.social -= 2; return { amount: Math.round(c.income) }; } },
-  { id: 'promotion', cd: 3, p: (c) => (0.07 + c.stats.smart / 2000) * (c.focusPromo ?? 1), when: (c) => c.inLabor && !c.unemployed && c.age >= 24 && c.age <= 58 && c.careerMult < 2.2,
-    apply: (_c, o, r) => { const step = PARAMS.promoStep.value * (0.8 + 0.6 * r()); o.careerMult *= 1 + step; o.stats.happy += 5; return { pct: Math.round(step * 100) }; } },
+  { id: 'promotion', cd: 3, p: (c) => (0.07 + c.stats.smart / 2000) * (c.focusPromo ?? 1), when: (c) => c.inLabor && !c.unemployed && c.age >= 24 && c.age <= 58 && (c.occMaxRung !== undefined ? (c.occRung ?? 0) < c.occMaxRung : c.careerMult < 2.2),
+    apply: (c, o, r) => { if (c.occMaxRung !== undefined) { const l = occById(c.occ)?.ladder ?? []; const r0 = c.occRung ?? 0; o.flags.rungUp = 1; o.stats.happy += 5; return { pct: Math.round(((l[r0 + 1]?.[1] ?? 1) / (l[r0]?.[1] ?? 1) - 1) * 100) }; } const step = PARAMS.promoStep.value * (0.8 + 0.6 * r()); o.careerMult *= 1 + step; o.stats.happy += 5; return { pct: Math.round(step * 100) }; } },
   { id: 'illness', cd: 2, p: (c) => (c.stats.health < 40 ? 0.12 : 0.04), when: (c) => c.age >= 18,
     apply: (c, o, r) => { const cost = Math.max(1, Math.round(c.meanIncome * (0.05 + 0.1 * r()) * c.oop)); o.stats.health -= 12; o.stats.happy -= 4; o.cash -= cost; return { cost }; } },
   { id: 'illness_child', cd: 3, p: (c) => (c.stats.health < 40 ? 0.12 : 0.05), when: (c) => c.age >= 3 && c.age < 18,
@@ -147,13 +149,27 @@ export const contentEvents: EventSystem = {
         o.fired.push(vars ? { id: e.id, vars } : { id: e.id });
       }
     }
+    // C0 occupation events: own stream (keeps legacy draws identical), one roll per year for the current occupation
+    if (c.occ) {
+      const oe = OCC_EV.get(c.occ); const last = o.flags['cd:oc_' + c.occ];
+      if (oe && c.inLabor && (last === undefined || c.age - Number(last) >= 6) && stream(c.seed, 'occ', 'ev', c.age).next() < 0.12) {
+        const fx = oe.fx; o.stats.health += fx.h ?? 0; o.stats.happy += fx.ha ?? 0; o.stats.smart += fx.sm ?? 0; o.stats.social += fx.so ?? 0;
+        if (fx.c) o.careerMult *= 1 + fx.c;
+        let vars: Record<string, number> | undefined;
+        if (fx.$) { const amt = Math.round(fx.$ * c.meanIncome); o.cash += amt; vars = { amount: Math.abs(amt) }; }
+        o.flags['cd:oc_' + c.occ] = c.age; o.fired.push(vars ? { id: 'oc_' + c.occ, vars } : { id: 'oc_' + c.occ });
+      }
+    }
     for (const k of ['health', 'happy', 'smart', 'social'] as const) o.stats[k] = Math.max(0, Math.min(100, o.stats[k]));
     return o;
   },
 };
 
 /** Engine (market/finance) events: emitted by finance systems, not drawn by the content registry; text in events.json. */
-export const ENGINE_EVENT_IDS = ['marginCall', 'forcedSale', 'levClosed', 'retire', 'mortgagePaid', 'paymentMissed', 'foreclosure', 'loanPaid', 'loanDefault', 'loanRateUp',
+/** C0 occupation-specific events (src/content/occ-events.json; text in table.json events `oc_<occupation>`) */
+const OCC_EV = new Map((occEvents as unknown as { occ: string; fx: Record<string, number> }[]).map((e) => [e.occ, e]));
+export const OCC_EVENT_IDS = [...OCC_EV.keys()].map((k) => 'oc_' + k);
+export const ENGINE_EVENT_IDS = [...OCC_EVENT_IDS, 'oc_enter', 'oc_switch', 'oc_map', 'oc_biz_start', 'oc_biz_fail', 'oc_biz_exit', 'oc_rare', 'oc_illicit_refuse', 'oc_illicit_join', 'oc_illicit_leave', 'oc_arrest', 'oc_release', 'oc_back','marginCall', 'forcedSale', 'levClosed', 'retire', 'mortgagePaid', 'paymentMissed', 'foreclosure', 'loanPaid', 'loanDefault', 'loanRateUp',
   'study_start', 'graduated', 'part_time',
   // batch 2 P14 auto-routines (spend.ts ROUTINES)
   'rt_giftParents', 'rt_tripHome', 'rt_donateSmall', 'rt_gym', 'rt_checkup', 'rt_allowance', 'rt_dining', 'rt_onlineCourse',

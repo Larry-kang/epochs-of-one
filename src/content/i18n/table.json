@@ -4929,6 +4929,153 @@ null
 "バイト収入 +{v}",
 "알바 소득 +{v}",
 "thu nhập làm thêm +{v}"
+],
+"ct_switch": [
+"要轉換跑道嗎？",
+"Change careers?",
+null,
+null,
+null
+],
+"cb_switch": [
+"有機會換到相關的工作。換工作通常要從比較低的位階做起。",
+"A related job is open. Switching usually means starting a rung lower.",
+null,
+null,
+null
+],
+"o_switch_stay": [
+"留在原本的工作",
+"Stay where you are",
+null,
+null,
+null
+],
+"ct_startup": [
+"要拿出積蓄創業嗎？",
+"Put your savings into a startup?",
+null,
+null,
+null
+],
+"cb_startup": [
+"多數新創撐不過五年（推估存活率依美國勞工統計局 BED 曲線）。失敗會賠掉本錢。",
+"Most startups do not last five years (推估 survival shaped on the US BLS BED curve). Failure loses the capital.",
+null,
+null,
+null
+],
+"o_startup_stay": [
+"不了，維持現狀",
+"No, keep things as they are",
+null,
+null,
+null
+],
+"ct_illicit": [
+"有人提供來路不明的差事",
+"Someone offers you shady work",
+null,
+null,
+null
+],
+"cb_illicit": [
+"失業又負債時，有人找上門。這類工作的被捕、受傷和入獄風險很高，平均收入其實比正當工作低（數字為推估）。",
+"Unemployed and in debt, you are approached. The risk of arrest, injury and prison is high and average pay is below legitimate work (numbers 推估).",
+null,
+null,
+null
+],
+"o_illicit_refuse": [
+"拒絕",
+"Refuse",
+null,
+null,
+null
+],
+"o_illicit_accept": [
+"答應",
+"Accept",
+null,
+null,
+null
+],
+"ct_illicit_exit": [
+"要抽身離開嗎？",
+"Walk away?",
+null,
+null,
+null
+],
+"cb_illicit_exit": [
+"每一年你都可以選擇離開，回頭找正當工作。",
+"Every year you can choose to leave and look for legitimate work.",
+null,
+null,
+null
+],
+"o_illicit_exit_leave": [
+"離開",
+"Leave",
+null,
+null,
+null
+],
+"o_illicit_exit_stay": [
+"繼續",
+"Stay",
+null,
+null,
+null
+],
+"occEst": [
+"推估",
+"estimate",
+"推計",
+"추정",
+"ước tính"
+],
+"occSrc": [
+"職業資料：設計推估（tools/careers-draft.csv）；L1 起改用 ILOSTAT（CC BY 4.0）、勞動部職類別薪資（政府資料開放授權 1.0）、美國 BLS（公有領域）",
+"Occupation data: design estimates (tools/careers-draft.csv); from L1 sourced from ILOSTAT (CC BY 4.0), TW MOL (OGDL-1), US BLS (public domain)",
+null,
+null,
+null
+],
+"f_job": [
+"職業",
+"Occupation",
+"職業",
+"직업",
+"Nghề nghiệp"
+],
+"occRung": [
+"第 {r}/{n} 階",
+"rung {r}/{n}",
+"{r}/{n} 段",
+"{r}/{n} 단계",
+"bậc {r}/{n}"
+],
+"updateAvail": [
+"有新版本",
+"New version available",
+"新しいバージョンがあります",
+"새 버전이 있습니다",
+"Có phiên bản mới"
+],
+"updateRefresh": [
+"重新整理",
+"Refresh",
+"更新する",
+"새로고침",
+"Tải lại"
+],
+"updateLater": [
+"稍後",
+"Later",
+"あとで",
+"나중에",
+"Để sau"
 ]
 },
 "events": {
@@ -9240,6 +9387,629 @@ null
 "rt_onlineCourse": [
 "又報名了一門線上課程（{amount}）。",
 "You signed up for another online course ({amount}).",
+null,
+null,
+null
+],
+"oc_farmer_sub": [
+"大旱，今年的收成只剩一半。",
+"A drought halves this year's harvest.",
+null,
+null,
+null
+],
+"oc_farmer_mkt": [
+"颱風掃過，田裡的作物全泡了水。",
+"A typhoon wipes out the crop.",
+null,
+null,
+null
+],
+"oc_farm_worker": [
+"季節合約提早結束，又得找下一份工。",
+"The seasonal contract ends early.",
+null,
+null,
+null
+],
+"oc_livestock": [
+"豬瘟爆發，不得不撲殺整群牲畜。",
+"Swine fever forces a cull of the herd.",
+null,
+null,
+null
+],
+"oc_fisher": [
+"暴風來襲，船隊整週只能停在港裡。",
+"A storm keeps the fleet in port all week.",
+null,
+null,
+null
+],
+"oc_aquaculture": [
+"寒流來襲，魚塭裡的魚凍死了一大半。",
+"A cold snap kills much of the fish stock.",
+null,
+null,
+null
+],
+"oc_forestry": [
+"鏈鋸出了意外，在家休養了好幾個月。",
+"A chainsaw accident keeps you home for months.",
+null,
+null,
+null
+],
+"oc_construction_lab": [
+"從鷹架上摔下來，所幸撿回一命。",
+"A fall from the scaffolding — you survive.",
+null,
+null,
+null
+],
+"oc_electrician": [
+"考過了電匠執照，接案變得容易多了。",
+"You pass the licence exam; jobs get easier to win.",
+null,
+null,
+null
+],
+"oc_plumber": [
+"除夕夜接到緊急搶修電話，年夜飯沒吃成。",
+"An emergency call on New Year's Eve.",
+null,
+null,
+null
+],
+"oc_mechanic": [
+"報名了電動車維修課，學新技術。",
+"You take an EV repair course.",
+null,
+null,
+null
+],
+"oc_welder": [
+"焊接時火花濺進眼睛，休養了一陣子。",
+"A spark injures your eye; time off to heal.",
+null,
+null,
+null
+],
+"oc_factory_op": [
+"工廠搬到國外，整條產線的人都失業了。",
+"The factory moves abroad; the whole line is laid off.",
+null,
+null,
+null
+],
+"oc_factory_tech": [
+"連續幾個月的夜班讓你疲憊不堪。",
+"Months of night shifts wear you down.",
+null,
+null,
+null
+],
+"oc_transport_driver": [
+"長途跑車太累，差點出事。",
+"Long-haul fatigue — a near miss on the road.",
+null,
+null,
+null
+],
+"oc_warehouse": [
+"旺季加班爆量，腰痠背痛。",
+"Peak-season overtime leaves your back aching.",
+null,
+null,
+null
+],
+"oc_craftsman": [
+"作品得到傳統工藝獎。",
+"Your work wins a heritage craft award.",
+null,
+null,
+null
+],
+"oc_miner": [
+"礦坑宣布關閉，下一步不知道在哪。",
+"The mine announces it will close.",
+null,
+null,
+null
+],
+"oc_retail_clerk": [
+"遇到奧客，被罵到想哭。",
+"A rude customer reduces you to tears.",
+null,
+null,
+null
+],
+"oc_food_service": [
+"疫情讓店裡停止內用，班表被砍半。",
+"A pandemic closes the dining room; shifts are halved.",
+null,
+null,
+null
+],
+"oc_cook": [
+"美食評論家上門，菜被寫進了專欄。",
+"A food critic visits and writes about your dishes.",
+null,
+null,
+null
+],
+"oc_hair_beauty": [
+"老客人跟著你換店，生意更穩了。",
+"A loyal client follows you to a new salon.",
+null,
+null,
+null
+],
+"oc_caregiver": [
+"長照補助調薪，薪水多了一點。",
+"A long-term-care subsidy raises your pay.",
+null,
+null,
+null
+],
+"oc_cleaner": [
+"清潔合約被外包，工作換了老闆。",
+"The cleaning contract is outsourced.",
+null,
+null,
+null
+],
+"oc_security_guard": [
+"夜班巡邏時遇到闖入者，嚇了一大跳。",
+"An intruder during the night patrol.",
+null,
+null,
+null
+],
+"oc_delivery_rider": [
+"下雨天送單出了車禍。",
+"A crash while delivering in the rain.",
+null,
+null,
+null
+],
+"oc_office_clerk": [
+"報考公務員考試，認真準備了好幾個月。",
+"You prepare for the civil-service exam for months.",
+null,
+null,
+null
+],
+"oc_call_center": [
+"接到一通惡言相向的電話，一整天心情都不好。",
+"An abusive caller ruins your day.",
+null,
+null,
+null
+],
+"oc_tour_hotel": [
+"帶的旅行團被困在機場，忙到半夜。",
+"Your tour group is stranded at the airport.",
+null,
+null,
+null
+],
+"oc_informal_vendor": [
+"警察來清街，攤子被趕走了。",
+"Police clear the street; your stall is moved on.",
+null,
+null,
+null
+],
+"oc_sw_eng": [
+"半夜三點線上服務掛了，被叫起來修。",
+"A production outage at 3 a.m.",
+null,
+null,
+null
+],
+"oc_hw_eng": [
+"趕晶片投片期限，連續加班好幾週。",
+"A tape-out deadline means weeks of overtime.",
+null,
+null,
+null
+],
+"oc_semi_process_eng": [
+"週末機台當機，整個週末都在廠裡。",
+"A fab tool goes down over the weekend.",
+null,
+null,
+null
+],
+"oc_data_sci": [
+"做的模型在公司內部大受好評。",
+"Your model becomes a hit inside the company.",
+null,
+null,
+null
+],
+"oc_sales_rep": [
+"拿下一個大客戶，業績長紅。",
+"You close a big account.",
+null,
+null,
+null
+],
+"oc_real_estate": [
+"房市急凍，好幾個月沒成交。",
+"The housing market freezes; months without a sale.",
+null,
+null,
+null
+],
+"oc_insurance_agent": [
+"把保單賣給了親戚，關係有點尷尬。",
+"You sell policies to relatives — it gets awkward.",
+null,
+null,
+null
+],
+"oc_accountant": [
+"查帳季加班到深夜。",
+"Audit season: late nights at the office.",
+null,
+null,
+null
+],
+"oc_finance": [
+"股市崩跌，公司開始裁員。",
+"The market crashes and layoffs begin.",
+null,
+null,
+null
+],
+"oc_lawyer": [
+"接下一件備受矚目的案子。",
+"You take on a landmark case.",
+null,
+null,
+null
+],
+"oc_doctor": [
+"值夜班累到在診間睡著。",
+"Night-shift exhaustion — you doze off in the clinic.",
+null,
+null,
+null
+],
+"oc_nurse": [
+"疫情病房的班一個接一個，身心俱疲。",
+"Shift after shift on the pandemic ward.",
+null,
+null,
+null
+],
+"oc_pharmacist": [
+"連鎖藥局開在對面，客人變少了。",
+"A chain pharmacy opens across the street.",
+null,
+null,
+null
+],
+"oc_teacher": [
+"遇到難纏的家長，處理了好幾週。",
+"A difficult parent takes weeks to handle.",
+null,
+null,
+null
+],
+"oc_professor": [
+"研究計畫被退件，只好重寫。",
+"Your grant proposal is rejected.",
+null,
+null,
+null
+],
+"oc_architect": [
+"設計的案子得了建築獎。",
+"Your project wins a design award.",
+null,
+null,
+null
+],
+"oc_designer": [
+"作品集在網路上爆紅，案子接不完。",
+"Your portfolio goes viral.",
+null,
+null,
+null
+],
+"oc_journalist": [
+"挖到獨家新聞，登上頭版。",
+"You land a front-page scoop.",
+null,
+null,
+null
+],
+"oc_pm_mgr": [
+"公司組織重整，部門被合併。",
+"A reorganisation merges your department.",
+null,
+null,
+null
+],
+"oc_consultant": [
+"升遷考核：不升就得走。",
+"The up-or-out review.",
+null,
+null,
+null
+],
+"oc_civil_servant": [
+"被調派到離島服務。",
+"You are transferred to an outlying island.",
+null,
+null,
+null
+],
+"oc_police": [
+"處理一起暴力逮捕，受了點傷。",
+"A violent arrest leaves you injured.",
+null,
+null,
+null
+],
+"oc_military_officer": [
+"被派駐外島，和家人聚少離多。",
+"Posted to an outlying island, far from family.",
+null,
+null,
+null
+],
+"oc_military_nco": [
+"野外演習時受了傷。",
+"Injured during a field exercise.",
+null,
+null,
+null
+],
+"oc_firefighter": [
+"一場倉庫大火，救出了受困的人。",
+"A warehouse fire — you bring people out.",
+null,
+null,
+null
+],
+"oc_judge_prosecutor": [
+"一件判決引起社會爭議。",
+"A verdict sparks public controversy.",
+null,
+null,
+null
+],
+"oc_local_rep": [
+"選情緊繃，勝負只差幾百票。",
+"A close election, decided by a few hundred votes.",
+null,
+null,
+null
+],
+"oc_legislator": [
+"在議場通宵杯葛法案。",
+"An all-night filibuster in the chamber.",
+null,
+null,
+null
+],
+"oc_minister": [
+"災後召開記者會，壓力巨大。",
+"A press conference after a disaster.",
+null,
+null,
+null
+],
+"oc_pilot": [
+"升任機長。",
+"You are upgraded to captain.",
+null,
+null,
+null
+],
+"oc_flight_att": [
+"航空公司罷工，班表大亂。",
+"An airline strike upends the roster.",
+null,
+null,
+null
+],
+"oc_athlete": [
+"一次受傷讓整個球季報銷。",
+"A season-ending injury.",
+null,
+null,
+null
+],
+"oc_entertainer": [
+"試鏡成功，拿到第一個角色。",
+"An audition succeeds — your first real role.",
+null,
+null,
+null
+],
+"oc_esports": [
+"打進大賽決賽。",
+"Your team reaches a tournament final.",
+null,
+null,
+null
+],
+"oc_astronaut": [
+"被選入太空人訓練隊。",
+"You are selected for the astronaut corps.",
+null,
+null,
+null
+],
+"oc_streamer": [
+"一支影片突然爆紅。",
+"A video suddenly goes viral.",
+null,
+null,
+null
+],
+"oc_food_retail_su": [
+"房東漲房租，利潤被壓得更薄。",
+"The landlord raises the rent.",
+null,
+null,
+null
+],
+"oc_studio_su": [
+"客戶倒閉，欠你的款項收不回來。",
+"A client goes bankrupt owing you money.",
+null,
+null,
+null
+],
+"oc_franchise_su": [
+"總部調高權利金。",
+"The franchisor raises the royalty.",
+null,
+null,
+null
+],
+"oc_tech_su": [
+"種子輪募資順利完成。",
+"The seed round closes.",
+null,
+null,
+null
+],
+"oc_loan_shark": [
+"欠債人家屬在門口哭求，你一夜沒睡。",
+"A debtor's family weeps at the door; you cannot sleep.",
+null,
+null,
+null
+],
+"oc_gang": [
+"朋友在衝突中受了重傷。",
+"A friend is badly hurt.",
+null,
+null,
+null
+],
+"oc_scam_ring": [
+"護照被扣住，想走也走不了。",
+"Your passport is taken; you cannot leave.",
+null,
+null,
+null
+],
+"oc_illegal_gambling": [
+"警方臨檢，場子被查封。",
+"A police raid shuts the place down.",
+null,
+null,
+null
+],
+"oc_prison": [
+"家人來探監，隔著玻璃說了很久。",
+"Family visits; you talk for a long time through the glass.",
+null,
+null,
+null
+],
+"oc_job_seeker": [
+"參加就業博覽會，投了好幾份履歷。",
+"You go to a job fair and hand out CVs.",
+null,
+null,
+null
+],
+"oc_enter": [
+"第一份工作：{occ}。",
+"First job: {occ}.",
+null,
+null,
+null
+],
+"oc_switch": [
+"轉換跑道：從{from}換成{to}。",
+"Changed careers: from {from} to {to}.",
+null,
+null,
+null
+],
+"oc_map": [
+"你的工作歸類為：{occ}。",
+"Your work is now classed as: {occ}.",
+null,
+null,
+null
+],
+"oc_biz_start": [
+"拿出積蓄創業：{occ}。",
+"You put your savings into a startup: {occ}.",
+null,
+null,
+null
+],
+"oc_biz_fail": [
+"生意撐不下去，收掉了。欠下的錢得慢慢還。",
+"The business could not survive and closes. The debts remain.",
+null,
+null,
+null
+],
+"oc_biz_exit": [
+"新創被收購了，你拿到一筆錢。",
+"The startup is bought out and you receive a payout.",
+null,
+null,
+null
+],
+"oc_rare": [
+"人生出現少見的轉折：你成為{occ}。",
+"A rare turn: you become {occ}.",
+null,
+null,
+null
+],
+"oc_illicit_refuse": [
+"有人找你做來路不明的差事，你拒絕了。",
+"Someone offers you shady work. You refuse.",
+null,
+null,
+null
+],
+"oc_illicit_join": [
+"走投無路下，你答應了來路不明的差事。這條路代價很高。",
+"With nowhere to turn, you accept shady work. The cost will be high.",
+null,
+null,
+null
+],
+"oc_illicit_leave": [
+"你決定抽身離開，重新找正當的工作。",
+"You walk away and look for legitimate work again.",
+null,
+null,
+null
+],
+"oc_arrest": [
+"你被逮捕了，判刑 {years} 年。",
+"You are arrested and sentenced to {years} year(s).",
+null,
+null,
+null
+],
+"oc_release": [
+"你出獄了。找工作會比以前難。",
+"You are released. Finding work will be harder now.",
+null,
+null,
+null
+],
+"oc_back": [
+"重新回到職場：{occ}。",
+"Back to work: {occ}.",
 null,
 null,
 null

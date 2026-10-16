@@ -20,7 +20,7 @@ const STRATS: Record<string, Action[] | 'auto'> = {
   balance: [{ t: 'focus', age: FOCUS_FROM, w: { balance: 1 } }], // v0.8.1 single-select: the balance chip alone
   auto: 'auto',
 };
-const cfg = (seed: string, iso: string, autoFocus: boolean): LifeConfig => ({ seed, era: { kind: 'past', year: 1990 }, nowYear: 2026, engineVersion: 'mc', autoSpend: true, ...(autoFocus ? { autoFocus } : {}),
+const cfg = (seed: string, iso: string, autoFocus: boolean): LifeConfig => ({ seed, era: { kind: 'past', year: 1990 }, nowYear: 2026, engineVersion: 'mc', autoSpend: true, ...(process.env.MC_OCC ? { occ: true } : {}), ...(autoFocus ? { autoFocus } : {}),
   constraints: { country: { kind: 'fixed', value: iso as never }, sex: { kind: 'random' }, quintile: { kind: 'random' }, urban: { kind: 'random' } } });
 const q = (a: number[], p: number) => { const s = [...a].sort((x, y) => x - y); const i = (s.length - 1) * p, lo = Math.floor(i); return s[lo]! + (s[Math.ceil(i)]! - s[lo]!) * (i - lo); };
 const mean = (a: number[]) => a.reduce((x, y) => x + y, 0) / a.length;

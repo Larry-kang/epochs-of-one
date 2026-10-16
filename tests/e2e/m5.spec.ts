@@ -56,7 +56,7 @@ test('M5 retirement pension + life annuity', async ({ page }) => {
 });
 
 test('M5 financial-distress bridge prompt appears when cash turns negative', async ({ page }) => {
-  await resumeAt(page, 'br8', 1975, 24, [], false, false); // JPN: cash goes negative in the year at age 24→25
+  await resumeAt(page, 'br20', 1975, 24, [], false, false); // CHN (legacy save → occupations from 24, v0.9.0): cash goes negative at 24→25
   await expect(page.locator('#bridge-msg')).toBeVisible({ timeout: 60000 });
   await shot(page, 'm5-06-bridge-prompt');
   await page.getByRole('button', { name: '申請周轉' }).click();

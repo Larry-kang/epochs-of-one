@@ -1,11 +1,13 @@
 // Single-page UI (batch 1 layout): home → roll → birth record → play → final moments → death record (+ about).
 // Vanilla TS, no framework. All copy lives in the one translation table src/content/i18n/table.json.
+import { applyUpdate, type SwLike } from './update.ts';
 import { APP, NOW_YEAR, ENGINE_VERSION, APP_VERSION, BTC_FUTURE_DAMPENED } from '../config.ts';
 import { loadIndex, preloadDemography, bundle, loadFinance, loadWpp, wppLoaded } from './data.ts';
 import { wppAt } from '../engine/life/fertility.ts';
 import { t, tMaybe, compact, locale, LANGS, LANG_NAMES, getLang, setLang, type Lang, eventText, esc, contentLangAttr, countryName, money, pctText } from './i18n.ts';
 import { lineChart } from './charts.ts';
 import { drawBirth, newLife, advanceYear, applyAction, decisionQuote, tableFor, pendingOffers, MORTGAGE_TERMS, type LifeConfig } from '../engine/life/sim.ts';
+import { migrateSaveCfg, occById, occName } from '../engine/life/occupation.ts';
 import { ending } from '../engine/life/ending.ts';
 import { seriesAt } from '../engine/data/types.ts';
 import { defaultPick, minorById, type ChoiceOffer } from '../engine/life/choices.ts';
@@ -193,7 +195,7 @@ function submitHome(): void {
   const era = resolveEra(home.era, home.year, crypto.getRandomValues(new Uint32Array(1))[0]! / 2 ** 32);
   const iso = String(fd.get('country') ?? '');
   const constraints = iso ? { country: { kind: 'fixed' as const, value: iso }, sex: { kind: 'random' as const }, quintile: { kind: 'random' as const }, urban: { kind: 'random' as const } } : undefined;
-  void birth({ seed, era, nowYear: NOW_YEAR, engineVersion: ENGINE_VERSION, ...(constraints ? { constraints } : {}) }, home.pace, true);
+  void birth({ seed, era, nowYear: NOW_YEAR, engineVersion: ENGINE_VERSION, occ: true, ...(constraints ? { constraints } : {}) }, home.pace, true);
 }
 
 function about(): void {
@@ -461,7 +463,17 @@ function statusText(s: LifeState): string {
   return t(y.unemployed ? 'unemployed' : 'employed');
 }
 const skinOf = (s: LifeState) => { const reg = s.family.region; return /africa|ssa/i.test(reg) ? 4 : /south|mena|latam/i.test(reg) ? 2 : /east|se/i.test(reg) ? 1 : 0; };
-const portraitOf = (s: LifeState, px = 64) => portraitSvg({ age: s.age, sex: s.born.sex, skin: skinOf(s), outfit: s.career.trackSet ? ['stable', 'private', 'startup', 'informal'].indexOf(s.career.track) : 4 }, px);
+/** C0: occupation display name in the UI language (zh-TW table name for zh, English otherwise) */
+const occN = (id: string | undefined) => occName(id, getLang() === 'zh-TW' ? 'zh-TW' : 'en');
+const OUTFIT: Record<string, number> = { public: 0, professional: 1, startup: 2, agri: 3, trades: 3, services: 1, special: 1 };
+const outfitOf = (s: LifeState) => { const o = s.career.occ ? occById(s.career.occ) : undefined; return o ? OUTFIT[o.group] ?? 3 : s.career.trackSet ? ['stable', 'private', 'startup', 'informal'].indexOf(s.career.track) : 4; };
+/** ID-card occupation cell: name · rung, plus the 推估 chip whose tooltip names the provenance */
+function jobCell(s: LifeState): string {
+  const o = occById(s.career.occ); if (!o) return s.career.trackSet ? esc(t(('track_' + s.career.track) as 'track_private')) : '—';
+  const n = o.ladder.length; const r = Math.min(s.career.rung ?? 0, n - 1) + 1;
+  return `<span id="id-job" data-occ="${esc(o.id)}">${esc(occN(o.id))}</span>${n > 1 ? ` <small class="mono">${esc(t('occRung', { r, n }))}</small>` : ''}${o.est ? ` <span class="badge occ-est" title="${esc(t('occSrc'))}" tabindex="0">${esc(t('occEst'))}</span>` : ''}`;
+}
+const portraitOf = (s: LifeState, px = 64) => portraitSvg({ age: s.age, sex: s.born.sex, skin: skinOf(s), outfit: outfitOf(s) }, px);
 
 function renderLife(full: boolean): void {
   void full; // the log is re-rendered grouped by age each time
@@ -482,7 +494,8 @@ function renderLife(full: boolean): void {
     <dt>${esc(t('f_born'))}</dt><dd>${esc(nameOf(s.born.iso))} · ${s.born.year}</dd>
     <dt>${esc(t('f_lives'))}</dt><dd>${esc(nameOf(s.cur))} · ${esc(t(s.career.city || s.born.urban ? 'urban' : 'rural'))}</dd>
     <dt>${esc(t('f_quintile'))}</dt><dd class="dots">${'●'.repeat(s.born.quintile)}${'○'.repeat(5 - s.born.quintile)}</dd>
-    <dt>${esc(t('f_edu'))}</dt><dd>${esc(t(('edu_' + s.career.plan) as 'edu_none'))}</dd></dl></div></div>
+    <dt>${esc(t('f_edu'))}</dt><dd>${esc(t(('edu_' + s.career.plan) as 'edu_none'))}</dd>
+    ${s.career.trackSet ? `<dt>${esc(t('f_job'))}</dt><dd>${jobCell(s)}</dd>` : ''}</dl></div></div>
     <p class="folio mono" aria-hidden="true">${esc(l1)}<br>${esc(l2)}</p>`;
   const COL: Record<string, string> = { health: 'var(--good)', happy: 'var(--gold)', smart: 'var(--stamp)', social: 'var(--bad)' };
   q('stats').innerHTML = (['health', 'happy', 'smart', 'social'] as const).map((k) =>
@@ -505,7 +518,7 @@ function renderLife(full: boolean): void {
 const BIG = new Set(['first_paycheck', 'graduated', 'retire', 'promotion', 'ch_marry_marry', 'ch_child_have', 'wedding', 'windfall']);
 const kindOf = (id: string) => (id.startsWith('ch_') ? 'decision' : TRAGIC_EVENTS.has(id) || /illness|loss|default|foreclos|margin/.test(id) ? 'bad' : BIG.has(id) ? 'big' : id.startsWith('fl_') ? 'note' : 'good');
 function evLine(e: { id: string; vars?: Record<string, unknown> }): string {
-  const vars = Object.fromEntries(Object.entries(e.vars ?? {}).map(([a, v]) => [a, e.id === 'fc_switch' && (a === 'from' || a === 'to') ? String(v).split('+').map((c) => (c === '-' ? t('focusClear') : t(('focus_' + c) as 'focus_none'))).join('、') : typeof v === 'number' && /amount|cost|loss|price|pay|pension/.test(a) ? money(v) : a === 'edu' ? t(('edu_' + v) as 'edu_none') : v]));
+  const vars = Object.fromEntries(Object.entries(e.vars ?? {}).map(([a, v]) => [a, (a === 'occ' || a === 'from' || a === 'to') && typeof v === 'string' && occById(v) ? occN(v) : e.id === 'fc_switch' && (a === 'from' || a === 'to') ? String(v).split('+').map((c) => (c === '-' ? t('focusClear') : t(('focus_' + c) as 'focus_none'))).join('、') : typeof v === 'number' && /amount|cost|loss|price|pay|pension/.test(a) ? money(v) : a === 'edu' ? t(('edu_' + v) as 'edu_none') : v]));
   return eventText(e.id, vars as Record<string, string | number>);
 }
 function logYearsHtml(byAge: Map<number, LifeState['events']>, ages: number[], stars: boolean): string {
@@ -763,14 +776,14 @@ function showChoice(): void {
   const fact = factFor(o.id, bundle().country(r.s.cur), nameOf(r.s.cur), cal, bundle().demography(r.s.born.iso), bundle().wpp);
   const label = ['vaccine', 'school', 'parents'].includes(o.id) ? 'dec_family' : ['treat', 'move'].includes(o.id) || o.id.startsWith('d_') ? 'dec_small' : 'dec_major';
   const pre = defaultPick(r.s.seed, r.s.age, o);
-  box.dataset.def = pre;
+  box.dataset.def = pre; box.dataset.id = o.id;
   const body = tMaybe('cb_' + o.id);
   const auto = autoOn();
   box.classList.remove('min');
   box.innerHTML = `<header class="dec-head"><span class="kicker">${esc(t(label))}</span><span class="mono small">${esc(t('years', { n: r.s.age }))} · ${cal}</span></header>
     <h2 tabindex="-1" id="choice-title" class="serif">${esc(t(k('ct_')))}</h2>${body ? `<p>${esc(body)}</p>` : ''}
     ${fact ? `<aside class="fact"><p>${esc(fact.text)}${fact.est ? ` <span class="badge">${esc(t('est'))}</span>` : ''}</p><p class="mono cite">${esc(t('factSrc'))}：${esc(fact.cite)}</p></aside>` : ''}
-    <div class="opts">${o.opts.map((op, i) => `<button class="opt${auto && op === pre ? ' pre' : ''}" data-opt="${op}"><span class="mono num">${i + 1}</span><span><b>${esc(t(('o_' + o.id + '_' + op) as 'o_hs_work'))}</b><small>${esc(tMaybe('c_' + o.id + '_' + op) || minorChips(o.id, op))}</small></span></button>`).join('')}</div>
+    <div class="opts">${o.opts.map((op, i) => `<button class="opt${auto && op === pre ? ' pre' : ''}" data-opt="${op}"><span class="mono num">${i + 1}</span><span><b>${esc(tMaybe('o_' + o.id + '_' + op) || occN(op) || op)}</b><small>${esc(tMaybe('c_' + o.id + '_' + op) || minorChips(o.id, op))}</small></span></button>`).join('')}</div>
     ${auto ? `<div class="autobar" aria-hidden="true"><i id="auto-i"></i></div><div class="row"><button class="ghost small" id="auto-stop">${esc(t('autoStop'))}</button></div>` : `<div class="row"><button class="ghost small" id="auto-now">${esc(t('autoFromNow'))}</button></div>`}
     <div class="row dec-foot"><button class="link small muted" id="dec-min">${esc(t('minimise'))}</button></div>`; // v0.8.1: collapse is last and secondary (was first; easy to tap by mistake)
   box.hidden = false;
@@ -982,6 +995,20 @@ function showNudge(): void {
 }
 
 
+/** v0.9.0: non-blocking "new version — refresh" banner; refresh saves the life first, then reloads under the new worker */
+export function showUpdatePrompt(w: SwLike): void {
+  if (document.getElementById('update-bar')) return;
+  const bar = document.createElement('div');
+  bar.id = 'update-bar'; bar.className = 'update-bar'; bar.setAttribute('role', 'status');
+  bar.innerHTML = `<span>${esc(t('updateAvail'))}</span><button class="primary small" id="update-go">${esc(t('updateRefresh'))}</button><button class="ghost small" id="update-x" aria-label="${esc(t('updateLater'))}">${esc(t('updateLater'))}</button>`;
+  document.body.appendChild(bar);
+  bar.querySelector('#update-x')!.addEventListener('click', () => bar.remove());
+  bar.querySelector('#update-go')!.addEventListener('click', () => {
+    if (run) run.paused = true;
+    applyUpdate(w, navigator.serviceWorker, persist, () => location.reload());
+  });
+}
+
 function persist(): void {
   if (!run) return;
   writeSave({ v: 1, cfg: run.cfg, paceMin: run.paceMin, years: run.s.years.length, speed: run.speed, actions: run.s.actions.filter((a) => 'age' in a) });
@@ -999,7 +1026,8 @@ async function replay(cfg: LifeConfig, years: number, acts: Action[]): Promise<L
   return s;
 }
 // X4: resume the life in progress (deterministic replay of the recorded recipe)
-async function resume(sv: NonNullable<ReturnType<typeof loadSave>>): Promise<void> {
+async function resume(raw: NonNullable<ReturnType<typeof loadSave>>): Promise<void> {
+  const sv = { ...raw, cfg: migrateSaveCfg(raw.cfg, raw.years) }; // C0: pre-v0.9.0 saves switch to occupations from here on
   const s = await replay(sv.cfg, sv.years, sv.actions ?? []);
   if (!s) { clearSave(); intro(); return; }
   if (s.death) { run = { s, cfg: sv.cfg, paceMin: sv.paceMin, speed: 1, paused: true, acc: 0, yearSec: 1, raf: 0, last: 0, skipping: false }; death(false); return; }
@@ -1047,7 +1075,7 @@ function death(withEnding = false, reopened = false, rec?: PastRecord): void {
   const e0 = lifeExpectancy(tableFor(bundle(), { ...s, age: 0 }));
   const diff = Math.round(d.age - e0);
   const edu = t(('edu_' + s.career.plan) as 'edu_none');
-  const track = s.career.trackSet ? t(('track_' + s.career.track) as 'track_private') : '';
+  const track = s.career.occ && occById(s.career.occ) ? occN(s.career.occ) : s.career.trackSet ? t(('track_' + s.career.track) as 'track_private') : '';
   const story = t('deathStory', { name: s.name.full, year: s.born.year, country, age: d.age,
     edu: adult ? t('ds_edu', { edu }) : '', work: adult && track ? t('ds_work', { track }) : '',
     family: s.family.spouse ? (s.family.children.length ? t('ds_family_kids', { spouse: s.family.spouse.name, n: s.family.children.length }) : t('ds_family_spouse', { spouse: s.family.spouse.name })) : '' });

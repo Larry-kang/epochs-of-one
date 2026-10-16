@@ -44,10 +44,12 @@ export function precachePlugin(): Plugin {
 const CACHE = 'ledger-${version}';
 const FILES = ${list};
 // v0.8.1: precache with cache: 'reload' so a stale HTTP-cached index.html from the previous release can never be stored next to
-// this release's assets (that mismatch 404'd the old hashed bundles and left a blank page); navigations go network-first.
+// this release's assets (first install activates at once; updates wait for the page's refresh prompt) (that mismatch 404'd the old hashed bundles and left a blank page); navigations go network-first.
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => Promise.all(FILES.map((f) => fetch(new Request(f, { cache: 'reload' })).then((r) => { if (!r.ok) throw new Error(f + ' ' + r.status); return c.put(f, r); })))).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(CACHE).then((c) => Promise.all(FILES.map((f) => fetch(new Request(f, { cache: 'reload' })).then((r) => { if (!r.ok) throw new Error(f + ' ' + r.status); return c.put(f, r); })))).then(() => { if (!self.registration.active) return self.skipWaiting(); }));
 });
+// v0.9.0: an update waits (the page shows "new version — refresh"); the page saves the life, then asks us to take over
+self.addEventListener('message', (e) => { if (e.data && e.data.type === 'SKIP_WAITING') void self.skipWaiting(); });
 self.addEventListener('activate', (e) => {
   e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
 });

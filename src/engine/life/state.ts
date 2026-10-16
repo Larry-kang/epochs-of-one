@@ -31,7 +31,7 @@ export type Track = 'stable' | 'private' | 'startup' | 'informal';
 export interface Career {
   /** planned / completed education and the age full-time study ends (full-time work can start then) */
   plan: Edu; studyUntil: number; entry: number; track: Track; mult: number; city: boolean; lastWage: number;
-  workStart?: number; trackSet?: boolean; careUntil?: number; careCostUntil?: number; promotions: number;
+  workStart?: number; trackSet?: boolean; /** C0 occupation system */ occ?: string; rung?: number; occPrev?: string; occLegit?: string; bizAge?: number; prisonUntil?: number; penalty?: number; careUntil?: number; careCostUntil?: number; promotions: number;
 }
 
 export interface LifeState {
