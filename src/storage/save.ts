@@ -5,7 +5,8 @@ import type { LifeConfig } from '../engine/life/sim.ts';
 import type { Action } from '../engine/life/state.ts';
 
 export interface SaveV1 { v: 1; cfg: LifeConfig; paceMin: 30 | 60 | 90; years: number; speed: number; /** recorded player decisions (M4+) for deterministic replay */ actions?: Action[] }
-export interface PastLife { id: string; seed: string; iso: string; name: string; year: number; age: number; netWorth: number; at: number }
+export interface PastLife { id: string; seed: string; iso: string; name: string; year: number; age: number; netWorth: number; at: number;
+  /** batch 1 (H11): replay recipe so the death record can be reopened */ cfg?: LifeConfig; years?: number; actions?: Action[]; paceMin?: 30 | 60 | 90 }
 
 const K_SAVE = `${APP.storagePrefix}.save.v1`;
 const K_LIVES = `${APP.storagePrefix}.lives.v1`;

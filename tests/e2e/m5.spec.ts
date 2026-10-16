@@ -1,5 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
-import { autoAnswer } from './auto.ts';
+import { autoAnswer, skipToEnd } from './auto.ts';
 
 const shot = (page: Page, name: string) => page.screenshot({ path: `shots/${name}.png`, fullPage: true });
 async function resumeAt(page: Page, seed: string, year: number, years: number, actions: unknown[] = [], pause = true, auto = true) {
@@ -49,7 +49,7 @@ test('M5 retirement pension + life annuity', async ({ page }) => {
   await shot(page, 'm5-04-annuity');
   await page.getByRole('button', { name: '套用' }).click();
   await expect(page.locator('#panel')).toBeHidden();
-  await page.getByRole('button', { name: '快轉到終點' }).click();
+  await skipToEnd(page);
   await expect(page.getByRole('heading', { name: '人生結算' })).toBeVisible();
   await expect(page.locator('#pen')).not.toHaveText('$0');
   await shot(page, 'm5-05-death-pension');

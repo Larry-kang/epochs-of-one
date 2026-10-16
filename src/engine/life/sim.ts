@@ -41,7 +41,8 @@ export function makeBundle(index: CountryIndex, demo: (iso: Iso3) => Demography,
   };
 }
 
-export type Era = { kind: 'now' } | { kind: 'past'; year: number | 'random' };
+/** 'future' (batch 1): births after nowYear up to the last projected WPP year (UN medium variant → 推估). */
+export type Era = { kind: 'now' } | { kind: 'past'; year: number | 'random' } | { kind: 'future'; year: number | 'random' };
 export interface LifeConfig { seed: string; era: Era; nowYear: number; constraints?: BirthConstraints; id?: string; engineVersion: string }
 
 const tableCache = new Map<string, AnnualTable>();
@@ -64,10 +65,12 @@ export function incomeDist(c: CountryRec, year: number): { d: IncomeDist; est: s
 /** First part of the birth stream: year + birth attributes. Needs only the country index (UI uses it to preload demography). */
 export function drawBirth(index: CountryIndex, cfg: LifeConfig, rng = stream(cfg.seed, 'birth')): Birth | Infeasible {
   const K = cfg.constraints ?? NO_CONSTRAINTS;
-  const [b0] = index.birthYears;
+  const [b0, b1] = index.birthYears;
+  const fixed = K.country.kind === 'fixed' ? K.country.value : undefined;
   const year = cfg.era.kind === 'now' ? cfg.nowYear
-    : cfg.era.year === 'random' ? sampleYear(index, b0, cfg.nowYear - 1, rng, K.country.kind === 'fixed' ? K.country.value : undefined)
-    : cfg.era.year;
+    : cfg.era.year !== 'random' ? cfg.era.year
+    : cfg.era.kind === 'past' ? sampleYear(index, b0, cfg.nowYear - 1, rng, fixed)
+    : sampleYear(index, Math.min(cfg.nowYear + 1, b1), b1, rng, fixed);
   return sampleBirth(index, year, K, rng);
 }
 
