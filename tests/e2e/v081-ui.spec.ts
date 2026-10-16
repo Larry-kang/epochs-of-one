@@ -82,3 +82,19 @@ test('v081 happiest-year line has no empty amount and no hardship caption', asyn
   await expect(page.locator('#record')).toBeVisible({ timeout: 30000 });
   if (await page.locator('#happiest').count()) await expect(page.locator('#happiest')).not.toContainText('（）');
 });
+
+test('v081 auto-choice never leaves the life paused with nothing open (390px, 16×)', async ({ page }) => {
+  test.setTimeout(300_000);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await toBirth(page, 'v081-auto-stall', { country: 'USA', year: 1990 });
+  await page.locator('#begin').click();
+  await page.evaluate(() => { (document.querySelector('#auto') as HTMLButtonElement | null)?.click(); (document.querySelector('.spd[data-speed="16"]') as HTMLButtonElement | null)?.click(); });
+  let last = -1, since = Date.now();
+  while (!(await page.locator('#record, #ending').count())) {
+    const a = Number((await page.locator('#age').textContent().catch(() => ''))?.replace(/\D+/g, '') || 0);
+    if (a >= 40) break;
+    if (a !== last) { last = a; since = Date.now(); }
+    expect(Date.now() - since, `stalled at ${a}`).toBeLessThan(20_000);
+    await page.waitForTimeout(300);
+  }
+});

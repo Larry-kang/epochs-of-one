@@ -48,6 +48,8 @@ let root: HTMLElement;
 let index: CountryIndex;
 let choiceResume = false;
 let autoTimer = 0;
+/** v0.8.1: true only while the player paused by hand (auto-choice never overrides a manual pause) */
+let userPaused = false;
 const starred = new Set<string>();
 let logAll = false;
 const K_AUTO = `${APP.storagePrefix}.auto.v1`, K_SPEED = `${APP.storagePrefix}.speed.v1`;
@@ -298,6 +300,7 @@ function yearSecFor(s: LifeState, paceMin: number): number {
 
 // ---------- play (P1–P4, P6, P7, P10, P11, P13, P16)
 function startLife(s: LifeState, cfg: LifeConfig, paceMin: 30 | 60 | 90, speed: Speed): void {
+  userPaused = false;
   run = { s, cfg, paceMin, speed, paused: false, acc: 0, yearSec: yearSecFor(s, paceMin), raf: 0, last: performance.now(), skipping: false };
   logAll = false; starred.clear(); sceneKey = '';
   peers = []; void loadPeers(s);
@@ -374,7 +377,7 @@ function lifeView(): void {
 }
 const closeMenu = () => { const m = root.querySelector('#menu') as HTMLElement | null; if (m) m.hidden = true; };
 function syncPause(): void { const b = root.querySelector('#pause') as HTMLElement | null; if (b && run) b.textContent = t(run.paused ? 'resume' : 'pause'); }
-function togglePause(): void { const r = run!; r.paused = !r.paused; r.skipping = false; r.last = performance.now(); syncPause(); persist(); }
+function togglePause(): void { const r = run!; r.paused = !r.paused; userPaused = r.paused; r.skipping = false; r.last = performance.now(); syncPause(); persist(); }
 function setSpeed(x: Speed): void {
   const r = run!; r.speed = x; pref.set(K_SPEED, String(x));
   root.querySelectorAll<HTMLElement>('.spd').forEach((b) => b.setAttribute('aria-pressed', String(Number(b.dataset.speed) === x)));
@@ -423,6 +426,10 @@ function loop(): void {
   r.raf = requestAnimationFrame((now) => {
     const dt = Math.min((now - r.last) / 1000, 1);
     r.last = now;
+    // v0.8.1 auto-choice watchdog: overlapping prompts (bridge-loan panel + decision card) could restore each other's paused
+    // state and leave an auto life paused with nothing open — resume when nothing is waiting and the player did not pause
+    if (r.paused && autoOn() && !userPaused && !r.s.death && (root.querySelector('#choice') as HTMLElement | null)?.hidden !== false
+      && (root.querySelector('#panel') as HTMLElement | null)?.hidden !== false && !document.querySelector('dialog[open]') && !root.querySelector('#ending')) { r.paused = false; syncPause(); }
     if (!r.paused) {
       r.acc += (dt * (r.skipping ? SKIP_SPEED : r.speed)) / r.yearSec;
       let steps = 0;
@@ -431,7 +438,7 @@ function loop(): void {
         r.s = advanceYear(bundle(), r.s, contentEvents);
         r.acc -= 1; steps++;
         if (!r.skipping) milestoneToasts(r.s);
-        if (r.skipping) { const sad = r.s.years.at(-1)!.eventIds.find((id) => TRAGIC_EVENTS.has(id)); if (sad) { r.skipping = false; r.paused = true; syncPause(); toast(t('toastTragic', { what: eventText(sad, {}).replace(/\{\w+\}/g, '').slice(0, 40) })); break; } }
+        if (r.skipping) { const sad = r.s.years.at(-1)!.eventIds.find((id) => TRAGIC_EVENTS.has(id)); if (sad) { r.skipping = false; r.paused = true; userPaused = true; syncPause(); toast(t('toastTragic', { what: eventText(sad, {}).replace(/\{\w+\}/g, '').slice(0, 40) })); break; } }
         if (nudgeDue()) { r.acc = Math.min(r.acc, 1); break; }
       }
       if (steps) { renderLife(false); persist(); }
