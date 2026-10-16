@@ -1,0 +1,47 @@
+{
+ "born": {
+  "iso": "TWN",
+  "year": 1990,
+  "sex": "M",
+  "quintile": 3,
+  "urban": true
+ },
+ "death": {
+  "age": 78,
+  "cause": "old",
+  "year": 2068
+ },
+ "events": [
+  "15:first_paycheck",
+  "19:friend_leaves",
+  "21:new_hobby",
+  "22:friend_leaves",
+  "24:friend_leaves",
+  "28:wedding",
+  "31:jobless_year",
+  "33:new_child",
+  "35:friend_leaves",
+  "38:promotion",
+  "40:new_hobby",
+  "41:windfall",
+  "43:illness",
+  "46:illness",
+  "47:illness",
+  "52:promotion",
+  "56:jobless_year",
+  "62:new_hobby",
+  "65:retire",
+  "68:illness",
+  "77:illness"
+ ],
+ "netWorthEvery10": [
+  0,
+  0,
+  72718.9,
+  198813.2,
+  307542.57,
+  447753.8,
+  529476.02,
+  568994.43
+ ]
+}

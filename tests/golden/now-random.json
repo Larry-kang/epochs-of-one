@@ -1,0 +1,44 @@
+{
+ "born": {
+  "iso": "IDN",
+  "year": 2026,
+  "sex": "M",
+  "quintile": 5,
+  "urban": false
+ },
+ "death": {
+  "age": 50,
+  "cause": "midlife",
+  "year": 2076
+ },
+ "events": [
+  "8:study_prize",
+  "9:illness",
+  "9:new_hobby",
+  "10:new_hobby",
+  "11:illness",
+  "12:study_prize",
+  "12:illness",
+  "15:first_paycheck",
+  "20:new_hobby",
+  "27:promotion",
+  "27:wedding",
+  "29:illness",
+  "30:jobless_year",
+  "30:friend_leaves",
+  "33:new_hobby",
+  "36:promotion",
+  "40:promotion",
+  "41:illness",
+  "45:new_hobby",
+  "48:illness"
+ ],
+ "netWorthEvery10": [
+  0,
+  0,
+  55561.07,
+  113014.48,
+  193264.41,
+  268050.4
+ ]
+}

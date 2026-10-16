@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "series.schema.json",
+  "title": "Annual series with imputation flags",
+  "type": "object",
+  "required": ["from", "v", "imp"],
+  "additionalProperties": false,
+  "properties": {
+    "from": { "type": "integer", "minimum": 1900, "maximum": 2200 },
+    "v": { "type": "array", "items": { "type": "number" } },
+    "imp": {
+      "description": "per-value flag: '' = source value; 'interp' (gap<=3y); 'nearest' (edge extension); 'region' (subregion median); 'world' (world median)",
+      "type": "array",
+      "items": { "enum": ["", "interp", "nearest", "region", "world"] }
+    }
+  }
+}

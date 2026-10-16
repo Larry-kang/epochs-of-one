@@ -1,0 +1,3957 @@
+{
+ "dataVersion": "2026.10.0",
+ "generated": "pipeline/run.mjs @ 2026-10-16",
+ "sources": [
+  {
+   "id": "wpp2024",
+   "name": "United Nations, DESA, Population Division (2024). World Population Prospects 2024",
+   "url": "https://population.un.org/wpp/",
+   "retrieved": "2026-10-16",
+   "license": {
+    "id": "CC-BY-3.0-IGO",
+    "class": "attribution",
+    "url": "http://creativecommons.org/licenses/by/3.0/igo/",
+    "archived": [
+     "pipeline/licenses/2026-10-16_population.un.org_wpp_downloads.rendered.html",
+     "pipeline/licenses/2026-10-16_wpp_downloads.png"
+    ]
+   }
+  },
+  {
+   "id": "wdi",
+   "name": "World Bank, World Development Indicators (API v2)",
+   "url": "https://api.worldbank.org/v2/",
+   "retrieved": "2026-10-16",
+   "license": {
+    "id": "CC-BY-4.0",
+    "class": "attribution",
+    "url": "https://datacatalog.worldbank.org/public-licenses",
+    "archived": [
+     "pipeline/licenses/2026-10-16_datacatalog.worldbank.org_public-licenses.html",
+     "pipeline/licenses/2026-10-16_worldbank_public-licenses.png"
+    ]
+   }
+  },
+  {
+   "id": "epochs-compiled",
+   "name": "Self-compiled annual closing prices (TAIEX, BTC/USD), cross-checked across multiple public sources — owner decision 2026-10-16",
+   "url": "https://www.twse.com.tw/",
+   "retrieved": "2026-10-16",
+   "license": {
+    "id": "self-compiled facts",
+    "class": "open",
+    "url": "https://www.twse.com.tw/",
+    "archived": [
+     "public/data/markets/annual-closes.json (per-year checked sources)"
+    ]
+   }
+  },
+  {
+   "id": "oecd",
+   "name": "OECD Data Explorer (SDMX): Share prices (DF_FINMARK, MONTHLY — December = year-end level, monthly path → intra-year drawdown), Analytical house prices (DF_HOUSE_PRICES, RHP), Pensions at a Glance (DF_PAG)",
+   "url": "https://sdmx.oecd.org/public/rest/",
+   "retrieved": "2026-10-16",
+   "license": {
+    "id": "OECD-terms-data (attribution; CC BY 4.0 open-by-default)",
+    "class": "attribution",
+    "url": "https://www.oecd.org/en/about/terms-conditions.html",
+    "archived": [
+     "pipeline/licenses/2026-10-16_oecd_terms.md",
+     "pipeline/licenses/2026-10-16_oecd_terms.png"
+    ],
+    "caveat": "OECD terms §3: some Data may be owned by third parties (stock-exchange index providers may own the underlying share-price indices); verify per-dataset metadata before public release — see docs/questions.md Q17."
+   }
+  },
+  {
+   "id": "wb-pinksheet",
+   "name": "World Bank Commodity Markets (Pink Sheet) — CMO Historical Data Monthly (gold, nominal USD/troy oz; December = year-end level, monthly path → intra-year drawdown)",
+   "url": "https://www.worldbank.org/en/research/commodity-markets",
+   "retrieved": "2026-10-16",
+   "license": {
+    "id": "CC-BY-4.0",
+    "class": "attribution",
+    "url": "https://www.worldbank.org/en/about/legal/terms-of-use-for-datasets",
+    "archived": [
+     "pipeline/licenses/2026-10-16_wb_pinksheet.png",
+     "pipeline/licenses/2026-10-16_www.worldbank.org_en_about_legal_terms-of-use-for-datasets.html",
+     "pipeline/licenses/2026-10-16_datacatalog.worldbank.org_public-licenses.html"
+    ]
+   }
+  }
+ ],
+ "files": [
+  {
+   "path": "countries.json",
+   "sha256": "5fcee696ed965e9dbc1d9e1e6e2ae4e819c1aaed37c7d298907bf9620d88b618",
+   "src": [
+    "wpp2024",
+    "wdi"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO",
+    "CC-BY-4.0"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/",
+    "https://api.worldbank.org/v2/"
+   ],
+   "schema": "countries.schema.json",
+   "rows": 237
+  },
+  {
+   "path": "demography/ABW.json",
+   "sha256": "47c9653f5a066634bca31f0a287048eadd51feff41c43a262b0e56ea9eabd2cd",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/AFG.json",
+   "sha256": "6d15cbe5da5db712122141642eb60f85563e13e9057788396cdca3b14d32bc16",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/AGO.json",
+   "sha256": "6b602f1124bc86e48769c0534015283f7b0444d7d518282e567012b8cb572c2a",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/AIA.json",
+   "sha256": "c4e1ffa3abee2900bb3a9cbc9411c860f4d9bd6e4bbaf921742932447722f54b",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ALB.json",
+   "sha256": "28c133f06bba2c3bc78b903e9ab6d72c7ea3be277be9d342a59cdb982dc1ab79",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/AND.json",
+   "sha256": "946cd2117ff5f49517dcd94598c6d63c46d9546fae1ade53cc35169705626f92",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ARE.json",
+   "sha256": "cda2bbcfd53240984f5016b53442ec249e05db11f37b4694cd2a71fa24e211c7",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ARG.json",
+   "sha256": "f7a52ccbb6552337bd7ce0c1ec4690ee0dd15e6a11b7743aa1d84473f53c8461",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ARM.json",
+   "sha256": "d1ab6e96cccb6690995f7ce30fde211daaacea239daf6571062b373efa53268d",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ASM.json",
+   "sha256": "0e7c515790f1be97cc4488ac0c8c477ce983e0a39ab8ec712298bbe9a64ec529",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ATG.json",
+   "sha256": "ad45a94c54d442a39d6f7886d50b05e0f58a26ecee5abb233da5afb29b150ab8",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/AUS.json",
+   "sha256": "8871c615569027385ad28df324ebd670465d361d728987ac2acd83ffb3bc89bc",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/AUT.json",
+   "sha256": "0fd0e51da02c7cfa32d8cbe179dcbcf22b36dc480706df50cedb65b789b8b8c6",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/AZE.json",
+   "sha256": "d8fc1bf86fb58a49a8246bc1faef1051d7f3165a61e532616c342dbe4e9b465d",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BDI.json",
+   "sha256": "47d0e9b6c251ff33a1045873d81fcbeaac6e674ea7c8997f2b89cf0a12fc822b",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BEL.json",
+   "sha256": "ba0a7af12742e160ab2d2971dcbb030956d335e3066485f4afd4a13382c08743",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BEN.json",
+   "sha256": "67a3f1de181771b9d6131321aea12c7085b441cc214ef4eaf9d93dcfca15e1fe",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BES.json",
+   "sha256": "e460e2e118171205d37c36abd5179ca51c390cd230df5b3898ec2a49924e4a5c",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BFA.json",
+   "sha256": "e96b83bdeff21a79a4a01c44f3866059e98bcbc4a6d25e64398ee3a0339d6aa3",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BGD.json",
+   "sha256": "724af255c58b8243ea0e7b00833a3ed225b1a15e341c740c4deb5c7d2770d8f5",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BGR.json",
+   "sha256": "dbce0cb8dfba884732b7eab61cbf23d177e443a9f478d3a44acb3ee8b22cbcda",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BHR.json",
+   "sha256": "fa7b2db71bb6fa0f4eb711e7c6aeac78260221bf04ff126c21d7090cab009dba",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BHS.json",
+   "sha256": "ff91b67f5b1ced9430142f0d50ac58326b0fe1688ca6818b4cebb492f670c31e",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BIH.json",
+   "sha256": "e267294a2b3f554ee6971a24354db48171b318603ba40ef45f1b506f8223f21f",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BLM.json",
+   "sha256": "372fc86892cf982a7b8a0dfbb5ddb551b54ff1cb9f09ef01bd41a4aa600bb58d",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BLR.json",
+   "sha256": "d3ee6fa1b3068b28eefc4797d79c4824052007c4f2574688d180254047d721bb",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BLZ.json",
+   "sha256": "9031f4ae669b5dd6aa1baacff9e61ad9eb04ed04c5e4cdcdaade609061769440",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BMU.json",
+   "sha256": "a80f1973bc4dbea804443beb4e7ad224733bef47be45ce6268a31f9905f1c823",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BOL.json",
+   "sha256": "89a6335337f73bff6cc211bb93ebbe90b933d3f2e55edff5dec163df18f49378",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BRA.json",
+   "sha256": "e7bc86193442610af16b1e12d812fc06b2527e7a2c609f8e3e31e64a554da753",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BRB.json",
+   "sha256": "27a2eeba1e13d2ebfdddc1880f3856fd679a124914d5676194a97bb022f27534",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BRN.json",
+   "sha256": "8ad70cb29778609d339f14944e19e6e1db5a48f28601e5b8ff23e12f80e59d9f",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BTN.json",
+   "sha256": "cc4d9516fb50001ee3088ac7dc1aa6e8f52ed5b326dd7951ab115b0defcd1fc9",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/BWA.json",
+   "sha256": "e3ead58374b91d892d82f6bef90c090049be640126d84924686e16abfdd4f6c6",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/CAF.json",
+   "sha256": "640764aef20d63c41354e8e8ee7e4131968c5786de082a8733e5801b485ab34d",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/CAN.json",
+   "sha256": "1c16efd6c9281ba43e45baccde849b979c9459a633e8b140dd2b630d2ce2713a",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/CHE.json",
+   "sha256": "19d0a899ed09fb3592bdde4e2a621f8d4f4ad5ac2a7ce2e0d21fd091a6e7fc5c",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/CHL.json",
+   "sha256": "d2efc66158912acf8df32ec71966889ffcb1eed0c7aa92fa3cce32572e5baba2",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/CHN.json",
+   "sha256": "a96d7f4acb5f4800a463070b0ebb1735694558d7f6ddd1e0a86c3372354146a7",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/CIV.json",
+   "sha256": "bd71734a1323d042cd760b46668c4754d762a467833b0ebc67c07a894122e6a9",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/CMR.json",
+   "sha256": "403a55baa4752b6b098d7b710b17f61a04e18297cb322b28515c6230f435a9cf",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/COD.json",
+   "sha256": "f6625090dbcaaf90d1b11438b7ca556129c9bcf9e40ec6f16f4a74fa3fb24f7f",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/COG.json",
+   "sha256": "06979f4fa745444bdfdfe5f2eb9eaa82387b08752766594f7be5bf3f4e39f863",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/COK.json",
+   "sha256": "2e4fe0a78ae4f0227a86e9e723c9f8ff458330a9c0606d7ca23c281190065093",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/COL.json",
+   "sha256": "d22fcdf15cfb72434b1c0bd2c8200e3e1ba0f4c5357945bb7ac19b907375fe07",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/COM.json",
+   "sha256": "6ba625ae1678fbbb6d2902fb3173329ea183a263cc4b63d1d2a5f201dd3adf39",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/CPV.json",
+   "sha256": "90ccc747c0ed1821df8db73e80e78e7e019d01e429dd1dbac987efa29a5cfcbe",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/CRI.json",
+   "sha256": "08e0b185186ed1e67ad0bb95a9c60286ccec3ab8954bb94bf6d23325005539eb",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/CUB.json",
+   "sha256": "54c545104a903714d865bd264d7dcbb441e86e2a6ea663551e511f9cd010bc8b",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/CUW.json",
+   "sha256": "9e957d7520433482168e9c2cb85ae45d16fc0c348ded0c8628956e06421486c2",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/CYM.json",
+   "sha256": "85728d519103af68563e996b2b1ef09c46c47264f8bd26a03aa77ab2aa5c2d5c",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/CYP.json",
+   "sha256": "71021a3fb535d3cf1e21066ed8d9408b794bfa144a19705f4738ee2d5ad92dc2",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/CZE.json",
+   "sha256": "471583400c0611f2034062e24fb4b9e86f57be28dd4e561b06653d7b5c3268f9",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/DEU.json",
+   "sha256": "9de19f1894e78f3e49c3d9b53279011859eccebf66fa412a488a8899b8a7b7ad",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/DJI.json",
+   "sha256": "5045d90638450bf19364e44641bdc209633ca91abef2d6309495a683937b8fab",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/DMA.json",
+   "sha256": "2af66ed1e7c725da52ab2c908d0868f1bd39b86b262f6f14ddfe24ac71e48e6d",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/DNK.json",
+   "sha256": "651c30d1c78a43bee8e0e38913c37bea3784565a1420dd1d9d386e3408306b97",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/DOM.json",
+   "sha256": "6a9b3f2d2d05d821a8066bb9c6020298081b8f8f2f9080377c7a67c361ab0070",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/DZA.json",
+   "sha256": "a4338bec617571e4a42120e6bd178ba42b1a5d4ec1c112f16366bdf903cf1486",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ECU.json",
+   "sha256": "ef1701be4e6183719c03e53d6a7a86da18f4f85662ac9752f9885952a5257f5f",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/EGY.json",
+   "sha256": "49afb3f390760c51dd7a7629592d9c349f43f013bbbd05ba9a27c139fb227a39",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ERI.json",
+   "sha256": "72421b36357cfc443dfa8d243001c9ee28ee1f535622961e85c1fe1c67c782d5",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ESH.json",
+   "sha256": "35f1de8452bd0ae8fdfe2e01baeb9f1da9c843c9bd64e02e6c61d8fe5b4f2678",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ESP.json",
+   "sha256": "9e6c77a44402cbdc8a099765763768c60282d2e3140bf75471ad435c0053bcf4",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/EST.json",
+   "sha256": "4c326fc9ebcdc674c51b91e914af8fff7591540e5c92064cfd84707acd64cd0f",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ETH.json",
+   "sha256": "c62076d37ff6189ca016b6871ebdbb16a724f110c600f45c78e18a6f0cfd307c",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/FIN.json",
+   "sha256": "88ea5294c7f38eeb21f8dd7bb841216292af2af67630284aac4a86c8119279fa",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/FJI.json",
+   "sha256": "8865ce28083d542d7dd60f59883fe1fd40259e29b053f1fd3186d2458125a14c",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/FLK.json",
+   "sha256": "734d27d736509e09d772c55a1745b9a958ff760eaea8b6e7874ad308c91e3a0e",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/FRA.json",
+   "sha256": "abc0aa8637ddc6a215ff91074f7d8b20bd784b535812a94bdd3a1f76e4321672",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/FRO.json",
+   "sha256": "5f393dcde70acaa8eeb790f2578d84e4de1113532918847f7a999b2fd8ef95fe",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/FSM.json",
+   "sha256": "0fa7038b64d5f41c9ca90e04940a6ee573bafe11a560c25f224df76f6d5759bc",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GAB.json",
+   "sha256": "176d3a3b2abe242238bd8e93c70892edc3607f2d452283b0acaef0c0f135fc5a",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GBR.json",
+   "sha256": "475dd2923634e34f6c8962b558369145815d3263e8dc9ed1b88932ea2f31b9d0",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GEO.json",
+   "sha256": "b64220722621318c5d0a48149de1e97b8099e13d3011a599d8ac063565ad52fb",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GGY.json",
+   "sha256": "fbfe2d170cd0d57bb401f1c6544dd074f30b439ef9f725803f1a948e0476cccb",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GHA.json",
+   "sha256": "33177a925875b4e34e44e7bd70cf5502f6e91245b379e6c4e0ff395af712f27d",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GIB.json",
+   "sha256": "84b44b9aa19a3ac157cad196fe6421beeca2b89a405a7b437e4689fa9f6c1c88",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GIN.json",
+   "sha256": "74d4445ee33acf5904a58c792e99eaa68e100fc1b08d215252380ead2faa42c4",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GLP.json",
+   "sha256": "6137b9abdc1f66656da4c1acf16fab772fa3dfad8db124f7703df0060d6965f2",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GMB.json",
+   "sha256": "c6bd002d32358dde4e19abfeceec5b6fdcc7be75ec9c667c3e90a618c66d0010",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GNB.json",
+   "sha256": "d1b342d764579e1b116a350a7383233cbef8729e71bc11e91d60170276deb0bd",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GNQ.json",
+   "sha256": "ced3fc0067a1d6f5b8a9b4aa28b42cdf62a462b7d3381c03cdadd3648221160d",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GRC.json",
+   "sha256": "6e9771158b47805ba412dfe7b54dabedb3a25a67c99de22af87f1211da7ff114",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GRD.json",
+   "sha256": "726dd34ae2b8d6084844b239bce8f86574017ceb7017b0073e16b660c5681f9c",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GRL.json",
+   "sha256": "f03a2968112c12299d23d2a328b1e0c8da4d877655ac1a18b7b6f7a9a44c17d5",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GTM.json",
+   "sha256": "cc06c156899b2fc70a2dcf850f6897a69dae8c9438a71a799a42ad01085bdbaa",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GUF.json",
+   "sha256": "994d228b59d13b8315858f96845cf47003577a39e6dd0b74f78ef653d18c071d",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GUM.json",
+   "sha256": "7007e5157b73199c57b778e8dd0702bed1dd5bd7ac0717e571dc6a337da35f38",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/GUY.json",
+   "sha256": "890cb124e13f763880f7be8d479de6e52ac6b29b2cc67c1cc8230d66ee0060d7",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/HKG.json",
+   "sha256": "093a0a1fc734d4b8a498ac45601509636414718ec40c3fe9caf2a15792340a38",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/HND.json",
+   "sha256": "a20a3f9d16e1f78bd8643a0634cce10d50a3e335b9a6330f20cebbddfc6dcf53",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/HRV.json",
+   "sha256": "f2bfdbf2a0adc05a576b3bd32a9dbc4ff73b63dfb737a0ee4158e147b3504845",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/HTI.json",
+   "sha256": "c6c8cf70c4d73a6448295c0cd2df6641743b32d99d96b3b751913c7ec157801a",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/HUN.json",
+   "sha256": "6b041132918b45849032b7828acfbbd53cbadc89dc1d7492b37debab1c6e1d26",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/IDN.json",
+   "sha256": "397d774a24e3c5c5b627ef670f3310d966efbd08d580e9af4560adaf8831277b",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/IMN.json",
+   "sha256": "7685960d956d519a8e998ac7ddd014b7605fda67f45b9404ce7911f410092da5",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/IND.json",
+   "sha256": "f499887de659c6f188bb723e9334bb69923c1cd51e55626a67a076bdc7bccf98",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/IRL.json",
+   "sha256": "37ca5fb62cfb38c7064d7413078607733695bda5d2939d3c6e798b18eb75364b",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/IRN.json",
+   "sha256": "11e6d465ee9dba38f188f3c29e78b2525402551c79eb399fe4969c7ea1d317eb",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/IRQ.json",
+   "sha256": "678ba0b9e607d06efa8ef902d44c1b36eb2b5f9243979dd20ce89fd1db3da886",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ISL.json",
+   "sha256": "1ffe2b6d7496bcaf7738f0951f06d578ddc39a153165ea9b63b0677ff3d36ce6",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ISR.json",
+   "sha256": "f5dcf7a1220d4f7abbc056f14bd6238c685db946118a8bb0aa6267b164d41dbb",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ITA.json",
+   "sha256": "971cbd50e63275ff8e385093fe2911a276376dd11416dbd7c6c4bcc87b76e5d4",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/JAM.json",
+   "sha256": "b60cd384717d3fe7d6c150f05d1eeb3761d48f77e3125f11387f9fc6fd33edc6",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/JEY.json",
+   "sha256": "6da1cb35ec9d3de5aeba98700c496b9e5b4733fc98f87e8bbc5ad059f6e0d50d",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/JOR.json",
+   "sha256": "ffa4943659f989c165c31b2ed36544f0165dc2faa75ef363b0e7a1f6180fc18b",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/JPN.json",
+   "sha256": "fc24302442fec7a059a80ef79e6b9f26585cf75023e4a9fd1f670314e9830ab3",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/KAZ.json",
+   "sha256": "fd7a86f6f438ae54f1a2e03ad612f49a7f20ad975ab7478a998e972af271a866",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/KEN.json",
+   "sha256": "37f905b29d08377bebd78e916ee8948048760ca85e23d25d797453e700e26013",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/KGZ.json",
+   "sha256": "6ee57b84a6ca363c041e60ebeecd54bc347591eb0e952ab95f3e69ac905109fe",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/KHM.json",
+   "sha256": "340b55b4491b58e535a3a25a86e468997ac3946dd8dc3ed0b86cc9e77c092157",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/KIR.json",
+   "sha256": "0496ba1993e013a5ba7392ba8158b800596274bb374cd40ffd13cbe095980938",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/KNA.json",
+   "sha256": "f503e68450aeaecdfd91a8bc6d15aaef28c3c9fa3708660b131f0a6e80b625fb",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/KOR.json",
+   "sha256": "642154e82ad928bc30bfdcb078e33d5de1fb722592ec379ce18fa8f054b81fe0",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/KWT.json",
+   "sha256": "e62b495906abf361f8f4b8caecd4935cb1e6c518d21c792f336f416536797139",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/LAO.json",
+   "sha256": "3287b83cc0042f4ed7279278fd72dd00bcc68582d1892e1b3b046ab45037eec0",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/LBN.json",
+   "sha256": "a95daba588f6e7359c3e4433cdcc9f8511dad6554621a6b265e5a5b3f653c3f4",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/LBR.json",
+   "sha256": "2acf73f9aca3081c451a597ee20b9439a6a62df936511b8c5d771404c502e366",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/LBY.json",
+   "sha256": "b9ccc84653429864449c67f47dbe8112f76b6c6ccacf7dd4cd8ef75cd6b1eab7",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/LCA.json",
+   "sha256": "825a82b95d55fc8dfb5e4397f90cac88c0925569e37cfecc865c324ba9dadfd6",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/LIE.json",
+   "sha256": "c3f3a7f93e36f3bf6cf609d3dc98d6229c92fbac9a3e961bf25a3a287ecf6913",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/LKA.json",
+   "sha256": "7862b7c079fb17fadb3c404ddaa64a7df94a652237821bd8b6866ef5ae2ec1fa",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/LSO.json",
+   "sha256": "b6fefbd9a1e20b4795ae45c52ab6003135014645810166ae12e4914cd13d9eb6",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/LTU.json",
+   "sha256": "c407b16e178abb64e78071682796626e6cefb55c6dc976c583eb162695f480ac",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/LUX.json",
+   "sha256": "fc808a5002eb6482e1ed68170c0eb11da8f93bc1555a7436c17f04b66aec13e5",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/LVA.json",
+   "sha256": "d3651376826f4f453a1e3a22b8df264a24c7a309732eb6711f90d5e951d72517",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MAC.json",
+   "sha256": "207c48e8e302fc0477cb3e51b3d5b1e2abc433f1714240be20113d351039f3f7",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MAF.json",
+   "sha256": "b76032dd9cc012deac59474b001fddea0f0cd5ad6269eee0d5d9ab28132dbe39",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MAR.json",
+   "sha256": "9f85decc13c0ee4fd644d3a206f4a0267b7cd75cc52a3ea6953fe91416105bd2",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MCO.json",
+   "sha256": "ba07fafebd00a86be8156c4f1fa5c8437c55927569c7418cb80a82be62f54f28",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MDA.json",
+   "sha256": "7b80b6798c66a1ca2fe11b03c7b2fdeae3bf8ae6260267eaf59c98be26513f69",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MDG.json",
+   "sha256": "9015780a431dea639d7b3e9b69ff454c2b12138f7ef553f111661b8f16174ec8",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MDV.json",
+   "sha256": "ba2356ae867a83c3085ed18d3861921aec97d96ce125c8db0bda5a752bbf5d17",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MEX.json",
+   "sha256": "9004506f66ff86b979ee28a0980ac8d5a38eb67c58a3c6e664df37a07eb732da",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MHL.json",
+   "sha256": "fcb92efb4826dccfe391934ff86afd59754223ff5d528a76926fa856e83221eb",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MKD.json",
+   "sha256": "1d74a7fd1817f5caf13e6d53fb71624ab546c268535eba537821f347184d536c",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MLI.json",
+   "sha256": "8553b8fa907ee22799c575b0fb5df4498a6d8e37bb4e7bc227c18d9ad9590cdc",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MLT.json",
+   "sha256": "efb63b9193a6247cb337c0702590a460119dda2ca8550cf56cecd893e5a195b3",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MMR.json",
+   "sha256": "c76d17c62b8ad1f9d935a8ead65f561bf582d73221ed3c9bccec1ba0ff2cba8e",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MNE.json",
+   "sha256": "c67e340cb48f91f00044781c2f1df0c77d40cbc7cb336a541ce1e7f41a442d8d",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MNG.json",
+   "sha256": "a3af63c8908e5996c2af1e298811f0dbcd8d3a1184aaa6bb46e0126fce46f1d8",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MNP.json",
+   "sha256": "34ed1c43b96b14f17925650f175ae4828b976ea5d97667d0efb511d68b8e7f37",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MOZ.json",
+   "sha256": "cf715bf21fbbcc8d3e28a73db5e2b92bf9e3e39dc377e8cf0235fece4c409c8e",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MRT.json",
+   "sha256": "8d5450c0eb49db557f19f9155847383e184ea304eea8c0b09011ff689ab34efc",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MSR.json",
+   "sha256": "2bac3cfb319eabd4c959ab918937157a0eca9780cd14ef84620586d9e3f6cb7d",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MTQ.json",
+   "sha256": "d89df9a6ef5a0cd1778686ec0fd2c43cbd64b5170b9acdd2f64b7c325f20d0a3",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MUS.json",
+   "sha256": "e15ec5d1f18adaf483db1f7d5c8a621cd11748948eb6885af0f0f05bd6c7cb2e",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MWI.json",
+   "sha256": "902df6d77fd9693c73d6795b18030a384a2c26a45ff5d38eacd851536e3005b6",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MYS.json",
+   "sha256": "9ec646e0677bb50113ce80becc648e920e6b61845ae297a774152148ad53baca",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/MYT.json",
+   "sha256": "a923ece9881993de31fe03b892ef4b2b3467c28495f7b5ab34ea75187c77173b",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/NAM.json",
+   "sha256": "329c7685d2eeb97aac37851bb7af6d6ec9baa94c37e488cccbe10659cd96eb93",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/NCL.json",
+   "sha256": "c3ee0c2ff3cd961dd22f157eded5821e11e166c22b5457400d2663b6f0873c7a",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/NER.json",
+   "sha256": "f5a189158f5379b319a132038c588844c0e31b00d41181bc92d7083ef7e1c10d",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/NGA.json",
+   "sha256": "892467592c74dc364b3b9ec436bae53cd05fa7031f92de5710b429819d23a1cc",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/NIC.json",
+   "sha256": "7598facd7bdda6ace38c3b4b9c9dbc7402c4f602961a5b67db17cb0d65b748d8",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/NIU.json",
+   "sha256": "7a2c91870418c17a987cc30720837d2b714fc3bd5eafc96bbe526abcf9782ad3",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/NLD.json",
+   "sha256": "06c189383bdc08303cccb8af8610f0bccd95cbbf717c29bf60a12c488e4a9aef",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/NOR.json",
+   "sha256": "e2b580d6a9e139ca8eba7f042fc63d713effea7a0aaf255afd86f23d3f4806ef",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/NPL.json",
+   "sha256": "b4efc2e4b9d23592bf5bcc60fab2b09d254509c271779e7152cb2bdcc9335109",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/NRU.json",
+   "sha256": "1f20d7b64ffde83ae92a5daef321977bcf04185a592e9b3d7234e170df63c357",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/NZL.json",
+   "sha256": "914ed2a96f50e71d3af57dd896610a816c88864f3ad28ab91ab876392f7dec4f",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/OMN.json",
+   "sha256": "5e0b320c5cd331548c73397576035d0fb5ee454fff033efb1b5041234059f30b",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/PAK.json",
+   "sha256": "944190b2e5374b1758df6d48d66007daa298a1934834646eac26f65d8c59dee7",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/PAN.json",
+   "sha256": "271666ba339f306898c95bfddb31568647cf92b3afe969b4b2bab6c635e32260",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/PER.json",
+   "sha256": "89cf7c16059046109f87de2924bc44e117a7115357991df539e5bf902f31dffb",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/PHL.json",
+   "sha256": "63a656a1df6714a8828d057889937f657ee4f41b929e8024656efbfebea6c93d",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/PLW.json",
+   "sha256": "172c3ae585fbc8e57084f6715a08ac662b7ab26dcb103f1758025af8065753b4",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/PNG.json",
+   "sha256": "3dcd2159efb465cea20dac5725140b1dbbc09a6d81a819095978a0b0f01c2bf4",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/POL.json",
+   "sha256": "7483fbd2523a9d2abf7edfaa4778a37083bcdd71636d4de8120f2b581e334c9a",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/PRI.json",
+   "sha256": "fe0d70dbf30086429139436352a3c81452d61c06c42ad966fb7e9f3303103f98",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/PRK.json",
+   "sha256": "7555ddaad6d03fac8118beffcd1c2047cb53210e0c6f710973c2d0f7571ac0ef",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/PRT.json",
+   "sha256": "3d6a9d7e88827a0a83f8904ef87086123f01a903bbd9f856580e35a82156f5e9",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/PRY.json",
+   "sha256": "0ec13a1c8b30dc2fc00701a73dd149f0b8e9dde096c778f90dfc5cb6201dda1f",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/PSE.json",
+   "sha256": "7c7805a581e50c0cf2132ec26ba1ddda34827a20812378b5aa864a500fe91c6f",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/PYF.json",
+   "sha256": "b953e88640eab19f63c129b48d726644859264a8228b1e76d7728604e9fb98c7",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/QAT.json",
+   "sha256": "bda3b5b48687276b02e34ac9bb9ab5a525c1d65dd06ebc98a4f9ce7146473613",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/REU.json",
+   "sha256": "c1cc2181ffd4a90b98065b6c04f50ec5902d15dadd79833da262262642d4b1b0",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ROU.json",
+   "sha256": "be3731dc64b8044bc03fbb7c4d808888b30ccec9484cfe489efefdb5189987dd",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/RUS.json",
+   "sha256": "77eb2f636467afe783771b10d1edcaebb06114a6661a8fc0c255d9fe91bf9464",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/RWA.json",
+   "sha256": "031e0fb9444a012758be7a96632498321c074c6fb3d059461cfc451b1579d401",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SAU.json",
+   "sha256": "8be61f77b20cef324001f27d7872e959d771c432b1ce674b469b74a5aa2d0aeb",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SDN.json",
+   "sha256": "05bc96a73f0caf716b95efd82fae33444b760b509462960b5c752a71fe96b791",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SEN.json",
+   "sha256": "3744f7679407d87306afed8db3d47852d055d5e1f4ca1db26758f928156ec581",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SGP.json",
+   "sha256": "124f39d6eee387bec14ae9d007e53c9163a9f1a7bfc64013c247fa535dcd4c3e",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SHN.json",
+   "sha256": "647082db337460dd04d36093256da528ac10a872c84f7d7fbfb4d3e7fbd5d5bf",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SLB.json",
+   "sha256": "84c8a6b71fba8f8822adbd43e67deacbf5505dd0a82ced1826c798b2bf6a537f",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SLE.json",
+   "sha256": "2f82c9fda84951cd68b093617b553632cff4ba2d43946b379f8180f8b5935c5b",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SLV.json",
+   "sha256": "4cc0640f7631585216365b002a5a0a8a337edace7815d84673214916e9e7b1d6",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SMR.json",
+   "sha256": "892c1739a1921222877207e9816e74f20371a840fcf98234a69b88595d9ae468",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SOM.json",
+   "sha256": "e9c610821ed760743929f69f198bf5527dd9ce3b6cd4c3a1f13f2e8944940b27",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SPM.json",
+   "sha256": "05354e6ac990280133bfa3fc0795a55fc3f698ad5cfff1ed5c6f1eec9387989b",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SRB.json",
+   "sha256": "f232d078bb9fe5a5f1a0f70d9132e4229f045b19f72401ef1fb572dc85493596",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SSD.json",
+   "sha256": "d108cd8ef694215bec8b861d0179d96da93d6aef986dc7047d536cfa1766c480",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/STP.json",
+   "sha256": "dc6cb5a9765c3457ea7742c4abe3509f91d7e7977be4b75576c2b9bed26ef48d",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SUR.json",
+   "sha256": "66e760c2a03d23573716f5811969f9a45c37fa7793ef4b93c03b14b6332e8315",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SVK.json",
+   "sha256": "4f8ada91a198fd3215873d938b869ec8f9cfd654cd69abd95393d1793ad4f89b",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SVN.json",
+   "sha256": "2888b3698bcaefe7154fcf9e721445f4e2c7b72d0ab2b4ef3fa855b09309389d",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SWE.json",
+   "sha256": "4e85b6fc150ed654787a8fb391963c388e47478a8c2783548a90c9be679eb5e0",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SWZ.json",
+   "sha256": "ceae3ff23c28afcf36581fb9fa790e6d4c2da3b9c254eb1fd160325a8a1781c3",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SXM.json",
+   "sha256": "a8d11af305368bcc8c182a8e82e3d13aa8c347512be070576b1f28822ff5e46f",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SYC.json",
+   "sha256": "49b0c71e7d1d448a6c9e63879e2cb09d8f89dd468d2434e492c54ad056985ebe",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/SYR.json",
+   "sha256": "265496d0f84cc0a30e06bee9f7c76307299904a0e8061a8605253bf4861f6297",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/TCA.json",
+   "sha256": "bd738f41284f0580bf9a28162978da7eb6fe8da9c3b60e7a7b488509c35be519",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/TCD.json",
+   "sha256": "532f32e5079e9285b5cd9032c1b92a4f4b89c0cb1ef7247dacb4e9d3ae1e5a76",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/TGO.json",
+   "sha256": "d06d5ccf0197f81ebffe751ace9e0a5899ab3ffdd1d729269352b53c778ec984",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/THA.json",
+   "sha256": "6047b9c39b4a0935af3e6045946ba1a5714a89116fcad6e1fa187ebeb8582d2b",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/TJK.json",
+   "sha256": "e05944ed63d2701f34128a9ee5d763fb4cc4414a8bef2e109c219c052724d472",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/TKL.json",
+   "sha256": "9a644e3adeab41edd6672a500b6a85f2f6b69676f0760515bfe25556853638cf",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/TKM.json",
+   "sha256": "c85a6f9ca75e5deeadfa56c7ffa24cfb223b8b716438d57a5715902794319727",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/TLS.json",
+   "sha256": "a33798512d46570de6f6ae33a30af622748b83dca773490e4a1b10af2291eb81",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/TON.json",
+   "sha256": "f35524f37917e122bda73b7bc9a62d7929a69c5cc3d773b3d7d319c30837c52e",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/TTO.json",
+   "sha256": "f6dff4c9be47c61a110cf316e4f0e5465c48a6b57fc4918720d7e767002a14a4",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/TUN.json",
+   "sha256": "3b5089b682bfac4d0486e99f8956c54aa75d407a80a0a83a02ae0f7f40789dd5",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/TUR.json",
+   "sha256": "63109aa49520511b216700f2609276230f65d5cf5ca6a94e0384325465b8bf40",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/TUV.json",
+   "sha256": "b7b6e374942c4be61c13ae40a3539db41a2c652e06b84450beffc60850398017",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/TWN.json",
+   "sha256": "4c97983cd17f3869439d53f9332ea5ec96b83eb249348939481cae3cd7897d51",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/TZA.json",
+   "sha256": "9e392b291ad0e2333174a5f8f0f3ac2a8fa2742ba3f310fb79b47749a4cb1acb",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/UGA.json",
+   "sha256": "bd8cfd58324694392945b79191d2f1582df45ceb7ee6a8ef7ad31eab3e6438df",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/UKR.json",
+   "sha256": "8b90285a2514f072502da1fe800f1f7882e37dfdc6cef0eacd7440df080c4b69",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/URY.json",
+   "sha256": "84b85e63954c4ccdc4382d5405c54c4be05c9dcb0b88478ed47f8986d5083950",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/USA.json",
+   "sha256": "6e09d52715916f0d2759413f46c85fb58c906708301aecf5ce37e9f9794816d6",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/UZB.json",
+   "sha256": "41e9b6d001d5e33266dc43639fdd4f8526e58a3a7496d38115f457d628bda740",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/VAT.json",
+   "sha256": "34e6880addc0f84c36386a9646055384b77861bbaf60d91aa44e653d560ffe50",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/VCT.json",
+   "sha256": "a8ddd31202229909c27f5430463a25d7e260ffe91c8699f63ab0c4670524e8bf",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/VEN.json",
+   "sha256": "236a1d62b41f8c3a6cdd094cdc32886e4c074ab7bc215fc680e4e8e43f6b4c74",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/VGB.json",
+   "sha256": "e5eab6f32451df1458850cfdb281b09d9380946cfb04fab7f7b782541b521152",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/VIR.json",
+   "sha256": "067686a6e10f6c1d05ec9d64a8deebc75bd79a25fe6b7557eceb81525590d0b7",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/VNM.json",
+   "sha256": "8b3196a745233e0858b40f6d969c2c0ff49720b150e84f881a1d5cc9ec866abf",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/VUT.json",
+   "sha256": "960b893f291ffb691a9a421f8708e32cea52dbceac91147b2beea622301b9441",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/WLF.json",
+   "sha256": "dcca0fd725f86824443e4460e73d71828172cfc83460019fb73a8c246918c48b",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/WSM.json",
+   "sha256": "995d35aeca622a34be2496bc1b8220554b2d9b70df5b5c98babf3b71948001f0",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/XKX.json",
+   "sha256": "3a06b96d3f017a81417ea56cf08b6cf7db0a4fa6845ef3ab87dd18a5061f47b8",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/YEM.json",
+   "sha256": "30e95f8214cf61d2f2bed8044ac7ed6964840b084f996c84da5bb8e41ecc85fb",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ZAF.json",
+   "sha256": "cfcca38afd3eabb3e53f39cc21ecb774600cd6ab1ec7b0751d8dfc951a7a70c7",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ZMB.json",
+   "sha256": "0c232d49d06d987a345805583c501bda9aeb1e773e4cad256a50771423727602",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "demography/ZWE.json",
+   "sha256": "a789e3de93d28510809fa37e4bb8680ff12d4166bc9ab4753ba7aa957e38d703",
+   "src": [
+    "wpp2024"
+   ],
+   "license": [
+    "CC-BY-3.0-IGO"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://population.un.org/wpp/"
+   ],
+   "schema": "demography-country.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "markets/annual-closes.json",
+   "sha256": "499aeed459274f29e029cf86e911917da75563c4f349c74e555efac09f6ebe71",
+   "src": [
+    "epochs-compiled"
+   ],
+   "license": [
+    "self-compiled facts"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://www.twse.com.tw/",
+    "https://apiservice.mol.gov.tw/",
+    "https://en.wikipedia.org/wiki/TAIEX",
+    "https://www.bitstamp.net/api/",
+    "https://api.exchange.coinbase.com/",
+    "https://api-pub.bitfinex.com/"
+   ],
+   "schema": "annual-closes.schema.json",
+   "rows": 74
+  },
+  {
+   "path": "markets/markets.json",
+   "sha256": "e32b9f3178ed2725fd0f354c85fba31ac6fe1cfb3b4a34761ceafd4f3fe0532b",
+   "src": [
+    "oecd",
+    "wb-pinksheet",
+    "wdi",
+    "epochs-compiled"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://sdmx.oecd.org/public/rest/data/OECD.SDD.STES,DSD_STES@DF_FINMARK,4.0/.M.SHARE.......?startPeriod=1950-01&format=csv",
+    "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
+    "https://api.worldbank.org/v2/"
+   ],
+   "schema": "markets.schema.json",
+   "rows": 48,
+   "license": [
+    "OECD-terms-data (attribution; CC BY 4.0 open-by-default)",
+    "CC-BY-4.0",
+    "CC-BY-4.0",
+    "self-compiled facts"
+   ]
+  },
+  {
+   "path": "markets/housing-pension.json",
+   "sha256": "f2c5e0091ac9dbcd3d5971af432771e76d2234ef452b21b867eecb88f4c01eea",
+   "src": [
+    "oecd"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://sdmx.oecd.org/public/rest/data/OECD.ECO.MPD,DSD_AN_HOUSE_PRICES@DF_HOUSE_PRICES,1.0/.A.RHP.?startPeriod=1950&format=csv",
+    "https://sdmx.oecd.org/public/rest/data/OECD.ELS.SPD,DSD_PAG@DF_PAG,1.0/all?format=csvfilewithlabels"
+   ],
+   "schema": "housing-pension.schema.json",
+   "rows": 97,
+   "license": [
+    "OECD-terms-data (attribution; CC BY 4.0 open-by-default)"
+   ]
+  }
+ ]
+}

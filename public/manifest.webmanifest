@@ -1,0 +1,1 @@
+{ "name": "時代人生 · Epochs of One", "short_name": "時代人生", "start_url": "./", "display": "standalone", "background_color": "#FAFAF7", "theme_color": "#1C4532", "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }] }

@@ -1,0 +1,773 @@
+{
+ "note": "Self-compiled annual closing prices (last trading day of the year). Facts cross-checked across public sources; see per-year notes. Not investment data of record.",
+ "compiled": "2026-10-16",
+ "series": {
+  "TAIEX": {
+   "unit": "index points (price index, excludes dividends)",
+   "currency": "TWD",
+   "sourcesChecked": [
+    "TWSE MI_5MINS_HIST (https://www.twse.com.tw/)",
+    "勞動部開放資料 主要國家股價指數年表 (https://apiservice.mol.gov.tw/)",
+    "en.wikipedia.org/wiki/TAIEX annual table"
+   ],
+   "rows": [
+    {
+     "year": 1967,
+     "close": 105.76,
+     "verified": false,
+     "checked": [
+      "wikipedia=105.76"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1968,
+     "close": 106.63,
+     "verified": false,
+     "checked": [
+      "wikipedia=106.63"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1969,
+     "close": 110.3,
+     "verified": false,
+     "checked": [
+      "wikipedia=110.3"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1970,
+     "close": 123.38,
+     "verified": false,
+     "checked": [
+      "wikipedia=123.38"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1971,
+     "close": 135.13,
+     "verified": false,
+     "checked": [
+      "wikipedia=135.13"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1972,
+     "close": 228.03,
+     "verified": false,
+     "checked": [
+      "wikipedia=228.03"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1973,
+     "close": 495.45,
+     "verified": false,
+     "checked": [
+      "wikipedia=495.45"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1974,
+     "close": 193.06,
+     "verified": false,
+     "checked": [
+      "wikipedia=193.06"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1975,
+     "close": 330.08,
+     "verified": false,
+     "checked": [
+      "wikipedia=330.08"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1976,
+     "close": 372.2,
+     "verified": false,
+     "checked": [
+      "wikipedia=372.2"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1977,
+     "close": 450.44,
+     "verified": false,
+     "checked": [
+      "wikipedia=450.44"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1978,
+     "close": 532.43,
+     "verified": false,
+     "checked": [
+      "wikipedia=532.43"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1979,
+     "close": 549.55,
+     "verified": false,
+     "checked": [
+      "wikipedia=549.55"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1980,
+     "close": 558.45,
+     "verified": false,
+     "checked": [
+      "wikipedia=558.45"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1981,
+     "close": 551.03,
+     "verified": false,
+     "checked": [
+      "wikipedia=551.03"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1982,
+     "close": 443.57,
+     "verified": false,
+     "checked": [
+      "wikipedia=443.57"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1983,
+     "close": 761.92,
+     "verified": false,
+     "checked": [
+      "wikipedia=761.92"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1984,
+     "close": 838.07,
+     "verified": false,
+     "checked": [
+      "wikipedia=838.07"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1985,
+     "close": 835.12,
+     "verified": false,
+     "checked": [
+      "wikipedia=835.12"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1986,
+     "close": 1039.11,
+     "verified": false,
+     "checked": [
+      "wikipedia=1039.11"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1987,
+     "close": 2339.86,
+     "verified": false,
+     "checked": [
+      "wikipedia=2339.86"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1988,
+     "close": 5119.11,
+     "verified": false,
+     "checked": [
+      "wikipedia=5119.11"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1989,
+     "close": 9624.18,
+     "verified": false,
+     "checked": [
+      "wikipedia=9624.18"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1990,
+     "close": 4530.16,
+     "verified": false,
+     "checked": [
+      "wikipedia=4530.16"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1991,
+     "close": 4540.55,
+     "verified": false,
+     "checked": [
+      "wikipedia=4540.55"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1992,
+     "close": 3377.06,
+     "verified": false,
+     "checked": [
+      "wikipedia=3377.06"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1993,
+     "close": 6070.56,
+     "verified": false,
+     "checked": [
+      "wikipedia=6070.56"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1994,
+     "close": 7111.1,
+     "verified": false,
+     "checked": [
+      "wikipedia=7111.1"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1995,
+     "close": 5158.65,
+     "verified": false,
+     "checked": [
+      "wikipedia=5158.65"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1996,
+     "close": 6933.94,
+     "verified": false,
+     "checked": [
+      "wikipedia=6933.94"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1997,
+     "close": 8187.27,
+     "verified": false,
+     "checked": [
+      "wikipedia=8187.27"
+     ],
+     "note": "single public source (en.wikipedia annual table, citing CEIC); NOT independently verified — TODO cross-check with TWSE yearbook"
+    },
+    {
+     "year": 1998,
+     "close": 6418.43,
+     "verified": true,
+     "checked": [
+      "mol=6418",
+      "wikipedia=6418.43"
+     ],
+     "note": "wikipedia value confirmed by MOL open data"
+    },
+    {
+     "year": 1999,
+     "close": 8448.84,
+     "verified": true,
+     "checked": [
+      "twse=8448.84(88/12/28 ROC)",
+      "mol=8449",
+      "wikipedia=8448.84"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2000,
+     "close": 4739.09,
+     "verified": true,
+     "checked": [
+      "twse=4739.09(89/12/30 ROC)",
+      "mol=4739",
+      "wikipedia=4743.94"
+     ],
+     "note": "official TWSE value; 1/2 cross-checks agree within 0.1%; disagreeing: 4743.94 (TWSE preferred)"
+    },
+    {
+     "year": 2001,
+     "close": 5551.24,
+     "verified": true,
+     "checked": [
+      "twse=5551.24(90/12/31 ROC)",
+      "mol=5551",
+      "wikipedia=5551.24"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2002,
+     "close": 4452.45,
+     "verified": true,
+     "checked": [
+      "twse=4452.45(91/12/31 ROC)",
+      "mol=4452",
+      "wikipedia=4452.45"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2003,
+     "close": 5890.69,
+     "verified": true,
+     "checked": [
+      "twse=5890.69(92/12/31 ROC)",
+      "mol=5891",
+      "wikipedia=5890.69"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2004,
+     "close": 6139.69,
+     "verified": true,
+     "checked": [
+      "twse=6139.69(93/12/31 ROC)",
+      "mol=6140",
+      "wikipedia=6139.69"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2005,
+     "close": 6548.34,
+     "verified": true,
+     "checked": [
+      "twse=6548.34(94/12/30 ROC)",
+      "mol=6548",
+      "wikipedia=6548.34"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2006,
+     "close": 7823.72,
+     "verified": true,
+     "checked": [
+      "twse=7823.72(95/12/29 ROC)",
+      "mol=7824",
+      "wikipedia=7823.72"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2007,
+     "close": 8506.28,
+     "verified": true,
+     "checked": [
+      "twse=8506.28(96/12/31 ROC)",
+      "mol=8506",
+      "wikipedia=8506.28"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2008,
+     "close": 4591.22,
+     "verified": true,
+     "checked": [
+      "twse=4591.22(97/12/31 ROC)",
+      "mol=4591",
+      "wikipedia=4591.22"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2009,
+     "close": 8188.11,
+     "verified": true,
+     "checked": [
+      "twse=8188.11(98/12/31 ROC)",
+      "mol=8188",
+      "wikipedia=8188.11"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2010,
+     "close": 8972.5,
+     "verified": true,
+     "checked": [
+      "twse=8972.5(99/12/31 ROC)",
+      "mol=8973",
+      "wikipedia=8972.5"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2011,
+     "close": 7072.08,
+     "verified": true,
+     "checked": [
+      "twse=7072.08(100/12/30 ROC)",
+      "mol=7072",
+      "wikipedia=7072.08"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2012,
+     "close": 7699.5,
+     "verified": true,
+     "checked": [
+      "twse=7699.5(101/12/28 ROC)",
+      "mol=7700",
+      "wikipedia=7699.5"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2013,
+     "close": 8611.51,
+     "verified": true,
+     "checked": [
+      "twse=8611.51(102/12/31 ROC)",
+      "mol=8612",
+      "wikipedia=8611.51"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2014,
+     "close": 9307.26,
+     "verified": true,
+     "checked": [
+      "twse=9307.26(103/12/31 ROC)",
+      "mol=9307",
+      "wikipedia=9307.26"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2015,
+     "close": 8338.06,
+     "verified": true,
+     "checked": [
+      "twse=8338.06(104/12/31 ROC)",
+      "mol=8338",
+      "wikipedia=8338.06"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2016,
+     "close": 9253.5,
+     "verified": true,
+     "checked": [
+      "twse=9253.5(105/12/30 ROC)",
+      "mol=9254",
+      "wikipedia=9253.5"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2017,
+     "close": 10642.86,
+     "verified": true,
+     "checked": [
+      "twse=10642.86(106/12/29 ROC)",
+      "mol=10643",
+      "wikipedia=10642.86"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2018,
+     "close": 9727.41,
+     "verified": true,
+     "checked": [
+      "twse=9727.41(107/12/28 ROC)",
+      "mol=9727",
+      "wikipedia=9727.41"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2019,
+     "close": 11997.14,
+     "verified": true,
+     "checked": [
+      "twse=11997.14(108/12/31 ROC)",
+      "mol=11997",
+      "wikipedia=11997.14"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2020,
+     "close": 14732.53,
+     "verified": true,
+     "checked": [
+      "twse=14732.53(109/12/31 ROC)",
+      "mol=14733",
+      "wikipedia=14732.53"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2021,
+     "close": 18218.84,
+     "verified": true,
+     "checked": [
+      "twse=18218.84(110/12/30 ROC)",
+      "mol=18219",
+      "wikipedia=18218.84"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2022,
+     "close": 14137.69,
+     "verified": true,
+     "checked": [
+      "twse=14137.69(111/12/30 ROC)",
+      "mol=14138",
+      "wikipedia=14137.69"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2023,
+     "close": 17930.81,
+     "verified": true,
+     "checked": [
+      "twse=17930.81(112/12/29 ROC)",
+      "mol=17931",
+      "wikipedia=17930.81"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2024,
+     "close": 23035.1,
+     "verified": true,
+     "checked": [
+      "twse=23035.1(113/12/31 ROC)",
+      "mol=23035",
+      "wikipedia=23035.1"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    },
+    {
+     "year": 2025,
+     "close": 28963.6,
+     "verified": true,
+     "checked": [
+      "twse=28963.6(114/12/31 ROC)",
+      "mol=28964",
+      "wikipedia=28963.6"
+     ],
+     "note": "official TWSE value; 2/2 cross-checks agree within 0.1%"
+    }
+   ]
+  },
+  "BTC": {
+   "unit": "USD per BTC",
+   "currency": "USD",
+   "sourcesChecked": [
+    "Bitstamp public OHLC API",
+    "Coinbase Exchange public candles API",
+    "Bitfinex public candles API"
+   ],
+   "rows": [
+    {
+     "year": 2011,
+     "close": 4.58,
+     "verified": false,
+     "checked": [
+      "bitstamp=4.58"
+     ],
+     "note": "single exchange source (Bitstamp); NOT independently verified"
+    },
+    {
+     "year": 2012,
+     "close": 13.24,
+     "verified": false,
+     "checked": [
+      "bitstamp=13.24"
+     ],
+     "note": "single exchange source (Bitstamp); NOT independently verified"
+    },
+    {
+     "year": 2013,
+     "close": 731,
+     "verified": true,
+     "checked": [
+      "bitstamp=732",
+      "bitfinex=729.99"
+     ],
+     "note": "median of 2 exchange Dec-31 UTC daily closes; max deviation 0.14%"
+    },
+    {
+     "year": 2014,
+     "close": 322,
+     "verified": true,
+     "checked": [
+      "bitstamp=321",
+      "bitfinex=322.3"
+     ],
+     "note": "median of 2 exchange Dec-31 UTC daily closes; max deviation 0.20%"
+    },
+    {
+     "year": 2015,
+     "close": 430,
+     "verified": true,
+     "checked": [
+      "bitstamp=430.89",
+      "bitfinex=429.02",
+      "coinbase=430.35"
+     ],
+     "note": "median of 3 exchange Dec-31 UTC daily closes; max deviation 0.31%"
+    },
+    {
+     "year": 2016,
+     "close": 967,
+     "verified": true,
+     "checked": [
+      "bitstamp=966.3",
+      "bitfinex=966.58",
+      "coinbase=973.37"
+     ],
+     "note": "median of 3 exchange Dec-31 UTC daily closes; max deviation 0.70%"
+    },
+    {
+     "year": 2017,
+     "close": 13863,
+     "verified": true,
+     "checked": [
+      "bitstamp=13880",
+      "bitfinex=13769",
+      "coinbase=13863.13"
+     ],
+     "note": "median of 3 exchange Dec-31 UTC daily closes; max deviation 0.68%"
+    },
+    {
+     "year": 2018,
+     "close": 3693,
+     "verified": true,
+     "checked": [
+      "bitstamp=3693.3",
+      "bitfinex=3830.5",
+      "coinbase=3691.86"
+     ],
+     "note": "median of 3 exchange Dec-31 UTC daily closes; max deviation 3.71%"
+    },
+    {
+     "year": 2019,
+     "close": 7168,
+     "verified": true,
+     "checked": [
+      "bitstamp=7168.36",
+      "bitfinex=7208.3",
+      "coinbase=7165.72"
+     ],
+     "note": "median of 3 exchange Dec-31 UTC daily closes; max deviation 0.56%"
+    },
+    {
+     "year": 2020,
+     "close": 28990,
+     "verified": true,
+     "checked": [
+      "bitstamp=28992.79",
+      "bitfinex=28938.521869",
+      "coinbase=28990.08"
+     ],
+     "note": "median of 3 exchange Dec-31 UTC daily closes; max deviation 0.18%"
+    },
+    {
+     "year": 2021,
+     "close": 46214,
+     "verified": true,
+     "checked": [
+      "bitstamp=46214.37",
+      "bitfinex=46218",
+      "coinbase=46211.24"
+     ],
+     "note": "median of 3 exchange Dec-31 UTC daily closes; max deviation 0.01%"
+    },
+    {
+     "year": 2022,
+     "close": 16530,
+     "verified": true,
+     "checked": [
+      "bitstamp=16528",
+      "bitfinex=16564",
+      "coinbase=16530.35"
+     ],
+     "note": "median of 3 exchange Dec-31 UTC daily closes; max deviation 0.20%"
+    },
+    {
+     "year": 2023,
+     "close": 42288,
+     "verified": true,
+     "checked": [
+      "bitstamp=42258",
+      "bitfinex=42326",
+      "coinbase=42288.06"
+     ],
+     "note": "median of 3 exchange Dec-31 UTC daily closes; max deviation 0.09%"
+    },
+    {
+     "year": 2024,
+     "close": 93381,
+     "verified": true,
+     "checked": [
+      "bitstamp=93381",
+      "bitfinex=93759",
+      "coinbase=93354.22"
+     ],
+     "note": "median of 3 exchange Dec-31 UTC daily closes; max deviation 0.40%"
+    },
+    {
+     "year": 2025,
+     "close": 87498,
+     "verified": true,
+     "checked": [
+      "bitstamp=87496",
+      "bitfinex=87720",
+      "coinbase=87497.94"
+     ],
+     "note": "median of 3 exchange Dec-31 UTC daily closes; max deviation 0.25%"
+    }
+   ]
+  }
+ }
+}

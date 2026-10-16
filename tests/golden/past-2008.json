@@ -1,0 +1,50 @@
+{
+ "born": {
+  "iso": "CHN",
+  "year": 2008,
+  "sex": "M",
+  "quintile": 3,
+  "urban": true
+ },
+ "death": {
+  "age": 84,
+  "cause": "old",
+  "year": 2092
+ },
+ "events": [
+  "13:study_prize",
+  "15:first_paycheck",
+  "16:study_prize",
+  "18:study_prize",
+  "20:windfall",
+  "22:wedding",
+  "23:new_child",
+  "27:promotion",
+  "28:illness",
+  "29:illness",
+  "30:new_child",
+  "31:promotion",
+  "37:new_child",
+  "41:promotion",
+  "44:jobless_year",
+  "54:illness",
+  "56:promotion",
+  "60:retire",
+  "64:friend_leaves",
+  "66:new_hobby",
+  "73:illness",
+  "74:illness",
+  "79:illness"
+ ],
+ "netWorthEvery10": [
+  0,
+  0,
+  91354.85,
+  212714.27,
+  349723.4,
+  470980.81,
+  613766.09,
+  723686.91,
+  826514.5
+ ]
+}

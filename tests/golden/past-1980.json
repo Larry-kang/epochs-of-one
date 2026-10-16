@@ -1,0 +1,40 @@
+{
+ "born": {
+  "iso": "CHN",
+  "year": 1980,
+  "sex": "M",
+  "quintile": 4,
+  "urban": false
+ },
+ "death": {
+  "age": 48,
+  "cause": "midlife",
+  "year": 2028
+ },
+ "events": [
+  "11:study_prize",
+  "12:friend_leaves",
+  "15:study_prize",
+  "15:first_paycheck",
+  "16:illness",
+  "16:new_hobby",
+  "17:study_prize",
+  "23:new_hobby",
+  "24:illness",
+  "24:wedding",
+  "25:jobless_year",
+  "27:jobless_year",
+  "28:new_child",
+  "34:new_child",
+  "41:jobless_year",
+  "41:new_hobby",
+  "45:new_hobby"
+ ],
+ "netWorthEvery10": [
+  0,
+  0,
+  11695.66,
+  37277.11,
+  122593.72
+ ]
+}

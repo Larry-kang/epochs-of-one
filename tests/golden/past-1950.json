@@ -1,0 +1,18 @@
+{
+ "born": {
+  "iso": "IND",
+  "year": 1950,
+  "sex": "M",
+  "quintile": 3,
+  "urban": true
+ },
+ "death": {
+  "age": 0,
+  "cause": "infant",
+  "year": 1950
+ },
+ "events": [],
+ "netWorthEvery10": [
+  0
+ ]
+}

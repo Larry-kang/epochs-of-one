@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "housing-pension.schema.json",
+  "title": "Housing (OECD RHP) and pensions (OECD PaG) layer (M5)",
+  "type": "object",
+  "required": ["note", "retrieved", "house", "pension", "pensionMedian"],
+  "additionalProperties": false,
+  "$defs": {
+    "pen": { "type": "object", "required": ["grrM", "grrF", "ageM", "ageF"], "additionalProperties": false,
+      "properties": { "grrM": { "type": "number", "minimum": 0, "maximum": 1.5 }, "grrF": { "type": "number", "minimum": 0, "maximum": 1.5 },
+        "ageM": { "type": "number", "minimum": 45, "maximum": 75 }, "ageF": { "type": "number", "minimum": 45, "maximum": 75 } } }
+  },
+  "properties": {
+    "note": { "type": "string" }, "retrieved": { "type": "string" },
+    "house": { "type": "object", "propertyNames": { "pattern": "^[A-Z]{3}$" }, "additionalProperties": { "type": "object", "required": ["from", "v"], "additionalProperties": false,
+      "properties": { "from": { "type": "integer" }, "v": { "type": "array", "minItems": 2, "items": { "type": "number", "exclusiveMinimum": 0 } } } } },
+    "pension": { "type": "object", "propertyNames": { "pattern": "^[A-Z]{3}$" }, "additionalProperties": { "$ref": "#/$defs/pen" } },
+    "pensionMedian": { "$ref": "#/$defs/pen" }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "countries.schema.json",
+  "title": "Country index",
+  "type": "object",
+  "required": [
+    "dataVersion",
+    "ltYears",
+    "birthYears",
+    "countries"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "dataVersion": {
+      "type": "string"
+    },
+    "ltYears": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        }
+      ],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "birthYears": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        }
+      ],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "countries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "iso",
+          "iso2",
+          "name",
+          "sub",
+          "births",
+          "srb",
+          "series"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "iso": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$"
+          },
+          "iso2": {
+            "type": "string",
+            "pattern": "^([A-Z]{2})?$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "sub": {
+            "type": "integer",
+            "description": "WPP parent (sub-region) LocID"
+          },
+          "births": {
+            "description": "thousands of live births per year",
+            "type": "object",
+            "required": [
+              "from",
+              "v"
+            ],
+            "properties": {
+              "from": {
+                "type": "integer"
+              },
+              "v": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "srb": {
+            "description": "sex ratio at birth (males per 100 females)",
+            "type": "object",
+            "required": [
+              "from",
+              "v"
+            ],
+            "properties": {
+              "from": {
+                "type": "integer"
+              },
+              "v": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": 80,
+                  "maximum": 130
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "series": {
+            "type": "object",
+            "required": [
+              "gdpPcPpp",
+              "cpi",
+              "gini",
+              "q1",
+              "q2",
+              "q3",
+              "q4",
+              "q5",
+              "urban",
+              "unemp",
+              "hhCons"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "gdpPcPpp": {
+                "$ref": "series.schema.json"
+              },
+              "cpi": {
+                "$ref": "series.schema.json"
+              },
+              "gini": {
+                "$ref": "series.schema.json"
+              },
+              "q1": {
+                "$ref": "series.schema.json"
+              },
+              "q2": {
+                "$ref": "series.schema.json"
+              },
+              "q3": {
+                "$ref": "series.schema.json"
+              },
+              "q4": {
+                "$ref": "series.schema.json"
+              },
+              "q5": {
+                "$ref": "series.schema.json"
+              },
+              "urban": {
+                "$ref": "series.schema.json"
+              },
+              "unemp": {
+                "$ref": "series.schema.json"
+              },
+              "hhCons": {
+                "$ref": "series.schema.json"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

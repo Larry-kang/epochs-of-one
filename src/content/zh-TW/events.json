@@ -1,0 +1,22 @@
+{
+  "study_prize": "期末成績單上多了一張獎狀。你偷偷把它貼在書桌前。",
+  "first_paycheck": "第一份薪水入帳：{amount}。你盯著存摺看了好久。",
+  "jobless_year": "這一年沒有找到工作。履歷寄出去，回音很少。",
+  "promotion": "主管把你叫進辦公室——是好消息，你升職了。",
+  "illness": "一場病讓你躺了好幾週。醫療花費：{cost}。",
+  "wedding": "你結婚了。喜帖寄出那天，手有點抖。",
+  "new_child": "第 {nth} 個孩子出生了。家裡從此更吵，也更暖。",
+  "windfall": "意外之財：{amount}。可能是遺產、獎金，或一張中獎發票。",
+  "friend_leaves": "一位好朋友搬去很遠的地方，聯絡漸漸少了。",
+  "new_hobby": "你迷上了一項新嗜好，週末終於有了期待。",
+  "marginCall": "市場急跌，融資部位被斷頭。這一年槓桿讓你損失了 {loss}。（年內低點為推估）",
+  "forcedSale": "現金不夠用，只好賣掉 {amount} 的投資。",
+  "levClosed": "為了周轉，槓桿部位全數平倉。",
+  "retire": "你在 {age} 歲退休了。每年退休金：{pension}。",
+  "mortgagePaid": "房貸終於繳清了，房子完全屬於你。",
+  "paymentMissed": "這一年繳不出貸款，帳單上多了一筆滯納金。",
+  "foreclosure": "連續繳不出房貸，房子被法拍。結清後剩下：{amount}。",
+  "loanPaid": "一筆信貸還清了。",
+  "loanDefault": "信貸違約：{amount} 轉成呆帳，信用被凍結。",
+  "loanRateUp": "利率調升，信貸利率從 {from}% 升到 {to}%。"
+}

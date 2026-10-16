@@ -1,0 +1,41 @@
+{
+ "sources": [
+  {
+   "id": "epochs-compiled",
+   "name": "Self-compiled annual closing prices (TAIEX, BTC/USD), cross-checked across multiple public sources — owner decision 2026-10-16",
+   "url": "https://www.twse.com.tw/",
+   "retrieved": "2026-10-16",
+   "license": {
+    "id": "self-compiled facts",
+    "class": "open",
+    "url": "https://www.twse.com.tw/",
+    "archived": [
+     "public/data/markets/annual-closes.json (per-year checked sources)"
+    ]
+   }
+  }
+ ],
+ "files": [
+  {
+   "path": "markets/annual-closes.json",
+   "sha256": "",
+   "src": [
+    "epochs-compiled"
+   ],
+   "license": [
+    "self-compiled facts"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://www.twse.com.tw/",
+    "https://apiservice.mol.gov.tw/",
+    "https://en.wikipedia.org/wiki/TAIEX",
+    "https://www.bitstamp.net/api/",
+    "https://api.exchange.coinbase.com/",
+    "https://api-pub.bitfinex.com/"
+   ],
+   "schema": "annual-closes.schema.json",
+   "rows": 74
+  }
+ ]
+}

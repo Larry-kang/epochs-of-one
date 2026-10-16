@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "markets.schema.json",
+  "title": "Annual market & macro layer (M4)",
+  "type": "object",
+  "required": [
+    "note",
+    "retrieved",
+    "eq",
+    "fxEuroRebased",
+    "world",
+    "gold",
+    "btc",
+    "fx",
+    "lend",
+    "listed",
+    "ppp",
+    "sigma"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "dense": {
+      "type": "object",
+      "required": [
+        "from",
+        "v"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "type": "integer",
+          "minimum": 1940,
+          "maximum": 2100
+        },
+        "v": {
+          "type": "array",
+          "items": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "priced": {
+      "type": "object",
+      "required": [
+        "from",
+        "v",
+        "kind",
+        "src"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "type": "integer",
+          "minimum": 1940,
+          "maximum": 2100
+        },
+        "v": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "kind": {
+          "enum": [
+            "dec_monthly",
+            "oecd_avg",
+            "close",
+            "annual_avg",
+            "synthetic_gdp_weighted"
+          ]
+        },
+        "src": {
+          "type": "string"
+        },
+        "unverified": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "n": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "dd": {
+          "description": "max intra-year peak-to-trough drawdown per year (monthly path, previous December = starting peak); null where no monthly data",
+          "type": "array",
+          "items": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "maximum": 0,
+            "minimum": -1
+          }
+        }
+      }
+    },
+    "isoMapDense": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Z0-9]{3}$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/dense"
+      }
+    }
+  },
+  "properties": {
+    "note": {
+      "type": "string"
+    },
+    "retrieved": {
+      "type": "string"
+    },
+    "eq": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Z]{3}$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/priced"
+      }
+    },
+    "fxEuroRebased": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "world": {
+      "$ref": "#/$defs/priced"
+    },
+    "gold": {
+      "$ref": "#/$defs/priced"
+    },
+    "btc": {
+      "$ref": "#/$defs/priced"
+    },
+    "fx": {
+      "$ref": "#/$defs/isoMapDense"
+    },
+    "lend": {
+      "$ref": "#/$defs/isoMapDense"
+    },
+    "ppp": {
+      "$ref": "#/$defs/isoMapDense"
+    },
+    "listed": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Z0-9]{3}$"
+      },
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "sigma": {
+      "type": "object",
+      "required": [
+        "eqUS",
+        "eqWorld",
+        "gold",
+        "btc",
+        "eqHomeMedian",
+        "eqHome"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "eqUS": {
+          "type": "number"
+        },
+        "eqWorld": {
+          "type": "number"
+        },
+        "gold": {
+          "type": "number"
+        },
+        "btc": {
+          "type": "number"
+        },
+        "eqHomeMedian": {
+          "type": "number"
+        },
+        "eqHome": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "annual-closes.schema.json",
+  "type": "object",
+  "required": ["note", "compiled", "series"],
+  "additionalProperties": false,
+  "$defs": {
+    "row": { "type": "object", "required": ["year", "close", "verified", "checked", "note"], "additionalProperties": false,
+      "properties": { "year": { "type": "integer", "minimum": 1960, "maximum": 2100 }, "close": { "type": "number", "exclusiveMinimum": 0 },
+        "verified": { "type": "boolean" }, "checked": { "type": "array", "minItems": 1, "items": { "type": "string" } }, "note": { "type": "string" } } },
+    "series": { "type": "object", "required": ["unit", "currency", "sourcesChecked", "rows"], "additionalProperties": false,
+      "properties": { "unit": { "type": "string" }, "currency": { "type": "string" }, "sourcesChecked": { "type": "array", "minItems": 2, "items": { "type": "string" } },
+        "rows": { "type": "array", "items": { "$ref": "#/$defs/row" } } } }
+  },
+  "properties": {
+    "note": { "type": "string" }, "compiled": { "type": "string" },
+    "series": { "type": "object", "required": ["TAIEX", "BTC"], "additionalProperties": false,
+      "properties": { "TAIEX": { "$ref": "#/$defs/series" }, "BTC": { "$ref": "#/$defs/series" } } }
+  }
+}

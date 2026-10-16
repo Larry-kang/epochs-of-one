@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.cache/
+data-raw/
+data-private/
+calibration-private/
+playwright-report/
+test-results/
+shots/
+.env*
+*.log

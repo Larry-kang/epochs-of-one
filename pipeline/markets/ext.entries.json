@@ -1,0 +1,40 @@
+{
+ "sources": [
+  "oecd",
+  "wb-pinksheet"
+ ],
+ "files": [
+  {
+   "path": "markets/markets.json",
+   "sha256": "",
+   "src": [
+    "oecd",
+    "wb-pinksheet",
+    "wdi",
+    "epochs-compiled"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://sdmx.oecd.org/public/rest/data/OECD.SDD.STES,DSD_STES@DF_FINMARK,4.0/.M.SHARE.......?startPeriod=1950-01&format=csv",
+    "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
+    "https://api.worldbank.org/v2/"
+   ],
+   "schema": "markets.schema.json",
+   "rows": 48
+  },
+  {
+   "path": "markets/housing-pension.json",
+   "sha256": "",
+   "src": [
+    "oecd"
+   ],
+   "retrieved": "2026-10-16",
+   "url": [
+    "https://sdmx.oecd.org/public/rest/data/OECD.ECO.MPD,DSD_AN_HOUSE_PRICES@DF_HOUSE_PRICES,1.0/.A.RHP.?startPeriod=1950&format=csv",
+    "https://sdmx.oecd.org/public/rest/data/OECD.ELS.SPD,DSD_PAG@DF_PAG,1.0/all?format=csvfilewithlabels"
+   ],
+   "schema": "housing-pension.schema.json",
+   "rows": 97
+  }
+ ]
+}
