@@ -1,3 +1,4 @@
+[hidden] { display: none !important; }
 /* "Ledger & lamplight" theme. Our own CSS.
    Fonts are self-hosted OFL subsets (public/fonts, see licences/ASSETS.md) → precached, works offline. */
 @font-face { font-family: "EO Serif TC"; src: url("/fonts/serif-tc.woff2") format("woff2"); font-weight: 200 900; font-display: swap; }
@@ -135,7 +136,9 @@ blockquote { margin: 12px 0 0; padding: 8px 14px; border-left: 3px solid var(--g
 /* ---------- play */
 .topbar { position: sticky; top: 0; z-index: 20; display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 64px; background: var(--paper); border-bottom: 1px solid var(--rule); margin: -16px -24px 20px; padding: 8px 24px; }
 .tb-left { display: flex; align-items: center; gap: 14px; min-width: 0; }
-.tb-mark { font-size: 16px; font-weight: 700; color: var(--ink2); }
+.tb-who { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.tb-name { font-size: 13px; line-height: 1.25; color: var(--ink2); max-width: 26ch; overflow-wrap: anywhere; white-space: normal; }
+.tb-mark { white-space: nowrap; font-size: 16px; font-weight: 700; color: var(--ink2); }
 .tb-age { font-size: 40px; line-height: 1; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .tb-meta { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .tb-meta #cal { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--ink2); }
@@ -240,9 +243,13 @@ blockquote { margin: 12px 0 0; padding: 8px 14px; border-left: 3px solid var(--g
   .topbar { margin: -12px -12px 14px; padding: 6px 12px; min-height: 52px; }
   .tb-mark, .tb-speeds, #skip-dec, #auto, .tb-prog { display: none; }
   .tb-cur { display: inline-flex; }
-  .tb-age { font-size: 30px; }
+  .tb-age { font-size: 26px; }
+  .tb-name { font-size: 12px; max-width: none; }
+  .topbar .tb-left { flex: 1 1 auto; gap: 8px; } .topbar .tb-right { flex: 0 0 auto; }
+  .tb-who { flex: 1 1 auto; min-width: 7em; } .tb-meta { flex: 0 1 auto; min-width: 0; overflow: hidden; }
   .play { grid-template-columns: 1fr; }
-  .col-left { order: 2; } .col-right { order: 3; }
+  /* 0b: ID card + status first on phones, then the log, then family/map */
+  .col-left { order: 1; } .col-mid { order: 2; } .col-right { order: 3; }
   .grid { grid-template-columns: 1fr 1fr; }
   .cert-name { font-size: 34px; }
   .modal { top: auto; bottom: 0; left: 8px; right: 8px; transform: none; width: auto; max-height: 80vh; }
@@ -251,6 +258,20 @@ blockquote { margin: 12px 0 0; padding: 8px 14px; border-left: 3px solid var(--g
   .sticky-foot .cta { flex: 1; padding: 10px; }
 }
 @media (max-width: 440px) {
+  .topbar .tb-meta { display: none; }   /* calendar line repeats the ID card; the name gets the room */
+  /* v0.7.1: compact ID card + status so the life log starts above the fold at 390 px */
+  .play > aside, .play > main, .play { gap: 12px; }
+  .idcard .folio { display: none; }
+  .idcard .id-body { padding: 10px 12px; }
+  .status h2 { margin-bottom: 6px; }
+  .money { grid-template-columns: repeat(3, 1fr); gap: 4px 8px; padding-top: 6px; }
+  .money strong { font-size: 13px; }
+  .fin-btns { grid-template-columns: repeat(3, 1fr); gap: 4px; margin-top: 8px; }
+  .fin-btns button { min-height: 32px; padding: 2px 4px; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .stats { gap: 4px; } .stat { font-size: 13px; }
+  .idcard .kv { font-size: 12px; } .idcard .id-name { font-size: 19px; }
+  .status .fin-btns .wide { grid-column: auto; }
+  .explain, .status-line { margin: 6px 0; }
   .card, .cert-body { padding: 12px; }
   .grid { grid-template-columns: 1fr; gap: 6px; }
   .grid div { display: flex; justify-content: space-between; gap: 12px; }

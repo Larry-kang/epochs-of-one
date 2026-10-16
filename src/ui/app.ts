@@ -23,7 +23,7 @@ import { birthShares, allShares, sharePct } from './logic/odds.ts';
 import { ERA_CHOICES, resolveEra, oddsRange, type EraChoice } from './logic/era.ts';
 import { rollIntervals, rollSequence } from './logic/roll.ts';
 import { registryNo, folioLines } from './logic/cert.ts';
-import { SPEEDS, SKIP_SPEED, speedForKey, autoCountdownSec, TRAGIC_EVENTS, type Speed } from './logic/play.ts';
+import { SPEEDS, SKIP_SPEED, speedForKey, autoCountdownSec, TRAGIC_EVENTS, DEFAULT_PACE_MIN, logMore, bornBy, type Speed } from './logic/play.ts';
 import { portraitSvg } from './logic/portrait.ts';
 import { factFor } from './logic/facts.ts';
 import { drawShareCard, type ShareCard } from './share.ts';
@@ -43,7 +43,7 @@ const K_AUTO = `${APP.storagePrefix}.auto.v1`, K_SPEED = `${APP.storagePrefix}.s
 const pref = { get: (k: string) => { try { return localStorage.getItem(k); } catch { return null; } }, set: (k: string, v: string) => { try { localStorage.setItem(k, v); } catch { /* private mode */ } } };
 const autoOn = () => pref.get(K_AUTO) === '1';
 const reduceMotion = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
-const home = { era: 'now' as EraChoice, year: 'random' as number | 'random', pace: 60 as 30 | 60 | 90 };
+const home = { era: 'now' as EraChoice, year: 'random' as number | 'random', pace: DEFAULT_PACE_MIN as 30 | 60 | 90 };
 const pageOpened = performance.now();
 
 export async function start(el: HTMLElement): Promise<void> {
@@ -275,7 +275,7 @@ function lifeView(): void {
   const r = run!;
   nudged = new Set();
   view(`<header class="topbar" id="topbar">
-  <div class="tb-left"><span class="tb-mark serif">${esc(APP.name)}</span><span class="tb-age serif" id="age"></span>
+  <div class="tb-left"><span class="tb-mark serif">${esc(APP.name)}</span><span class="tb-who"><span class="tb-age serif" id="age"></span><span class="tb-name" id="tb-name"></span></span>
     <div class="tb-meta"><span class="mono small" id="cal"></span><span class="tb-prog" aria-hidden="true"><i id="yprog"></i></span></div></div>
   <div class="tb-right" role="toolbar" aria-label="${esc(t('speed'))}">
     <button id="pause" class="pill">${esc(t('pause'))}</button>
@@ -360,18 +360,18 @@ function loop(): void {
       r.acc += (dt * (r.skipping ? SKIP_SPEED : r.speed)) / r.yearSec;
       let steps = 0;
       while (r.acc >= 1 && steps < PARAMS.maxYearsPerFrame.value && !r.s.death) {
-        if (pendingOffers(bundle(), r.s).length) { r.acc = 0; if (r.skipping) { r.skipping = false; toast(t('toastDecision')); } showChoice(); break; }
+        if (pendingOffers(bundle(), r.s).length) { r.acc = Math.min(r.acc, 1); /* v0.7.1: keep the elapsed year so the card costs only its own wait */ if (r.skipping) { r.skipping = false; toast(t('toastDecision')); } showChoice(); break; }
         r.s = advanceYear(bundle(), r.s, contentEvents);
         r.acc -= 1; steps++;
         if (r.skipping) { const sad = r.s.years.at(-1)!.eventIds.find((id) => TRAGIC_EVENTS.has(id)); if (sad) { r.skipping = false; r.paused = true; syncPause(); toast(t('toastTragic', { what: eventText(sad, {}).replace(/\{\w+\}/g, '').slice(0, 40) })); break; } }
-        if (nudgeDue()) { r.acc = 0; break; }
+        if (nudgeDue()) { r.acc = Math.min(r.acc, 1); break; }
       }
       if (steps) { renderLife(false); persist(); }
       if (r.s.death) { death(true); return; }
-      if (steps && nudgeDue()) showNudge();
+      if (steps && nudgeDue()) { showNudge(); autoDismiss('#nudge-later', '#nudge-title'); }
       if (steps && r.s.econ.cash < 0 && bridgePrompted !== r.s.age) {
         bridgePrompted = r.s.age;
-        if (decisionQuote(bundle(), r.s).loan.ok) { loanPanel(true); }
+        if (decisionQuote(bundle(), r.s).loan.ok) { loanPanel(true); autoDismiss('#p-cancel', '#bridge-msg'); }
       }
     }
     const yp = root.querySelector('#yprog') as HTMLElement | null; if (yp) yp.style.width = `${Math.min(100, r.acc * 100).toFixed(1)}%`;
@@ -396,6 +396,7 @@ function renderLife(full: boolean): void {
   q('where').textContent = nameOf(s.cur);
   q('who').textContent = s.name.full;
   q('age').textContent = t('years', { n: s.age });
+  { const nm = q('tb-name'); if (nm.textContent !== s.name.full) { nm.textContent = s.name.full; nm.title = s.name.full; } }
   q('cal').textContent = `${t('yearOf', { year: cal })} · ${s.name.full} · ${t('paceShort', { min: r.paceMin })}`;
   q('status').textContent = statusText(s);
   const [l1, l2] = folioLines(s.name.given ? s.name.full.normalize('NFKD') : 'X', s.born.iso, s.born.year, s.born.sex, s.seed);
@@ -440,14 +441,14 @@ function renderLog(): void {
   }).join('')}</ul></li>`).join('');
   log.querySelectorAll<HTMLButtonElement>('.star').forEach((b) => b.addEventListener('click', () => { const k = (b.parentElement as HTMLElement).dataset.k!; if (starred.has(k)) starred.delete(k); else starred.add(k); renderLog(); }));
   const more = root.querySelector('#log-more') as HTMLElement;
-  more.hidden = ages.length <= LIMIT; more.textContent = logAll ? t('logLess') : t('logEarlier', { n: ages.length - LIMIT });
+  const lm = logMore(ages.length, LIMIT, logAll); more.hidden = lm.hidden; more.textContent = lm.expanded ? t('logLess') : t('logEarlier', { n: lm.earlier });
 }
 function renderFamily(): void {
   const s = run!.s; const f = s.family; const cal = s.born.year + s.age;
   const row = (rel: string, name: string, born: number, dead = false) => `<div><dt>${esc(rel)}</dt><dd>${esc(name)} <span class="mono small">${dead ? `† ${esc(t('deceased'))}` : esc(t('years', { n: cal - born }))}</span></dd></div>`;
   const parentsDead = !f.parentsAlive;
   (root.querySelector('#family') as HTMLElement).innerHTML = [row(t('rel_mother'), f.mother.name, f.mother.born, parentsDead), row(t('rel_father'), f.father.name, f.father.born, parentsDead),
-    ...f.siblings.map((x) => row(t('rel_sibling'), x.name, x.born)), ...(f.spouse ? [row(t('rel_spouse'), f.spouse.name, f.spouse.born)] : []), ...f.children.map((x) => row(t('rel_child'), x.name, x.born))].join('');
+    ...bornBy(f.siblings, cal).map((x) => row(t('rel_sibling'), x.name, x.born)), ...(f.spouse ? [row(t('rel_spouse'), f.spouse.name, f.spouse.born)] : []), ...bornBy(f.children, cal).map((x) => row(t('rel_child'), x.name, x.born))].join('');
 }
 function lifeMapHtml(s: LifeState, e0: number): string {
   const n = Math.max(Math.ceil(e0) + 1, s.years.length + 1, 60);
@@ -663,6 +664,13 @@ function annuityPanel(): void {
 
 // ---------- P0-3 life choices & finance nudges (pause the clock; answers are recorded actions → replay)
 
+/** v0.7.1: with auto-choice on, prompts the game raises by itself (nudges, bridge-loan offer) close after the same
+ *  speed-scaled countdown as a decision card, instead of stopping time until a click. */
+function autoDismiss(btnSel: string, textSel: string): void {
+  if (!autoOn() || !run) return;
+  const len = (root.querySelector(textSel)?.textContent ?? '').length;
+  window.setTimeout(() => { (root.querySelector(btnSel) as HTMLElement | null)?.click(); }, autoCountdownSec(len, run.speed) * 1000);
+}
 function nudgeDue(): string | null {
   const s = run!.s; if (s.death) return null;
   const last = s.age - 1;

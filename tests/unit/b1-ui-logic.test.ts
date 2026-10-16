@@ -66,9 +66,9 @@ describe('P2/P4 speeds & auto-choice', () => {
     expect([...SPEEDS]).toEqual([1, 2, 4, 8, 12, 16]);
     expect(speedForKey('6')).toBe(16); expect(speedForKey('7')).toBeNull(); expect(speedForKey('a')).toBeNull();
   });
-  it('countdown = clamp(len/9, 5, 14) ÷ speed, min 0.35 s', () => {
+  it('countdown = clamp(len/9, 5, 14) ÷ √speed, ≥ 1.2 s (v0.7.1)', () => {
     expect(autoCountdownSec(9, 1)).toBe(5); expect(autoCountdownSec(90, 1)).toBe(10); expect(autoCountdownSec(900, 1)).toBe(14);
-    expect(autoCountdownSec(90, 2)).toBe(5); expect(autoCountdownSec(9, 16)).toBe(0.35);
+    expect(autoCountdownSec(90, 4)).toBe(5); expect(autoCountdownSec(9, 16)).toBe(1.25); expect(autoCountdownSec(0, 64)).toBe(1.2);
   });
 });
 
