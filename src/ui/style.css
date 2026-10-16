@@ -375,3 +375,6 @@ dialog.spend details { margin-top: 10px; } dialog.spend summary { cursor: pointe
 .spend .spend-hint { background: var(--card); border-left: 3px solid var(--gold); padding: 6px 8px; }
 .spend .item.sell b { color: var(--bad); }
 .sheet-fin { grid-template-columns: 1fr 1fr; }
+/* v0.9.0 update prompt: top-left under the top bar (toasts are top-right); full width under the top bar at 390, never over decision buttons */
+.update-bar { position: fixed; left: 16px; top: 76px; z-index: 60; display: flex; align-items: center; gap: 8px; background: var(--card); color: var(--ink); border: 1px solid var(--rule); border-left: 4px solid var(--gold); border-radius: 4px; padding: 8px 10px 8px 12px; font-size: 14px; box-shadow: 0 6px 20px rgba(0,0,0,.14); max-width: calc(100vw - 32px); }
+@media (max-width: 440px) { .update-bar { top: 64px; bottom: auto; left: 12px; right: 12px; } }

@@ -23,6 +23,7 @@ import { phiInv } from '../math/normal.ts';
 import { EDU_PREMIUM, benefitRate, entryAge, experienceFactor, gradAge, premiumNorm, schoolingOdds, spending, taxRate } from '../economy/household.ts';
 import { makeFamily } from './family.ts';
 import { applyChoice, defaultPick, offersAt } from './choices.ts';
+import { occById, occHazard, occWageF, legacyOcc, maxRung, bizHazard, BIZ, TECH_EXIT, ILLICIT, PRISON_PENALTY, RARE_PATHS, SPACE, ENTRY_GROUPS, incomeGroup, type Biz } from './occupation.ts';
 import type { Career } from './state.ts';
 
 export interface DataBundle {
@@ -48,7 +49,7 @@ export function makeBundle(index: CountryIndex, demo: (iso: Iso3) => Demography,
 
 /** 'future' (batch 1): births after nowYear up to the last projected WPP year (UN medium variant → 推估). */
 export type Era = { kind: 'now' } | { kind: 'past'; year: number | 'random' } | { kind: 'future'; year: number | 'random' };
-export interface LifeConfig { seed: string; era: Era; nowYear: number; constraints?: BirthConstraints; id?: string; engineVersion: string; /** v0.8.0: auto focus policy (comparison lives, MC) */ autoFocus?: boolean; /** v0.8.0: auto spending habits */ autoSpend?: boolean }
+export interface LifeConfig { seed: string; era: Era; nowYear: number; constraints?: BirthConstraints; id?: string; engineVersion: string; /** v0.8.0: auto focus policy (comparison lives, MC) */ autoFocus?: boolean; /** v0.8.0: auto spending habits */ autoSpend?: boolean; /** C0: occupation system (v0.9.0) */ occ?: boolean; /** C0: legacy save continues in the occupation system from this age */ occFrom?: number }
 
 const tableCache = new Map<string, AnnualTable>();
 export function tableFor(data: DataBundle, s: LifeState): AnnualTable {
@@ -102,7 +103,7 @@ export function newLife(data: DataBundle, cfg: LifeConfig): LifeState | Infeasib
     mode: 'normal', sandbox, phase: 'birth',
     born: { iso: b.iso, year, urban: b.urban, quintile: b.quintile, sex: b.sex, pct: b.pct, lifeTableYear: ltYear, estimated },
     cur: b.iso, age: 0, stats, name: fam.name, family: fam.family, career, econ: { cash: 0, incomeReal: 0, pct: b.pct, employed: false, earnSum: 0, earnN: 0, annuity: 0, retired: false },
-    portfolio: emptyPortfolio(), credit: emptyCredit(), loans: [], flags: { ...(cfg.autoFocus ? { autoFocus: true } : {}), ...(cfg.autoSpend ? { autoSpend: true } : {}) }, actions: [], years: [], events: [],
+    portfolio: emptyPortfolio(), credit: emptyCredit(), loans: [], flags: { ...(cfg.autoFocus ? { autoFocus: true } : {}), ...(cfg.autoSpend ? { autoSpend: true } : {}), ...(cfg.occ ? { occ: true } : {}), ...(cfg.occFrom !== undefined ? { occFrom: cfg.occFrom } : {}) }, actions: [], years: [], events: [],
   };
 }
 
@@ -130,7 +131,10 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   const t = tableFor(data, s);
   const fxPrev = focusInForce(s.flags);
   const hzd = hazardMult(s); // v0.8.1: only lives with a focus in force
-  const dies = age >= MAX_AGE || uDeath < Math.min(1, t.p[Math.min(age, MAX_AGE)]! * hzd);
+  const occOn = s.flags.occ === true || (typeof s.flags.occFrom === 'number' && age >= s.flags.occFrom);
+  const gdp0 = seriesAt(c.series.gdpPcPpp, calYear).v;
+  const hzO = occOn ? occHazard(s.career.occ, gdp0, age) : 1; // C0: occupational risk, renormalised (reallocates, never shifts the table)
+  const dies = age >= MAX_AGE || uDeath < Math.min(1, t.p[Math.min(age, MAX_AGE)]! * hzd * hzO);
 
   const est: string[] = [];
   let pct = s.econ.pct;
@@ -163,16 +167,22 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   for (const o of offersAt({ s, c, calYear, meanIncome: d.mean, tfr: cohortTfr(data.wpp, s.born.iso, s.born.year), ...(fx0 ? { focus: fx0 } : {}) })) {
     const rec = s.actions.find((x) => x.t === 'choice' && x.age === age && x.id === o.id);
     const opt = rec && rec.t === 'choice' && o.opts.includes(rec.opt) ? rec.opt : defaultPick(s.seed, age, o);
-    const draft = { career, family, stats, cash, calYear, age, meanDisp, oop, seed: s.seed };
+    const draft = { career, family, stats, cash, calYear, age, meanDisp, oop, seed: s.seed, ...(o.vars?.occ ? { illicitKind: String(o.vars.occ) } : {}) };
     const vars = applyChoice(draft, o.id, opt);
     cash = draft.cash;
-    emit(`ch_${o.id}_${opt}`, vars);
+    if (o.id === 'career' && occById(opt)) { flags.occIg = incomeGroup(seriesAt(c.series.gdpPcPpp, calYear).v); emit('oc_enter', vars); }
+    else if (o.id === 'switch') { if (vars) emit('oc_switch', vars); }
+    else if (o.id === 'startup') { if (vars) emit('oc_biz_start', vars); }
+    else if (o.id === 'illicit') emit(opt === 'accept' ? 'oc_illicit_join' : 'oc_illicit_refuse', { occ: String(o.vars?.occ ?? '') });
+    else if (o.id === 'illicit_exit') { if (opt === 'leave') emit('oc_illicit_leave'); }
+    else emit(`ch_${o.id}_${opt}`, vars);
   }
 
   // ---- P0-2 study / work / retirement
   const studying = age >= career.entry && age < career.studyUntil && career.plan !== 'none';
   const inLabor = age >= Math.max(15, career.studyUntil) && age < retireAge;
   const retired = age >= retireAge;
+  if (occOn && career.trackSet && !career.occ) { career.occ = legacyOcc(career.track, career.plan, gdp0); career.rung = Math.min(career.promotions, maxRung(career.occ)); flags.occIg = incomeGroup(gdp0); emit('oc_map', { occ: career.occ }); }
   if (inLabor && career.workStart === undefined) {
     career.workStart = age;
     if (career.plan !== 'none' && career.plan !== 'primary') emit('graduated', { edu: career.plan });
@@ -184,15 +194,18 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   if (inLabor) {
     est.push(...dEst, 'tax');
     if (unempR.est) est.push('unemp');
-    const uMult = { stable: 0.5, private: 1, startup: 1.3, informal: 0.6 }[career.track] * (career.plan === 'tertiary' || career.plan === 'graduate' ? 0.75 : career.plan === 'none' ? 1.1 : 1);
+    const occ = occOn ? occById(career.occ) : undefined;
+    const uMult = (occ ? (occ.group === 'startup' || occ.group === 'illicit' || occ.group === 'status' ? (occ.id === 'job_seeker' ? 99 : occ.id === 'prison' ? 99 : 0) : occ.risk.unemp) : { stable: 0.5, private: 1, startup: 1.3, informal: 0.6 }[career.track]) * (career.plan === 'tertiary' || career.plan === 'graduate' ? 0.75 : career.plan === 'none' ? 1.1 : 1);
     unemployed = uUnemp < unempR.v * uMult;
     // nominal wages only catch up λπ of this year's inflation → real wage factor (1+λπ)/(1+π)
     const lag = pi > 0 ? (1 + PARAMS.wageLag.value * pi) / (1 + pi) : 1;
     const luck = career.track === 'startup' ? Math.exp(0.6 * phiInv(Math.min(0.999, Math.max(0.001, uLuck))) - 0.18) : 1;
-    const trackF = { stable: 0.95, private: 1, startup: luck, informal: 0.7 }[career.track];
+    const trackF = occ ? occWageF(occ.id, career.rung ?? 0, gdp0, career.plan, s.born.iso) * (occ.group === 'startup' ? Math.exp(BIZ[occ.id as Biz].sigma * phiInv(Math.min(0.999, Math.max(0.001, uLuck))) - BIZ[occ.id as Biz].sigma ** 2 / 2) : 1) * (career.penalty ?? 1)
+      : { stable: 0.95, private: 1, startup: luck, informal: 0.7 }[career.track];
     const careF = career.careUntil !== undefined && age < career.careUntil ? 0.7 : 1;
     const wage = base * eduF * experienceFactor(age - career.workStart!) * career.mult * trackF * (career.city ? 1.15 : 1) * careF;
-    if (unemployed) { income = benefitRate(c, calYear) * career.lastWage; if (income > 0) est.push('benefit'); }
+    if (occ?.id === 'prison') { unemployed = true; income = 0; }
+    else if (unemployed) { income = benefitRate(c, calYear) * career.lastWage; if (income > 0) est.push('benefit'); }
     else { income = wage * lag; career.lastWage = wage; }
     earnSum += wage; earnN += 1; // earnings history for the pension
   } else if (studying && age >= 16) {
@@ -202,6 +215,32 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
     pension = earnN > 0 ? pen.grr * (earnSum / earnN) : 0;
     if (pen.est) est.push('pension');
     income = pension;
+  }
+  // ---- C0 occupation dynamics: startup survival/exits, illicit arrest, prison, job seeking, rare transitions
+  if (occOn && inLabor && career.occ) {
+    const ro = stream(s.seed, 'occ', 'year', age); const u1 = ro.next(), u2 = ro.next(), u3 = ro.next();
+    const o = occById(career.occ)!;
+    if (o.group === 'startup') {
+      const b = o.id as Biz; career.bizAge = (career.bizAge ?? 0) + 1;
+      if (u1 < bizHazard(b, career.bizAge)) { emit('oc_biz_fail', { occ: o.id }); stats.happy -= 6; career.occ = career.occPrev && occById(career.occPrev)?.group !== 'startup' ? career.occPrev : legacyOcc('private', career.plan, gdp0); career.rung = 0; career.bizAge = undefined; career.track = 'private'; }
+      else if (b === 'tech_su' && career.bizAge <= 5) {
+        let a = 0; for (const [k, [p, mult]] of Object.entries(TECH_EXIT)) { a += p; if (u2 < a) { cash += mult * d.mean; emit('oc_biz_exit', { kind: k }); stats.happy += 8; career.occ = career.occPrev ?? 'pm_mgr'; career.bizAge = undefined; career.track = 'private'; break; } }
+      }
+    } else if (o.group === 'illicit') {
+      if (u1 < ILLICIT[o.id]!.arrest) { const yrs = 1 + Math.floor(u2 * 3); career.prisonUntil = age + yrs; career.occ = 'prison'; emit('oc_arrest', { years: yrs }); stats.happy -= 10; stats.social -= 6; }
+      else { stats.happy -= 3; stats.health -= 1; }
+    } else if (o.id === 'prison') {
+      stats.health -= 2; stats.social -= 3;
+      if (age + 1 >= (career.prisonUntil ?? age)) { career.occ = 'job_seeker'; career.penalty = PRISON_PENALTY; career.prisonUntil = undefined; emit('oc_release'); }
+    } else if (o.id === 'job_seeker') {
+      career.occ = career.occPrev ?? career.occLegit ?? legacyOcc('private', career.plan, gdp0); career.rung = 0; emit('oc_back', { occ: career.occ });
+    } else {
+      for (const rp of RARE_PATHS) {
+        if (!rp.from.includes(o.id) || (rp.space && !SPACE.includes(c.iso)) || (rp.social && stats.social < rp.social)) continue;
+        if (u3 < rp.p) { career.occ = rp.to; career.rung = 0; emit('oc_rare', { occ: rp.to }); stats.happy += 6; break; }
+      }
+    }
+    if (!unemployed && ENTRY_GROUPS.includes(occById(career.occ)?.group as never)) { const oy = typeof flags.occYears === 'string' ? JSON.parse(flags.occYears) as Record<string, string> : {}; oy[age] = occById(career.occ)!.group; flags.occYears = JSON.stringify(oy); }
   }
   // ---- v0.8.0 yearly focus: recorded allocation (or the auto policy), mapped onto this life stage
   let focusCost = 0, fxNow: FocusFx | undefined;
@@ -238,10 +277,11 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   const kids0 = family.children.filter((k) => calYear - k.born < 18).length;
   if (events) {
     const out = events.run({ seed: s.seed, age, calYear, country: c, stats, cash, income, pct, unemployed, inLabor, flags, quintile: s.born.quintile, urban: s.born.urban, sex: s.born.sex, meanIncome: d.mean,
-      studying, married: married0, kids: kids0, siblings: family.siblings.length, retired, owner: !!s.house, city: career.city, careerMult: career.mult, gdp: gdpPc, oop,
+      studying, married: married0, kids: kids0, siblings: family.siblings.length, retired, owner: !!s.house, city: career.city, careerMult: career.mult, gdp: gdpPc, oop, ...(occOn && career.occ ? { occ: career.occ, occRung: career.rung ?? 0, occMaxRung: maxRung(career.occ) } : {}),
       ...(fxNow ? { focusPromo: fxNow.promoMult, focusFamily: fxNow.familyMult, focusDivorce: fxNow.divorceMult } : {}) });
     stats = out.stats; cash = out.cash; income = out.income; pct = out.pct;
     if (out.careerMult > career.mult * 1.05) career.promotions += 1;
+    if (out.flags.rungUp) { career.rung = Math.min((career.rung ?? 0) + 1, maxRung(career.occ)); career.promotions += 1; delete out.flags.rungUp; }
     career.mult = out.careerMult;
     if (out.married === false && family.spouse) { family.spouse = undefined; flags.divorced = age; }
     for (const e of out.fired) emit(e.id, e.vars);

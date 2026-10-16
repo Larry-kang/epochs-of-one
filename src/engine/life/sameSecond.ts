@@ -7,7 +7,7 @@ import { sha256Hex } from '../rng/sha256.ts';
 
 export const SAME_SECOND_N = 5;
 export function sameSecondConfigs(s: LifeState, n = SAME_SECOND_N): LifeConfig[] {
-  return Array.from({ length: n }, (_, i) => ({ seed: sha256Hex(`${s.seed}:same-second:${i}`).slice(0, 16), era: { kind: 'past', year: s.born.year }, nowYear: s.born.year, engineVersion: s.engineVersion }));
+  return Array.from({ length: n }, (_, i) => ({ seed: sha256Hex(`${s.seed}:same-second:${i}`).slice(0, 16), era: { kind: 'past', year: s.born.year }, nowYear: s.born.year, engineVersion: s.engineVersion, ...(s.flags.occ === true || typeof s.flags.occFrom === 'number' ? { occ: true } : {}) }));
 }
 export function sameSecond(data: DataBundle, s: LifeState, cfgs = sameSecondConfigs(s)): LifeState[] {
   const out: LifeState[] = [];

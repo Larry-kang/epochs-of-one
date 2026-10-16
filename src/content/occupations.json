@@ -1,0 +1,2911 @@
+{
+"version": "c0-draft-2026-10-16",
+"note": "推估: design estimates from tools/careers-draft.csv; replaced by sourced values in L1.",
+"occupations": [
+{
+"id": "farmer_sub",
+"zh": "自耕小農",
+"en": "Subsistence farmer",
+"isco": "6310",
+"group": "agri",
+"rel": 0.45,
+"est": true,
+"ladder": [
+[
+"smallholder",
+1.0
+],
+[
+"owner",
+1.2
+]
+],
+"edu": "none",
+"drv": {
+"pre": 1980,
+"rural": 1,
+"lowQ": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"farm_worker",
+"livestock",
+"informal_vendor",
+"construction_lab"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "farmer_mkt",
+"zh": "專業農民",
+"en": "Market-oriented crop farmer",
+"isco": "6111",
+"group": "agri",
+"rel": 0.75,
+"est": true,
+"ladder": [
+[
+"grower",
+1.0
+],
+[
+"owner",
+1.25
+],
+[
+"agribusiness",
+1.6
+]
+],
+"edu": "primary",
+"drv": {
+"rural": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"livestock",
+"food_retail_su",
+"farm_worker"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "farm_worker",
+"zh": "農場工人",
+"en": "Agricultural labourer",
+"isco": "9211",
+"group": "agri",
+"rel": 0.5,
+"est": true,
+"ladder": [
+[
+"labourer",
+1.0
+],
+[
+"foreman",
+1.15
+]
+],
+"edu": "none",
+"drv": {
+"rural": 1,
+"lowQ": 1
+},
+"risk": {
+"unemp": 1.3,
+"mort": 1.0
+},
+"to": [
+"construction_lab",
+"factory_op",
+"farmer_sub"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "livestock",
+"zh": "畜牧業者",
+"en": "Livestock farmer",
+"isco": "6121",
+"group": "agri",
+"rel": 0.7,
+"est": true,
+"ladder": [
+[
+"herder",
+1.0
+],
+[
+"owner",
+1.3
+],
+[
+"ranch manager",
+1.6
+]
+],
+"edu": "none",
+"drv": {
+"rural": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"farmer_mkt",
+"farm_worker"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "fisher",
+"zh": "漁民",
+"en": "Fisher (coastal / deep-sea)",
+"isco": "6222",
+"group": "agri",
+"rel": 0.7,
+"est": true,
+"ladder": [
+[
+"deckhand",
+1.0
+],
+[
+"skipper",
+1.4
+],
+[
+"boat owner",
+1.8
+]
+],
+"edu": "none",
+"drv": {
+"sex": "M",
+"coastal": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.35
+},
+"to": [
+"aquaculture",
+"transport_driver",
+"factory_op"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "aquaculture",
+"zh": "養殖漁業",
+"en": "Aquaculture farmer",
+"isco": "6221",
+"group": "agri",
+"rel": 0.75,
+"est": true,
+"ladder": [
+[
+"worker",
+1.0
+],
+[
+"pond owner",
+1.35
+]
+],
+"edu": "primary",
+"drv": {
+"coastal": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"fisher",
+"farmer_mkt",
+"food_retail_su"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "forestry",
+"zh": "林業工作者",
+"en": "Forestry worker",
+"isco": "6210",
+"group": "agri",
+"rel": 0.65,
+"est": true,
+"ladder": [
+[
+"logger",
+1.0
+],
+[
+"crew lead",
+1.2
+]
+],
+"edu": "none",
+"drv": {
+"sex": "M",
+"rural": 1
+},
+"risk": {
+"unemp": 1.3,
+"mort": 1.15
+},
+"to": [
+"construction_lab",
+"farm_worker"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "construction_lab",
+"zh": "營造工人",
+"en": "Construction labourer",
+"isco": "9313",
+"group": "trades",
+"rel": 0.6,
+"est": true,
+"ladder": [
+[
+"labourer",
+1.0
+],
+[
+"skilled",
+1.2
+],
+[
+"foreman",
+1.45
+]
+],
+"edu": "none",
+"drv": {
+"sex": "M",
+"lowQ": 1
+},
+"risk": {
+"unemp": 1.3,
+"mort": 1.15
+},
+"to": [
+"electrician",
+"plumber",
+"factory_op",
+"transport_driver"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "electrician",
+"zh": "水電工 (電工)",
+"en": "Electrician",
+"isco": "7411",
+"group": "trades",
+"rel": 1.05,
+"est": true,
+"ladder": [
+[
+"apprentice",
+0.7
+],
+[
+"licensed",
+1.0
+],
+[
+"master",
+1.3
+],
+[
+"contractor",
+1.6
+]
+],
+"edu": "secondary",
+"drv": {},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"plumber",
+"factory_tech"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "plumber",
+"zh": "水電工 (管線)",
+"en": "Plumber / pipefitter",
+"isco": "7126",
+"group": "trades",
+"rel": 0.95,
+"est": true,
+"ladder": [
+[
+"apprentice",
+0.7
+],
+[
+"licensed",
+1.0
+],
+[
+"master",
+1.25
+],
+[
+"contractor",
+1.5
+]
+],
+"edu": "secondary",
+"drv": {},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"electrician"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "mechanic",
+"zh": "汽機車技師",
+"en": "Motor vehicle mechanic",
+"isco": "7231",
+"group": "trades",
+"rel": 0.9,
+"est": true,
+"ladder": [
+[
+"apprentice",
+0.7
+],
+[
+"mechanic",
+1.0
+],
+[
+"senior",
+1.2
+],
+[
+"shop owner",
+1.5
+]
+],
+"edu": "secondary",
+"drv": {
+"sex": "M"
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"factory_tech",
+"food_retail_su",
+"transport_driver"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "welder",
+"zh": "焊接工",
+"en": "Welder / metal worker",
+"isco": "7212",
+"group": "trades",
+"rel": 0.95,
+"est": true,
+"ladder": [
+[
+"helper",
+0.75
+],
+[
+"welder",
+1.0
+],
+[
+"certified",
+1.25
+],
+[
+"inspector",
+1.4
+]
+],
+"edu": "secondary",
+"drv": {},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"factory_tech"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "factory_op",
+"zh": "工廠作業員",
+"en": "Machine operator / assembler",
+"isco": "8189",
+"group": "trades",
+"rel": 0.75,
+"est": true,
+"ladder": [
+[
+"operator",
+1.0
+],
+[
+"line lead",
+1.15
+],
+[
+"supervisor",
+1.35
+]
+],
+"edu": "primary",
+"drv": {},
+"risk": {
+"unemp": 1.3,
+"mort": 1.0
+},
+"to": [
+"factory_tech",
+"transport_driver",
+"warehouse"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "factory_tech",
+"zh": "技術員 (工廠)",
+"en": "Production technician",
+"isco": "3122",
+"group": "trades",
+"rel": 1.05,
+"est": true,
+"ladder": [
+[
+"technician",
+1.0
+],
+[
+"senior",
+1.2
+],
+[
+"section chief",
+1.45
+]
+],
+"edu": "secondary",
+"drv": {},
+"risk": {
+"unemp": 1.3,
+"mort": 1.0
+},
+"to": [
+"semi_process_eng",
+"factory_op",
+"mechanic"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "transport_driver",
+"zh": "職業駕駛",
+"en": "Truck / bus / taxi driver",
+"isco": "8322",
+"group": "trades",
+"rel": 0.8,
+"est": true,
+"ladder": [
+[
+"driver",
+1.0
+],
+[
+"senior",
+1.1
+],
+[
+"fleet owner",
+1.5
+]
+],
+"edu": "primary",
+"drv": {
+"sex": "M"
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.15
+},
+"to": [
+"delivery_rider",
+"warehouse",
+"mechanic"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "warehouse",
+"zh": "倉儲物流",
+"en": "Warehouse / logistics worker",
+"isco": "9333",
+"group": "trades",
+"rel": 0.7,
+"est": true,
+"ladder": [
+[
+"picker",
+1.0
+],
+[
+"lead",
+1.12
+],
+[
+"supervisor",
+1.3
+]
+],
+"edu": "primary",
+"drv": {
+"urban": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"transport_driver",
+"delivery_rider",
+"factory_op"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "craftsman",
+"zh": "傳統工藝師",
+"en": "Craft worker (wood, textile, jewellery)",
+"isco": "7317",
+"group": "trades",
+"rel": 0.7,
+"est": true,
+"ladder": [
+[
+"apprentice",
+0.6
+],
+[
+"artisan",
+1.0
+],
+[
+"master",
+1.4
+]
+],
+"edu": "primary",
+"drv": {},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"studio_su",
+"retail_clerk",
+"entertainer"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "miner",
+"zh": "礦工",
+"en": "Miner / quarry worker",
+"isco": "8111",
+"group": "trades",
+"rel": 0.95,
+"est": true,
+"ladder": [
+[
+"miner",
+1.0
+],
+[
+"shift boss",
+1.3
+]
+],
+"edu": "primary",
+"drv": {
+"pre": 1990,
+"sex": "M"
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.35
+},
+"to": [
+"construction_lab",
+"factory_op"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "retail_clerk",
+"zh": "門市店員",
+"en": "Shop sales assistant",
+"isco": "5223",
+"group": "services",
+"rel": 0.65,
+"est": true,
+"ladder": [
+[
+"clerk",
+1.0
+],
+[
+"senior",
+1.1
+],
+[
+"store manager",
+1.4
+]
+],
+"edu": "primary",
+"drv": {
+"sex": "F",
+"urban": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"office_clerk",
+"food_service",
+"sales_rep"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "food_service",
+"zh": "餐飲服務員",
+"en": "Food service worker / waiter",
+"isco": "5131",
+"group": "services",
+"rel": 0.6,
+"est": true,
+"ladder": [
+[
+"server",
+1.0
+],
+[
+"shift lead",
+1.1
+],
+[
+"manager",
+1.35
+]
+],
+"edu": "none",
+"drv": {
+"urban": 1,
+"young": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"cook",
+"food_retail_su",
+"retail_clerk"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "cook",
+"zh": "廚師",
+"en": "Cook / chef",
+"isco": "5120",
+"group": "services",
+"rel": 0.8,
+"est": true,
+"ladder": [
+[
+"line cook",
+1.0
+],
+[
+"chef de partie",
+1.2
+],
+[
+"head chef",
+1.6
+]
+],
+"edu": "secondary",
+"drv": {
+"urban": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"food_retail_su",
+"food_service"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "hair_beauty",
+"zh": "美髮美容師",
+"en": "Hairdresser / beautician",
+"isco": "5141",
+"group": "services",
+"rel": 0.7,
+"est": true,
+"ladder": [
+[
+"assistant",
+0.6
+],
+[
+"stylist",
+1.0
+],
+[
+"top stylist",
+1.4
+],
+[
+"salon owner",
+1.7
+]
+],
+"edu": "secondary",
+"drv": {
+"sex": "F",
+"urban": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"studio_su",
+"retail_clerk"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "caregiver",
+"zh": "照顧服務員",
+"en": "Care worker (elderly / disabled)",
+"isco": "5322",
+"group": "services",
+"rel": 0.7,
+"est": true,
+"ladder": [
+[
+"aide",
+1.0
+],
+[
+"senior aide",
+1.1
+],
+[
+"supervisor",
+1.3
+]
+],
+"edu": "secondary",
+"drv": {
+"sex": "F"
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"nurse",
+"homemaker",
+"cleaner"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "cleaner",
+"zh": "清潔人員",
+"en": "Cleaner / domestic helper",
+"isco": "9112",
+"group": "services",
+"rel": 0.5,
+"est": true,
+"ladder": [
+[
+"cleaner",
+1.0
+],
+[
+"team lead",
+1.1
+]
+],
+"edu": "none",
+"drv": {
+"lowQ": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"caregiver",
+"warehouse"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "security_guard",
+"zh": "保全人員",
+"en": "Security guard",
+"isco": "5414",
+"group": "services",
+"rel": 0.65,
+"est": true,
+"ladder": [
+[
+"guard",
+1.0
+],
+[
+"chief",
+1.2
+]
+],
+"edu": "primary",
+"drv": {
+"sex": "M"
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"police",
+"cleaner"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "delivery_rider",
+"zh": "外送員",
+"en": "Platform delivery rider",
+"isco": "9331",
+"group": "services",
+"rel": 0.65,
+"est": true,
+"ladder": [
+[
+"rider",
+1.0
+],
+[
+"top-rated",
+1.1
+]
+],
+"edu": "none",
+"drv": {
+"from": 2015,
+"urban": 1,
+"young": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"transport_driver",
+"warehouse",
+"food_retail_su"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "office_clerk",
+"zh": "行政文書",
+"en": "General office clerk",
+"isco": "4110",
+"group": "services",
+"rel": 0.85,
+"est": true,
+"ladder": [
+[
+"clerk",
+1.0
+],
+[
+"senior",
+1.15
+],
+[
+"admin manager",
+1.45
+]
+],
+"edu": "secondary",
+"drv": {
+"sex": "F",
+"urban": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"accountant",
+"sales_rep",
+"civil_servant"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "call_center",
+"zh": "客服人員",
+"en": "Call-centre / customer service",
+"isco": "4222",
+"group": "services",
+"rel": 0.7,
+"est": true,
+"ladder": [
+[
+"agent",
+1.0
+],
+[
+"team lead",
+1.2
+]
+],
+"edu": "secondary",
+"drv": {
+"urban": 1
+},
+"risk": {
+"unemp": 1.3,
+"mort": 1.0
+},
+"to": [
+"office_clerk",
+"sales_rep"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "tour_hotel",
+"zh": "旅宿導遊",
+"en": "Hotel / tour worker",
+"isco": "5113",
+"group": "services",
+"rel": 0.7,
+"est": true,
+"ladder": [
+[
+"staff",
+1.0
+],
+[
+"supervisor",
+1.2
+],
+[
+"manager",
+1.5
+]
+],
+"edu": "secondary",
+"drv": {},
+"risk": {
+"unemp": 1.3,
+"mort": 1.0
+},
+"to": [
+"food_service",
+"retail_clerk",
+"flight_att"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "informal_vendor",
+"zh": "攤販",
+"en": "Street vendor (informal)",
+"isco": "5211",
+"group": "services",
+"rel": 0.45,
+"est": true,
+"ladder": [
+[
+"vendor",
+1.0
+],
+[
+"fixed stall",
+1.3
+]
+],
+"edu": "none",
+"drv": {
+"lowQ": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"food_retail_su",
+"retail_clerk",
+"farm_worker"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "sw_eng",
+"zh": "軟體工程師",
+"en": "Software engineer",
+"isco": "2512",
+"group": "professional",
+"rel": 1.8,
+"est": true,
+"ladder": [
+[
+"junior",
+1.0
+],
+[
+"senior",
+1.35
+],
+[
+"staff",
+1.7
+],
+[
+"principal/manager",
+2.1
+]
+],
+"edu": "tertiary",
+"drv": {
+"from": 1995,
+"urban": 1,
+"smart": 1
+},
+"risk": {
+"unemp": 1.3,
+"mort": 1.0
+},
+"to": [
+"tech_su",
+"pm_mgr",
+"data_sci"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "hw_eng",
+"zh": "硬體工程師",
+"en": "Hardware / IC design engineer",
+"isco": "2152",
+"group": "professional",
+"rel": 2.0,
+"est": true,
+"ladder": [
+[
+"engineer",
+1.0
+],
+[
+"senior",
+1.3
+],
+[
+"manager",
+1.7
+],
+[
+"director",
+2.2
+]
+],
+"edu": "tertiary",
+"drv": {
+"twn": 3
+},
+"risk": {
+"unemp": 1.3,
+"mort": 1.0
+},
+"to": [
+"sw_eng",
+"semi_process_eng",
+"tech_su"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "semi_process_eng",
+"zh": "半導體製程工程師",
+"en": "Semiconductor process / equipment engineer",
+"isco": "2149",
+"group": "professional",
+"rel": 2.1,
+"est": true,
+"ladder": [
+[
+"engineer",
+1.0
+],
+[
+"senior",
+1.3
+],
+[
+"section mgr",
+1.65
+],
+[
+"dept mgr",
+2.1
+]
+],
+"edu": "graduate",
+"drv": {
+"from": 1990,
+"twn": 5
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"hw_eng",
+"factory_tech",
+"pm_mgr"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "data_sci",
+"zh": "資料科學家",
+"en": "Data scientist / analyst",
+"isco": "2511",
+"group": "professional",
+"rel": 1.7,
+"est": true,
+"ladder": [
+[
+"analyst",
+1.0
+],
+[
+"senior",
+1.3
+],
+[
+"lead",
+1.65
+]
+],
+"edu": "graduate",
+"drv": {
+"from": 2010,
+"smart": 1
+},
+"risk": {
+"unemp": 1.3,
+"mort": 1.0
+},
+"to": [
+"sw_eng",
+"pm_mgr"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "sales_rep",
+"zh": "業務員",
+"en": "Sales representative (B2B)",
+"isco": "3322",
+"group": "professional",
+"rel": 1.15,
+"est": true,
+"ladder": [
+[
+"rep",
+1.0
+],
+[
+"senior",
+1.25
+],
+[
+"manager",
+1.6
+],
+[
+"director",
+2.0
+]
+],
+"edu": "secondary",
+"drv": {
+"urban": 1,
+"social": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"real_estate",
+"insurance_agent",
+"pm_mgr"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "real_estate",
+"zh": "房仲",
+"en": "Real-estate agent",
+"isco": "3334",
+"group": "professional",
+"rel": 1.1,
+"est": true,
+"ladder": [
+[
+"agent",
+1.0
+],
+[
+"top agent",
+1.5
+],
+[
+"store manager",
+1.8
+]
+],
+"edu": "secondary",
+"drv": {
+"urban": 1,
+"social": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"sales_rep",
+"insurance_agent",
+"food_retail_su"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "insurance_agent",
+"zh": "保險業務",
+"en": "Insurance agent",
+"isco": "3321",
+"group": "professional",
+"rel": 0.95,
+"est": true,
+"ladder": [
+[
+"agent",
+1.0
+],
+[
+"unit head",
+1.4
+],
+[
+"director",
+1.9
+]
+],
+"edu": "secondary",
+"drv": {
+"social": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"sales_rep",
+"real_estate",
+"office_clerk"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "accountant",
+"zh": "會計師 / 會計",
+"en": "Accountant",
+"isco": "2411",
+"group": "professional",
+"rel": 1.4,
+"est": true,
+"ladder": [
+[
+"staff",
+1.0
+],
+[
+"senior",
+1.25
+],
+[
+"manager",
+1.6
+],
+[
+"partner",
+2.5
+]
+],
+"edu": "tertiary",
+"drv": {
+"smart": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"finance",
+"office_clerk",
+"civil_servant"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "finance",
+"zh": "金融從業人員",
+"en": "Finance professional (banking / investment)",
+"isco": "2412",
+"group": "professional",
+"rel": 1.9,
+"est": true,
+"ladder": [
+[
+"analyst",
+1.0
+],
+[
+"associate",
+1.4
+],
+[
+"VP",
+2.0
+],
+[
+"MD",
+3.0
+]
+],
+"edu": "tertiary",
+"drv": {
+"urban": 1,
+"highQ": 1,
+"smart": 1
+},
+"risk": {
+"unemp": 1.3,
+"mort": 1.0
+},
+"to": [
+"accountant",
+"pm_mgr"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "lawyer",
+"zh": "律師",
+"en": "Lawyer",
+"isco": "2611",
+"group": "professional",
+"rel": 2.0,
+"est": true,
+"ladder": [
+[
+"associate",
+1.0
+],
+[
+"senior",
+1.4
+],
+[
+"partner",
+2.5
+]
+],
+"edu": "graduate",
+"drv": {
+"highQ": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"judge_prosecutor",
+"legislator",
+"pm_mgr"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "doctor",
+"zh": "醫師",
+"en": "Medical doctor",
+"isco": "2211",
+"group": "professional",
+"rel": 2.6,
+"est": true,
+"ladder": [
+[
+"resident",
+0.8
+],
+[
+"attending",
+1.0
+],
+[
+"chief",
+1.4
+],
+[
+"department head",
+1.8
+]
+],
+"edu": "graduate",
+"drv": {
+"highQ": 1,
+"smart": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "nurse",
+"zh": "護理師",
+"en": "Nurse",
+"isco": "2221",
+"group": "professional",
+"rel": 1.1,
+"est": true,
+"ladder": [
+[
+"nurse",
+1.0
+],
+[
+"senior",
+1.15
+],
+[
+"head nurse",
+1.35
+]
+],
+"edu": "tertiary",
+"drv": {
+"sex": "F"
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"caregiver",
+"civil_servant",
+"homemaker"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "pharmacist",
+"zh": "藥師",
+"en": "Pharmacist",
+"isco": "2262",
+"group": "professional",
+"rel": 1.5,
+"est": true,
+"ladder": [
+[
+"pharmacist",
+1.0
+],
+[
+"chief",
+1.25
+],
+[
+"own pharmacy",
+1.6
+]
+],
+"edu": "tertiary",
+"drv": {
+"smart": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"food_retail_su",
+"civil_servant"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "teacher",
+"zh": "教師",
+"en": "School teacher",
+"isco": "2341",
+"group": "professional",
+"rel": 1.15,
+"est": true,
+"ladder": [
+[
+"teacher",
+1.0
+],
+[
+"senior",
+1.15
+],
+[
+"section head",
+1.3
+],
+[
+"principal",
+1.6
+]
+],
+"edu": "tertiary",
+"drv": {
+"sex": "F"
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0,
+"early": 1
+},
+"to": [
+"civil_servant",
+"homemaker"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "professor",
+"zh": "大學教師",
+"en": "University lecturer / professor",
+"isco": "2310",
+"group": "professional",
+"rel": 1.8,
+"est": true,
+"ladder": [
+[
+"postdoc",
+0.8
+],
+[
+"assistant",
+1.0
+],
+[
+"associate",
+1.2
+],
+[
+"full",
+1.45
+]
+],
+"edu": "graduate",
+"drv": {
+"smart": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"teacher",
+"data_sci",
+"consultant"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "architect",
+"zh": "建築師",
+"en": "Architect / civil engineer",
+"isco": "2142",
+"group": "professional",
+"rel": 1.5,
+"est": true,
+"ladder": [
+[
+"junior",
+1.0
+],
+[
+"licensed",
+1.3
+],
+[
+"partner",
+1.8
+]
+],
+"edu": "tertiary",
+"drv": {
+"smart": 1
+},
+"risk": {
+"unemp": 1.3,
+"mort": 1.0
+},
+"to": [],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "designer",
+"zh": "設計師",
+"en": "Graphic / UX designer",
+"isco": "2166",
+"group": "professional",
+"rel": 1.05,
+"est": true,
+"ladder": [
+[
+"junior",
+1.0
+],
+[
+"senior",
+1.25
+],
+[
+"art director",
+1.6
+]
+],
+"edu": "tertiary",
+"drv": {
+"urban": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"studio_su",
+"sw_eng"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "journalist",
+"zh": "記者 / 媒體",
+"en": "Journalist / media",
+"isco": "2642",
+"group": "professional",
+"rel": 1.0,
+"est": true,
+"ladder": [
+[
+"reporter",
+1.0
+],
+[
+"editor",
+1.25
+],
+[
+"chief editor",
+1.6
+]
+],
+"edu": "tertiary",
+"drv": {
+"urban": 1
+},
+"risk": {
+"unemp": 1.3,
+"mort": 1.0
+},
+"to": [
+"office_clerk",
+"studio_su",
+"legislator"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "pm_mgr",
+"zh": "管理職 (企業)",
+"en": "Corporate manager",
+"isco": "1219",
+"group": "professional",
+"rel": 2.2,
+"est": true,
+"ladder": [
+[
+"manager",
+1.0
+],
+[
+"senior manager",
+1.3
+],
+[
+"director",
+1.7
+],
+[
+"VP",
+2.4
+],
+[
+"CEO (rare)",
+4.0
+]
+],
+"edu": "tertiary",
+"drv": {
+"smart": 1,
+"social": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"tech_su",
+"consultant",
+"retired"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "consultant",
+"zh": "顧問",
+"en": "Management consultant",
+"isco": "2421",
+"group": "professional",
+"rel": 1.8,
+"est": true,
+"ladder": [
+[
+"analyst",
+1.0
+],
+[
+"consultant",
+1.3
+],
+[
+"manager",
+1.7
+],
+[
+"partner",
+2.6
+]
+],
+"edu": "tertiary",
+"drv": {
+"highQ": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"pm_mgr",
+"tech_su"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "civil_servant",
+"zh": "公務員",
+"en": "Civil servant",
+"isco": "2422",
+"group": "public",
+"rel": 1.15,
+"est": true,
+"ladder": [
+[
+"grade junior",
+1.0
+],
+[
+"section chief",
+1.25
+],
+[
+"director",
+1.6
+],
+[
+"senior executive",
+2.0
+]
+],
+"edu": "secondary",
+"drv": {},
+"risk": {
+"unemp": 0.5,
+"mort": 1.0,
+"early": 1
+},
+"to": [
+"teacher",
+"office_clerk",
+"legislator"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "police",
+"zh": "警察",
+"en": "Police officer",
+"isco": "5412",
+"group": "public",
+"rel": 1.1,
+"est": true,
+"ladder": [
+[
+"officer",
+1.0
+],
+[
+"sergeant",
+1.15
+],
+[
+"inspector",
+1.35
+],
+[
+"chief",
+1.7
+]
+],
+"edu": "secondary",
+"drv": {
+"sex": "M"
+},
+"risk": {
+"unemp": 0.5,
+"mort": 1.15
+},
+"to": [
+"security_guard",
+"civil_servant"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "military_officer",
+"zh": "職業軍人 (軍官)",
+"en": "Military officer",
+"isco": "0110",
+"group": "public",
+"rel": 1.2,
+"est": true,
+"ladder": [
+[
+"lieutenant",
+1.0
+],
+[
+"captain",
+1.2
+],
+[
+"major",
+1.4
+],
+[
+"colonel",
+1.75
+],
+[
+"general (very rare)",
+2.4
+]
+],
+"edu": "tertiary",
+"drv": {
+"sex": "M"
+},
+"risk": {
+"unemp": 0.5,
+"mort": 1.0,
+"early": 1
+},
+"to": [
+"civil_servant",
+"security_guard",
+"pilot"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "military_nco",
+"zh": "職業軍人 (士官兵)",
+"en": "Military NCO / enlisted (career)",
+"isco": "0310",
+"group": "public",
+"rel": 0.9,
+"est": true,
+"ladder": [
+[
+"private",
+1.0
+],
+[
+"corporal",
+1.1
+],
+[
+"sergeant",
+1.3
+],
+[
+"master sgt",
+1.5
+]
+],
+"edu": "secondary",
+"drv": {
+"sex": "M",
+"lowQ": 1
+},
+"risk": {
+"unemp": 0.5,
+"mort": 1.0
+},
+"to": [
+"police",
+"security_guard",
+"transport_driver"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "firefighter",
+"zh": "消防員",
+"en": "Firefighter",
+"isco": "5411",
+"group": "public",
+"rel": 1.05,
+"est": true,
+"ladder": [
+[
+"firefighter",
+1.0
+],
+[
+"lead",
+1.2
+],
+[
+"captain",
+1.45
+]
+],
+"edu": "secondary",
+"drv": {
+"sex": "M"
+},
+"risk": {
+"unemp": 0.5,
+"mort": 1.15
+},
+"to": [
+"civil_servant",
+"security_guard"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "judge_prosecutor",
+"zh": "法官 / 檢察官",
+"en": "Judge / prosecutor",
+"isco": "2612",
+"group": "public",
+"rel": 2.0,
+"est": true,
+"ladder": [
+[
+"trainee",
+1.0
+],
+[
+"judge",
+1.3
+],
+[
+"senior",
+1.6
+],
+[
+"chief",
+2.0
+]
+],
+"edu": "graduate",
+"drv": {
+"smart": 1
+},
+"risk": {
+"unemp": 0.5,
+"mort": 1.0
+},
+"to": [
+"lawyer",
+"legislator"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "local_rep",
+"zh": "地方民意代表",
+"en": "Local elected representative (councillor)",
+"isco": "1111",
+"group": "public",
+"rel": 1.4,
+"est": true,
+"ladder": [
+[
+"councillor",
+1.0
+],
+[
+"re-elected",
+1.1
+],
+[
+"speaker",
+1.4
+]
+],
+"edu": "none",
+"drv": {
+"social": 1,
+"rare": 2
+},
+"risk": {
+"unemp": 0.5,
+"mort": 1.0
+},
+"to": [
+"pm_mgr",
+"legislator",
+"lawyer"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "legislator",
+"zh": "立法委員 / 國會議員",
+"en": "National legislator",
+"isco": "1111",
+"group": "public",
+"rel": 3.0,
+"est": true,
+"ladder": [
+[
+"legislator",
+1.0
+],
+[
+"committee chair",
+1.15
+],
+[
+"party leader",
+1.3
+]
+],
+"edu": "none",
+"drv": {
+"social": 1,
+"rare": 3
+},
+"risk": {
+"unemp": 0.5,
+"mort": 1.0
+},
+"to": [
+"local_rep",
+"minister",
+"lawyer",
+"consultant"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "minister",
+"zh": "首長 (部長 / 縣市長)",
+"en": "Head of government / office (minister, mayor)",
+"isco": "1112",
+"group": "public",
+"rel": 3.5,
+"est": true,
+"ladder": [
+[
+"deputy",
+1.0
+],
+[
+"minister / mayor",
+1.2
+],
+[
+"head of government",
+1.6
+]
+],
+"edu": "none",
+"drv": {
+"rare": 3
+},
+"risk": {
+"unemp": 0.5,
+"mort": 1.0
+},
+"to": [
+"legislator",
+"consultant",
+"professor",
+"retired"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "pilot",
+"zh": "民航機師",
+"en": "Airline pilot",
+"isco": "3153",
+"group": "special",
+"rel": 3.0,
+"est": true,
+"ladder": [
+[
+"cadet",
+0.6
+],
+[
+"first officer",
+1.0
+],
+[
+"captain",
+1.6
+],
+[
+"chief pilot",
+1.9
+]
+],
+"edu": "secondary",
+"drv": {
+"sex": "M",
+"rare": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"military_officer",
+"consultant"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "flight_att",
+"zh": "空服員",
+"en": "Flight attendant",
+"isco": "5111",
+"group": "special",
+"rel": 1.1,
+"est": true,
+"ladder": [
+[
+"trainee",
+0.9
+],
+[
+"attendant",
+1.0
+],
+[
+"purser",
+1.3
+]
+],
+"edu": "secondary",
+"drv": {
+"sex": "F",
+"rare": 1,
+"young": 1
+},
+"risk": {
+"unemp": 1.3,
+"mort": 1.0
+},
+"to": [
+"tour_hotel",
+"retail_clerk",
+"office_clerk"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "athlete",
+"zh": "職業運動員",
+"en": "Professional athlete",
+"isco": "3421",
+"group": "special",
+"rel": 1.5,
+"est": true,
+"ladder": [
+[
+"pro",
+1.0
+],
+[
+"starter",
+1.6
+],
+[
+"star",
+4.0
+]
+],
+"edu": "none",
+"drv": {
+"rare": 2
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.15
+},
+"to": [
+"food_retail_su",
+"entertainer"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "entertainer",
+"zh": "演藝人員",
+"en": "Entertainer (actor, singer)",
+"isco": "2655",
+"group": "special",
+"rel": 1.0,
+"est": true,
+"ladder": [
+[
+"extra",
+0.4
+],
+[
+"working actor",
+1.0
+],
+[
+"known",
+2.5
+],
+[
+"star",
+8.0
+]
+],
+"edu": "none",
+"drv": {
+"social": 1,
+"rare": 2
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"studio_su",
+"designer",
+"retail_clerk"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "esports",
+"zh": "電競選手",
+"en": "Esports professional",
+"isco": "3421",
+"group": "special",
+"rel": 1.1,
+"est": true,
+"ladder": [
+[
+"trainee",
+0.5
+],
+[
+"pro",
+1.0
+],
+[
+"star",
+3.0
+]
+],
+"edu": "none",
+"drv": {
+"from": 2010,
+"sex": "M",
+"young": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"streamer",
+"sw_eng"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "astronaut",
+"zh": "太空人",
+"en": "Astronaut",
+"isco": "3155",
+"group": "special",
+"rel": 2.5,
+"est": true,
+"ladder": [
+[
+"candidate",
+1.0
+],
+[
+"flown",
+1.2
+]
+],
+"edu": "graduate",
+"drv": {
+"smart": 1,
+"rare": 3,
+"space": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"pilot",
+"professor",
+"consultant",
+"legislator"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "streamer",
+"zh": "網紅 / 實況主",
+"en": "Content creator / streamer",
+"isco": "2656",
+"group": "special",
+"rel": 0.8,
+"est": true,
+"ladder": [
+[
+"hobbyist",
+0.2
+],
+[
+"partner",
+1.0
+],
+[
+"top creator",
+5.0
+]
+],
+"edu": "none",
+"drv": {
+"from": 2012,
+"young": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"studio_su",
+"entertainer",
+"retail_clerk"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "food_retail_su",
+"zh": "創業：餐飲 / 零售",
+"en": "Startup: food / retail shop",
+"isco": "1411",
+"group": "startup",
+"rel": 1.1,
+"est": true,
+"ladder": [
+[
+"owner",
+1.0
+],
+[
+"2 shops",
+1.5
+],
+[
+"chain",
+3.0
+]
+],
+"edu": "none",
+"drv": {},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"cook",
+"retail_clerk",
+"franchise_su"
+],
+"src": "推估: survival curve design calibrated vs US BLS BED establishment survival (PD)"
+},
+{
+"id": "studio_su",
+"zh": "創業：工作室 / 自由業",
+"en": "Startup: studio / freelance",
+"isco": "2166",
+"group": "startup",
+"rel": 1.0,
+"est": true,
+"ladder": [
+[
+"solo",
+1.0
+],
+[
+"studio",
+1.5
+],
+[
+"agency",
+2.5
+]
+],
+"edu": "tertiary",
+"drv": {},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"designer",
+"office_clerk",
+"entertainer"
+],
+"src": "推估 (BLS BED PD for curve)"
+},
+{
+"id": "franchise_su",
+"zh": "創業：加盟",
+"en": "Startup: franchise",
+"isco": "1420",
+"group": "startup",
+"rel": 1.05,
+"est": true,
+"ladder": [
+[
+"franchisee",
+1.0
+],
+[
+"multi-unit",
+1.8
+]
+],
+"edu": "none",
+"drv": {},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"food_retail_su",
+"retail_clerk"
+],
+"src": "推估 (design)"
+},
+{
+"id": "tech_su",
+"zh": "創業：科技新創",
+"en": "Startup: tech startup",
+"isco": "1330",
+"group": "startup",
+"rel": 0.9,
+"est": true,
+"ladder": [
+[
+"founder",
+1.0
+],
+[
+"seed",
+1.2
+],
+[
+"series A",
+1.5
+]
+],
+"edu": "tertiary",
+"drv": {
+"from": 1995,
+"urban": 1,
+"smart": 1,
+"social": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"sw_eng",
+"pm_mgr",
+"consultant"
+],
+"src": "推估 (design; no redistributable VC survival data)"
+},
+{
+"id": "loan_shark",
+"zh": "地下錢莊 / 討債",
+"en": "Illegal lender / debt collector",
+"isco": "n/a (outside ISCO)",
+"group": "illicit",
+"rel": 0.7,
+"est": true,
+"ladder": [
+[
+"street",
+1.0
+]
+],
+"edu": "none",
+"drv": {
+"lowQ": 1,
+"social": 1
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.15
+},
+"to": [
+"prison",
+"job_seeker",
+"warehouse",
+"construction_lab"
+],
+"src": "design (game content); no empirical source"
+},
+{
+"id": "gang",
+"zh": "幫派",
+"en": "Gang member",
+"isco": "n/a",
+"group": "illicit",
+"rel": 0.6,
+"est": true,
+"ladder": [
+[
+"-",
+1.0
+]
+],
+"edu": "none",
+"drv": {
+"lowQ": 1,
+"rare": 2
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.35
+},
+"to": [
+"prison",
+"job_seeker",
+"construction_lab",
+"military_nco"
+],
+"src": "design (game content); no empirical source"
+},
+{
+"id": "scam_ring",
+"zh": "詐騙集團",
+"en": "Scam operation worker",
+"isco": "n/a",
+"group": "illicit",
+"rel": 0.5,
+"est": true,
+"ladder": [
+[
+"-",
+1.0
+]
+],
+"edu": "none",
+"drv": {
+"rare": 2
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"prison",
+"job_seeker",
+"call_center"
+],
+"src": "design (game content); no empirical source"
+},
+{
+"id": "illegal_gambling",
+"zh": "非法賭場",
+"en": "Illegal gambling worker",
+"isco": "n/a",
+"group": "illicit",
+"rel": 0.6,
+"est": true,
+"ladder": [
+[
+"-",
+1.0
+]
+],
+"edu": "none",
+"drv": {
+"lowQ": 1,
+"rare": 2
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"prison",
+"job_seeker",
+"food_service"
+],
+"src": "design (game content); no empirical source"
+},
+{
+"id": "student",
+"zh": "學生",
+"en": "Student",
+"isco": "n/a",
+"group": "status",
+"rel": 0.0,
+"est": true,
+"ladder": [
+[
+"-",
+1.0
+]
+],
+"edu": "none",
+"drv": {},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [],
+"src": "engine (existing)"
+},
+{
+"id": "conscript",
+"zh": "義務役 / 替代役",
+"en": "Military service (conscript)",
+"isco": "n/a",
+"group": "status",
+"rel": 0.3,
+"est": true,
+"ladder": [
+[
+"-",
+1.0
+]
+],
+"edu": "none",
+"drv": {
+"sex": "M"
+},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"military_nco",
+"military_officer"
+],
+"src": "推估 (laws; facts)"
+},
+{
+"id": "job_seeker",
+"zh": "待業 / 求職中",
+"en": "Job seeker (unemployed)",
+"isco": "n/a",
+"group": "status",
+"rel": 0.0,
+"est": true,
+"ladder": [
+[
+"-",
+1.0
+]
+],
+"edu": "none",
+"drv": {},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [],
+"src": "engine (existing)"
+},
+{
+"id": "prison",
+"zh": "服刑",
+"en": "In prison",
+"isco": "n/a",
+"group": "status",
+"rel": 0.0,
+"est": true,
+"ladder": [
+[
+"-",
+1.0
+]
+],
+"edu": "none",
+"drv": {},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"job_seeker"
+],
+"src": "design (game content); no empirical source"
+},
+{
+"id": "homemaker",
+"zh": "家管",
+"en": "Homemaker / family carer",
+"isco": "n/a",
+"group": "status",
+"rel": 0.0,
+"est": true,
+"ladder": [
+[
+"-",
+1.0
+]
+],
+"edu": "none",
+"drv": {},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"caregiver",
+"retail_clerk",
+"office_clerk"
+],
+"src": "ILOSTAT EMP by ISCO (CC BY 4.0) + TW MOL 職類別薪資調查 (OGDL-1) + US BLS OEWS (PD)"
+},
+{
+"id": "retired",
+"zh": "退休",
+"en": "Retired",
+"isco": "n/a",
+"group": "status",
+"rel": 0.0,
+"est": true,
+"ladder": [
+[
+"-",
+1.0
+]
+],
+"edu": "none",
+"drv": {},
+"risk": {
+"unemp": 1.0,
+"mort": 1.0
+},
+"to": [
+"studio_su",
+"caregiver"
+],
+"src": "engine (existing)"
+}
+]
+}

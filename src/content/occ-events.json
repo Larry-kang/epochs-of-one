@@ -1,0 +1,527 @@
+[
+{
+"occ": "farmer_sub",
+"fx": {
+"ha": -4.0,
+"$": -0.1
+}
+},
+{
+"occ": "farmer_mkt",
+"fx": {
+"ha": -5.0,
+"$": -0.15
+}
+},
+{
+"occ": "farm_worker",
+"fx": {
+"ha": -3.0,
+"$": -0.05
+}
+},
+{
+"occ": "livestock",
+"fx": {
+"ha": -6.0,
+"$": -0.2
+}
+},
+{
+"occ": "fisher",
+"fx": {
+"ha": -2.0,
+"$": -0.05
+}
+},
+{
+"occ": "aquaculture",
+"fx": {
+"ha": -5.0,
+"$": -0.15
+}
+},
+{
+"occ": "forestry",
+"fx": {
+"h": -6.0,
+"$": -0.1
+}
+},
+{
+"occ": "construction_lab",
+"fx": {
+"h": -8.0,
+"ha": -3.0
+}
+},
+{
+"occ": "electrician",
+"fx": {
+"ha": 4.0,
+"c": 0.05
+}
+},
+{
+"occ": "plumber",
+"fx": {
+"ha": -2.0,
+"so": -1.0,
+"$": 0.02
+}
+},
+{
+"occ": "mechanic",
+"fx": {
+"sm": 3.0,
+"c": 0.03
+}
+},
+{
+"occ": "welder",
+"fx": {
+"h": -4.0
+}
+},
+{
+"occ": "factory_op",
+"fx": {
+"ha": -6.0,
+"$": -0.1
+}
+},
+{
+"occ": "factory_tech",
+"fx": {
+"h": -3.0,
+"ha": -2.0
+}
+},
+{
+"occ": "transport_driver",
+"fx": {
+"h": -2.0,
+"ha": -3.0
+}
+},
+{
+"occ": "warehouse",
+"fx": {
+"h": -2.0,
+"$": 0.03
+}
+},
+{
+"occ": "craftsman",
+"fx": {
+"ha": 6.0,
+"so": 2.0,
+"c": 0.05
+}
+},
+{
+"occ": "miner",
+"fx": {
+"ha": -6.0
+}
+},
+{
+"occ": "retail_clerk",
+"fx": {
+"ha": -3.0
+}
+},
+{
+"occ": "food_service",
+"fx": {
+"ha": -4.0,
+"$": -0.08
+}
+},
+{
+"occ": "cook",
+"fx": {
+"ha": 5.0,
+"c": 0.05
+}
+},
+{
+"occ": "hair_beauty",
+"fx": {
+"ha": 3.0,
+"c": 0.03
+}
+},
+{
+"occ": "caregiver",
+"fx": {
+"ha": 2.0,
+"c": 0.04
+}
+},
+{
+"occ": "cleaner",
+"fx": {
+"ha": -2.0
+}
+},
+{
+"occ": "security_guard",
+"fx": {
+"ha": -3.0,
+"h": -1.0
+}
+},
+{
+"occ": "delivery_rider",
+"fx": {
+"h": -6.0,
+"$": -0.03
+}
+},
+{
+"occ": "office_clerk",
+"fx": {
+"sm": 3.0,
+"ha": -1.0
+}
+},
+{
+"occ": "call_center",
+"fx": {
+"ha": -3.0
+}
+},
+{
+"occ": "tour_hotel",
+"fx": {
+"ha": -3.0,
+"so": 1.0
+}
+},
+{
+"occ": "informal_vendor",
+"fx": {
+"ha": -4.0,
+"$": -0.05
+}
+},
+{
+"occ": "sw_eng",
+"fx": {
+"h": -1.0,
+"ha": -2.0
+}
+},
+{
+"occ": "hw_eng",
+"fx": {
+"h": -2.0,
+"c": 0.03
+}
+},
+{
+"occ": "semi_process_eng",
+"fx": {
+"h": -2.0,
+"ha": -2.0,
+"c": 0.02
+}
+},
+{
+"occ": "data_sci",
+"fx": {
+"ha": 4.0,
+"c": 0.05
+}
+},
+{
+"occ": "sales_rep",
+"fx": {
+"ha": 5.0,
+"$": 0.1
+}
+},
+{
+"occ": "real_estate",
+"fx": {
+"ha": -4.0,
+"$": -0.1
+}
+},
+{
+"occ": "insurance_agent",
+"fx": {
+"so": -2.0,
+"$": 0.05
+}
+},
+{
+"occ": "accountant",
+"fx": {
+"h": -1.0,
+"ha": -2.0,
+"$": 0.02
+}
+},
+{
+"occ": "finance",
+"fx": {
+"ha": -5.0
+}
+},
+{
+"occ": "lawyer",
+"fx": {
+"ha": 3.0,
+"sm": 2.0,
+"c": 0.05
+}
+},
+{
+"occ": "doctor",
+"fx": {
+"h": -2.0,
+"ha": -2.0
+}
+},
+{
+"occ": "nurse",
+"fx": {
+"h": -3.0,
+"ha": -3.0
+}
+},
+{
+"occ": "pharmacist",
+"fx": {
+"ha": -2.0,
+"$": -0.03
+}
+},
+{
+"occ": "teacher",
+"fx": {
+"ha": -3.0
+}
+},
+{
+"occ": "professor",
+"fx": {
+"ha": -3.0
+}
+},
+{
+"occ": "architect",
+"fx": {
+"ha": 5.0,
+"c": 0.05
+}
+},
+{
+"occ": "designer",
+"fx": {
+"ha": 5.0,
+"$": 0.05
+}
+},
+{
+"occ": "journalist",
+"fx": {
+"ha": 5.0,
+"so": 2.0
+}
+},
+{
+"occ": "pm_mgr",
+"fx": {
+"ha": -3.0
+}
+},
+{
+"occ": "consultant",
+"fx": {
+"ha": -2.0,
+"sm": 1.0
+}
+},
+{
+"occ": "civil_servant",
+"fx": {
+"so": -2.0,
+"ha": -1.0
+}
+},
+{
+"occ": "police",
+"fx": {
+"h": -4.0,
+"ha": -2.0
+}
+},
+{
+"occ": "military_officer",
+"fx": {
+"so": -3.0,
+"ha": -2.0
+}
+},
+{
+"occ": "military_nco",
+"fx": {
+"h": -4.0
+}
+},
+{
+"occ": "firefighter",
+"fx": {
+"ha": 3.0,
+"h": -2.0,
+"so": 2.0
+}
+},
+{
+"occ": "judge_prosecutor",
+"fx": {
+"ha": -3.0
+}
+},
+{
+"occ": "local_rep",
+"fx": {
+"ha": 2.0,
+"so": 2.0
+}
+},
+{
+"occ": "legislator",
+"fx": {
+"h": -2.0,
+"so": 1.0
+}
+},
+{
+"occ": "minister",
+"fx": {
+"ha": -4.0,
+"h": -1.0
+}
+},
+{
+"occ": "pilot",
+"fx": {
+"ha": 6.0,
+"c": 0.05
+}
+},
+{
+"occ": "flight_att",
+"fx": {
+"ha": -3.0,
+"$": -0.03
+}
+},
+{
+"occ": "athlete",
+"fx": {
+"h": -6.0,
+"ha": -5.0
+}
+},
+{
+"occ": "entertainer",
+"fx": {
+"ha": 6.0,
+"$": 0.05
+}
+},
+{
+"occ": "esports",
+"fx": {
+"ha": 6.0,
+"so": 2.0
+}
+},
+{
+"occ": "astronaut",
+"fx": {
+"ha": 8.0,
+"sm": 2.0
+}
+},
+{
+"occ": "streamer",
+"fx": {
+"ha": 6.0,
+"$": 0.05
+}
+},
+{
+"occ": "food_retail_su",
+"fx": {
+"ha": -3.0,
+"$": -0.05
+}
+},
+{
+"occ": "studio_su",
+"fx": {
+"ha": -4.0,
+"$": -0.08
+}
+},
+{
+"occ": "franchise_su",
+"fx": {
+"ha": -2.0,
+"$": -0.04
+}
+},
+{
+"occ": "tech_su",
+"fx": {
+"ha": 6.0,
+"so": 1.0
+}
+},
+{
+"occ": "loan_shark",
+"fx": {
+"ha": -6.0,
+"so": -2.0
+}
+},
+{
+"occ": "gang",
+"fx": {
+"ha": -8.0,
+"h": -2.0
+}
+},
+{
+"occ": "scam_ring",
+"fx": {
+"ha": -10.0,
+"h": -3.0
+}
+},
+{
+"occ": "illegal_gambling",
+"fx": {
+"ha": -5.0
+}
+},
+{
+"occ": "prison",
+"fx": {
+"ha": 2.0,
+"so": 2.0
+}
+},
+{
+"occ": "job_seeker",
+"fx": {
+"ha": 1.0
+}
+}
+]

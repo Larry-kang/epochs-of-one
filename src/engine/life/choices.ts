@@ -8,10 +8,11 @@ import { seriesAt } from '../data/types.ts';
 import { stream } from '../rng/streams.ts';
 import { gradAge, schoolingOdds, type Edu } from '../economy/household.ts';
 import { makeName, type NameRegion } from '../content/names.ts';
+import { occById, entryDraw, occWeight, maxRung, BIZ, RARE_ROLES, type Biz, type EntryCtx } from './occupation.ts';
 import { BIRTH_SPACING, CHILD_COOLDOWN, FERTILE, MARRIED_SHARE, childOfferP, familyTarget } from './fertility.ts';
 import type { Career, Family, LifeState, Stats } from './state.ts';
 
-export type ChoiceId = 'vaccine' | 'school' | 'hs' | 'uni' | 'grad' | 'career' | 'move' | 'marry' | 'child' | 'parents' | 'treat';
+export type ChoiceId = 'vaccine' | 'school' | 'hs' | 'uni' | 'grad' | 'career' | 'move' | 'marry' | 'child' | 'parents' | 'treat' | 'switch' | 'startup' | 'illicit' | 'illicit_exit';
 export interface ChoiceOffer { id: ChoiceId | string; opts: string[]; weights: number[]; vars?: Record<string, number | string> }
 /** fixed draw order on stream(seed,'choice',age): [0..3] occurrence draws, [4..] default picks per id in CHOICE_ORDER */
 // batch 2 C2: small decisions from the content pool (one card at most per year, only when no major choice is due)
@@ -22,7 +23,7 @@ const MINOR_BY = new Map(MINOR.map((d) => [d.id, d]));
 export const minorById = (id: string) => MINOR_BY.get(id);
 /** chance per year that a small decision card is drawn at all (pacing; design) */
 export const MINOR_RATE = 0.38;
-export const CHOICE_ORDER: ChoiceId[] = ['vaccine', 'school', 'hs', 'uni', 'grad', 'career', 'move', 'marry', 'child', 'parents', 'treat'];
+export const CHOICE_ORDER: ChoiceId[] = ['vaccine', 'school', 'hs', 'uni', 'grad', 'career', 'move', 'marry', 'child', 'parents', 'treat', 'switch', 'startup', 'illicit', 'illicit_exit'];
 
 export interface ChoiceCtx { s: LifeState; c: CountryRec; calYear: number; meanIncome: number; /** WPP cohort TFR (batch 2); absent → legacy rule */ tfr?: number; /** v0.8.0 last year's focus effects */ focus?: import('./focus.ts').FocusFx }
 const gdp = (c: CountryRec, y: number) => seriesAt(c.series.gdpPcPpp, y).v;
@@ -49,7 +50,9 @@ export function offersAt(x: ChoiceCtx): ChoiceOffer[] {
   }
   if (k.plan === 'tertiary' && age === k.studyUntil) out.push({ id: 'grad', opts: ['grad', 'work'], weights: [g > 20000 ? 0.15 : 0.06, g > 20000 ? 0.85 : 0.94] });
   // career track: when full-time work starts (after the education choices of this age are answered → offered the next year at the latest)
-  if (!k.trackSet && age >= k.studyUntil && age >= 15 && !out.some((o) => o.id === 'hs' || o.id === 'uni' || o.id === 'grad')) {
+  const occOn = s.flags.occ === true || (typeof s.flags.occFrom === 'number' && age >= s.flags.occFrom);
+  if (occOn) out.push(...occOffers(x, out));
+  else if (!k.trackSet && age >= k.studyUntil && age >= 15 && !out.some((o) => o.id === 'hs' || o.id === 'uni' || o.id === 'grad')) {
     if (k.plan === 'none' || k.plan === 'primary') out.push({ id: 'career', opts: ['informal', 'private'], weights: [g < 10000 ? 0.6 : 0.2, g < 10000 ? 0.4 : 0.8] });
     else out.push({ id: 'career', opts: ['stable', 'private', 'startup'], weights: [0.25, 0.7, 0.05] });
   }
@@ -118,10 +121,17 @@ export function defaultPick(seed: string, age: number, o: ChoiceOffer): string {
   return o.opts[o.opts.length - 1]!;
 }
 
-export interface ChoiceDraft { career: Career; family: Family; stats: Stats; cash: number; calYear: number; age: number; meanDisp: number; oop: number; seed: string }
+export interface ChoiceDraft { career: Career; family: Family; stats: Stats; cash: number; calYear: number; age: number; meanDisp: number; oop: number; seed: string; illicitKind?: string }
 /** Apply one answered choice; returns event vars for the log (event id `ch_<id>_<opt>`). */
 export function applyChoice(d: ChoiceDraft, id: ChoiceId | string, opt: string): Record<string, number | string> | undefined {
   const k = d.career, st = d.stats;
+  if (id === 'switch') { if (opt === 'stay' || !occById(opt)) return undefined; const from = k.occ ?? ''; k.occ = opt; k.rung = Math.max(0, Math.min((k.rung ?? 0) - 1, maxRung(opt))); k.track = trackOf(opt); st.happy += 2; return { from, to: opt }; }
+  if (id === 'startup') {
+    if (opt === 'stay' || !occById(opt)) return undefined;
+    d.cash -= BIZ[opt as Biz].capital * d.meanDisp; k.occPrev = k.occ; k.occ = opt; k.rung = 0; k.bizAge = 0; k.track = 'startup'; st.happy += 3; return { occ: opt };
+  }
+  if (id === 'illicit') { if (opt !== 'accept') { st.happy += 1; return undefined; } k.occLegit = k.occ; k.occ = d.illicitKind ?? 'loan_shark'; k.rung = 0; st.happy -= 6; st.social -= 4; return { occ: k.occ }; }
+  if (id === 'illicit_exit') { if (opt !== 'leave') return undefined; k.occ = 'job_seeker'; k.occPrev = k.occLegit; st.happy += 4; return undefined; }
   const minor = MINOR_BY.get(id);
   if (minor) {
     const fx = minor.opts.find((o) => o.id === opt)?.fx ?? {};
@@ -142,6 +152,7 @@ export function applyChoice(d: ChoiceDraft, id: ChoiceId | string, opt: string):
     case 'uni': if (opt === 'uni') { setPlan('tertiary'); st.smart += 5; } else k.studyUntil = d.age; return;
     case 'grad': if (opt === 'grad') { setPlan('graduate'); st.smart += 4; } else k.studyUntil = d.age; return;
     case 'career':
+      if (occById(opt)) { k.occ = opt; k.rung = 0; k.trackSet = true; k.track = trackOf(opt); return { occ: opt }; }
       k.track = opt as Career['track']; k.trackSet = true;
       if (opt === 'startup') st.happy += 3;
       return;
@@ -185,4 +196,38 @@ export function applyChoice(d: ChoiceDraft, id: ChoiceId | string, opt: string):
     }
   }
   return undefined;
+}
+
+// ---- C0 occupation offers: first job (3 entry draws), yearly switch along transitions, startup, illicit (never default)
+const trackOf = (id: string): Career['track'] => { const g = occById(id)?.group; return g === 'public' ? 'stable' : g === 'startup' ? 'startup' : g === 'agri' || id === 'informal_vendor' ? 'informal' : 'private'; };
+export const ILLICIT_KINDS = ['loan_shark', 'gang', 'scam_ring', 'illegal_gambling'];
+function occOffers(x: ChoiceCtx, prior: ChoiceOffer[]): ChoiceOffer[] {
+  const { s, c, calYear } = x; const age = s.age, k = s.career; const out: ChoiceOffer[] = [];
+  const g = gdp(c, calYear); const r = stream(s.seed, 'occ', 'offer', age);
+  const ex: EntryCtx = { iso: c.iso, year: calYear, gdp: g, plan: k.plan, quintile: s.born.quintile, urban: s.born.urban, sex: s.born.sex, age, smart: s.stats.smart, social: s.stats.social };
+  const retired = s.econ.retired;
+  if (!k.occ && !k.trackSet && age >= k.studyUntil && age >= 15 && !retired && !prior.some((o) => o.id === 'hs' || o.id === 'uni' || o.id === 'grad')) {
+    const opts: string[] = [];
+    for (let i = 0; i < 12 && opts.length < 3; i++) { const id = entryDraw(ex, r.next(), r.next()); if (!opts.includes(id)) opts.push(id); }
+    return [{ id: 'career', opts, weights: opts.map(() => 1) }];
+  }
+  const o = occById(k.occ); if (!o || retired || age < 18) return out;
+  const u = [r.next(), r.next(), r.next(), r.next()];
+  const pJob = 0.04 * (x.focus?.jobMult ?? 1);
+  if (['agri', 'trades', 'services', 'professional', 'public', 'special'].includes(o.group) && age >= 22 && age <= 55 && u[0]! < pJob) {
+    const to = o.to.map((id) => occById(id)!).filter((t) => t && ['agri', 'trades', 'services', 'professional', 'public', 'special'].includes(t.group) && !RARE_ROLES.includes(t.id) && occWeight(t, ex) > 0).map((t) => t.id).slice(0, 2);
+    if (to.length) return [{ id: 'switch', opts: ['stay', ...to], weights: [0.6, ...to.map(() => 0.4 / to.length)] }];
+  }
+  if (!['startup', 'illicit', 'status'].includes(o.group) && age >= 25 && age <= 55 && u[1]! < 0.03) {
+    const m = x.meanIncome; const hi = ['tertiary', 'graduate'].includes(k.plan);
+    const ok = (Object.keys(BIZ) as Biz[]).filter((b) => s.econ.cash >= BIZ[b].capital * m && (b !== 'tech_su' || (hi && ['sw_eng', 'hw_eng', 'pm_mgr', 'data_sci', 'semi_process_eng'].includes(o.id))) && (b !== 'studio_su' || hi || ['designer', 'journalist', 'craftsman', 'streamer'].includes(o.id)));
+    if (ok.length) { const b = ok[Math.floor(u[2]! * ok.length)]!; return [{ id: 'startup', opts: ['stay', b], weights: [0.85, 0.15], vars: { occ: b } }]; }
+  }
+  // illicit: only after unemployment + debt + low quintile, adults only; refuse is the default (auto never accepts)
+  if (o.group !== 'illicit' && o.group !== 'status' && age >= 18 && age <= 50 && s.years.at(-1)?.unemployed && s.econ.cash < 0 && s.born.quintile <= 2 && u[3]! < 0.08) {
+    const kind = ILLICIT_KINDS[Math.floor(u[2]! * ILLICIT_KINDS.length)]!;
+    return [{ id: 'illicit', opts: ['refuse', 'accept'], weights: [1, 0], vars: { occ: kind } }];
+  }
+  if (o.group === 'illicit') return [{ id: 'illicit_exit', opts: ['leave', 'stay'], weights: [1, 0] }];
+  return out;
 }
