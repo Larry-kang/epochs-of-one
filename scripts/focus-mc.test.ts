@@ -7,7 +7,7 @@ import type { LifeState, Action } from '../src/engine/life/state.ts';
 
 import { it } from 'vitest';
 import { writeFileSync } from 'node:fs';
-// v0.10.0: N=400 per cell (CEO decision; N=200 medians were too noisy for NGA)
+// v0.10.0: N=400 per cell (N=200 medians were too noisy for NGA)
 const N = Number(process.env.MC_N ?? 400); const label = process.env.MC_LABEL ?? 'current';
 it('focus MC', () => {
 const data = loadBundleFromDisk();

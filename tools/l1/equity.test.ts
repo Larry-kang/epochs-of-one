@@ -1,4 +1,4 @@
-// L1 equity check (localization-plan / careers-draft ): per country × sex, occupation system on vs the pre-occupation
+// L1 equity check: per country × sex, occupation system on vs the pre-occupation
 // engine (same seeds → same people), with ILOSTAT sex weights ('ilo') and with no sex weight at all ('neutral').
 // A sex/country is "disadvantaged beyond the data" if its on/off income ratio leaves the ±8% band with neutral weights, or if
 // the ILOSTAT weights move the F/M income ratio far beyond what the observed occupational sex mix implies.

@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 export const ALLOWED = new Set(['open', 'attribution']);
 /** share-alike data may ship only in its own file under public/data/sa/ (UIS: CC BY-SA 4.0), never mixed with other sources */
 export const SA_CLASS = 'share-alike', SA_DIR = 'sa/';
-/** licence ids allowed in shipped data (localization-plan build gate + already-shipped WPP CC BY 3.0 IGO / OECD terms) */
+/** licence ids allowed in shipped data (build gate + already-shipped WPP CC BY 3.0 IGO / OECD terms) */
 export const LICENCE_ALLOW = new Set(['CC-BY-4.0', 'CC-BY-3.0-IGO', 'CC-BY-SA-4.0', 'OGDL-TW-1.0', 'JP-PDL-1.0', 'DL-DE-BY-2.0', 'OGL-UK-3.0',
   'Licence-Ouverte-2.0', 'KOGL-1', 'US-PD', 'L-facts', 'self-compiled facts', 'OECD-terms-data (attribution; CC BY 4.0 open-by-default)']);
 /** World Bank indicators must carry the catalog licence CC BY 4.0 (metadata field License_Type) */

@@ -1,4 +1,4 @@
-// L1 data pipeline (localization-plan L1): ILOSTAT ISCO×sex + informality, UIS (separate CC BY-SA file), PaG 2025 with
+// L1 data pipeline: ILOSTAT ISCO×sex + informality, UIS (separate CC BY-SA file), PaG 2025 with
 // third-party filtering, WDI per-indicator licence audit, and manifest provenance (source, URL, licence, retrieval date,
 // transform) for EVERY shipped data file. Runs after pipeline/run.mjs (+ wpp-extra) and patches public/data/manifest.json.
 // Usage: node pipeline/l1.mjs            (uses data-raw/ caches; --fetch re-downloads them)

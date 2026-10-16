@@ -1,7 +1,7 @@
 # L1: data pipeline, licence gate, mix guardrail (v0.10.0)
 
-Batch L1 of `localization-plan.md` ILOSTAT ISCO×sex + informality, WB (licence audit), UIS in a separate CC BY-SA file,
-PaG 2025 with third-party filtering, licence gate, provenance chips. Plus the CEO decision on the occupation-mix guardrail.
+Batch L1: ILOSTAT ISCO×sex + informality, WB (licence audit), UIS in a separate CC BY-SA file,
+PaG 2025 with third-party filtering, licence gate, provenance chips. Plus the decision on the occupation-mix guardrail.
 All dates Asia/Taipei. Pipeline: `node pipeline/l1.mjs` (runs after `pipeline/run.mjs`; `pnpm data` runs both).
 
 ## 1. Datasets and licences
@@ -38,7 +38,7 @@ plan says "after review").
 0.25–4; merged/omitted groups → 1). It is a weight inside the chosen job group, never a gate; countries without data keep the
 推估 ±1.5 rule. The ID card shows an "ILOSTAT" chip (tooltip: year, CC BY 4.0, "probability weight only") or 推估.
 
-## 4. Occupation-mix guardrail: pooled (CEO decision)
+## 4. Occupation-mix guardrail: pooled
 
 `tests/unit/c0-guardrail.ts`: the ±5-pt check per job group now uses the pool of the same 8 seed sets × N=200 as the income
 guardrail (was: set 0 only). Same band. Draw weights changed (`GROUP_ADJ`): H services 0.972→0.84, LM services 0.941→0.91,
@@ -64,7 +64,7 @@ Guardrail numbers (mean of 8 per-set ratios) and focus MC: see `docs/l1-guardrai
 `tools/l1/equity.test.ts` → `docs/l1-equity.json`. Per country and sex: lifetime income occupations-on / pre-occupation
 engine, with ILOSTAT weights ("on") and with no sex weight ("neutral"). Results in `docs/l1-guardrail.md`.
 
-## 6. rc2: OECD share prices removed (CEO decision 3)
+## 6. rc2: OECD share prices removed
 
 The OECD share-price indices (DF_FINMARK) carry third-party index-provider rights, so they break the "no OECD third-party
 series" rule. No openly licensed replacement exists (WDI CM.MKT.INDX.ZG is S&P data and is forbidden by the brief).

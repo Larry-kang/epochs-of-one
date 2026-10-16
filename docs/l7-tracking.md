@@ -1,6 +1,6 @@
 # L7 tracking (equity and content review)
 
-Open items for the L7 equity review (localization-plan ). Each item comes from a batch's equity check.
+Open items for the L7 equity review. Each item comes from a batch's equity check.
 
 ## L7-1: lower simulated lifetime income for women in Ethiopia (from L1, v0.10.0)
 

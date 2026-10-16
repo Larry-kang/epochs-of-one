@@ -28,7 +28,7 @@ MEX 1.013, IDN 1.021, DEU 1.017; born 1970: CHN 1.046, KOR 0.923. CHN and KOR sp
 | IND | +29.9% | +34.8% |
 | NGA | +24.9% | +31.4% |
 
-All ≥ +20% (median). rc1 used N=200, where NGA's median was +19.4%. N=400 is now the default in scripts/focus-mc.test.ts (CEO decision).
+All ≥ +20% (median). rc1 used N=200, where NGA's median was +19.4%. N=400 is now the default in scripts/focus-mc.test.ts.
 rc2 runs the MC after the equity-model change (see docs/l1-data-licences.md ); the guardrail cells above are unchanged by it
 (identical numbers on rerun: guardrail lives do not invest).
 

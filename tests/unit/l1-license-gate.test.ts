@@ -1,4 +1,4 @@
-// L1 licence gate (localization-plan build gate): allowlist, provenance, share-alike isolation, blocked sources, WDI audit,
+// L1 licence gate (build gate): allowlist, provenance, share-alike isolation, blocked sources, WDI audit,
 // and the real shipped manifest passing it.
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
