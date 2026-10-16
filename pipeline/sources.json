@@ -41,17 +41,6 @@
     }
   },
   {
-    "id": "ilostat",
-    "name": "ILOSTAT (NOT USED directly — license unverified)",
-    "url": "https://ilostat.ilo.org/",
-    "retrieved": "2026-10-16",
-    "license": {
-      "id": "CC-BY-4.0?",
-      "class": "unknown",
-      "url": "https://ilostat.ilo.org/"
-    }
-  },
-  {
     "id": "epochs-compiled",
     "name": "Self-compiled annual closing prices (TAIEX, BTC/USD), cross-checked across multiple public sources — owner decision 2026-10-16",
     "url": "https://www.twse.com.tw/",
@@ -67,7 +56,7 @@
   },
   {
     "id": "oecd",
-    "name": "OECD Data Explorer (SDMX): Share prices (DF_FINMARK, MONTHLY — December = year-end level, monthly path → intra-year drawdown), Analytical house prices (DF_HOUSE_PRICES, RHP), Pensions at a Glance (DF_PAG), Wealth Distribution Database (DSD_WEALTH@DF_WEALTH — calibration target only, not shipped)",
+    "name": "OECD Data Explorer (SDMX): Analytical house prices (DF_HOUSE_PRICES, RHP), Pensions at a Glance (DF_PAG), Wealth Distribution Database (DSD_WEALTH@DF_WEALTH — calibration target only, not shipped). Share prices (DF_FINMARK) removed in v0.10.0 — see oecd-share-prices",
     "url": "https://sdmx.oecd.org/public/rest/",
     "retrieved": "2026-10-16",
     "license": {
@@ -78,7 +67,7 @@
         "pipeline/licenses/2026-10-16_oecd_terms.md",
         "pipeline/licenses/2026-10-16_oecd_terms.png"
       ],
-      "caveat": "OECD terms some Data may be owned by third parties (stock-exchange index providers may own the underlying share-price indices); verify per-dataset metadata before public release —."
+      "caveat": "Share prices were removed in v0.10.0 (third-party index-provider rights; registered as the blocked source oecd-share-prices). House prices and PaG model measures remain under OECD terms ."
     }
   },
   {
@@ -95,6 +84,151 @@
         "pipeline/licenses/2026-10-16_www.worldbank.org_en_about_legal_terms-of-use-for-datasets.html",
         "pipeline/licenses/2026-10-16_datacatalog.worldbank.org_public-licenses.html"
       ]
+    }
+  },
+  {
+    "id": "ilostat",
+    "name": "International Labour Organization, ILOSTAT database (SDMX API): Employment by sex and occupation (DF_EMP_TEMP_SEX_OCU_NB); Informal employment rate by sex (DF_EMP_NIFL_SEX_RT)",
+    "url": "https://ilostat.ilo.org/",
+    "retrieved": "2026-10-17",
+    "license": {
+      "id": "CC-BY-4.0",
+      "class": "attribution",
+      "url": "https://www.ilo.org/rights-and-permissions",
+      "archived": [
+        "pipeline/licenses/2026-10-17_www.ilo.org_rights-and-permissions.html"
+      ],
+      "caveat": "CC BY 4.0 covers releases on/after 3 May 2023; pulled from the current release 2026-10-17. Attribution to the ILO, licence link, statement of changes, adaptation disclaimer; no ILO logo."
+    }
+  },
+  {
+    "id": "uis",
+    "name": "UNESCO Institute for Statistics (UIS) Data API: GER.5T8 gross enrolment ratio, tertiary",
+    "url": "https://databrowser.uis.unesco.org/",
+    "retrieved": "2026-10-17",
+    "license": {
+      "id": "CC-BY-SA-4.0",
+      "class": "share-alike",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "archived": [
+        "pipeline/licenses/2026-10-17_databrowser.uis.unesco.org_terms-and-conditions.html"
+      ],
+      "caveat": "Share-alike: shipped only in public/data/sa/ (own file, own licence); never mixed into other files."
+    }
+  },
+  {
+    "id": "oecd-pag",
+    "name": "OECD (2025), Pensions at a Glance 2025: OECD and G20 Indicators — OECD Data Explorer DF_PAG (OECD pension-model measures only)",
+    "url": "https://sdmx.oecd.org/public/rest/",
+    "retrieved": "2026-10-16",
+    "license": {
+      "id": "CC-BY-4.0",
+      "class": "attribution",
+      "url": "https://www.oecd.org/en/about/terms-conditions.html",
+      "archived": [
+        "pipeline/licenses/2026-10-16_oecd_terms.md",
+        "pipeline/licenses/2026-10-16_oecd_terms.png"
+      ],
+      "caveat": "Third-party-derived measures are dropped by pipeline/l1.mjs (PAG_DROP); OECD adaptation disclaimer shipped in the file."
+    }
+  },
+  {
+    "id": "who-gho",
+    "name": "WHO Global Health Observatory (BLOCKED: terms limit use to public-health purposes and need written authorisation for changes)",
+    "url": "https://www.who.int/data/gho",
+    "retrieved": "2026-10-16",
+    "license": {
+      "id": "WHO-terms",
+      "class": "restricted",
+      "url": "https://www.who.int/about/policies/publishing/data-policy/terms-and-conditions"
+    }
+  },
+  {
+    "id": "issa",
+    "name": "ISSA Country Profiles (BLOCKED: copyright; research reference only, facts encoded from statutes)",
+    "url": "https://www.issa.int/databases/country-profiles",
+    "retrieved": "2026-10-16",
+    "license": {
+      "id": "ISSA-copyright",
+      "class": "restricted",
+      "url": "https://www.issa.int/site-policy"
+    }
+  },
+  {
+    "id": "cn-nbs",
+    "name": "National Bureau of Statistics of China (BLOCKED: no open licence found; CN values are 推估)",
+    "url": "https://www.stats.gov.cn/",
+    "retrieved": "2026-10-16",
+    "license": {
+      "id": "none",
+      "class": "unknown",
+      "url": "https://www.stats.gov.cn/"
+    }
+  },
+  {
+    "id": "ng-nbs",
+    "name": "National Bureau of Statistics, Nigeria (BLOCKED: only 'Copyright © NBS'; NG values are 推估)",
+    "url": "https://nigerianstat.gov.ng/",
+    "retrieved": "2026-10-16",
+    "license": {
+      "id": "none",
+      "class": "unknown",
+      "url": "https://nigerianstat.gov.ng/"
+    }
+  },
+  {
+    "id": "kr-kogl1",
+    "name": "Korea public data under KOGL Type 1 (attribution only) — per-dataset check required before use",
+    "url": "https://www.data.go.kr/",
+    "retrieved": "2026-10-16",
+    "license": {
+      "id": "KOGL-1",
+      "class": "attribution",
+      "url": "https://www.kogl.or.kr/info/licenseType1.do"
+    }
+  },
+  {
+    "id": "kr-kogl2-4",
+    "name": "Korea public data under KOGL Types 2–4 (BLOCKED: non-commercial and/or no-derivatives)",
+    "url": "https://www.data.go.kr/",
+    "retrieved": "2026-10-16",
+    "license": {
+      "id": "KOGL-2/3/4",
+      "class": "nc",
+      "url": "https://www.kogl.or.kr/"
+    }
+  },
+  {
+    "id": "oecd-thirdparty",
+    "name": "OECD series with third-party ownership (BLOCKED by decision)",
+    "url": "https://www.oecd.org/",
+    "retrieved": "2026-10-16",
+    "license": {
+      "id": "third-party",
+      "class": "restricted",
+      "url": "https://www.oecd.org/en/about/terms-conditions.html"
+    }
+  },
+  {
+    "id": "oecd-share-prices",
+    "name": "OECD share prices DF_FINMARK (BLOCKED from v0.10.0: underlying indices are owned by third-party index providers — decision: no OECD third-party series)",
+    "url": "https://sdmx.oecd.org/public/rest/data/OECD.SDD.STES,DSD_STES@DF_FINMARK,4.0/",
+    "retrieved": "2026-10-17",
+    "license": {
+      "id": "third-party",
+      "class": "restricted",
+      "url": "https://www.oecd.org/en/about/terms-conditions.html"
+    }
+  },
+  {
+    "id": "wb-sp-equity",
+    "name": "WDI CM.MKT.INDX.ZG S&P Global Equity Indices (BLOCKED: S&P Dow Jones Indices data; project brief forbids it)",
+    "url": "https://api.worldbank.org/v2/",
+    "retrieved": "2026-10-17",
+    "license": {
+      "id": "third-party",
+      "class": "restricted",
+      "url": "https://www.spglobal.com/"
     }
   }
 ]

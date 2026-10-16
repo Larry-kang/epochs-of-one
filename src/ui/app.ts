@@ -7,7 +7,7 @@ import { wppAt } from '../engine/life/fertility.ts';
 import { t, tMaybe, compact, locale, LANGS, LANG_NAMES, getLang, setLang, type Lang, eventText, esc, contentLangAttr, countryName, money, pctText } from './i18n.ts';
 import { lineChart } from './charts.ts';
 import { drawBirth, newLife, advanceYear, applyAction, decisionQuote, tableFor, pendingOffers, MORTGAGE_TERMS, type LifeConfig } from '../engine/life/sim.ts';
-import { migrateSaveCfg, occById, occName } from '../engine/life/occupation.ts';
+import { migrateSaveCfg, occById, occName, iloCell } from '../engine/life/occupation.ts';
 import { ending } from '../engine/life/ending.ts';
 import { seriesAt } from '../engine/data/types.ts';
 import { defaultPick, minorById, type ChoiceOffer } from '../engine/life/choices.ts';
@@ -206,6 +206,7 @@ function about(): void {
 <p id="markets-sources">${esc(t('aboutMarkets'))}</p>
 <p id="markets-sources-2">${esc(t('aboutMarkets2'))}</p>
 <p id="m5-sources">${esc(t('aboutM5'))}</p>
+<p id="l1-sources">${esc(t('aboutL1'))}</p>
 ${BTC_FUTURE_DAMPENED ? `<p id="btc-future-about">${esc(t('aboutBtcFuture'))}</p>` : ''}
 <p>${esc(t('aboutOffline'))}</p>
 <p class="muted">${esc(t('money'))} ${esc(t('estNote'))}</p>
@@ -471,7 +472,13 @@ const outfitOf = (s: LifeState) => { const o = s.career.occ ? occById(s.career.o
 function jobCell(s: LifeState): string {
   const o = occById(s.career.occ); if (!o) return s.career.trackSet ? esc(t(('track_' + s.career.track) as 'track_private')) : '—';
   const n = o.ladder.length; const r = Math.min(s.career.rung ?? 0, n - 1) + 1;
-  return `<span id="id-job" data-occ="${esc(o.id)}">${esc(occN(o.id))}</span>${n > 1 ? ` <small class="mono">${esc(t('occRung', { r, n }))}</small>` : ''}${o.est ? ` <span class="badge occ-est" title="${esc(t('occSrc'))}" tabindex="0">${esc(t('occEst'))}</span>` : ''}`;
+  return `<span id="id-job" data-occ="${esc(o.id)}">${esc(occN(o.id))}</span>${n > 1 ? ` <small class="mono">${esc(t('occRung', { r, n }))}</small>` : ''}${o.est ? ` <span class="badge occ-est" title="${esc(t('occSrc'))}" tabindex="0">${esc(t('occEst'))}</span>` : ''}${provChip(s)}`;
+}
+/** L1 provenance chip: the sex weight in entry odds comes from ILOSTAT (year shown) or, without data, is a 推估 */
+function provChip(s: LifeState): string {
+  const c = iloCell(s.born.iso, s.born.year + Math.max(s.age, 18));
+  return c ? ` <span class="badge occ-src" id="id-job-src" title="${esc(t('occIloSrc', { year: c.y }))}" tabindex="0">${esc(t('occIlo'))}</span>`
+    : ` <span class="badge occ-est" id="id-job-src" title="${esc(t('occSexEst'))}" tabindex="0">${esc(t('occEst'))}</span>`;
 }
 const portraitOf = (s: LifeState, px = 64) => portraitSvg({ age: s.age, sex: s.born.sex, skin: skinOf(s), outfit: outfitOf(s) }, px);
 
@@ -831,9 +838,12 @@ function investPanel(): void {
   const rows = INVEST_ASSETS.map((a) => {
     const av = available(m, a, s.cur, calYear, s.age, { levBase: s.portfolio.levBase, cooldownUntil: s.portfolio.cooldownUntil, frozenUntil: s.credit.frozenUntil });
     const proxy = a === 'eqHome' && !m.eq[s.cur] && s.cur !== 'USA';
-    const est = av.est || proxy;
+    // v0.10.0: US / world equity (and countries proxying them) use the nominal-GDP model (no open index licence) → 推估 + tooltip
+    const modelled = (a === 'eqUS' && !!m.eq.USA?.est) || (a === 'eqWorld' && !!m.world.est)
+      || (a === 'eqHome' && (s.cur === 'USA' ? !!m.eq.USA?.est : m.eq[s.cur] ? !!m.eq[s.cur]!.est : !!m.world.est));
+    const est = av.est || proxy || modelled;
     const v = Math.round((tgt[a] ?? 0) * 100);
-    return `<div class="alloc-row"><label for="w-${a}">${esc(t(ASSET_LABEL[a]))}${est ? ` <span class="badge">${esc(t('est'))}</span>` : ''}</label>
+    return `<div class="alloc-row"><label for="w-${a}">${esc(t(ASSET_LABEL[a]))}${est ? ` <span class="badge${modelled ? ' eq-model' : ''}"${modelled ? ` title="${esc(t('eqModel'))}" tabindex="0"` : ''}>${esc(t('est'))}</span>` : ''}</label>
       <input type="number" id="w-${a}" data-a="${a}" min="0" max="100" step="5" value="${v}" ${av.ok ? '' : 'disabled'} inputmode="numeric"> %
       ${av.ok ? '' : `<small class="why">${esc(t(('why_' + av.why) as 'why_age'))}</small>`}
       ${a === 'eqHome' && proxy && av.ok ? `<small class="why">${esc(t('proxyWorld'))}</small>` : ''}

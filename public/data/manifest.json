@@ -48,7 +48,7 @@
   },
   {
    "id": "oecd",
-   "name": "OECD Data Explorer (SDMX): Share prices (DF_FINMARK, MONTHLY — December = year-end level, monthly path → intra-year drawdown), Analytical house prices (DF_HOUSE_PRICES, RHP), Pensions at a Glance (DF_PAG)",
+   "name": "OECD Data Explorer (SDMX): Analytical house prices (DF_HOUSE_PRICES, RHP), Pensions at a Glance (DF_PAG), Wealth Distribution Database (DSD_WEALTH@DF_WEALTH — calibration target only, not shipped). Share prices (DF_FINMARK) removed in v0.10.0 — see oecd-share-prices",
    "url": "https://sdmx.oecd.org/public/rest/",
    "retrieved": "2026-10-16",
    "license": {
@@ -59,7 +59,7 @@
      "pipeline/licenses/2026-10-16_oecd_terms.md",
      "pipeline/licenses/2026-10-16_oecd_terms.png"
     ],
-    "caveat": "OECD terms §3: some Data may be owned by third parties (stock-exchange index providers may own the underlying share-price indices); verify per-dataset metadata before public release — see docs/questions.md Q17."
+    "caveat": "Share prices were removed in v0.10.0 (third-party index-provider rights; registered as the blocked source oecd-share-prices). House prices and PaG model measures remain under OECD terms §3."
    }
   },
   {
@@ -76,6 +76,52 @@
      "pipeline/licenses/2026-10-16_www.worldbank.org_en_about_legal_terms-of-use-for-datasets.html",
      "pipeline/licenses/2026-10-16_datacatalog.worldbank.org_public-licenses.html"
     ]
+   }
+  },
+  {
+   "id": "ilostat",
+   "name": "International Labour Organization, ILOSTAT database (SDMX API): Employment by sex and occupation (DF_EMP_TEMP_SEX_OCU_NB); Informal employment rate by sex (DF_EMP_NIFL_SEX_RT)",
+   "url": "https://ilostat.ilo.org/",
+   "retrieved": "2026-10-17",
+   "license": {
+    "id": "CC-BY-4.0",
+    "class": "attribution",
+    "url": "https://www.ilo.org/rights-and-permissions",
+    "archived": [
+     "pipeline/licenses/2026-10-17_www.ilo.org_rights-and-permissions.html"
+    ],
+    "caveat": "CC BY 4.0 covers releases on/after 3 May 2023; pulled from the current release 2026-10-17. Attribution to the ILO, licence link, statement of changes, adaptation disclaimer; no ILO logo."
+   }
+  },
+  {
+   "id": "uis",
+   "name": "UNESCO Institute for Statistics (UIS) Data API: GER.5T8 gross enrolment ratio, tertiary",
+   "url": "https://databrowser.uis.unesco.org/",
+   "retrieved": "2026-10-17",
+   "license": {
+    "id": "CC-BY-SA-4.0",
+    "class": "share-alike",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "archived": [
+     "pipeline/licenses/2026-10-17_databrowser.uis.unesco.org_terms-and-conditions.html"
+    ],
+    "caveat": "Share-alike: shipped only in public/data/sa/ (own file, own licence); never mixed into other files."
+   }
+  },
+  {
+   "id": "oecd-pag",
+   "name": "OECD (2025), Pensions at a Glance 2025: OECD and G20 Indicators — OECD Data Explorer DF_PAG (OECD pension-model measures only)",
+   "url": "https://sdmx.oecd.org/public/rest/",
+   "retrieved": "2026-10-16",
+   "license": {
+    "id": "CC-BY-4.0",
+    "class": "attribution",
+    "url": "https://www.oecd.org/en/about/terms-conditions.html",
+    "archived": [
+     "pipeline/licenses/2026-10-16_oecd_terms.md",
+     "pipeline/licenses/2026-10-16_oecd_terms.png"
+    ],
+    "caveat": "Third-party-derived measures are dropped by pipeline/l1.mjs (PAG_DROP); OECD adaptation disclaimer shipped in the file."
    }
   }
  ],
@@ -97,7 +143,8 @@
     "https://api.worldbank.org/v2/"
    ],
    "schema": "countries.schema.json",
-   "rows": 237
+   "rows": 237,
+   "transform": "pipeline/run.mjs: WPP 2024 demographic indicators + WDI series 1960–2025 → per-country record; % → proportion; gaps imputed (interp → region → world, docs/data-imputation.md), imputed cells flagged est[]"
   },
   {
    "path": "demography/ABW.json",
@@ -113,7 +160,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/AFG.json",
@@ -129,7 +177,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/AGO.json",
@@ -145,7 +194,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/AIA.json",
@@ -161,7 +211,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ALB.json",
@@ -177,7 +228,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/AND.json",
@@ -193,7 +245,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ARE.json",
@@ -209,7 +262,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ARG.json",
@@ -225,7 +279,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ARM.json",
@@ -241,7 +296,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ASM.json",
@@ -257,7 +313,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ATG.json",
@@ -273,7 +330,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/AUS.json",
@@ -289,7 +347,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/AUT.json",
@@ -305,7 +364,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/AZE.json",
@@ -321,7 +381,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BDI.json",
@@ -337,7 +398,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BEL.json",
@@ -353,7 +415,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BEN.json",
@@ -369,7 +432,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BES.json",
@@ -385,7 +449,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BFA.json",
@@ -401,7 +466,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BGD.json",
@@ -417,7 +483,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BGR.json",
@@ -433,7 +500,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BHR.json",
@@ -449,7 +517,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BHS.json",
@@ -465,7 +534,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BIH.json",
@@ -481,7 +551,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BLM.json",
@@ -497,7 +568,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BLR.json",
@@ -513,7 +585,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BLZ.json",
@@ -529,7 +602,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BMU.json",
@@ -545,7 +619,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BOL.json",
@@ -561,7 +636,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BRA.json",
@@ -577,7 +653,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BRB.json",
@@ -593,7 +670,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BRN.json",
@@ -609,7 +687,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BTN.json",
@@ -625,7 +704,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/BWA.json",
@@ -641,7 +721,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/CAF.json",
@@ -657,7 +738,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/CAN.json",
@@ -673,7 +755,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/CHE.json",
@@ -689,7 +772,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/CHL.json",
@@ -705,7 +789,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/CHN.json",
@@ -721,7 +806,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/CIV.json",
@@ -737,7 +823,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/CMR.json",
@@ -753,7 +840,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/COD.json",
@@ -769,7 +857,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/COG.json",
@@ -785,7 +874,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/COK.json",
@@ -801,7 +891,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/COL.json",
@@ -817,7 +908,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/COM.json",
@@ -833,7 +925,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/CPV.json",
@@ -849,7 +942,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/CRI.json",
@@ -865,7 +959,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/CUB.json",
@@ -881,7 +976,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/CUW.json",
@@ -897,7 +993,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/CYM.json",
@@ -913,7 +1010,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/CYP.json",
@@ -929,7 +1027,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/CZE.json",
@@ -945,7 +1044,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/DEU.json",
@@ -961,7 +1061,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/DJI.json",
@@ -977,7 +1078,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/DMA.json",
@@ -993,7 +1095,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/DNK.json",
@@ -1009,7 +1112,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/DOM.json",
@@ -1025,7 +1129,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/DZA.json",
@@ -1041,7 +1146,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ECU.json",
@@ -1057,7 +1163,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/EGY.json",
@@ -1073,7 +1180,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ERI.json",
@@ -1089,7 +1197,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ESH.json",
@@ -1105,7 +1214,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ESP.json",
@@ -1121,7 +1231,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/EST.json",
@@ -1137,7 +1248,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ETH.json",
@@ -1153,7 +1265,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/FIN.json",
@@ -1169,7 +1282,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/FJI.json",
@@ -1185,7 +1299,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/FLK.json",
@@ -1201,7 +1316,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/FRA.json",
@@ -1217,7 +1333,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/FRO.json",
@@ -1233,7 +1350,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/FSM.json",
@@ -1249,7 +1367,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GAB.json",
@@ -1265,7 +1384,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GBR.json",
@@ -1281,7 +1401,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GEO.json",
@@ -1297,7 +1418,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GGY.json",
@@ -1313,7 +1435,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GHA.json",
@@ -1329,7 +1452,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GIB.json",
@@ -1345,7 +1469,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GIN.json",
@@ -1361,7 +1486,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GLP.json",
@@ -1377,7 +1503,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GMB.json",
@@ -1393,7 +1520,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GNB.json",
@@ -1409,7 +1537,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GNQ.json",
@@ -1425,7 +1554,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GRC.json",
@@ -1441,7 +1571,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GRD.json",
@@ -1457,7 +1588,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GRL.json",
@@ -1473,7 +1605,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GTM.json",
@@ -1489,7 +1622,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GUF.json",
@@ -1505,7 +1639,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GUM.json",
@@ -1521,7 +1656,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/GUY.json",
@@ -1537,7 +1673,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/HKG.json",
@@ -1553,7 +1690,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/HND.json",
@@ -1569,7 +1707,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/HRV.json",
@@ -1585,7 +1724,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/HTI.json",
@@ -1601,7 +1741,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/HUN.json",
@@ -1617,7 +1758,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/IDN.json",
@@ -1633,7 +1775,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/IMN.json",
@@ -1649,7 +1792,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/IND.json",
@@ -1665,7 +1809,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/IRL.json",
@@ -1681,7 +1826,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/IRN.json",
@@ -1697,7 +1843,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/IRQ.json",
@@ -1713,7 +1860,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ISL.json",
@@ -1729,7 +1877,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ISR.json",
@@ -1745,7 +1894,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ITA.json",
@@ -1761,7 +1911,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/JAM.json",
@@ -1777,7 +1928,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/JEY.json",
@@ -1793,7 +1945,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/JOR.json",
@@ -1809,7 +1962,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/JPN.json",
@@ -1825,7 +1979,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/KAZ.json",
@@ -1841,7 +1996,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/KEN.json",
@@ -1857,7 +2013,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/KGZ.json",
@@ -1873,7 +2030,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/KHM.json",
@@ -1889,7 +2047,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/KIR.json",
@@ -1905,7 +2064,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/KNA.json",
@@ -1921,7 +2081,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/KOR.json",
@@ -1937,7 +2098,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/KWT.json",
@@ -1953,7 +2115,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/LAO.json",
@@ -1969,7 +2132,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/LBN.json",
@@ -1985,7 +2149,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/LBR.json",
@@ -2001,7 +2166,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/LBY.json",
@@ -2017,7 +2183,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/LCA.json",
@@ -2033,7 +2200,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/LIE.json",
@@ -2049,7 +2217,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/LKA.json",
@@ -2065,7 +2234,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/LSO.json",
@@ -2081,7 +2251,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/LTU.json",
@@ -2097,7 +2268,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/LUX.json",
@@ -2113,7 +2285,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/LVA.json",
@@ -2129,7 +2302,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MAC.json",
@@ -2145,7 +2319,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MAF.json",
@@ -2161,7 +2336,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MAR.json",
@@ -2177,7 +2353,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MCO.json",
@@ -2193,7 +2370,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MDA.json",
@@ -2209,7 +2387,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MDG.json",
@@ -2225,7 +2404,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MDV.json",
@@ -2241,7 +2421,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MEX.json",
@@ -2257,7 +2438,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MHL.json",
@@ -2273,7 +2455,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MKD.json",
@@ -2289,7 +2472,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MLI.json",
@@ -2305,7 +2489,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MLT.json",
@@ -2321,7 +2506,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MMR.json",
@@ -2337,7 +2523,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MNE.json",
@@ -2353,7 +2540,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MNG.json",
@@ -2369,7 +2557,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MNP.json",
@@ -2385,7 +2574,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MOZ.json",
@@ -2401,7 +2591,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MRT.json",
@@ -2417,7 +2608,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MSR.json",
@@ -2433,7 +2625,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MTQ.json",
@@ -2449,7 +2642,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MUS.json",
@@ -2465,7 +2659,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MWI.json",
@@ -2481,7 +2676,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MYS.json",
@@ -2497,7 +2693,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/MYT.json",
@@ -2513,7 +2710,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/NAM.json",
@@ -2529,7 +2727,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/NCL.json",
@@ -2545,7 +2744,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/NER.json",
@@ -2561,7 +2761,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/NGA.json",
@@ -2577,7 +2778,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/NIC.json",
@@ -2593,7 +2795,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/NIU.json",
@@ -2609,7 +2812,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/NLD.json",
@@ -2625,7 +2829,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/NOR.json",
@@ -2641,7 +2846,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/NPL.json",
@@ -2657,7 +2863,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/NRU.json",
@@ -2673,7 +2880,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/NZL.json",
@@ -2689,7 +2897,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/OMN.json",
@@ -2705,7 +2914,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/PAK.json",
@@ -2721,7 +2931,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/PAN.json",
@@ -2737,7 +2948,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/PER.json",
@@ -2753,7 +2965,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/PHL.json",
@@ -2769,7 +2982,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/PLW.json",
@@ -2785,7 +2999,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/PNG.json",
@@ -2801,7 +3016,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/POL.json",
@@ -2817,7 +3033,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/PRI.json",
@@ -2833,7 +3050,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/PRK.json",
@@ -2849,7 +3067,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/PRT.json",
@@ -2865,7 +3084,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/PRY.json",
@@ -2881,7 +3101,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/PSE.json",
@@ -2897,7 +3118,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/PYF.json",
@@ -2913,7 +3135,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/QAT.json",
@@ -2929,7 +3152,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/REU.json",
@@ -2945,7 +3169,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ROU.json",
@@ -2961,7 +3186,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/RUS.json",
@@ -2977,7 +3203,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/RWA.json",
@@ -2993,7 +3220,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SAU.json",
@@ -3009,7 +3237,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SDN.json",
@@ -3025,7 +3254,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SEN.json",
@@ -3041,7 +3271,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SGP.json",
@@ -3057,7 +3288,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SHN.json",
@@ -3073,7 +3305,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SLB.json",
@@ -3089,7 +3322,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SLE.json",
@@ -3105,7 +3339,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SLV.json",
@@ -3121,7 +3356,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SMR.json",
@@ -3137,7 +3373,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SOM.json",
@@ -3153,7 +3390,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SPM.json",
@@ -3169,7 +3407,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SRB.json",
@@ -3185,7 +3424,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SSD.json",
@@ -3201,7 +3441,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/STP.json",
@@ -3217,7 +3458,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SUR.json",
@@ -3233,7 +3475,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SVK.json",
@@ -3249,7 +3492,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SVN.json",
@@ -3265,7 +3509,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SWE.json",
@@ -3281,7 +3526,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SWZ.json",
@@ -3297,7 +3543,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SXM.json",
@@ -3313,7 +3560,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SYC.json",
@@ -3329,7 +3577,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/SYR.json",
@@ -3345,7 +3594,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/TCA.json",
@@ -3361,7 +3611,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/TCD.json",
@@ -3377,7 +3628,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/TGO.json",
@@ -3393,7 +3645,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/THA.json",
@@ -3409,7 +3662,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/TJK.json",
@@ -3425,7 +3679,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/TKL.json",
@@ -3441,7 +3696,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/TKM.json",
@@ -3457,7 +3713,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/TLS.json",
@@ -3473,7 +3730,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/TON.json",
@@ -3489,7 +3747,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/TTO.json",
@@ -3505,7 +3764,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/TUN.json",
@@ -3521,7 +3781,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/TUR.json",
@@ -3537,7 +3798,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/TUV.json",
@@ -3553,7 +3815,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/TWN.json",
@@ -3569,7 +3832,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/TZA.json",
@@ -3585,7 +3849,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/UGA.json",
@@ -3601,7 +3866,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/UKR.json",
@@ -3617,7 +3883,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/URY.json",
@@ -3633,7 +3900,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/USA.json",
@@ -3649,7 +3917,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/UZB.json",
@@ -3665,7 +3934,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/VAT.json",
@@ -3681,7 +3951,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/VCT.json",
@@ -3697,7 +3968,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/VEN.json",
@@ -3713,7 +3985,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/VGB.json",
@@ -3729,7 +4002,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/VIR.json",
@@ -3745,7 +4019,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/VNM.json",
@@ -3761,7 +4036,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/VUT.json",
@@ -3777,7 +4053,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/WLF.json",
@@ -3793,7 +4070,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/WSM.json",
@@ -3809,7 +4087,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/XKX.json",
@@ -3825,7 +4104,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/YEM.json",
@@ -3841,7 +4121,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ZAF.json",
@@ -3857,7 +4138,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ZMB.json",
@@ -3873,7 +4155,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "demography/ZWE.json",
@@ -3889,7 +4172,8 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "demography-country.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/run.mjs: WPP 2024 abridged life tables (M/F, 1950–2023) + births/SRB 1950–2030 → per-country JSON; values copied, no modelling"
   },
   {
    "path": "markets/annual-closes.json",
@@ -3910,31 +4194,31 @@
     "https://api-pub.bitfinex.com/"
    ],
    "schema": "annual-closes.schema.json",
-   "rows": 74
+   "rows": 74,
+   "transform": "pipeline/markets.mjs: self-compiled year-end closes (TAIEX, BTC/USD) cross-checked against several public sources"
   },
   {
    "path": "markets/markets.json",
-   "sha256": "e32b9f3178ed2725fd0f354c85fba31ac6fe1cfb3b4a34761ceafd4f3fe0532b",
+   "sha256": "8c26bfe2066fa3c8b4a12447b428b05ffba863bd70ca6ef2ca66e058c60b0f63",
    "src": [
-    "oecd",
     "wb-pinksheet",
     "wdi",
     "epochs-compiled"
    ],
    "retrieved": "2026-10-16",
    "url": [
-    "https://sdmx.oecd.org/public/rest/data/OECD.SDD.STES,DSD_STES@DF_FINMARK,4.0/.M.SHARE.......?startPeriod=1950-01&format=csv",
     "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-    "https://api.worldbank.org/v2/"
+    "https://api.worldbank.org/v2/",
+    "https://www.twse.com.tw/"
    ],
    "schema": "markets.schema.json",
-   "rows": 48,
+   "rows": 2,
    "license": [
-    "OECD-terms-data (attribution; CC BY 4.0 open-by-default)",
     "CC-BY-4.0",
     "CC-BY-4.0",
     "self-compiled facts"
-   ]
+   ],
+   "transform": "pipeline/markets-ext.mjs: OECD share prices (Dec level, monthly drawdown), WB Pink Sheet commodity prices, WDI rates/CPI → real annual returns per country"
   },
   {
    "path": "markets/housing-pension.json",
@@ -3951,7 +4235,8 @@
    "rows": 97,
    "license": [
     "OECD-terms-data (attribution; CC BY 4.0 open-by-default)"
-   ]
+   ],
+   "transform": "pipeline/markets-ext.mjs: OECD real house price index (RHP) + PaG GPRR100 (mandatory, ÷100) and CRPLF22 per sex; non-listed countries use the OECD median (推估)"
   },
   {
    "path": "wpp-extra.json",
@@ -3967,7 +4252,76 @@
     "https://population.un.org/wpp/"
    ],
    "schema": "wpp-extra.schema.json",
-   "rows": 237
+   "rows": 237,
+   "transform": "pipeline/wpp-extra.mjs: WPP 2024 TFR / mean age at childbearing → per-country series; values copied"
+  },
+  {
+   "path": "l1/ilostat-occ.json",
+   "sha256": "459a22afcd332c73d33e88b325ac5714f9473d9b8b3c2a560f708ba18e2abeea",
+   "src": [
+    "ilostat"
+   ],
+   "license": [
+    "CC-BY-4.0"
+   ],
+   "retrieved": "2026-10-17",
+   "url": [
+    "https://sdmx.ilo.org/rest/data/ILO,DF_EMP_TEMP_SEX_OCU_NB/.A..SEX_M+SEX_F.?startPeriod=1960&format=csvfilewithlabels"
+   ],
+   "schema": "l1-ilostat-occ.schema.json",
+   "transform": "pipeline/l1.mjs: ILOSTAT EMP_TEMP by sex × occupation (ISCO-08 major groups, ISCO-88 where -08 missing), thousands → share of total employment of known occupation per (sex, major 0–9); one observation per decade anchor (nearest year ±5)",
+   "rows": 203
+  },
+  {
+   "path": "l1/ilostat-informality.json",
+   "sha256": "a58dc96667ed717cedee6020c05bad53a179e53c1507308fba1732558453e4d0",
+   "src": [
+    "ilostat"
+   ],
+   "license": [
+    "CC-BY-4.0"
+   ],
+   "retrieved": "2026-10-17",
+   "url": [
+    "https://sdmx.ilo.org/rest/data/ILO,DF_EMP_NIFL_SEX_RT/?startPeriod=1990&format=csvfilewithlabels"
+   ],
+   "schema": "l1-ilostat-inf.schema.json",
+   "transform": "pipeline/l1.mjs: ILOSTAT EMP_NIFL informal employment rate by sex, % → proportion; one observation per decade anchor (±5 y) plus the latest year",
+   "rows": 147
+  },
+  {
+   "path": "l1/pag2025.json",
+   "sha256": "7a444fc94c69dff04c0279a293723671dc9bcd08d37fab809fef768f1376b846",
+   "src": [
+    "oecd-pag"
+   ],
+   "license": [
+    "CC-BY-4.0"
+   ],
+   "retrieved": "2026-10-17",
+   "url": [
+    "https://sdmx.oecd.org/public/rest/data/OECD.ELS.SPD,DSD_PAG@DF_PAG,1.0/all?format=csvfilewithlabels"
+   ],
+   "schema": "l1-pag.schema.json",
+   "transform": "pipeline/l1.mjs: OECD PaG (DF_PAG) latest year per measure × sex; kept only OECD pension-model outputs CRPLF22, FRPLF22, GPRR100, NPRR100 (mandatory schemes, % → proportion); dropped third-party-derived measures ATRAEP, ATRPPAE, ATRW, AWGW, CIOP, EDIOP, EIOP, ELMEA, ER, EYLME, FR, GPRR200, GPRR50, GPW100, GPW200, GPW50, LE, NPRR200, NPRR50, NPW100, NPW200, NPW50, OAIP, OAWAR, OCOP, PEP, PPEP, PTOP",
+   "rows": 51
+  },
+  {
+   "path": "sa/uis-tertiary.json",
+   "sha256": "a64882d3a18a7a8e352ce9d275829d03dcd573ad9a2b4994eaaef560dbeb1f86",
+   "src": [
+    "uis"
+   ],
+   "license": [
+    "CC-BY-SA-4.0"
+   ],
+   "retrieved": "2026-10-17",
+   "url": [
+    "https://api.uis.unesco.org/api/public/data/indicators?indicator=GER.5T8&start=1970&end=2025"
+   ],
+   "schema": "l1-uis.schema.json",
+   "transform": "pipeline/l1.mjs: UIS GER.5T8 gross tertiary enrolment ratio, % → proportion; one observation per decade anchor (±5 y). Share-alike: this file only, CC BY-SA 4.0",
+   "rows": 206
   }
  ]
 }

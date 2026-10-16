@@ -1,0 +1,105 @@
+{
+ "retrieved": "2026-10-17",
+ "indicators": {
+  "NY.GDP.PCAP.PP.KD": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "International Comparison Program (ICP), World Bank (WB), uri: https://www.worldbank.org/en/programs/icp/data, note: This information is for ICP’s PPPs utilized "
+  },
+  "FP.CPI.TOTL.ZG": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "International Financial Statistics database, International Monetary Fund (IMF)"
+  },
+  "SI.POV.GINI": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "World Bank, Poverty and Inequality Platform. Data are based on primary household survey data obtained from government statistical agencies and World Bank countr"
+  },
+  "SI.DST.FRST.20": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "World Bank, Poverty and Inequality Platform. Data are based on primary household survey data obtained from government statistical agencies and World Bank countr"
+  },
+  "SI.DST.02ND.20": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "World Bank, Poverty and Inequality Platform. Data are based on primary household survey data obtained from government statistical agencies and World Bank countr"
+  },
+  "SI.DST.03RD.20": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "World Bank, Poverty and Inequality Platform. Data are based on primary household survey data obtained from government statistical agencies and World Bank countr"
+  },
+  "SI.DST.04TH.20": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "World Bank, Poverty and Inequality Platform. Data are based on primary household survey data obtained from government statistical agencies and World Bank countr"
+  },
+  "SI.DST.05TH.20": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "World Bank, Poverty and Inequality Platform. Data are based on primary household survey data obtained from government statistical agencies and World Bank countr"
+  },
+  "SP.URB.TOTL.IN.ZS": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "World Urbanization Prospects, United Nations (UN), uri: https://population.un.org/wup/, note: United Nations Population Division's World Urbanization Prospects,"
+  },
+  "SL.UEM.TOTL.ZS": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "ILO Modelled Estimates database (ILOEST), International Labour Organization (ILO), uri: https://ilostat.ilo.org/data/bulk/, publisher: ILOSTAT, type: external d"
+  },
+  "NE.CON.PRVT.ZS": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "Country official statistics, National Statistical Organizations and/or Central Banks;"
+  },
+  "GC.TAX.TOTL.GD.ZS": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "Government Finance Statistics Yearbook and data files, International Monetary Fund (IMF)"
+  },
+  "SE.SEC.ENRR": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "Data API, UN Educational, Scientific and Cultural Organization (UNESCO), uri: https://databrowser.uis.unesco.org/resources, note: The data are obtained through "
+  },
+  "SE.TER.ENRR": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "Data API, UN Educational, Scientific and Cultural Organization (UNESCO), uri: https://databrowser.uis.unesco.org/resources, note: The data are obtained through "
+  },
+  "SE.PRM.AGES": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "Data API, UN Educational, Scientific and Cultural Organization (UNESCO), uri: https://databrowser.uis.unesco.org/resources, note: The data are obtained through "
+  },
+  "CM.MKT.LDOM.NO": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "World Federation of Exchanges database, World Federation of Exchanges (WFE)"
+  },
+  "FR.INR.LEND": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "International Financial Statistics database, International Monetary Fund (IMF)"
+  },
+  "NY.GDP.MKTP.CD": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "Country official statistics, National Statistical Organizations and/or Central Banks;"
+  },
+  "PA.NUS.FCRF": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "International Financial Statistics database, International Monetary Fund (IMF)"
+  },
+  "PA.NUS.PPP": {
+   "license": "CC BY-4.0",
+   "licenseUrl": "https://datacatalog.worldbank.org/public-licenses#cc-by",
+   "source": "International Comparison Program (ICP), World Bank (WB), uri: https://www.worldbank.org/en/programs/icp/data, publisher: International Comparison Program, type:"
+  }
+ }
+}

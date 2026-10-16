@@ -33,3 +33,10 @@ export async function* readGzCsv(path) {
     yield o;
   }
 }
+
+/** Parse a whole CSV text (no embedded newlines) into row objects keyed by the header. */
+export function parseCsv(text) {
+  const lines = text.replace(/^\uFEFF/, '').split(/\r?\n/).filter(Boolean);
+  const header = parseLine(lines[0]);
+  return lines.slice(1).map((l) => { const c = parseLine(l); return Object.fromEntries(header.map((h, i) => [h, c[i] ?? ''])); });
+}

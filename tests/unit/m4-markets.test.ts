@@ -104,7 +104,7 @@ describe('M4 leverage ', () => {
     expect(available(m, 'levEq', 'USA', 2002, 40, { levBase: 'eqUS', cooldownUntil: 2004 }).why).toBe('cooldown');
     expect(available(m, 'levEq', 'USA', 2004, 40, { levBase: 'eqUS', cooldownUntil: 2004 }).ok).toBe(true);
   });
-  it('US backtest 1960–2025, k=2, m=0.25 at intra-year path quantiles u=0.5 and u=0.9: margin-call years (golden list in)', () => {
+  it('US stress-path backtest 1960–2025 (synthetic fixture), k=2, m=0.25 at u=0.5 and u=0.9: margin-call years', () => {
     const out: Record<string, number[]> = {};
     for (const u of [0.5, 0.9]) out['u' + u] = backtest(u);
     expect(out).toMatchSnapshot();
@@ -115,19 +115,26 @@ describe('M4 leverage ', () => {
     expect(intraYearMin(0.05, -0.1, 0.2, 0.99)).toBeCloseTo(-0.1 * DRAWDOWN_SAFETY_FACTOR, 12); expect(intraYearMin(-0.2, -0.1, 0.2, 0.99)).toBe(-0.2);
     expect(DRAWDOWN_SAFETY_FACTOR).toBe(1.25); expect(intraYearMin(0, -0.9, 0.2, 0.5)).toBe(-0.99);
   });
-  it('year-end series: December levels and intra-year drawdowns (OECD monthly / Pink Sheet monthly)', () => {
-    const dd = (s: typeof m.gold, y: number) => s.dd![y - s.from]!;
-    expect(m.eq.USA!.kind).toBe('dec_monthly'); expect(m.gold.kind).toBe('dec_monthly');
-    expect(R('USA', 2008).nomHome.eqUS!).toBeLessThan(-0.4);     // year-end 2008 vs 2007 (annual average gave ≈ −20%)
-    expect(dd(m.eq.USA!, 2008)).toBeLessThan(-0.4);
-    expect(dd(m.eq.USA!, 1987)).toBeLessThan(-0.25);            // Aug→Dec 1987 monthly-average path
-    expect(dd(m.eq.USA!, 2002)).toBeLessThan(-0.2);
-    expect(dd(m.world, 2008)).toBeLessThan(-0.4);
+  it('year-end series (v0.10.0): US/world equity = 推估 nominal-GDP model without an intra-year path; gold keeps Pink Sheet monthly dd', () => {
+    expect(m.eq.USA!.kind).toBe('model_ngdp'); expect(m.eq.USA!.est).toBe(true); expect(m.world.kind).toBe('model_ngdp');
+    expect(m.eq.USA!.dd!.every((x) => x === null)).toBe(true);  // no path → Brownian bridge with the design σ
+    expect(sigmaOf(m, 'eqUS', 'USA')).toBe(0.16);
+    expect(R('USA', 2008).est.eqUS).toBe(true); expect(R('DEU', 2008).est.eqWorld).toBe(true);
+    expect(m.gold.kind).toBe('dec_monthly'); expect(m.gold.dd!.some((x) => x != null && x < -0.1)).toBe(true);
     expect(m.eq.TWN!.dd!.every((x) => x === null)).toBe(true); // annual closes only → bridge fallback
   });
+  // Leverage acceptance on a SYNTHETIC stress path (the real US index is no longer shipped: no open licence). Crash years carry
+  // a recorded monthly drawdown so the ×1.25 safety-factor rule is exercised exactly as with the former OECD monthly data.
+  const STRESS: Record<number, [number, number]> = { 1974: [-0.3, -0.45], 1987: [0.02, -0.35], 2000: [-0.08, -0.1], 2001: [-0.1, -0.12], 2002: [-0.2, -0.25], 2008: [-0.38, -0.48] };
+  const mS: MarketsData = (() => {
+    const v: number[] = [100], dd: (number | null)[] = [null];
+    for (let y = 1961; y <= 2025; y++) { const [r, d] = STRESS[y] ?? [0.07, -0.06]; v.push(v.at(-1)! * (1 + r)); dd.push(d); }
+    return { ...m, eq: { ...m.eq, USA: { from: 1960, v, dd, kind: 'dec_monthly', src: 'test-fixture' } } };
+  })();
+  const RS = (y: number, u = 0.5) => yearReturns({ m: mS, iso: 'USA', year: y, pi, u: () => u });
   const line = (y: number) => (1 + lendingRate(m, 'USA', y, pi).i) / (2 * (1 - PARAMS.levMaint.value)) - 1; // A=2, L=1
-  const scaled = (y: number) => m.eq.USA!.dd![y - m.eq.USA!.from]! * DRAWDOWN_SAFETY_FACTOR;
-  it('backtest acceptance (×1.25 safety factor, ): fresh 2× each year is liquidated in US 1974, 1987 and 2008 at any bridge quantile', () => {
+  const scaled = (y: number) => mS.eq.USA!.dd![y - 1960]! * DRAWDOWN_SAFETY_FACTOR;
+  it('backtest acceptance (×1.25 safety factor, ): fresh 2× each year is liquidated in stress years 1974, 1987 and 2008 at any bridge quantile', () => {
     for (const u of [0, 0.5, 0.9]) { const c = backtest(u); for (const y of [1974, 1987, 2008]) expect(c).toContain(y); }
     for (const y of [1974, 1987, 2008]) expect(scaled(y)).toBeLessThan(line(y));
   });
@@ -135,7 +142,7 @@ describe('M4 leverage ', () => {
     let p: Portfolio = { ...emptyPortfolio(), levBase: 'eqUS', lev: { A: 2, L: 1 } };
     const hit: number[] = [];
     for (let y = 2000; y <= 2002 && p.lev; y++) {
-      const out = marketStep({ p, cash: 0, ret: R('USA', y), marginRate: lendingRate(m, 'USA', y, pi).i, piHome: pi('USA', y), uMin: 0.5, sigmaBase: sigmaOf(m, 'eqUS', 'USA'), calYear: y });
+      const out = marketStep({ p, cash: 0, ret: RS(y), marginRate: lendingRate(m, 'USA', y, pi).i, piHome: pi('USA', y), uMin: 0.5, sigmaBase: sigmaOf(mS, 'eqUS', 'USA'), calYear: y });
       if (out.events.some((e) => e.id === 'marginCall')) hit.push(y);
       p = out.p;
     }
@@ -149,8 +156,8 @@ describe('M4 leverage ', () => {
     const calls: number[] = [];
     let p: Portfolio = { ...emptyPortfolio(), levBase: 'eqUS', lev: { A: 2, L: 1 } };
     for (let y = 1960; y <= 2025; y++) {
-      const ret = R('USA', y);
-      const out = marketStep({ p, cash: 0, ret, marginRate: lendingRate(m, 'USA', y, pi).i, piHome: pi('USA', y), uMin: u, sigmaBase: sigmaOf(m, 'eqUS', 'USA'), calYear: y });
+      const ret = RS(y, u);
+      const out = marketStep({ p, cash: 0, ret, marginRate: lendingRate(m, 'USA', y, pi).i, piHome: pi('USA', y), uMin: u, sigmaBase: sigmaOf(mS, 'eqUS', 'USA'), calYear: y });
       if (out.events.some((e) => e.id === 'marginCall')) calls.push(y);
       p = { ...out.p, lev: { A: 2, L: 1 }, cooldownUntil: undefined }; // reopen at k=2 every year to test each year independently
     }

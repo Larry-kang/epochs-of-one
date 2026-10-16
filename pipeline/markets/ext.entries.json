@@ -8,19 +8,18 @@
    "path": "markets/markets.json",
    "sha256": "",
    "src": [
-    "oecd",
     "wb-pinksheet",
     "wdi",
     "epochs-compiled"
    ],
    "retrieved": "2026-10-16",
    "url": [
-    "https://sdmx.oecd.org/public/rest/data/OECD.SDD.STES,DSD_STES@DF_FINMARK,4.0/.M.SHARE.......?startPeriod=1950-01&format=csv",
     "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-    "https://api.worldbank.org/v2/"
+    "https://api.worldbank.org/v2/",
+    "https://www.twse.com.tw/"
    ],
    "schema": "markets.schema.json",
-   "rows": 48
+   "rows": 2
   },
   {
    "path": "markets/housing-pension.json",

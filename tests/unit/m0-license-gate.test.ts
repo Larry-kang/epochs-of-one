@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest';
 // @ts-expect-error untyped .mjs pipeline module
 import { licenseGate } from '../../pipeline/license-gate.mjs';
 
-const src = (id: string, cls: string) => ({ id, name: id, url: 'https://x', retrieved: '2026-10-16', license: { id: 'L', class: cls, url: 'https://x' } });
-const file = (path: string, ids: string[]) => ({ path, sha256: '0'.repeat(64), src: ids, license: ['L'], retrieved: '2026-10-16', url: ['https://x'], schema: 's' });
+const src = (id: string, cls: string) => ({ id, name: id, url: 'https://x', retrieved: '2026-10-16', license: { id: 'CC-BY-4.0', class: cls, url: 'https://x' } });
+const file = (path: string, ids: string[]) => ({ path, sha256: '0'.repeat(64), src: ids, license: ['CC-BY-4.0'], retrieved: '2026-10-16', url: ['https://x'], schema: 's', transform: 'copied as is (test)' });
 
 describe('M0/M1: license gate', () => {
   for (const cls of ['nc', 'restricted', 'unknown']) {

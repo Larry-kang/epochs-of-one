@@ -4,6 +4,7 @@
 // Equity: entry odds use only country income group, era, education, quintile, urban/rural, sex (ILOSTAT-style probability
 // weight, never a gate) and stats — never ethnicity, caste, religion or name region.
 import table from '../../content/occupations.json' with { type: 'json' };
+import iloOcc from '../../../public/data/l1/ilostat-occ.json' with { type: 'json' };
 import type { Edu } from '../economy/household.ts';
 import type { Sex } from '../data/types.ts';
 
@@ -28,18 +29,38 @@ export const GROUP_TARGET: Record<IncomeGroup, Record<string, number>> = {
 /** calibration weights (推估): education gates and transitions shift the realised mix, so group draw odds are scaled so the
  *  realised working-age mix matches GROUP_TARGET (fitted by tools/c0-calibrate.test.ts; refit when tables change) */
 export const GROUP_ADJ: Record<IncomeGroup, Record<string, number>> = {
-  L: { agri: 1.079, trades: 0.631, services: 0.961, professional: 3.5, public: 5, special: 1.089 },
-  LM: { agri: 1.019, trades: 0.697, services: 0.941, professional: 2.3, public: 1.9, special: 1.379 },
+  L: { agri: 1.0, trades: 0.631, services: 0.961, professional: 3.5, public: 5, special: 1.089 },
+  LM: { agri: 1.019, trades: 0.697, services: 0.91, professional: 2.3, public: 1.9, special: 1.379 },
   UM: { agri: 0.959, trades: 0.883, services: 0.997, professional: 1.196, public: 1.23, special: 0.473 },
-  H: { agri: 0.878, trades: 0.8, services: 0.972, professional: 1.0, public: 1.055, special: 0.863 },
+  H: { agri: 0.878, trades: 0.8, services: 0.84, professional: 1.0, public: 1.055, special: 0.863 },
 };
 const EDU_RANK: Record<string, number> = { none: 0, primary: 1, secondary: 2, vocational: 2, tertiary: 3, graduate: 4 };
 export const eduOk = (o: Occ, plan: Edu) => EDU_RANK[plan]! >= EDU_RANK[o.edu]!;
 /** reachable only through rare transitions, never a direct entry draw */
 export const RARE_ROLES = ['local_rep', 'legislator', 'minister', 'astronaut'];
 export const SPACE = ['USA', 'RUS', 'CHN', 'JPN', 'FRA', 'DEU', 'ITA', 'GBR', 'ESP', 'NLD', 'BEL', 'SWE', 'CAN'];
-/** 推估 sex weight where the draft cites ILOSTAT sex×ISCO skew (placeholder until L1; never a gate) */
+/** 推估 sex weight where the draft cites a sex skew — used ONLY when the country has no ILOSTAT sex×ISCO data (never a gate) */
 export const SEX_W = 1.5;
+/** L1: ILOSTAT employment by sex × ISCO-08/88 major group (CC BY 4.0, public/data/l1/ilostat-occ.json). The entry weight of an
+ *  occupation in major group m for sex s is P(m | s) / P(m) for the country at the nearest decade with data — a probability
+ *  weight that reproduces the observed occupational sex mix, clamped to [SEXW_MIN, SEXW_MAX]; never a gate. Groups the source
+ *  merges or omits (both sexes 0) get weight 1. Countries without ILOSTAT data fall back to the 推估 SEX_W rule. */
+type IloCell = { y: number; cls: string; M: number[]; F: number[] };
+const ILO = (iloOcc as unknown as { data: Record<string, Record<string, IloCell>> }).data;
+export const SEXW_MIN = 0.25, SEXW_MAX = 4;
+/** analysis switch for the equity check only (tools/l1/equity.test.ts): 'ilo' = data weights (default), 'neutral' = no sex weight */
+export const OCC_OPTS: { sexMode: 'ilo' | 'neutral' } = { sexMode: 'ilo' };
+export function iloCell(iso: string, year: number): IloCell | undefined {
+  const c = ILO[iso]; if (!c) return undefined;
+  let best: string | undefined; for (const d of Object.keys(c)) if (best === undefined || Math.abs(+d - year) < Math.abs(+best - year)) best = d;
+  return best === undefined ? undefined : c[best];
+}
+export function iloSexWeight(isco: string, sex: Sex, iso: string, year: number): number | undefined {
+  const c = iloCell(iso, year); const m = Number(isco[0]); if (!c || !/^\d/.test(isco)) return undefined;
+  const all = c.M[m]! + c.F[m]!; if (all <= 0) return 1;
+  const tot = c[sex].reduce((a, b) => a + b, 0); if (tot <= 0) return 1;
+  return Math.min(SEXW_MAX, Math.max(SEXW_MIN, (c[sex][m]! / tot) / all));
+}
 
 /** the only inputs entry odds may use (equity: no ethnicity / caste / religion / region) */
 export interface EntryCtx { iso: string; year: number; gdp: number; plan: Edu; quintile: number; urban: boolean; sex: Sex; age: number; smart: number; social: number }
@@ -50,7 +71,8 @@ export function occWeight(o: Occ, x: EntryCtx): number {
   if (d.space && !SPACE.includes(x.iso)) return 0;
   if (d.pre && x.year >= d.pre) w *= 0.3;
   if (d.rare) w *= d.rare === 1 ? 0.06 : d.rare === 2 ? 0.006 : 0;
-  if (d.sex) w *= d.sex === x.sex ? SEX_W : 1 / SEX_W;
+  const sw = OCC_OPTS.sexMode === 'neutral' ? 1 : iloSexWeight(o.isco, x.sex, x.iso, x.year);
+  if (sw !== undefined) w *= sw; else if (d.sex) w *= d.sex === x.sex ? SEX_W : 1 / SEX_W;
   if (d.rural) w *= x.urban ? 0.4 : 2;
   if (d.urban && !d.rural) w *= x.urban ? 1.5 : 0.6;
   if (d.lowQ) w *= x.quintile <= 2 ? 1.6 : 0.7;
@@ -93,7 +115,7 @@ export const occHazard = (id: string | undefined, gdp: number, age: number): num
 /** per-country normalising term (推估, fitted by tools/c0/ratios.test.ts): within an income group, countries differ in how
  *  education, quintile and drivers co-move with occupation, so mean lifetime income under C0 can drift from the pre-C0
  *  engine. Key ISO; missing keys → 1. v0.9.0 rc4: fitted on the mean over 20 seed sets × N=200, 1970 + 1990 cohorts (tools/c0/multiseed.test.ts). Refit whenever the occupation table, GROUP_ADJ or NORM_K change. */
-export const COUNTRY_K: Record<string, number> = { IND: 0.9997, NGA: 1.0452, BRA: 1.0887, TWN: 0.9875, USA: 0.9808, DEU: 0.9847, KOR: 0.9449, CHN: 1.0053, ETH: 0.9363, MEX: 1.11, IDN: 1.079 };
+export const COUNTRY_K: Record<string, number> = { IND: 0.9997, NGA: 1.1045, BRA: 1.0887, TWN: 0.9875, USA: 0.9808, DEU: 0.9847, KOR: 0.9449, CHN: 1.0053, ETH: 0.9363, MEX: 1.11, IDN: 1.079 };
 export function occWageF(id: string, rung: number, gdp: number, plan?: Edu, iso?: string): number {
   const o = occById(id); if (!o) return 1;
   const r = Math.max(0, Math.min(rung, o.ladder.length - 1));
