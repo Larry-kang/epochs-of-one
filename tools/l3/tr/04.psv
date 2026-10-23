@@ -1,0 +1,80 @@
+events|ch_d_olympiad_no|"A teacher asks if you'll join olympiad training" — you chose: no thanks.|「先生に数理オリンピックの合宿に誘われた」——あなたの決断：やめておく。|"선생님이 수학·과학 경시대회 합숙에 참가할지 물었다" — 당신의 선택: 사양한다.
+events|ch_d_gaming_teen_play|"Everyone is playing the new online game" — you chose: play till midnight every day.|「新作のオンラインゲームをみんながやっている」——あなたの決断：毎日夜中までやる。|"다들 새로 나온 온라인 게임을 한다" — 당신의 선택: 매일 밤늦게까지 한다.
+events|ch_d_gaming_teen_limit|"Everyone is playing the new online game" — you chose: only on weekends.|「新作のオンラインゲームをみんながやっている」——あなたの決断：週末だけにする。|"다들 새로 나온 온라인 게임을 한다" — 당신의 선택: 주말에만 한다.
+events|ch_d_part_love_long|"Your partner is moving to another city" — you chose: try long distance.|「恋人が別の街へ引っ越す」——あなたの決断：遠距離を試す。|"연인이 다른 도시로 이사한다" — 당신의 선택: 장거리 연애를 해 본다.
+events|ch_d_part_love_end|"Your partner is moving to another city" — you chose: part on good terms.|「恋人が別の街へ引っ越す」——あなたの決断：きちんと別れる。|"연인이 다른 도시로 이사한다" — 당신의 선택: 좋게 헤어진다.
+events|ch_d_tattoo_do|"You want a tattoo" — you chose: get a small design.|「タトゥーを入れたい」——あなたの決断：小さな図柄を入れる。|"문신을 하고 싶다" — 당신의 선택: 작은 문양을 새긴다.
+events|ch_d_tattoo_wait|"You want a tattoo" — you chose: think it over.|「タトゥーを入れたい」——あなたの決断：もう少し考える。|"문신을 하고 싶다" — 당신의 선택: 좀 더 생각한다.
+events|ch_d_mock_exam_push|"You bombed the mock exam" — you chose: study even harder.|「模試で大失敗した」——あなたの決断：もっと必死に勉強する。|"모의고사를 망쳤다" — 당신의 선택: 더 악착같이 공부한다.
+events|ch_d_mock_exam_relax|"You bombed the mock exam" — you chose: go easy on yourself.|「模試で大失敗した」——あなたの決断：自分を許す。|"모의고사를 망쳤다" — 당신의 선택: 스스로를 놓아준다.
+events|ch_d_major_switch_switch|"A year in, you find you don't like your major" — you chose: switch majors.|「一年学んで、この学科が好きでないと気づいた」——あなたの決断：転科する。|"1년을 다녀 보니 전공이 맞지 않는다" — 당신의 선택: 전과한다.
+events|ch_d_major_switch_stay|"A year in, you find you don't like your major" — you chose: stick it out to graduation.|「一年学んで、この学科が好きでないと気づいた」——あなたの決断：卒業まで耐える。|"1년을 다녀 보니 전공이 맞지 않는다" — 당신의 선택: 졸업까지 버틴다.
+events|ch_d_dorm_or_home_dorm|"Live in the dorm or commute?" — you chose: the dorm.|「寮に住むか、通学するか」——あなたの決断：寮に住む。|"기숙사에 살까, 통학할까" — 당신의 선택: 기숙사.
+events|ch_d_dorm_or_home_home|"Live in the dorm or commute?" — you chose: live at home.|「寮に住むか、通学するか」——あなたの決断：実家に住む。|"기숙사에 살까, 통학할까" — 당신의 선택: 집에서 다닌다.
+events|ch_d_gap_year_go|"You want a year off for a working holiday" — you chose: go.|「一年休学してワーキングホリデーに行きたい」——あなたの決断：出発する。|"1년 휴학하고 워킹홀리데이를 가고 싶다" — 당신의 선택: 떠난다.
+events|ch_d_gap_year_stay|"You want a year off for a working holiday" — you chose: stick to the plan.|「一年休学してワーキングホリデーに行きたい」——あなたの決断：予定どおりにする。|"1년 휴학하고 워킹홀리데이를 가고 싶다" — 당신의 선택: 원래 계획대로 한다.
+events|ch_d_first_job_offer_big|"Two job offers at once" — you chose: big company, stable.|「二つの内定が同時に来た」——あなたの決断：大企業で安定。|"두 곳에서 동시에 합격 통보가 왔다" — 당신의 선택: 안정적인 대기업.
+events|ch_d_first_job_offer_small|"Two job offers at once" — you chose: small company, interesting.|「二つの内定が同時に来た」——あなたの決断：小さな会社で面白さ。|"두 곳에서 동시에 합격 통보가 왔다" — 당신의 선택: 재미있는 작은 회사.
+events|ch_d_credit_card_get|"A bank calls to sell you a credit card" — you chose: sign up.|「銀行からクレジットカードの勧誘電話」——あなたの決断：作る。|"은행에서 신용카드 권유 전화가 왔다" — 당신의 선택: 발급받는다.
+events|ch_d_credit_card_no|"A bank calls to sell you a credit card" — you chose: no need.|「銀行からクレジットカードの勧誘電話」——あなたの決断：いらない。|"은행에서 신용카드 권유 전화가 왔다" — 당신의 선택: 필요 없다.
+events|ch_d_move_out_out|"Move out and live on your own?" — you chose: move out.|「家を出て一人暮らしする？」——あなたの決断：家を出る。|"독립해서 혼자 살까?" — 당신의 선택: 독립한다.
+events|ch_d_move_out_stay|"Move out and live on your own?" — you chose: stay home and save money.|「家を出て一人暮らしする？」——あなたの決断：実家でお金を貯める。|"독립해서 혼자 살까?" — 당신의 선택: 집에 살며 돈을 아낀다.
+events|ch_d_roommate_talk|"Your roommate keeps not paying the utilities" — you chose: have a proper talk.|「ルームメイトがいつも光熱費を払わない」——あなたの決断：一度きちんと話す。|"룸메이트가 자꾸 공과금을 안 낸다" — 당신의 선택: 제대로 한번 이야기한다.
+events|ch_d_roommate_move|"Your roommate keeps not paying the utilities" — you chose: just move out.|「ルームメイトがいつも光熱費を払わない」——あなたの決断：いっそ引っ越す。|"룸메이트가 자꾸 공과금을 안 낸다" — 당신의 선택: 아예 이사한다.
+events|ch_d_night_school_join|"There's an evening course near work" — you chose: enrol.|「会社の近くに夜間講座がある」——あなたの決断：申し込む。|"회사 근처에 야간 강좌가 있다" — 당신의 선택: 등록한다.
+events|ch_d_night_school_no|"There's an evening course near work" — you chose: after work you just want to rest.|「会社の近くに夜間講座がある」——あなたの決断：仕事のあとは休みたい。|"회사 근처에 야간 강좌가 있다" — 당신의 선택: 퇴근 후엔 쉬고 싶다.
+events|ch_d_save_or_spend_save|"You got your year-end bonus" — you chose: save all of it.|「年末ボーナスが出た」——あなたの決断：全部貯金する。|"연말 보너스를 받았다" — 당신의 선택: 전부 저축한다.
+events|ch_d_save_or_spend_trip|"You got your year-end bonus" — you chose: treat yourself to a trip abroad.|「年末ボーナスが出た」——あなたの決断：海外旅行でご褒美。|"연말 보너스를 받았다" — 당신의 선택: 해외여행으로 나에게 선물한다.
+events|ch_d_save_or_spend_parents|"You got your year-end bonus" — you chose: give it to your parents.|「年末ボーナスが出た」——あなたの決断：両親に渡す。|"연말 보너스를 받았다" — 당신의 선택: 부모님께 드린다.
+events|ch_d_friend_loan_lend|"An old friend asks to borrow money" — you chose: lend it.|「旧友にお金を貸してほしいと言われた」——あなたの決断：貸す。|"오랜 친구가 돈을 빌려 달라고 한다" — 당신의 선택: 빌려준다.
+events|ch_d_friend_loan_no|"An old friend asks to borrow money" — you chose: politely decline.|「旧友にお金を貸してほしいと言われた」——あなたの決断：やんわり断る。|"오랜 친구가 돈을 빌려 달라고 한다" — 당신의 선택: 정중히 거절한다.
+events|ch_d_dating_app_try|"Friends urge you to download a dating app" — you chose: give it a try.|「友だちにマッチングアプリを勧められた」——あなたの決断：試してみる。|"친구들이 데이팅 앱을 깔아 보라고 한다" — 당신의 선택: 한번 해 본다.
+events|ch_d_dating_app_no|"Friends urge you to download a dating app" — you chose: leave it to fate.|「友だちにマッチングアプリを勧められた」——あなたの決断：やっぱり縁に任せる。|"친구들이 데이팅 앱을 깔아 보라고 한다" — 당신의 선택: 인연에 맡긴다.
+events|ch_d_blind_date_go|"Your elders set up an arranged date for you" — you chose: meet once.|「年長の親戚がお見合いを用意した」——あなたの決断：一度会ってみる。|"어른들이 맞선 자리를 마련했다" — 당신의 선택: 한번 만나 본다.
+events|ch_d_blind_date_refuse|"Your elders set up an arranged date for you" — you chose: flatly refuse.|「年長の親戚がお見合いを用意した」——あなたの決断：断固行かない。|"어른들이 맞선 자리를 마련했다" — 당신의 선택: 단호히 안 간다.
+events|ch_d_overtime_yes|"Your manager asks if you can work the weekend" — you chose: agree.|「上司に週末出勤できるか聞かれた」——あなたの決断：引き受ける。|"상사가 주말 근무가 가능한지 물었다" — 당신의 선택: 수락한다.
+events|ch_d_overtime_no|"Your manager asks if you can work the weekend" — you chose: say you have plans.|「上司に週末出勤できるか聞かれた」——あなたの決断：予定があると言う。|"상사가 주말 근무가 가능한지 물었다" — 당신의 선택: 선약이 있다고 한다.
+events|ch_d_job_hop_jump|"A headhunter calls about a job paying 30% more" — you chose: switch jobs.|「ヘッドハンターから給料三割増のポストの話」——あなたの決断：転職する。|"헤드헌터가 연봉 30% 높은 자리를 제안했다" — 당신의 선택: 이직한다.
+events|ch_d_job_hop_stay|"A headhunter calls about a job paying 30% more" — you chose: stay put.|「ヘッドハンターから給料三割増のポストの話」——あなたの決断：残る。|"헤드헌터가 연봉 30% 높은 자리를 제안했다" — 당신의 선택: 남는다.
+events|ch_d_startup_idea_try|"You and a friend have a startup idea" — you chose: work on it at night.|「友だちと起業のアイデアがある」——あなたの決断：夜に副業で進める。|"친구와 창업 아이디어가 있다" — 당신의 선택: 밤에 짬을 내 해 본다.
+events|ch_d_startup_idea_drop|"You and a friend have a startup idea" — you chose: just a daydream.|「友だちと起業のアイデアがある」——あなたの決断：考えるだけにする。|"친구와 창업 아이디어가 있다" — 당신의 선택: 생각만 한다.
+events|ch_d_gym_join_join|"A gym opened near work" — you chose: buy an annual pass.|「会社の近くにジムができた」——あなたの決断：年会員になる。|"회사 근처에 헬스장이 생겼다" — 당신의 선택: 연간 회원권을 끊는다.
+events|ch_d_gym_join_run|"A gym opened near work" — you chose: just run in the park.|「会社の近くにジムができた」——あなたの決断：公園で走れば十分。|"회사 근처에 헬스장이 생겼다" — 당신의 선택: 공원에서 뛰면 된다.
+events|ch_d_wedding_far_go|"A university friend invites you to a wedding abroad" — you chose: fly over.|「大学の友人が海外で結婚式を挙げ、招待された」——あなたの決断：飛んでいく。|"대학 친구가 해외 결혼식에 초대했다" — 당신의 선택: 비행기를 타고 간다.
+events|ch_d_wedding_far_gift|"A university friend invites you to a wedding abroad" — you chose: send a gift and good wishes.|「大学の友人が海外で結婚式を挙げ、招待された」——あなたの決断：ご祝儀を送って祝う。|"대학 친구가 해외 결혼식에 초대했다" — 당신의 선택: 축의금을 보내 축하한다.
+events|ch_d_family_business_take|"Your parents hope you'll come home and take over the family business" — you chose: go home and take over.|「両親が家業を継いでほしいと願っている」——あなたの決断：帰って継ぐ。|"부모님이 집에 와서 가업을 이어받길 바란다" — 당신의 선택: 돌아가 가업을 잇는다.
+events|ch_d_family_business_own|"Your parents hope you'll come home and take over the family business" — you chose: go your own way.|「両親が家業を継いでほしいと願っている」——あなたの決断：自分の道を行く。|"부모님이 집에 와서 가업을 이어받길 바란다" — 당신의 선택: 내 길을 간다.
+events|ch_d_army_now|"Your call-up notice arrived" — you chose: serve now.|「兵役の通知が来た」——あなたの決断：すぐ入隊する。|"입영 통지서가 나왔다" — 당신의 선택: 바로 입대한다.
+events|ch_d_army_defer|"Your call-up notice arrived" — you chose: defer for now.|「兵役の通知が来た」——あなたの決断：とりあえず延期する。|"입영 통지서가 나왔다" — 당신의 선택: 일단 연기한다.
+events|ch_d_city_or_home_city|"There's work in the big city, but your parents are back home" — you chose: go and make it in the city.|「大都市に仕事があるが、故郷には両親がいる」——あなたの決断：都会で頑張る。|"대도시엔 일자리가, 고향엔 부모님이 있다" — 당신의 선택: 도시로 가서 부딪친다.
+events|ch_d_city_or_home_home|"There's work in the big city, but your parents are back home" — you chose: stay home.|「大都市に仕事があるが、故郷には両親がいる」——あなたの決断：故郷に残る。|"대도시엔 일자리가, 고향엔 부모님이 있다" — 당신의 선택: 고향에 남는다.
+events|ch_d_phd_yes|"Your professor asks if you'll continue to a PhD" — you chose: keep going.|「教授に博士課程に進むか聞かれた」——あなたの決断：進む。|"교수님이 박사 과정을 계속할지 물었다" — 당신의 선택: 계속 공부한다.
+events|ch_d_phd_no|"Your professor asks if you'll continue to a PhD" — you chose: go into industry.|「教授に博士課程に進むか聞かれた」——あなたの決断：民間企業へ行く。|"교수님이 박사 과정을 계속할지 물었다" — 당신의 선택: 업계로 간다.
+events|ch_d_cohabit_yes|"Your partner of three years suggests moving in together" — you chose: move in together.|「付き合って三年の相手が同棲を提案」——あなたの決断：一緒に住む。|"3년 사귄 연인이 동거를 제안했다" — 당신의 선택: 함께 산다.
+events|ch_d_cohabit_wait|"Your partner of three years suggests moving in together" — you chose: wait a while.|「付き合って三年の相手が同棲を提案」——あなたの決断：もう少し待つ。|"3년 사귄 연인이 동거를 제안했다" — 당신의 선택: 좀 더 기다린다.
+events|ch_d_house_hunt_pay|"The landlord is raising the rent" — you chose: grit your teeth and renew.|「大家が家賃を上げると言う」——あなたの決断：泣く泣く更新する。|"집주인이 월세를 올린다고 한다" — 당신의 선택: 울며 겨자 먹기로 재계약한다.
+events|ch_d_house_hunt_move|"The landlord is raising the rent" — you chose: move to the suburbs.|「大家が家賃を上げると言う」——あなたの決断：郊外に引っ越す。|"집주인이 월세를 올린다고 한다" — 당신의 선택: 교외로 이사한다.
+events|ch_d_car_buy_buy|"Commuting is wearing you out — buy a car?" — you chose: buy one.|「通勤がどんどんつらくなる。車を買う？」——あなたの決断：買う。|"출퇴근이 점점 힘들다. 차를 살까?" — 당신의 선택: 한 대 산다.
+events|ch_d_car_buy_transit|"Commuting is wearing you out — buy a car?" — you chose: stick with public transport.|「通勤がどんどんつらくなる。車を買う？」——あなたの決断：公共交通を使い続ける。|"출퇴근이 점점 힘들다. 차를 살까?" — 당신의 선택: 계속 대중교통을 탄다.
+events|ch_d_promotion_move_go|"The promotion means a posting to another city" — you chose: accept the posting.|「昇進の条件は別の都市への赴任」——あなたの決断：赴任を受ける。|"승진 조건이 다른 도시 발령이다" — 당신의 선택: 발령을 받아들인다.
+events|ch_d_promotion_move_stay|"The promotion means a posting to another city" — you chose: stay where you are.|「昇進の条件は別の都市への赴任」——あなたの決断：今の場所に残る。|"승진 조건이 다른 도시 발령이다" — 당신의 선택: 지금 자리에 남는다.
+events|ch_d_boss_unfair_speak|"Your manager gave someone else credit for your work" — you chose: talk to your manager.|「上司があなたの手柄を他人のものにした」——あなたの決断：上司と話す。|"상사가 당신의 공을 다른 사람에게 돌렸다" — 당신의 선택: 상사와 담판한다.
+events|ch_d_boss_unfair_swallow|"Your manager gave someone else credit for your work" — you chose: swallow it.|「上司があなたの手柄を他人のものにした」——あなたの決断：のみ込む。|"상사가 당신의 공을 다른 사람에게 돌렸다" — 당신의 선택: 삼킨다.
+events|ch_d_kid_school_choice_near|"Your child is starting school — which one?" — you chose: the public school nearby.|「子どもが入学する。どの学校にする？」——あなたの決断：家の近くの公立校。|"아이가 학교에 간다. 어느 학교로?" — 당신의 선택: 집 근처 공립학교.
+events|ch_d_kid_school_choice_private|"Your child is starting school — which one?" — you chose: an expensive private school.|「子どもが入学する。どの学校にする？」——あなたの決断：学費の高い私立校。|"아이가 학교에 간다. 어느 학교로?" — 당신의 선택: 비싼 사립학교.
+events|ch_d_kid_school_choice_move|"Your child is starting school — which one?" — you chose: move to a good school district.|「子どもが入学する。どの学校にする？」——あなたの決断：良い学区に引っ越す。|"아이가 학교에 간다. 어느 학교로?" — 당신의 선택: 좋은 학군으로 이사한다.
+events|ch_d_kid_phone_buy|"Your child is begging for their own phone" — you chose: buy one.|「子どもが自分の携帯をほしがる」——あなたの決断：買ってあげる。|"아이가 자기 휴대폰을 사 달라고 조른다" — 당신의 선택: 사 준다.
+events|ch_d_kid_phone_wait|"Your child is begging for their own phone" — you chose: wait until they're older.|「子どもが自分の携帯をほしがる」——あなたの決断：もう少し大きくなってから。|"아이가 자기 휴대폰을 사 달라고 조른다" — 당신의 선택: 좀 더 크면 사 준다.
+events|ch_d_parent_visit_home|"Your parents call to ask if you're coming home for New Year" — you chose: definitely going.|「両親から正月に帰るかと電話」——あなたの決断：必ず帰る。|"부모님이 설에 오느냐고 전화했다" — 당신의 선택: 꼭 간다.
+events|ch_d_parent_visit_work|"Your parents call to ask if you're coming home for New Year" — you chose: can't get away from work.|「両親から正月に帰るかと電話」——あなたの決断：仕事で帰れない。|"부모님이 설에 오느냐고 전화했다" — 당신의 선택: 일 때문에 못 간다.
+events|ch_d_side_hustle_take|"Someone offers you freelance work on weekends" — you chose: take it.|「週末の請負仕事を頼まれた」——あなたの決断：引き受ける。|"누가 주말 외주 일을 제안했다" — 당신의 선택: 맡는다.
+events|ch_d_side_hustle_rest|"Someone offers you freelance work on weekends" — you chose: weekends are for rest.|「週末の請負仕事を頼まれた」——あなたの決断：週末は休む。|"누가 주말 외주 일을 제안했다" — 당신의 선택: 주말엔 쉰다.
+events|ch_d_health_warning_change|"Your health report has a few red flags" — you chose: exercise and cut the fat.|「健康診断の結果にいくつか異常値」——あなたの決断：運動して脂っこいものを控える。|"건강검진 결과에 이상 수치가 몇 개 있다" — 당신의 선택: 운동하고 기름진 음식을 줄인다.
+events|ch_d_health_warning_ignore|"Your health report has a few red flags" — you chose: deal with it next time.|「健康診断の結果にいくつか異常値」——あなたの決断：また今度考える。|"건강검진 결과에 이상 수치가 몇 개 있다" — 당신의 선택: 다음에 생각한다.
+events|ch_d_midlife_hobby_do|"You long to pick up a hobby from your youth" — you chose: sign up for a class.|「若いころの趣味をまた始めたい」——あなたの決断：講座に申し込む。|"젊을 때 취미를 다시 하고 싶다" — 당신의 선택: 강좌에 등록한다.
+events|ch_d_midlife_hobby_later|"You long to pick up a hobby from your youth" — you chose: wait until retirement.|「若いころの趣味をまた始めたい」——あなたの決断：退職してからにする。|"젊을 때 취미를 다시 하고 싶다" — 당신의 선택: 은퇴 후로 미룬다.
+events|ch_d_marriage_counsel_counsel|"You've been fighting a lot lately" — you chose: see a counsellor together.|「最近けんかばかりしている」——あなたの決断：一緒にカウンセリングに行く。|"요즘 자주 싸운다" — 당신의 선택: 함께 상담을 받는다.
+events|ch_d_marriage_counsel_ignore|"You've been fighting a lot lately" — you chose: give it the cold shoulder.|「最近けんかばかりしている」——あなたの決断：冷却期間を置く。|"요즘 자주 싸운다" — 당신의 선택: 냉랭하게 넘긴다.
+events|ch_d_second_house_buy|"Someone recommends investing in a second home" — you chose: buy it and rent it out.|「二軒目の家への投資を勧められた」——あなたの決断：買って貸す。|"두 번째 집에 투자하라는 권유를 받았다" — 당신의 선택: 사서 세를 놓는다.
+events|ch_d_second_house_no|"Someone recommends investing in a second home" — you chose: one is enough.|「二軒目の家への投資を勧められた」——あなたの決断：一軒で十分。|"두 번째 집에 투자하라는 권유를 받았다" — 당신의 선택: 한 채면 충분하다.
+events|ch_d_layoff_offer_take|"The company offers an early-retirement package" — you chose: take the money and go.|「会社が早期退職制度を打ち出した」——あなたの決断：お金をもらって辞める。|"회사가 희망퇴직 방안을 내놓았다" — 당신의 선택: 돈을 받고 나간다.

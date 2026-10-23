@@ -35,9 +35,9 @@ describe('B2 i18n', () => {
 
 import { contentLang, contentLangAttr, setLang as setLang3 } from '../../src/ui/i18n.ts';
 describe('b3 content fallback is marked', () => {
-  it('zh-TW: no attribute; other languages mark zh-Hant fallback', () => {
+  it('zh-TW/en/ja/ko: no attribute (translated in v0.11.1); vi marks zh-Hant fallback', () => {
     setLang3('zh-TW'); expect(contentLang()).toBe(''); expect(contentLangAttr()).toBe('');
-    setLang3('ja'); expect(contentLang()).toBe('zh-Hant'); expect(contentLangAttr()).toBe(' lang="zh-Hant"');
+    setLang3('ja'); expect(contentLang()).toBe(''); setLang3('vi'); expect(contentLang()).toBe('zh-Hant'); expect(contentLangAttr()).toBe(' lang="zh-Hant"');
     setLang3('zh-TW');
   });
 });

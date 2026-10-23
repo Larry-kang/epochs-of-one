@@ -4,12 +4,13 @@ import { applyUpdate, type SwLike } from './update.ts';
 import { APP, NOW_YEAR, ENGINE_VERSION, APP_VERSION, BTC_FUTURE_DAMPENED } from '../config.ts';
 import { loadIndex, preloadDemography, bundle, loadFinance, loadWpp, wppLoaded } from './data.ts';
 import { wppAt } from '../engine/life/fertility.ts';
-import { t, tMaybe, compact, locale, LANGS, LANG_NAMES, getLang, setLang, type Lang, eventText, esc, contentLangAttr, countryName, money, pctText } from './i18n.ts';
+import { t, tMaybe, compact, locale, LANGS, LANG_NAMES, getLang, setLang, type Lang, eventText, esc, contentLangAttr, contentTranslated, countryName, money, moneyUsd, setMoneyCountry, pctText } from './i18n.ts';
 import { lineChart } from './charts.ts';
 import { drawBirth, newLife, advanceYear, applyAction, decisionQuote, tableFor, pendingOffers, MORTGAGE_TERMS, type LifeConfig } from '../engine/life/sim.ts';
 import { migrateSaveCfg, migrateSaveCfgL2, occById, occName, iloCell } from '../engine/life/occupation.ts';
 import { instName, instAt, labourNote, INST } from '../engine/life/institutions.ts';
 import { ending } from '../engine/life/ending.ts';
+import { personName } from './logic/person-name.ts';
 import { seriesAt } from '../engine/data/types.ts';
 import { defaultPick, minorById, type ChoiceOffer } from '../engine/life/choices.ts';
 import type { Action, LifeState } from '../engine/life/state.ts';
@@ -83,6 +84,9 @@ function view(html: string, focusSel = 'h1'): void {
   (root.querySelector(focusSel) as HTMLElement | null)?.focus();
 }
 const header = (sub = '') => `<header class="top"><span class="brand">${esc(APP.title)}</span>${sub}</header>`;
+/** v0.11.1: stored (zh-TW) person names in the UI language, display only */
+const pn = (x: string | undefined | null): string => (x ? personName(x, run?.s.family.region, getLang()) : '');
+const pastName = (l: { name: string; iso: string }) => { const i = l.name.indexOf('（'); return i > 0 ? `${personName(l.name.slice(0, i), undefined, getLang())}（${nameOf(l.iso)}）` : personName(l.name, undefined, getLang()); };
 const nameOf = (iso: string) => { const c = index.countries.find((x) => x.iso === iso); return c ? countryName(c.iso2, c.name) : iso; };
 const fmtThousands = (k: number) => compact(k);
 
@@ -120,9 +124,9 @@ function intro(): void {
 </div>
 ${storageAvailable() ? '' : `<p class="warn">${esc(t('storageOff'))}</p>`}
 <section class="past-lives card"><h2>${esc(t('pastLives'))}</h2>
-  ${lives.length ? `<ol class="past">${lives.slice(0, 10).map((l, i) => `<li><button class="link past-open" data-i="${i}" ${l.cfg ? '' : 'disabled'}>${esc(l.name)} · ${l.year}–${l.at} · ${esc(t('years', { n: l.age }))}</button> <span class="mono small">${esc(money(l.netWorth))}</span></li>`).join('')}</ol>` : `<p class="muted">${esc(t('noPast'))}</p>`}
+  ${lives.length ? `<ol class="past">${lives.slice(0, 10).map((l, i) => `<li><button class="link past-open" data-i="${i}" ${l.cfg ? '' : 'disabled'}>${esc(pastName(l))} · ${l.year}–${l.at} · ${esc(t('years', { n: l.age }))}</button> <span class="mono small">${esc(money(l.netWorth, l.iso))}</span></li>`).join('')}</ol>` : `<p class="muted">${esc(t('noPast'))}</p>`}
 </section>
-${getLang() !== 'zh-TW' ? `<p class="muted small content-note">${esc(t('contentNote'))}</p>` : ''}<footer class="foot"><button id="about" class="ghost">${esc(t('about'))}</button>${musicBtn()}${sfxBtn()}${themeBtn()}${langPicker()}<span class="muted small" id="app-ver">v${esc(APP_VERSION)}</span></footer>
+${!contentTranslated() ? `<p class="muted small content-note">${esc(t('contentNote'))}</p>` : ''}<footer class="foot"><button id="about" class="ghost">${esc(t('about'))}</button>${musicBtn()}${sfxBtn()}${themeBtn()}${langPicker()}<span class="muted small" id="app-ver">v${esc(APP_VERSION)}</span></footer>
 </div>`);
   renderOdds();
   const ctr = root.querySelector('#ctr-born') as HTMLElement;
@@ -172,7 +176,7 @@ function oddsTable(from: number, to: number): void {
     const opt = (v: number, d: number) => (v < 0 ? '—' : v.toFixed(d));
     dlg.innerHTML = `<h2 class="serif">${esc(t('oddsTableTitle'))} <small class="mono">${from === to ? from : `${from}–${to}`}</small></h2>
     <div class="tbl-wrap"><table><thead><tr><th><button class="link" data-k="n">${esc(t('colCountry'))}</button></th><th><button class="link" data-k="share">${esc(t('colShare'))}</button></th><th>${esc(t('colBirths'))}</th><th><button class="link" data-k="gdp">${esc(t('colGdp'))}</button></th><th><button class="link" data-k="e0">${esc(t('colE0'))}</button></th><th><button class="link" data-k="q5">${esc(t('colQ5'))}</button></th></tr></thead>
-    <tbody>${sorted.map((r) => `<tr><td>${esc(r.n)}</td><td class="mono">${sharePct(r.share)}</td><td class="mono">${Math.round(r.births).toLocaleString(locale())}</td><td class="mono">${money(r.gdp)}</td><td class="mono">${opt(r.e0, 1)}</td><td class="mono">${opt(r.q5, 0)}</td></tr>`).join('')}</tbody></table></div>
+    <tbody>${sorted.map((r) => `<tr><td>${esc(r.n)}</td><td class="mono">${sharePct(r.share)}</td><td class="mono">${Math.round(r.births).toLocaleString(locale())}</td><td class="mono">${moneyUsd(r.gdp)}</td><td class="mono">${opt(r.e0, 1)}</td><td class="mono">${opt(r.q5, 0)}</td></tr>`).join('')}</tbody></table></div>
     <p class="mono cap">${esc(t('oddsCaption', { total: fmtThousands(rows.reduce((a, r) => a + r.births, 0)) }))} · ${esc(t('wdiCite'))}</p>
     <div class="row"><button class="primary" id="tbl-close">${esc(t('close'))}</button></div>`;
     dlg.querySelectorAll<HTMLButtonElement>('[data-k]').forEach((b) => b.addEventListener('click', () => { key = b.dataset.k as typeof key; draw(); }));
@@ -243,6 +247,7 @@ async function birth(cfg: LifeConfig, paceMin: 30 | 60 | 90, animate = false): P
   await preloadDemography(b.iso);
   const s = newLife(bundle(), cfg);
   if ('infeasible' in s) { alert(s.reason); return; }
+  setMoneyCountry(s.born.iso);
   if (animate) await rollAnim(s.born.year, s.born.iso);
   const tbl = tableFor(bundle(), s);
   const e0 = lifeExpectancy(tbl);
@@ -260,7 +265,7 @@ async function birth(cfg: LifeConfig, paceMin: 30 | 60 | 90, animate = false): P
   <header class="band"><span class="serif">${esc(t('certTitle'))}</span><span class="mono">${esc(t('certNo', { no: registryNo(s.born.iso, s.born.year, s.seed) }))}</span></header>
   <div class="cert-body">
     <p class="mono lbl">${esc(t('f_name'))}</p>
-    <p class="cert-name serif" id="b-name">${esc(s.name.full)}</p>
+    <p class="cert-name serif" id="b-name">${esc(pn(s.name.full))}</p>
     <p class="story">${esc(t('certStory', { year: s.born.year, country, place: t(s.born.urban ? 'urban' : 'rural'), sex: t(s.born.sex === 'M' ? 'boy' : 'girl'), q: t(`q${s.born.quintile}` as 'q1'), sib: s.family.siblings.length ? t('certSib', { n: s.family.siblings.length }) : t('certOnly') }))}</p>
     <p class="pace small">${esc(t('certPace', { min: paceMin, sec: yearSec.toFixed(0) }))}</p>
     <dl class="grid">
@@ -269,10 +274,10 @@ async function birth(cfg: LifeConfig, paceMin: 30 | 60 | 90, animate = false): P
       <div><dt>${esc(t('f_place'))}</dt><dd>${esc(t(s.born.urban ? 'urban' : 'rural'))}${est('urban')}</dd></div>
       <div><dt>${esc(t('f_parents'))}</dt><dd>${esc(t('parentsAges', { ma: s.born.year - s.family.mother.born, fa: s.born.year - s.family.father.born }))}</dd></div>
       <div><dt>${esc(t('f_quintile'))}</dt><dd><span class="dots" aria-hidden="true">${dots}</span> ${esc(t('quintileOf', { q: s.born.quintile }))}</dd></div>
-      <div><dt>${esc(t('familyLabel'))}</dt><dd id="b-family">${esc(t('familyLine', { father: s.family.father.name, fa: s.born.year - s.family.father.born, mother: s.family.mother.name, ma: s.born.year - s.family.mother.born }))}<br>${esc(s.family.siblings.length ? t('siblingsLine', { n: s.family.siblings.length, names: s.family.siblings.map((x) => x.name).join('、') }) : t('siblingsNone'))}</dd></div>
+      <div><dt>${esc(t('familyLabel'))}</dt><dd id="b-family">${esc(t('familyLine', { father: pn(s.family.father.name), fa: s.born.year - s.family.father.born, mother: pn(s.family.mother.name), ma: s.born.year - s.family.mother.born }))}<br>${esc(s.family.siblings.length ? t('siblingsLine', { n: s.family.siblings.length, names: s.family.siblings.map((x) => pn(x.name)).join('、') }) : t('siblingsNone'))}</dd></div>
       <div><dt>${esc(t('f_e0'))}</dt><dd>${esc(t('years', { n: e0.toFixed(1) }))}${est('lifeTable')}</dd></div>
       <div><dt>${esc(t('f_q5'))}</dt><dd>${(q5 * 100).toFixed(1)}%</dd></div>
-      <div><dt>${esc(t('f_gdp'))}</dt><dd>${esc(money(gdp))}</dd></div>
+      <div><dt>${esc(t('f_gdp'))}</dt><dd>${esc(moneyUsd(gdp))}</dd></div>
     </dl>
     <p class="odds-line">${esc(t('certOdds', { p: sharePct(ys.p), country, n: ys.one.toLocaleString(locale()) }))}</p>
     <p class="mono cap">${esc(t('oddsCaption', { total: fmtThousands(birthShares(index, s.born.year, s.born.year).total) }))} · seed <code id="seed">${esc(s.seed)}</code></p>
@@ -281,7 +286,7 @@ async function birth(cfg: LifeConfig, paceMin: 30 | 60 | 90, animate = false): P
 </article></div>`);
   on('#back', intro);
   on('#reroll', () => { void birth({ ...cfg, seed: seedFromBytes(crypto.getRandomValues(new Uint8Array(10))) }, paceMin); });
-  on('#share-birth', () => shareSheet({ app: APP.title, title: t('certTitle'), name: s.name.full, span: String(s.born.year), country, cause: t('certOdds', { p: sharePct(ys.p), country, n: ys.one.toLocaleString(locale()) }).split('，')[0]!, facts: [t('f_e0') + ' ' + t('years', { n: e0.toFixed(1) }), t('f_quintile') + ' ' + t('quintileOf', { q: s.born.quintile }), t('f_gdp') + ' ' + money(gdp)], map: [], e0, text: `${s.name.full} · ${country} · ${s.born.year} — ${APP.title}` }));
+  on('#share-birth', () => shareSheet({ app: APP.title, title: t('certTitle'), name: pn(s.name.full), span: String(s.born.year), country, cause: t('certOdds', { p: sharePct(ys.p), country, n: ys.one.toLocaleString(locale()) }).split('，')[0]!, facts: [t('f_e0') + ' ' + t('years', { n: e0.toFixed(1) }), t('f_quintile') + ' ' + t('quintileOf', { q: s.born.quintile }), t('f_gdp') + ' ' + moneyUsd(gdp)], map: [], e0, text: `${pn(s.name.full)} · ${country} · ${s.born.year} — ${APP.title}` }));
   on('#begin', () => startLife(s, cfg, paceMin, savedSpeed()));
   stageReveal(savedSpeed());
 }
@@ -305,7 +310,7 @@ function yearSecFor(s: LifeState, paceMin: number): number {
 
 // ---------- play (P1–P4, P6, P7, P10, P11, P13, P16)
 function startLife(s: LifeState, cfg: LifeConfig, paceMin: 30 | 60 | 90, speed: Speed): void {
-  userPaused = false;
+  userPaused = false; setMoneyCountry(s.born.iso);
   run = { s, cfg, paceMin, speed, paused: false, acc: 0, yearSec: yearSecFor(s, paceMin), raf: 0, last: performance.now(), skipping: false };
   logAll = false; starred.clear(); sceneKey = '';
   peers = []; void loadPeers(s);
@@ -347,7 +352,7 @@ function lifeView(): void {
     <section class="card focuscard" id="focuscard" hidden><h2 class="serif">${esc(t('focusTitle'))} <small class="muted">${esc(t('focusNote'))}</small></h2><div class="focus-pills" id="focus-pills" role="radiogroup" aria-label="${esc(t('focusTitle'))}"></div><p class="small muted fc-feedback" id="fc-feedback" hidden></p></section>
     <section class="card spendcard" id="spendcard" hidden><button id="spend" class="primary wide spend-entry"></button><p class="muted small" id="spend-hint" hidden></p>
       <div class="fin-btns" id="fin-btns"><button id="invest" class="ghost">${esc(t('investBtn'))}</button><button id="house" class="ghost">${esc(t('houseBtn'))}</button><button id="loan" class="ghost">${esc(t('loanBtn'))}</button><button id="annuity" class="ghost">${esc(t('annuityBtn'))}</button></div></section>
-    <section class="card logcard"><h2 class="serif">${esc(t('log'))}</h2><ol id="log" class="log" aria-live="polite"${contentLangAttr()}></ol>${getLang() !== 'zh-TW' ? `<p class="muted small content-note">${esc(t('contentNote'))}</p>` : ''}<button class="ghost small" id="log-more" hidden></button></section>
+    <section class="card logcard"><h2 class="serif">${esc(t('log'))}</h2><ol id="log" class="log" aria-live="polite"${contentLangAttr()}></ol>${!contentTranslated() ? `<p class="muted small content-note">${esc(t('contentNote'))}</p>` : ''}<button class="ghost small" id="log-more" hidden></button></section>
   </main>
   <aside class="col-right">
     <section class="card"><h2 class="serif">${esc(t('famTitle'))}</h2><dl id="family" class="fam"></dl></section>
@@ -499,19 +504,19 @@ const portraitOf = (s: LifeState, px = 64) => portraitSvg({ age: s.age, sex: s.b
 
 function renderLife(full: boolean): void {
   void full; // the log is re-rendered grouped by age each time
-  const r = run!; const s = r.s;
+  const r = run!; const s = r.s; setMoneyCountry(s.born.iso);
   const q = (id: string) => root.querySelector('#' + id) as HTMLElement;
   const cal = s.born.year + s.age;
   q('where').textContent = nameOf(s.cur);
-  q('who').textContent = s.name.full;
+  q('who').textContent = pn(s.name.full);
   q('age').textContent = t('years', { n: s.age });
-  { const nm = q('tb-name'); if (nm.textContent !== s.name.full) { nm.textContent = s.name.full; nm.title = s.name.full; } }
-  q('cal').textContent = `${t('yearOf', { year: cal })} · ${s.name.full} · ${t('paceShort', { min: r.paceMin })}`;
+  { const nm = q('tb-name'); if (nm.textContent !== pn(s.name.full)) { nm.textContent = pn(s.name.full); nm.title = pn(s.name.full); } }
+  q('cal').textContent = `${t('yearOf', { year: cal })} · ${pn(s.name.full)} · ${t('paceShort', { min: r.paceMin })}`;
   q('status').textContent = statusText(s);
   renderFocus(); renderSpendCard(); renderPeers(); renderScene();
   const [l1, l2] = folioLines(s.name.given ? s.name.full.normalize('NFKD') : 'X', s.born.iso, s.born.year, s.born.sex, s.seed);
   q('idcard').innerHTML = `<header class="band small"><span>${esc(t('idTitle'))} · <span class="mono">${s.cur}</span></span><span class="mono">${cal}</span></header>
-    <div class="id-body">${portraitOf(s)}<div><p class="serif id-name">${esc(s.name.full)}</p><dl class="kv">
+    <div class="id-body">${portraitOf(s)}<div><p class="serif id-name">${esc(pn(s.name.full))}</p><dl class="kv">
     <dt>${esc(t('f_sex'))}</dt><dd>${esc(t(s.born.sex === 'M' ? 'male' : 'female'))}</dd>
     <dt>${esc(t('f_born'))}</dt><dd>${esc(nameOf(s.born.iso))} · ${s.born.year}</dd>
     <dt>${esc(t('f_lives'))}</dt><dd>${esc(nameOf(s.cur))} · ${esc(t(s.career.city || s.born.urban ? 'urban' : 'rural'))}</dd>
@@ -540,7 +545,7 @@ function renderLife(full: boolean): void {
 const BIG = new Set(['first_paycheck', 'graduated', 'retire', 'promotion', 'ch_marry_marry', 'ch_child_have', 'wedding', 'windfall']);
 const kindOf = (id: string) => (id.startsWith('ch_') ? 'decision' : TRAGIC_EVENTS.has(id) || /illness|loss|default|foreclos|margin/.test(id) ? 'bad' : BIG.has(id) ? 'big' : id.startsWith('fl_') ? 'note' : 'good');
 function evLine(e: { id: string; vars?: Record<string, unknown> }): string {
-  const vars = Object.fromEntries(Object.entries(e.vars ?? {}).map(([a, v]) => [a, (a === 'occ' || a === 'from' || a === 'to') && typeof v === 'string' && occById(v) ? occN(v) : a === 'inst' && typeof v === 'string' ? instName(v, getLang()) : e.id === 'fc_switch' && (a === 'from' || a === 'to') ? String(v).split('+').map((c) => (c === '-' ? t('focusClear') : t(('focus_' + c) as 'focus_none'))).join('、') : typeof v === 'number' && /amount|cost|loss|price|pay|pension/.test(a) ? money(v) : a === 'edu' ? t(('edu_' + v) as 'edu_none') : v]));
+  const vars = Object.fromEntries(Object.entries(e.vars ?? {}).map(([a, v]) => [a, (a === 'name' || a === 'spouse' || a === 'child' || a === 'sib') && typeof v === 'string' ? pn(v) : (a === 'occ' || a === 'from' || a === 'to') && typeof v === 'string' && occById(v) ? occN(v) : a === 'inst' && typeof v === 'string' ? instName(v, getLang()) : e.id === 'fc_switch' && (a === 'from' || a === 'to') ? String(v).split('+').map((c) => (c === '-' ? t('focusClear') : t(('focus_' + c) as 'focus_none'))).join('、') : typeof v === 'number' && /amount|cost|loss|price|pay|pension/.test(a) ? money(v) : a === 'edu' ? t(('edu_' + v) as 'edu_none') : v]));
   return eventText(e.id, vars as Record<string, string | number>);
 }
 function logYearsHtml(byAge: Map<number, LifeState['events']>, ages: number[], stars: boolean): string {
@@ -695,7 +700,7 @@ function renderPeers(sel = '#peers'): void {
   const ul = root.querySelector(sel) as HTMLElement | null; if (!ul || !run || !peers.length) return;
   const cal = run.s.born.year + run.s.age;
   ul.innerHTML = peers.map((p) => { const st = statusAt(p, cal);
-    return `<li class="${st.alive ? '' : 'gone'}"><span>${esc(st.name)} <small class="muted">${esc(nameOf(st.iso))}</small></span><span class="mono small">${st.alive ? `${esc(t('years', { n: st.age }))} · ${esc(t(('stage_' + st.stage) as 'stage_work'))}` : `† ${esc(t('years', { n: st.age }))}`}</span></li>`; }).join('');
+    return `<li class="${st.alive ? '' : 'gone'}"><span>${esc(pn(st.name))} <small class="muted">${esc(nameOf(st.iso))}</small></span><span class="mono small">${st.alive ? `${esc(t('years', { n: st.age }))} · ${esc(t(('stage_' + st.stage) as 'stage_work'))}` : `† ${esc(t('years', { n: st.age }))}`}</span></li>`; }).join('');
 }
 const FX_NAME: Record<string, string> = { h: 'health', ha: 'happy', sm: 'smart', so: 'social' };
 function minorChips(id: string, opt: string): string {
@@ -734,9 +739,9 @@ function treeSheet(): void {
   const node = (rel: string, name: string, born: number, cls = '') => `<li class="tn ${cls}"><small class="muted">${esc(rel)}</small><b>${esc(name)}</b><span class="mono small">${born}</span></li>`;
   const kids = bornBy(f.children, cal);
   pausedSheet('tree', `<h2 class="serif">${esc(t('familyTree'))}</h2><div class="tree">
-    <p class="tg mono">${esc(t('treeParents'))}</p><ul class="tr">${node(t('rel_father'), f.father.name, f.father.born)}${node(t('rel_mother'), f.mother.name, f.mother.born)}</ul>
-    <p class="tg mono">${esc(t('treeYourGen'))}</p><ul class="tr">${[...bornBy(f.siblings, cal).filter((x) => x.born < s.born.year).map((x) => node(t('rel_sibling'), x.name, x.born)), node(t('treeYou'), s.name.full, s.born.year, 'me'), ...(f.spouse ? [node(t('rel_spouse'), f.spouse.name, f.spouse.born)] : []), ...bornBy(f.siblings, cal).filter((x) => x.born >= s.born.year).map((x) => node(t('rel_sibling'), x.name, x.born))].join('')}</ul>
-    <p class="tg mono">${esc(t('treeChildren'))}</p>${kids.length ? `<ul class="tr">${kids.map((c) => node(t('rel_child'), c.name, c.born)).join('')}</ul>` : `<p class="muted small">${esc(t('treeNone'))}</p>`}
+    <p class="tg mono">${esc(t('treeParents'))}</p><ul class="tr">${node(t('rel_father'), pn(f.father.name), f.father.born)}${node(t('rel_mother'), pn(f.mother.name), f.mother.born)}</ul>
+    <p class="tg mono">${esc(t('treeYourGen'))}</p><ul class="tr">${[...bornBy(f.siblings, cal).filter((x) => x.born < s.born.year).map((x) => node(t('rel_sibling'), pn(x.name), x.born)), node(t('treeYou'), pn(s.name.full), s.born.year, 'me'), ...(f.spouse ? [node(t('rel_spouse'), pn(f.spouse.name), f.spouse.born)] : []), ...bornBy(f.siblings, cal).filter((x) => x.born >= s.born.year).map((x) => node(t('rel_sibling'), pn(x.name), x.born))].join('')}</ul>
+    <p class="tg mono">${esc(t('treeChildren'))}</p>${kids.length ? `<ul class="tr">${kids.map((c) => node(t('rel_child'), pn(c.name), c.born)).join('')}</ul>` : `<p class="muted small">${esc(t('treeNone'))}</p>`}
   </div>`, () => undefined);
 }
 const K_SFX = `${APP.storagePrefix}.sfx.v1`;
@@ -769,8 +774,8 @@ function renderFamily(): void {
   const s = run!.s; const f = s.family; const cal = s.born.year + s.age;
   const row = (rel: string, name: string, born: number, dead = false) => `<div><dt>${esc(rel)}</dt><dd>${esc(name)} <span class="mono small">${dead ? `† ${esc(t('deceased'))}` : esc(t('years', { n: cal - born }))}</span></dd></div>`;
   const parentsDead = !f.parentsAlive;
-  (root.querySelector('#family') as HTMLElement).innerHTML = [row(t('rel_mother'), f.mother.name, f.mother.born, parentsDead), row(t('rel_father'), f.father.name, f.father.born, parentsDead),
-    ...bornBy(f.siblings, cal).map((x) => row(t('rel_sibling'), x.name, x.born)), ...(f.spouse ? [row(t('rel_spouse'), f.spouse.name, f.spouse.born)] : []), ...bornBy(f.children, cal).map((x) => row(t('rel_child'), x.name, x.born))].join('');
+  (root.querySelector('#family') as HTMLElement).innerHTML = [row(t('rel_mother'), pn(f.mother.name), f.mother.born, parentsDead), row(t('rel_father'), pn(f.father.name), f.father.born, parentsDead),
+    ...bornBy(f.siblings, cal).map((x) => row(t('rel_sibling'), pn(x.name), x.born)), ...(f.spouse ? [row(t('rel_spouse'), pn(f.spouse.name), f.spouse.born)] : []), ...bornBy(f.children, cal).map((x) => row(t('rel_child'), pn(x.name), x.born))].join('');
 }
 function lifeMapHtml(s: LifeState, e0: number): string {
   const n = Math.max(Math.ceil(e0) + 1, s.years.length + 1, 60);
@@ -953,18 +958,18 @@ function loanPanel(bridge: boolean): void {
   const s = run!.s; const q = decisionQuote(bundle(), s).loan;
   const def = bridge ? Math.min(q.max, Math.ceil(q.bridgeNeed)) : Math.floor(q.max / 2);
   openPanel(`<h2 tabindex="-1">${esc(t(bridge ? 'bridgeTitle' : 'loanTitle'))}</h2>
-    ${bridge ? `<p class="prompt" id="bridge-msg">${esc(t('bridgeMsg', { amount: money(q.bridgeNeed) }))}</p>` : ''}
-    <dl class="facts"><dt>${esc(t('loanMax'))}</dt><dd id="l-max">${esc(money(q.max))}${q.src === 'proxy' ? ` <span class="badge">${esc(t('est'))}</span>` : ''}</dd>
+    ${bridge ? `<p class="prompt" id="bridge-msg">${esc(t('bridgeMsg', { amount: moneyUsd(q.bridgeNeed) }))}</p>` : ''}
+    <dl class="facts"><dt>${esc(t('loanMax'))}</dt><dd id="l-max">${esc(moneyUsd(q.max))}${q.src === 'proxy' ? ` <span class="badge">${esc(t('est'))}</span>` : ''}</dd>
     <dt>${esc(t('floatRate'))}</dt><dd>${pctR(q.rate)} <span class="badge" title="${esc(t('rateTitle'))}">${esc(t('est'))}</span></dd>
     ${q.noteKey && q.noteKey !== 'none' ? `<dt>${esc(t('ruleNote'))}</dt><dd><small id="l-rule">${esc(t(('rn_' + q.noteKey) as 'rn_tw'))}</small></dd>` : ''}</dl>
-    ${q.ok ? `<label class="inline">${esc(t('loanAmt'))} <input type="number" id="l-amt" min="1" max="${Math.floor(q.max)}" value="${Math.max(1, def)}" inputmode="numeric"></label>
+    ${q.ok ? `<label class="inline">${esc(t('loanAmt'))} <input type="number" id="l-amt" min="1" max="${Math.floor(q.max)}" value="${Math.max(1, def)}" inputmode="numeric"> <span class="mono small">US$</span></label>
     <label class="inline">${esc(t('loanTerm'))} <input type="number" id="l-term" min="1" max="7" value="${bridge ? 3 : PARAMS.creditTerm.value}" inputmode="numeric"></label>
     ${bridge ? '' : `<fieldset><legend>${esc(t('loanUse'))}</legend><label><input type="radio" name="l-use" value="cash" checked> ${esc(t('useCash'))}</label><label><input type="radio" name="l-use" value="invest"> ${esc(t('useInvest'))}</label></fieldset>`}
     <p class="warn small">${esc(t('loanRisk'))}</p>` : `<p class="warn" id="l-why">${esc(whyText(q.why))}</p>`}`,
   q.ok ? (panel) => {
     const amt = Number((panel.querySelector('#l-amt') as HTMLInputElement).value), term = Number((panel.querySelector('#l-term') as HTMLInputElement).value);
     const errs: string[] = [];
-    if (!(amt > 0) || amt > Math.floor(q.max)) errs.push(t('loanAmtErr', { max: money(q.max) }));
+    if (!(amt > 0) || amt > Math.floor(q.max)) errs.push(t('loanAmtErr', { max: moneyUsd(q.max) }));
     if (!Number.isInteger(term) || term < 1 || term > 7) errs.push(t('loanTermErr'));
     panel.querySelector('#p-errs')!.innerHTML = errs.map((x) => `<li>${esc(x)}</li>`).join('');
     if (errs.length) return false;
@@ -978,12 +983,12 @@ function annuityPanel(): void {
   const s = run!.s; const q = decisionQuote(bundle(), s).annuity;
   openPanel(`<h2 tabindex="-1">${esc(t('annuityTitle'))}</h2>
     <p class="muted">${esc(t('annuityHelp'))}</p>
-    ${q.ok ? `<p id="a-rate">${esc(t('annuityRate', { amount: money(q.per1000 * 10) }))}</p>
-    <label class="inline">${esc(t('annuityAmt'))} <input type="number" id="a-amt" min="1" max="${Math.floor(q.max)}" value="${Math.floor(q.max / 2)}" inputmode="numeric"></label>` : `<p class="warn" id="a-why">${esc(whyText(q.why))}</p>`}
+    ${q.ok ? `<p id="a-rate">${esc(t('annuityRate', { amount: moneyUsd(q.per1000 * 10) }))}</p>
+    <label class="inline">${esc(t('annuityAmt'))} <input type="number" id="a-amt" min="1" max="${Math.floor(q.max)}" value="${Math.floor(q.max / 2)}" inputmode="numeric"> <span class="mono small">US$</span></label>` : `<p class="warn" id="a-why">${esc(whyText(q.why))}</p>`}
     ${s.econ.annuity > 0 ? `<p>${esc(t('annuityHave', { amount: money(s.econ.annuity) }))}</p>` : ''}`,
   q.ok ? (panel) => {
     const amt = Number((panel.querySelector('#a-amt') as HTMLInputElement).value);
-    if (!(amt > 0) || amt > Math.floor(q.max)) { panel.querySelector('#p-errs')!.innerHTML = `<li>${esc(t('loanAmtErr', { max: money(q.max) }))}</li>`; return false; }
+    if (!(amt > 0) || amt > Math.floor(q.max)) { panel.querySelector('#p-errs')!.innerHTML = `<li>${esc(t('loanAmtErr', { max: moneyUsd(q.max) }))}</li>`; return false; }
     decide({ t: 'annuity', age: s.age, amount: amt });
     return true;
   } : null);
@@ -1072,7 +1077,7 @@ async function reopen(l: PastLife): Promise<void> {
 
 // ---------- final moments (E1) + death record (E2) + share (E4)
 function death(withEnding = false, reopened = false, rec?: PastRecord): void {
-  const r = run!; const s = r.s; const d = s.death!;
+  const r = run!; const s = r.s; const d = s.death!; setMoneyCountry(s.born.iso);
   cancelAnimationFrame(r.raf);
   clearTimeout(autoTimer);
   const me = summarize(s);
@@ -1083,7 +1088,7 @@ function death(withEnding = false, reopened = false, rec?: PastRecord): void {
   const nPeers = rec ? peersN : peers.length;
   if (!reopened) {
     clearSave();
-    addPastLife({ id: s.id, seed: s.seed, iso: s.born.iso, name: `${s.name.full}（${nameOf(s.born.iso)}）`, year: s.born.year, age: d.age, netWorth: me.finalNetWorth, at: s.born.year + d.age, cfg: r.cfg, years: s.years.length, actions: s.actions.filter((a) => 'age' in a), paceMin: r.paceMin, rec: { rk, peersN: peers.length } });
+    addPastLife({ id: s.id, seed: s.seed, iso: s.born.iso, name: `${pn(s.name.full)}（${nameOf(s.born.iso)}）`, year: s.born.year, age: d.age, netWorth: me.finalNetWorth, at: s.born.year + d.age, cfg: r.cfg, years: s.years.length, actions: s.actions.filter((a) => 'age' in a), paceMin: r.paceMin, rec: { rk, peersN: peers.length } });
   }
   const estYears = s.years.filter((y) => y.est.length).length;
   const calls = s.events.filter((e) => e.id === 'marginCall').length;
@@ -1101,9 +1106,9 @@ function death(withEnding = false, reopened = false, rec?: PastRecord): void {
   const diff = Math.round(d.age - e0);
   const edu = t(('edu_' + s.career.plan) as 'edu_none');
   const track = s.career.occ && occById(s.career.occ) ? occN(s.career.occ) : s.career.trackSet ? t(('track_' + s.career.track) as 'track_private') : '';
-  const story = t('deathStory', { name: s.name.full, year: s.born.year, country, age: d.age,
+  const story = t('deathStory', { name: pn(s.name.full), year: s.born.year, country, age: d.age,
     edu: adult ? t('ds_edu', { edu }) : '', work: adult && track ? t('ds_work', { track }) : '',
-    family: s.family.spouse ? (s.family.children.length ? t('ds_family_kids', { spouse: s.family.spouse.name, n: s.family.children.length }) : t('ds_family_spouse', { spouse: s.family.spouse.name })) : '' });
+    family: s.family.spouse ? (s.family.children.length ? t('ds_family_kids', { spouse: pn(s.family.spouse.name), n: s.family.children.length }) : t('ds_family_spouse', { spouse: pn(s.family.spouse.name) })) : '' });
   const longer = 1 - rk.lifespan;
   const countries = [...new Set([s.born.iso, s.cur])].map(nameOf).join('、');
   view(`<div class="death-page">
@@ -1113,7 +1118,7 @@ function death(withEnding = false, reopened = false, rec?: PastRecord): void {
   <header class="band dark"><span class="serif">${esc(t('deathRecTitle'))}</span><span class="mono">${esc(t('certNo', { no: registryNo(s.born.iso, s.born.year, s.seed, 'D') }))}</span></header>
   <div class="cert-body">
     <p class="mono lbl">${esc(country)} · ${esc(t(s.born.sex === 'M' ? 'male' : 'female'))}</p>
-    <h2 class="cert-name serif" id="rec-name">${esc(s.name.full)}</h2>
+    <h2 class="cert-name serif" id="rec-name">${esc(pn(s.name.full))}</h2>
     <p class="lead" id="died">${esc(country)} · ${esc(t('bornDied', { born: s.born.year, died: d.year }))} · ${esc(t('diedAt', { year: d.year, age: d.age }))}</p>
     <p class="story">${esc(story)}</p>
     <p class="cause-line serif" id="cause">${esc(cause)} <span class="badge" title="${esc(t('causeTitle'))}">${esc(t('est'))}</span></p>
@@ -1122,8 +1127,8 @@ function death(withEnding = false, reopened = false, rec?: PastRecord): void {
       <div><dt>${esc(t('g_span'))}</dt><dd>${s.born.year}–${d.year}</dd></div>
       <div><dt>${esc(t('g_place'))}</dt><dd>${esc(nameOf(s.cur))}</dd></div>
       ${adult ? `<div><dt>${esc(t('g_edu'))}</dt><dd>${esc(edu)}</dd></div><div><dt>${esc(t('g_job'))}</dt><dd>${esc(track || t('none'))}</dd></div>` : ''}
-      <div><dt>${esc(t('g_partner'))}</dt><dd>${esc(s.family.spouse?.name ?? t('none'))}</dd></div>
-      <div><dt>${esc(t('g_kids'))}</dt><dd>${esc(s.family.children.length ? s.family.children.map((c) => c.name).join('、') : t('none'))}</dd></div>
+      <div><dt>${esc(t('g_partner'))}</dt><dd>${esc(pn(s.family.spouse?.name) || t('none'))}</dd></div>
+      <div><dt>${esc(t('g_kids'))}</dt><dd>${esc(s.family.children.length ? s.family.children.map((c) => pn(c.name)).join('、') : t('none'))}</dd></div>
       ${hap ? `<div><dt>${esc(t('g_happiest'))}</dt><dd id="happiest">${esc(t('happiestLine', { age: hap.age, year: hap.year }))}${hapLine ? `<br><small>${esc(hapLine)}</small>` : ''}</dd></div>` : ''}
       <div><dt>${esc(t('g_countries'))}</dt><dd>${esc(countries)}</dd></div>
       <div><dt>${esc(t('g_estate'))}</dt><dd>${esc(money(me.finalNetWorth))}</dd></div>
@@ -1158,9 +1163,9 @@ ${lineChart(s.years.map((y) => y.income), { label: t('chartIncome'), color: '#B8
 <div class="row end-row"><button class="cta" id="again">${esc(t('again'))} <span aria-hidden="true">→</span></button><button class="ghost" id="home">${esc(t('home'))}</button></div>
 <div class="sticky-foot"><button class="ghost" id="share-foot">${esc(t('shareOpen'))}</button><button class="cta" id="again-foot">${esc(t('again'))}</button></div>
 </div>`);
-  const card: ShareCard = { app: APP.title, title: t('deathRecTitle'), name: s.name.full, span: `${s.born.year}–${d.year} · ${t('years', { n: d.age })}`, country, cause, e0,
+  const card: ShareCard = { app: APP.title, title: t('deathRecTitle'), name: pn(s.name.full), span: `${s.born.year}–${d.year} · ${t('years', { n: d.age })}`, country, cause, e0,
     facts: [t('shareFact1', { v: money(me.lifetimeIncome) }), hap ? t('shareFact2', { age: hap.age }) : edu, t('shareFact3', { p: pctText(rk.lifespan) })], map: s.years.map((y) => y.stats.happy),
-    text: t('shareTextT', { name: s.name.full, born: s.born.year, died: d.year, country, age: d.age, cause, app: APP.title }) };
+    text: t('shareTextT', { name: pn(s.name.full), born: s.born.year, died: d.year, country, age: d.age, cause, app: APP.title }) };
   const again = () => { run = null; intro(); };
   on('#again', again); on('#again-foot', again);
   on('#home', () => { run = null; intro(); }); on('#home-top', () => { run = null; intro(); });
@@ -1169,13 +1174,13 @@ ${lineChart(s.years.map((y) => y.income), { label: t('chartIncome'), color: '#B8
   const fm = finalMoments(s, country, hap);
   const endingIn: EndingIn = { years: s.years.map((y) => y.calYear), portrait: portraitOf(s, 192), captions: fm.map((m) => m.caption), final: t('cap_final', { age: d.age, cause }), labels: { arm: t('endSkipArm'), done: t('endDone') },
     moments: fm.map((m) => ({ ...m, portrait: portraitOf({ ...s, age: m.age }, 192) })),
-    lived: { n: esc(t('livedN', { n: d.age })), label: esc(t('livedLabel')), sub: esc(t('livedSub', { name: s.name.full, born: s.born.year, died: d.year, country })) } };
+    lived: { n: esc(t('livedN', { n: d.age })), label: esc(t('livedLabel')), sub: esc(t('livedSub', { name: pn(s.name.full), born: s.born.year, died: d.year, country })) } };
   if (peers.length && peers[0] && run?.s.seed === s.seed) renderPeers('#dp-peers'); else void loadPeers(s);
   on('#replay-end', () => { playEnding(document.body, endingIn, () => undefined); });
   if (withEnding) playEnding(document.body, endingIn, (skipped) => { if (!skipped) shareSheet(card); });
 }
 function epilogueHtml(s: LifeState): string {
-  const relName = (m: Mourner) => (m.rel === 'friends' ? t('friendsN', { n: m.n ?? 0 }) : `${t(('rel_' + m.rel) as 'rel_child')} ${m.name}`);
+  const relName = (m: Mourner) => (m.rel === 'friends' ? t('friendsN', { n: m.n ?? 0 }) : `${t(('rel_' + m.rel) as 'rel_child')} ${pn(m.name)}`);
   const mo = seeOff(s);
   const v = visited(s, index.countries.map((c) => c.iso));
   const mem = memorable(s, starred, BIG);

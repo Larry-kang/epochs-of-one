@@ -1,0 +1,14 @@
+events|in_uniexam_retake_JPN|=|{inst}で第一志望に届かず、一年浪人してから合格した。|{inst}에서 1지망에 떨어져 1년 재수한 끝에 합격했다.
+events|in_uniexam_retake_KOR|=|{inst}の成績が振るわず、一年浪人してから大学に入った。|{inst} 성적이 좋지 않아 1년 재수한 뒤 대학에 들어갔다.
+events|in_uniexam_retake_gen|=|{inst}がうまくいかず、翌年再挑戦して大学に入った。|{inst}을(를) 망쳐 이듬해 다시 도전해 대학에 들어갔다.
+events|in_us_uninsured|=|失業で会社の健康保険も失い、医療費と保険料を自己負担した：{amount}。|실직으로 회사 건강보험도 잃어 의료비와 보험료 {amount}를 직접 냈다.
+events|in_us_medicare|=|65 歳になり、メディケアの対象になった。|65세가 되어 메디케어 혜택을 받기 시작했다.
+events|in_jp_nonreg|=|見つかったのは非正規（契約・派遣）の仕事だけだった。|비정규직(계약직·파견) 일자리밖에 구하지 못했다.
+events|in_jp_regular|You join a company as regular staff.|正社員として入社した。|정규직 사원으로 입사했다.
+events|in_jp_to_regular|=|契約社員から正社員になった。|계약직에서 정규직으로 전환됐다.
+events|in_kr_early_exit|=|会社に退職を勧められ（名誉退職）、{amount} の退職金を受け取って小さな店を開いた。|회사의 권유로 명예퇴직하고 퇴직금 {amount}를 받아 작은 가게를 열었다.
+pool|h_oil_1973|Oil prices multiplied within months, and long queues formed at petrol stations.|石油価格が数か月で何倍にも跳ね上がり、ガソリンスタンドに長い列ができた。|몇 달 사이 유가가 몇 배로 뛰어 주유소 앞에 긴 줄이 늘어섰다.
+pool|h_asia_1997|The Asian financial crisis struck: currencies collapsed overnight and many companies went under.|アジア通貨危機が襲い、通貨は一夜で暴落し、多くの会社が持ちこたえられなかった。|아시아 금융위기가 닥쳐 화폐 가치가 하룻밤 새 폭락하고 많은 회사가 쓰러졌다.
+pool|h_gfc_2008|The global financial crisis: every day the news reported another bank in trouble.|世界金融危機。毎日のように、どこかの銀行が危ないとニュースが伝えた。|세계 금융위기. 날마다 뉴스가 또 어느 은행이 무너졌는지 전했다.
+pool|h_covid_2020|COVID-19 spread, and schools and offices moved into people's homes.|新型コロナが広がり、学校も職場も在宅に切り替わった。|코로나19가 퍼져 학교와 직장이 모두 재택으로 바뀌었다.
+pool|h_moon_1969|Humans set foot on the Moon for the first time, and the whole world was glued to the TV.|人類が初めて月に降り立ち、世界中の人がテレビの前にくぎ付けになった。|인류가 처음 달에 발을 디뎠고, 온 세계가 TV 앞을 지켰다.

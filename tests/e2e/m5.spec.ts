@@ -23,8 +23,8 @@ test('M5 house + mortgage, then a normal-mode credit loan', async ({ page }) => 
   await shot(page, 'm5-01-house-quote');
   await page.getByRole('button', { name: '買下這間房子' }).click();
   await expect(page.locator('#panel')).toBeHidden();
-  await expect(page.locator('#debt')).toHaveText('$0'); // mortgage is netted inside house equity
-  await expect(page.locator('#heq')).not.toHaveText('$0');
+  await expect(page.locator('#debt')).toHaveText(/^[^0-9]*0$/); // mortgage is netted inside house equity
+  await expect(page.locator('#heq')).not.toHaveText(/^[^0-9]*0$/);
   await page.getByRole('button', { name: '信貸' }).click();
   await expect(page.locator('#l-max')).toBeVisible();
   await page.locator('#l-amt').fill('999999999');
@@ -34,7 +34,7 @@ test('M5 house + mortgage, then a normal-mode credit loan', async ({ page }) => 
   await page.locator('#l-term').fill('3');
   await shot(page, 'm5-02-loan-panel');
   await page.getByRole('button', { name: '套用' }).click();
-  await expect(page.locator('#debt')).not.toHaveText('$0');
+  await expect(page.locator('#debt')).not.toHaveText(/^[^0-9]*0$/);
   await page.getByRole('button', { name: '繼續' }).click();
   await expect(page.locator('#age')).not.toHaveText('29 歲', { timeout: 60000 });
   await page.getByRole('button', { name: '暫停' }).click();
@@ -51,7 +51,7 @@ test('M5 retirement pension + life annuity', async ({ page }) => {
   await expect(page.locator('#panel')).toBeHidden();
   await skipToEnd(page);
   await expect(page.getByRole('heading', { name: '人生結算' })).toBeVisible();
-  await expect(page.locator('#pen')).not.toHaveText('$0');
+  await expect(page.locator('#pen')).not.toHaveText(/^[^0-9]*0$/);
   await shot(page, 'm5-05-death-pension');
 });
 
@@ -61,7 +61,7 @@ test('M5 financial-distress bridge prompt appears when cash turns negative', asy
   await shot(page, 'm5-06-bridge-prompt');
   await page.getByRole('button', { name: '申請周轉' }).click();
   await expect(page.locator('#panel')).toBeHidden();
-  await expect(page.locator('#debt')).not.toHaveText('$0');
+  await expect(page.locator('#debt')).not.toHaveText(/^[^0-9]*0$/);
 });
 
 test('M5 ineligible country explains why credit is closed; About lists M5 sources', async ({ page }) => {

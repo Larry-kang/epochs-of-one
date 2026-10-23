@@ -1,0 +1,80 @@
+events|ch_d_clinic_far_herbs|"Your child has a fever and the clinic is a two-hour walk" — you chose: try a home remedy first.|「子どもが熱を出し、診療所まで歩いて二時間」——あなたの決断：まず民間療法を試す。|"아이가 열이 나는데 진료소까지 걸어서 두 시간이다" — 당신의 선택: 먼저 민간요법을 쓴다.
+events|ch_d_girls_school_study|"Some in the village say schooling is wasted on girls" — you chose: keep studying.|「村には女の子に勉強は無駄だと言う人がいる」——あなたの決断：勉強を続ける。|"마을에선 여자애가 공부해 봐야 소용없다고 한다" — 당신의 선택: 끝까지 공부한다.
+events|ch_d_girls_school_home|"Some in the village say schooling is wasted on girls" — you chose: stay home to help.|「村には女の子に勉強は無駄だと言う人がいる」——あなたの決断：家に残って手伝う。|"마을에선 여자애가 공부해 봐야 소용없다고 한다" — 당신의 선택: 집에 남아 돕는다.
+events|ch_d_solar_panel_buy|"Someone is selling small solar panels" — you chose: buy one.|「小型ソーラーパネルを売りに来た人がいる」——あなたの決断：一枚買う。|"누가 소형 태양광 패널을 판다" — 당신의 선택: 하나 산다.
+events|ch_d_solar_panel_no|"Someone is selling small solar panels" — you chose: the oil lamp will do.|「小型ソーラーパネルを売りに来た人がいる」——あなたの決断：石油ランプで十分。|"누가 소형 태양광 패널을 판다" — 당신의 선택: 등잔불이면 된다.
+events|ch_d_mobile_money_try|"People are starting to send money by phone" — you chose: open an account.|「みんな携帯で送金し始めた」——あなたの決断：口座を開く。|"다들 휴대폰으로 송금하기 시작했다" — 당신의 선택: 계좌를 연다.
+events|ch_d_mobile_money_cash|"People are starting to send money by phone" — you chose: stick with cash.|「みんな携帯で送金し始めた」——あなたの決断：やっぱり現金。|"다들 휴대폰으로 송금하기 시작했다" — 당신의 선택: 그래도 현금을 쓴다.
+events|ch_d_abroad_work_go|"An agent says you can work abroad as a carer or labourer" — you chose: sign and go abroad.|「仲介業者に、海外で介護士や作業員として働けると言われた」——あなたの決断：契約して海外へ。|"중개인이 해외에서 간병인이나 노동자로 일할 수 있다고 한다" — 당신의 선택: 계약하고 해외로 간다.
+events|ch_d_abroad_work_stay|"An agent says you can work abroad as a carer or labourer" — you chose: stay with your family.|「仲介業者に、海外で介護士や作業員として働けると言われた」——あなたの決断：家族のそばに残る。|"중개인이 해외에서 간병인이나 노동자로 일할 수 있다고 한다" — 당신의 선택: 가족 곁에 남는다.
+events|ch_d_stock_tip_ignore|"A coworker swears he has a stock that can't miss" — you chose: ignore him.|「同僚が必ず上がる株があると言う」——あなたの決断：相手にしない。|"동료가 무조건 오를 주식이 있다고 한다" — 당신의 선택: 무시한다.
+events|ch_d_stock_tip_small|"A coworker swears he has a stock that can't miss" — you chose: put in a tiny bit.|「同僚が必ず上がる株があると言う」——あなたの決断：ほんの少しだけ買う。|"동료가 무조건 오를 주식이 있다고 한다" — 당신의 선택: 아주 조금 넣는다.
+events|ch_d_mortgage_fix_fix|"The bank asks if you want to switch your mortgage to a fixed rate" — you chose: go fixed.|「銀行に住宅ローンを固定金利にするか聞かれた」——あなたの決断：固定にする。|"은행이 주택담보대출을 고정금리로 바꿀지 물었다" — 당신의 선택: 고정으로 바꾼다.
+events|ch_d_mortgage_fix_float|"The bank asks if you want to switch your mortgage to a fixed rate" — you chose: stay variable.|「銀行に住宅ローンを固定金利にするか聞かれた」——あなたの決断：変動のまま。|"은행이 주택담보대출을 고정금리로 바꿀지 물었다" — 당신의 선택: 변동을 유지한다.
+events|ch_d_ev_car_ev|"Go electric for your next car?" — you chose: an electric car.|「次の車は電気自動車にする？」——あなたの決断：電気自動車。|"다음 차는 전기차로 할까?" — 당신의 선택: 전기차.
+events|ch_d_ev_car_gas|"Go electric for your next car?" — you chose: petrol after all.|「次の車は電気自動車にする？」——あなたの決断：やっぱりガソリン車。|"다음 차는 전기차로 할까?" — 당신의 선택: 그래도 휘발유차.
+events|ch_d_remote_work_home|"Your company allows permanent remote work" — you chose: work from home.|「会社が恒久的なリモートワークを認めた」——あなたの決断：在宅で働く。|"회사가 영구 재택근무를 허용했다" — 당신의 선택: 집에서 일한다.
+events|ch_d_remote_work_office|"Your company allows permanent remote work" — you chose: keep going into the office.|「会社が恒久的なリモートワークを認めた」——あなたの決断：やっぱり出社する。|"회사가 영구 재택근무를 허용했다" — 당신의 선택: 그래도 사무실에 간다.
+events|ch_d_gig_driver_drive|"You could drive for a ride app after work" — you chose: take a few rides.|「仕事のあとに配車アプリで運転できる」——あなたの決断：何件か受ける。|"퇴근 후 차량 호출 앱으로 운전할 수 있다" — 당신의 선택: 몇 건 받는다.
+events|ch_d_gig_driver_rest|"You could drive for a ride app after work" — you chose: forget it.|「仕事のあとに配車アプリで運転できる」——あなたの決断：やめておく。|"퇴근 후 차량 호출 앱으로 운전할 수 있다" — 당신의 선택: 관둔다.
+events|ch_d_crypto_watch|"All your friends are talking about crypto" — you chose: just watch.|「友だちはみんな暗号資産の話をしている」——あなたの決断：見ているだけ。|"친구들이 다 가상화폐 이야기를 한다" — 당신의 선택: 구경만 한다.
+events|ch_d_crypto_bet|"All your friends are talking about crypto" — you chose: buy a little to try.|「友だちはみんな暗号資産の話をしている」——あなたの決断：少し買ってみる。|"친구들이 다 가상화폐 이야기를 한다" — 당신의 선택: 조금 사 본다.
+events|ch_d_social_post_delete|"A post of yours unexpectedly went viral and the comments are vicious" — you chose: delete it.|「投稿が思いがけずバズり、コメントが荒れている」——あなたの決断：削除する。|"올린 글이 뜻밖에 화제가 됐는데 댓글이 험악하다" — 당신의 선택: 지운다.
+events|ch_d_social_post_reply|"A post of yours unexpectedly went viral and the comments are vicious" — you chose: reply one by one.|「投稿が思いがけずバズり、コメントが荒れている」——あなたの決断：一つずつ返信する。|"올린 글이 뜻밖에 화제가 됐는데 댓글이 험악하다" — 당신의 선택: 하나하나 답한다.
+events|ch_d_social_post_off|"A post of yours unexpectedly went viral and the comments are vicious" — you chose: switch off and go for a walk.|「投稿が思いがけずバズり、コメントが荒れている」——あなたの決断：電源を切って散歩に出る。|"올린 글이 뜻밖에 화제가 됐는데 댓글이 험악하다" — 당신의 선택: 휴대폰을 끄고 산책한다.
+events|ch_d_ai_tools_learn|"Your company is starting to use AI tools" — you chose: take the time to learn them.|「会社でAIツールを使い始めた」——あなたの決断：時間をかけて覚える。|"회사에서 AI 도구를 쓰기 시작했다" — 당신의 선택: 시간을 들여 익힌다.
+events|ch_d_ai_tools_avoid|"Your company is starting to use AI tools" — you chose: you don't really trust them.|「会社でAIツールを使い始めた」——あなたの決断：あまり信用しない。|"회사에서 AI 도구를 쓰기 시작했다" — 당신의 선택: 별로 믿지 않는다.
+events|ch_d_plastic_surgery_do|"You're considering cosmetic treatment" — you chose: book a consultation.|「美容医療を考えている」——あなたの決断：予約してみる。|"미용 시술을 고민 중이다" — 당신의 선택: 상담을 예약한다.
+events|ch_d_plastic_surgery_no|"You're considering cosmetic treatment" — you chose: accept how you look.|「美容医療を考えている」——あなたの決断：ありのままの自分を受け入れる。|"미용 시술을 고민 중이다" — 당신의 선택: 지금 모습을 받아들인다.
+events|ch_d_vegetarian_try|"You want to try going vegetarian" — you chose: try it for a month.|「菜食を試してみたい」——あなたの決断：一か月やってみる。|"채식을 해 보고 싶다" — 당신의 선택: 한 달 해 본다.
+events|ch_d_vegetarian_no|"You want to try going vegetarian" — you chose: too hard.|「菜食を試してみたい」——あなたの決断：難しすぎる。|"채식을 해 보고 싶다" — 당신의 선택: 너무 어렵다.
+events|ch_d_marathon_train|"A friend wants you to sign up for a marathon together" — you chose: start training.|「友だちに一緒にマラソンに出ようと誘われた」——あなたの決断：走る練習を始める。|"친구가 같이 마라톤에 나가자고 한다" — 당신의 선택: 달리기 연습을 시작한다.
+events|ch_d_marathon_cheer|"A friend wants you to sign up for a marathon together" — you chose: cheer at the finish line.|「友だちに一緒にマラソンに出ようと誘われた」——あなたの決断：ゴールで応援する。|"친구가 같이 마라톤에 나가자고 한다" — 당신의 선택: 결승선에서 응원한다.
+events|ch_d_language_app_daily|"You downloaded a language-learning app" — you chose: practise ten minutes a day.|「語学アプリをダウンロードした」——あなたの決断：毎日十分練習する。|"외국어 학습 앱을 깔았다" — 당신의 선택: 매일 10분씩 연습한다.
+events|ch_d_language_app_forget|"You downloaded a language-learning app" — you chose: let it gather dust.|「語学アプリをダウンロードした」——あなたの決断：放置する。|"외국어 학습 앱을 깔았다" — 당신의 선택: 묵혀 둔다.
+events|ch_d_home_cook_cook|"You're sick of eating out" — you chose: start cooking.|「外食に飽きた」——あなたの決断：自炊を始める。|"외식이 질렸다" — 당신의 선택: 직접 요리하기 시작한다.
+events|ch_d_home_cook_delivery|"You're sick of eating out" — you chose: keep ordering delivery.|「外食に飽きた」——あなたの決断：出前を取り続ける。|"외식이 질렸다" — 당신의 선택: 계속 배달시킨다.
+events|ch_d_quit_drinking_stop|"You notice you need a drink after work every day" — you chose: quit.|「毎日仕事のあとに一杯飲まずにいられない」——あなたの決断：やめる。|"매일 퇴근 후 한 잔씩 해야 한다는 걸 알았다" — 당신의 선택: 끊는다.
+events|ch_d_quit_drinking_keep|"You notice you need a drink after work every day" — you chose: it's just unwinding.|「毎日仕事のあとに一杯飲まずにいられない」——あなたの決断：ただの息抜きだ。|"매일 퇴근 후 한 잔씩 해야 한다는 걸 알았다" — 당신의 선택: 그냥 긴장을 푸는 것뿐이다.
+events|ch_d_night_market_queue|"A hyped new stall opened at the night market" — you chose: queue for an hour.|「夜市に話題の屋台ができた」——あなたの決断：一時間並ぶ。|"야시장에 인기 노점이 새로 생겼다" — 당신의 선택: 한 시간 줄 선다.
+events|ch_d_night_market_skip|"A hyped new stall opened at the night market" — you chose: another time.|「夜市に話題の屋台ができた」——あなたの決断：また今度。|"야시장에 인기 노점이 새로 생겼다" — 당신의 선택: 다음에 간다.
+events|ch_d_bike_commute_bike|"The city added lots of bike lanes" — you chose: cycle to work.|「街に自転車レーンがたくさんできた」——あなたの決断：自転車通勤する。|"도시에 자전거 도로가 많이 생겼다" — 당신의 선택: 자전거로 출근한다.
+events|ch_d_bike_commute_drive|"The city added lots of bike lanes" — you chose: same as before.|「街に自転車レーンがたくさんできた」——あなたの決断：今までどおり。|"도시에 자전거 도로가 많이 생겼다" — 당신의 선택: 하던 대로 한다.
+events|ch_d_community_garden_join|"The neighbourhood is starting a shared garden" — you chose: adopt a plot.|「地域で共同菜園をつくることになった」——あなたの決断：区画を一つ借りる。|"동네에 공동 텃밭이 생긴다" — 당신의 선택: 한 구획을 맡는다.
+events|ch_d_community_garden_no|"The neighbourhood is starting a shared garden" — you chose: no time.|「地域で共同菜園をつくることになった」——あなたの決断：時間がない。|"동네에 공동 텃밭이 생긴다" — 당신의 선택: 시간이 없다.
+events|ch_d_fostering_yes|"A social worker asks if you'd foster a child" — you chose: yes.|「ソーシャルワーカーに里親になれるか聞かれた」——あなたの決断：引き受ける。|"사회복지사가 아이를 위탁 양육할 수 있는지 물었다" — 당신의 선택: 하겠다.
+events|ch_d_fostering_no|"A social worker asks if you'd foster a child" — you chose: not ready yet.|「ソーシャルワーカーに里親になれるか聞かれた」——あなたの決断：まだ準備ができていない。|"사회복지사가 아이를 위탁 양육할 수 있는지 물었다" — 당신의 선택: 아직 준비가 안 됐다.
+events|ch_d_ivf_try|"You haven't had children, and the doctor mentions IVF" — you chose: give it a try.|「子どもができず、医者が体外受精の話をした」——あなたの決断：試してみる。|"아이가 생기지 않아 의사가 시험관 시술을 언급했다" — 당신의 선택: 시도해 본다.
+events|ch_d_ivf_accept|"You haven't had children, and the doctor mentions IVF" — you chose: the two of you are enough.|「子どもができず、医者が体外受精の話をした」——あなたの決断：二人でも幸せだ。|"아이가 생기지 않아 의사가 시험관 시술을 언급했다" — 당신의 선택: 둘이어도 좋다.
+events|ch_d_kid_abroad_pay|"Your child wants to study abroad" — you chose: back them fully.|「子どもが留学したがっている」——あなたの決断：全面的に支える。|"아이가 유학을 가고 싶어 한다" — 당신의 선택: 전폭 지원한다.
+events|ch_d_kid_abroad_loan|"Your child wants to study abroad" — you chose: have them apply for a student loan.|「子どもが留学したがっている」——あなたの決断：学生ローンを申し込ませる。|"아이가 유학을 가고 싶어 한다" — 당신의 선택: 학자금 대출을 받게 한다.
+events|ch_d_kid_abroad_local|"Your child wants to study abroad" — you chose: study at home instead.|「子どもが留学したがっている」——あなたの決断：国内の学校で十分。|"아이가 유학을 가고 싶어 한다" — 당신의 선택: 국내에서 공부하면 된다.
+events|ch_d_kid_marry_welcome|"Your child brought their partner home" — you chose: welcome them warmly.|「子どもが恋人を家に連れてきた」——あなたの決断：温かくもてなす。|"아이가 애인을 집에 데려왔다" — 당신의 선택: 따뜻하게 맞는다.
+events|ch_d_kid_marry_strict|"Your child brought their partner home" — you chose: grill them.|「子どもが恋人を家に連れてきた」——あなたの決断：厳しく問いただす。|"아이가 애인을 집에 데려왔다" — 당신의 선택: 꼬치꼬치 캐묻는다.
+events|ch_d_kid_career_support|"Your child wants to quit a stable job to chase a dream" — you chose: support them.|「子どもが安定した仕事を辞めて夢を追いたいと言う」——あなたの決断：応援する。|"아이가 안정된 직장을 그만두고 꿈을 좇겠다고 한다" — 당신의 선택: 응원한다.
+events|ch_d_kid_career_oppose|"Your child wants to quit a stable job to chase a dream" — you chose: urge them to think again.|「子どもが安定した仕事を辞めて夢を追いたいと言う」——あなたの決断：考え直すよう勧める。|"아이가 안정된 직장을 그만두고 꿈을 좇겠다고 한다" — 당신의 선택: 다시 생각해 보라고 한다.
+events|ch_d_elder_care_cost_hire|"Your parents need full-time care" — you chose: hire a caregiver.|「両親に終日の介護が必要になった」——あなたの決断：介護士を雇う。|"부모님께 종일 돌봄이 필요하다" — 당신의 선택: 간병인을 둔다.
+events|ch_d_elder_care_cost_self|"Your parents need full-time care" — you chose: quit your job to care for them.|「両親に終日の介護が必要になった」——あなたの決断：仕事を辞めて自分で介護する。|"부모님께 종일 돌봄이 필요하다" — 당신의 선택: 일을 그만두고 직접 돌본다.
+events|ch_d_elder_care_cost_share|"Your parents need full-time care" — you chose: siblings take turns.|「両親に終日の介護が必要になった」——あなたの決断：きょうだいで交代する。|"부모님께 종일 돌봄이 필요하다" — 당신의 선택: 형제자매가 돌아가며 맡는다.
+events|ch_d_parent_dementia_visit|"Your mother is starting to forget your name" — you chose: visit her every week.|「母があなたの名前を忘れ始めた」——あなたの決断：毎週会いに帰る。|"어머니가 당신 이름을 잊기 시작했다" — 당신의 선택: 매주 찾아가 곁에 있는다.
+events|ch_d_parent_dementia_call|"Your mother is starting to forget your name" — you chose: call every day.|「母があなたの名前を忘れ始めた」——あなたの決断：毎日電話する。|"어머니가 당신 이름을 잊기 시작했다" — 당신의 선택: 매일 전화한다.
+events|ch_d_disaster_donate_donate|"A major earthquake struck far away" — you chose: donate.|「遠くで大地震が起きた」——あなたの決断：寄付する。|"먼 곳에서 큰 지진이 났다" — 당신의 선택: 기부한다.
+events|ch_d_disaster_donate_go|"A major earthquake struck far away" — you chose: volunteer for disaster relief.|「遠くで大地震が起きた」——あなたの決断：災害ボランティアに行く。|"먼 곳에서 큰 지진이 났다" — 당신의 선택: 재난 구호 봉사를 간다.
+events|ch_d_disaster_donate_pray|"A major earthquake struck far away" — you chose: pray quietly.|「遠くで大地震が起きた」——あなたの決断：静かに祈る。|"먼 곳에서 큰 지진이 났다" — 당신의 선택: 조용히 기도한다.
+events|ch_d_protest_join|"There's a big rally in the streets" — you chose: go out and make your voice heard.|「街で大規模な集会がある」——あなたの決断：街に出て意見を示す。|"거리에서 대규모 집회가 열린다" — 당신의 선택: 거리로 나가 목소리를 낸다.
+events|ch_d_protest_watch|"There's a big rally in the streets" — you chose: watch the livestream at home.|「街で大規模な集会がある」——あなたの決断：家で中継を見る。|"거리에서 대규모 집회가 열린다" — 당신의 선택: 집에서 생중계를 본다.
+events|ch_d_vote_vote|"Tomorrow is election day and the weather is awful" — you chose: brave the rain to vote.|「明日は投票日、天気はひどい」——あなたの決断：雨の中投票に行く。|"내일은 투표일인데 날씨가 궂다" — 당신의 선택: 비를 뚫고 투표하러 간다.
+events|ch_d_vote_skip|"Tomorrow is election day and the weather is awful" — you chose: stay home.|「明日は投票日、天気はひどい」——あなたの決断：家にいる。|"내일은 투표일인데 날씨가 궂다" — 당신의 선택: 집에 있는다.
+events|ch_d_religion_go|"A friend invites you to a religious gathering" — you chose: go and see.|「友だちに宗教の集まりに誘われた」——あなたの決断：行ってみる。|"친구가 종교 모임에 초대했다" — 당신의 선택: 가 본다.
+events|ch_d_religion_no|"A friend invites you to a religious gathering" — you chose: no, thank you.|「友だちに宗教の集まりに誘われた」——あなたの決断：遠慮する。|"친구가 종교 모임에 초대했다" — 당신의 선택: 고맙지만 사양한다.
+events|ch_d_jury_duty_serve|"You've been picked for jury or lay-judge duty" — you chose: take it seriously.|「陪審員・裁判員に選ばれた」——あなたの決断：真剣に務める。|"배심원(국민참여재판)으로 뽑혔다" — 당신의 선택: 성실히 참여한다.
+events|ch_d_jury_duty_excuse|"You've been picked for jury or lay-judge duty" — you chose: find an excuse to get out.|「陪審員・裁判員に選ばれた」——あなたの決断：理由をつけて辞退する。|"배심원(국민참여재판)으로 뽑혔다" — 당신의 선택: 핑계를 대고 빠진다.
+events|ch_d_witness_help|"You witnessed a car accident" — you chose: stay and give a statement.|「交通事故を目撃した」——あなたの決断：残って証言する。|"교통사고를 목격했다" — 당신의 선택: 남아서 증언한다.
+events|ch_d_witness_leave|"You witnessed a car accident" — you chose: you're in a hurry; leave.|「交通事故を目撃した」——あなたの決断：急いでいるので立ち去る。|"교통사고를 목격했다" — 당신의 선택: 바빠서 자리를 뜬다.
+events|ch_d_lawsuit_settle|"A business dispute may end up in court" — you chose: settle.|「商売のもめごとが裁判になりそう」——あなたの決断：和解する。|"사업 분쟁이 소송으로 번질 것 같다" — 당신의 선택: 합의한다.
+events|ch_d_lawsuit_fight|"A business dispute may end up in court" — you chose: fight it in court.|「商売のもめごとが裁判になりそう」——あなたの決断：裁判で争う。|"사업 분쟁이 소송으로 번질 것 같다" — 당신의 선택: 소송으로 다툰다.
+events|ch_d_disability_help_help|"A coworker returns to work in a wheelchair after an injury" — you chose: help adapt the workplace.|「同僚がけがのあと車いすで出勤することになった」——あなたの決断：職場の環境づくりを手伝う。|"동료가 부상 후 휠체어를 타고 출근한다" — 당신의 선택: 먼저 나서서 환경을 바꾸는 걸 돕는다.
+events|ch_d_disability_help_respect|"A coworker returns to work in a wheelchair after an injury" — you chose: let them handle it their way.|「同僚がけがのあと車いすで出勤することになった」——あなたの決断：本人のやり方を尊重する。|"동료가 부상 후 휠체어를 타고 출근한다" — 당신의 선택: 스스로 하도록 존중한다.
+events|ch_d_hearing_aid|"You can't quite hear what people say anymore" — you chose: get a hearing aid.|「人の話がよく聞こえなくなった」——あなたの決断：補聴器を作る。|"남의 말이 잘 안 들린다" — 당신의 선택: 보청기를 맞춘다.
+events|ch_d_hearing_nod|"You can't quite hear what people say anymore" — you chose: just smile and nod.|「人の話がよく聞こえなくなった」——あなたの決断：笑ってうなずいておく。|"남의 말이 잘 안 들린다" — 당신의 선택: 웃으며 고개만 끄덕인다.
+events|ch_d_fall_prevent_fix|"The bathroom floor is slippery" — you chose: install grab bars and a non-slip mat.|「浴室の床が滑りやすい」——あなたの決断：手すりと滑り止めマットをつける。|"욕실 바닥이 미끄럽다" — 당신의 선택: 손잡이와 미끄럼 방지 매트를 단다.

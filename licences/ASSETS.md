@@ -21,6 +21,8 @@ Every file in `public/data/` has a manifest entry in `public/data/manifest.json`
 | Data | Path | Source (id) | Licence |
 |---|---|---|---|
 | Country series | public/data/countries.json | UN WPP 2024 (`wpp2024`), World Bank WDI (`wdi`) | CC BY 3.0 IGO; CC BY 4.0 (each WDI indicator checked: License_Type = CC BY-4.0) |
+| Display currency (v0.11.1) | src/content/l3-currency.json | World Bank WDI `PA.NUS.PPP` 2021 (`wdi`); ISO 4217 codes/symbols (facts) | CC BY 4.0 — display-only conversion of 2021 PPP $; no gameplay effect |
+| Localised person names (v0.11.1) | src/content/l3-person-names.json, tools/l3/person-names.tsv | self-written romanisation / kana / hangul of the existing name pools | project licence; display-only |
 | Life tables, births | public/data/demography/*.json | UN WPP 2024 (`wpp2024`) | CC BY 3.0 IGO |
 | Fertility extras | public/data/wpp-extra.json | UN WPP 2024 (`wpp2024`) | CC BY 3.0 IGO |
 | Markets, housing, pensions (M4/M5) | public/data/markets/*.json | OECD (`oecd`), WB Pink Sheet (`wb-pinksheet`), WDI, self-compiled closes | OECD terms (attribution); CC BY 4.0; facts |

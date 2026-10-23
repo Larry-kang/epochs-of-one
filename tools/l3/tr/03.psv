@@ -1,0 +1,80 @@
+events|ev_slow_walk|You walked more and more slowly and needed the handrail on the stairs.|歩くのがだんだん遅くなり、階段では手すりにつかまるようになった。|걸음이 점점 느려져 계단을 오를 때 난간을 잡아야 했다.
+events|ev_tell_stories|Your grandchild sat beside you, listening to stories of the old days.|孫がそばに座り、昔の話に耳を傾けた。|손주가 곁에 앉아 옛날이야기를 들었다.
+events|ev_bank_account|You opened the first bank account of your life.|人生初の銀行口座を開いた。|생애 첫 은행 계좌를 만들었다.
+events|ev_garage_sale|You sold things you no longer used at a second-hand market.|使わなくなった物をフリーマーケットで売った。|안 쓰는 물건을 벼룩시장에 내다 팔았다.
+events|ev_spouse_hospital|Your partner was hospitalised, and you went back and forth every day.|パートナーが入院し、毎日病院に通った。|배우자가 입원해 매일 병원을 오갔다.
+events|ch_d_pet_ask_beg|"You keep begging for a dog" — you chose: pester your parents every day.|「犬を飼いたいとずっとせがんでいる」——あなたの決断：毎日両親にねだる。|"개를 키우고 싶다고 계속 조른다" — 당신의 선택: 매일 부모님을 조른다.
+events|ch_d_pet_ask_drop|"You keep begging for a dog" — you chose: forget it, get a goldfish instead.|「犬を飼いたいとずっとせがんでいる」——あなたの決断：あきらめて金魚にする。|"개를 키우고 싶다고 계속 조른다" — 당신의 선택: 포기하고 금붕어를 키운다.
+events|ch_d_lost_wallet_return|"On the way home from school you find a fat wallet" — you chose: hand it in to the police.|「下校中、ぱんぱんの財布を拾った」——あなたの決断：交番に届ける。|"하굣길에 두툼한 지갑을 주웠다" — 당신의 선택: 경찰서에 맡긴다.
+events|ch_d_lost_wallet_keep|"On the way home from school you find a fat wallet" — you chose: quietly keep the loose change.|「下校中、ぱんぱんの財布を拾った」——あなたの決断：小銭だけこっそりもらう。|"하굣길에 두툼한 지갑을 주웠다" — 당신의 선택: 잔돈만 몰래 챙긴다.
+events|ch_d_bully_seen_help|"A classmate is being bullied in the hallway and everyone pretends not to see" — you chose: step in and help.|「同級生が廊下でいじめられ、みんな見て見ぬふり」——あなたの決断：かばいに出る。|"반 친구가 복도에서 괴롭힘을 당하는데 다들 못 본 척한다" — 당신의 선택: 나서서 돕는다.
+events|ch_d_bully_seen_tell|"A classmate is being bullied in the hallway and everyone pretends not to see" — you chose: tell a teacher.|「同級生が廊下でいじめられ、みんな見て見ぬふり」——あなたの決断：先生に知らせる。|"반 친구가 복도에서 괴롭힘을 당하는데 다들 못 본 척한다" — 당신의 선택: 선생님께 알린다.
+events|ch_d_bully_seen_walk|"A classmate is being bullied in the hallway and everyone pretends not to see" — you chose: keep your head down and walk past.|「同級生が廊下でいじめられ、みんな見て見ぬふり」——あなたの決断：うつむいて通り過ぎる。|"반 친구가 복도에서 괴롭힘을 당하는데 다들 못 본 척한다" — 당신의 선택: 고개 숙이고 지나간다.
+events|ch_d_piano_quit_keep|"After two years of piano, you say you want to quit" — you chose: stick with it a little longer.|「ピアノを習って二年、やめたいと言った」——あなたの決断：もう少し続ける。|"피아노를 배운 지 2년, 그만두고 싶다고 했다" — 당신의 선택: 조금만 더 버틴다.
+events|ch_d_piano_quit_quit|"After two years of piano, you say you want to quit" — you chose: stop right there.|「ピアノを習って二年、やめたいと言った」——あなたの決断：すっぱりやめる。|"피아노를 배운 지 2년, 그만두고 싶다고 했다" — 당신의 선택: 바로 그만둔다.
+events|ch_d_school_play_try|"The teacher is choosing a lead for the school play" — you chose: raise your hand.|「先生が学校劇の主役を選ぼうとしている」——あなたの決断：手を挙げてみる。|"선생님이 학교 연극 주인공을 뽑는다" — 당신의 선택: 손을 들어 본다.
+events|ch_d_school_play_back|"The teacher is choosing a lead for the school play" — you chose: hide in the back row.|「先生が学校劇の主役を選ぼうとしている」——あなたの決断：後ろの列に隠れる。|"선생님이 학교 연극 주인공을 뽑는다" — 당신의 선택: 뒷줄에 숨는다.
+events|ch_d_comic_or_book_comic|"Your pocket money only covers one thing" — you chose: a full comic series.|「お小遣いで買えるのは一つだけ」——あなたの決断：漫画の全巻セット。|"용돈으로 하나만 살 수 있다" — 당신의 선택: 만화 전집.
+events|ch_d_comic_or_book_book|"Your pocket money only covers one thing" — you chose: an encyclopedia.|「お小遣いで買えるのは一つだけ」——あなたの決断：百科事典。|"용돈으로 하나만 살 수 있다" — 당신의 선택: 백과사전.
+events|ch_d_cheat_test_no|"During a test, the kid next to you slides their answers over" — you chose: slide them back.|「テスト中、隣の子が答えを差し出してきた」——あなたの決断：押し返す。|"시험 중 옆자리 친구가 답을 밀어 줬다" — 당신의 선택: 도로 밀어낸다.
+events|ch_d_cheat_test_peek|"During a test, the kid next to you slides their answers over" — you chose: take a peek.|「テスト中、隣の子が答えを差し出してきた」——あなたの決断：ちらっと見る。|"시험 중 옆자리 친구가 답을 밀어 줬다" — 당신의 선택: 슬쩍 본다.
+events|ch_d_sick_day_rest|"You have a bit of a cough — stay home tomorrow?" — you chose: rest at home.|「少し咳が出る。明日は休む？」——あなたの決断：家で休む。|"기침이 좀 난다. 내일 쉴까?" — 당신의 선택: 집에서 쉰다.
+events|ch_d_sick_day_go|"You have a bit of a cough — stay home tomorrow?" — you chose: tough it out and go to school.|「少し咳が出る。明日は休む？」——あなたの決断：無理して登校する。|"기침이 좀 난다. 내일 쉴까?" — 당신의 선택: 참고 학교에 간다.
+events|ch_d_new_kid_friend|"A new kid who barely speaks the local language joins your class" — you chose: make friends with them.|「地元の言葉があまり話せない転校生が来た」——あなたの決断：自分から友だちになる。|"현지 말을 잘 못하는 전학생이 왔다" — 당신의 선택: 먼저 친구가 되어 준다.
+events|ch_d_new_kid_watch|"A new kid who barely speaks the local language joins your class" — you chose: watch for a while first.|「地元の言葉があまり話せない転校生が来た」——あなたの決断：まず様子を見る。|"현지 말을 잘 못하는 전학생이 왔다" — 당신의 선택: 일단 지켜본다.
+events|ch_d_field_trip_go|"The school trip costs quite a lot" — you chose: beg your parents to let you go.|「遠足にけっこうな費用がかかる」——あなたの決断：両親に頼み込む。|"현장 학습 비용이 꽤 든다" — 당신의 선택: 부모님께 보내 달라고 조른다.
+events|ch_d_field_trip_skip|"The school trip costs quite a lot" — you chose: say you don't want to go.|「遠足にけっこうな費用がかかる」——あなたの決断：行きたくないと言う。|"현장 학습 비용이 꽤 든다" — 당신의 선택: 가기 싫다고 말한다.
+events|ch_d_grandpa_farm_help|"Grandpa asks if you'll help in the fields this summer" — you chose: go to the fields with him.|「おじいちゃんに夏休みに畑を手伝うか聞かれた」——あなたの決断：一緒に畑へ行く。|"할아버지가 여름방학에 밭일을 도울지 물었다" — 당신의 선택: 따라서 밭에 간다.
+events|ch_d_grandpa_farm_play|"Grandpa asks if you'll help in the fields this summer" — you chose: stay home and play.|「おじいちゃんに夏休みに畑を手伝うか聞かれた」——あなたの決断：家で遊ぶ。|"할아버지가 여름방학에 밭일을 도울지 물었다" — 당신의 선택: 집에서 논다.
+events|ch_d_tv_time_hw|"The cartoon is over and your homework isn't done" — you chose: turn off the TV and do it.|「アニメが終わったのに宿題がまだ」——あなたの決断：テレビを消して宿題をする。|"만화가 끝났는데 숙제를 안 했다" — 당신의 선택: TV를 끄고 숙제한다.
+events|ch_d_tv_time_more|"The cartoon is over and your homework isn't done" — you chose: one more episode.|「アニメが終わったのに宿題がまだ」——あなたの決断：もう一話見る。|"만화가 끝났는데 숙제를 안 했다" — 당신의 선택: 한 편만 더 본다.
+events|ch_d_broken_vase_admit|"You accidentally broke Mum's favourite vase" — you chose: own up.|「お母さんのお気に入りの花瓶をうっかり割った」——あなたの決断：正直に言う。|"엄마가 가장 아끼는 꽃병을 실수로 깼다" — 당신의 선택: 솔직히 털어놓는다.
+events|ch_d_broken_vase_hide|"You accidentally broke Mum's favourite vase" — you chose: hide the pieces.|「お母さんのお気に入りの花瓶をうっかり割った」——あなたの決断：破片をこっそり隠す。|"엄마가 가장 아끼는 꽃병을 실수로 깼다" — 당신의 선택: 몰래 조각을 숨긴다.
+events|ch_d_sports_day_run|"The sports-day relay is one runner short" — you chose: sign up for the anchor leg.|「運動会のリレーが一人足りない」——あなたの決断：アンカーに名乗り出る。|"운동회 계주에 한 명이 모자란다" — 당신의 선택: 마지막 주자로 나선다.
+events|ch_d_sports_day_cheer|"The sports-day relay is one runner short" — you chose: cheer from the side.|「運動会のリレーが一人足りない」——あなたの決断：横で応援する。|"운동회 계주에 한 명이 모자란다" — 당신의 선택: 옆에서 응원한다.
+events|ch_d_secret_club_join|"The neighbour kids want you to help build a secret hideout" — you chose: join in.|「近所の子に秘密基地づくりに誘われた」——あなたの決断：仲間に入る。|"동네 아이들이 비밀 기지를 같이 짓자고 한다" — 당신의 선택: 함께한다.
+events|ch_d_secret_club_home|"The neighbour kids want you to help build a secret hideout" — you chose: too dangerous, stay away.|「近所の子に秘密基地づくりに誘われた」——あなたの決断：危ないからやめておく。|"동네 아이들이 비밀 기지를 같이 짓자고 한다" — 당신의 선택: 위험하니 안 간다.
+events|ch_d_glasses_kid_tell|"The blackboard keeps getting blurrier" — you chose: tell your parents and get glasses.|「黒板がだんだんぼやけて見える」——あなたの決断：両親に言って眼鏡を作る。|"칠판이 점점 흐릿하게 보인다" — 당신의 선택: 부모님께 말해 안경을 맞춘다.
+events|ch_d_glasses_kid_squint|"The blackboard keeps getting blurrier" — you chose: squint and put up with it.|「黒板がだんだんぼやけて見える」——あなたの決断：目を細めて我慢する。|"칠판이 점점 흐릿하게 보인다" — 당신의 선택: 눈을 찡그리며 버틴다.
+events|ch_d_sibling_toy_share|"Your younger sibling wants to play with your most treasured toy" — you chose: lend it.|「弟か妹が、いちばん大事なおもちゃで遊びたがる」——あなたの決断：貸してあげる。|"동생이 가장 아끼는 장난감을 갖고 놀고 싶어 한다" — 당신의 선택: 빌려준다.
+events|ch_d_sibling_toy_keep|"Your younger sibling wants to play with your most treasured toy" — you chose: hide it.|「弟か妹が、いちばん大事なおもちゃで遊びたがる」——あなたの決断：隠す。|"동생이 가장 아끼는 장난감을 갖고 놀고 싶어 한다" — 당신의 선택: 숨긴다.
+events|ch_d_chores_pay_help|"The family asks you to mind the stall after school" — you chose: help every day.|「放課後、家の屋台の店番を頼まれた」——あなたの決断：毎日手伝う。|"방과 후 집안 노점을 봐 달라고 한다" — 당신의 선택: 매일 돕는다.
+events|ch_d_chores_pay_study|"The family asks you to mind the stall after school" — you chose: put schoolwork first.|「放課後、家の屋台の店番を頼まれた」——あなたの決断：まず勉強を優先する。|"방과 후 집안 노점을 봐 달라고 한다" — 당신의 선택: 공부를 먼저 챙긴다.
+events|ch_d_essay_contest_enter|"Your teacher recommends you for an essay contest" — you chose: enter.|「先生に作文コンクールを勧められた」——あなたの決断：参加する。|"선생님이 글짓기 대회에 추천했다" — 당신의 선택: 참가한다.
+events|ch_d_essay_contest_pass|"Your teacher recommends you for an essay contest" — you chose: too much hassle.|「先生に作文コンクールを勧められた」——あなたの決断：面倒だからやめる。|"선생님이 글짓기 대회에 추천했다" — 당신의 선택: 너무 귀찮다.
+events|ch_d_lunch_money_tell|"Older kids took your lunch money" — you chose: tell an adult.|「上級生に昼食代を取られた」——あなたの決断：大人に話す。|"상급생이 점심값을 빼앗았다" — 당신의 선택: 어른에게 말한다.
+events|ch_d_lunch_money_quiet|"Older kids took your lunch money" — you chose: go hungry in silence.|「上級生に昼食代を取られた」——あなたの決断：黙ってお腹をすかせる。|"상급생이 점심값을 빼앗았다" — 당신의 선택: 묵묵히 굶는다.
+events|ch_d_club_choice_sport|"It's club fair day — which one will you join?" — you chose: a sports team.|「部活動の紹介日。どれに入る？」——あなたの決断：球技の部。|"동아리 박람회, 어디에 들까?" — 당신의 선택: 구기 팀.
+events|ch_d_club_choice_science|"It's club fair day — which one will you join?" — you chose: the science club.|「部活動の紹介日。どれに入る？」——あなたの決断：科学部。|"동아리 박람회, 어디에 들까?" — 당신의 선택: 과학 동아리.
+events|ch_d_club_choice_music|"It's club fair day — which one will you join?" — you chose: the rock band club.|「部活動の紹介日。どれに入る？」——あなたの決断：軽音部。|"동아리 박람회, 어디에 들까?" — 당신의 선택: 밴드 동아리.
+events|ch_d_cram_school_go|"All your classmates go to cram school" — you chose: sign up too.|「同級生はみんな塾に通っている」——あなたの決断：自分も申し込む。|"반 친구들이 모두 학원에 다닌다" — 당신의 선택: 나도 등록한다.
+events|ch_d_cram_school_self|"All your classmates go to cram school" — you chose: study on your own.|「同級生はみんな塾に通っている」——あなたの決断：独学する。|"반 친구들이 모두 학원에 다닌다" — 당신의 선택: 혼자 공부한다.
+events|ch_d_party_invite_go|"Someone invites you to a party this weekend with no adults around" — you chose: go and see.|「週末、大人のいないパーティーに誘われた」——あなたの決断：行ってみる。|"주말에 어른이 없는 파티에 초대받았다" — 당신의 선택: 가 본다.
+events|ch_d_party_invite_stay|"Someone invites you to a party this weekend with no adults around" — you chose: make an excuse.|「週末、大人のいないパーティーに誘われた」——あなたの決断：口実をつけて断る。|"주말에 어른이 없는 파티에 초대받았다" — 당신의 선택: 핑계를 대고 안 간다.
+events|ch_d_first_date_yes|"The person you like asks you to a movie this weekend" — you chose: say yes.|「好きな人に週末の映画に誘われた」——あなたの決断：オーケーする。|"좋아하는 사람이 주말에 영화 보자고 했다" — 당신의 선택: 승낙한다.
+events|ch_d_first_date_shy|"The person you like asks you to a movie this weekend" — you chose: shyly say no.|「好きな人に週末の映画に誘われた」——あなたの決断：照れて断る。|"좋아하는 사람이 주말에 영화 보자고 했다" — 당신의 선택: 수줍게 거절한다.
+events|ch_d_smoke_offer_no|"A friend offers you a cigarette" — you chose: shake your head.|「友だちにたばこを差し出された」——あなたの決断：首を振る。|"친구가 담배를 건넸다" — 당신의 선택: 고개를 젓는다.
+events|ch_d_smoke_offer_try|"A friend offers you a cigarette" — you chose: try a puff.|「友だちにたばこを差し出された」——あなたの決断：一口吸ってみる。|"친구가 담배를 건넸다" — 당신의 선택: 한 모금 피워 본다.
+events|ch_d_summer_job_work|"You could take a summer job" — you chose: work at a convenience store.|「夏休みにアルバイトができる」——あなたの決断：コンビニで働く。|"여름방학에 아르바이트를 할 수 있다" — 당신의 선택: 편의점에서 일한다.
+events|ch_d_summer_job_rest|"You could take a summer job" — you chose: enjoy the holiday.|「夏休みにアルバイトができる」——あなたの決断：しっかり休む。|"여름방학에 아르바이트를 할 수 있다" — 당신의 선택: 푹 쉰다.
+events|ch_d_stream_choice_sci|"Humanities or sciences?" — you chose: sciences.|「文系か理系か」——あなたの決断：理系。|"문과냐 이과냐" — 당신의 선택: 이과.
+events|ch_d_stream_choice_arts|"Humanities or sciences?" — you chose: humanities.|「文系か理系か」——あなたの決断：文系。|"문과냐 이과냐" — 당신의 선택: 문과.
+events|ch_d_stream_choice_art|"Humanities or sciences?" — you chose: the art class.|「文系か理系か」——あなたの決断：芸術クラス。|"문과냐 이과냐" — 당신의 선택: 예술반.
+events|ch_d_phone_night_sleep|"It's 1 a.m. and you're still scrolling" — you chose: put it down and sleep.|「深夜一時、まだスマホを見ている」——あなたの決断：置いて寝る。|"새벽 1시, 아직도 휴대폰을 보고 있다" — 당신의 선택: 내려놓고 잔다.
+events|ch_d_phone_night_scroll|"It's 1 a.m. and you're still scrolling" — you chose: scroll a bit more.|「深夜一時、まだスマホを見ている」——あなたの決断：もう少し見る。|"새벽 1시, 아직도 휴대폰을 보고 있다" — 당신의 선택: 조금만 더 본다.
+events|ch_d_exchange_go|"Your school has one spot for a year abroad on exchange" — you chose: apply.|「学校に一年間の海外交換留学の枠がある」——あなたの決断：応募する。|"학교에 1년 해외 교환학생 자리가 하나 있다" — 당신의 선택: 지원한다.
+events|ch_d_exchange_stay|"Your school has one spot for a year abroad on exchange" — you chose: stay home.|「学校に一年間の海外交換留学の枠がある」——あなたの決断：地元に残る。|"학교에 1년 해외 교환학생 자리가 하나 있다" — 당신의 선택: 고향에 남는다.
+events|ch_d_fight_parents_sorry|"A huge fight with your parents over curfew" — you chose: apologise first.|「門限のことで両親と大げんか」——あなたの決断：先に謝る。|"통금 시간 때문에 부모님과 크게 싸웠다" — 당신의 선택: 먼저 사과한다.
+events|ch_d_fight_parents_door|"A huge fight with your parents over curfew" — you chose: slam the door and go to your room.|「門限のことで両親と大げんか」——あなたの決断：ドアを叩きつけて部屋に戻る。|"통금 시간 때문에 부모님과 크게 싸웠다" — 당신의 선택: 문을 쾅 닫고 방에 들어간다.
+events|ch_d_dropout_friend_stay|"Your best friend is leaving school to work and asks you to come" — you chose: stay in school.|「親友が休学して働くと言い、一緒に来ないかと誘う」——あなたの決断：学校に残る。|"단짝이 휴학하고 일하겠다며 같이 가자고 한다" — 당신의 선택: 학교에 남는다.
+events|ch_d_dropout_friend_join|"Your best friend is leaving school to work and asks you to come" — you chose: go to work together.|「親友が休学して働くと言い、一緒に来ないかと誘う」——あなたの決断：一緒に働きに出る。|"단짝이 휴학하고 일하겠다며 같이 가자고 한다" — 당신의 선택: 함께 일하러 간다.
+events|ch_d_volunteer_teen_elder|"School requires volunteer hours" — you chose: keep elders company at a care home.|「学校でボランティア時間が必要」——あなたの決断：老人ホームでお年寄りと過ごす。|"학교에서 봉사 시간을 채워야 한다" — 당신의 선택: 양로원에서 어르신들과 함께한다.
+events|ch_d_volunteer_teen_beach|"School requires volunteer hours" — you chose: clean up the beach.|「学校でボランティア時間が必要」——あなたの決断：海岸清掃に行く。|"학교에서 봉사 시간을 채워야 한다" — 당신의 선택: 해변 청소를 한다.
+events|ch_d_band_teen_join|"Friends forming a band need a drummer" — you chose: join.|「友だちのバンドにドラマーが足りない」——あなたの決断：加わる。|"친구들이 만든 밴드에 드러머가 없다" — 당신의 선택: 합류한다.
+events|ch_d_band_teen_no|"Friends forming a band need a drummer" — you chose: focus on studying.|「友だちのバンドにドラマーが足りない」——あなたの決断：勉強に専念する。|"친구들이 만든 밴드에 드러머가 없다" — 당신의 선택: 공부에 집중한다.
+events|ch_d_driving_teen_now|"You're old enough for a motorbike or driving licence" — you chose: take the test right away.|「バイクや車の免許が取れる年になった」——あなたの決断：すぐ受ける。|"오토바이나 자동차 면허를 딸 나이가 됐다" — 당신의 선택: 바로 시험을 본다.
+events|ch_d_driving_teen_later|"You're old enough for a motorbike or driving licence" — you chose: maybe later.|「バイクや車の免許が取れる年になった」——あなたの決断：また今度。|"오토바이나 자동차 면허를 딸 나이가 됐다" — 당신의 선택: 나중에 한다.
+events|ch_d_diet_teen_sport|"You've started worrying about your body" — you chose: exercise more.|「自分の体型が気になり始めた」——あなたの決断：もっと運動する。|"몸매가 신경 쓰이기 시작했다" — 당신의 선택: 운동을 더 한다.
+events|ch_d_diet_teen_skip|"You've started worrying about your body" — you chose: skip dinner.|「自分の体型が気になり始めた」——あなたの決断：夕食を抜く。|"몸매가 신경 쓰이기 시작했다" — 당신의 선택: 저녁을 거른다.
+events|ch_d_diet_teen_ok|"You've started worrying about your body" — you chose: decide you're fine as you are.|「自分の体型が気になり始めた」——あなたの決断：今のままで十分だと思う。|"몸매가 신경 쓰이기 시작했다" — 당신의 선택: 지금도 충분히 좋다고 생각한다.
+events|ch_d_olympiad_join|"A teacher asks if you'll join olympiad training" — you chose: join.|「先生に数理オリンピックの合宿に誘われた」——あなたの決断：参加する。|"선생님이 수학·과학 경시대회 합숙에 참가할지 물었다" — 당신의 선택: 참가한다.
