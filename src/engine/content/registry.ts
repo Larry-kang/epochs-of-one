@@ -4,6 +4,8 @@
 // Repetition control: every event has a cooldown (years) stored in flags `cd:<id>` (0 = once per life).
 import occEvents from '../../content/occ-events.json' with { type: 'json' };
 import { occById } from '../life/occupation.ts';
+import { CS_EVENT_IDS } from '../life/conscription.ts';
+import { INST_EVENT_IDS } from '../life/institutions.ts';
 import type { EventCtx, EventOut, EventSystem } from '../life/events.ts';
 import { stream } from '../rng/streams.ts';
 import { PARAMS } from '../params.ts';
@@ -169,7 +171,7 @@ export const contentEvents: EventSystem = {
 /** C0 occupation-specific events (src/content/occ-events.json; text in table.json events `oc_<occupation>`) */
 const OCC_EV = new Map((occEvents as unknown as { occ: string; fx: Record<string, number> }[]).map((e) => [e.occ, e]));
 export const OCC_EVENT_IDS = [...OCC_EV.keys()].map((k) => 'oc_' + k);
-export const ENGINE_EVENT_IDS = [...OCC_EVENT_IDS, 'oc_enter', 'oc_switch', 'oc_map', 'oc_biz_start', 'oc_biz_fail', 'oc_biz_exit', 'oc_rare', 'oc_illicit_refuse', 'oc_illicit_join', 'oc_illicit_leave', 'oc_arrest', 'oc_release', 'oc_back','marginCall', 'forcedSale', 'levClosed', 'retire', 'mortgagePaid', 'paymentMissed', 'foreclosure', 'loanPaid', 'loanDefault', 'loanRateUp',
+export const ENGINE_EVENT_IDS = [...OCC_EVENT_IDS, ...CS_EVENT_IDS, ...INST_EVENT_IDS, 'oc_enter', 'oc_switch', 'oc_map', 'oc_biz_start', 'oc_biz_fail', 'oc_biz_exit', 'oc_rare', 'oc_illicit_refuse', 'oc_illicit_join', 'oc_illicit_leave', 'oc_arrest', 'oc_release', 'oc_back','marginCall', 'forcedSale', 'levClosed', 'retire', 'mortgagePaid', 'paymentMissed', 'foreclosure', 'loanPaid', 'loanDefault', 'loanRateUp',
   'study_start', 'graduated', 'part_time',
   // batch 2 P14 auto-routines (spend.ts ROUTINES)
   'rt_giftParents', 'rt_tripHome', 'rt_donateSmall', 'rt_gym', 'rt_checkup', 'rt_allowance', 'rt_dining', 'rt_onlineCourse',

@@ -5111,6 +5111,62 @@ null
 null,
 null,
 null
+],
+"f_service": [
+"兵役",
+"Service",
+"兵役",
+"병역",
+null
+],
+"csServing": [
+"服義務役中（役期 {months} 個月）",
+"In compulsory service ({months} months)",
+null,
+"복무 중 ({months}개월)",
+null
+],
+"csAltServing": [
+"服替代役中（役期 {months} 個月）",
+"In alternative service ({months} months)",
+null,
+"대체복무 중 ({months}개월)",
+null
+],
+"csEstNote": [
+"役期依法規（引用條文）；抽籤或徵召比例、軍種組合與薪餉是設計推估。",
+"The term follows the law (cited); call-up shares, branch mix and pay are design estimates.",
+"期間は法令による。招集割合・給与は推估。",
+"복무 기간은 법령에 따름. 징집 비율·급여는 추정.",
+null
+],
+"f_inst": [
+"制度",
+"Schemes",
+"制度",
+"제도",
+null
+],
+"jpReg": [
+"正職",
+"Regular staff",
+"正社員",
+null,
+null
+],
+"jpNonReg": [
+"非正職",
+"Non-regular",
+"非正規",
+null,
+null
+],
+"aboutL2": [
+"兵役與各國制度（v0.11.0）：台灣、韓國、美國等國的役期、學制、考試、健保與年金的開辦年份是法律事實，依各國法規整理（台灣兵役法、韓國병역법、美國 Military Selective Service Act 等，見 docs），文字為本遊戲自行撰寫。抽籤或徵召比例、服役薪餉、考試錄取機率、美國失業時失去健保的花費、日本非正職比例、韓國名譽退職機率都是設計推估（推估）。",
+"Conscription and country institutions (v0.11.0): service terms and the start years of school systems, exams, health insurance and pensions for Taiwan, Korea, the US, Japan and others are legal facts compiled from each country's statutes (Taiwan's Military Service Act, Korea's Military Service Act, the US Military Selective Service Act and others; see docs), in our own words. Call-up shares, conscript pay, exam odds, the cost of losing US job-based health cover, Japan's non-regular share and Korea's early-retirement odds are design estimates (推估).",
+"兵役・制度（v0.11.0）：各国の法令に基づく事実（期間・開始年）。招集割合・給与・試験の確率などは推估。",
+"병역·제도 (v0.11.0): 각국 법령에 따른 사실(기간·시행 연도). 징집 비율·급여·시험 확률 등은 추정.",
+null
 ]
 },
 "events": {
@@ -10047,6 +10103,195 @@ null
 "Back to work: {occ}.",
 null,
 null,
+null
+],
+"cs_start_TWN": [
+"入伍服義務役，役期 {months} 個月。",
+"You report for compulsory military service: {months} months.",
+null,
+null,
+null
+],
+"cs_end_TWN": [
+"義務役退伍，回到平常的生活。",
+"You finish your compulsory service and return to civilian life.",
+null,
+null,
+null
+],
+"cs_alt_TWN": [
+"改服替代役，在公家單位服勤 {months} 個月。",
+"You serve alternative civilian service (替代役) for {months} months.",
+null,
+null,
+null
+],
+"cs_start_KOR": [
+"入伍服兵役，役期 {months} 個月。",
+"You enlist for mandatory military service: {months} months.",
+null,
+"입대합니다. 복무 기간은 {months}개월입니다.",
+null
+],
+"cs_end_KOR": [
+"退伍，回到平常的生活。",
+"You are discharged and return to civilian life.",
+null,
+"전역했습니다. 다시 사회로 돌아갑니다.",
+null
+],
+"cs_alt_KOR": [
+"改服社會服務役，服勤 {months} 個月。",
+"You serve as a social-service agent for {months} months.",
+null,
+"사회복무요원으로 {months}개월 동안 복무합니다.",
+null
+],
+"cs_start_USA": [
+"你被徵召入伍，服役 {months} 個月。",
+"Your draft notice arrives: {months} months of service.",
+null,
+null,
+null
+],
+"cs_end_USA": [
+"服役期滿退伍，回到平民生活。",
+"Your service ends and you return to civilian life.",
+null,
+null,
+null
+],
+"cs_start_gen": [
+"依法服兵役 {months} 個月。",
+"You serve {months} months of compulsory military service.",
+null,
+null,
+null
+],
+"cs_end_gen": [
+"兵役結束。",
+"Your military service ends.",
+null,
+null,
+null
+],
+"cs_alt_gen": [
+"改服民間替代役 {months} 個月。",
+"You serve {months} months of civilian alternative service.",
+null,
+null,
+null
+],
+"cs_exempt_athlete": [
+"你在國際大賽拿下佳績，依法改為體育專長服務，不必入伍。",
+"A top international result earns you the athletes' service exemption: no enlistment.",
+null,
+"국제대회 성적으로 체육요원 특례를 받아 입대하지 않습니다.",
+null
+],
+"in_hsexam": [
+"參加{inst}。",
+"You sit the {inst}.",
+"{inst}を受ける。",
+"{inst}을(를) 치릅니다.",
+null
+],
+"in_uniexam": [
+"參加{inst}，考上大學。",
+"You take the {inst} and get into university.",
+"{inst}を受けて大学に合格する。",
+"{inst}을(를) 보고 대학에 합격합니다.",
+null
+],
+"in_uniexam_retake_TWN": [
+"{inst}沒考好，重考一年後才上大學。",
+"The {inst} goes badly; you resit a year later and get in.",
+null,
+null,
+null
+],
+"in_uniexam_retake_JPN": [
+"{inst}沒能考上第一志願，當了一年重考生（浪人）後才考上。",
+"You miss your first choice in the {inst}, study another year as a rōnin and get in.",
+"{inst}で第一志望に届かず、浪人して翌年合格する。",
+null,
+null
+],
+"in_uniexam_retake_KOR": [
+"{inst}成績不理想，重考一年後才上大學。",
+"Your {inst} score disappoints; after a retake year you get in.",
+null,
+"{inst} 결과가 아쉬워 재수 끝에 대학에 들어갑니다.",
+null
+],
+"in_uniexam_retake_gen": [
+"{inst}沒考好，隔年再試才上大學。",
+"The {inst} goes badly; you try again the next year and get in.",
+null,
+null,
+null
+],
+"in_civilexam": [
+"考了 {n} 次{inst}，終於上榜。",
+"After {n} attempt(s) at the {inst}, you pass.",
+"{inst}に{n}回目で合格する。",
+"{inst}에 {n}번째 도전 끝에 합격합니다.",
+null
+],
+"in_health_start": [
+"新制度上路：{inst}。看病的花費從此不一樣了。",
+"A new scheme starts: {inst}. Paying for care changes from now on.",
+"新しい制度が始まる：{inst}。",
+"새 제도가 시작됩니다: {inst}.",
+null
+],
+"in_pension_start": [
+"新制度上路：{inst}。",
+"A new pension scheme starts: {inst}.",
+"新しい年金制度：{inst}。",
+"새 연금 제도: {inst}.",
+null
+],
+"in_us_uninsured": [
+"失業也失去了公司的健康保險，自付醫療與保費 {amount}。",
+"Losing the job also means losing employer health cover: {amount} in premiums and bills.",
+null,
+null,
+null
+],
+"in_us_medicare": [
+"滿 65 歲，開始享有 Medicare。",
+"At 65 you are covered by Medicare.",
+null,
+null,
+null
+],
+"in_jp_nonreg": [
+"只找到非正職（約聘、派遣）的工作。",
+"You can only find non-regular work (contract or agency).",
+"非正規雇用（契約・派遣）の仕事に就く。",
+null,
+null
+],
+"in_jp_regular": [
+"以正職員工身分進入公司。",
+"You join a company as regular staff (正社員).",
+"正社員として入社する。",
+null,
+null
+],
+"in_jp_to_regular": [
+"從約聘轉為正職員工。",
+"You are converted from contract to regular staff.",
+"契約社員から正社員に登用される。",
+null,
+null
+],
+"in_kr_early_exit": [
+"公司勸退（名譽退職），領了 {amount} 資遣費，開了一家小店。",
+"Your company offers honourable early retirement: {amount} in severance, and you open a small shop.",
+null,
+"명예퇴직으로 퇴직금 {amount}을(를) 받고 작은 가게를 엽니다.",
 null
 ]
 },

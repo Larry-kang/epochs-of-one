@@ -5,6 +5,7 @@
 // weight, never a gate) and stats — never ethnicity, caste, religion or name region.
 import table from '../../content/occupations.json' with { type: 'json' };
 import iloOcc from '../../../public/data/l1/ilostat-occ.json' with { type: 'json' };
+import l3local from '../../content/l3-local.json' with { type: 'json' };
 import type { Edu } from '../economy/household.ts';
 import type { Sex } from '../data/types.ts';
 
@@ -179,11 +180,26 @@ export const RARE_PATHS: { to: string; from: string[]; p: number; social?: numbe
   { to: 'minister', from: ['legislator'], p: 0.005 },
   { to: 'astronaut', from: ['pilot', 'military_officer', 'professor'], p: 2e-5, space: true },
 ];
-/** occupation name in the UI language (ja/ko/vi fall back to English until L1) */
-export const occName = (id: string | undefined, lang: string) => { const o = occById(id); return !o ? '' : lang === 'zh-TW' ? o.zh : o.en; };
+/** occupation name in the UI language. L3: ja/ko names for every occupation (vi falls back to English); when the country
+ *  is given, TW/US/JP/KR use their local equivalent (e.g. 高普考 civil servant, Member of Congress, 正社員 manager, 9급 공무원). */
+type LocalName = { zh: string; en: string; ja?: string; ko?: string };
+const L3N = l3local as unknown as { names: Record<string, { ja: string; ko: string }>; local: Record<string, Record<string, LocalName>> };
+export const occName = (id: string | undefined, lang: string, iso?: string) => {
+  const o = occById(id); if (!o) return '';
+  const loc = iso ? L3N.local[iso]?.[o.id] : undefined; const nm = L3N.names[o.id];
+  if (lang === 'zh-TW') return loc?.zh ?? o.zh;
+  if (lang === 'ja') return loc?.ja ?? nm?.ja ?? loc?.en ?? o.en;
+  if (lang === 'ko') return loc?.ko ?? nm?.ko ?? loc?.en ?? o.en;
+  return loc?.en ?? o.en;
+};
 
 /** C0 save migration: a pre-v0.9.0 save (no occ flag) continues in the occupation system from the age it resumes at,
  *  so the replayed years stay byte-identical and only the future uses occupations */
 export function migrateSaveCfg<C extends { occ?: boolean; occFrom?: number }>(cfg: C, years: number): C {
   return cfg.occ || cfg.occFrom !== undefined ? cfg : { ...cfg, occFrom: years };
+}
+/** L2/L3 save migration: a pre-v0.11.0 save (no l2 marker) gets conscription and the institution hooks only from the age it
+ *  resumes at, so its replayed years stay byte-identical */
+export function migrateSaveCfgL2<C extends { l2?: boolean; l2From?: number }>(cfg: C, years: number): C {
+  return cfg.l2 || cfg.l2From !== undefined ? cfg : { ...cfg, l2From: years };
 }

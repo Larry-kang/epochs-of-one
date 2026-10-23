@@ -123,6 +123,65 @@
     ],
     "caveat": "Third-party-derived measures are dropped by pipeline/l1.mjs (PAG_DROP); OECD adaptation disclaimer shipped in the file."
    }
+  },
+  {
+   "id": "law-facts",
+   "name": "Other national statutes (conscription terms DE/GB/FR/BR/MX/CN and T2 countries) — facts with citations; call-up shares and pay are 推估",
+   "url": "https://en.wikipedia.org/wiki/Conscription",
+   "retrieved": "2026-10-17",
+   "license": {
+    "id": "L-facts",
+    "class": "open",
+    "url": "https://en.wikipedia.org/wiki/Conscription",
+    "caveat": "Statutory terms only; every non-statutory parameter is flagged est (推估). Re-verify against each official gazette in L4–L6."
+   }
+  },
+  {
+   "id": "law-jp",
+   "name": "Japan statutes (自衛隊法, 国民健康保険法, 国民年金法, 国家公務員法) — parameters encoded as facts with citations; no text copied",
+   "url": "https://laws.e-gov.go.jp/",
+   "retrieved": "2026-10-17",
+   "license": {
+    "id": "L-facts",
+    "class": "open",
+    "url": "https://laws.e-gov.go.jp/"
+   }
+  },
+  {
+   "id": "law-kr",
+   "name": "Korea statutes and MND notices (병역법, 국민건강보험법, 국민연금법) — parameters encoded as facts with citations; no text copied",
+   "url": "https://www.law.go.kr/",
+   "retrieved": "2026-10-17",
+   "license": {
+    "id": "L-facts",
+    "class": "open",
+    "url": "https://www.law.go.kr/",
+    "caveat": "Facts only. Any Korean public DATASET would additionally need KOGL Type 1 (kr-kogl1)."
+   }
+  },
+  {
+   "id": "law-tw",
+   "name": "Taiwan statutes and official notices (兵役法, 兵役法施行法, 全民健康保險法, 勞工退休金條例, 考試法規) — parameters encoded as facts with citations; no text copied",
+   "url": "https://law.moj.gov.tw/",
+   "retrieved": "2026-10-17",
+   "license": {
+    "id": "L-facts",
+    "class": "open",
+    "url": "https://law.moj.gov.tw/",
+    "caveat": "Facts (terms, ages, start years) are not copyrightable; we cite the statute and encode parameters only."
+   }
+  },
+  {
+   "id": "law-us",
+   "name": "US federal statutes and agency records (Military Selective Service Act; Social Security Act; ACA; SSS history) — US federal works, facts encoded with citations",
+   "url": "https://uscode.house.gov/",
+   "retrieved": "2026-10-17",
+   "license": {
+    "id": "L-facts",
+    "class": "open",
+    "url": "https://uscode.house.gov/",
+    "caveat": "US federal works are public domain (17 U.S.C. §105); facts encoded, not text."
+   }
   }
  ],
  "files": [
@@ -4322,6 +4381,54 @@
    "schema": "l1-uis.schema.json",
    "transform": "pipeline/l1.mjs: UIS GER.5T8 gross tertiary enrolment ratio, % → proportion; one observation per decade anchor (±5 y). Share-alike: this file only, CC BY-SA 4.0",
    "rows": 206
+  },
+  {
+   "path": "l2/conscription.json",
+   "sha256": "10184ab8323790ae55036b204fd13bbbfc170f6651d4720b89be0b270e12f126",
+   "src": [
+    "law-facts",
+    "law-jp",
+    "law-kr",
+    "law-tw",
+    "law-us"
+   ],
+   "license": [
+    "L-facts"
+   ],
+   "retrieved": "2026-10-17",
+   "url": [
+    "https://en.wikipedia.org/wiki/Conscription",
+    "https://laws.e-gov.go.jp/",
+    "https://www.law.go.kr/",
+    "https://law.moj.gov.tw/",
+    "https://uscode.house.gov/"
+   ],
+   "schema": "l2-conscription.schema.json",
+   "transform": "pipeline/l2.mjs: statutory conscription terms (months) by first service year and birth cohort, compiled by hand from the cited statutes/notices; call-up shares under lotteries, branch mix and conscript pay (share of mean wage) are design estimates flagged est (推估)",
+   "rows": 23
+  },
+  {
+   "path": "l2/institutions.json",
+   "sha256": "1f03b3ddcb429010c57686d9c492b7772c8f523f4c1abc0fb6a19080cbce0823",
+   "src": [
+    "law-jp",
+    "law-kr",
+    "law-tw",
+    "law-us"
+   ],
+   "license": [
+    "L-facts"
+   ],
+   "retrieved": "2026-10-17",
+   "url": [
+    "https://laws.e-gov.go.jp/",
+    "https://www.law.go.kr/",
+    "https://law.moj.gov.tw/",
+    "https://uscode.house.gov/"
+   ],
+   "schema": "l2-institutions.schema.json",
+   "transform": "pipeline/l2.mjs: T1 wave-A institutions (school system, exams, health insurance, pensions, labour features) by start year, compiled by hand from the cited statutes; names are our own wording",
+   "rows": 4
   }
  ]
 }

@@ -1,0 +1,770 @@
+{
+ "regimes": {
+  "TWN": {
+   "tier": 1,
+   "age": 19,
+   "maxAge": 30,
+   "pay": [
+    [
+     1951,
+     0.15
+    ],
+    [
+     2024,
+     0.45
+    ]
+   ],
+   "alt": {
+    "from": 2000,
+    "p": 0.12
+   },
+   "src": [
+    "law-tw"
+   ],
+   "note": "兵役法: army 2 y / navy-air-marines 3 y 1951–1989 (27 m = expected value under a 推估 branch mix); 2 y all branches from 1990-07; 1 y 10 m 2000-01; 1 y 8 m 2004-01; 1 y 6 m 2005-07; 1 y 4 m 2006-01; 1 y 2 m 2007-07; 1 y 2008-01; cohorts born 1994-01-01+ 4-month military training (enlistments from 2013); cohorts born 2005-01-01+ 1 y from 2024-01-01",
+   "terms": [
+    {
+     "from": 1951,
+     "months": 27,
+     "p": 1,
+     "est": true
+    },
+    {
+     "from": 1990,
+     "months": 24,
+     "p": 1
+    },
+    {
+     "from": 2000,
+     "months": 22,
+     "p": 1
+    },
+    {
+     "from": 2004,
+     "months": 20,
+     "p": 1
+    },
+    {
+     "from": 2005,
+     "months": 18,
+     "p": 1,
+     "est": true
+    },
+    {
+     "from": 2006,
+     "months": 16,
+     "p": 1
+    },
+    {
+     "from": 2007,
+     "months": 14,
+     "p": 1,
+     "est": true
+    },
+    {
+     "from": 2008,
+     "months": 12,
+     "p": 1,
+     "bornTo": 1993
+    },
+    {
+     "from": 2013,
+     "months": 4,
+     "p": 1,
+     "bornFrom": 1994,
+     "bornTo": 2004
+    },
+    {
+     "from": 2024,
+     "months": 12,
+     "p": 1,
+     "bornFrom": 2005
+    }
+   ]
+  },
+  "KOR": {
+   "tier": 1,
+   "age": 20,
+   "maxAge": 28,
+   "athleteExempt": 0.08,
+   "pay": [
+    [
+     1950,
+     0.05
+    ],
+    [
+     2017,
+     0.15
+    ],
+    [
+     2024,
+     0.4
+    ]
+   ],
+   "alt": {
+    "from": 1995,
+    "p": 0.1
+   },
+   "src": [
+    "law-kr"
+   ],
+   "note": "병역법 adjustment history (army/marines): 36 m 1955, 33 m 1959, 30 m 1962, 36 m 1968, 33 m 1977, 30 m 1980 (some sources: 1984), 26 m 1993, 24 m 2003, 21 m 2011, stepwise 2018-10 → 18 m for enlistments from 2020-06-15",
+   "terms": [
+    {
+     "from": 1950,
+     "months": 36,
+     "p": 1,
+     "est": true
+    },
+    {
+     "from": 1959,
+     "months": 33,
+     "p": 1
+    },
+    {
+     "from": 1962,
+     "months": 30,
+     "p": 1
+    },
+    {
+     "from": 1968,
+     "months": 36,
+     "p": 1
+    },
+    {
+     "from": 1977,
+     "months": 33,
+     "p": 1
+    },
+    {
+     "from": 1980,
+     "months": 30,
+     "p": 1,
+     "est": true
+    },
+    {
+     "from": 1993,
+     "months": 26,
+     "p": 1
+    },
+    {
+     "from": 2003,
+     "months": 24,
+     "p": 1
+    },
+    {
+     "from": 2011,
+     "months": 21,
+     "p": 1
+    },
+    {
+     "from": 2019,
+     "months": 19,
+     "p": 1,
+     "est": true
+    },
+    {
+     "from": 2020,
+     "months": 18,
+     "p": 1
+    }
+   ]
+  },
+  "USA": {
+   "tier": 1,
+   "age": 20,
+   "maxAge": 25,
+   "pay": [
+    [
+     1948,
+     0.3
+    ]
+   ],
+   "src": [
+    "law-us"
+   ],
+   "note": "Selective Service Act 1948; Universal Military Training and Service Act 1951 (24-month induction term); inductions ended January 1973, authority expired 1 July 1973; all-volunteer force since (registration = flavour). Induction shares per year are 推估, shaped on SSS induction statistics",
+   "terms": [
+    {
+     "from": 1948,
+     "months": 21,
+     "p": 0.03,
+     "est": true
+    },
+    {
+     "from": 1950,
+     "months": 24,
+     "p": 0.3,
+     "est": true
+    },
+    {
+     "from": 1954,
+     "months": 24,
+     "p": 0.15,
+     "est": true
+    },
+    {
+     "from": 1964,
+     "months": 24,
+     "p": 0.05,
+     "est": true
+    },
+    {
+     "from": 1965,
+     "months": 24,
+     "p": 0.12,
+     "est": true
+    },
+    {
+     "from": 1970,
+     "months": 24,
+     "p": 0.06,
+     "est": true
+    },
+    {
+     "from": 1973,
+     "months": 0,
+     "p": 0
+    }
+   ]
+  },
+  "JPN": {
+   "tier": 1,
+   "age": 20,
+   "maxAge": 20,
+   "pay": [
+    [
+     1945,
+     0
+    ]
+   ],
+   "src": [
+    "law-jp"
+   ],
+   "note": "No conscription after 1945; the Self-Defense Forces (1954) are all-volunteer",
+   "terms": [
+    {
+     "from": 1945,
+     "months": 0,
+     "p": 0
+    }
+   ]
+  },
+  "DEU": {
+   "tier": 1,
+   "age": 19,
+   "maxAge": 25,
+   "pay": [
+    [
+     1957,
+     0.2
+    ]
+   ],
+   "alt": {
+    "from": 1961,
+    "to": 2011,
+    "p": 0.35
+   },
+   "src": [
+    "law-facts"
+   ],
+   "note": "Wehrpflichtgesetz: 12 m 1957, 18 m 1962, 15 m 1973, 12 m 1990, 10 m 1996, 9 m 2002, 6 m 2010, suspended 2011; call-up shares 推估",
+   "terms": [
+    {
+     "from": 1957,
+     "months": 12,
+     "p": 0.6,
+     "est": true
+    },
+    {
+     "from": 1962,
+     "months": 18,
+     "p": 0.6,
+     "est": true
+    },
+    {
+     "from": 1973,
+     "months": 15,
+     "p": 0.6,
+     "est": true
+    },
+    {
+     "from": 1990,
+     "months": 12,
+     "p": 0.55,
+     "est": true
+    },
+    {
+     "from": 1996,
+     "months": 10,
+     "p": 0.5,
+     "est": true
+    },
+    {
+     "from": 2002,
+     "months": 9,
+     "p": 0.4,
+     "est": true
+    },
+    {
+     "from": 2010,
+     "months": 6,
+     "p": 0.3,
+     "est": true
+    },
+    {
+     "from": 2011,
+     "months": 0,
+     "p": 0
+    }
+   ]
+  },
+  "GBR": {
+   "tier": 1,
+   "age": 18,
+   "maxAge": 21,
+   "pay": [
+    [
+     1949,
+     0.2
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "National Service Act 1948: 18 m from 1949, 2 y from 1950; men born on/after 1 Oct 1939 not called up",
+   "terms": [
+    {
+     "from": 1949,
+     "months": 18,
+     "p": 0.85,
+     "est": true
+    },
+    {
+     "from": 1950,
+     "months": 24,
+     "p": 0.85,
+     "est": true
+    },
+    {
+     "from": 1958,
+     "months": 0,
+     "p": 0,
+     "bornFrom": 1940
+    }
+   ]
+  },
+  "FRA": {
+   "tier": 1,
+   "age": 19,
+   "maxAge": 25,
+   "pay": [
+    [
+     1946,
+     0.1
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "Service national: 12 m from 1970, 10 m from 1992; suspended for men born after 1978 (law of 1997)",
+   "terms": [
+    {
+     "from": 1946,
+     "months": 18,
+     "p": 0.75,
+     "est": true
+    },
+    {
+     "from": 1970,
+     "months": 12,
+     "p": 0.75,
+     "est": true
+    },
+    {
+     "from": 1992,
+     "months": 10,
+     "p": 0.6,
+     "est": true
+    },
+    {
+     "from": 1997,
+     "months": 0,
+     "p": 0,
+     "bornFrom": 1979
+    }
+   ]
+  },
+  "BRA": {
+   "tier": 1,
+   "age": 18,
+   "maxAge": 18,
+   "pay": [
+    [
+     1946,
+     0.3
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "Formally compulsory; few are actually called (share 推估)",
+   "terms": [
+    {
+     "from": 1946,
+     "months": 12,
+     "p": 0.05,
+     "est": true
+    }
+   ]
+  },
+  "MEX": {
+   "tier": 1,
+   "age": 18,
+   "maxAge": 18,
+   "pay": [
+    [
+     1942,
+     0.9
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "Servicio Militar Nacional: weekend service, no income effect (flavour)",
+   "terms": [
+    {
+     "from": 1942,
+     "months": 0,
+     "p": 0
+    }
+   ]
+  },
+  "CHN": {
+   "tier": 1,
+   "age": 18,
+   "maxAge": 18,
+   "pay": [
+    [
+     1949,
+     0
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "Legally compulsory, filled by volunteers in practice → voluntary military_nco entry",
+   "terms": [
+    {
+     "from": 1949,
+     "months": 0,
+     "p": 0
+    }
+   ]
+  },
+  "ISR": {
+   "tier": 2,
+   "age": 18,
+   "maxAge": 18,
+   "pay": [
+    [
+     1949,
+     0.1
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "T2: current-law term applied from the year shown; call-up share and pay 推估; earlier years not modelled",
+   "terms": [
+    {
+     "from": 1949,
+     "months": 32,
+     "p": 0.7,
+     "est": true,
+     "monthsF": 24
+    }
+   ]
+  },
+  "SGP": {
+   "tier": 2,
+   "age": 18,
+   "maxAge": 18,
+   "pay": [
+    [
+     1967,
+     0.2
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "T2: current-law term applied from the year shown; call-up share and pay 推估; earlier years not modelled",
+   "terms": [
+    {
+     "from": 1967,
+     "months": 24,
+     "p": 1,
+     "est": true
+    }
+   ]
+  },
+  "GRC": {
+   "tier": 2,
+   "age": 19,
+   "maxAge": 25,
+   "pay": [
+    [
+     2010,
+     0.05
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "T2: current-law term applied from the year shown; call-up share and pay 推估; earlier years not modelled",
+   "terms": [
+    {
+     "from": 2010,
+     "months": 12,
+     "p": 0.9,
+     "est": true
+    }
+   ]
+  },
+  "CYP": {
+   "tier": 2,
+   "age": 18,
+   "maxAge": 18,
+   "pay": [
+    [
+     2016,
+     0.1
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "T2: current-law term applied from the year shown; call-up share and pay 推估; earlier years not modelled",
+   "terms": [
+    {
+     "from": 2016,
+     "months": 14,
+     "p": 1,
+     "est": true
+    }
+   ]
+  },
+  "AUT": {
+   "tier": 2,
+   "age": 18,
+   "maxAge": 25,
+   "pay": [
+    [
+     2006,
+     0.1
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "T2: current-law term applied from the year shown; call-up share and pay 推估; earlier years not modelled",
+   "terms": [
+    {
+     "from": 2006,
+     "months": 6,
+     "p": 0.9,
+     "est": true
+    }
+   ],
+   "alt": {
+    "from": 1975,
+    "p": 0.45
+   }
+  },
+  "FIN": {
+   "tier": 2,
+   "age": 19,
+   "maxAge": 25,
+   "pay": [
+    [
+     2008,
+     0.05
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "T2: current-law term applied from the year shown; call-up share and pay 推估; earlier years not modelled",
+   "terms": [
+    {
+     "from": 2008,
+     "months": 6,
+     "p": 0.75,
+     "est": true
+    }
+   ]
+  },
+  "CHE": {
+   "tier": 2,
+   "age": 19,
+   "maxAge": 25,
+   "pay": [
+    [
+     2004,
+     0.3
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "T2: current-law term applied from the year shown; call-up share and pay 推估; earlier years not modelled",
+   "terms": [
+    {
+     "from": 2004,
+     "months": 5,
+     "p": 0.65,
+     "est": true
+    }
+   ]
+  },
+  "TUR": {
+   "tier": 2,
+   "age": 20,
+   "maxAge": 25,
+   "pay": [
+    [
+     2019,
+     0.05
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "T2: current-law term applied from the year shown; call-up share and pay 推估; earlier years not modelled",
+   "terms": [
+    {
+     "from": 2019,
+     "months": 6,
+     "p": 0.9,
+     "est": true
+    }
+   ]
+  },
+  "RUS": {
+   "tier": 2,
+   "age": 18,
+   "maxAge": 27,
+   "pay": [
+    [
+     2008,
+     0.05
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "T2: current-law term applied from the year shown; call-up share and pay 推估; earlier years not modelled",
+   "terms": [
+    {
+     "from": 2008,
+     "months": 12,
+     "p": 0.3,
+     "est": true
+    }
+   ]
+  },
+  "VNM": {
+   "tier": 2,
+   "age": 18,
+   "maxAge": 25,
+   "pay": [
+    [
+     2015,
+     0.05
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "T2: current-law term applied from the year shown; call-up share and pay 推估; earlier years not modelled",
+   "terms": [
+    {
+     "from": 2015,
+     "months": 24,
+     "p": 0.15,
+     "est": true
+    }
+   ]
+  },
+  "THA": {
+   "tier": 2,
+   "age": 21,
+   "maxAge": 21,
+   "pay": [
+    [
+     1954,
+     0.2
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "T2: current-law term applied from the year shown; call-up share and pay 推估; earlier years not modelled",
+   "terms": [
+    {
+     "from": 1954,
+     "months": 24,
+     "p": 0.1,
+     "est": true
+    }
+   ]
+  },
+  "EGY": {
+   "tier": 2,
+   "age": 19,
+   "maxAge": 30,
+   "pay": [
+    [
+     1980,
+     0.05
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "T2: current-law term applied from the year shown; call-up share and pay 推估; earlier years not modelled",
+   "terms": [
+    {
+     "from": 1980,
+     "months": 24,
+     "p": 0.4,
+     "est": true
+    }
+   ]
+  },
+  "IRN": {
+   "tier": 2,
+   "age": 18,
+   "maxAge": 25,
+   "pay": [
+    [
+     1990,
+     0.05
+    ]
+   ],
+   "src": [
+    "law-facts"
+   ],
+   "note": "T2: current-law term applied from the year shown; call-up share and pay 推估; earlier years not modelled",
+   "terms": [
+    {
+     "from": 1990,
+     "months": 21,
+     "p": 0.8,
+     "est": true
+    }
+   ]
+  }
+ }
+}

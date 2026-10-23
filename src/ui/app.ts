@@ -7,7 +7,8 @@ import { wppAt } from '../engine/life/fertility.ts';
 import { t, tMaybe, compact, locale, LANGS, LANG_NAMES, getLang, setLang, type Lang, eventText, esc, contentLangAttr, countryName, money, pctText } from './i18n.ts';
 import { lineChart } from './charts.ts';
 import { drawBirth, newLife, advanceYear, applyAction, decisionQuote, tableFor, pendingOffers, MORTGAGE_TERMS, type LifeConfig } from '../engine/life/sim.ts';
-import { migrateSaveCfg, occById, occName, iloCell } from '../engine/life/occupation.ts';
+import { migrateSaveCfg, migrateSaveCfgL2, occById, occName, iloCell } from '../engine/life/occupation.ts';
+import { instName, instAt, labourNote, INST } from '../engine/life/institutions.ts';
 import { ending } from '../engine/life/ending.ts';
 import { seriesAt } from '../engine/data/types.ts';
 import { defaultPick, minorById, type ChoiceOffer } from '../engine/life/choices.ts';
@@ -195,7 +196,7 @@ function submitHome(): void {
   const era = resolveEra(home.era, home.year, crypto.getRandomValues(new Uint32Array(1))[0]! / 2 ** 32);
   const iso = String(fd.get('country') ?? '');
   const constraints = iso ? { country: { kind: 'fixed' as const, value: iso }, sex: { kind: 'random' as const }, quintile: { kind: 'random' as const }, urban: { kind: 'random' as const } } : undefined;
-  void birth({ seed, era, nowYear: NOW_YEAR, engineVersion: ENGINE_VERSION, occ: true, ...(constraints ? { constraints } : {}) }, home.pace, true);
+  void birth({ seed, era, nowYear: NOW_YEAR, engineVersion: ENGINE_VERSION, occ: true, l2: true, ...(constraints ? { constraints } : {}) }, home.pace, true);
 }
 
 function about(): void {
@@ -207,6 +208,7 @@ function about(): void {
 <p id="markets-sources-2">${esc(t('aboutMarkets2'))}</p>
 <p id="m5-sources">${esc(t('aboutM5'))}</p>
 <p id="l1-sources">${esc(t('aboutL1'))}</p>
+<p id="l2-sources">${esc(t('aboutL2'))}</p>
 ${BTC_FUTURE_DAMPENED ? `<p id="btc-future-about">${esc(t('aboutBtcFuture'))}</p>` : ''}
 <p>${esc(t('aboutOffline'))}</p>
 <p class="muted">${esc(t('money'))} ${esc(t('estNote'))}</p>
@@ -465,7 +467,7 @@ function statusText(s: LifeState): string {
 }
 const skinOf = (s: LifeState) => { const reg = s.family.region; return /africa|ssa/i.test(reg) ? 4 : /south|mena|latam/i.test(reg) ? 2 : /east|se/i.test(reg) ? 1 : 0; };
 /** C0: occupation display name in the UI language (zh-TW table name for zh, English otherwise) */
-const occN = (id: string | undefined) => occName(id, getLang() === 'zh-TW' ? 'zh-TW' : 'en');
+const occN = (id: string | undefined) => occName(id, getLang(), run?.s.born.iso);
 const OUTFIT: Record<string, number> = { public: 0, professional: 1, startup: 2, agri: 3, trades: 3, services: 1, special: 1 };
 const outfitOf = (s: LifeState) => { const o = s.career.occ ? occById(s.career.occ) : undefined; return o ? OUTFIT[o.group] ?? 3 : s.career.trackSet ? ['stable', 'private', 'startup', 'informal'].indexOf(s.career.track) : 4; };
 /** ID-card occupation cell: name · rung, plus the 推估 chip whose tooltip names the provenance */
@@ -473,6 +475,19 @@ function jobCell(s: LifeState): string {
   const o = occById(s.career.occ); if (!o) return s.career.trackSet ? esc(t(('track_' + s.career.track) as 'track_private')) : '—';
   const n = o.ladder.length; const r = Math.min(s.career.rung ?? 0, n - 1) + 1;
   return `<span id="id-job" data-occ="${esc(o.id)}">${esc(occN(o.id))}</span>${n > 1 ? ` <small class="mono">${esc(t('occRung', { r, n }))}</small>` : ''}${o.est ? ` <span class="badge occ-est" title="${esc(t('occSrc'))}" tabindex="0">${esc(t('occEst'))}</span>` : ''}${provChip(s)}`;
+}
+/** L2: conscription row while serving (term is a cited law fact; lottery shares / pay are 推估) */
+function serviceRow(s: LifeState): string {
+  const left = s.flags.csLeft; if (typeof left !== 'number' || left <= 0) return '';
+  return `<dt>${esc(t('f_service'))}</dt><dd id="id-service">${esc(t(s.flags.csAlt ? 'csAltServing' : 'csServing', { months: Number(s.flags.csMonths ?? 0) }))}${s.flags.csEst ? ` <span class="badge occ-est" title="${esc(t('csEstNote'))}" tabindex="0">${esc(t('occEst'))}</span>` : ''}</dd>`;
+}
+/** L3: health insurance and pension scheme in force (TW/US/JP/KR), labour-market note as tooltip */
+function instRow(s: LifeState, cal: number): string {
+  if (!INST[s.born.iso] || s.age < 18 || !s.flags.occ) return '';
+  const lang = getLang(); const h = instAt(s.born.iso, 'health', cal), p = instAt(s.born.iso, 'pension', cal);
+  const nm = (r: typeof h, key: string) => (r ? instName(`${s.born.iso}|${key}|${r.from}`, lang) : '');
+  const jp = s.born.iso === 'JPN' && s.flags.jpReg ? ` <span class="badge" id="id-jpreg">${esc(t(s.flags.jpReg === 'n' ? 'jpNonReg' : 'jpReg'))}</span>` : '';
+  return `<dt>${esc(t('f_inst'))}</dt><dd id="id-inst" title="${esc(labourNote(s.born.iso, lang))}">${esc([nm(h, 'health'), nm(p, 'pension')].filter(Boolean).join(' · '))}${jp}</dd>`;
 }
 /** L1 provenance chip: the sex weight in entry odds comes from ILOSTAT (year shown) or, without data, is a 推估 */
 function provChip(s: LifeState): string {
@@ -502,7 +517,7 @@ function renderLife(full: boolean): void {
     <dt>${esc(t('f_lives'))}</dt><dd>${esc(nameOf(s.cur))} · ${esc(t(s.career.city || s.born.urban ? 'urban' : 'rural'))}</dd>
     <dt>${esc(t('f_quintile'))}</dt><dd class="dots">${'●'.repeat(s.born.quintile)}${'○'.repeat(5 - s.born.quintile)}</dd>
     <dt>${esc(t('f_edu'))}</dt><dd>${esc(t(('edu_' + s.career.plan) as 'edu_none'))}</dd>
-    ${s.career.trackSet ? `<dt>${esc(t('f_job'))}</dt><dd>${jobCell(s)}</dd>` : ''}</dl></div></div>
+    ${s.career.trackSet ? `<dt>${esc(t('f_job'))}</dt><dd>${jobCell(s)}</dd>` : ''}${serviceRow(s)}${instRow(s, cal)}</dl></div></div>
     <p class="folio mono" aria-hidden="true">${esc(l1)}<br>${esc(l2)}</p>`;
   const COL: Record<string, string> = { health: 'var(--good)', happy: 'var(--gold)', smart: 'var(--stamp)', social: 'var(--bad)' };
   q('stats').innerHTML = (['health', 'happy', 'smart', 'social'] as const).map((k) =>
@@ -525,7 +540,7 @@ function renderLife(full: boolean): void {
 const BIG = new Set(['first_paycheck', 'graduated', 'retire', 'promotion', 'ch_marry_marry', 'ch_child_have', 'wedding', 'windfall']);
 const kindOf = (id: string) => (id.startsWith('ch_') ? 'decision' : TRAGIC_EVENTS.has(id) || /illness|loss|default|foreclos|margin/.test(id) ? 'bad' : BIG.has(id) ? 'big' : id.startsWith('fl_') ? 'note' : 'good');
 function evLine(e: { id: string; vars?: Record<string, unknown> }): string {
-  const vars = Object.fromEntries(Object.entries(e.vars ?? {}).map(([a, v]) => [a, (a === 'occ' || a === 'from' || a === 'to') && typeof v === 'string' && occById(v) ? occN(v) : e.id === 'fc_switch' && (a === 'from' || a === 'to') ? String(v).split('+').map((c) => (c === '-' ? t('focusClear') : t(('focus_' + c) as 'focus_none'))).join('、') : typeof v === 'number' && /amount|cost|loss|price|pay|pension/.test(a) ? money(v) : a === 'edu' ? t(('edu_' + v) as 'edu_none') : v]));
+  const vars = Object.fromEntries(Object.entries(e.vars ?? {}).map(([a, v]) => [a, (a === 'occ' || a === 'from' || a === 'to') && typeof v === 'string' && occById(v) ? occN(v) : a === 'inst' && typeof v === 'string' ? instName(v, getLang()) : e.id === 'fc_switch' && (a === 'from' || a === 'to') ? String(v).split('+').map((c) => (c === '-' ? t('focusClear') : t(('focus_' + c) as 'focus_none'))).join('、') : typeof v === 'number' && /amount|cost|loss|price|pay|pension/.test(a) ? money(v) : a === 'edu' ? t(('edu_' + v) as 'edu_none') : v]));
   return eventText(e.id, vars as Record<string, string | number>);
 }
 function logYearsHtml(byAge: Map<number, LifeState['events']>, ages: number[], stars: boolean): string {
@@ -1037,7 +1052,7 @@ async function replay(cfg: LifeConfig, years: number, acts: Action[]): Promise<L
 }
 // X4: resume the life in progress (deterministic replay of the recorded recipe)
 async function resume(raw: NonNullable<ReturnType<typeof loadSave>>): Promise<void> {
-  const sv = { ...raw, cfg: migrateSaveCfg(raw.cfg, raw.years) }; // C0: pre-v0.9.0 saves switch to occupations from here on
+  const sv = { ...raw, cfg: migrateSaveCfgL2(migrateSaveCfg(raw.cfg, raw.years), raw.years) }; // C0: pre-v0.9.0 saves switch to occupations from here on
   const s = await replay(sv.cfg, sv.years, sv.actions ?? []);
   if (!s) { clearSave(); intro(); return; }
   if (s.death) { run = { s, cfg: sv.cfg, paceMin: sv.paceMin, speed: 1, paused: true, acc: 0, yearSec: 1, raf: 0, last: 0, skipping: false }; death(false); return; }

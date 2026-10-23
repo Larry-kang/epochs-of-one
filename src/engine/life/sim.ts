@@ -25,6 +25,8 @@ import { makeFamily } from './family.ts';
 import { applyChoice, defaultPick, offersAt } from './choices.ts';
 import { occById, occHazard, occWageF, legacyOcc, maxRung, bizHazard, BIZ, TECH_EXIT, ILLICIT, PRISON_PENALTY, RARE_PATHS, SPACE, ENTRY_GROUPS, incomeGroup, type Biz } from './occupation.ts';
 import type { Career } from './state.ts';
+import { serviceAge, drawService, serviceFrac, csKey, L2_OPTS } from './conscription.ts';
+import { INST, instAt, instStarts, instRef, uniRetakeP, civilAttempts, CIVIL_OCC, EXAM_COUNTRIES, usUninsuredCost, jpNonRegShare, jpRegWage, JP_NONREG_WAGE, JP_NONREG_UNEMP, JP_REG_UNEMP, JP_TO_REGULAR, JP_SPLIT_GROUPS, KR_EARLY } from './institutions.ts';
 
 export interface DataBundle {
   index: CountryIndex;
@@ -49,7 +51,7 @@ export function makeBundle(index: CountryIndex, demo: (iso: Iso3) => Demography,
 
 /** 'future' (batch 1): births after nowYear up to the last projected WPP year (UN medium variant → 推估). */
 export type Era = { kind: 'now' } | { kind: 'past'; year: number | 'random' } | { kind: 'future'; year: number | 'random' };
-export interface LifeConfig { seed: string; era: Era; nowYear: number; constraints?: BirthConstraints; id?: string; engineVersion: string; /** v0.8.0: auto focus policy (comparison lives, MC) */ autoFocus?: boolean; /** v0.8.0: auto spending habits */ autoSpend?: boolean; /** C0: occupation system (v0.9.0) */ occ?: boolean; /** C0: legacy save continues in the occupation system from this age */ occFrom?: number }
+export interface LifeConfig { seed: string; era: Era; nowYear: number; constraints?: BirthConstraints; id?: string; engineVersion: string; /** v0.8.0: auto focus policy (comparison lives, MC) */ autoFocus?: boolean; /** v0.8.0: auto spending habits */ autoSpend?: boolean; /** C0: occupation system (v0.9.0) */ occ?: boolean; /** C0: legacy save continues in the occupation system from this age */ occFrom?: number; /** L2/L3 (v0.11.0): conscription + institutions marker for new lives */ l2?: boolean; /** L2/L3: a pre-v0.11.0 save gets conscription + institutions only from this age (replayed years stay identical) */ l2From?: number }
 
 const tableCache = new Map<string, AnnualTable>();
 export function tableFor(data: DataBundle, s: LifeState): AnnualTable {
@@ -103,7 +105,7 @@ export function newLife(data: DataBundle, cfg: LifeConfig): LifeState | Infeasib
     mode: 'normal', sandbox, phase: 'birth',
     born: { iso: b.iso, year, urban: b.urban, quintile: b.quintile, sex: b.sex, pct: b.pct, lifeTableYear: ltYear, estimated },
     cur: b.iso, age: 0, stats, name: fam.name, family: fam.family, career, econ: { cash: 0, incomeReal: 0, pct: b.pct, employed: false, earnSum: 0, earnN: 0, annuity: 0, retired: false },
-    portfolio: emptyPortfolio(), credit: emptyCredit(), loans: [], flags: { ...(cfg.autoFocus ? { autoFocus: true } : {}), ...(cfg.autoSpend ? { autoSpend: true } : {}), ...(cfg.occ ? { occ: true } : {}), ...(cfg.occFrom !== undefined ? { occFrom: cfg.occFrom } : {}) }, actions: [], years: [], events: [],
+    portfolio: emptyPortfolio(), credit: emptyCredit(), loans: [], flags: { ...(cfg.autoFocus ? { autoFocus: true } : {}), ...(cfg.autoSpend ? { autoSpend: true } : {}), ...(cfg.occ ? { occ: true } : {}), ...(cfg.occFrom !== undefined ? { occFrom: cfg.occFrom } : {}), ...(cfg.l2From !== undefined ? { l2From: cfg.l2From } : {}) }, actions: [], years: [], events: [],
   };
 }
 
@@ -187,6 +189,38 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
     career.workStart = age;
     if (career.plan !== 'none' && career.plan !== 'primary') emit('graduated', { edu: career.plan });
   }
+  // ---- L2 conscription (occupation lives only; own stream `cs` so legacy draws stay identical)
+  let svcF = 0, svcPay = 0;
+  const l2On = occOn && (typeof flags.l2From !== 'number' || age >= flags.l2From);
+  if (l2On && !retired && L2_OPTS.conscription) {
+    if (flags.csLeft === undefined && flags.csDone === undefined && age === serviceAge(s.born.iso, career.studyUntil)) {
+      const rc = stream(s.seed, 'cs', age); const sv = drawService(s.born.iso, s.born.sex, s.born.year, calYear, career.occ, rc.next(), rc.next(), rc.next());
+      if (sv?.exempt) { flags.csDone = age; emit('cs_exempt_athlete'); }
+      else if (sv) { flags.csLeft = sv.months; flags.csMonths = sv.months; flags.csPay = sv.pay; if (sv.alt) flags.csAlt = true; if (sv.est) flags.csEst = true; emit((sv.alt ? 'cs_alt_' : 'cs_start_') + (sv.alt && s.born.iso === 'USA' ? 'gen' : csKey(s.born.iso)), { months: sv.months }); }
+      else flags.csDone = age;
+    }
+    if (typeof flags.csLeft === 'number' && flags.csLeft > 0) { svcF = serviceFrac(flags.csLeft); svcPay = Number(flags.csPay ?? 0); }
+  }
+  // ---- L3 institutions TW/US/JP/KR (occupation lives; own stream `inst`; every parameter 推估, see institutions.ts)
+  const iso0 = s.born.iso; const L3 = l2On && L2_OPTS.institutions && !!INST[iso0];
+  const ri = stream(s.seed, 'inst', age); const v1 = ri.next(), v2 = ri.next(), v3 = ri.next(), v4 = ri.next();
+  let jpWageF = 1, jpUnempF = 1;
+  if (L3) {
+    const hi = career.plan === 'tertiary' || career.plan === 'graduate';
+    const hs = instAt(iso0, 'hsExam', calYear); if (age === 15 && studying && hs && career.plan !== 'none' && career.plan !== 'primary') emit('in_hsexam', { inst: instRef(iso0, 'hsExam', hs) });
+    const ue = instAt(iso0, 'uniExam', calYear);
+    if (age === 18 && studying && hi && ue) emit(v1 < uniRetakeP(stats.smart, (fxPrev?.schoolAdd ?? 0) > 0) ? 'in_uniexam_retake_' + (EXAM_COUNTRIES.includes(iso0) ? iso0 : 'gen') : 'in_uniexam', { inst: instRef(iso0, 'uniExam', ue) });
+    if (age >= 18) for (const k of ['health', 'pension'] as const) { const r = instStarts(iso0, k, calYear); if (r && r.from > s.born.year + 18) emit(k === 'health' ? 'in_health_start' : 'in_pension_start', { inst: instRef(iso0, k, r) }); }
+    if (iso0 === 'USA' && age === 65 && calYear >= 1966) emit('in_us_medicare');
+    const ce = instAt(iso0, 'civilExam', calYear);
+    if (EXAM_COUNTRIES.includes(iso0) && ce && career.occ && CIVIL_OCC.includes(career.occ) && career.occ !== s.career.occ && flags.civEx === undefined) { const n = civilAttempts(stats.smart, v4); flags.civEx = n; emit('in_civilexam', { inst: instRef(iso0, 'civilExam', ce), n }); }
+    const g = occById(career.occ)?.group;
+    if (iso0 === 'JPN' && inLabor && g && JP_SPLIT_GROUPS.includes(g)) {
+      if (flags.jpReg === undefined) { const sh = jpNonRegShare(calYear); flags.jpS = sh; flags.jpReg = v2 < sh ? 'n' : 'r'; emit(flags.jpReg === 'n' ? 'in_jp_nonreg' : 'in_jp_regular'); }
+      else if (flags.jpReg === 'n' && v2 < JP_TO_REGULAR) { flags.jpReg = 'r'; emit('in_jp_to_regular'); }
+      const R = jpRegWage(Number(flags.jpS)); if (flags.jpReg === 'n') { jpWageF = JP_NONREG_WAGE * R; jpUnempF = JP_NONREG_UNEMP; } else { jpWageF = R; jpUnempF = JP_REG_UNEMP; }
+    }
+  }
   let unemployed = false, income = 0, pension = 0, partTime = false;
   let earnSum = s.econ.earnSum, earnN = s.econ.earnN;
   const base = incomeAt(d, pct);
@@ -196,18 +230,20 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
     if (unempR.est) est.push('unemp');
     const occ = occOn ? occById(career.occ) : undefined;
     const uMult = (occ ? (occ.group === 'startup' || occ.group === 'illicit' || occ.group === 'status' ? (occ.id === 'job_seeker' ? 99 : occ.id === 'prison' ? 99 : 0) : occ.risk.unemp) : { stable: 0.5, private: 1, startup: 1.3, informal: 0.6 }[career.track]) * (career.plan === 'tertiary' || career.plan === 'graduate' ? 0.75 : career.plan === 'none' ? 1.1 : 1);
-    unemployed = uUnemp < unempR.v * uMult;
+    unemployed = svcF < 1 && uUnemp < unempR.v * uMult * jpUnempF;
+    if (L3 && iso0 === 'USA' && unemployed && age < 65 && !s.years.at(-1)?.unemployed) { const amt = Math.round(usUninsuredCost(calYear) * d.mean); cash -= amt; emit('in_us_uninsured', { amount: amt }); }
     // nominal wages only catch up λπ of this year's inflation → real wage factor (1+λπ)/(1+π)
     const lag = pi > 0 ? (1 + PARAMS.wageLag.value * pi) / (1 + pi) : 1;
     const luck = career.track === 'startup' ? Math.exp(0.6 * phiInv(Math.min(0.999, Math.max(0.001, uLuck))) - 0.18) : 1;
     const trackF = occ ? occWageF(occ.id, career.rung ?? 0, gdp0, career.plan, s.born.iso) * (occ.group === 'startup' ? Math.exp(BIZ[occ.id as Biz].sigma * phiInv(Math.min(0.999, Math.max(0.001, uLuck))) - BIZ[occ.id as Biz].sigma ** 2 / 2) : 1) * (career.penalty ?? 1)
       : { stable: 0.95, private: 1, startup: luck, informal: 0.7 }[career.track];
     const careF = career.careUntil !== undefined && age < career.careUntil ? 0.7 : 1;
-    const wage = base * eduF * experienceFactor(age - career.workStart!) * career.mult * trackF * (career.city ? 1.15 : 1) * careF;
+    const wage = base * eduF * experienceFactor(age - career.workStart!) * career.mult * trackF * (career.city ? 1.15 : 1) * careF * jpWageF;
     if (occ?.id === 'prison') { unemployed = true; income = 0; }
     else if (unemployed) { income = benefitRate(c, calYear) * career.lastWage; if (income > 0) est.push('benefit'); }
     else { income = wage * lag; career.lastWage = wage; }
     earnSum += wage; earnN += 1; // earnings history for the pension
+    if (svcF > 0) income = income * (1 - svcF) + svcF * svcPay * d.mean; // L2: months in service earn conscript pay (推估 share of the mean wage)
   } else if (studying && age >= 16) {
     income = PARAMS.studentWork.value * base * experienceFactor(0) * 0.75; partTime = true;
   } else if (retired && data.hp) {
@@ -215,6 +251,10 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
     pension = earnN > 0 ? pen.grr * (earnSum / earnN) : 0;
     if (pen.est) est.push('pension');
     income = pension;
+  }
+  if (typeof flags.csLeft === 'number') { flags.csLeft -= 12; if (flags.csLeft <= 0) { delete flags.csLeft; flags.csDone = age; emit('cs_end_' + csKey(s.born.iso), { months: Number(flags.csMonths ?? 0) }); } }
+  if (L3 && iso0 === 'KOR' && inLabor && !unemployed && calYear >= KR_EARLY.from && age >= KR_EARLY.ageMin && age <= KR_EARLY.ageMax && career.occ && KR_EARLY.occ.includes(career.occ) && v3 < KR_EARLY.p) {
+    career.occPrev = career.occ; career.occ = 'food_retail_su'; career.rung = 0; career.bizAge = 0; career.track = 'startup'; cash += KR_EARLY.severance * d.mean; emit('in_kr_early_exit', { from: career.occPrev, amount: Math.round(KR_EARLY.severance * d.mean) });
   }
   // ---- C0 occupation dynamics: startup survival/exits, illicit arrest, prison, job seeking, rare transitions
   if (occOn && inLabor && career.occ) {
