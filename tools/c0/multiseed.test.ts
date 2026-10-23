@@ -6,6 +6,9 @@ import { loadBundleFromDisk } from '../../src/engine/data/nodeLoader.ts';
 import { runLife } from '../../src/engine/life/sim.ts';
 import type { LifeState } from '../../src/engine/life/state.ts';
 import { contentEvents as registry } from '../../src/engine/content/registry.ts';
+import { L2_OPTS } from '../../src/engine/life/conscription.ts';
+// v0.11: L2_OFF=1 → occupation lives without conscription / institutions (the v0.10 engine), for before/after tables
+if (process.env.L2_OFF) { L2_OPTS.conscription = false; L2_OPTS.institutions = false; }
 it('multiseed', () => {
   const data = loadBundleFromDisk();
   const iso = process.env.C0ISO ?? 'IND', y = Number(process.env.C0YEAR ?? 1990), N = Number(process.env.C0N ?? 200), SETS = Number(process.env.C0SETS ?? 20);

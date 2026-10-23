@@ -1,0 +1,504 @@
+{
+"note": "L3 (v0.11.0): ja/ko occupation names (all occupations) and country-local equivalents for TW/US/JP/KR. Our own wording.",
+"names": {
+"farmer_sub": {
+"ja": "自給農家",
+"ko": "자급 농민"
+},
+"farmer_mkt": {
+"ja": "専業農家",
+"ko": "전업 농민"
+},
+"farm_worker": {
+"ja": "農業労働者",
+"ko": "농업 노동자"
+},
+"livestock": {
+"ja": "畜産農家",
+"ko": "축산 농가"
+},
+"fisher": {
+"ja": "漁師",
+"ko": "어부"
+},
+"aquaculture": {
+"ja": "養殖業者",
+"ko": "양식업자"
+},
+"forestry": {
+"ja": "林業作業員",
+"ko": "임업 종사자"
+},
+"construction_lab": {
+"ja": "建設作業員",
+"ko": "건설 노동자"
+},
+"electrician": {
+"ja": "電気工事士",
+"ko": "전기 기술자"
+},
+"plumber": {
+"ja": "配管工",
+"ko": "배관공"
+},
+"mechanic": {
+"ja": "自動車整備士",
+"ko": "자동차 정비사"
+},
+"welder": {
+"ja": "溶接工",
+"ko": "용접공"
+},
+"factory_op": {
+"ja": "工場作業員",
+"ko": "생산직 근로자"
+},
+"factory_tech": {
+"ja": "製造技術者",
+"ko": "생산 기술자"
+},
+"transport_driver": {
+"ja": "職業ドライバー",
+"ko": "운전기사"
+},
+"warehouse": {
+"ja": "倉庫・物流作業員",
+"ko": "물류 창고 직원"
+},
+"craftsman": {
+"ja": "伝統工芸職人",
+"ko": "전통 공예가"
+},
+"miner": {
+"ja": "鉱山労働者",
+"ko": "광부"
+},
+"retail_clerk": {
+"ja": "販売店員",
+"ko": "판매 직원"
+},
+"food_service": {
+"ja": "飲食店スタッフ",
+"ko": "음식점 종업원"
+},
+"cook": {
+"ja": "調理師",
+"ko": "요리사"
+},
+"hair_beauty": {
+"ja": "美容師",
+"ko": "미용사"
+},
+"caregiver": {
+"ja": "介護職員",
+"ko": "요양보호사"
+},
+"cleaner": {
+"ja": "清掃員",
+"ko": "청소 노동자"
+},
+"security_guard": {
+"ja": "警備員",
+"ko": "경비원"
+},
+"delivery_rider": {
+"ja": "フードデリバリー配達員",
+"ko": "배달 라이더"
+},
+"office_clerk": {
+"ja": "一般事務",
+"ko": "사무직"
+},
+"call_center": {
+"ja": "コールセンター・オペレーター",
+"ko": "상담원"
+},
+"tour_hotel": {
+"ja": "ホテル・観光業スタッフ",
+"ko": "호텔·관광업 종사자"
+},
+"informal_vendor": {
+"ja": "露天商",
+"ko": "노점상"
+},
+"sw_eng": {
+"ja": "ソフトウェアエンジニア",
+"ko": "소프트웨어 엔지니어"
+},
+"hw_eng": {
+"ja": "ハードウェア・半導体設計エンジニア",
+"ko": "하드웨어·반도체 설계 엔지니어"
+},
+"semi_process_eng": {
+"ja": "半導体プロセスエンジニア",
+"ko": "반도체 공정 엔지니어"
+},
+"data_sci": {
+"ja": "データサイエンティスト",
+"ko": "데이터 과학자"
+},
+"sales_rep": {
+"ja": "法人営業",
+"ko": "영업사원"
+},
+"real_estate": {
+"ja": "不動産営業",
+"ko": "공인중개사"
+},
+"insurance_agent": {
+"ja": "保険営業",
+"ko": "보험 설계사"
+},
+"accountant": {
+"ja": "会計士・経理",
+"ko": "회계사·경리"
+},
+"finance": {
+"ja": "金融専門職",
+"ko": "금융 전문직"
+},
+"lawyer": {
+"ja": "弁護士",
+"ko": "변호사"
+},
+"doctor": {
+"ja": "医師",
+"ko": "의사"
+},
+"nurse": {
+"ja": "看護師",
+"ko": "간호사"
+},
+"pharmacist": {
+"ja": "薬剤師",
+"ko": "약사"
+},
+"teacher": {
+"ja": "教員",
+"ko": "교사"
+},
+"professor": {
+"ja": "大学教員",
+"ko": "대학 교수"
+},
+"architect": {
+"ja": "建築士",
+"ko": "건축사"
+},
+"designer": {
+"ja": "デザイナー",
+"ko": "디자이너"
+},
+"journalist": {
+"ja": "記者",
+"ko": "기자"
+},
+"pm_mgr": {
+"ja": "企業管理職",
+"ko": "기업 관리자"
+},
+"consultant": {
+"ja": "経営コンサルタント",
+"ko": "경영 컨설턴트"
+},
+"civil_servant": {
+"ja": "公務員",
+"ko": "공무원"
+},
+"police": {
+"ja": "警察官",
+"ko": "경찰관"
+},
+"military_officer": {
+"ja": "自衛官（幹部）",
+"ko": "장교"
+},
+"military_nco": {
+"ja": "自衛官（曹士）",
+"ko": "부사관·직업 군인"
+},
+"firefighter": {
+"ja": "消防士",
+"ko": "소방관"
+},
+"judge_prosecutor": {
+"ja": "裁判官・検察官",
+"ko": "판사·검사"
+},
+"local_rep": {
+"ja": "地方議会議員",
+"ko": "지방의원"
+},
+"legislator": {
+"ja": "国会議員",
+"ko": "국회의원"
+},
+"minister": {
+"ja": "首長（大臣・知事）",
+"ko": "장관·시도지사"
+},
+"pilot": {
+"ja": "旅客機パイロット",
+"ko": "여객기 조종사"
+},
+"flight_att": {
+"ja": "客室乗務員",
+"ko": "승무원"
+},
+"athlete": {
+"ja": "プロスポーツ選手",
+"ko": "프로 운동선수"
+},
+"entertainer": {
+"ja": "芸能人",
+"ko": "연예인"
+},
+"esports": {
+"ja": "プロゲーマー",
+"ko": "프로게이머"
+},
+"astronaut": {
+"ja": "宇宙飛行士",
+"ko": "우주비행사"
+},
+"streamer": {
+"ja": "配信者・動画クリエイター",
+"ko": "스트리머·크리에이터"
+},
+"food_retail_su": {
+"ja": "起業：飲食・小売",
+"ko": "창업: 음식점·소매"
+},
+"studio_su": {
+"ja": "起業：個人事務所・フリーランス",
+"ko": "창업: 스튜디오·프리랜서"
+},
+"franchise_su": {
+"ja": "起業：フランチャイズ",
+"ko": "창업: 프랜차이즈"
+},
+"tech_su": {
+"ja": "起業：テックスタートアップ",
+"ko": "창업: 기술 스타트업"
+},
+"loan_shark": {
+"ja": "ヤミ金・取り立て",
+"ko": "불법 사채·추심"
+},
+"gang": {
+"ja": "暴力団・不良集団",
+"ko": "조직폭력"
+},
+"scam_ring": {
+"ja": "詐欺グループ",
+"ko": "보이스피싱 조직"
+},
+"illegal_gambling": {
+"ja": "違法賭博",
+"ko": "불법 도박장"
+},
+"student": {
+"ja": "学生",
+"ko": "학생"
+},
+"conscript": {
+"ja": "兵役",
+"ko": "병역 의무 복무"
+},
+"job_seeker": {
+"ja": "求職中",
+"ko": "구직 중"
+},
+"prison": {
+"ja": "服役中",
+"ko": "수감 중"
+},
+"homemaker": {
+"ja": "専業主婦・主夫",
+"ko": "전업주부"
+},
+"retired": {
+"ja": "退職",
+"ko": "은퇴"
+}
+},
+"local": {
+"TWN": {
+"civil_servant": {
+"zh": "公務員（高普考）",
+"en": "Civil servant (高普考 exam)"
+},
+"local_rep": {
+"zh": "縣市議員",
+"en": "County / city councillor"
+},
+"legislator": {
+"zh": "立法委員",
+"en": "Legislator (Legislative Yuan)"
+},
+"minister": {
+"zh": "首長（部長／縣市長）",
+"en": "Minister / mayor"
+},
+"military_nco": {
+"zh": "志願役士官兵",
+"en": "Volunteer NCO / enlisted"
+},
+"conscript": {
+"zh": "義務役／替代役",
+"en": "Conscript / alternative service"
+},
+"teacher": {
+"zh": "教師（教師檢定）",
+"en": "Teacher (certified)"
+},
+"judge_prosecutor": {
+"zh": "法官／檢察官（司法官考試）",
+"en": "Judge / prosecutor (judicial exam)"
+},
+"real_estate": {
+"zh": "房仲（不動產經紀營業員）",
+"en": "Real-estate agent"
+},
+"informal_vendor": {
+"zh": "夜市／路邊攤販",
+"en": "Night-market / street vendor"
+}
+},
+"USA": {
+"civil_servant": {
+"zh": "政府雇員（聯邦／州）",
+"en": "Government employee (federal / state)"
+},
+"local_rep": {
+"zh": "市議員",
+"en": "City council member"
+},
+"legislator": {
+"zh": "國會議員",
+"en": "Member of Congress"
+},
+"minister": {
+"zh": "州長／內閣部長",
+"en": "Governor / cabinet secretary"
+},
+"military_nco": {
+"zh": "志願役士兵／士官",
+"en": "Enlisted service member"
+},
+"conscript": {
+"zh": "徵召入伍",
+"en": "Draftee"
+},
+"teacher": {
+"zh": "教師（州執照）",
+"en": "Teacher (state licence)"
+},
+"judge_prosecutor": {
+"zh": "法官／檢察官",
+"en": "Judge / prosecutor"
+},
+"real_estate": {
+"zh": "房地產經紀人（州執照）",
+"en": "Real-estate agent (state licence)"
+},
+"informal_vendor": {
+"zh": "街頭攤販",
+"en": "Street vendor"
+},
+"delivery_rider": {
+"zh": "外送平台司機",
+"en": "App delivery driver"
+}
+},
+"JPN": {
+"civil_servant": {
+"zh": "公務員（國家／地方）",
+"en": "Public servant (national / local)",
+"ja": "公務員（国家・地方）"
+},
+"local_rep": {
+"zh": "地方議會議員",
+"en": "Local assembly member",
+"ja": "地方議会議員"
+},
+"legislator": {
+"zh": "國會議員",
+"en": "Diet member",
+"ja": "国会議員"
+},
+"minister": {
+"zh": "大臣／知事",
+"en": "Minister / prefectural governor",
+"ja": "大臣・知事"
+},
+"military_nco": {
+"zh": "自衛官（曹士）",
+"en": "SDF enlisted / NCO",
+"ja": "自衛官（曹士）"
+},
+"military_officer": {
+"zh": "自衛官（幹部）",
+"en": "SDF officer",
+"ja": "自衛官（幹部）"
+},
+"pm_mgr": {
+"zh": "企業管理職（部長・課長）",
+"en": "Corporate manager (部長 / 課長)",
+"ja": "管理職（部長・課長）"
+},
+"office_clerk": {
+"zh": "一般事務（OL／事務職）",
+"en": "Office clerk",
+"ja": "一般事務"
+},
+"real_estate": {
+"zh": "不動產營業（宅建士）",
+"en": "Real-estate agent (宅建士)",
+"ja": "不動産営業（宅建士）"
+}
+},
+"KOR": {
+"civil_servant": {
+"zh": "公務員（9 級／7 級）",
+"en": "Civil servant (grade 9 / 7)",
+"ko": "공무원 (9급·7급)"
+},
+"local_rep": {
+"zh": "地方議員",
+"en": "Local council member",
+"ko": "지방의원"
+},
+"legislator": {
+"zh": "國會議員",
+"en": "National Assembly member",
+"ko": "국회의원"
+},
+"minister": {
+"zh": "長官／市道知事",
+"en": "Minister / provincial governor",
+"ko": "장관·시도지사"
+},
+"military_nco": {
+"zh": "職業軍人（副士官）",
+"en": "Career NCO",
+"ko": "부사관"
+},
+"conscript": {
+"zh": "現役兵／社會服務要員",
+"en": "Conscript / social-service agent",
+"ko": "현역병·사회복무요원"
+},
+"pm_mgr": {
+"zh": "大企業管理職",
+"en": "Large-firm manager",
+"ko": "대기업 관리자"
+},
+"esports": {
+"zh": "職業電競選手",
+"en": "Pro gamer",
+"ko": "프로게이머"
+}
+}
+}
+}

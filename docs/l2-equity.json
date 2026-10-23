@@ -1,0 +1,438 @@
+{
+ "N": 200,
+ "sets": 4,
+ "out": {
+  "TWN-1950": {
+   "M": {
+    "n": 406,
+    "onOff": 0.928,
+    "noCsOff": 0.9458,
+    "csEffect": 0.9811,
+    "instEffect": 1,
+    "early10csEffect": 0.8551,
+    "nwOnOff": 0.926,
+    "served": 0.813,
+    "meanMonths": 27
+   },
+   "F": {
+    "n": 394,
+    "onOff": 1.0369,
+    "noCsOff": 1.0369,
+    "csEffect": 1,
+    "instEffect": 1,
+    "early10csEffect": 1,
+    "nwOnOff": 1.031,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "fmOff": 1.0203,
+   "fmOn": 1.14,
+   "fmNoCs": 1.1185
+  },
+  "TWN-1970": {
+   "M": {
+    "n": 409,
+    "onOff": 0.9638,
+    "noCsOff": 0.9745,
+    "csEffect": 0.989,
+    "instEffect": 1,
+    "early10csEffect": 0.8763,
+    "nwOnOff": 0.93,
+    "served": 0.949,
+    "meanMonths": 25.7
+   },
+   "F": {
+    "n": 391,
+    "onOff": 1.0441,
+    "noCsOff": 1.0441,
+    "csEffect": 1,
+    "instEffect": 1,
+    "early10csEffect": 1,
+    "nwOnOff": 0.979,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "fmOff": 1.0079,
+   "fmOn": 1.0919,
+   "fmNoCs": 1.0799
+  },
+  "TWN-1990": {
+   "M": {
+    "n": 414,
+    "onOff": 1.0178,
+    "noCsOff": 1.0243,
+    "csEffect": 0.9936,
+    "instEffect": 1,
+    "early10csEffect": 0.9408,
+    "nwOnOff": 1.033,
+    "served": 0.973,
+    "meanMonths": 12
+   },
+   "F": {
+    "n": 386,
+    "onOff": 1.0162,
+    "noCsOff": 1.0162,
+    "csEffect": 1,
+    "instEffect": 1,
+    "early10csEffect": 1,
+    "nwOnOff": 0.988,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "fmOff": 1.0654,
+   "fmOn": 1.0638,
+   "fmNoCs": 1.057
+  },
+  "TWN-2005": {
+   "M": {
+    "n": 413,
+    "onOff": 1.0228,
+    "noCsOff": 1.0256,
+    "csEffect": 0.9972,
+    "instEffect": 1,
+    "early10csEffect": 0.977,
+    "nwOnOff": 1.006,
+    "served": 0.983,
+    "meanMonths": 12
+   },
+   "F": {
+    "n": 387,
+    "onOff": 1.0144,
+    "noCsOff": 1.0144,
+    "csEffect": 1,
+    "instEffect": 1,
+    "early10csEffect": 1,
+    "nwOnOff": 0.987,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "fmOff": 1.0648,
+   "fmOn": 1.0561,
+   "fmNoCs": 1.0532
+  },
+  "KOR-1950": {
+   "M": {
+    "n": 426,
+    "onOff": 0.9552,
+    "noCsOff": 1.09,
+    "csEffect": 0.8763,
+    "instEffect": 1,
+    "early10csEffect": 0.6889,
+    "nwOnOff": 0.975,
+    "served": 0.42,
+    "meanMonths": 36
+   },
+   "F": {
+    "n": 374,
+    "onOff": 0.9351,
+    "noCsOff": 0.9351,
+    "csEffect": 1,
+    "instEffect": 0.9985,
+    "early10csEffect": 1,
+    "nwOnOff": 0.832,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "fmOff": 7.7688,
+   "fmOn": 7.6054,
+   "fmNoCs": 6.6644
+  },
+  "KOR-1970": {
+   "M": {
+    "n": 426,
+    "onOff": 0.9295,
+    "noCsOff": 0.9429,
+    "csEffect": 0.9858,
+    "instEffect": 0.9989,
+    "early10csEffect": 0.8452,
+    "nwOnOff": 0.935,
+    "served": 0.911,
+    "meanMonths": 29.9
+   },
+   "F": {
+    "n": 374,
+    "onOff": 0.8889,
+    "noCsOff": 0.8889,
+    "csEffect": 1,
+    "instEffect": 0.999,
+    "early10csEffect": 1,
+    "nwOnOff": 0.808,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "fmOff": 1.1526,
+   "fmOn": 1.1022,
+   "fmNoCs": 1.0866
+  },
+  "KOR-1990": {
+   "M": {
+    "n": 439,
+    "onOff": 1.0556,
+    "noCsOff": 1.0719,
+    "csEffect": 0.9848,
+    "instEffect": 0.9964,
+    "early10csEffect": 0.8791,
+    "nwOnOff": 1.121,
+    "served": 0.975,
+    "meanMonths": 21.7
+   },
+   "F": {
+    "n": 361,
+    "onOff": 1.011,
+    "noCsOff": 1.011,
+    "csEffect": 1,
+    "instEffect": 0.9966,
+    "early10csEffect": 1,
+    "nwOnOff": 1.036,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "fmOff": 1.1411,
+   "fmOn": 1.0928,
+   "fmNoCs": 1.0763
+  },
+  "KOR-2005": {
+   "M": {
+    "n": 430,
+    "onOff": 1.0547,
+    "noCsOff": 1.0617,
+    "csEffect": 0.9935,
+    "instEffect": 0.9954,
+    "early10csEffect": 0.952,
+    "nwOnOff": 1.133,
+    "served": 0.991,
+    "meanMonths": 18
+   },
+   "F": {
+    "n": 370,
+    "onOff": 1.0039,
+    "noCsOff": 1.0039,
+    "csEffect": 1,
+    "instEffect": 0.9963,
+    "early10csEffect": 1,
+    "nwOnOff": 1.015,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "fmOff": 1.0781,
+   "fmOn": 1.0262,
+   "fmNoCs": 1.0195
+  },
+  "USA-1950": {
+   "M": {
+    "n": 414,
+    "onOff": 0.9437,
+    "noCsOff": 0.9441,
+    "csEffect": 0.9996,
+    "instEffect": 1,
+    "early10csEffect": 0.9969,
+    "nwOnOff": 1.001,
+    "served": 0.053,
+    "meanMonths": 24
+   },
+   "F": {
+    "n": 386,
+    "onOff": 0.9804,
+    "noCsOff": 0.9804,
+    "csEffect": 1,
+    "instEffect": 1,
+    "early10csEffect": 1,
+    "nwOnOff": 1.013,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "fmOff": 1.1122,
+   "fmOn": 1.1554,
+   "fmNoCs": 1.155
+  },
+  "USA-1970": {
+   "M": {
+    "n": 414,
+    "onOff": 0.9457,
+    "noCsOff": 0.9457,
+    "csEffect": 1,
+    "instEffect": 1,
+    "early10csEffect": 1,
+    "nwOnOff": 1.004,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "F": {
+    "n": 386,
+    "onOff": 0.9721,
+    "noCsOff": 0.9721,
+    "csEffect": 1,
+    "instEffect": 1,
+    "early10csEffect": 1,
+    "nwOnOff": 1.006,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "fmOff": 1.1672,
+   "fmOn": 1.1999,
+   "fmNoCs": 1.1999
+  },
+  "USA-1990": {
+   "M": {
+    "n": 414,
+    "onOff": 0.9753,
+    "noCsOff": 0.9753,
+    "csEffect": 1,
+    "instEffect": 1,
+    "early10csEffect": 1,
+    "nwOnOff": 1.017,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "F": {
+    "n": 386,
+    "onOff": 0.999,
+    "noCsOff": 0.999,
+    "csEffect": 1,
+    "instEffect": 1,
+    "early10csEffect": 1,
+    "nwOnOff": 1.053,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "fmOff": 1.1126,
+   "fmOn": 1.1396,
+   "fmNoCs": 1.1396
+  },
+  "USA-2005": {
+   "M": {
+    "n": 414,
+    "onOff": 0.9691,
+    "noCsOff": 0.9691,
+    "csEffect": 1,
+    "instEffect": 1,
+    "early10csEffect": 1,
+    "nwOnOff": 0.971,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "F": {
+    "n": 386,
+    "onOff": 0.9904,
+    "noCsOff": 0.9904,
+    "csEffect": 1,
+    "instEffect": 1,
+    "early10csEffect": 1,
+    "nwOnOff": 1.024,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "fmOff": 1.0801,
+   "fmOn": 1.1039,
+   "fmNoCs": 1.1039
+  },
+  "JPN-1950": {
+   "M": {
+    "n": 398,
+    "onOff": 0.9782,
+    "noCsOff": 0.9782,
+    "csEffect": 1,
+    "instEffect": 1.0026,
+    "early10csEffect": 1,
+    "nwOnOff": 0.933,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "F": {
+    "n": 402,
+    "onOff": 1.0047,
+    "noCsOff": 1.0047,
+    "csEffect": 1,
+    "instEffect": 1.0076,
+    "early10csEffect": 1,
+    "nwOnOff": 0.976,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "fmOff": 1.1443,
+   "fmOn": 1.1753,
+   "fmNoCs": 1.1753
+  },
+  "JPN-1970": {
+   "M": {
+    "n": 398,
+    "onOff": 0.9482,
+    "noCsOff": 0.9482,
+    "csEffect": 1,
+    "instEffect": 1.0075,
+    "early10csEffect": 1,
+    "nwOnOff": 0.92,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "F": {
+    "n": 402,
+    "onOff": 0.9814,
+    "noCsOff": 0.9814,
+    "csEffect": 1,
+    "instEffect": 1.0073,
+    "early10csEffect": 1,
+    "nwOnOff": 0.996,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "fmOff": 1.1234,
+   "fmOn": 1.1627,
+   "fmNoCs": 1.1627
+  },
+  "JPN-1990": {
+   "M": {
+    "n": 398,
+    "onOff": 1.0073,
+    "noCsOff": 1.0073,
+    "csEffect": 1,
+    "instEffect": 1.0153,
+    "early10csEffect": 1,
+    "nwOnOff": 1.039,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "F": {
+    "n": 402,
+    "onOff": 1.0138,
+    "noCsOff": 1.0138,
+    "csEffect": 1,
+    "instEffect": 1.0177,
+    "early10csEffect": 1,
+    "nwOnOff": 1.036,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "fmOff": 1.0884,
+   "fmOn": 1.0955,
+   "fmNoCs": 1.0955
+  },
+  "JPN-2005": {
+   "M": {
+    "n": 398,
+    "onOff": 1.0033,
+    "noCsOff": 1.0033,
+    "csEffect": 1,
+    "instEffect": 1.0152,
+    "early10csEffect": 1,
+    "nwOnOff": 1.038,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "F": {
+    "n": 402,
+    "onOff": 1.0207,
+    "noCsOff": 1.0207,
+    "csEffect": 1,
+    "instEffect": 1.0195,
+    "early10csEffect": 1,
+    "nwOnOff": 1.068,
+    "served": 0,
+    "meanMonths": 0
+   },
+   "fmOff": 1.0879,
+   "fmOn": 1.1068,
+   "fmNoCs": 1.1068
+  }
+ }
+}

@@ -15,7 +15,7 @@ export const APP = {
 /** NOW_Y comes from config, not new Date(). */
 export const NOW_YEAR = 2026;
 
-export const ENGINE_VERSION = '0.9.1';
+export const ENGINE_VERSION = '0.10.0'; // v0.11.0: L2 conscription + L3 institutions (occupation lives; pre-v0.11 saves migrate via l2From)
 /** v0.8.1: the app (release) version from package.json is the user-facing label; the engine version lives in About */
 export const APP_VERSION: string = pkg.version;
 

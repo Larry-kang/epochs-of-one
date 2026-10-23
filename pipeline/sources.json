@@ -230,5 +230,117 @@
       "class": "restricted",
       "url": "https://www.spglobal.com/"
     }
+  },
+  {
+    "id": "law-tw",
+    "name": "Taiwan statutes and official notices (兵役法, 兵役法施行法, 全民健康保險法, 勞工退休金條例, 考試法規) — parameters encoded as facts with citations; no text copied",
+    "url": "https://law.moj.gov.tw/",
+    "retrieved": "2026-10-17",
+    "license": {
+      "id": "L-facts",
+      "class": "open",
+      "url": "https://law.moj.gov.tw/",
+      "caveat": "Facts (terms, ages, start years) are not copyrightable; we cite the statute and encode parameters only."
+    }
+  },
+  {
+    "id": "law-kr",
+    "name": "Korea statutes and MND notices (병역법, 국민건강보험법, 국민연금법) — parameters encoded as facts with citations; no text copied",
+    "url": "https://www.law.go.kr/",
+    "retrieved": "2026-10-17",
+    "license": {
+      "id": "L-facts",
+      "class": "open",
+      "url": "https://www.law.go.kr/",
+      "caveat": "Facts only. Any Korean public DATASET would additionally need KOGL Type 1 (kr-kogl1)."
+    }
+  },
+  {
+    "id": "law-us",
+    "name": "US federal statutes and agency records (Military Selective Service Act; Social Security Act; ACA; SSS history) — US federal works, facts encoded with citations",
+    "url": "https://uscode.house.gov/",
+    "retrieved": "2026-10-17",
+    "license": {
+      "id": "L-facts",
+      "class": "open",
+      "url": "https://uscode.house.gov/",
+      "caveat": "US federal works are public domain (17 U.S.C. §105); facts encoded, not text."
+    }
+  },
+  {
+    "id": "law-jp",
+    "name": "Japan statutes (自衛隊法, 国民健康保険法, 国民年金法, 国家公務員法) — parameters encoded as facts with citations; no text copied",
+    "url": "https://laws.e-gov.go.jp/",
+    "retrieved": "2026-10-17",
+    "license": {
+      "id": "L-facts",
+      "class": "open",
+      "url": "https://laws.e-gov.go.jp/"
+    }
+  },
+  {
+    "id": "law-facts",
+    "name": "Other national statutes (conscription terms DE/GB/FR/BR/MX/CN and T2 countries) — facts with citations; call-up shares and pay are 推估",
+    "url": "https://en.wikipedia.org/wiki/Conscription",
+    "retrieved": "2026-10-17",
+    "license": {
+      "id": "L-facts",
+      "class": "open",
+      "url": "https://en.wikipedia.org/wiki/Conscription",
+      "caveat": "Statutory terms only; every non-statutory parameter is flagged est (推估). Re-verify against each official gazette in L4–L6."
+    }
+  },
+  {
+    "id": "tw-data-gov",
+    "name": "Taiwan government open data (data.gov.tw) under 政府資料開放授權條款－第1版 (OGDL-TW 1.0); attribution in the prescribed 顯名聲明 form",
+    "url": "https://data.gov.tw/license",
+    "retrieved": "2026-10-17",
+    "license": {
+      "id": "OGDL-TW-1.0",
+      "class": "attribution",
+      "url": "https://data.gov.tw/license",
+      "caveat": "§4(2): compatible with CC BY 4.0. Only data.gov.tw / Open API datasets; reserved-rights PDF reports are blocked (tw-reserved-pdf). Not ingested yet in v0.11.0 (exam pass rates stay 推估).",
+      "archived": [
+        "pipeline/licenses/2026-10-17_data.gov.tw_license.html"
+      ]
+    }
+  },
+  {
+    "id": "jp-pdl",
+    "name": "Japan public data under 公共データ利用規約（第1.0版）(PDL 1.0, 2024-07-05), e.g. e-Stat",
+    "url": "https://www.digital.go.jp/resources/open_data/public_data_license_v1.0",
+    "retrieved": "2026-10-17",
+    "license": {
+      "id": "JP-PDL-1.0",
+      "class": "attribution",
+      "url": "https://www.digital.go.jp/resources/open_data/public_data_license_v1.0",
+      "caveat": "Declared compatible with CC BY 4.0. Not ingested yet in v0.11.0.",
+      "archived": [
+        "pipeline/licenses/2026-10-17_www.digital.go.jp_resources_open_data_public_data_license_v1.0.html"
+      ]
+    }
+  },
+  {
+    "id": "us-federal-pd",
+    "name": "US federal statistical data (BLS, NCES, SSA, SSS) — public domain",
+    "url": "https://www.usa.gov/government-copyright",
+    "retrieved": "2026-10-17",
+    "license": {
+      "id": "US-PD",
+      "class": "open",
+      "url": "https://www.usa.gov/government-copyright",
+      "caveat": "Public domain except third-party material; BLS emblem not used. bls.gov copyright page blocks scripted fetch (403)."
+    }
+  },
+  {
+    "id": "tw-reserved-pdf",
+    "name": "Taiwan government PDF reports marked 保留所有著作權利 (e.g. MOL survey PDF) — BLOCKED",
+    "url": "https://statdb.mol.gov.tw/",
+    "retrieved": "2026-10-17",
+    "license": {
+      "id": "reserved",
+      "class": "restricted",
+      "url": "https://statdb.mol.gov.tw/"
+    }
   }
 ]

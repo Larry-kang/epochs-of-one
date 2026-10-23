@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "l2-conscription.schema.json",
+  "title": "L2 conscription terms (law facts; est = 推估)",
+  "type": "object",
+  "required": [
+    "note",
+    "regimes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "note": {
+      "type": "string"
+    },
+    "regimes": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Z]{3}$": {
+          "type": "object",
+          "required": [
+            "tier",
+            "age",
+            "maxAge",
+            "pay",
+            "src",
+            "note",
+            "terms"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "tier": {
+              "enum": [
+                1,
+                2
+              ]
+            },
+            "age": {
+              "type": "integer"
+            },
+            "maxAge": {
+              "type": "integer"
+            },
+            "pay": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "minItems": 2,
+                "maxItems": 2
+              }
+            },
+            "alt": {
+              "type": "object",
+              "required": [
+                "from",
+                "p"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "from": {
+                  "type": "integer"
+                },
+                "to": {
+                  "type": "integer"
+                },
+                "p": {
+                  "type": "number"
+                }
+              }
+            },
+            "athleteExempt": {
+              "type": "number"
+            },
+            "src": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "note": {
+              "type": "string"
+            },
+            "terms": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": [
+                  "from",
+                  "months",
+                  "p"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "from": {
+                    "type": "integer"
+                  },
+                  "months": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 48
+                  },
+                  "p": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "bornFrom": {
+                    "type": "integer"
+                  },
+                  "bornTo": {
+                    "type": "integer"
+                  },
+                  "monthsF": {
+                    "type": "number"
+                  },
+                  "est": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
