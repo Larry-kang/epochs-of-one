@@ -1,0 +1,80 @@
+events|fl_first_apartment|You moved into your first studio of your own; the rent stung.|初めて自分のワンルームに引っ越した。家賃が胸に痛い。|처음으로 내 원룸에 이사했다. 월세가 마음 아팠다.
+events|fl_roadtrip|You took a spur-of-the-moment trip with friends.|友だちと思い立ったら即出発の旅に出た。|친구들과 훌쩍 즉흥 여행을 떠났다.
+events|fl_heartbreak|A relationship ended; you listened to sad love songs for months.|恋が終わり、何か月も悲しいラブソングを聴いた。|연애가 끝났고, 몇 달 동안 슬픈 사랑 노래만 들었다.
+events|fl_night_shift|Months of night shifts in a row threw your body clock into chaos.|何か月も夜勤が続き、体内時計がすっかり狂った。|몇 달째 야간 근무가 이어져 생체 시계가 엉망이 됐다.
+events|fl_driving|You got your licence and drove on your own for the first time.|運転免許を取り、初めて一人で車を走らせた。|운전면허를 따고 처음으로 혼자 차를 몰았다.
+events|fl_coworker_friend|A coworker became a real friend.|同僚の一人と本当の友だちになった。|동료 한 명과 진짜 친구가 되었다.
+events|fl_bad_boss|The new boss was hard to deal with; every workday felt like a battle.|新しい上司は扱いにくく、毎日の出勤が戦いのようだった。|새 상사는 대하기 어려워 매일 출근이 전쟁 같았다.
+events|fl_side_project|You built a small project after work, and people actually liked it.|仕事のあとに小さなプロジェクトを作ったら、気に入ってくれる人がいた。|퇴근 후 작은 프로젝트를 만들었는데 좋아하는 사람들이 생겼다.
+events|fl_gym|You started exercising regularly; stairs no longer left you breathless.|定期的に運動を始め、階段で息が切れなくなった。|규칙적으로 운동을 시작해 계단을 올라도 숨이 차지 않게 됐다.
+events|fl_wedding_guest|You went to several weddings this year; the gift money came to {amount}.|今年は結婚式にいくつも呼ばれ、ご祝儀に {amount} かかった。|올해 결혼식에 여러 번 갔고, 축의금으로 {amount}를 썼다.
+events|fl_reunion|At the class reunion everyone had changed, and somehow hadn't.|同窓会では、みんな変わったようで、何も変わっていないようでもあった。|동창회에서 다들 변한 것 같기도, 하나도 안 변한 것 같기도 했다.
+events|fl_language|You started learning a new language, beginning with "hello".|新しい言語を学び始めた。「こんにちは」から。|새 언어를 배우기 시작했다. "안녕하세요"부터.
+events|fl_volunteer|You volunteered; you came home tired but at peace.|ボランティアに参加した。帰りは疲れていたが、心は満たされていた。|자원봉사를 했다. 돌아오는 길은 피곤했지만 마음은 든든했다.
+events|fl_burnout|Work stress kept you awake; for the first time you felt you might not hold on.|仕事のストレスで眠れず、初めてもう限界だと感じた。|업무 스트레스로 잠을 못 이루고, 처음으로 더는 못 버티겠다고 느꼈다.
+events|fl_raise_small|A good year-end review: the raise was small, but it still cheered you up.|年末の評価は上々。昇給はわずかだったが、少しうれしかった。|연말 평가가 좋았다. 인상 폭은 작았지만 그래도 기뻤다.
+events|fl_layoff_scare|Rumours of layoffs at work kept you on edge for months.|会社にリストラのうわさが流れ、何か月もびくびくして過ごした。|회사에 구조조정 소문이 돌아 몇 달 동안 마음을 졸였다.
+events|fl_concert|You finally saw a singer you'd loved for years perform live.|何年も好きだった歌手のライブをついに見た。|오랫동안 좋아한 가수의 공연을 드디어 직접 봤다.
+events|fl_scam|You nearly lost money to a scam ring, and caught it just in time.|詐欺グループにお金をだまし取られかけたが、間一髪で気づいた。|사기 조직에 돈을 뜯길 뻔했지만 아슬아슬하게 알아챘다.
+events|fl_scam_lost|You lost {amount} to a scam and were too embarrassed to tell anyone for a long time.|詐欺で {amount} を失い、長いあいだ誰にも言えなかった。|사기로 {amount}를 잃었고, 오랫동안 부끄러워 말하지 못했다.
+events|fl_kid_first_word|Your child said their first word; you recorded it and watched it again and again.|子どもが初めて言葉を話した。録画して何度も見返した。|아이가 첫 단어를 말했다. 녹화해서 몇 번이고 다시 봤다.
+events|fl_kid_school|On your child's first day of school, it was your turn not to want to leave the gate.|子どもの登校初日、今度はあなたが門の前で離れがたかった。|아이의 등교 첫날, 이번엔 당신이 교문 앞을 떠나지 못했다.
+events|fl_kid_sick|Your child ran a fever at night; you held them until morning.|夜中に子どもが熱を出し、抱いたまま朝を待った。|아이가 한밤중에 열이 나서 안고 아침을 기다렸다.
+events|fl_kid_teen|Your child hit adolescence; the bedroom door stayed closed longer and longer.|子どもが思春期に入り、部屋のドアが閉まっている時間が長くなった。|아이가 사춘기에 접어들어 방문이 닫혀 있는 시간이 점점 길어졌다.
+events|fl_kid_grad|Your child graduated; in the audience you were more nervous than they were.|子どもが卒業した。客席のあなたのほうが緊張していた。|아이가 졸업했다. 객석의 당신이 아이보다 더 긴장했다.
+events|fl_kid_moves_out|Your child moved out, and the house was suddenly, strangely quiet.|子どもが家を出て、家の中が急に慣れないほど静かになった。|아이가 독립하자 집이 갑자기 낯설 만큼 조용해졌다.
+events|fl_anniversary|On your anniversary you went back to where you had your first date.|結婚記念日、二人は初デートの場所を訪れた。|결혼기념일에 두 사람은 첫 데이트 장소를 다시 찾았다.
+events|fl_marital_fight|You and your partner fought about money and gave each other the silent treatment for three days.|パートナーとお金のことでけんかし、三日間口をきかなかった。|배우자와 돈 문제로 다투고 사흘 동안 냉전했다.
+events|fl_inlaws|Back home for the holidays, relatives quizzed you about everything.|帰省のたび、親戚にあれこれ聞かれた。|명절에 고향에 가니 친척들이 이것저것 캐물었다.
+events|fl_grandchild|You became a grandparent. Holding the tiny grandchild, you felt time come full circle.|祖父母になった。小さな孫を抱いて、時がひと回りしたように感じた。|조부모가 되었다. 작은 손주를 안으니 시간이 한 바퀴 돈 것 같았다.
+events|fl_family_dinner|The whole family made it to dinner for once, and no one wanted to leave the table.|珍しく家族全員がそろって食事をし、誰も席を立ちたがらなかった。|오랜만에 온 가족이 모여 밥을 먹었고, 아무도 자리를 뜨고 싶어 하지 않았다.
+events|fl_parent_dies|Your father or mother passed away. Sorting their things, you found a photo of yourself as a child.|父か母が亡くなった。遺品を整理していて、子どものころの自分の写真を見つけた。|아버지나 어머니가 세상을 떠났다. 유품을 정리하다 어린 시절 내 사진을 찾았다.
+events|fl_new_skill|Your company brought in a new system, and you gritted your teeth and learned it.|会社に新しいシステムが入り、腹をくくって覚えた。|회사에 새 시스템이 들어와 이를 악물고 익혔다.
+events|fl_career_doubt|You began to wonder whether this job was what you really wanted.|この仕事が本当にやりたいことなのか、疑問に思い始めた。|이 일이 정말 원하던 일인지 의심하기 시작했다.
+events|fl_back_pain|Back pain arrived, and you started choosing chairs carefully.|腰痛がやってきて、椅子を真剣に選ぶようになった。|허리 통증이 찾아와 의자를 신중하게 고르기 시작했다.
+events|fl_glasses|You noticed you had to hold text farther away — reading glasses time.|字を読むのに遠ざけるようになった。老眼が来たのだ。|글자를 멀리 떼어 봐야 했다. 노안이 온 것이다.
+events|fl_house_repair|The house sprang a leak; repairs cost {amount}.|家が雨漏りし、修理に {amount} かかった。|집에 물이 새서 수리비로 {amount}가 들었다.
+events|fl_garden|You planted a row of plants on the balcony and checked their growth every morning.|ベランダに植物を並べて植え、毎朝どれだけ伸びたか見に行った。|베란다에 화분을 줄지어 심고 매일 아침 얼마나 자랐나 살폈다.
+events|fl_cooking|You mastered a signature dish; from then on you cooked every family gathering.|得意料理を一つ覚え、それ以来、親戚の集まりではあなたが料理番になった。|자신 있는 요리를 하나 익혔고, 그 뒤로 집안 모임은 당신이 요리를 맡았다.
+events|fl_mid_trip|You went somewhere you had wanted to go since childhood.|子どものころから行きたかった場所へ行った。|어릴 때부터 가 보고 싶던 곳에 갔다.
+events|fl_health_check|Your checkup came back with a few red flags; the doctor told you to eat less salt.|健康診断でいくつか引っかかり、医者に塩分を控えるよう言われた。|건강검진에서 몇 가지 이상 소견이 나와 의사가 소금을 줄이라고 했다.
+events|fl_quit_smoking|You kicked a bad habit; the first three months were the hardest.|悪い習慣を断った。最初の三か月がいちばんつらかった。|나쁜 습관을 끊었다. 처음 석 달이 가장 힘들었다.
+events|fl_lottery_small|A small lottery win — just enough to buy everyone drinks.|くじで小さく当たり、みんなに飲み物をおごるのにちょうどよかった。|작은 복권에 당첨돼 모두에게 음료를 사기에 딱 좋았다.
+events|fl_award_work|You received the company's annual award; on stage your mind went blank.|会社の年間表彰を受け、壇上で頭が真っ白になった。|회사 연간 표창을 받았는데 무대에서 머릿속이 하얘졌다.
+events|fl_teach|You started training newcomers and found teaching harder than doing.|新人の指導を始め、教えるほうが自分でやるより難しいと知った。|신입을 가르치기 시작했고, 가르치는 게 직접 하는 것보다 어렵다는 걸 알았다.
+events|fl_economy_bad|The economy soured; prices rose, but your pay didn't.|景気が悪くなり、物価は上がったのに給料は変わらなかった。|경기가 나빠져 물가는 오르는데 월급은 그대로였다.
+events|fl_neighbors|New neighbours moved in and brought over a plate of homemade snacks.|新しい隣人が越してきて、手作りのお菓子を持ってきてくれた。|새 이웃이 이사 와서 직접 만든 간식 한 접시를 가져왔다.
+events|fl_retire_hobby|In retirement you took up calligraphy and woodworking; every day had something to do.|退職後、書道と木工を習い、毎日することがあった。|은퇴 후 서예와 목공을 배워 날마다 할 일이 생겼다.
+events|fl_grandkid_visit|Your grandchild spent the summer with you, and the house was lively again.|孫が夏休みを過ごしに来て、家がまたにぎやかになった。|손주가 여름방학을 보내러 와서 집이 다시 북적였다.
+events|fl_old_friend|An old friend called, and you talked until the phone grew hot.|旧友から電話があり、電話が熱くなるまで話し込んだ。|옛 친구에게서 전화가 와 전화기가 뜨거워질 때까지 이야기했다.
+events|fl_fall|You slipped at home and needed a good while to recover.|家で滑って転び、しばらく養生した。|집에서 미끄러져 한동안 몸조리를 했다.
+events|fl_memory|You began forgetting small things; your keys kept going missing.|小さなことを忘れるようになり、鍵がよく見つからなくなった。|사소한 것들을 잊기 시작했고, 열쇠를 자주 찾지 못했다.
+events|fl_photo_album|You found an old photo album and looked through it page by page until midnight.|古いアルバムを見つけ、夜中まで一枚ずつ眺めた。|오래된 앨범을 꺼내 한 장 한 장 자정까지 넘겨 봤다.
+events|fl_walk_park|Every morning you walked a lap of the park and greeted a group of old friends.|毎朝公園を一周し、なじみの仲間たちにあいさつした。|매일 아침 공원을 한 바퀴 돌며 오랜 친구들과 인사를 나눴다.
+events|fl_hospital_stay|A week in hospital — the nurses all knew your name by the end.|一週間入院し、看護師たちはみんなあなたの名前を覚えた。|일주일 입원하니 간호사들이 모두 당신 이름을 불렀다.
+events|fl_digital|Your grandchild taught you video calls, and you learned faster than expected.|孫にビデオ通話を教わり、思ったより早く覚えた。|손주에게 영상통화를 배웠는데 생각보다 빨리 익혔다.
+events|fl_funeral_friend|You attended an old friend's funeral, and walked home especially slowly.|旧友の葬儀に参列し、帰り道をことさらゆっくり歩いた。|오랜 친구의 장례식에 다녀오는 길, 유난히 천천히 걸었다.
+events|fl_will|You wrote your will and, oddly, felt more at ease.|遺言書を書き終え、かえって気持ちが落ち着いた。|유언장을 쓰고 나니 오히려 마음이 편해졌다.
+events|fl_birthday_old|The whole family celebrated your birthday; there were so many candles it took two breaths.|家族みんなが誕生日を祝ってくれた。ろうそくが多すぎて二回に分けて吹き消した。|온 가족이 생일을 축하해 줬다. 초가 너무 많아 두 번에 나눠 불었다.
+events|fl_moon_landing|The family crowded around the TV to watch humans land on the Moon for the first time.|家族でテレビの前に詰めかけ、人類初の月面着陸を見た。|온 가족이 TV 앞에 모여 인류의 첫 달 착륙을 지켜봤다.
+events|fl_internet|You went online for the first time; you never forgot the dial-up modem's sound.|初めてインターネットにつないだ。ダイヤルアップの音はずっと覚えている。|처음 인터넷에 접속했다. 전화 접속 모뎀 소리를 늘 기억한다.
+events|fl_pandemic|The pandemic came; streets emptied and everyone put on masks.|感染症が流行し、街は空っぽになり、誰もがマスクをつけた。|전염병이 돌자 거리는 텅 비고 모두 마스크를 썼다.
+events|fl_financial_crisis|The financial crisis hit; every day the news reported more layoffs.|金融危機が起き、毎日ニュースが誰かのリストラを伝えた。|금융위기가 닥쳐 날마다 뉴스에 해고 소식이 나왔다.
+events|fl_oil_shock|The oil crisis: long lines at petrol stations and prices climbing.|石油危機。ガソリンスタンドに長い列ができ、物価は上がり続けた。|석유 파동. 주유소에 긴 줄이 늘어서고 물가가 계속 올랐다.
+events|fl_y2k|On New Year's Eve everyone worried computers would fail. Nothing happened.|大みそか、コンピューターの誤作動が心配されたが、何も起きなかった。|새해 전야에 모두 컴퓨터 오류를 걱정했지만 아무 일도 없었다.
+events|fl_smartphone|You switched to a smartphone and started spending more time looking down.|スマートフォンに替え、下を向いている時間が増えた。|스마트폰으로 바꾼 뒤 고개 숙이는 시간이 늘었다.
+events|fl_drought|Drought cut the harvest sharply; the family scrimped and saved.|干ばつで収穫が激減し、一家は切り詰めて暮らした。|가뭄으로 수확이 크게 줄어 온 가족이 허리띠를 졸라맸다.
+events|fl_rainy_harvest|The rains were just right this year; the fields gave a good harvest.|今年は雨がちょうどよく、畑は豊作だった。|올해는 비가 알맞게 와서 농사가 잘됐다.
+events|fl_power_cut|The power was out for days; at night the family chatted by candlelight.|何日も停電し、夜は家族でろうそくを囲んで話した。|며칠 동안 정전되어 밤마다 가족이 촛불을 켜고 이야기를 나눴다.
+events|fl_city_lights|Your first trip to the city — the streets full of lights startled you.|初めて町に出て、通りいっぱいの明かりに驚いた。|처음 도시에 가서 거리를 가득 채운 불빛에 깜짝 놀랐다.
+events|fl_festival|On the festival night the family gathered together while it was wonderfully noisy outside.|祭りの夜、家族は寄り集まり、外はたいへんなにぎわいだった。|명절 밤, 가족이 한데 모였고 바깥은 떠들썩했다.
+events|rt_giftParents|As usual, you gave your parents a red envelope ({amount}).|いつものように、両親にお金を包んだ（{amount}）。|여느 때처럼 부모님께 용돈을 드렸다({amount}).
+events|rt_tripHome|As every year, you took a short trip ({amount}).|毎年の習慣どおり、小旅行に出かけた（{amount}）。|해마다 하던 대로 짧은 여행을 다녀왔다({amount}).
+events|rt_donateSmall|You made your regular small donation again this year ({amount}).|今年もいつもの少額の寄付をした（{amount}）。|올해도 정기적으로 소액을 기부했다({amount}).
+events|rt_gym|You renewed your gym membership for another year ({amount}).|ジムの会員をもう一年更新した（{amount}）。|헬스장 회원권을 1년 더 연장했다({amount}).
+events|rt_checkup|You had your yearly health check ({amount}).|年に一度の健康診断を受けた（{amount}）。|해마다 받는 건강검진을 받았다({amount}).
+events|ev_lost_tooth|Your front tooth fell out, and you put it under your pillow.|前歯が抜けて、枕の下に置いた。|앞니가 빠져서 베개 밑에 넣어 두었다.
+events|ev_snow_day|A rare heavy snowfall — you built the first snowman of your life.|珍しく大雪が降り、人生初の雪だるまを作った。|모처럼 큰 눈이 내려 생애 첫 눈사람을 만들었다.
+events|ev_spelling_bee|You took third place in the spelling contest.|つづりのコンテストで三位になった。|맞춤법 대회에서 3등을 했다.
+events|ev_tree_climb|You climbed the tallest tree near your home.|家の近くでいちばん高い木に登った。|집 근처에서 가장 높은 나무에 올랐다.
+events|ev_school_lunch|Your school started serving free lunches.|学校で無料の給食が始まった。|학교에서 무상 급식이 시작됐다.

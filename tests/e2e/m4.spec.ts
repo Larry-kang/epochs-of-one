@@ -37,7 +37,7 @@ test('M4 invest panel: allocate, leverage risk notice, replay after reload, sett
   await expect(page.locator('#age')).not.toHaveText('25 歲', { timeout: 60000 });
   await page.getByRole('button', { name: '暫停' }).click();
   const inv = await page.locator('#inv').textContent();
-  expect(inv).not.toBe('$0');
+  expect(inv).not.toMatch(/^[^0-9]*0$/);
   await shot(page, 'm4-02-life-invested');
   // reload → resume replays recorded actions deterministically
   const age = await page.locator('#age').textContent();

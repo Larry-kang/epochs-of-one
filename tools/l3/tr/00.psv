@@ -1,0 +1,80 @@
+events|study_prize|Your report card came with a certificate. You quietly taped it above your desk.|成績表と一緒に賞状をもらった。こっそり机の前に貼った。|성적표와 함께 상장을 받았다. 몰래 책상 앞에 붙여 두었다.
+events|first_paycheck|Your first paycheck came in: {amount}. You stared at the bankbook for a long time.|初めての給料が振り込まれた：{amount}。通帳をしばらく見つめていた。|첫 월급이 들어왔다: {amount}. 통장을 한참 들여다보았다.
+events|jobless_year|No job this year. You sent out résumés and heard little back. Income this year (unemployment benefit): {amount}.|この一年、仕事が見つからなかった。履歴書を送っても返事はほとんどない。今年の収入（失業給付）：{amount}。|올해는 일자리를 구하지 못했다. 이력서를 보내도 답이 거의 없었다. 올해 수입(실업급여): {amount}.
+events|promotion|Your manager called you into the office — good news: you were promoted, with a raise of about {pct}%.|上司に呼ばれた。いい知らせだ。昇進し、給料が約 {pct}% 上がった。|상사가 사무실로 불렀다. 좋은 소식이다. 승진했고 월급이 약 {pct}% 올랐다.
+events|illness|An illness kept you in bed for weeks. Out-of-pocket medical costs: {cost}.|病気で何週間も寝込んだ。自己負担の医療費：{cost}。|병으로 몇 주를 앓아누웠다. 본인 부담 의료비: {cost}.
+events|windfall|A windfall: {amount}. Maybe an inheritance, a bonus, or a winning receipt-lottery ticket.|思わぬ臨時収入：{amount}。遺産か、ボーナスか、当たりくじか。|뜻밖의 횡재: {amount}. 유산일 수도, 보너스일 수도, 당첨 복권일 수도 있다.
+events|friend_leaves|A close friend moved far away, and you slowly lost touch.|親友が遠くへ引っ越し、連絡がだんだん途絶えた。|친한 친구가 먼 곳으로 이사했고, 연락이 점점 뜸해졌다.
+events|new_hobby|You got hooked on a new hobby. Weekends finally had something to look forward to.|新しい趣味にはまった。週末がようやく楽しみになった。|새 취미에 빠졌다. 드디어 주말이 기다려졌다.
+events|marginCall|The market crashed and your margin position was liquidated. Leverage cost you {loss} this year. (The year's low is estimated.)|相場が急落し、信用取引のポジションが強制決済された。今年、レバレッジで {loss} を失った。（年内の安値は推計）|시장이 폭락해 신용 포지션이 반대매매되었다. 올해 레버리지로 {loss}를 잃었다. (연중 저점은 추정치)
+events|forcedSale|Short on cash, you had to sell {amount} of investments.|現金が足りず、{amount} 分の投資を売るしかなかった。|현금이 부족해 투자 자산 {amount}어치를 팔아야 했다.
+events|levClosed|To stay afloat, all leveraged positions were closed.|資金繰りのため、レバレッジのポジションをすべて決済した。|자금을 돌리기 위해 레버리지 포지션을 모두 청산했다.
+events|retire|You retired at {age}. Yearly pension: {pension}.|{age} 歳で退職した。年金は年に {pension}。|{age}세에 은퇴했다. 연간 연금: {pension}.
+events|mortgagePaid|The mortgage is finally paid off. The home is entirely yours.|住宅ローンをついに完済した。家は完全にあなたのものだ。|주택담보대출을 드디어 다 갚았다. 집은 온전히 당신의 것이다.
+events|paymentMissed|You couldn't make the loan payments this year; a late fee was added to the bill.|今年はローンを払えず、延滞金が加算された。|올해는 대출금을 갚지 못해 연체료가 붙었다.
+events|foreclosure|After missed mortgage payments in a row, the home was foreclosed. Left after settling: {amount}.|住宅ローンの滞納が続き、家は競売にかけられた。清算後に残ったのは {amount}。|주택담보대출을 연이어 못 갚아 집이 경매로 넘어갔다. 정산 후 남은 돈: {amount}.
+events|loanPaid|A personal loan was paid off.|ローンを一つ完済した。|신용대출 하나를 다 갚았다.
+events|loanDefault|Loan default: {amount} was written off and your credit was frozen.|ローンの債務不履行：{amount} が貸し倒れとなり、信用は凍結された。|대출 연체: {amount}가 부실채권으로 처리되고 신용이 동결되었다.
+events|loanRateUp|Rates went up: your loan rate rose from {from}% to {to}%.|金利が上がり、ローン金利が {from}% から {to}% になった。|금리가 올라 대출 금리가 {from}%에서 {to}%로 뛰었다.
+events|illness_child|You fell ill and spent weeks in bed. Your family covered the medical bills.|病気で何週間も寝込んだ。医療費は家族が工面してくれた。|병에 걸려 몇 주를 누워 지냈다. 치료비는 가족이 마련했다.
+events|divorce|You decided to part ways. The day you signed, the weather was absurdly nice.|二人は別れることにした。署名した日は、腹が立つほどいい天気だった。|두 사람은 헤어지기로 했다. 서류에 서명하던 날, 날씨는 얄미울 만큼 좋았다.
+events|study_start|You began a new stage of your studies.|新しい学びの段階が始まった。|새로운 학업 단계를 시작했다.
+events|part_time|You worked part-time after class for a little pocket money.|放課後にアルバイトをして小遣いを稼いだ。|방과 후 아르바이트로 용돈을 조금 벌었다.
+events|graduated|You graduated ({edu}) and started looking for your first full-time job.|卒業した（{edu}）。初めての正社員の仕事を探し始めた。|졸업했다({edu}). 첫 정규직 일자리를 찾기 시작했다.
+events|ch_vaccine_go|Your parents walked a long way to take you to get vaccinated.|両親は長い道のりを歩いて、あなたを予防接種に連れて行った。|부모님은 먼 길을 걸어 당신을 예방접종에 데려갔다.
+events|ch_vaccine_skip|The clinic was too far from home; you missed the vaccine this time.|診療所が遠すぎて、今回は予防接種に行けなかった。|진료소가 너무 멀어 이번에는 예방접종을 받지 못했다.
+events|ch_school_school|Your parents decided to send you to school. With a new schoolbag, you walked into the classroom.|両親はあなたを学校に通わせることにした。新しいかばんを背負って教室に入った。|부모님은 당신을 학교에 보내기로 했다. 새 책가방을 메고 교실에 들어섰다.
+events|ch_school_help|The family needed hands, so you stayed home to help instead of going to school.|家に人手が必要で、学校へは行かずに家を手伝った。|집에 일손이 필요해 학교 대신 집에서 일을 도왔다.
+events|ch_hs_academic|You chose to stay in high school, aiming for university.|大学進学を目指して高校に進んだ。|대학 진학을 목표로 고등학교에 진학했다.
+events|ch_hs_vocational|You chose a vocational school to learn a trade.|手に職をつけるため、職業学校を選んだ。|기술을 배우려고 직업학교를 택했다.
+events|ch_hs_work|You decided to stop schooling and start earning.|進学をやめ、働いて稼ぐことにした。|진학을 그만두고 일해서 돈을 벌기로 했다.
+events|ch_uni_uni|You got into university — four years of studying while working part-time.|大学に合格した。これから4年間、勉強とアルバイトの両立だ。|대학에 합격했다. 앞으로 4년은 공부와 아르바이트를 병행한다.
+events|ch_uni_work|You skipped university and went straight into work.|大学には行かず、そのまま社会に出た。|대학에 가지 않고 바로 사회에 나갔다.
+events|ch_grad_grad|You went on to graduate school for two more years.|大学院に進み、さらに2年学ぶことにした。|대학원에 진학해 2년 더 공부하기로 했다.
+events|ch_grad_work|Degree in hand, you decided to work first.|学位を取ったあと、まずは働くことにした。|학위를 받은 뒤 우선 일하기로 했다.
+events|ch_career_stable|You chose a stable job: the pay won't soar, but layoffs are unlikely.|安定した仕事を選んだ。給料は跳ね上がらないが、解雇されにくい。|안정적인 직장을 택했다. 월급이 치솟지는 않지만 해고될 일은 적다.
+events|ch_career_private|You joined a private company to see how far you could go.|民間企業に入り、勝負してみることにした。|민간 기업에 들어가 한번 부딪쳐 보기로 했다.
+events|ch_career_startup|You started your own business. Income may swing wildly, but it's yours.|起業した。収入は大きく上下するかもしれないが、自分の事業だ。|창업했다. 수입은 들쭉날쭉하겠지만 내 사업이다.
+events|ch_career_informal|You made a living in informal work: odd jobs, farm help or a street stall.|非正規の仕事で暮らしを立てた。日雇い、農作業の手伝い、露店。|비공식 일자리로 생계를 꾸렸다. 날품팔이, 농사일 돕기, 노점.
+events|ch_move_city|You moved to the big city: higher pay, and higher rent.|大都市に引っ越した。給料は高いが、家賃も高い。|대도시로 이사했다. 월급은 높지만 집세도 비싸다.
+events|ch_move_stay|You decided to stay in your hometown, close to family.|家族の近くにいようと、地元に残ることにした。|가족 곁에 있으려고 고향에 남기로 했다.
+events|ch_marry_marry|You married {spouse}. Your hands shook a little the day the invitations went out. The wedding cost {cost}.|{spouse}と結婚した。招待状を出した日、少し手が震えた。結婚式の費用は {cost}。|{spouse}와(과) 결혼했다. 청첩장을 보내던 날 손이 조금 떨렸다. 결혼식 비용은 {cost}.
+events|ch_marry_wait|Someone proposed, or you thought about marriage, but you decided to wait.|プロポーズされた、あるいは結婚を考えた。でも、もう少し待つことにした。|누군가 청혼했거나 결혼을 생각해 봤지만, 좀 더 기다리기로 했다.
+events|ch_child_have|Child number {nth}, {name}, was born. The house got louder, and warmer.|{nth} 人目の子ども、{name}が生まれた。家はにぎやかに、そして温かくなった。|{nth}번째 아이 {name}이(가) 태어났다. 집은 더 시끄러워지고, 더 따뜻해졌다.
+events|ch_child_notnow|You talked about having another child and decided not yet.|もう一人ほしいか話し合い、今はやめておくことにした。|아이를 하나 더 낳을지 이야기했고, 지금은 아니라고 정했다.
+events|ch_parents_self|Your parents needed care. You cut your hours and looked after them yourself.|両親に介護が必要になった。仕事を減らし、自分で世話をした。|부모님께 돌봄이 필요해졌다. 일을 줄이고 직접 돌봤다.
+events|ch_parents_hire|Your parents needed care. You hired a caregiver — a new yearly expense.|両親に介護が必要になった。介護士を雇い、毎年の出費が増えた。|부모님께 돌봄이 필요해졌다. 간병인을 고용해 해마다 지출이 늘었다.
+events|ch_parents_siblings|Your parents needed care. You asked your siblings to carry more of it, and felt a bit guilty.|両親に介護が必要になった。きょうだいに多めに頼み、少し後ろめたかった。|부모님께 돌봄이 필요해졌다. 형제자매에게 더 맡기며 마음이 조금 무거웠다.
+events|ch_treat_treat|You were diagnosed with a serious illness and chose aggressive treatment. Out-of-pocket costs: {cost}.|重い病気と診断され、積極的な治療を選んだ。自己負担の医療費：{cost}。|중병 진단을 받고 적극적인 치료를 택했다. 본인 부담 의료비: {cost}.
+events|ch_treat_basic|You were diagnosed with a serious illness and chose conservative care. It cost less ({cost}), but left you weaker.|重い病気と診断され、保存的な治療を選んだ。費用は少なかった（{cost}）が、体は弱った。|중병 진단을 받고 보존적 치료를 택했다. 비용은 적었지만({cost}) 몸은 더 쇠약해졌다.
+events|fl_first_steps|You wobbled through your first steps while the whole family clapped.|よちよちと人生最初の一歩を踏み出し、家族みんなが拍手した。|비틀비틀 인생의 첫걸음을 떼자 온 가족이 박수를 쳤다.
+events|fl_first_word|You said your first word. The grown-ups argued all night over whether it was their name.|初めて言葉をしゃべった。大人たちは、それが自分を呼んだのかどうか一晩じゅう言い合った。|첫 단어를 말했다. 어른들은 그게 자기를 부른 건지 밤새 다퉜다.
+events|fl_night_fever|A fever in the night; your family took turns holding you until dawn.|夜中に熱を出し、家族が交代で朝まで抱いていてくれた。|한밤중에 열이 나서 가족이 번갈아 안고 새벽을 맞았다.
+events|fl_sibling_fight|You had a big fight with a sibling over something small, and made up by dinner.|ささいなことできょうだいと大げんかし、夕食までには仲直りした。|사소한 일로 형제와 크게 싸웠다가 저녁 먹을 때 화해했다.
+events|fl_lost_market|You got lost at the market for ten minutes — the ten minutes you remember longest.|市場で十分間迷子になった。いちばん長く覚えている十分間だ。|시장에서 10분 동안 길을 잃었다. 가장 오래 기억에 남은 10분이었다.
+events|fl_kindergarten|On your first day of school, you clung to the doorframe and wouldn't let go.|登校初日、ドアの枠にしがみついて離れなかった。|등교 첫날, 문틀을 꼭 붙잡고 놓지 않았다.
+events|fl_best_friend|You made your first best friend; you promised to do great things together when you grew up.|初めて親友ができ、大きくなったら一緒にすごいことをしようと約束した。|첫 단짝이 생겼고, 커서 함께 큰일을 하자고 약속했다.
+events|fl_bike|You learned to ride a bike and got two scars on your knees.|自転車に乗れるようになり、ひざに傷が二つ増えた。|자전거 타기를 배우고 무릎에 흉터 두 개가 생겼다.
+events|fl_stray_cat|You secretly fed a stray cat and even gave it a name.|こっそり野良猫にえさをやり、名前までつけた。|몰래 길고양이에게 밥을 주고 이름까지 지어 줬다.
+events|fl_storm|A storm kept the whole family indoors, listening to the wind outside.|嵐で家族みんなが家にこもり、窓の外の風の音を聞いていた。|폭풍우에 온 가족이 집 안에 모여 창밖 바람 소리를 들었다.
+events|fl_grandma_story|A grandparent told a story from long ago, and you remembered it into old age.|祖父母が昔話をしてくれた。年をとるまでずっと覚えていた。|조부모님이 옛날이야기를 해 주셨고, 늙을 때까지 기억했다.
+events|fl_broken_arm|You fell out of a tree; your arm was in a cast for six weeks.|木から落ちて、腕に六週間ギプスをした。|나무에서 떨어져 팔에 6주 동안 깁스를 했다.
+events|fl_class_play|In the school play you were just a tree, but you stood very seriously.|学芸会では木の役だけだったが、真剣に立っていた。|학예회에서 나무 역할뿐이었지만 진지하게 서 있었다.
+events|fl_math_tears|A math problem made you cry all night; the next day it finally clicked.|算数の問題で一晩じゅう泣き、翌日ようやく分かった。|수학 문제 하나로 밤새 울었고, 다음 날 드디어 이해했다.
+events|fl_library|You discovered the library and spent the whole summer there.|図書館を見つけ、夏休みじゅう入り浸った。|도서관을 발견하고 여름방학 내내 그곳에서 지냈다.
+events|fl_chores|After school there were chores; homework got done late under the lamp.|放課後は家の手伝い。宿題は灯りの下で急いで片付けた。|방과 후엔 집안일을 도와야 해서 숙제는 등불 아래서 서둘러 했다.
+events|fl_new_shoes|Your family finally bought you new shoes, and you couldn't bear to wear them.|ようやく新しい靴を買ってもらい、もったいなくて履けなかった。|드디어 새 신발이 생겼는데 아까워서 신지 못했다.
+events|fl_moving_house|The family moved, and you had to get to know a whole new street.|一家で引っ越し、通りじゅうの人と一から知り合うことになった。|온 가족이 이사해 한 동네 사람들을 처음부터 다시 알아가야 했다.
+events|fl_pet_dies|The family pet died, and you learned for the first time what goodbye means.|家のペットが死に、初めて別れというものを知った。|집에서 키우던 동물이 떠났고, 처음으로 이별이 무엇인지 알았다.
+events|fl_birthday_cake|That year's cake was full of candles; you still haven't told anyone your wish.|その年のケーキはろうそくでいっぱいだった。願いごとは今も誰にも言っていない。|그해 생일 케이크엔 초가 가득했다. 그때 빈 소원은 아직 아무에게도 말하지 않았다.
+events|fl_crush|You had a crush on someone and never said a word.|ある人に片思いしたが、一言も言えなかった。|누군가를 짝사랑했지만 한마디도 하지 못했다.
+events|fl_first_phone|You got your first phone and texted under the covers at night.|初めて携帯電話を持ち、夜は布団の中でこっそりメッセージを送った。|첫 휴대폰이 생겨 밤마다 이불 속에서 몰래 문자를 보냈다.
+events|fl_radio|You sat by the radio, waiting for a song you loved.|ラジオのそばで、好きな曲がかかるのを待った。|라디오 옆을 지키며 좋아하는 노래를 기다렸다.
+events|fl_exam_stress|Exam season arrived; the stack of study guides was taller than you.|試験の季節。机の参考書は自分の背より高く積まれた。|시험 기간이 왔다. 책상 위 참고서가 키보다 높이 쌓였다.
+events|fl_band|You formed a band with friends who knew only three chords.|友だちとバンドを組んだ。弾けるコードは三つだけ。|친구들과 밴드를 만들었다. 칠 줄 아는 코드는 세 개뿐.
+events|fl_sports_win|Your team won the inter-school championship.|あなたのチームが学校対抗戦で優勝した。|당신의 팀이 학교 대항전에서 우승했다.
+events|fl_detention|You got detention, and you still think it was unfair.|居残りの罰を受けた。理由は今でも納得していない。|방과 후 벌을 받았다. 그 이유는 지금도 억울하다.
+events|fl_part_time|Your first part-time job: low pay, but the first thing you bought with your own money.|初めてのアルバイト。時給は安いが、初めて自分で稼いだお金で買い物をした。|첫 아르바이트. 시급은 낮았지만 처음으로 내가 번 돈으로 물건을 샀다.
+events|fl_rebel|You had a huge fight with your parents, slammed the door, and came home on your own at midnight.|両親と大げんかしてドアを叩きつけて出て行き、夜中に自分で帰ってきた。|부모님과 크게 싸우고 문을 쾅 닫고 나갔다가 한밤중에 스스로 돌아왔다.
+events|fl_diary|You started a diary and filled a whole notebook.|日記をつけ始め、一冊まるごと書きつくした。|일기를 쓰기 시작해 한 권을 가득 채웠다.
+events|fl_mentor|A teacher saw your potential and said something you never forgot.|ある先生があなたの可能性を見抜き、ずっと忘れられない言葉をくれた。|한 선생님이 당신의 가능성을 알아보고 평생 잊지 못할 말을 해 주었다.

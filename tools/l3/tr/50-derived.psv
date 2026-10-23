@@ -1,0 +1,541 @@
+decisions|o_d_pet_ask_beg|Pester your parents every day|毎日両親にねだる|매일 부모님을 조른다
+decisions|ct_d_pet_ask|You keep begging for a dog.|犬を飼いたいとずっとせがんでいる。|개를 키우고 싶다고 계속 조른다.
+decisions|o_d_pet_ask_drop|Forget it, get a goldfish instead|あきらめて金魚にする|포기하고 금붕어를 키운다
+decisions|o_d_lost_wallet_return|Hand it in to the police|交番に届ける|경찰서에 맡긴다
+decisions|ct_d_lost_wallet|On the way home from school you find a fat wallet.|下校中、ぱんぱんの財布を拾った。|하굣길에 두툼한 지갑을 주웠다.
+decisions|o_d_lost_wallet_keep|Quietly keep the loose change|小銭だけこっそりもらう|잔돈만 몰래 챙긴다
+decisions|o_d_bully_seen_help|Step in and help|かばいに出る|나서서 돕는다
+decisions|ct_d_bully_seen|A classmate is being bullied in the hallway and everyone pretends not to see.|同級生が廊下でいじめられ、みんな見て見ぬふり。|반 친구가 복도에서 괴롭힘을 당하는데 다들 못 본 척한다.
+decisions|o_d_bully_seen_tell|Tell a teacher|先生に知らせる|선생님께 알린다
+decisions|o_d_bully_seen_walk|Keep your head down and walk past|うつむいて通り過ぎる|고개 숙이고 지나간다
+decisions|o_d_piano_quit_keep|Stick with it a little longer|もう少し続ける|조금만 더 버틴다
+decisions|ct_d_piano_quit|After two years of piano, you say you want to quit.|ピアノを習って二年、やめたいと言った。|피아노를 배운 지 2년, 그만두고 싶다고 했다.
+decisions|o_d_piano_quit_quit|Stop right there|すっぱりやめる|바로 그만둔다
+decisions|o_d_school_play_try|Raise your hand|手を挙げてみる|손을 들어 본다
+decisions|ct_d_school_play|The teacher is choosing a lead for the school play.|先生が学校劇の主役を選ぼうとしている。|선생님이 학교 연극 주인공을 뽑는다.
+decisions|o_d_school_play_back|Hide in the back row|後ろの列に隠れる|뒷줄에 숨는다
+decisions|o_d_comic_or_book_comic|A full comic series|漫画の全巻セット|만화 전집
+decisions|ct_d_comic_or_book|Your pocket money only covers one thing.|お小遣いで買えるのは一つだけ。|용돈으로 하나만 살 수 있다.
+decisions|o_d_comic_or_book_book|An encyclopedia|百科事典|백과사전
+decisions|o_d_cheat_test_no|Slide them back|押し返す|도로 밀어낸다
+decisions|ct_d_cheat_test|During a test, the kid next to you slides their answers over.|テスト中、隣の子が答えを差し出してきた。|시험 중 옆자리 친구가 답을 밀어 줬다.
+decisions|o_d_cheat_test_peek|Take a peek|ちらっと見る|슬쩍 본다
+decisions|o_d_sick_day_rest|Rest at home|家で休む|집에서 쉰다
+decisions|ct_d_sick_day|You have a bit of a cough — stay home tomorrow?|少し咳が出る。明日は休む？|기침이 좀 난다. 내일 쉴까?
+decisions|o_d_sick_day_go|Tough it out and go to school|無理して登校する|참고 학교에 간다
+decisions|o_d_new_kid_friend|Make friends with them|自分から友だちになる|먼저 친구가 되어 준다
+decisions|ct_d_new_kid|A new kid who barely speaks the local language joins your class.|地元の言葉があまり話せない転校生が来た。|현지 말을 잘 못하는 전학생이 왔다.
+decisions|o_d_new_kid_watch|Watch for a while first|まず様子を見る|일단 지켜본다
+decisions|o_d_field_trip_go|Beg your parents to let you go|両親に頼み込む|부모님께 보내 달라고 조른다
+decisions|ct_d_field_trip|The school trip costs quite a lot.|遠足にけっこうな費用がかかる。|현장 학습 비용이 꽤 든다.
+decisions|o_d_field_trip_skip|Say you don't want to go|行きたくないと言う|가기 싫다고 말한다
+decisions|o_d_grandpa_farm_help|Go to the fields with him|一緒に畑へ行く|따라서 밭에 간다
+decisions|ct_d_grandpa_farm|Grandpa asks if you'll help in the fields this summer.|おじいちゃんに夏休みに畑を手伝うか聞かれた。|할아버지가 여름방학에 밭일을 도울지 물었다.
+decisions|o_d_grandpa_farm_play|Stay home and play|家で遊ぶ|집에서 논다
+decisions|o_d_tv_time_hw|Turn off the TV and do it|テレビを消して宿題をする|TV를 끄고 숙제한다
+decisions|ct_d_tv_time|The cartoon is over and your homework isn't done.|アニメが終わったのに宿題がまだ。|만화가 끝났는데 숙제를 안 했다.
+decisions|o_d_tv_time_more|One more episode|もう一話見る|한 편만 더 본다
+decisions|o_d_broken_vase_admit|Own up|正直に言う|솔직히 털어놓는다
+decisions|ct_d_broken_vase|You accidentally broke Mum's favourite vase.|お母さんのお気に入りの花瓶をうっかり割った。|엄마가 가장 아끼는 꽃병을 실수로 깼다.
+decisions|o_d_broken_vase_hide|Hide the pieces|破片をこっそり隠す|몰래 조각을 숨긴다
+decisions|o_d_sports_day_run|Sign up for the anchor leg|アンカーに名乗り出る|마지막 주자로 나선다
+decisions|ct_d_sports_day|The sports-day relay is one runner short.|運動会のリレーが一人足りない。|운동회 계주에 한 명이 모자란다.
+decisions|o_d_sports_day_cheer|Cheer from the side|横で応援する|옆에서 응원한다
+decisions|o_d_secret_club_join|Join in|仲間に入る|함께한다
+decisions|ct_d_secret_club|The neighbour kids want you to help build a secret hideout.|近所の子に秘密基地づくりに誘われた。|동네 아이들이 비밀 기지를 같이 짓자고 한다.
+decisions|o_d_secret_club_home|Too dangerous, stay away|危ないからやめておく|위험하니 안 간다
+decisions|o_d_glasses_kid_tell|Tell your parents and get glasses|両親に言って眼鏡を作る|부모님께 말해 안경을 맞춘다
+decisions|ct_d_glasses_kid|The blackboard keeps getting blurrier.|黒板がだんだんぼやけて見える。|칠판이 점점 흐릿하게 보인다.
+decisions|o_d_glasses_kid_squint|Squint and put up with it|目を細めて我慢する|눈을 찡그리며 버틴다
+decisions|o_d_sibling_toy_share|Lend it|貸してあげる|빌려준다
+decisions|ct_d_sibling_toy|Your younger sibling wants to play with your most treasured toy.|弟か妹が、いちばん大事なおもちゃで遊びたがる。|동생이 가장 아끼는 장난감을 갖고 놀고 싶어 한다.
+decisions|o_d_sibling_toy_keep|Hide it|隠す|숨긴다
+decisions|o_d_chores_pay_help|Help every day|毎日手伝う|매일 돕는다
+decisions|ct_d_chores_pay|The family asks you to mind the stall after school.|放課後、家の屋台の店番を頼まれた。|방과 후 집안 노점을 봐 달라고 한다.
+decisions|o_d_chores_pay_study|Put schoolwork first|まず勉強を優先する|공부를 먼저 챙긴다
+decisions|o_d_essay_contest_enter|Enter|参加する|참가한다
+decisions|ct_d_essay_contest|Your teacher recommends you for an essay contest.|先生に作文コンクールを勧められた。|선생님이 글짓기 대회에 추천했다.
+decisions|o_d_essay_contest_pass|Too much hassle|面倒だからやめる|너무 귀찮다
+decisions|o_d_lunch_money_tell|Tell an adult|大人に話す|어른에게 말한다
+decisions|ct_d_lunch_money|Older kids took your lunch money.|上級生に昼食代を取られた。|상급생이 점심값을 빼앗았다.
+decisions|o_d_lunch_money_quiet|Go hungry in silence|黙ってお腹をすかせる|묵묵히 굶는다
+decisions|o_d_club_choice_sport|A sports team|球技の部|구기 팀
+decisions|ct_d_club_choice|It's club fair day — which one will you join?|部活動の紹介日。どれに入る？|동아리 박람회, 어디에 들까?
+decisions|o_d_club_choice_science|The science club|科学部|과학 동아리
+decisions|o_d_club_choice_music|The rock band club|軽音部|밴드 동아리
+decisions|o_d_cram_school_go|Sign up too|自分も申し込む|나도 등록한다
+decisions|ct_d_cram_school|All your classmates go to cram school.|同級生はみんな塾に通っている。|반 친구들이 모두 학원에 다닌다.
+decisions|o_d_cram_school_self|Study on your own|独学する|혼자 공부한다
+decisions|o_d_party_invite_go|Go and see|行ってみる|가 본다
+decisions|ct_d_party_invite|Someone invites you to a party this weekend with no adults around.|週末、大人のいないパーティーに誘われた。|주말에 어른이 없는 파티에 초대받았다.
+decisions|o_d_party_invite_stay|Make an excuse|口実をつけて断る|핑계를 대고 안 간다
+decisions|o_d_first_date_yes|Say yes|オーケーする|승낙한다
+decisions|ct_d_first_date|The person you like asks you to a movie this weekend.|好きな人に週末の映画に誘われた。|좋아하는 사람이 주말에 영화 보자고 했다.
+decisions|o_d_first_date_shy|Shyly say no|照れて断る|수줍게 거절한다
+decisions|o_d_smoke_offer_no|Shake your head|首を振る|고개를 젓는다
+decisions|ct_d_smoke_offer|A friend offers you a cigarette.|友だちにたばこを差し出された。|친구가 담배를 건넸다.
+decisions|o_d_smoke_offer_try|Try a puff|一口吸ってみる|한 모금 피워 본다
+decisions|o_d_summer_job_work|Work at a convenience store|コンビニで働く|편의점에서 일한다
+decisions|ct_d_summer_job|You could take a summer job.|夏休みにアルバイトができる。|여름방학에 아르바이트를 할 수 있다.
+decisions|o_d_summer_job_rest|Enjoy the holiday|しっかり休む|푹 쉰다
+decisions|o_d_stream_choice_sci|Sciences|理系|이과
+decisions|ct_d_stream_choice|Humanities or sciences?|文系か理系か？|문과냐 이과냐?
+decisions|o_d_stream_choice_arts|Humanities|文系|문과
+decisions|o_d_stream_choice_art|The art class|芸術クラス|예술반
+decisions|o_d_phone_night_sleep|Put it down and sleep|置いて寝る|내려놓고 잔다
+decisions|ct_d_phone_night|It's 1 a.m. and you're still scrolling.|深夜一時、まだスマホを見ている。|새벽 1시, 아직도 휴대폰을 보고 있다.
+decisions|o_d_phone_night_scroll|Scroll a bit more|もう少し見る|조금만 더 본다
+decisions|o_d_exchange_go|Apply|応募する|지원한다
+decisions|ct_d_exchange|Your school has one spot for a year abroad on exchange.|学校に一年間の海外交換留学の枠がある。|학교에 1년 해외 교환학생 자리가 하나 있다.
+decisions|o_d_exchange_stay|Stay home|地元に残る|고향에 남는다
+decisions|o_d_fight_parents_sorry|Apologise first|先に謝る|먼저 사과한다
+decisions|ct_d_fight_parents|A huge fight with your parents over curfew.|門限のことで両親と大げんか。|통금 시간 때문에 부모님과 크게 싸웠다.
+decisions|o_d_fight_parents_door|Slam the door and go to your room|ドアを叩きつけて部屋に戻る|문을 쾅 닫고 방에 들어간다
+decisions|o_d_dropout_friend_stay|Stay in school|学校に残る|학교에 남는다
+decisions|ct_d_dropout_friend|Your best friend is leaving school to work and asks you to come.|親友が休学して働くと言い、一緒に来ないかと誘う。|단짝이 휴학하고 일하겠다며 같이 가자고 한다.
+decisions|o_d_dropout_friend_join|Go to work together|一緒に働きに出る|함께 일하러 간다
+decisions|o_d_volunteer_teen_elder|Keep elders company at a care home|老人ホームでお年寄りと過ごす|양로원에서 어르신들과 함께한다
+decisions|ct_d_volunteer_teen|School requires volunteer hours.|学校でボランティア時間が必要。|학교에서 봉사 시간을 채워야 한다.
+decisions|o_d_volunteer_teen_beach|Clean up the beach|海岸清掃に行く|해변 청소를 한다
+decisions|o_d_band_teen_join|Join|加わる|합류한다
+decisions|ct_d_band_teen|Friends forming a band need a drummer.|友だちのバンドにドラマーが足りない。|친구들이 만든 밴드에 드러머가 없다.
+decisions|o_d_band_teen_no|Focus on studying|勉強に専念する|공부에 집중한다
+decisions|o_d_driving_teen_now|Take the test right away|すぐ受ける|바로 시험을 본다
+decisions|ct_d_driving_teen|You're old enough for a motorbike or driving licence.|バイクや車の免許が取れる年になった。|오토바이나 자동차 면허를 딸 나이가 됐다.
+decisions|o_d_driving_teen_later|Maybe later|また今度|나중에 한다
+decisions|o_d_diet_teen_sport|Exercise more|もっと運動する|운동을 더 한다
+decisions|ct_d_diet_teen|You've started worrying about your body.|自分の体型が気になり始めた。|몸매가 신경 쓰이기 시작했다.
+decisions|o_d_diet_teen_skip|Skip dinner|夕食を抜く|저녁을 거른다
+decisions|o_d_diet_teen_ok|Decide you're fine as you are|今のままで十分だと思う|지금도 충분히 좋다고 생각한다
+decisions|o_d_olympiad_join|Join|参加する|참가한다
+decisions|ct_d_olympiad|A teacher asks if you'll join olympiad training.|先生に数理オリンピックの合宿に誘われた。|선생님이 수학·과학 경시대회 합숙에 참가할지 물었다.
+decisions|o_d_olympiad_no|No thanks|やめておく|사양한다
+decisions|o_d_gaming_teen_play|Play till midnight every day|毎日夜中までやる|매일 밤늦게까지 한다
+decisions|ct_d_gaming_teen|Everyone is playing the new online game.|新作のオンラインゲームをみんながやっている。|다들 새로 나온 온라인 게임을 한다.
+decisions|o_d_gaming_teen_limit|Only on weekends|週末だけにする|주말에만 한다
+decisions|o_d_part_love_long|Try long distance|遠距離を試す|장거리 연애를 해 본다
+decisions|ct_d_part_love|Your partner is moving to another city.|恋人が別の街へ引っ越す。|연인이 다른 도시로 이사한다.
+decisions|o_d_part_love_end|Part on good terms|きちんと別れる|좋게 헤어진다
+decisions|o_d_tattoo_do|Get a small design|小さな図柄を入れる|작은 문양을 새긴다
+decisions|ct_d_tattoo|You want a tattoo.|タトゥーを入れたい。|문신을 하고 싶다.
+decisions|o_d_tattoo_wait|Think it over|もう少し考える|좀 더 생각한다
+decisions|o_d_mock_exam_push|Study even harder|もっと必死に勉強する|더 악착같이 공부한다
+decisions|ct_d_mock_exam|You bombed the mock exam.|模試で大失敗した。|모의고사를 망쳤다.
+decisions|o_d_mock_exam_relax|Go easy on yourself|自分を許す|스스로를 놓아준다
+decisions|o_d_major_switch_switch|Switch majors|転科する|전과한다
+decisions|ct_d_major_switch|A year in, you find you don't like your major.|一年学んで、この学科が好きでないと気づいた。|1년을 다녀 보니 전공이 맞지 않는다.
+decisions|o_d_major_switch_stay|Stick it out to graduation|卒業まで耐える|졸업까지 버틴다
+decisions|o_d_dorm_or_home_dorm|The dorm|寮に住む|기숙사
+decisions|ct_d_dorm_or_home|Live in the dorm or commute?|寮に住むか、通学するか？|기숙사에 살까, 통학할까?
+decisions|o_d_dorm_or_home_home|Live at home|実家に住む|집에서 다닌다
+decisions|o_d_gap_year_go|Go|出発する|떠난다
+decisions|ct_d_gap_year|You want a year off for a working holiday.|一年休学してワーキングホリデーに行きたい。|1년 휴학하고 워킹홀리데이를 가고 싶다.
+decisions|o_d_gap_year_stay|Stick to the plan|予定どおりにする|원래 계획대로 한다
+decisions|o_d_first_job_offer_big|Big company, stable|大企業で安定|안정적인 대기업
+decisions|ct_d_first_job_offer|Two job offers at once.|二つの内定が同時に来た。|두 곳에서 동시에 합격 통보가 왔다.
+decisions|o_d_first_job_offer_small|Small company, interesting|小さな会社で面白さ|재미있는 작은 회사
+decisions|o_d_credit_card_get|Sign up|作る|발급받는다
+decisions|ct_d_credit_card|A bank calls to sell you a credit card.|銀行からクレジットカードの勧誘電話。|은행에서 신용카드 권유 전화가 왔다.
+decisions|o_d_credit_card_no|No need|いらない|필요 없다
+decisions|o_d_move_out_out|Move out|家を出る|독립한다
+decisions|ct_d_move_out|Move out and live on your own?|家を出て一人暮らしする？|독립해서 혼자 살까?
+decisions|o_d_move_out_stay|Stay home and save money|実家でお金を貯める|집에 살며 돈을 아낀다
+decisions|o_d_roommate_talk|Have a proper talk|一度きちんと話す|제대로 한번 이야기한다
+decisions|ct_d_roommate|Your roommate keeps not paying the utilities.|ルームメイトがいつも光熱費を払わない。|룸메이트가 자꾸 공과금을 안 낸다.
+decisions|o_d_roommate_move|Just move out|いっそ引っ越す|아예 이사한다
+decisions|o_d_night_school_join|Enrol|申し込む|등록한다
+decisions|ct_d_night_school|There's an evening course near work.|会社の近くに夜間講座がある。|회사 근처에 야간 강좌가 있다.
+decisions|o_d_night_school_no|After work you just want to rest|仕事のあとは休みたい|퇴근 후엔 쉬고 싶다
+decisions|o_d_save_or_spend_save|Save all of it|全部貯金する|전부 저축한다
+decisions|ct_d_save_or_spend|You got your year-end bonus.|年末ボーナスが出た。|연말 보너스를 받았다.
+decisions|o_d_save_or_spend_trip|Treat yourself to a trip abroad|海外旅行でご褒美|해외여행으로 나에게 선물한다
+decisions|o_d_save_or_spend_parents|Give it to your parents|両親に渡す|부모님께 드린다
+decisions|o_d_friend_loan_lend|Lend it|貸す|빌려준다
+decisions|ct_d_friend_loan|An old friend asks to borrow money.|旧友にお金を貸してほしいと言われた。|오랜 친구가 돈을 빌려 달라고 한다.
+decisions|o_d_friend_loan_no|Politely decline|やんわり断る|정중히 거절한다
+decisions|o_d_dating_app_try|Give it a try|試してみる|한번 해 본다
+decisions|ct_d_dating_app|Friends urge you to download a dating app.|友だちにマッチングアプリを勧められた。|친구들이 데이팅 앱을 깔아 보라고 한다.
+decisions|o_d_dating_app_no|Leave it to fate|やっぱり縁に任せる|인연에 맡긴다
+decisions|o_d_blind_date_go|Meet once|一度会ってみる|한번 만나 본다
+decisions|ct_d_blind_date|Your elders set up an arranged date for you.|年長の親戚がお見合いを用意した。|어른들이 맞선 자리를 마련했다.
+decisions|o_d_blind_date_refuse|Flatly refuse|断固行かない|단호히 안 간다
+decisions|o_d_overtime_yes|Agree|引き受ける|수락한다
+decisions|ct_d_overtime|Your manager asks if you can work the weekend.|上司に週末出勤できるか聞かれた。|상사가 주말 근무가 가능한지 물었다.
+decisions|o_d_overtime_no|Say you have plans|予定があると言う|선약이 있다고 한다
+decisions|o_d_job_hop_jump|Switch jobs|転職する|이직한다
+decisions|ct_d_job_hop|A headhunter calls about a job paying 30% more.|ヘッドハンターから給料三割増のポストの話。|헤드헌터가 연봉 30% 높은 자리를 제안했다.
+decisions|o_d_job_hop_stay|Stay put|残る|남는다
+decisions|o_d_startup_idea_try|Work on it at night|夜に副業で進める|밤에 짬을 내 해 본다
+decisions|ct_d_startup_idea|You and a friend have a startup idea.|友だちと起業のアイデアがある。|친구와 창업 아이디어가 있다.
+decisions|o_d_startup_idea_drop|Just a daydream|考えるだけにする|생각만 한다
+decisions|o_d_gym_join_join|Buy an annual pass|年会員になる|연간 회원권을 끊는다
+decisions|ct_d_gym_join|A gym opened near work.|会社の近くにジムができた。|회사 근처에 헬스장이 생겼다.
+decisions|o_d_gym_join_run|Just run in the park|公園で走れば十分|공원에서 뛰면 된다
+decisions|o_d_wedding_far_go|Fly over|飛んでいく|비행기를 타고 간다
+decisions|ct_d_wedding_far|A university friend invites you to a wedding abroad.|大学の友人が海外で結婚式を挙げ、招待された。|대학 친구가 해외 결혼식에 초대했다.
+decisions|o_d_wedding_far_gift|Send a gift and good wishes|ご祝儀を送って祝う|축의금을 보내 축하한다
+decisions|o_d_family_business_take|Go home and take over|帰って継ぐ|돌아가 가업을 잇는다
+decisions|ct_d_family_business|Your parents hope you'll come home and take over the family business.|両親が家業を継いでほしいと願っている。|부모님이 집에 와서 가업을 이어받길 바란다.
+decisions|o_d_family_business_own|Go your own way|自分の道を行く|내 길을 간다
+decisions|o_d_army_now|Serve now|すぐ入隊する|바로 입대한다
+decisions|ct_d_army|Your call-up notice arrived.|兵役の通知が来た。|입영 통지서가 나왔다.
+decisions|o_d_army_defer|Defer for now|とりあえず延期する|일단 연기한다
+decisions|o_d_city_or_home_city|Go and make it in the city|都会で頑張る|도시로 가서 부딪친다
+decisions|ct_d_city_or_home|There's work in the big city, but your parents are back home.|大都市に仕事があるが、故郷には両親がいる。|대도시엔 일자리가, 고향엔 부모님이 있다.
+decisions|o_d_city_or_home_home|Stay home|故郷に残る|고향에 남는다
+decisions|o_d_phd_yes|Keep going|進む|계속 공부한다
+decisions|ct_d_phd|Your professor asks if you'll continue to a PhD.|教授に博士課程に進むか聞かれた。|교수님이 박사 과정을 계속할지 물었다.
+decisions|o_d_phd_no|Go into industry|民間企業へ行く|업계로 간다
+decisions|o_d_cohabit_yes|Move in together|一緒に住む|함께 산다
+decisions|ct_d_cohabit|Your partner of three years suggests moving in together.|付き合って三年の相手が同棲を提案。|3년 사귄 연인이 동거를 제안했다.
+decisions|o_d_cohabit_wait|Wait a while|もう少し待つ|좀 더 기다린다
+decisions|o_d_house_hunt_pay|Grit your teeth and renew|泣く泣く更新する|울며 겨자 먹기로 재계약한다
+decisions|ct_d_house_hunt|The landlord is raising the rent.|大家が家賃を上げると言う。|집주인이 월세를 올린다고 한다.
+decisions|o_d_house_hunt_move|Move to the suburbs|郊外に引っ越す|교외로 이사한다
+decisions|o_d_car_buy_buy|Buy one|買う|한 대 산다
+decisions|ct_d_car_buy|Commuting is wearing you out — buy a car?|通勤がどんどんつらくなる。車を買う？|출퇴근이 점점 힘들다. 차를 살까?
+decisions|o_d_car_buy_transit|Stick with public transport|公共交通を使い続ける|계속 대중교통을 탄다
+decisions|o_d_promotion_move_go|Accept the posting|赴任を受ける|발령을 받아들인다
+decisions|ct_d_promotion_move|The promotion means a posting to another city.|昇進の条件は別の都市への赴任。|승진 조건이 다른 도시 발령이다.
+decisions|o_d_promotion_move_stay|Stay where you are|今の場所に残る|지금 자리에 남는다
+decisions|o_d_boss_unfair_speak|Talk to your manager|上司と話す|상사와 담판한다
+decisions|ct_d_boss_unfair|Your manager gave someone else credit for your work.|上司があなたの手柄を他人のものにした。|상사가 당신의 공을 다른 사람에게 돌렸다.
+decisions|o_d_boss_unfair_swallow|Swallow it|のみ込む|삼킨다
+decisions|o_d_kid_school_choice_near|The public school nearby|家の近くの公立校|집 근처 공립학교
+decisions|ct_d_kid_school_choice|Your child is starting school — which one?|子どもが入学する。どの学校にする？|아이가 학교에 간다. 어느 학교로?
+decisions|o_d_kid_school_choice_private|An expensive private school|学費の高い私立校|비싼 사립학교
+decisions|o_d_kid_school_choice_move|Move to a good school district|良い学区に引っ越す|좋은 학군으로 이사한다
+decisions|o_d_kid_phone_buy|Buy one|買ってあげる|사 준다
+decisions|ct_d_kid_phone|Your child is begging for their own phone.|子どもが自分の携帯をほしがる。|아이가 자기 휴대폰을 사 달라고 조른다.
+decisions|o_d_kid_phone_wait|Wait until they're older|もう少し大きくなってから|좀 더 크면 사 준다
+decisions|o_d_parent_visit_home|Definitely going|必ず帰る|꼭 간다
+decisions|ct_d_parent_visit|Your parents call to ask if you're coming home for New Year.|両親から正月に帰るかと電話。|부모님이 설에 오느냐고 전화했다.
+decisions|o_d_parent_visit_work|Can't get away from work|仕事で帰れない|일 때문에 못 간다
+decisions|o_d_side_hustle_take|Take it|引き受ける|맡는다
+decisions|ct_d_side_hustle|Someone offers you freelance work on weekends.|週末の請負仕事を頼まれた。|누가 주말 외주 일을 제안했다.
+decisions|o_d_side_hustle_rest|Weekends are for rest|週末は休む|주말엔 쉰다
+decisions|o_d_health_warning_change|Exercise and cut the fat|運動して脂っこいものを控える|운동하고 기름진 음식을 줄인다
+decisions|ct_d_health_warning|Your health report has a few red flags.|健康診断の結果にいくつか異常値。|건강검진 결과에 이상 수치가 몇 개 있다.
+decisions|o_d_health_warning_ignore|Deal with it next time|また今度考える|다음에 생각한다
+decisions|o_d_midlife_hobby_do|Sign up for a class|講座に申し込む|강좌에 등록한다
+decisions|ct_d_midlife_hobby|You long to pick up a hobby from your youth.|若いころの趣味をまた始めたい。|젊을 때 취미를 다시 하고 싶다.
+decisions|o_d_midlife_hobby_later|Wait until retirement|退職してからにする|은퇴 후로 미룬다
+decisions|o_d_marriage_counsel_counsel|See a counsellor together|一緒にカウンセリングに行く|함께 상담을 받는다
+decisions|ct_d_marriage_counsel|You've been fighting a lot lately.|最近けんかばかりしている。|요즘 자주 싸운다.
+decisions|o_d_marriage_counsel_ignore|Give it the cold shoulder|冷却期間を置く|냉랭하게 넘긴다
+decisions|o_d_second_house_buy|Buy it and rent it out|買って貸す|사서 세를 놓는다
+decisions|ct_d_second_house|Someone recommends investing in a second home.|二軒目の家への投資を勧められた。|두 번째 집에 투자하라는 권유를 받았다.
+decisions|o_d_second_house_no|One is enough|一軒で十分|한 채면 충분하다
+decisions|o_d_layoff_offer_take|Take the money and go|お金をもらって辞める|돈을 받고 나간다
+decisions|ct_d_layoff_offer|The company offers an early-retirement package.|会社が早期退職制度を打ち出した。|회사가 희망퇴직 방안을 내놓았다.
+decisions|o_d_layoff_offer_stay|Keep working|働き続ける|계속 일한다
+decisions|o_d_kids_activity_music|A musical instrument|楽器を習う|악기를 배운다
+decisions|ct_d_kids_activity|Your child wants to learn an extracurricular skill.|子どもが習い事をしたがっている。|아이가 예체능을 배우고 싶어 한다.
+decisions|o_d_kids_activity_sport|Swimming|水泳を習う|수영을 배운다
+decisions|o_d_kids_activity_none|Not yet|今はまだいい|아직은 됐다
+decisions|o_d_family_trip_abroad|Go abroad|海外旅行|해외로 간다
+decisions|ct_d_family_trip|A family trip abroad this summer?|夏休みに家族で海外へ行く？|여름방학에 가족 해외여행을 갈까?
+decisions|o_d_family_trip_local|Camping nearby|近場でキャンプ|근처로 캠핑
+decisions|o_d_insurance_pitch_buy|Buy a policy|一つ入る|하나 든다
+decisions|ct_d_insurance_pitch|A relative is selling you insurance.|親戚が保険を売り込みに来た。|친척이 보험을 권하러 왔다.
+decisions|o_d_insurance_pitch_no|Politely decline|丁重に断る|정중히 거절한다
+decisions|o_d_charity_ask_give|Give a little|少し寄付する|조금 기부한다
+decisions|ct_d_charity_ask|A charity is collecting donations on the street.|慈善団体が街頭募金をしている。|자선단체가 거리 모금을 하고 있다.
+decisions|o_d_charity_ask_pass|Hurry past|足早に通り過ぎる|빠르게 지나친다
+decisions|o_d_neighbor_noise_talk|Go up and talk|話しに行く|올라가서 이야기한다
+decisions|ct_d_neighbor_noise|The upstairs neighbours are loud every night.|上の階の住人が毎晩うるさい。|윗집이 매일 밤 시끄럽다.
+decisions|o_d_neighbor_noise_endure|Wear earplugs and endure|耳栓をして我慢する|귀마개를 끼고 참는다
+decisions|o_d_sabbatical_go|Go do what you want|やりたいことをしに行く|하고 싶은 일을 하러 간다
+decisions|ct_d_sabbatical|You're considering a year of unpaid leave.|一年の休職を考えている。|1년 무급 휴직을 고민 중이다.
+decisions|o_d_sabbatical_no|Too scared to stop|止まるのが怖い|멈추기가 두렵다
+decisions|o_d_reunion_invite_go|Go and catch up|近況を話しに行く|가서 근황을 나눈다
+decisions|ct_d_reunion_invite|You're invited to a class reunion.|同窓会に誘われた。|동창회 초대를 받았다.
+decisions|o_d_reunion_invite_skip|You'd rather not see them|あまり会いたくない|별로 만나고 싶지 않다
+decisions|o_d_old_flame_no|Politely decline|丁寧に断る|정중히 거절한다
+decisions|ct_d_old_flame|An ex messages to invite you to dinner.|昔の恋人から食事の誘いが来た。|옛 연인이 밥 먹자고 메시지를 보냈다.
+decisions|o_d_old_flame_lunch|Catch up over a meal|食事して昔話をする|밥 먹으며 회포를 푼다
+decisions|o_d_pet_adult_adopt|Take it home|連れて帰る|집에 데려온다
+decisions|ct_d_pet_adult|There's an old dog at the shelter nobody wants.|保護施設に引き取り手のない老犬がいる。|보호소에 아무도 데려가지 않는 늙은 개가 있다.
+decisions|o_d_pet_adult_donate|Donate for food|えさ代を寄付する|사료값을 기부한다
+decisions|o_d_lend_family_help|Help with your savings|貯金を出して助ける|저축을 꺼내 돕는다
+decisions|ct_d_lend_family|Your sibling's business is short of cash.|きょうだいの商売が資金繰りに困っている。|형제자매의 사업이 자금난에 빠졌다.
+decisions|o_d_lend_family_no|Say you're tight too|自分も苦しいと言う|나도 빠듯하다고 한다
+decisions|o_d_learn_tech_learn|Learn it proactively|自ら学ぶ|먼저 나서서 배운다
+decisions|ct_d_learn_tech|Work brought in a new system and many can't keep up.|会社に新システムが入り、ついていけない人が多い。|회사에 새 시스템이 들어와 많은 사람이 못 따라간다.
+decisions|o_d_learn_tech_avoid|Dodge it where you can|避けられるだけ避ける|피할 수 있으면 피한다
+decisions|o_d_burnout_rest_leave|Take a long leave|長期休暇を取る|장기 휴가를 낸다
+decisions|ct_d_burnout_rest|You feel you can't hold on much longer.|もう限界だと感じる。|더는 못 버틸 것 같다.
+decisions|o_d_burnout_rest_push|Push on a bit longer|もう少し踏ん張る|조금만 더 버틴다
+decisions|o_d_downsize_sell|Move somewhere smaller|小さい家に住み替える|작은 집으로 옮긴다
+decisions|ct_d_downsize|The kids have all moved out and the house feels empty.|子どもたちがみな家を出て、家ががらんとしている。|아이들이 모두 독립해 집이 텅 비었다.
+decisions|o_d_downsize_keep|Keep it for when they visit|帰ってくる日のために残す|돌아올 날을 위해 그대로 둔다
+decisions|o_d_mentor_young_mentor|Take the time to guide them|時間をかけて面倒を見る|시간을 들여 이끌어 준다
+decisions|ct_d_mentor_young|A young newcomer is lost.|新人の若者が迷っている。|새로 온 젊은이가 갈피를 못 잡는다.
+decisions|o_d_mentor_young_busy|You're swamped yourself|自分のことで手一杯|내 일도 벅차다
+decisions|o_d_politics_family_calm|Change the subject|話題を変える|화제를 돌린다
+decisions|ct_d_politics_family|Politics erupts at the family dinner.|親族の食事会で政治の言い争いが始まった。|가족 모임에서 정치 논쟁이 붙었다.
+decisions|o_d_politics_family_argue|Argue your case|理を尽くして反論する|조목조목 반박한다
+decisions|o_d_inheritance_equal|Split it evenly|均等に分ける|똑같이 나눈다
+decisions|ct_d_inheritance|Your parents ask how you siblings want to split the inheritance.|両親が遺産をきょうだいでどう分けるか尋ねた。|부모님이 형제자매끼리 유산을 어떻게 나눌지 물었다.
+decisions|o_d_inheritance_care|More for whoever gave the most care|一番世話をした人が多くもらう|가장 많이 돌본 사람이 더 받는다
+decisions|o_d_retire_early_retire|Retire early|早めに退職する|일찍 은퇴한다
+decisions|ct_d_retire_early|You could retire early, on a smaller pension.|早期退職できるが、年金は少し減る。|조기 은퇴할 수 있지만 연금이 줄어든다.
+decisions|o_d_retire_early_work|Work a few more years|あと数年働く|몇 년 더 일한다
+decisions|o_d_grandkid_care_yes|Help every day|毎日手伝う|매일 봐준다
+decisions|ct_d_grandkid_care|Your child asks if you can help look after the grandchild.|子どもに孫の世話を手伝えるか聞かれた。|자식이 손주를 봐줄 수 있느냐고 물었다.
+decisions|o_d_grandkid_care_weekend|Weekends only|週末だけ|주말에만
+decisions|o_d_senior_class_join|Take classes|授業に通う|수업을 듣는다
+decisions|ct_d_senior_class|The community opened a senior learning centre.|地域にシニア向けの学びの場ができた。|동네에 노인 대학이 생겼다.
+decisions|o_d_senior_class_home|Watch TV at home|家でテレビを見る|집에서 TV를 본다
+decisions|o_d_move_kids_move|Move in|引っ越す|들어간다
+decisions|ct_d_move_kids|Your children invite you to live with them.|子どもたちに一緒に住もうと誘われた。|자식들이 함께 살자고 한다.
+decisions|o_d_move_kids_stay|You're settled; stay put|住み慣れたので動かない|익숙한 곳에 남는다
+decisions|o_d_nursing_home_go|Go see what it's like|見学に行く|한번 둘러본다
+decisions|ct_d_nursing_home|Your family brings up a care home.|家族が老人ホームの話を持ち出した。|가족이 요양원 이야기를 꺼냈다.
+decisions|o_d_nursing_home_home|Insist on staying home|家に住み続けると言い張る|집에 살겠다고 고집한다
+decisions|o_d_write_memoir_write|Start writing|書き始める|쓰기 시작한다
+decisions|ct_d_write_memoir|You want to write down the story of your life.|自分の人生を書き残したい。|평생의 이야기를 글로 남기고 싶다.
+decisions|o_d_write_memoir_tell|Just tell it to the grandchildren|孫に話して聞かせれば十分|손주에게 들려주면 된다
+decisions|o_d_old_travel_go|Sign up for a tour|ツアーに申し込む|단체 여행을 신청한다
+decisions|ct_d_old_travel|While you can still get around, go somewhere farther?|まだ歩けるうちに遠くへ行く？|아직 걸을 수 있을 때 멀리 가 볼까?
+decisions|o_d_old_travel_near|Nearby outings are enough|近場の散策で十分|가까운 데만 다닌다
+decisions|o_d_scam_call_hang|Hang up|すぐ切る|바로 끊는다
+decisions|ct_d_scam_call|A caller claiming to be the bank says there's a problem with your account.|銀行を名乗る電話で口座に問題があると言われた。|은행이라는 사람이 전화로 계좌에 문제가 있다고 한다.
+decisions|o_d_scam_call_check|Call your child to check|子どもに電話して確かめる|자식에게 전화해 확인한다
+decisions|o_d_scam_call_follow|Do as they say|言われたとおりにする|시키는 대로 한다
+decisions|o_d_health_surgery_operate|Have surgery|手術する|수술한다
+decisions|ct_d_health_surgery|The doctor recommends a fairly major operation.|医者にかなり大きな手術を勧められた。|의사가 꽤 큰 수술을 권했다.
+decisions|o_d_health_surgery_meds|Manage it with medication|薬で抑える|약으로 관리한다
+decisions|o_d_reconnect_call|Call them|電話する|전화를 건다
+decisions|ct_d_reconnect|You come across a photo of a friend you lost touch with.|長く連絡していない友人の写真を見つけた。|오래 연락이 끊긴 친구의 사진을 발견했다.
+decisions|o_d_reconnect_keep|Put it back in the drawer|引き出しに戻す|서랍에 다시 넣는다
+decisions|o_d_will_write_write|Write it properly|きちんと書く|제대로 써 둔다
+decisions|ct_d_will_write|Your lawyer reminds you it's time to make a will.|弁護士に遺言書を作る時期だと言われた。|변호사가 유언장을 쓸 때라고 일렀다.
+decisions|o_d_will_write_later|Bad luck — later|縁起でもない、また今度|재수 없다, 나중에
+decisions|o_d_tech_old_learn|Learn properly|真剣に覚える|열심히 배운다
+decisions|ct_d_tech_old|Your grandchild wants to teach you video calls.|孫がビデオ通話を教えてくれるという。|손주가 영상통화를 가르쳐 준다고 한다.
+decisions|o_d_tech_old_phone|A phone call is fine|電話で十分|전화면 된다
+decisions|o_d_garden_old_plant|Grow flowers and vegetables|花や野菜を育てる|꽃과 채소를 기른다
+decisions|ct_d_garden_old|There's a little space left on the balcony.|ベランダに少し空きがある。|베란다에 공간이 조금 남았다.
+decisions|o_d_garden_old_leave|Leave it as it is|そのままにしておく|그대로 둔다
+decisions|o_d_volunteer_old_join|Go two days a week|週二日通う|일주일에 이틀 간다
+decisions|ct_d_volunteer_old|The hospital is recruiting retired volunteers.|病院が退職者のボランティアを募集している。|병원에서 은퇴자 자원봉사자를 모집한다.
+decisions|o_d_volunteer_old_no|You'd rather rest|もっと休みたい|더 쉬고 싶다
+decisions|o_d_driving_old_stop|Hand over the keys|鍵を渡す|열쇠를 넘긴다
+decisions|ct_d_driving_old|Your family urges you to stop driving.|家族に運転をやめるよう勧められた。|가족이 운전을 그만두라고 권한다.
+decisions|o_d_driving_old_keep|I can still do it|まだ大丈夫|아직 할 수 있다
+decisions|o_d_last_trip_home_go|Have family take you back|家族に連れて行ってもらう|가족과 함께 돌아가 본다
+decisions|ct_d_last_trip_home|You long to see the place you were born.|生まれた土地をもう一度見たい。|태어난 곳을 다시 보고 싶다.
+decisions|o_d_last_trip_home_photo|Old photos will do|古い写真を見れば十分|옛 사진으로 충분하다
+decisions|o_d_water_walk_go|You fetch it|自分が行く|당신이 간다
+decisions|ct_d_water_walk|The well is far from home and someone has to fetch water every day.|井戸は家から遠く、毎日誰かが水くみに行かねばならない。|우물이 멀어 매일 누군가 물을 길어 와야 한다.
+decisions|o_d_water_walk_school|School first|まず学校へ|학교가 먼저다
+decisions|o_d_mosquito_net_queue|Queue up for one|並んでもらう|줄 서서 받는다
+decisions|ct_d_mosquito_net|The clinic is handing out free mosquito nets.|診療所が蚊帳を無料で配っている。|진료소에서 모기장을 무료로 나눠 준다.
+decisions|o_d_mosquito_net_skip|Can't be bothered to queue|並ぶのが面倒|줄 서기 귀찮다
+decisions|o_d_harvest_help_farm|Skip school to help harvest|学校を休んで刈り入れを手伝う|학교를 쉬고 추수를 돕는다
+decisions|ct_d_harvest_help|It's harvest season and the family needs hands.|収穫期で家に人手が要る。|수확철이라 집에 일손이 필요하다.
+decisions|o_d_harvest_help_school|Keep going to school|学校に通い続ける|계속 학교에 간다
+decisions|o_d_migrant_work_go|Go work in the city|町へ働きに出る|도시로 일하러 간다
+decisions|ct_d_migrant_work|A relative says city building sites need workers.|親戚が町の工事現場で人手が足りないと言う。|친척이 도시 공사장에 일손이 부족하다고 한다.
+decisions|o_d_migrant_work_stay|Stay in the village|村に残る|마을에 남는다
+decisions|o_d_remit_send|Send money every month|毎月仕送りする|매달 돈을 부친다
+decisions|ct_d_remit|Your parents back home need money.|故郷の両親がお金に困っている。|고향의 부모님이 돈이 필요하다.
+decisions|o_d_remit_save|Save for yourself first|まず自分の分を貯める|우선 내 몫을 모은다
+decisions|o_d_microloan_borrow|Borrow it and open a small shop|借りて小さな店を開く|빌려서 작은 가게를 연다
+decisions|ct_d_microloan|The co-op can lend you a little start-up money.|協同組合が少額の開業資金を貸してくれる。|협동조합에서 소액 창업 자금을 빌려준다.
+decisions|o_d_microloan_no|You don't want debt|借金はしたくない|빚지기 싫다
+decisions|o_d_clinic_far_walk|Set off at once|すぐに出発する|바로 출발한다
+decisions|ct_d_clinic_far|Your child has a fever and the clinic is a two-hour walk.|子どもが熱を出し、診療所まで歩いて二時間。|아이가 열이 나는데 진료소까지 걸어서 두 시간이다.
+decisions|o_d_clinic_far_herbs|Try a home remedy first|まず民間療法を試す|먼저 민간요법을 쓴다
+decisions|o_d_girls_school_study|Keep studying|勉強を続ける|끝까지 공부한다
+decisions|ct_d_girls_school|Some in the village say schooling is wasted on girls.|村には女の子に勉強は無駄だと言う人がいる。|마을에선 여자애가 공부해 봐야 소용없다고 한다.
+decisions|o_d_girls_school_home|Stay home to help|家に残って手伝う|집에 남아 돕는다
+decisions|o_d_solar_panel_buy|Buy one|一枚買う|하나 산다
+decisions|ct_d_solar_panel|Someone is selling small solar panels.|小型ソーラーパネルを売りに来た人がいる。|누가 소형 태양광 패널을 판다.
+decisions|o_d_solar_panel_no|The oil lamp will do|石油ランプで十分|등잔불이면 된다
+decisions|o_d_mobile_money_try|Open an account|口座を開く|계좌를 연다
+decisions|ct_d_mobile_money|People are starting to send money by phone.|みんな携帯で送金し始めた。|다들 휴대폰으로 송금하기 시작했다.
+decisions|o_d_mobile_money_cash|Stick with cash|やっぱり現金|그래도 현금을 쓴다
+decisions|o_d_abroad_work_go|Sign and go abroad|契約して海外へ|계약하고 해외로 간다
+decisions|ct_d_abroad_work|An agent says you can work abroad as a carer or labourer.|仲介業者に、海外で介護士や作業員として働けると言われた。|중개인이 해외에서 간병인이나 노동자로 일할 수 있다고 한다.
+decisions|o_d_abroad_work_stay|Stay with your family|家族のそばに残る|가족 곁에 남는다
+decisions|o_d_stock_tip_ignore|Ignore him|相手にしない|무시한다
+decisions|ct_d_stock_tip|A coworker swears he has a stock that can't miss.|同僚が必ず上がる株があると言う。|동료가 무조건 오를 주식이 있다고 한다.
+decisions|o_d_stock_tip_small|Put in a tiny bit|ほんの少しだけ買う|아주 조금 넣는다
+decisions|o_d_mortgage_fix_fix|Go fixed|固定にする|고정으로 바꾼다
+decisions|ct_d_mortgage_fix|The bank asks if you want to switch your mortgage to a fixed rate.|銀行に住宅ローンを固定金利にするか聞かれた。|은행이 주택담보대출을 고정금리로 바꿀지 물었다.
+decisions|o_d_mortgage_fix_float|Stay variable|変動のまま|변동을 유지한다
+decisions|o_d_ev_car_ev|An electric car|電気自動車|전기차
+decisions|ct_d_ev_car|Go electric for your next car?|次の車は電気自動車にする？|다음 차는 전기차로 할까?
+decisions|o_d_ev_car_gas|Petrol after all|やっぱりガソリン車|그래도 휘발유차
+decisions|o_d_remote_work_home|Work from home|在宅で働く|집에서 일한다
+decisions|ct_d_remote_work|Your company allows permanent remote work.|会社が恒久的なリモートワークを認めた。|회사가 영구 재택근무를 허용했다.
+decisions|o_d_remote_work_office|Keep going into the office|やっぱり出社する|그래도 사무실에 간다
+decisions|o_d_gig_driver_drive|Take a few rides|何件か受ける|몇 건 받는다
+decisions|ct_d_gig_driver|You could drive for a ride app after work.|仕事のあとに配車アプリで運転できる。|퇴근 후 차량 호출 앱으로 운전할 수 있다.
+decisions|o_d_gig_driver_rest|Forget it|やめておく|관둔다
+decisions|o_d_crypto_watch|Just watch|見ているだけ|구경만 한다
+decisions|ct_d_crypto|All your friends are talking about crypto.|友だちはみんな暗号資産の話をしている。|친구들이 다 가상화폐 이야기를 한다.
+decisions|o_d_crypto_bet|Buy a little to try|少し買ってみる|조금 사 본다
+decisions|o_d_social_post_delete|Delete it|削除する|지운다
+decisions|ct_d_social_post|A post of yours unexpectedly went viral and the comments are vicious.|投稿が思いがけずバズり、コメントが荒れている。|올린 글이 뜻밖에 화제가 됐는데 댓글이 험악하다.
+decisions|o_d_social_post_reply|Reply one by one|一つずつ返信する|하나하나 답한다
+decisions|o_d_social_post_off|Switch off and go for a walk|電源を切って散歩に出る|휴대폰을 끄고 산책한다
+decisions|o_d_ai_tools_learn|Take the time to learn them|時間をかけて覚える|시간을 들여 익힌다
+decisions|ct_d_ai_tools|Your company is starting to use AI tools.|会社でAIツールを使い始めた。|회사에서 AI 도구를 쓰기 시작했다.
+decisions|o_d_ai_tools_avoid|You don't really trust them|あまり信用しない|별로 믿지 않는다
+decisions|o_d_plastic_surgery_do|Book a consultation|予約してみる|상담을 예약한다
+decisions|ct_d_plastic_surgery|You're considering cosmetic treatment.|美容医療を考えている。|미용 시술을 고민 중이다.
+decisions|o_d_plastic_surgery_no|Accept how you look|ありのままの自分を受け入れる|지금 모습을 받아들인다
+decisions|o_d_vegetarian_try|Try it for a month|一か月やってみる|한 달 해 본다
+decisions|ct_d_vegetarian|You want to try going vegetarian.|菜食を試してみたい。|채식을 해 보고 싶다.
+decisions|o_d_vegetarian_no|Too hard|難しすぎる|너무 어렵다
+decisions|o_d_marathon_train|Start training|走る練習を始める|달리기 연습을 시작한다
+decisions|ct_d_marathon|A friend wants you to sign up for a marathon together.|友だちに一緒にマラソンに出ようと誘われた。|친구가 같이 마라톤에 나가자고 한다.
+decisions|o_d_marathon_cheer|Cheer at the finish line|ゴールで応援する|결승선에서 응원한다
+decisions|o_d_language_app_daily|Practise ten minutes a day|毎日十分練習する|매일 10분씩 연습한다
+decisions|ct_d_language_app|You downloaded a language-learning app.|語学アプリをダウンロードした。|외국어 학습 앱을 깔았다.
+decisions|o_d_language_app_forget|Let it gather dust|放置する|묵혀 둔다
+decisions|o_d_home_cook_cook|Start cooking|自炊を始める|직접 요리하기 시작한다
+decisions|ct_d_home_cook|You're sick of eating out.|外食に飽きた。|외식이 질렸다.
+decisions|o_d_home_cook_delivery|Keep ordering delivery|出前を取り続ける|계속 배달시킨다
+decisions|o_d_quit_drinking_stop|Quit|やめる|끊는다
+decisions|ct_d_quit_drinking|You notice you need a drink after work every day.|毎日仕事のあとに一杯飲まずにいられない。|매일 퇴근 후 한 잔씩 해야 한다는 걸 알았다.
+decisions|o_d_quit_drinking_keep|It's just unwinding|ただの息抜きだ|그냥 긴장을 푸는 것뿐이다
+decisions|o_d_night_market_queue|Queue for an hour|一時間並ぶ|한 시간 줄 선다
+decisions|ct_d_night_market|A hyped new stall opened at the night market.|夜市に話題の屋台ができた。|야시장에 인기 노점이 새로 생겼다.
+decisions|o_d_night_market_skip|Another time|また今度|다음에 간다
+decisions|o_d_bike_commute_bike|Cycle to work|自転車通勤する|자전거로 출근한다
+decisions|ct_d_bike_commute|The city added lots of bike lanes.|街に自転車レーンがたくさんできた。|도시에 자전거 도로가 많이 생겼다.
+decisions|o_d_bike_commute_drive|Same as before|今までどおり|하던 대로 한다
+decisions|o_d_community_garden_join|Adopt a plot|区画を一つ借りる|한 구획을 맡는다
+decisions|ct_d_community_garden|The neighbourhood is starting a shared garden.|地域で共同菜園をつくることになった。|동네에 공동 텃밭이 생긴다.
+decisions|o_d_community_garden_no|No time|時間がない|시간이 없다
+decisions|o_d_fostering_yes|Yes|引き受ける|하겠다
+decisions|ct_d_fostering|A social worker asks if you'd foster a child.|ソーシャルワーカーに里親になれるか聞かれた。|사회복지사가 아이를 위탁 양육할 수 있는지 물었다.
+decisions|o_d_fostering_no|Not ready yet|まだ準備ができていない|아직 준비가 안 됐다
+decisions|o_d_ivf_try|Give it a try|試してみる|시도해 본다
+decisions|ct_d_ivf|You haven't had children, and the doctor mentions IVF.|子どもができず、医者が体外受精の話をした。|아이가 생기지 않아 의사가 시험관 시술을 언급했다.
+decisions|o_d_ivf_accept|The two of you are enough|二人でも幸せだ|둘이어도 좋다
+decisions|o_d_kid_abroad_pay|Back them fully|全面的に支える|전폭 지원한다
+decisions|ct_d_kid_abroad|Your child wants to study abroad.|子どもが留学したがっている。|아이가 유학을 가고 싶어 한다.
+decisions|o_d_kid_abroad_loan|Have them apply for a student loan|学生ローンを申し込ませる|학자금 대출을 받게 한다
+decisions|o_d_kid_abroad_local|Study at home instead|国内の学校で十分|국내에서 공부하면 된다
+decisions|o_d_kid_marry_welcome|Welcome them warmly|温かくもてなす|따뜻하게 맞는다
+decisions|ct_d_kid_marry|Your child brought their partner home.|子どもが恋人を家に連れてきた。|아이가 애인을 집에 데려왔다.
+decisions|o_d_kid_marry_strict|Grill them|厳しく問いただす|꼬치꼬치 캐묻는다
+decisions|o_d_kid_career_support|Support them|応援する|응원한다
+decisions|ct_d_kid_career|Your child wants to quit a stable job to chase a dream.|子どもが安定した仕事を辞めて夢を追いたいと言う。|아이가 안정된 직장을 그만두고 꿈을 좇겠다고 한다.
+decisions|o_d_kid_career_oppose|Urge them to think again|考え直すよう勧める|다시 생각해 보라고 한다
+decisions|o_d_elder_care_cost_hire|Hire a caregiver|介護士を雇う|간병인을 둔다
+decisions|ct_d_elder_care_cost|Your parents need full-time care.|両親に終日の介護が必要になった。|부모님께 종일 돌봄이 필요하다.
+decisions|o_d_elder_care_cost_self|Quit your job to care for them|仕事を辞めて自分で介護する|일을 그만두고 직접 돌본다
+decisions|o_d_elder_care_cost_share|Siblings take turns|きょうだいで交代する|형제자매가 돌아가며 맡는다
+decisions|o_d_parent_dementia_visit|Visit her every week|毎週会いに帰る|매주 찾아가 곁에 있는다
+decisions|ct_d_parent_dementia|Your mother is starting to forget your name.|母があなたの名前を忘れ始めた。|어머니가 당신 이름을 잊기 시작했다.
+decisions|o_d_parent_dementia_call|Call every day|毎日電話する|매일 전화한다
+decisions|o_d_disaster_donate_donate|Donate|寄付する|기부한다
+decisions|ct_d_disaster_donate|A major earthquake struck far away.|遠くで大地震が起きた。|먼 곳에서 큰 지진이 났다.
+decisions|o_d_disaster_donate_go|Volunteer for disaster relief|災害ボランティアに行く|재난 구호 봉사를 간다
+decisions|o_d_disaster_donate_pray|Pray quietly|静かに祈る|조용히 기도한다
+decisions|o_d_protest_join|Go out and make your voice heard|街に出て意見を示す|거리로 나가 목소리를 낸다
+decisions|ct_d_protest|There's a big rally in the streets.|街で大規模な集会がある。|거리에서 대규모 집회가 열린다.
+decisions|o_d_protest_watch|Watch the livestream at home|家で中継を見る|집에서 생중계를 본다
+decisions|o_d_vote_vote|Brave the rain to vote|雨の中投票に行く|비를 뚫고 투표하러 간다
+decisions|ct_d_vote|Tomorrow is election day and the weather is awful.|明日は投票日、天気はひどい。|내일은 투표일인데 날씨가 궂다.
+decisions|o_d_vote_skip|Stay home|家にいる|집에 있는다
+decisions|o_d_religion_go|Go and see|行ってみる|가 본다
+decisions|ct_d_religion|A friend invites you to a religious gathering.|友だちに宗教の集まりに誘われた。|친구가 종교 모임에 초대했다.
+decisions|o_d_religion_no|No, thank you|遠慮する|고맙지만 사양한다
+decisions|o_d_jury_duty_serve|Take it seriously|真剣に務める|성실히 참여한다
+decisions|ct_d_jury_duty|You've been picked for jury or lay-judge duty.|陪審員・裁判員に選ばれた。|배심원(국민참여재판)으로 뽑혔다.
+decisions|o_d_jury_duty_excuse|Find an excuse to get out|理由をつけて辞退する|핑계를 대고 빠진다
+decisions|o_d_witness_help|Stay and give a statement|残って証言する|남아서 증언한다
+decisions|ct_d_witness|You witnessed a car accident.|交通事故を目撃した。|교통사고를 목격했다.
+decisions|o_d_witness_leave|You're in a hurry; leave|急いでいるので立ち去る|바빠서 자리를 뜬다
+decisions|o_d_lawsuit_settle|Settle|和解する|합의한다
+decisions|ct_d_lawsuit|A business dispute may end up in court.|商売のもめごとが裁判になりそう。|사업 분쟁이 소송으로 번질 것 같다.
+decisions|o_d_lawsuit_fight|Fight it in court|裁判で争う|소송으로 다툰다
+decisions|o_d_disability_help_help|Help adapt the workplace|職場の環境づくりを手伝う|먼저 나서서 환경을 바꾸는 걸 돕는다
+decisions|ct_d_disability_help|A coworker returns to work in a wheelchair after an injury.|同僚がけがのあと車いすで出勤することになった。|동료가 부상 후 휠체어를 타고 출근한다.
+decisions|o_d_disability_help_respect|Let them handle it their way|本人のやり方を尊重する|스스로 하도록 존중한다
+decisions|o_d_hearing_aid|Get a hearing aid|補聴器を作る|보청기를 맞춘다
+decisions|ct_d_hearing|You can't quite hear what people say anymore.|人の話がよく聞こえなくなった。|남의 말이 잘 안 들린다.
+decisions|o_d_hearing_nod|Just smile and nod|笑ってうなずいておく|웃으며 고개만 끄덕인다
+decisions|o_d_fall_prevent_fix|Install grab bars and a non-slip mat|手すりと滑り止めマットをつける|손잡이와 미끄럼 방지 매트를 단다
+decisions|ct_d_fall_prevent|The bathroom floor is slippery.|浴室の床が滑りやすい。|욕실 바닥이 미끄럽다.
+decisions|o_d_fall_prevent_careful|Just be careful|自分で気をつければいい|조심하면 된다
+decisions|o_d_war_flee_flee|Leave with your family|家族を連れて先に逃げる|가족을 데리고 먼저 떠난다
+decisions|ct_d_war_flee|News of fighting comes from nearby.|近くで戦闘があるという知らせ。|가까운 곳에서 전쟁 소식이 들려온다.
+decisions|o_d_war_flee_stay|Stay and guard your home|家を守る|집을 지킨다
+decisions|o_d_famine_ration_share|Share it with the neighbours|近所に分ける|이웃과 나눈다
+decisions|ct_d_famine_ration|Food is short and only a little rice is left.|食料が足りず、家には米が少ししかない。|식량이 모자라 집에 쌀이 조금밖에 없다.
+decisions|o_d_famine_ration_keep|Keep it for your family|自分の家族のために取っておく|우리 식구 몫으로 둔다
+decisions|o_d_blackout_70s_candles|Chat by candlelight|ろうそくを灯しておしゃべりする|촛불 켜고 이야기한다
+decisions|ct_d_blackout_70s|The oil crisis brings evening power cuts.|石油危機で夜は計画停電。|석유 파동으로 밤에 제한 송전을 한다.
+decisions|o_d_blackout_70s_sleep|Go to bed early|早く寝る|일찍 잔다
+decisions|o_d_tv_buy_buy|Splurge on one|思い切って買う|큰맘 먹고 산다
+decisions|ct_d_tv_buy|The electronics shop is selling colour TVs.|電器店がカラーテレビを売り出した。|전파상에서 컬러 TV를 팔기 시작했다.
+decisions|o_d_tv_buy_neighbor|Watch at the neighbours'|近所の家で見る|이웃집에 가서 본다
+decisions|o_d_computer_90s_buy|Buy one|一台買う|한 대 산다
+decisions|ct_d_computer_90s|Personal computers keep getting cheaper.|パソコンがどんどん安くなっている。|개인용 컴퓨터가 점점 싸진다.
+decisions|o_d_computer_90s_no|You won't use it|使い道がない|쓸 일이 없다
+decisions|o_d_pager_buy|Get one|一台持つ|하나 장만한다
+decisions|ct_d_pager|Everyone is using pagers.|みんなポケベルを持っている。|다들 삐삐를 쓴다.
+decisions|o_d_pager_no|Pay phones will do|公衆電話で十分|공중전화면 된다
+decisions|o_d_dotcom_jump|Join an internet company|ネット企業に移る|인터넷 기업에 간다
+decisions|ct_d_dotcom|Internet companies are poaching with high salaries.|ネット企業が高給で引き抜きに来た。|인터넷 기업이 고연봉으로 스카우트한다.
+decisions|o_d_dotcom_stay|Stay in a traditional industry|伝統的な業界に残る|전통 산업에 남는다
+decisions|o_d_sars_mask_home|Go out less|外出を減らす|외출을 줄인다
+decisions|ct_d_sars_mask|A new disease appeared and pharmacies are out of masks.|新しい感染症が現れ、薬局のマスクが売り切れた。|새 전염병이 돌아 약국 마스크가 동났다.
+decisions|o_d_sars_mask_normal|Carry on as usual|いつもどおり暮らす|평소처럼 지낸다
+decisions|o_d_covid_vax_vax|Book a shot|予約して打つ|예약해서 맞는다
+decisions|ct_d_covid_vax|Vaccines are now available.|ワクチン接種が始まった。|백신 접종이 시작됐다.
+decisions|o_d_covid_vax_wait|Wait and see|もう少し様子を見る|좀 더 지켜본다
+decisions|o_d_lockdown_hobby_bake|Learn to bake bread|パン作りを覚える|빵 굽기를 배운다
+decisions|ct_d_lockdown_hobby|Locked down at home, you suddenly have time.|ロックダウンで急に時間ができた。|봉쇄로 집에 있으니 갑자기 시간이 많아졌다.
+decisions|o_d_lockdown_hobby_study|Take online classes|オンライン講座を受ける|온라인 강의를 듣는다
+decisions|o_d_lockdown_hobby_call|Video-call family every day|毎日家族とビデオ通話する|매일 가족과 영상통화한다
+decisions|o_d_gfc_job_accept|Accept the cut|減給を受け入れる|삭감을 받아들인다
+decisions|ct_d_gfc_job|In the financial crisis, the company asks everyone to take a pay cut.|金融危機で会社が全員の減給を求めた。|금융위기로 회사가 다 같이 임금을 깎자고 한다.
+decisions|o_d_gfc_job_leave|Look elsewhere|別の道を探す|다른 길을 찾는다
+decisions|o_d_asia_crisis_hold|Grit your teeth and ride it out|歯を食いしばって耐える|이를 악물고 버틴다
+decisions|ct_d_asia_crisis|The currency crashed and savings shrank overnight.|通貨が暴落し、貯金が一夜で目減りした。|화폐 가치가 폭락해 예금이 하룻밤 새 줄었다.
+decisions|o_d_asia_crisis_gold|Convert savings to gold|貯金を金に換える|예금을 금으로 바꾼다
+decisions|o_d_olympics_watch_watch|Stay up for the broadcast|夜更かしして中継を見る|밤새 중계를 본다
+decisions|ct_d_olympics_watch|The Olympics have opened.|オリンピックが開幕した。|올림픽이 개막했다.
+decisions|o_d_olympics_watch_sleep|Catch the next day's news|翌日のニュースで見る|다음 날 뉴스로 본다
+decisions|o_d_worldcup_bar|Watch with a crowd at a restaurant|店でみんなと見る|식당에서 다 같이 본다
+decisions|ct_d_worldcup|The World Cup final kicks off tonight.|今夜はワールドカップ決勝。|오늘 밤 월드컵 결승이 열린다.
+decisions|o_d_worldcup_home|Watch at home|家で見る|집에서 본다
+decisions|o_d_heatwave_ac|Turn on the AC|エアコンをつける|에어컨을 켠다
+decisions|ct_d_heatwave|A heatwave hits with record temperatures.|熱波が襲い、記録的な暑さ。|폭염이 덮쳐 기온이 기록을 깼다.
+decisions|o_d_heatwave_library|Cool off at the library|図書館で涼む|도서관에서 더위를 피한다
+decisions|o_d_flood_home_help|Help the neighbours move their things|近所の荷物運びを手伝う|이웃의 짐을 옮겨 준다
+decisions|ct_d_flood_home|Heavy rain flooded the streets.|大雨で道路が冠水した。|폭우로 거리가 물에 잠겼다.
+decisions|o_d_flood_home_upstairs|Carry your belongings upstairs|家財を二階へ運ぶ|살림을 위층으로 옮긴다
+decisions|o_d_typhoon_stock|Stock up at the supermarket|スーパーで買いだめする|마트에서 사재기한다
+decisions|ct_d_typhoon|A typhoon is coming.|台風が来る。|태풍이 온다.
+decisions|o_d_typhoon_ignore|It'll probably be fine|たぶん大丈夫|별일 없을 거다
+decisions|o_d_name_change_change|Change it|改名する|개명한다
+decisions|ct_d_name_change|You've never liked your name.|ずっと自分の名前が好きではなかった。|늘 내 이름이 마음에 들지 않았다.
+decisions|o_d_name_change_keep|You'll get used to it|慣れればいい|익숙해지면 된다
+decisions|o_d_ancestry_test|Send it off|送って検査する|보내서 검사한다
+decisions|ct_d_ancestry|Someone gave you a DNA test kit.|遺伝子検査キットをもらった。|누가 유전자 검사 키트를 선물했다.
+decisions|o_d_ancestry_no|You'd rather not know|知りたくない|알고 싶지 않다
+decisions|o_d_lottery_buy_buy|Buy a ticket|一枚買う|한 장 산다
+decisions|ct_d_lottery_buy|The jackpot has rolled over to an astronomical sum.|一等賞金が天文学的な額に積み上がった。|1등 당첨금이 천문학적으로 쌓였다.
+decisions|o_d_lottery_buy_no|The odds are too slim|確率が低すぎる|확률이 너무 낮다
+decisions|o_d_haircut_bold_do|Did it|切った|잘랐다
+decisions|ct_d_haircut_bold|You want a daring haircut.|大胆な髪型にしてみたい。|과감한 헤어스타일을 하고 싶다.
+decisions|o_d_haircut_bold_safe|The usual|いつもどおり|하던 대로
+decisions|o_d_cat_rescue_vet|Take it to the vet|動物病院へ連れて行く|동물병원에 데려간다
+decisions|ct_d_cat_rescue|There's an injured kitten by the road.|道端にけがをした子猫がいる。|길가에 다친 새끼 고양이가 있다.
+decisions|o_d_cat_rescue_call|Call an animal-welfare group|動物保護団体に電話する|동물보호단체에 전화한다
+decisions|o_d_night_walk_walk|Go for a walk|散歩に出る|산책하러 나간다
+decisions|ct_d_night_walk|You can't sleep and want to go out in the small hours.|眠れず、明け方に外を歩きたくなった。|잠이 안 와 새벽에 나가 걷고 싶다.
+decisions|o_d_night_walk_bed|Lie there counting sheep|横になって羊を数える|누워서 양을 센다
+decisions|o_d_letter_old_send|Look up the address and send it|住所を調べて送る|주소를 찾아 부친다
+decisions|ct_d_letter_old|You found a letter you never sent when you were young.|若いころに出さなかった手紙を見つけた。|젊을 때 부치지 못한 편지를 찾았다.
+decisions|o_d_letter_old_burn|Burn it|燃やす|태운다

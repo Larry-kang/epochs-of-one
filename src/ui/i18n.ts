@@ -2,6 +2,7 @@
 // keyed by a stable id, with one column per language. Missing UI cells fall back to English, then to the zh-TW
 // source; content (events, decisions) falls back to zh-TW. Numbers, money and country names use the language's locale.
 import table from '../content/i18n/table.json' with { type: 'json' };
+import currency from '../content/l3-currency.json' with { type: 'json' };
 
 export const LANGS = ['zh-TW', 'en', 'ja', 'ko', 'vi'] as const;
 export type Lang = (typeof LANGS)[number];
@@ -45,9 +46,17 @@ export function eventText(id: string, vars: Record<string, string | number> = {}
   const s = pickContent(S.events[id]);
   return s ? fill(s, vars) : id;
 }
-/** batch 3: content (events/decisions) has only the zh-TW column so far; containers that show it get lang="zh-Hant"
- *  in other languages so fonts, line breaking and screen readers treat the fallback text correctly. '' = no attribute. */
-export function contentLang(): string { return getLang() === 'zh-TW' ? '' : 'zh-Hant'; }
+/** v0.11.1: content (events / decisions / pool) is translated into en, ja and ko; other languages still fall back to
+ *  the zh-TW text, so containers that show it get lang="zh-Hant" (fonts, line breaking, screen readers). '' = no attribute. */
+const CONTENT_ROWS = () => [...Object.values(S.events), ...Object.values(S.decisions), ...Object.values(S.pool)].filter((r) => r[0]);
+const contentDone = new Map<number, boolean>();
+/** every content row has the current language's own text */
+export function contentTranslated(): boolean {
+  if (col === 0) return true;
+  if (!contentDone.has(col)) contentDone.set(col, CONTENT_ROWS().every((r) => !!r[col]));
+  return contentDone.get(col)!;
+}
+export function contentLang(): string { return contentTranslated() ? '' : 'zh-Hant'; }
 export const contentLangAttr = () => (contentLang() ? ` lang="${contentLang()}"` : '');
 export function poolText(id: string): string { return pickContent(S.pool[id]) ?? id; }
 /** share of the UI table translated into a language (About page / tests) */
@@ -65,10 +74,26 @@ export function countryName(iso2: string, fallback: string): string {
   return fallback;
 }
 let nf = new Intl.NumberFormat(LOCALE[lang], { maximumFractionDigits: 0 });
-export function money(x: number): string {
-  const sign = x < 0 ? '−' : '';
-  return `${sign}$${nf.format(Math.abs(Math.round(x)))}`;
+// v0.11.1: display currency. Engine amounts are 2021 PPP international $; money() converts for display only with the
+// country's 2021 PPP factor (WDI PA.NUS.PPP, CC BY 4.0 → src/content/l3-currency.json). No factor (e.g. Taiwan, not in
+// WDI) → shown as labelled US$ without conversion. Never feed a converted value back into the engine.
+const CUR = (currency as unknown as { rates: Record<string, { c: string; r: number }> }).rates;
+const SYM: Record<string, string> = { USD: 'US$', TWD: 'NT$', JPY: '¥', KRW: '₩', CNY: 'CN¥', EUR: '€', GBP: '£', INR: '₹', HKD: 'HK$', SGD: 'S$', CAD: 'CA$', AUD: 'A$', NZD: 'NZ$', VND: '₫', PHP: '₱', THB: '฿', NGN: '₦', ILS: '₪', BRL: 'R$', MXN: 'MX$', CHF: 'CHF ', RUB: '₽', TRY: '₺', UAH: '₴', IDR: 'Rp', MYR: 'RM' };
+let curIso: string | null = null;
+/** set the country whose currency money() shows (the current life's birth country); null → US$ */
+export function setMoneyCountry(iso: string | null): void { curIso = iso; }
+export function currencyOf(iso: string | null): { code: string; sym: string; rate: number } {
+  const e = iso ? CUR[iso] : undefined;
+  if (!e) return { code: 'USD', sym: 'US$', rate: 1 };
+  return { code: e.c, sym: SYM[e.c] ?? `${e.c} `, rate: e.r };
 }
+export function money(x: number, iso: string | null = curIso): string {
+  const { sym, rate } = currencyOf(iso); const v = x * rate;
+  const sign = v < 0 ? '−' : '';
+  return `${sign}${sym}${nf.format(Math.abs(Math.round(v)))}`;
+}
+/** amounts the player types (loan, annuity) stay in the engine unit; this labels them */
+export const moneyUsd = (x: number): string => money(x, null);
 export const num = (x: number): string => nf.format(x);
 /** compact count for thousands of births (e.g. 1.33 億 / 133M) */
 export const compact = (thousands: number): string => new Intl.NumberFormat(LOCALE[lang], { notation: 'compact', maximumFractionDigits: 2 }).format(thousands * 1000);

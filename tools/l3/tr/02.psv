@@ -1,0 +1,80 @@
+events|ev_measles|You caught measles and spent two weeks in bed.|はしかにかかり、二週間寝込んだ。|홍역에 걸려 두 주를 누워 지냈다.
+events|ev_vaccine_day|You cried through your shot and got a lollipop for it.|泣きながら予防注射を受け、ペロペロキャンディーをもらった。|울면서 예방주사를 맞고 막대사탕을 받았다.
+events|ev_first_swim|For the first time you swam a stretch without a float ring.|初めて浮き輪なしで泳ぎきった。|처음으로 튜브 없이 한 구간을 헤엄쳤다.
+events|ev_puppy_love|You secretly wrote a classmate's name in your textbook.|教科書にこっそりある同級生の名前を書いた。|교과서에 몰래 어떤 반 친구의 이름을 적었다.
+events|ev_grandparent_dies|The grandparent who doted on you died; it was your first funeral.|かわいがってくれた祖父母が亡くなり、初めて葬儀に出た。|당신을 아끼던 조부모님이 돌아가셔서 처음으로 장례식에 갔다.
+events|ev_family_trip_kid|The family flew somewhere on holiday for the first time.|家族で初めて飛行機に乗って旅行した。|온 가족이 처음으로 비행기를 타고 여행을 갔다.
+events|ev_hand_me_down|Once again you wore your older siblings' hand-me-downs.|またお兄さんお姉さんのお下がりを着た。|또다시 형이나 언니가 물려준 옷을 입었다.
+events|ev_school_bus|You started taking the bus to school on your own.|一人でバスに乗って通学し始めた。|혼자 버스를 타고 등교하기 시작했다.
+events|ev_long_walk_school|Getting to school meant walking for over an hour.|学校まで一時間以上歩いて通った。|학교까지 한 시간 넘게 걸어 다녔다.
+events|ev_comic_hero|You got hooked on a comic and waited every week for the next issue.|ある漫画に夢中になり、毎週新しい話を待った。|만화 하나에 빠져 매주 새 회차를 기다렸다.
+events|ev_star_gazing|One summer night you picked out the Big Dipper for the first time.|夏の夜、初めて北斗七星を見つけた。|여름밤에 처음으로 북두칠성을 알아봤다.
+events|ev_class_leader|You were elected class leader.|学級委員長に選ばれた。|반장으로 뽑혔다.
+events|ev_teacher_praise|The teacher praised your work in front of the whole class.|先生がクラスみんなの前であなたの宿題をほめた。|선생님이 반 전체 앞에서 당신의 숙제를 칭찬했다.
+events|ev_puberty|Your body began to change; you stared in the mirror for a long time.|体が変わり始め、長いあいだ鏡を見つめた。|몸이 변하기 시작해 한참 거울을 들여다봤다.
+events|ev_acne|Your face broke out in pimples.|顔にニキビがたくさんできた。|얼굴에 여드름이 잔뜩 났다.
+events|ev_growth_spurt|You grew almost ten centimetres in a year.|一年で十センチ近く背が伸びた。|1년 사이에 키가 10센티미터 가까이 컸다.
+events|ev_first_paycheck_teen|You got your first part-time pay and treated your family to a meal.|初めてのバイト代で家族にごちそうした。|첫 아르바이트 월급으로 가족에게 밥을 샀다.
+events|ev_school_trip|On the graduation trip, nobody slept all night.|卒業旅行では、みんな一晩じゅう眠らなかった。|졸업 여행에서 다들 밤을 꼬박 새웠다.
+events|ev_yearbook|Classmates filled your yearbook with messages.|卒業アルバムに同級生のメッセージがびっしり書かれた。|친구들이 졸업 앨범에 메시지를 가득 적어 주었다.
+events|ev_exam_pass|The results came out: you did better than expected.|合格発表。思ったよりよい結果だった。|합격자 발표가 났다. 기대보다 잘 봤다.
+events|ev_exam_fail|The results came out, and they weren't what you'd hoped.|合格発表。結果は期待どおりではなかった。|합격자 발표가 났다. 결과는 기대에 못 미쳤다.
+events|ev_bad_haircut|The barber botched your hair, and you wore a hat for a month.|床屋に髪を失敗され、一か月帽子をかぶった。|미용사가 머리를 망쳐서 한 달 동안 모자를 썼다.
+events|ev_lost_phone|You left your phone in a taxi and never got it back.|タクシーに携帯を置き忘れ、二度と戻らなかった。|택시에 휴대폰을 두고 내려 끝내 찾지 못했다.
+events|ev_first_kiss|Your first kiss — so nervous you forgot to breathe.|ファーストキス。緊張して息をするのを忘れた。|첫 키스. 너무 긴장해서 숨 쉬는 것도 잊었다.
+events|ev_friend_betray|The friend you trusted most told your secret.|いちばん信頼していた友だちが秘密をばらした。|가장 믿던 친구가 당신의 비밀을 퍼뜨렸다.
+events|ev_campus_love|You fell in love at school.|学校で恋をした。|학교에서 연애를 했다.
+events|ev_all_nighter|During finals week you pulled three all-nighters in a row.|期末試験の週、三晩続けて徹夜した。|기말고사 주간에 사흘 연속 밤을 새웠다.
+events|ev_scholarship|You won a scholarship.|奨学金をもらった。|장학금을 받았다.
+events|ev_interview_fail|You interviewed at ten companies and heard back from one.|十社の面接を受け、返事が来たのは一社だけだった。|열 군데 면접을 봤는데 답장은 한 곳에서만 왔다.
+events|ev_commute_long|Your daily commute took three hours round trip.|毎日の通勤は往復三時間。|매일 출퇴근에 왕복 세 시간이 걸렸다.
+events|ev_office_crush|You had a crush on a coworker in the next department.|隣の部署の同僚に好意を抱いた。|옆 부서 동료에게 호감이 생겼다.
+events|ev_pay_raise_big|Your boss gave you a big raise without being asked.|上司が自ら大幅な昇給をしてくれた。|사장이 먼저 나서서 월급을 크게 올려 주었다.
+events|ev_team_dinner|At the team dinner everyone drank till late.|部署の飲み会で、みんな遅くまで飲んだ。|부서 회식에서 다들 늦게까지 마셨다.
+events|ev_work_trip|Your first business trip abroad.|初めての海外出張。|첫 해외 출장.
+events|ev_coworker_leaves|The coworker you got along with best quit.|いちばん気の合う同僚が辞めた。|가장 잘 맞던 동료가 퇴사했다.
+events|ev_back_to_school|You sat in a classroom again — this time because you wanted to learn.|再び教室に座った。今度は自分が学びたかったから。|다시 교실에 앉았다. 이번엔 스스로 배우고 싶어서였다.
+events|ev_moving_city|You moved to a new city and started everything from scratch.|新しい街に引っ越し、すべて一からやり直した。|새로운 도시로 이사해 모든 것을 처음부터 시작했다.
+events|ev_robbery|You were mugged on the street.|路上で強盗にあった。|길에서 강도를 당했다.
+events|ev_car_accident|You were in a car accident — luckily nothing serious.|交通事故にあったが、幸い大事には至らなかった。|교통사고가 났지만 다행히 크게 다치지 않았다.
+events|ev_jury_story|You sat in on a trial at court and thought about it long after.|裁判を傍聴し、家に帰ってからも長く考え込んだ。|법정에서 재판을 방청하고 집에 와서도 오래 생각했다.
+events|ev_fine_ticket|You got a speeding ticket.|スピード違反の切符を切られた。|과속 딱지를 받았다.
+events|ev_arrested_wrong|You were mistaken for a suspect and spent a whole night at the police station.|容疑者と間違えられ、警察署で一晩過ごした。|용의자로 오인받아 경찰서에서 하룻밤을 보냈다.
+events|ev_back_injury|You threw your back out lifting something and lay flat for a week.|物を運んでいてぎっくり腰になり、一週間寝込んだ。|물건을 옮기다 허리를 삐끗해 일주일을 누워 지냈다.
+events|ev_chronic|The doctor said you have a chronic illness and need long-term medication.|医者に慢性疾患と言われ、薬を飲み続けることになった。|의사가 만성질환이라며 오랫동안 약을 먹어야 한다고 했다.
+events|ev_disability|An accident left you with limited mobility.|事故で体が思うように動かなくなった。|사고로 거동이 불편해졌다.
+events|ev_recover|You slowly recovered from a serious illness.|大病から少しずつ回復した。|큰 병에서 서서히 회복했다.
+events|ev_insomnia|You slept badly for months on end.|何か月も眠れない日が続いた。|몇 달째 잠을 제대로 못 잤다.
+events|ev_depression|For a while, you couldn't find the energy for anything.|しばらくのあいだ、毎日何をする気力もわかなかった。|한동안 매일 아무것도 할 의욕이 없었다.
+events|ev_therapy_help|After talking to someone, you felt much lighter.|誰かに話を聞いてもらい、心がずいぶん軽くなった。|누군가와 이야기한 뒤 마음이 한결 가벼워졌다.
+events|ev_newborn_night|The baby cried every two hours; you barely slept.|赤ちゃんは二時間おきに泣き、ほとんど眠れなかった。|아기가 두 시간마다 울어 거의 잠을 못 잤다.
+events|ev_kid_award|Your child won an award at school, and you were happier than they were.|子どもが学校で賞をもらい、本人よりあなたが喜んだ。|아이가 학교에서 상을 받았고, 당신이 아이보다 더 기뻤다.
+events|ev_kid_trouble|The teacher called: your child had got into trouble at school.|先生から電話があり、子どもが学校で問題を起こしたという。|선생님이 전화해 아이가 학교에서 말썽을 피웠다고 했다.
+events|ev_kid_wedding|You watched your child walk down the aisle.|子どもがバージンロードを歩くのを見守った。|아이가 결혼식장에 입장하는 모습을 지켜봤다.
+events|ev_empty_nest|Your youngest moved out too, and the house fell suddenly quiet.|末っ子も家を出て、家は急にしんとした。|막내마저 독립하자 집이 갑자기 고요해졌다.
+events|ev_parent_sick|Your parent was hospitalised; you took leave to stay with them for a few days.|親が入院し、休みを取って何日か病院に付き添った。|부모님이 입원해 휴가를 내고 며칠 병원에서 곁을 지켰다.
+events|ev_sibling_wedding|Your sibling got married, and you were in the wedding party.|きょうだいが結婚し、介添え役を務めた。|형제자매가 결혼해 들러리를 섰다.
+events|ev_niece_born|You became an aunt or uncle.|おじ・おばになった。|삼촌이나 이모, 고모가 되었다.
+events|ev_family_feud|Over something small, you and a sibling didn't speak for years.|ささいなことで、きょうだいと何年も口をきかなかった。|사소한 일로 형제자매와 몇 년 동안 말을 하지 않았다.
+events|ev_reconcile|A rift of many years finally healed over one meal.|長年のわだかまりが、一度の食事でようやく解けた。|오랜 앙금이 밥 한 끼에 마침내 풀렸다.
+events|ev_pet_old|The pet who had been with you for years passed away.|長年そばにいたペットが旅立った。|오랫동안 함께한 반려동물이 세상을 떠났다.
+events|ev_new_pet|A new furry friend joined the family.|新しい毛むくじゃらの家族が増えた。|집에 새 털복숭이 식구가 생겼다.
+events|ev_church_choir|You joined the community choir.|地域の合唱団に入った。|동네 합창단에 들어갔다.
+events|ev_pilgrimage|You completed a pilgrimage you had long hoped to make.|念願の巡礼の旅を終えた。|오랜 소원이던 순례 여행을 마쳤다.
+events|ev_bonus|The company had a good year; your bonus was bigger than expected.|今年は会社の業績がよく、ボーナスが予想より多かった。|올해 회사 실적이 좋아 보너스가 예상보다 많았다.
+events|ev_tax_refund|You received a tax refund.|税金の還付を受けた。|세금 환급을 받았다.
+events|ev_broken_fridge|The fridge broke, so you had to buy a new one.|冷蔵庫が壊れ、新しいのを買うしかなかった。|냉장고가 고장 나서 새것으로 바꿔야 했다.
+events|ev_debt_paid|You finally paid off your student loan.|ついに学生ローンを返し終えた。|드디어 학자금 대출을 다 갚았다.
+events|ev_inheritance_small|A distant relative died and left you some money.|遠い親戚が亡くなり、いくらかのお金を遺してくれた。|먼 친척이 세상을 떠나며 당신에게 돈을 남겼다.
+events|ev_price_up|Vegetable prices went up again; you did sums at the market for ages.|また野菜が値上がりし、市場で長いこと計算した。|채소값이 또 올라 시장에서 한참 계산했다.
+events|ev_flood_damage|A flood ruined things in your home.|大水で家の物が駄目になった。|큰물에 집 안 살림이 망가졌다.
+events|ev_earthquake|A big earthquake struck at night; you held your family under the table.|夜中に大地震が起き、家族を抱えて机の下に隠れた。|한밤중 큰 지진이 나서 가족을 끌어안고 탁자 밑에 숨었다.
+events|ev_heat_stroke|During the heatwave you got heatstroke and ended up in the ER.|熱波の数日間、熱中症で救急外来に運ばれた。|폭염 기간에 열사병으로 응급실에 갔다.
+events|ev_war_news|Every day the news covered a war far away.|毎日ニュースが遠い国の戦争を伝えていた。|날마다 뉴스가 먼 곳의 전쟁을 보도했다.
+events|ev_refugee_neighbor|A family fleeing war moved in next door.|戦火を逃れてきた一家が隣に越してきた。|전쟁을 피해 온 가족이 옆집으로 이사 왔다.
+events|ev_retire_party|Your coworkers threw you a retirement send-off.|同僚が送別会を開いてくれた。|동료들이 은퇴 송별회를 열어 주었다.
+events|ev_grandkid_born|You became a grandparent.|おじいちゃん・おばあちゃんになった。|할아버지, 할머니가 되었다.
+events|ev_dance_square|Every evening you went dancing in the park.|毎日夕方、公園で踊った。|매일 저녁 공원에 가서 춤을 췄다.
+events|ev_cataract|You had cataract surgery, and the world came back into focus.|白内障の手術を受け、世界がまたくっきり見えるようになった。|백내장 수술을 받고 세상이 다시 또렷해졌다.
+events|ev_old_classmate_dies|Another old classmate passed away.|また一人、昔の同級生が亡くなった。|또 한 명의 옛 동창이 세상을 떠났다.
+events|ev_birthday_party_old|Your children threw you a lively birthday banquet.|子どもたちがにぎやかな長寿の祝いを開いてくれた。|자식들이 떠들썩한 생신 잔치를 열어 주었다.

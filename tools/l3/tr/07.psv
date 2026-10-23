@@ -1,0 +1,80 @@
+events|ch_d_fall_prevent_careful|"The bathroom floor is slippery" — you chose: just be careful.|「浴室の床が滑りやすい」——あなたの決断：自分で気をつければいい。|"욕실 바닥이 미끄럽다" — 당신의 선택: 조심하면 된다.
+events|ch_d_war_flee_flee|"News of fighting comes from nearby" — you chose: leave with your family.|「近くで戦闘があるという知らせ」——あなたの決断：家族を連れて先に逃げる。|"가까운 곳에서 전쟁 소식이 들려온다" — 당신의 선택: 가족을 데리고 먼저 떠난다.
+events|ch_d_war_flee_stay|"News of fighting comes from nearby" — you chose: stay and guard your home.|「近くで戦闘があるという知らせ」——あなたの決断：家を守る。|"가까운 곳에서 전쟁 소식이 들려온다" — 당신의 선택: 집을 지킨다.
+events|ch_d_famine_ration_share|"Food is short and only a little rice is left" — you chose: share it with the neighbours.|「食料が足りず、家には米が少ししかない」——あなたの決断：近所に分ける。|"식량이 모자라 집에 쌀이 조금밖에 없다" — 당신의 선택: 이웃과 나눈다.
+events|ch_d_famine_ration_keep|"Food is short and only a little rice is left" — you chose: keep it for your family.|「食料が足りず、家には米が少ししかない」——あなたの決断：自分の家族のために取っておく。|"식량이 모자라 집에 쌀이 조금밖에 없다" — 당신의 선택: 우리 식구 몫으로 둔다.
+events|ch_d_blackout_70s_candles|"The oil crisis brings evening power cuts" — you chose: chat by candlelight.|「石油危機で夜は計画停電」——あなたの決断：ろうそくを灯しておしゃべりする。|"석유 파동으로 밤에 제한 송전을 한다" — 당신의 선택: 촛불 켜고 이야기한다.
+events|ch_d_blackout_70s_sleep|"The oil crisis brings evening power cuts" — you chose: go to bed early.|「石油危機で夜は計画停電」——あなたの決断：早く寝る。|"석유 파동으로 밤에 제한 송전을 한다" — 당신의 선택: 일찍 잔다.
+events|ch_d_tv_buy_buy|"The electronics shop is selling colour TVs" — you chose: splurge on one.|「電器店がカラーテレビを売り出した」——あなたの決断：思い切って買う。|"전파상에서 컬러 TV를 팔기 시작했다" — 당신의 선택: 큰맘 먹고 산다.
+events|ch_d_tv_buy_neighbor|"The electronics shop is selling colour TVs" — you chose: watch at the neighbours'.|「電器店がカラーテレビを売り出した」——あなたの決断：近所の家で見る。|"전파상에서 컬러 TV를 팔기 시작했다" — 당신의 선택: 이웃집에 가서 본다.
+events|ch_d_computer_90s_buy|"Personal computers keep getting cheaper" — you chose: buy one.|「パソコンがどんどん安くなっている」——あなたの決断：一台買う。|"개인용 컴퓨터가 점점 싸진다" — 당신의 선택: 한 대 산다.
+events|ch_d_computer_90s_no|"Personal computers keep getting cheaper" — you chose: you won't use it.|「パソコンがどんどん安くなっている」——あなたの決断：使い道がない。|"개인용 컴퓨터가 점점 싸진다" — 당신의 선택: 쓸 일이 없다.
+events|ch_d_pager_buy|"Everyone is using pagers" — you chose: get one.|「みんなポケベルを持っている」——あなたの決断：一台持つ。|"다들 삐삐를 쓴다" — 당신의 선택: 하나 장만한다.
+events|ch_d_pager_no|"Everyone is using pagers" — you chose: pay phones will do.|「みんなポケベルを持っている」——あなたの決断：公衆電話で十分。|"다들 삐삐를 쓴다" — 당신의 선택: 공중전화면 된다.
+events|ch_d_dotcom_jump|"Internet companies are poaching with high salaries" — you chose: join an internet company.|「ネット企業が高給で引き抜きに来た」——あなたの決断：ネット企業に移る。|"인터넷 기업이 고연봉으로 스카우트한다" — 당신의 선택: 인터넷 기업에 간다.
+events|ch_d_dotcom_stay|"Internet companies are poaching with high salaries" — you chose: stay in a traditional industry.|「ネット企業が高給で引き抜きに来た」——あなたの決断：伝統的な業界に残る。|"인터넷 기업이 고연봉으로 스카우트한다" — 당신의 선택: 전통 산업에 남는다.
+events|ch_d_sars_mask_home|"A new disease appeared and pharmacies are out of masks" — you chose: go out less.|「新しい感染症が現れ、薬局のマスクが売り切れた」——あなたの決断：外出を減らす。|"새 전염병이 돌아 약국 마스크가 동났다" — 당신의 선택: 외출을 줄인다.
+events|ch_d_sars_mask_normal|"A new disease appeared and pharmacies are out of masks" — you chose: carry on as usual.|「新しい感染症が現れ、薬局のマスクが売り切れた」——あなたの決断：いつもどおり暮らす。|"새 전염병이 돌아 약국 마스크가 동났다" — 당신의 선택: 평소처럼 지낸다.
+events|ch_d_covid_vax_vax|"Vaccines are now available" — you chose: book a shot.|「ワクチン接種が始まった」——あなたの決断：予約して打つ。|"백신 접종이 시작됐다" — 당신의 선택: 예약해서 맞는다.
+events|ch_d_covid_vax_wait|"Vaccines are now available" — you chose: wait and see.|「ワクチン接種が始まった」——あなたの決断：もう少し様子を見る。|"백신 접종이 시작됐다" — 당신의 선택: 좀 더 지켜본다.
+events|ch_d_lockdown_hobby_bake|"Locked down at home, you suddenly have time" — you chose: learn to bake bread.|「ロックダウンで急に時間ができた」——あなたの決断：パン作りを覚える。|"봉쇄로 집에 있으니 갑자기 시간이 많아졌다" — 당신의 선택: 빵 굽기를 배운다.
+events|ch_d_lockdown_hobby_study|"Locked down at home, you suddenly have time" — you chose: take online classes.|「ロックダウンで急に時間ができた」——あなたの決断：オンライン講座を受ける。|"봉쇄로 집에 있으니 갑자기 시간이 많아졌다" — 당신의 선택: 온라인 강의를 듣는다.
+events|ch_d_lockdown_hobby_call|"Locked down at home, you suddenly have time" — you chose: video-call family every day.|「ロックダウンで急に時間ができた」——あなたの決断：毎日家族とビデオ通話する。|"봉쇄로 집에 있으니 갑자기 시간이 많아졌다" — 당신의 선택: 매일 가족과 영상통화한다.
+events|ch_d_gfc_job_accept|"In the financial crisis, the company asks everyone to take a pay cut" — you chose: accept the cut.|「金融危機で会社が全員の減給を求めた」——あなたの決断：減給を受け入れる。|"금융위기로 회사가 다 같이 임금을 깎자고 한다" — 당신의 선택: 삭감을 받아들인다.
+events|ch_d_gfc_job_leave|"In the financial crisis, the company asks everyone to take a pay cut" — you chose: look elsewhere.|「金融危機で会社が全員の減給を求めた」——あなたの決断：別の道を探す。|"금융위기로 회사가 다 같이 임금을 깎자고 한다" — 당신의 선택: 다른 길을 찾는다.
+events|ch_d_asia_crisis_hold|"The currency crashed and savings shrank overnight" — you chose: grit your teeth and ride it out.|「通貨が暴落し、貯金が一夜で目減りした」——あなたの決断：歯を食いしばって耐える。|"화폐 가치가 폭락해 예금이 하룻밤 새 줄었다" — 당신의 선택: 이를 악물고 버틴다.
+events|ch_d_asia_crisis_gold|"The currency crashed and savings shrank overnight" — you chose: convert savings to gold.|「通貨が暴落し、貯金が一夜で目減りした」——あなたの決断：貯金を金に換える。|"화폐 가치가 폭락해 예금이 하룻밤 새 줄었다" — 당신의 선택: 예금을 금으로 바꾼다.
+events|ch_d_olympics_watch_watch|"The Olympics have opened" — you chose: stay up for the broadcast.|「オリンピックが開幕した」——あなたの決断：夜更かしして中継を見る。|"올림픽이 개막했다" — 당신의 선택: 밤새 중계를 본다.
+events|ch_d_olympics_watch_sleep|"The Olympics have opened" — you chose: catch the next day's news.|「オリンピックが開幕した」——あなたの決断：翌日のニュースで見る。|"올림픽이 개막했다" — 당신의 선택: 다음 날 뉴스로 본다.
+events|ch_d_worldcup_bar|"The World Cup final kicks off tonight" — you chose: watch with a crowd at a restaurant.|「今夜はワールドカップ決勝」——あなたの決断：店でみんなと見る。|"오늘 밤 월드컵 결승이 열린다" — 당신의 선택: 식당에서 다 같이 본다.
+events|ch_d_worldcup_home|"The World Cup final kicks off tonight" — you chose: watch at home.|「今夜はワールドカップ決勝」——あなたの決断：家で見る。|"오늘 밤 월드컵 결승이 열린다" — 당신의 선택: 집에서 본다.
+events|ch_d_heatwave_ac|"A heatwave hits with record temperatures" — you chose: turn on the AC.|「熱波が襲い、記録的な暑さ」——あなたの決断：エアコンをつける。|"폭염이 덮쳐 기온이 기록을 깼다" — 당신의 선택: 에어컨을 켠다.
+events|ch_d_heatwave_library|"A heatwave hits with record temperatures" — you chose: cool off at the library.|「熱波が襲い、記録的な暑さ」——あなたの決断：図書館で涼む。|"폭염이 덮쳐 기온이 기록을 깼다" — 당신의 선택: 도서관에서 더위를 피한다.
+events|ch_d_flood_home_help|"Heavy rain flooded the streets" — you chose: help the neighbours move their things.|「大雨で道路が冠水した」——あなたの決断：近所の荷物運びを手伝う。|"폭우로 거리가 물에 잠겼다" — 당신의 선택: 이웃의 짐을 옮겨 준다.
+events|ch_d_flood_home_upstairs|"Heavy rain flooded the streets" — you chose: carry your belongings upstairs.|「大雨で道路が冠水した」——あなたの決断：家財を二階へ運ぶ。|"폭우로 거리가 물에 잠겼다" — 당신의 선택: 살림을 위층으로 옮긴다.
+events|ch_d_typhoon_stock|"A typhoon is coming" — you chose: stock up at the supermarket.|「台風が来る」——あなたの決断：スーパーで買いだめする。|"태풍이 온다" — 당신의 선택: 마트에서 사재기한다.
+events|ch_d_typhoon_ignore|"A typhoon is coming" — you chose: it'll probably be fine.|「台風が来る」——あなたの決断：たぶん大丈夫。|"태풍이 온다" — 당신의 선택: 별일 없을 거다.
+events|ch_d_name_change_change|"You've never liked your name" — you chose: change it.|「ずっと自分の名前が好きではなかった」——あなたの決断：改名する。|"늘 내 이름이 마음에 들지 않았다" — 당신의 선택: 개명한다.
+events|ch_d_name_change_keep|"You've never liked your name" — you chose: you'll get used to it.|「ずっと自分の名前が好きではなかった」——あなたの決断：慣れればいい。|"늘 내 이름이 마음에 들지 않았다" — 당신의 선택: 익숙해지면 된다.
+events|ch_d_ancestry_test|"Someone gave you a DNA test kit" — you chose: send it off.|「遺伝子検査キットをもらった」——あなたの決断：送って検査する。|"누가 유전자 검사 키트를 선물했다" — 당신의 선택: 보내서 검사한다.
+events|ch_d_ancestry_no|"Someone gave you a DNA test kit" — you chose: you'd rather not know.|「遺伝子検査キットをもらった」——あなたの決断：知りたくない。|"누가 유전자 검사 키트를 선물했다" — 당신의 선택: 알고 싶지 않다.
+events|ch_d_lottery_buy_buy|"The jackpot has rolled over to an astronomical sum" — you chose: buy a ticket.|「一等賞金が天文学的な額に積み上がった」——あなたの決断：一枚買う。|"1등 당첨금이 천문학적으로 쌓였다" — 당신의 선택: 한 장 산다.
+events|ch_d_lottery_buy_no|"The jackpot has rolled over to an astronomical sum" — you chose: the odds are too slim.|「一等賞金が天文学的な額に積み上がった」——あなたの決断：確率が低すぎる。|"1등 당첨금이 천문학적으로 쌓였다" — 당신의 선택: 확률이 너무 낮다.
+events|ch_d_haircut_bold_do|"You want a daring haircut" — you chose: did it.|「大胆な髪型にしてみたい」——あなたの決断：切った。|"과감한 헤어스타일을 하고 싶다" — 당신의 선택: 잘랐다.
+events|ch_d_haircut_bold_safe|"You want a daring haircut" — you chose: the usual.|「大胆な髪型にしてみたい」——あなたの決断：いつもどおり。|"과감한 헤어스타일을 하고 싶다" — 당신의 선택: 하던 대로.
+events|ch_d_cat_rescue_vet|"There's an injured kitten by the road" — you chose: take it to the vet.|「道端にけがをした子猫がいる」——あなたの決断：動物病院へ連れて行く。|"길가에 다친 새끼 고양이가 있다" — 당신의 선택: 동물병원에 데려간다.
+events|ch_d_cat_rescue_call|"There's an injured kitten by the road" — you chose: call an animal-welfare group.|「道端にけがをした子猫がいる」——あなたの決断：動物保護団体に電話する。|"길가에 다친 새끼 고양이가 있다" — 당신의 선택: 동물보호단체에 전화한다.
+events|ch_d_night_walk_walk|"You can't sleep and want to go out in the small hours" — you chose: go for a walk.|「眠れず、明け方に外を歩きたくなった」——あなたの決断：散歩に出る。|"잠이 안 와 새벽에 나가 걷고 싶다" — 당신의 선택: 산책하러 나간다.
+events|ch_d_night_walk_bed|"You can't sleep and want to go out in the small hours" — you chose: lie there counting sheep.|「眠れず、明け方に外を歩きたくなった」——あなたの決断：横になって羊を数える。|"잠이 안 와 새벽에 나가 걷고 싶다" — 당신의 선택: 누워서 양을 센다.
+events|ch_d_letter_old_send|"You found a letter you never sent when you were young" — you chose: look up the address and send it.|「若いころに出さなかった手紙を見つけた」——あなたの決断：住所を調べて送る。|"젊을 때 부치지 못한 편지를 찾았다" — 당신의 선택: 주소를 찾아 부친다.
+events|ch_d_letter_old_burn|"You found a letter you never sent when you were young" — you chose: burn it.|「若いころに出さなかった手紙を見つけた」——あなたの決断：燃やす。|"젊을 때 부치지 못한 편지를 찾았다" — 당신의 선택: 태운다.
+events|fc_switch|=|人生の段階が変わり、重心が自動で切り替わった：{from} → {to}。|인생의 단계가 바뀌어 중심이 자동으로 조정됐다: {from} → {to}.
+events|fc_auto|=|この段階の重心を決めた。|이 단계의 중심을 정했다.
+events|job_change|=|新しい仕事に移り、給料が約 {pct}% 上がった。|새 직장으로 옮겨 월급이 약 {pct}% 올랐다.
+events|rt_allowance|=|いつものように両親に仕送りをした（{amount}）。|해마다 그렇듯 부모님께 용돈을 드렸다({amount}).
+events|rt_dining|=|友だちとの定例の食事会に何度も出かけた（{amount}）。|친구들과 정기 모임으로 여러 번 외식했다({amount}).
+events|rt_onlineCourse|=|またオンライン講座に申し込んだ（{amount}）。|또 온라인 강좌를 신청했다({amount}).
+events|oc_farmer_sub|=|大干ばつで、今年の収穫は半分になった。|큰 가뭄으로 올해 수확이 절반으로 줄었다.
+events|oc_farmer_mkt|=|台風が通り過ぎ、畑の作物がすべて水に浸かった。|태풍이 휩쓸고 가서 밭작물이 모두 물에 잠겼다.
+events|oc_farm_worker|=|季節契約が早く終わり、また次の仕事を探すことに。|계절 계약이 일찍 끝나 다시 다음 일을 찾아야 했다.
+events|oc_livestock|=|豚熱が発生し、家畜をすべて殺処分するしかなかった。|돼지열병이 터져 가축을 모두 살처분해야 했다.
+events|oc_fisher|=|嵐が来て、船団は一週間港から出られなかった。|폭풍이 몰아쳐 선단이 일주일 내내 항구에 묶였다.
+events|oc_aquaculture|=|寒波が来て、養殖池の魚が大半凍え死んだ。|한파가 닥쳐 양식장 물고기 대부분이 얼어 죽었다.
+events|oc_forestry|=|チェーンソーの事故で、何か月も家で療養した。|전기톱 사고로 몇 달 동안 집에서 요양했다.
+events|oc_construction_lab|=|足場から落ちたが、幸い命は助かった。|비계에서 떨어졌지만 다행히 목숨은 건졌다.
+events|oc_electrician|=|電気工事士の資格に合格し、仕事が取りやすくなった。|전기기능사 자격을 따서 일감 따기가 훨씬 쉬워졌다.
+events|oc_plumber|=|大みそかの夜に緊急修理の電話が入り、年越しのごちそうを食べ損ねた。|섣달그믐 밤에 긴급 수리 전화를 받아 설 전날 저녁을 못 먹었다.
+events|oc_mechanic|=|電気自動車の整備講座に申し込み、新しい技術を学んだ。|전기차 정비 과정에 등록해 새 기술을 배웠다.
+events|oc_welder|=|溶接中に火花が目に入り、しばらく療養した。|용접 중 불똥이 눈에 튀어 한동안 쉬었다.
+events|oc_factory_op|=|工場が海外に移り、ライン全員が職を失った。|공장이 해외로 옮겨 라인 전체가 실직했다.
+events|oc_factory_tech|=|何か月も続く夜勤でくたくたになった。|몇 달째 이어진 야간 근무로 녹초가 됐다.
+events|oc_transport_driver|=|長距離運転の疲れで、危うく事故を起こすところだった。|장거리 운전으로 지쳐 하마터면 사고가 날 뻔했다.
+events|oc_warehouse|=|繁忙期の残業が山ほどあり、腰も背中も痛い。|성수기 야근이 폭주해 허리와 등이 쑤셨다.
+events|oc_craftsman|=|作品が伝統工芸賞を受けた。|작품이 전통 공예상을 받았다.
+events|oc_miner|=|炭鉱の閉山が決まり、この先どうなるかわからない。|광산 폐쇄가 발표되어 앞날이 막막하다.
+events|oc_retail_clerk|=|ひどい客に怒鳴られ、泣きたくなった。|진상 손님에게 혼나서 울고 싶었다.
+events|oc_food_service|=|感染症で店内飲食が停止になり、シフトが半分に減らされた。|전염병으로 매장 식사가 중단되어 근무가 반으로 줄었다.
+events|oc_cook|=|料理評論家が来店し、あなたの料理がコラムに載った。|음식 평론가가 찾아와 당신의 요리를 칼럼에 썼다.
+events|oc_hair_beauty|=|常連客が店を移ったあなたについてきて、商売が安定した。|단골손님이 가게를 옮긴 당신을 따라와 장사가 더 안정됐다.
+events|oc_caregiver|=|長期介護の補助金で給料が少し上がった。|장기요양 보조금 인상으로 월급이 조금 올랐다.
+events|oc_cleaner|=|清掃契約が外部委託され、雇い主が変わった。|청소 계약이 외주로 넘어가 고용주가 바뀌었다.

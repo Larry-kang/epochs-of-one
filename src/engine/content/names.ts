@@ -3,7 +3,7 @@
 export type NameRegion = 'zh' | 'ja' | 'ko' | 'vi' | 'sea' | 'south' | 'mena' | 'africa' | 'latam' | 'west' | 'east' | 'central' | 'pacific';
 interface Pool { family: string[]; M: string[]; F: string[]; order: 'family-first' | 'given-first'; sep: string }
 
-const P: Record<NameRegion, Pool> = {
+export const POOLS: Record<NameRegion, Pool> = {
   zh: { order: 'family-first', sep: '', family: ['陳', '林', '黃', '張', '李', '王', '吳', '劉', '蔡', '楊', '許', '鄭', '謝', '郭', '洪', '曾', '周', '賴', '徐', '葉', '蘇', '莊', '呂', '江'],
     M: ['冠宇', '承恩', '家豪', '志明', '俊傑', '建宏', '宗翰', '柏翰', '彥廷', '子軒', '文彬', '國華', '振興', '明哲', '育誠', '信宏'],
     F: ['怡君', '雅婷', '淑芬', '佳穎', '詩涵', '宜蓁', '欣妤', '美玲', '雅雯', '靜怡', '品妍', '秀英', '筱涵', '心怡', '惠君', '思妤'] },
@@ -53,9 +53,9 @@ export const regionOf = (iso: string, sub: number): NameRegion => ISO[iso] ?? SU
 
 export interface PersonName { given: string; family: string; full: string }
 export function makeName(region: NameRegion, sex: 'M' | 'F', u1: number, u2: number, family?: string): PersonName {
-  const p = P[region];
+  const p = POOLS[region];
   const fam = family ?? p.family[Math.floor(u1 * p.family.length)]!;
   const g = p[sex][Math.floor(u2 * p[sex].length)]!;
   return { given: g, family: fam, full: p.order === 'family-first' ? fam + p.sep + g : g + p.sep + fam };
 }
-export const pickFamily = (region: NameRegion, u: number) => P[region].family[Math.floor(u * P[region].family.length)]!;
+export const pickFamily = (region: NameRegion, u: number) => POOLS[region].family[Math.floor(u * POOLS[region].family.length)]!;

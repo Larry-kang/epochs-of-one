@@ -1,0 +1,80 @@
+events|ch_d_layoff_offer_stay|"The company offers an early-retirement package" — you chose: keep working.|「会社が早期退職制度を打ち出した」——あなたの決断：働き続ける。|"회사가 희망퇴직 방안을 내놓았다" — 당신의 선택: 계속 일한다.
+events|ch_d_kids_activity_music|"Your child wants to learn an extracurricular skill" — you chose: a musical instrument.|「子どもが習い事をしたがっている」——あなたの決断：楽器を習う。|"아이가 예체능을 배우고 싶어 한다" — 당신의 선택: 악기를 배운다.
+events|ch_d_kids_activity_sport|"Your child wants to learn an extracurricular skill" — you chose: swimming.|「子どもが習い事をしたがっている」——あなたの決断：水泳を習う。|"아이가 예체능을 배우고 싶어 한다" — 당신의 선택: 수영을 배운다.
+events|ch_d_kids_activity_none|"Your child wants to learn an extracurricular skill" — you chose: not yet.|「子どもが習い事をしたがっている」——あなたの決断：今はまだいい。|"아이가 예체능을 배우고 싶어 한다" — 당신의 선택: 아직은 됐다.
+events|ch_d_family_trip_abroad|"A family trip abroad this summer?" — you chose: go abroad.|「夏休みに家族で海外へ行く？」——あなたの決断：海外旅行。|"여름방학에 가족 해외여행을 갈까?" — 당신의 선택: 해외로 간다.
+events|ch_d_family_trip_local|"A family trip abroad this summer?" — you chose: camping nearby.|「夏休みに家族で海外へ行く？」——あなたの決断：近場でキャンプ。|"여름방학에 가족 해외여행을 갈까?" — 당신의 선택: 근처로 캠핑.
+events|ch_d_insurance_pitch_buy|"A relative is selling you insurance" — you chose: buy a policy.|「親戚が保険を売り込みに来た」——あなたの決断：一つ入る。|"친척이 보험을 권하러 왔다" — 당신의 선택: 하나 든다.
+events|ch_d_insurance_pitch_no|"A relative is selling you insurance" — you chose: politely decline.|「親戚が保険を売り込みに来た」——あなたの決断：丁重に断る。|"친척이 보험을 권하러 왔다" — 당신의 선택: 정중히 거절한다.
+events|ch_d_charity_ask_give|"A charity is collecting donations on the street" — you chose: give a little.|「慈善団体が街頭募金をしている」——あなたの決断：少し寄付する。|"자선단체가 거리 모금을 하고 있다" — 당신의 선택: 조금 기부한다.
+events|ch_d_charity_ask_pass|"A charity is collecting donations on the street" — you chose: hurry past.|「慈善団体が街頭募金をしている」——あなたの決断：足早に通り過ぎる。|"자선단체가 거리 모금을 하고 있다" — 당신의 선택: 빠르게 지나친다.
+events|ch_d_neighbor_noise_talk|"The upstairs neighbours are loud every night" — you chose: go up and talk.|「上の階の住人が毎晩うるさい」——あなたの決断：話しに行く。|"윗집이 매일 밤 시끄럽다" — 당신의 선택: 올라가서 이야기한다.
+events|ch_d_neighbor_noise_endure|"The upstairs neighbours are loud every night" — you chose: wear earplugs and endure.|「上の階の住人が毎晩うるさい」——あなたの決断：耳栓をして我慢する。|"윗집이 매일 밤 시끄럽다" — 당신의 선택: 귀마개를 끼고 참는다.
+events|ch_d_sabbatical_go|"You're considering a year of unpaid leave" — you chose: go do what you want.|「一年の休職を考えている」——あなたの決断：やりたいことをしに行く。|"1년 무급 휴직을 고민 중이다" — 당신의 선택: 하고 싶은 일을 하러 간다.
+events|ch_d_sabbatical_no|"You're considering a year of unpaid leave" — you chose: too scared to stop.|「一年の休職を考えている」——あなたの決断：止まるのが怖い。|"1년 무급 휴직을 고민 중이다" — 당신의 선택: 멈추기가 두렵다.
+events|ch_d_reunion_invite_go|"You're invited to a class reunion" — you chose: go and catch up.|「同窓会に誘われた」——あなたの決断：近況を話しに行く。|"동창회 초대를 받았다" — 당신의 선택: 가서 근황을 나눈다.
+events|ch_d_reunion_invite_skip|"You're invited to a class reunion" — you chose: you'd rather not see them.|「同窓会に誘われた」——あなたの決断：あまり会いたくない。|"동창회 초대를 받았다" — 당신의 선택: 별로 만나고 싶지 않다.
+events|ch_d_old_flame_no|"An ex messages to invite you to dinner" — you chose: politely decline.|「昔の恋人から食事の誘いが来た」——あなたの決断：丁寧に断る。|"옛 연인이 밥 먹자고 메시지를 보냈다" — 당신의 선택: 정중히 거절한다.
+events|ch_d_old_flame_lunch|"An ex messages to invite you to dinner" — you chose: catch up over a meal.|「昔の恋人から食事の誘いが来た」——あなたの決断：食事して昔話をする。|"옛 연인이 밥 먹자고 메시지를 보냈다" — 당신의 선택: 밥 먹으며 회포를 푼다.
+events|ch_d_pet_adult_adopt|"There's an old dog at the shelter nobody wants" — you chose: take it home.|「保護施設に引き取り手のない老犬がいる」——あなたの決断：連れて帰る。|"보호소에 아무도 데려가지 않는 늙은 개가 있다" — 당신의 선택: 집에 데려온다.
+events|ch_d_pet_adult_donate|"There's an old dog at the shelter nobody wants" — you chose: donate for food.|「保護施設に引き取り手のない老犬がいる」——あなたの決断：えさ代を寄付する。|"보호소에 아무도 데려가지 않는 늙은 개가 있다" — 당신의 선택: 사료값을 기부한다.
+events|ch_d_lend_family_help|"Your sibling's business is short of cash" — you chose: help with your savings.|「きょうだいの商売が資金繰りに困っている」——あなたの決断：貯金を出して助ける。|"형제자매의 사업이 자금난에 빠졌다" — 당신의 선택: 저축을 꺼내 돕는다.
+events|ch_d_lend_family_no|"Your sibling's business is short of cash" — you chose: say you're tight too.|「きょうだいの商売が資金繰りに困っている」——あなたの決断：自分も苦しいと言う。|"형제자매의 사업이 자금난에 빠졌다" — 당신의 선택: 나도 빠듯하다고 한다.
+events|ch_d_learn_tech_learn|"Work brought in a new system and many can't keep up" — you chose: learn it proactively.|「会社に新システムが入り、ついていけない人が多い」——あなたの決断：自ら学ぶ。|"회사에 새 시스템이 들어와 많은 사람이 못 따라간다" — 당신의 선택: 먼저 나서서 배운다.
+events|ch_d_learn_tech_avoid|"Work brought in a new system and many can't keep up" — you chose: dodge it where you can.|「会社に新システムが入り、ついていけない人が多い」——あなたの決断：避けられるだけ避ける。|"회사에 새 시스템이 들어와 많은 사람이 못 따라간다" — 당신의 선택: 피할 수 있으면 피한다.
+events|ch_d_burnout_rest_leave|"You feel you can't hold on much longer" — you chose: take a long leave.|「もう限界だと感じる」——あなたの決断：長期休暇を取る。|"더는 못 버틸 것 같다" — 당신의 선택: 장기 휴가를 낸다.
+events|ch_d_burnout_rest_push|"You feel you can't hold on much longer" — you chose: push on a bit longer.|「もう限界だと感じる」——あなたの決断：もう少し踏ん張る。|"더는 못 버틸 것 같다" — 당신의 선택: 조금만 더 버틴다.
+events|ch_d_downsize_sell|"The kids have all moved out and the house feels empty" — you chose: move somewhere smaller.|「子どもたちがみな家を出て、家ががらんとしている」——あなたの決断：小さい家に住み替える。|"아이들이 모두 독립해 집이 텅 비었다" — 당신의 선택: 작은 집으로 옮긴다.
+events|ch_d_downsize_keep|"The kids have all moved out and the house feels empty" — you chose: keep it for when they visit.|「子どもたちがみな家を出て、家ががらんとしている」——あなたの決断：帰ってくる日のために残す。|"아이들이 모두 독립해 집이 텅 비었다" — 당신의 선택: 돌아올 날을 위해 그대로 둔다.
+events|ch_d_mentor_young_mentor|"A young newcomer is lost" — you chose: take the time to guide them.|「新人の若者が迷っている」——あなたの決断：時間をかけて面倒を見る。|"새로 온 젊은이가 갈피를 못 잡는다" — 당신의 선택: 시간을 들여 이끌어 준다.
+events|ch_d_mentor_young_busy|"A young newcomer is lost" — you chose: you're swamped yourself.|「新人の若者が迷っている」——あなたの決断：自分のことで手一杯。|"새로 온 젊은이가 갈피를 못 잡는다" — 당신의 선택: 내 일도 벅차다.
+events|ch_d_politics_family_calm|"Politics erupts at the family dinner" — you chose: change the subject.|「親族の食事会で政治の言い争いが始まった」——あなたの決断：話題を変える。|"가족 모임에서 정치 논쟁이 붙었다" — 당신의 선택: 화제를 돌린다.
+events|ch_d_politics_family_argue|"Politics erupts at the family dinner" — you chose: argue your case.|「親族の食事会で政治の言い争いが始まった」——あなたの決断：理を尽くして反論する。|"가족 모임에서 정치 논쟁이 붙었다" — 당신의 선택: 조목조목 반박한다.
+events|ch_d_inheritance_equal|"Your parents ask how you siblings want to split the inheritance" — you chose: split it evenly.|「両親が遺産をきょうだいでどう分けるか尋ねた」——あなたの決断：均等に分ける。|"부모님이 형제자매끼리 유산을 어떻게 나눌지 물었다" — 당신의 선택: 똑같이 나눈다.
+events|ch_d_inheritance_care|"Your parents ask how you siblings want to split the inheritance" — you chose: more for whoever gave the most care.|「両親が遺産をきょうだいでどう分けるか尋ねた」——あなたの決断：一番世話をした人が多くもらう。|"부모님이 형제자매끼리 유산을 어떻게 나눌지 물었다" — 당신의 선택: 가장 많이 돌본 사람이 더 받는다.
+events|ch_d_retire_early_retire|"You could retire early, on a smaller pension" — you chose: retire early.|「早期退職できるが、年金は少し減る」——あなたの決断：早めに退職する。|"조기 은퇴할 수 있지만 연금이 줄어든다" — 당신의 선택: 일찍 은퇴한다.
+events|ch_d_retire_early_work|"You could retire early, on a smaller pension" — you chose: work a few more years.|「早期退職できるが、年金は少し減る」——あなたの決断：あと数年働く。|"조기 은퇴할 수 있지만 연금이 줄어든다" — 당신의 선택: 몇 년 더 일한다.
+events|ch_d_grandkid_care_yes|"Your child asks if you can help look after the grandchild" — you chose: help every day.|「子どもに孫の世話を手伝えるか聞かれた」——あなたの決断：毎日手伝う。|"자식이 손주를 봐줄 수 있느냐고 물었다" — 당신의 선택: 매일 봐준다.
+events|ch_d_grandkid_care_weekend|"Your child asks if you can help look after the grandchild" — you chose: weekends only.|「子どもに孫の世話を手伝えるか聞かれた」——あなたの決断：週末だけ。|"자식이 손주를 봐줄 수 있느냐고 물었다" — 당신의 선택: 주말에만.
+events|ch_d_senior_class_join|"The community opened a senior learning centre" — you chose: take classes.|「地域にシニア向けの学びの場ができた」——あなたの決断：授業に通う。|"동네에 노인 대학이 생겼다" — 당신의 선택: 수업을 듣는다.
+events|ch_d_senior_class_home|"The community opened a senior learning centre" — you chose: watch TV at home.|「地域にシニア向けの学びの場ができた」——あなたの決断：家でテレビを見る。|"동네에 노인 대학이 생겼다" — 당신의 선택: 집에서 TV를 본다.
+events|ch_d_move_kids_move|"Your children invite you to live with them" — you chose: move in.|「子どもたちに一緒に住もうと誘われた」——あなたの決断：引っ越す。|"자식들이 함께 살자고 한다" — 당신의 선택: 들어간다.
+events|ch_d_move_kids_stay|"Your children invite you to live with them" — you chose: you're settled; stay put.|「子どもたちに一緒に住もうと誘われた」——あなたの決断：住み慣れたので動かない。|"자식들이 함께 살자고 한다" — 당신의 선택: 익숙한 곳에 남는다.
+events|ch_d_nursing_home_go|"Your family brings up a care home" — you chose: go see what it's like.|「家族が老人ホームの話を持ち出した」——あなたの決断：見学に行く。|"가족이 요양원 이야기를 꺼냈다" — 당신의 선택: 한번 둘러본다.
+events|ch_d_nursing_home_home|"Your family brings up a care home" — you chose: insist on staying home.|「家族が老人ホームの話を持ち出した」——あなたの決断：家に住み続けると言い張る。|"가족이 요양원 이야기를 꺼냈다" — 당신의 선택: 집에 살겠다고 고집한다.
+events|ch_d_write_memoir_write|"You want to write down the story of your life" — you chose: start writing.|「自分の人生を書き残したい」——あなたの決断：書き始める。|"평생의 이야기를 글로 남기고 싶다" — 당신의 선택: 쓰기 시작한다.
+events|ch_d_write_memoir_tell|"You want to write down the story of your life" — you chose: just tell it to the grandchildren.|「自分の人生を書き残したい」——あなたの決断：孫に話して聞かせれば十分。|"평생의 이야기를 글로 남기고 싶다" — 당신의 선택: 손주에게 들려주면 된다.
+events|ch_d_old_travel_go|"While you can still get around, go somewhere farther?" — you chose: sign up for a tour.|「まだ歩けるうちに遠くへ行く？」——あなたの決断：ツアーに申し込む。|"아직 걸을 수 있을 때 멀리 가 볼까?" — 당신의 선택: 단체 여행을 신청한다.
+events|ch_d_old_travel_near|"While you can still get around, go somewhere farther?" — you chose: nearby outings are enough.|「まだ歩けるうちに遠くへ行く？」——あなたの決断：近場の散策で十分。|"아직 걸을 수 있을 때 멀리 가 볼까?" — 당신의 선택: 가까운 데만 다닌다.
+events|ch_d_scam_call_hang|"A caller claiming to be the bank says there's a problem with your account" — you chose: hang up.|「銀行を名乗る電話で口座に問題があると言われた」——あなたの決断：すぐ切る。|"은행이라는 사람이 전화로 계좌에 문제가 있다고 한다" — 당신의 선택: 바로 끊는다.
+events|ch_d_scam_call_check|"A caller claiming to be the bank says there's a problem with your account" — you chose: call your child to check.|「銀行を名乗る電話で口座に問題があると言われた」——あなたの決断：子どもに電話して確かめる。|"은행이라는 사람이 전화로 계좌에 문제가 있다고 한다" — 당신의 선택: 자식에게 전화해 확인한다.
+events|ch_d_scam_call_follow|"A caller claiming to be the bank says there's a problem with your account" — you chose: do as they say.|「銀行を名乗る電話で口座に問題があると言われた」——あなたの決断：言われたとおりにする。|"은행이라는 사람이 전화로 계좌에 문제가 있다고 한다" — 당신의 선택: 시키는 대로 한다.
+events|ch_d_health_surgery_operate|"The doctor recommends a fairly major operation" — you chose: have surgery.|「医者にかなり大きな手術を勧められた」——あなたの決断：手術する。|"의사가 꽤 큰 수술을 권했다" — 당신의 선택: 수술한다.
+events|ch_d_health_surgery_meds|"The doctor recommends a fairly major operation" — you chose: manage it with medication.|「医者にかなり大きな手術を勧められた」——あなたの決断：薬で抑える。|"의사가 꽤 큰 수술을 권했다" — 당신의 선택: 약으로 관리한다.
+events|ch_d_reconnect_call|"You come across a photo of a friend you lost touch with" — you chose: call them.|「長く連絡していない友人の写真を見つけた」——あなたの決断：電話する。|"오래 연락이 끊긴 친구의 사진을 발견했다" — 당신의 선택: 전화를 건다.
+events|ch_d_reconnect_keep|"You come across a photo of a friend you lost touch with" — you chose: put it back in the drawer.|「長く連絡していない友人の写真を見つけた」——あなたの決断：引き出しに戻す。|"오래 연락이 끊긴 친구의 사진을 발견했다" — 당신의 선택: 서랍에 다시 넣는다.
+events|ch_d_will_write_write|"Your lawyer reminds you it's time to make a will" — you chose: write it properly.|「弁護士に遺言書を作る時期だと言われた」——あなたの決断：きちんと書く。|"변호사가 유언장을 쓸 때라고 일렀다" — 당신의 선택: 제대로 써 둔다.
+events|ch_d_will_write_later|"Your lawyer reminds you it's time to make a will" — you chose: bad luck — later.|「弁護士に遺言書を作る時期だと言われた」——あなたの決断：縁起でもない、また今度。|"변호사가 유언장을 쓸 때라고 일렀다" — 당신의 선택: 재수 없다, 나중에.
+events|ch_d_tech_old_learn|"Your grandchild wants to teach you video calls" — you chose: learn properly.|「孫がビデオ通話を教えてくれるという」——あなたの決断：真剣に覚える。|"손주가 영상통화를 가르쳐 준다고 한다" — 당신의 선택: 열심히 배운다.
+events|ch_d_tech_old_phone|"Your grandchild wants to teach you video calls" — you chose: a phone call is fine.|「孫がビデオ通話を教えてくれるという」——あなたの決断：電話で十分。|"손주가 영상통화를 가르쳐 준다고 한다" — 당신의 선택: 전화면 된다.
+events|ch_d_garden_old_plant|"There's a little space left on the balcony" — you chose: grow flowers and vegetables.|「ベランダに少し空きがある」——あなたの決断：花や野菜を育てる。|"베란다에 공간이 조금 남았다" — 당신의 선택: 꽃과 채소를 기른다.
+events|ch_d_garden_old_leave|"There's a little space left on the balcony" — you chose: leave it as it is.|「ベランダに少し空きがある」——あなたの決断：そのままにしておく。|"베란다에 공간이 조금 남았다" — 당신의 선택: 그대로 둔다.
+events|ch_d_volunteer_old_join|"The hospital is recruiting retired volunteers" — you chose: go two days a week.|「病院が退職者のボランティアを募集している」——あなたの決断：週二日通う。|"병원에서 은퇴자 자원봉사자를 모집한다" — 당신의 선택: 일주일에 이틀 간다.
+events|ch_d_volunteer_old_no|"The hospital is recruiting retired volunteers" — you chose: you'd rather rest.|「病院が退職者のボランティアを募集している」——あなたの決断：もっと休みたい。|"병원에서 은퇴자 자원봉사자를 모집한다" — 당신의 선택: 더 쉬고 싶다.
+events|ch_d_driving_old_stop|"Your family urges you to stop driving" — you chose: hand over the keys.|「家族に運転をやめるよう勧められた」——あなたの決断：鍵を渡す。|"가족이 운전을 그만두라고 권한다" — 당신의 선택: 열쇠를 넘긴다.
+events|ch_d_driving_old_keep|"Your family urges you to stop driving" — you chose: I can still do it.|「家族に運転をやめるよう勧められた」——あなたの決断：まだ大丈夫。|"가족이 운전을 그만두라고 권한다" — 당신의 선택: 아직 할 수 있다.
+events|ch_d_last_trip_home_go|"You long to see the place you were born" — you chose: have family take you back.|「生まれた土地をもう一度見たい」——あなたの決断：家族に連れて行ってもらう。|"태어난 곳을 다시 보고 싶다" — 당신의 선택: 가족과 함께 돌아가 본다.
+events|ch_d_last_trip_home_photo|"You long to see the place you were born" — you chose: old photos will do.|「生まれた土地をもう一度見たい」——あなたの決断：古い写真を見れば十分。|"태어난 곳을 다시 보고 싶다" — 당신의 선택: 옛 사진으로 충분하다.
+events|ch_d_water_walk_go|"The well is far from home and someone has to fetch water every day" — you chose: you fetch it.|「井戸は家から遠く、毎日誰かが水くみに行かねばならない」——あなたの決断：自分が行く。|"우물이 멀어 매일 누군가 물을 길어 와야 한다" — 당신의 선택: 당신이 간다.
+events|ch_d_water_walk_school|"The well is far from home and someone has to fetch water every day" — you chose: school first.|「井戸は家から遠く、毎日誰かが水くみに行かねばならない」——あなたの決断：まず学校へ。|"우물이 멀어 매일 누군가 물을 길어 와야 한다" — 당신의 선택: 학교가 먼저다.
+events|ch_d_mosquito_net_queue|"The clinic is handing out free mosquito nets" — you chose: queue up for one.|「診療所が蚊帳を無料で配っている」——あなたの決断：並んでもらう。|"진료소에서 모기장을 무료로 나눠 준다" — 당신의 선택: 줄 서서 받는다.
+events|ch_d_mosquito_net_skip|"The clinic is handing out free mosquito nets" — you chose: can't be bothered to queue.|「診療所が蚊帳を無料で配っている」——あなたの決断：並ぶのが面倒。|"진료소에서 모기장을 무료로 나눠 준다" — 당신의 선택: 줄 서기 귀찮다.
+events|ch_d_harvest_help_farm|"It's harvest season and the family needs hands" — you chose: skip school to help harvest.|「収穫期で家に人手が要る」——あなたの決断：学校を休んで刈り入れを手伝う。|"수확철이라 집에 일손이 필요하다" — 당신의 선택: 학교를 쉬고 추수를 돕는다.
+events|ch_d_harvest_help_school|"It's harvest season and the family needs hands" — you chose: keep going to school.|「収穫期で家に人手が要る」——あなたの決断：学校に通い続ける。|"수확철이라 집에 일손이 필요하다" — 당신의 선택: 계속 학교에 간다.
+events|ch_d_migrant_work_go|"A relative says city building sites need workers" — you chose: go work in the city.|「親戚が町の工事現場で人手が足りないと言う」——あなたの決断：町へ働きに出る。|"친척이 도시 공사장에 일손이 부족하다고 한다" — 당신의 선택: 도시로 일하러 간다.
+events|ch_d_migrant_work_stay|"A relative says city building sites need workers" — you chose: stay in the village.|「親戚が町の工事現場で人手が足りないと言う」——あなたの決断：村に残る。|"친척이 도시 공사장에 일손이 부족하다고 한다" — 당신의 선택: 마을에 남는다.
+events|ch_d_remit_send|"Your parents back home need money" — you chose: send money every month.|「故郷の両親がお金に困っている」——あなたの決断：毎月仕送りする。|"고향의 부모님이 돈이 필요하다" — 당신의 선택: 매달 돈을 부친다.
+events|ch_d_remit_save|"Your parents back home need money" — you chose: save for yourself first.|「故郷の両親がお金に困っている」——あなたの決断：まず自分の分を貯める。|"고향의 부모님이 돈이 필요하다" — 당신의 선택: 우선 내 몫을 모은다.
+events|ch_d_microloan_borrow|"The co-op can lend you a little start-up money" — you chose: borrow it and open a small shop.|「協同組合が少額の開業資金を貸してくれる」——あなたの決断：借りて小さな店を開く。|"협동조합에서 소액 창업 자금을 빌려준다" — 당신의 선택: 빌려서 작은 가게를 연다.
+events|ch_d_microloan_no|"The co-op can lend you a little start-up money" — you chose: you don't want debt.|「協同組合が少額の開業資金を貸してくれる」——あなたの決断：借金はしたくない。|"협동조합에서 소액 창업 자금을 빌려준다" — 당신의 선택: 빚지기 싫다.
+events|ch_d_clinic_far_walk|"Your child has a fever and the clinic is a two-hour walk" — you chose: set off at once.|「子どもが熱を出し、診療所まで歩いて二時間」——あなたの決断：すぐに出発する。|"아이가 열이 나는데 진료소까지 걸어서 두 시간이다" — 당신의 선택: 바로 출발한다.
