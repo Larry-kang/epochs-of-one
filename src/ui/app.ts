@@ -280,7 +280,7 @@ async function birth(cfg: LifeConfig, paceMin: 30 | 60 | 90, animate = false): P
       <div><dt>${esc(t('f_gdp'))}</dt><dd>${esc(moneyUsd(gdp))}</dd></div>
     </dl>
     <p class="odds-line">${esc(t('certOdds', { p: sharePct(ys.p), country, n: ys.one.toLocaleString(locale()) }))}</p>
-    <p class="mono cap">${esc(t('oddsCaption', { total: fmtThousands(birthShares(index, s.born.year, s.born.year).total) }))} · seed <code id="seed">${esc(s.seed)}</code></p>
+    <p class="mono cap">${esc(t('oddsCaption', { total: fmtThousands(birthShares(index, s.born.year, s.born.year).total) }))} · ${esc(t('seedWord'))} <code id="seed">${esc(s.seed)}</code></p>
   </div>
   <footer class="cert-foot"><button class="ghost" id="back" aria-label="${esc(t('home'))}">${esc(t('homeBack'))}</button><button class="ghost" id="reroll">${esc(t('reroll'))}</button><button class="ghost" id="share-birth">${esc(t('shareBirth'))}</button><button class="cta" id="begin">${esc(t('startThis'))} <span aria-hidden="true">→</span></button></footer>
 </article></div>`);
@@ -1128,12 +1128,12 @@ function death(withEnding = false, reopened = false, rec?: PastRecord): void {
       <div><dt>${esc(t('g_place'))}</dt><dd>${esc(nameOf(s.cur))}</dd></div>
       ${adult ? `<div><dt>${esc(t('g_edu'))}</dt><dd>${esc(edu)}</dd></div><div><dt>${esc(t('g_job'))}</dt><dd>${esc(track || t('none'))}</dd></div>` : ''}
       <div><dt>${esc(t('g_partner'))}</dt><dd>${esc(pn(s.family.spouse?.name) || t('none'))}</dd></div>
-      <div><dt>${esc(t('g_kids'))}</dt><dd>${esc(s.family.children.length ? s.family.children.map((c) => pn(c.name)).join('、') : t('none'))}</dd></div>
+      <div><dt>${esc(t('g_kids'))}</dt><dd id="rec-kids">${esc(s.family.children.length ? s.family.children.map((c) => pn(c.name)).join('、') : t('none'))}</dd></div>
       ${hap ? `<div><dt>${esc(t('g_happiest'))}</dt><dd id="happiest">${esc(t('happiestLine', { age: hap.age, year: hap.year }))}${hapLine ? `<br><small>${esc(hapLine)}</small>` : ''}</dd></div>` : ''}
       <div><dt>${esc(t('g_countries'))}</dt><dd>${esc(countries)}</dd></div>
       <div><dt>${esc(t('g_estate'))}</dt><dd>${esc(money(me.finalNetWorth))}</dd></div>
     </dl>
-    <blockquote id="last-words"><span class="muted small">${esc(t('lastWords'))}</span><br>${esc(t(end.lastWords as 'lw_generic1', end.vars))}</blockquote>
+    <blockquote id="last-words"><span class="muted small">${esc(t('lastWords'))}</span><br>${esc(t(end.lastWords as 'lw_generic1', { ...end.vars, child: pn(end.vars.child), spouse: pn(end.vars.spouse) }))}</blockquote>
   </div>
 </article>
 <div class="dp-actions"><button class="ghost" id="share-open">${esc(t('shareOpen'))}</button><button class="ghost" id="replay-end">${esc(t('endReplay'))}</button></div>
@@ -1158,7 +1158,7 @@ ${lineChart(s.years.map((y) => y.netWorth), { label: t('chartNetWorth'), color: 
 ${s.years.some((y) => y.debt > 0) ? lineChart(s.years.map((y) => y.debt), { label: t('chartDebt'), color: '#8E3B5A' }) : ''}
 ${lineChart(s.years.map((y) => y.income), { label: t('chartIncome'), color: '#B8902E' })}
 <p class="muted">${esc(t('money'))}</p>
-<p class="muted">seed <code id="seed">${esc(s.seed)}</code> <button id="copy" class="link">${esc(t('copySeed'))}</button></p>
+<p class="muted">${esc(t('seedWord'))} <code id="seed">${esc(s.seed)}</code> <button id="copy" class="link">${esc(t('copySeed'))}</button></p>
 </section>
 <div class="row end-row"><button class="cta" id="again">${esc(t('again'))} <span aria-hidden="true">→</span></button><button class="ghost" id="home">${esc(t('home'))}</button></div>
 <div class="sticky-foot"><button class="ghost" id="share-foot">${esc(t('shareOpen'))}</button><button class="cta" id="again-foot">${esc(t('again'))}</button></div>

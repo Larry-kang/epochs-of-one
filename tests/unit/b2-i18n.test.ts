@@ -27,7 +27,7 @@ describe('B2 i18n', () => {
   it('switches language, falls back to English for untranslated UI and to zh-TW for content', () => {
     expect(t('pause')).toBe('暫停');
     setLang('en'); expect(t('pause')).toBe('Pause'); expect(t('years', { n: 3 })).toBe('3 y');
-    setLang('ja'); expect(t('pause')).toBe('一時停止'); expect(t('houseTitle')).toBe('Home');
+    setLang('ja'); expect(t('pause')).toBe('一時停止'); expect(t('houseTitle')).toBe('住宅'); expect(t('heroA')).toBe('Epochs');
     expect(eventText('fl_first_steps')).toBe(eventText('fl_first_steps'));
     setLang('vi'); expect(money(1234567)).toMatch(/1\.234\.567/);
   });
