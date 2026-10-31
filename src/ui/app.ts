@@ -329,7 +329,7 @@ function lifeView(): void {
   <div class="tb-right" role="toolbar" aria-label="${esc(t('speed'))}">
     <button id="pause" class="pill">${esc(t('pause'))}</button>
     <span class="tb-speeds">${SPEEDS.map((x) => `<button class="pill spd" data-speed="${x}" aria-pressed="${x === r.speed}">${x}×</button>`).join('')}</span>
-    <div class="tb-compact" aria-label="${esc(t('speedAuto'))}">
+    <div class="tb-compact" role="group" aria-label="${esc(t('speedAuto'))}">
       <button class="pill tb-cur" id="spd-cycle" aria-label="${esc(t('speed'))}">${r.speed}×</button>
       <button class="pill" id="auto" aria-pressed="${autoOn()}">${esc(t('autoLabel'))}</button>
     </div>

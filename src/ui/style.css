@@ -151,7 +151,7 @@ blockquote { margin: 12px 0 0; padding: 8px 14px; border-left: 3px solid var(--g
 .pill { min-height: 32px; padding: 4px 10px; font-size: 13px; border-color: var(--rule); }
 .tb-speeds { display: inline-flex; gap: 4px; }
 .tb-cur { display: none; }
-.tb-compact { display: none; }
+.tb-compact { display: inline-flex; gap: 4px; align-items: center; }
 .menu-wrap { position: relative; }
 .menu { position: absolute; right: 0; top: 38px; background: var(--card); border: 1px solid var(--rule); border-radius: 4px; display: flex; flex-direction: column; min-width: 180px; box-shadow: 0 6px 20px rgba(0,0,0,.12); z-index: 30; }
 .menu[hidden] { display: none; }

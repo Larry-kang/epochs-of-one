@@ -2732,14 +2732,14 @@ null
 "자동 선택",
 "Tự quyết định"
 ],
-  "speedAuto": [
-    "倍速與自動",
-    "Speed & Auto",
-    "速度と自動",
-    "속도와 자동",
-    "Tốc độ & Tự động"
-  ],
-  "moreMenu": [
+"speedAuto": [
+"倍速與自動",
+"Speed & Auto",
+"速度と自動",
+"속도와 자동",
+"Tốc độ & Tự động"
+],
+"moreMenu": [
 "更多",
 "More",
 "その他",
