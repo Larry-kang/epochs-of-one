@@ -81,22 +81,22 @@ test('v0.12.0 at 390px width: chosen speed persists after completing a decision'
   await toBirth(page, 'v0120-speed-persist-mobile', { pace: 60, country: 'TWN', year: 1990 });
   await page.locator('#begin').click();
 
-  // Enable auto to make decisions automatically
-  if (!(await getAutoState(page))) await page.locator('#auto').click();
-  await expect(page.locator('#auto')).toHaveAttribute('aria-pressed', 'true');
+  // Keep auto off so the test reaches and closes the decision card manually.
+  if (await getAutoState(page)) await page.locator('#auto').click();
+  await expect(page.locator('#auto')).toHaveAttribute('aria-pressed', 'false');
 
-  // Set speed to 4×
-  await setSpeed(page, 4);
-  await expect(page.locator('#spd-cycle')).toHaveText('4×');
+  // Set speed to 16× so the first decision arrives within the wait window
+  await setSpeed(page, 16);
+  await expect(page.locator('#spd-cycle')).toHaveText('16×');
   const speedBefore = await getSpeed(page);
-  expect(speedBefore).toBe(4);
+  expect(speedBefore).toBe(16);
 
-  // Wait for first decision (around age 15-18) and let auto handle it
+  // Wait for the first decision (around age 15-18) and choose manually.
   await waitForDecisionAndAccept(page);
 
-  // Speed should still be 4×
+  // Speed should still be 16×
   const speedAfter = await getSpeed(page);
-  expect(speedAfter).toBe(4);
+  expect(speedAfter).toBe(16);
 });
 
 test('v0.12.0 desktop: chosen speed persists after completing a decision', async ({ page }) => {
@@ -104,9 +104,9 @@ test('v0.12.0 desktop: chosen speed persists after completing a decision', async
   await toBirth(page, 'v0120-speed-persist-desktop', { pace: 60, country: 'TWN', year: 1990 });
   await page.locator('#begin').click();
 
-  // Enable auto to make decisions automatically
-  if (!(await getAutoState(page))) await page.locator('#auto').click();
-  await expect(page.locator('#auto')).toHaveAttribute('aria-pressed', 'true');
+  // Keep auto off so the test reaches and closes the decision card manually.
+  if (await getAutoState(page)) await page.locator('#auto').click();
+  await expect(page.locator('#auto')).toHaveAttribute('aria-pressed', 'false');
 
   // Set speed to 8× using desktop speed buttons
   await page.locator('.spd[data-speed="8"]').click();
@@ -114,7 +114,7 @@ test('v0.12.0 desktop: chosen speed persists after completing a decision', async
   const speedBefore = await getSpeed(page);
   expect(speedBefore).toBe(8);
 
-  // Wait for first decision and let auto handle it
+  // Wait for the first decision and choose manually.
   await waitForDecisionAndAccept(page);
 
   // Speed should still be 8×
