@@ -1,7 +1,7 @@
 {
   "name": "epochs-of-one",
   "private": true,
-  "version": "0.11.2",
+  "version": "0.12.0",
   "type": "module",
   "description": "\u6642\u4ee3\u4eba\u751f / Epochs of One \u2014 data-driven life simulation",
   "license": "MIT",
