@@ -151,6 +151,7 @@ blockquote { margin: 12px 0 0; padding: 8px 14px; border-left: 3px solid var(--g
 .pill { min-height: 32px; padding: 4px 10px; font-size: 13px; border-color: var(--rule); }
 .tb-speeds { display: inline-flex; gap: 4px; }
 .tb-cur { display: none; }
+.tb-compact { display: none; }
 .menu-wrap { position: relative; }
 .menu { position: absolute; right: 0; top: 38px; background: var(--card); border: 1px solid var(--rule); border-radius: 4px; display: flex; flex-direction: column; min-width: 180px; box-shadow: 0 6px 20px rgba(0,0,0,.12); z-index: 30; }
 .menu[hidden] { display: none; }
@@ -244,8 +245,9 @@ blockquote { margin: 12px 0 0; padding: 8px 14px; border-left: 3px solid var(--g
   .seg { display: flex; } .seg button { flex: 1 1 auto; }
   .cta-row .cta { width: 100%; }
   .topbar { margin: -12px -12px 14px; padding: 6px 12px; min-height: 52px; }
-  .tb-mark, .tb-speeds, #skip-dec, #auto, .tb-prog { display: none; }
-  .tb-cur { display: inline-flex; }
+  .tb-mark, .tb-speeds, #skip-dec, .tb-prog { display: none; }
+  .tb-compact { display: inline-flex; gap: 4px; align-items: center; }
+  .tb-compact .pill { display: inline-flex; min-height: 44px; min-width: 44px; padding: 8px 12px; font-size: 14px; }
   .tb-age { font-size: 26px; }
   .tb-name { font-size: 12px; max-width: none; }
   .topbar .tb-left { flex: 1 1 auto; gap: 8px; } .topbar .tb-right { flex: 0 0 auto; }

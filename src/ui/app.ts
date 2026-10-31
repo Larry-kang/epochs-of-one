@@ -328,9 +328,11 @@ function lifeView(): void {
   <div class="tb-right" role="toolbar" aria-label="${esc(t('speed'))}">
     <button id="pause" class="pill">${esc(t('pause'))}</button>
     <span class="tb-speeds">${SPEEDS.map((x) => `<button class="pill spd" data-speed="${x}" aria-pressed="${x === r.speed}">${x}×</button>`).join('')}</span>
-    <button class="pill tb-cur" id="spd-cycle" aria-label="${esc(t('speed'))}">${r.speed}×</button>
+    <div class="tb-compact" aria-label="${esc(t('speedAuto'))}">
+      <button class="pill tb-cur" id="spd-cycle" aria-label="${esc(t('speed'))}">${r.speed}×</button>
+      <button class="pill" id="auto" aria-pressed="${autoOn()}">${esc(t('autoLabel'))}</button>
+    </div>
     <button class="pill" id="skip-dec">${esc(t('skipDecision'))} »</button>
-    <button class="pill" id="auto" aria-pressed="${autoOn()}">${esc(t('autoLabel'))}</button>
     ${musicBtn()}<span class="menu-wrap"><button class="pill" id="more" aria-haspopup="true" aria-expanded="false" aria-label="${esc(t('moreMenu'))}">⋯</button>
       <span class="menu" id="menu" hidden><button id="skip">${esc(t('skip'))}</button><button id="auto-m">${esc(t('autoLabel'))}</button><button id="skip-dec-m">${esc(t('skipDecision'))}</button><button id="journal-m">${esc(t('journal'))}</button><button id="tree-m">${esc(t('familyTree'))}</button>${themeBtn()}${musicBtn()}${sfxBtn()}<button id="leave">${esc(t('leave'))}</button>${langPicker()}</span></span>
   </div>
@@ -369,7 +371,7 @@ function lifeView(): void {
   on('#spd-cycle', () => setSpeed(SPEEDS[(SPEEDS.indexOf(r.speed) + 1) % SPEEDS.length]!));
   const skipDec = () => { closeMenu(); r.skipping = true; r.paused = false; r.last = performance.now(); syncPause(); };
   on('#skip-dec', skipDec); on('#skip-dec-m', skipDec);
-  const toggleAuto = () => { pref.set(K_AUTO, autoOn() ? '0' : '1'); (root.querySelector('#auto') as HTMLElement).setAttribute('aria-pressed', String(autoOn())); closeMenu(); };
+  const toggleAuto = () => { pref.set(K_AUTO, autoOn() ? '0' : '1'); const pressed = String(autoOn()); (root.querySelector('#auto') as HTMLElement).setAttribute('aria-pressed', pressed); (root.querySelector('#auto-m') as HTMLElement).setAttribute('aria-pressed', pressed); closeMenu(); };
   on('#auto', toggleAuto); on('#auto-m', toggleAuto);
   on('#more', () => { const m = root.querySelector('#menu') as HTMLElement; m.hidden = !m.hidden; (root.querySelector('#more') as HTMLElement).setAttribute('aria-expanded', String(!m.hidden)); });
   on('#skip', () => { closeMenu(); hideChoice(); while (!r.s.death) r.s = advanceYear(bundle(), r.s, contentEvents); persist(); death(true); });
