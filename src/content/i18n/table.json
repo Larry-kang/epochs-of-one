@@ -12,15 +12,15 @@
 "tagline": [
 "用公開的人口與經濟資料，翻開一本隨機的人生帳本。",
 "Open a random ledger of a life, written from public population and economic data.",
-null,
-null,
+"公開された人口・経済データで、ランダムな人生の帳簿を開く。",
+"공개된 인구·경제 데이터로 무작위 인생 장부를 펼칩니다.",
 null
 ],
 "start": [
 "開始新的人生",
 "Start a new life",
-null,
-null,
+"新しい人生を始める",
+"새 인생 시작하기",
 null
 ],
 "continue": [
@@ -47,183 +47,190 @@ null
 "setupTitle": [
 "出生設定",
 "Birth settings",
-null,
-null,
+"出生設定",
+"출생 설정",
 null
 ],
 "era": [
 "時代",
 "Era",
-null,
-null,
+"時代",
+"시대",
 null
 ],
 "eraNow": [
 "現在",
 "Now",
-null,
-null,
+"現在",
+"현재",
 null
 ],
 "eraPastRandom": [
 "過去（依各年出生數隨機）",
 "Past (random, weighted by births)",
-null,
-null,
+"過去（各年の出生数で重み付け）",
+"과거(연도별 출생아 수 가중)",
 null
 ],
 "eraPastYear": [
 "過去（指定年份）",
 "Past (pick a year)",
-null,
-null,
+"過去（年を指定）",
+"과거(연도 지정)",
 null
 ],
 "year": [
 "出生年",
 "Birth year",
-null,
-null,
+"出生年",
+"출생 연도",
 null
 ],
 "pace": [
 "人生節奏（真實時間）",
 "Pace of life (real time)",
-null,
-null,
+"人生のペース（実時間）",
+"인생 속도(실시간)",
 null
 ],
 "paceMin": [
 "{n} 分鐘",
 "{n} min",
-null,
-null,
+"{n} 分",
+"{n}분",
 null
 ],
 "seed": [
 "種子（留空自動產生）",
 "Seed (blank = auto)",
-null,
-null,
+"シード（空欄で自動）",
+"시드(비우면 자동)",
 null
 ],
 "seedHint": [
 "1–64 個英數字、底線或連字號",
 "1–64 letters, digits, underscores or hyphens",
-null,
-null,
+"英数字・アンダースコア・ハイフン1〜64文字",
+"영문·숫자·밑줄·하이픈 1~64자",
+null
+],
+"seedWord": [
+"種子",
+"seed",
+"シード",
+"시드",
 null
 ],
 "drawBirth": [
 "抽出生卡",
 "Draw a birth",
-null,
-null,
+"出生を引く",
+"출생 뽑기",
 null
 ],
 "birthTitle": [
 "你出生了",
 "You were born",
-null,
-null,
+"あなたが生まれました",
+"당신이 태어났습니다",
 null
 ],
 "country": [
 "國家／地區",
 "Country / area",
-null,
-null,
+"国・地域",
+"국가·지역",
 null
 ],
 "sex": [
 "性別",
 "Sex",
-null,
-null,
+"性別",
+"성별",
 null
 ],
 "male": [
 "男",
 "Male",
-null,
-null,
+"男性",
+"남성",
 null
 ],
 "female": [
 "女",
 "Female",
-null,
-null,
+"女性",
+"여성",
 null
 ],
 "place": [
 "居住地",
 "Lives in",
-null,
-null,
+"住まい",
+"거주지",
 null
 ],
 "urban": [
 "城市",
 "City",
-null,
-null,
+"都市",
+"도시",
 null
 ],
 "rural": [
 "鄉村",
 "Countryside",
-null,
-null,
+"農村",
+"시골",
 null
 ],
 "quintile": [
 "家庭所得",
 "Family income",
-null,
-null,
+"家庭の所得",
+"가정 소득",
 null
 ],
 "q1": [
 "最低 20%",
 "Bottom 20%",
-null,
-null,
+"下位20%",
+"하위 20%",
 null
 ],
 "q2": [
 "中下 20%",
 "Lower-middle 20%",
-null,
-null,
+"中下位20%",
+"중하위 20%",
 null
 ],
 "q3": [
 "中間 20%",
 "Middle 20%",
-null,
-null,
+"中間20%",
+"중간 20%",
 null
 ],
 "q4": [
 "中上 20%",
 "Upper-middle 20%",
-null,
-null,
+"中上位20%",
+"중상위 20%",
 null
 ],
 "q5": [
 "最高 20%",
 "Top 20%",
-null,
-null,
+"上位20%",
+"상위 20%",
 null
 ],
 "e0": [
 "這一年出生者的平均預期壽命",
 "Life expectancy at birth for this year",
-null,
-null,
+"この年に生まれた人の平均余命",
+"이 해 출생자의 기대수명",
 null
 ],
 "years": [
@@ -243,22 +250,22 @@ null
 "beginLife": [
 "開始過日子",
 "Start living",
-null,
-null,
+"生き始める",
+"살아가기 시작",
 null
 ],
 "age": [
 "年齡",
 "Age",
-null,
-null,
+"年齢",
+"나이",
 null
 ],
 "calYear": [
 "西元",
 "Year",
-null,
-null,
+"年",
+"연도",
 null
 ],
 "health": [
@@ -320,8 +327,8 @@ null
 "speed": [
 "倍速",
 "Speed",
-null,
-null,
+"速度",
+"속도",
 null
 ],
 "skip": [
@@ -341,29 +348,29 @@ null
 "unemployed": [
 "失業中",
 "Unemployed",
-null,
-null,
+"失業中",
+"실업 중",
 null
 ],
 "employed": [
 "就業中",
 "Employed",
-null,
-null,
+"就業中",
+"취업 중",
 null
 ],
 "child": [
 "求學／成長中",
 "Growing up / studying",
-null,
-null,
+"成長・求学中",
+"성장·공부 중",
 null
 ],
 "retired": [
 "已離開職場",
 "Out of the workforce",
-null,
-null,
+"引退",
+"은퇴",
 null
 ],
 "deathTitle": [
@@ -383,106 +390,106 @@ null
 "diedAt": [
 "於 {year} 年離世，享年 {age} 歲。",
 "Died in {year}, aged {age}.",
-null,
-null,
+"{year}年に{age}歳で亡くなりました。",
+"{year}년 {age}세에 사망했습니다.",
 null
 ],
 "cause_infant": [
 "未滿週歲便離開了。",
 "Left before their first birthday.",
-null,
-null,
+"1歳の誕生日を迎える前に亡くなりました。",
+"첫 생일을 맞기 전에 떠났습니다.",
 null
 ],
 "cause_child": [
 "童年早逝。",
 "Died in childhood.",
-null,
-null,
+"子ども時代に亡くなりました。",
+"어린 시절에 세상을 떠났습니다.",
 null
 ],
 "cause_young": [
 "英年早逝。",
 "Died young.",
-null,
-null,
+"若くして亡くなりました。",
+"젊은 나이에 세상을 떠났습니다.",
 null
 ],
 "cause_midlife": [
 "在中年時離開。",
 "Died in midlife.",
-null,
-null,
+"中年で亡くなりました。",
+"중년에 세상을 떠났습니다.",
 null
 ],
 "cause_old": [
 "在晚年安詳離開。",
 "Died peacefully in old age.",
-null,
-null,
+"老衰で安らかに亡くなりました。",
+"노년에 평안히 세상을 떠났습니다.",
 null
 ],
 "lifetimeIncome": [
 "一生總收入",
 "Lifetime income",
-null,
-null,
+"生涯総収入",
+"생애 총소득",
 null
 ],
 "finalNetWorth": [
 "最終淨資產",
 "Final net worth",
-null,
-null,
+"最終純資産",
+"최종 순자산",
 null
 ],
 "pctIncome": [
 "一生收入勝過同國同年出生者的",
 "Lifetime income beats peers born same year & country:",
-null,
-null,
+"生涯収入が同国・同年生まれの同世代を上回る割合",
+"생애 소득이 같은 나라·같은 해 출생 동년배를 앞선 비율",
 null
 ],
 "pctNetWorth": [
 "淨資產勝過同國同年出生者的",
 "Net worth beats peers born same year & country:",
-null,
-null,
+"純資産が同国・同年生まれの同世代を上回る割合",
+"순자산이 같은 나라·같은 해 출생 동년배를 앞선 비율",
 null
 ],
 "pctLifespan": [
 "活得比同國同年出生者久的比例",
 "Share of same-year peers you outlived",
-null,
-null,
+"同国・同年生まれの同世代より長く生きた割合",
+"같은 나라·같은 해 출생 동년배보다 오래 산 비율",
 null
 ],
 "chartNetWorth": [
 "淨資產（實質）",
 "Net worth (real)",
-null,
-null,
+"純資産（実質）",
+"순자산(실질)",
 null
 ],
 "chartIncome": [
 "年收入（實質）",
 "Annual income (real)",
-null,
-null,
+"年収（実質）",
+"연 소득(실질)",
 null
 ],
 "copySeed": [
 "複製種子",
 "Copy seed",
-null,
-null,
+"シードをコピー",
+"시드 복사",
 null
 ],
 "copied": [
 "已複製",
 "Copied",
-null,
-null,
+"コピーしました",
+"복사됨",
 null
 ],
 "again": [
@@ -509,8 +516,8 @@ null
 "estNote": [
 "標示「推估」的數值來自補值或超出資料年份範圍。",
 "Values marked \"est.\" are imputed or outside the data years.",
-null,
-null,
+"「推計」と表示された値は補完値、またはデータ年の範囲外です。",
+"'추정'으로 표시된 값은 보완값이거나 데이터 연도 범위 밖입니다.",
 null
 ],
 "pastLives": [
@@ -530,148 +537,148 @@ null
 "storageOff": [
 "瀏覽器停用了本機儲存，本次進度只會保留在記憶體中。",
 "Local storage is disabled; progress stays in memory only.",
-null,
-null,
+"ブラウザのローカル保存が無効です。今回の進行はメモリ内だけに残ります。",
+"브라우저의 로컬 저장소가 비활성화되어 이번 진행은 메모리에만 남습니다.",
 null
 ],
 "aboutTitle": [
 "關於",
 "About",
-null,
-null,
+"このゲームについて",
+"이 게임에 대해",
 null
 ],
 "aboutBody": [
 "這是一個以公開資料驅動的人生模擬（開發中原型，名稱未定）。所有事件與文字皆為原創；結果是統計抽樣，不代表任何真實個人。",
 "A life simulation driven by public data. All events and text are original; outcomes are statistical draws, not real people.",
-null,
-null,
+"公開データで動く人生シミュレーションです。出来事と文章はすべてオリジナルで、結果は統計的な抽選であり、実在の人物ではありません。",
+"공개 데이터로 움직이는 인생 시뮬레이션입니다. 모든 사건과 문장은 창작이며, 결과는 통계적 추첨일 뿐 실존 인물이 아닙니다.",
 null
 ],
 "aboutData": [
 "人口：聯合國《世界人口展望 2024》（CC BY 3.0 IGO）。經濟：世界銀行 World Development Indicators（CC BY 4.0），所得分配取自 Poverty and Inequality Platform。",
 "Population: UN World Population Prospects 2024 (CC BY 3.0 IGO). Economy: World Bank World Development Indicators (CC BY 4.0); income distribution from the Poverty and Inequality Platform.",
-null,
-null,
+"人口：国連「世界人口推計 2024」（CC BY 3.0 IGO）。経済：世界銀行「世界開発指標」（CC BY 4.0）、所得分布は Poverty and Inequality Platform。",
+"인구: 유엔 「세계인구전망 2024」(CC BY 3.0 IGO). 경제: 세계은행 「세계개발지표」(CC BY 4.0), 소득 분포는 Poverty and Inequality Platform.",
 null
 ],
 "aboutMarkets": [
 "台股加權指數與比特幣年收盤價：自行彙整，逐年交叉比對臺灣證券交易所、勞動部開放資料、Wikipedia 及 Bitstamp／Coinbase／Bitfinex 公開行情等來源。",
 "TAIEX and Bitcoin annual closes: self-compiled, cross-checked year by year against public exchange, government open data and exchange price sources.",
-null,
-null,
+"台湾加権指数とビットコインの年末値：独自に集計し、取引所・政府オープンデータ・価格情報と年ごとに照合しています。",
+"대만 가권지수와 비트코인 연말 종가: 자체 집계하여 거래소·정부 공공데이터·가격 자료와 해마다 대조했습니다.",
 null
 ],
 "aboutOffline": [
 "本遊戲執行時不連線任何外部伺服器，無追蹤、無 Cookie；進度只存在你的瀏覽器。",
 "The game never contacts outside servers: no tracking, no cookies. Progress lives only in your browser.",
-null,
-null,
+"このゲームは外部サーバーと通信しません。トラッキングも Cookie もなく、進行はブラウザ内にだけ保存されます。",
+"이 게임은 외부 서버와 통신하지 않습니다. 추적도 쿠키도 없으며 진행 상황은 브라우저에만 저장됩니다.",
 null
 ],
 "liquid": [
 "現金",
 "Cash",
-null,
-null,
+"現金",
+"현금",
 null
 ],
 "invested": [
 "投資部位",
 "Invested",
-null,
-null,
+"投資残高",
+"투자 자산",
 null
 ],
 "investBtn": [
 "投資配置",
 "Investments",
-null,
-null,
+"投資配分",
+"투자 배분",
 null
 ],
 "investTitle": [
 "投資配置（{year} 年底生效）",
 "Investments (from end of {year})",
-null,
-null,
+"投資配分（{year}年末から適用）",
+"투자 배분({year}년 말부터 적용)",
 null
 ],
 "investHelp": [
 "設定每年年底要把多少比例的資產放在各市場（其餘留現金）。每年自動再平衡；報酬依年度資料計算，已扣除通膨。",
 "Choose what share of your assets sits in each market at each year end (the rest stays in cash). Rebalanced yearly; returns use annual data, net of inflation.",
-null,
-null,
+"毎年末に、資産のうち各市場に置く割合を選びます（残りは現金）。毎年リバランスし、リターンは年次データ・インフレ控除後です。",
+"매년 말 자산 중 각 시장에 둘 비율을 고릅니다(나머지는 현금). 매년 재조정하며 수익률은 연간 데이터, 물가 반영 후 기준입니다.",
 null
 ],
 "a_eqHome": [
 "本國股市指數",
 "Home stock index",
-null,
-null,
+"自国の株価指数",
+"자국 주가지수",
 null
 ],
 "a_eqUS": [
 "美國股市指數",
 "US stock index",
-null,
-null,
+"米国株価指数",
+"미국 주가지수",
 null
 ],
 "a_eqWorld": [
 "世界股市（自建合成指數）",
 "World stocks (own composite)",
-null,
-null,
+"世界株式（独自合成）",
+"세계 주식(자체 합성)",
 null
 ],
 "a_gold": [
 "黃金",
 "Gold",
-null,
-null,
+"金",
+"금",
 null
 ],
 "a_btc": [
 "比特幣",
 "Bitcoin",
-null,
-null,
+"ビットコイン",
+"비트코인",
 null
 ],
 "btcFuture": [
 "2026 年以後的比特幣報酬為推估：以 2014–2025 年的歷史報酬為基礎，平均漲幅減半、波動逐年縮小。",
 "Bitcoin returns after 2026 are estimates: based on 2014–2025, mean halved and volatility shrinking.",
-null,
-null,
+"2026年以降のビットコインのリターンは推計です：2014〜2025年を基に、平均を半分にし、変動率は縮小していきます。",
+"2026년 이후 비트코인 수익률은 추정입니다: 2014~2025년을 바탕으로 평균은 절반, 변동성은 점점 줄어듭니다.",
 null
 ],
 "aboutBtcFuture": [
 "比特幣（2026 年以後，推估）：未來年份不直接重播 2014–2025 年的歷史報酬，而是把平均報酬減半，並讓波動每 10 年減半（最低保留四分之一），避免早期的爆發性成長被當成常態。",
 "Bitcoin (2026+, estimated): future years do not replay 2014–2025; mean return is halved and volatility halves each decade (floor one quarter).",
-null,
-null,
+"ビットコイン（2026年以降・推計）：将来の年は2014〜2025年をそのまま再生しません。平均リターンは半分、変動率は10年ごとに半減します（下限は4分の1）。",
+"비트코인(2026년 이후, 추정): 미래 연도는 2014~2025년을 그대로 재생하지 않습니다. 평균 수익률은 절반이고 변동성은 10년마다 절반으로 줄어듭니다(하한은 4분의 1).",
 null
 ],
 "a_levEq": [
 "槓桿股票（融資 2 倍）",
 "Leveraged stocks (2× margin)",
-null,
-null,
+"レバレッジ株式（信用2倍）",
+"레버리지 주식(신용 2배)",
 null
 ],
 "levBase": [
 "槓桿標的",
 "Leverage base",
-null,
-null,
+"レバレッジの対象",
+"레버리지 기초 자산",
 null
 ],
 "levRisk": [
 "槓桿風險：借錢加倍下注。年內最低點若讓權益低於維持率 25%，會被強制賣出（斷頭），之後 3 年不能再開槓桿。年內最低點＝月資料最大回撤 × 1.25 保守係數（推估，月平均會低估單日崩盤）。",
 "Leverage risk: borrowing to double the bet. If the intra-year low pushes equity below 25% maintenance you are force-sold and cannot lever up for 3 years. Intra-year low = monthly max drawdown × 1.25 (estimate).",
-null,
-null,
+"レバレッジのリスク：借金で賭けを2倍にします。年内の安値で自己資本が維持率25%を下回ると強制決済され、3年間はレバレッジを使えません。年内安値＝月次最大下落率×1.25（推計）。",
+"레버리지 위험: 빚을 내 베팅을 두 배로 늘립니다. 연중 저점에서 자기자본이 유지율 25% 아래로 떨어지면 강제 청산되고 3년간 레버리지를 쓸 수 없습니다. 연중 저점 = 월간 최대 낙폭 × 1.25(추정).",
 null
 ],
 "why_age": [
@@ -684,29 +691,29 @@ null
 "why_nodata": [
 "這一年沒有市場資料",
 "No market data this year",
-null,
-null,
+"今年は市場データがありません",
+"올해는 시장 데이터가 없습니다",
 null
 ],
 "why_noexchange": [
 "本國尚無證券市場資料，無法投資",
 "No stock market data for this country yet",
-null,
-null,
+"この国の株式市場データはまだありません",
+"이 나라의 주식시장 데이터가 아직 없습니다",
 null
 ],
 "why_outbound": [
 "尚未開放民眾投資海外",
 "Investing abroad not yet allowed",
-null,
-null,
+"海外投資はまだ認められていません",
+"해외 투자가 아직 허용되지 않았습니다",
 null
 ],
 "why_ban": [
 "當時法規禁止",
 "Prohibited at the time",
-null,
-null,
+"当時は禁止されていました",
+"당시에는 금지되어 있었습니다",
 null
 ],
 "why_cooldown": [
@@ -719,99 +726,99 @@ null
 "why_frozen": [
 "信用凍結中",
 "Credit frozen",
-null,
-null,
+"信用が凍結されています",
+"신용이 동결되었습니다",
 null
 ],
 "proxyWorld": [
 "本國沒有指數資料，以世界股市推估（推估）。",
 "No index data for this country; world stocks used as a proxy (est.).",
-null,
-null,
+"この国の指数データがないため、世界株式で代用しています（推計）。",
+"이 나라의 지수 데이터가 없어 세계 주식으로 대신합니다(추정).",
 null
 ],
 "apply": [
 "套用",
 "Apply",
-null,
-null,
+"適用",
+"적용",
 null
 ],
 "cancel": [
 "取消",
 "Cancel",
-null,
-null,
+"キャンセル",
+"취소",
 null
 ],
 "allocRange": [
 "每項比例需在 0–100 之間",
 "Each share must be 0–100",
-null,
-null,
+"各割合は0〜100にしてください",
+"각 비율은 0~100이어야 합니다",
 null
 ],
 "allocSum": [
 "比例合計 {n}%，不可超過 100%",
 "Shares add up to {n}%; the limit is 100%",
-null,
-null,
+"合計が{n}%です。上限は100%です",
+"합계가 {n}%입니다. 상한은 100%입니다",
 null
 ],
 "marginCalls": [
 "槓桿斷頭次數",
 "Margin calls",
-null,
-null,
+"追証（強制決済）",
+"마진콜(강제 청산)",
 null
 ],
 "mktEstYears": [
 "投資報酬使用推估資料的年數",
 "Years with estimated returns",
-null,
-null,
+"リターンが推計の年",
+"수익률이 추정인 연도",
 null
 ],
 "aboutMarkets2": [
 "其他股市（推估）：美國與世界股價沒有可公開授權的指數資料，改用模型——股價水準跟著名目 GDP（美元，世界銀行 WDI，CC BY 4.0）走；其他國家以世界指數代理。黃金：世界銀行 Commodity Markets（Pink Sheet 月資料取 12 月，CC BY 4.0）。槓桿斷頭以月資料的年內最大回撤 × 1.25 保守係數判定（推估；無月資料者以隨機路徑估計）；匯率、放款利率：世界銀行 WDI。",
 "Other stock markets (estimate): no openly licensed index exists for US and world stocks, so a model is used — the price level follows nominal GDP in USD (World Bank WDI, CC BY 4.0); other countries use the world index as a proxy. Gold: World Bank Commodity Markets (Pink Sheet, December of the monthly series, CC BY 4.0). Margin calls use the intra-year maximum drawdown of monthly data × 1.25 (estimate; a random path where there is no monthly data); FX and lending rates: World Bank WDI.",
-null,
-null,
+"その他の株式市場（推計）：米国株と世界株にはオープンライセンスの指数がないため、モデルを使います。価格水準は米ドル建て名目GDP（世界銀行 WDI、CC BY 4.0）に連動し、その他の国は世界指数で代用します。金：世界銀行 Commodity Markets（Pink Sheet、月次系列の12月、CC BY 4.0）。追証は月次データの年内最大下落率×1.25（推計。月次データがない場合はランダムな経路）を使います。為替と貸出金利：世界銀行 WDI。",
+"기타 주식시장(추정): 미국 주식과 세계 주식에는 공개 라이선스 지수가 없어 모델을 씁니다. 가격 수준은 달러 기준 명목 GDP(세계은행 WDI, CC BY 4.0)를 따르고, 다른 나라는 세계 지수로 대신합니다. 금: 세계은행 Commodity Markets(Pink Sheet, 월간 계열의 12월, CC BY 4.0). 마진콜은 월간 데이터의 연중 최대 낙폭 × 1.25(추정, 월간 데이터가 없으면 무작위 경로)를 씁니다. 환율과 대출 금리: 세계은행 WDI.",
 null
 ],
 "houseEq": [
 "房屋淨值",
 "Home equity",
-null,
-null,
+"住宅純資産",
+"주택 순자산",
 null
 ],
 "debt": [
 "負債",
 "Debt",
-null,
-null,
+"負債",
+"부채",
 null
 ],
 "houseBtn": [
 "買房／賣房",
 "Buy / sell home",
-null,
-null,
+"住宅を買う／売る",
+"집 사기/팔기",
 null
 ],
 "loanBtn": [
 "信貸",
 "Loan",
-null,
-null,
+"ローン",
+"대출",
 null
 ],
 "annuityBtn": [
 "年金",
 "Annuity",
-null,
-null,
+"年金",
+"연금",
 null
 ],
 "close": [
@@ -824,393 +831,393 @@ null
 "retiredPension": [
 "已退休 · 年金 {amount}",
 "Retired · pension {amount}",
-null,
-null,
+"引退 · 年金 {amount}",
+"은퇴 · 연금 {amount}",
 null
 ],
 "houseTitle": [
 "房屋",
 "Home",
-null,
-null,
+"住宅",
+"주택",
 null
 ],
 "housePrice": [
 "房價（約 5 倍全國平均年收入）",
 "Price (about 5× the national mean income)",
-null,
-null,
+"価格（全国平均所得の約5倍）",
+"가격(전국 평균 소득의 약 5배)",
 null
 ],
 "downPay": [
 "頭期款（30%）",
 "Down payment (30%)",
-null,
-null,
+"頭金（30%）",
+"계약금(30%)",
 null
 ],
 "mortgage": [
 "房貸",
 "Mortgage",
-null,
-null,
+"住宅ローン",
+"주택담보대출",
 null
 ],
 "floatRate": [
 "浮動利率",
 "Floating rate",
-null,
-null,
+"変動金利",
+"변동 금리",
 null
 ],
 "yearPay": [
 "每年本息",
 "Yearly payment",
-null,
-null,
+"年間返済額",
+"연간 상환액",
 null
 ],
 "houseHelp": [
 "房價隨 OECD 實質房價指數變動（無資料的國家以 OECD 各國中位數推估）。自住可省下房租；房貸每年依當年放款利率重算，連續兩年繳不出會被法拍。",
 "Prices follow the OECD real house price index (OECD median where missing). Owning saves rent; the mortgage rate resets yearly, and two missed years mean foreclosure.",
-null,
-null,
+"価格は OECD の実質住宅価格指数に連動します（欠損時は OECD 中央値）。持ち家なら家賃が不要になります。ローン金利は毎年見直され、2年返済できないと差し押さえになります。",
+"가격은 OECD 실질 주택가격지수를 따릅니다(없으면 OECD 중앙값). 집을 소유하면 집세가 들지 않습니다. 대출 금리는 매년 재조정되며 2년 연체하면 압류됩니다.",
 null
 ],
 "buyHouse": [
 "買下這間房子",
 "Buy this home",
-null,
-null,
+"この家を買う",
+"이 집 사기",
 null
 ],
 "houseValue": [
 "目前市值",
 "Current value",
-null,
-null,
+"現在の価値",
+"현재 가치",
 null
 ],
 "mortgageLeft": [
 "房貸餘額",
 "Mortgage left",
-null,
-null,
+"ローン残高",
+"대출 잔액",
 null
 ],
 "sellNet": [
 "賣出後可拿回",
 "You would get back",
-null,
-null,
+"手元に戻る金額",
+"돌려받는 금액",
 null
 ],
 "sellHelp": [
 "賣房需付約 6% 交易成本，並先清償房貸。",
 "Selling costs about 6% and repays the mortgage first.",
-null,
-null,
+"売却には約6%の費用がかかり、まずローンを返済します。",
+"매도 비용은 약 6%이며 먼저 대출을 갚습니다.",
 null
 ],
 "sellHouse": [
 "賣掉房子",
 "Sell the home",
-null,
-null,
+"家を売る",
+"집 팔기",
 null
 ],
 "loanTitle": [
 "信用貸款（信貸）",
 "Personal loan",
-null,
-null,
+"個人ローン",
+"개인 대출",
 null
 ],
 "bridgeTitle": [
 "現金不足：要用信貸周轉嗎？",
 "Short of cash: bridge it with a loan?",
-null,
-null,
+"現金が足りません。ローンでしのぎますか？",
+"현금이 부족합니다. 대출로 메울까요?",
 null
 ],
 "bridgeMsg": [
 "今年現金缺口 {amount}。可以申請信貸補上，但之後每年都要從收入攤還本息。",
 "This year's cash gap is {amount}. A loan can cover it, repaid from income every year after.",
-null,
-null,
+"今年の資金不足は {amount} です。ローンで補い、翌年から毎年の収入で返済できます。",
+"올해 부족한 현금은 {amount}입니다. 대출로 메우고 이듬해부터 매년 소득으로 갚을 수 있습니다.",
 null
 ],
 "bridgeOk": [
 "申請周轉",
 "Take the loan",
-null,
-null,
+"ローンを組む",
+"대출 받기",
 null
 ],
 "loanMax": [
 "可貸上限",
 "Limit",
-null,
-null,
+"上限",
+"한도",
 null
 ],
 "ruleNote": [
 "額度規則",
 "Rule",
-null,
-null,
+"ルール",
+"규정",
 null
 ],
 "loanAmt": [
 "金額",
 "Amount",
-null,
-null,
+"金額",
+"금액",
 null
 ],
 "loanTerm": [
 "年限（1–7）",
 "Term (1–7)",
-null,
-null,
+"期間（1〜7年）",
+"기간(1~7년)",
 null
 ],
 "loanUse": [
 "用途",
 "Use",
-null,
-null,
+"使い道",
+"용도",
 null
 ],
 "useCash": [
 "保留現金",
 "Keep as cash",
-null,
-null,
+"現金のまま持つ",
+"현금으로 보유",
 null
 ],
 "useInvest": [
 "投入目前的投資配置",
 "Invest per current mix",
-null,
-null,
+"現在の配分で投資する",
+"현재 배분대로 투자",
 null
 ],
 "loanRisk": [
 "利率會隨市場浮動。收入不足時會逾期；連續兩年繳不出即違約：債務轉呆帳、每年收入被扣 10%，並凍結信用 7 年。",
 "The rate floats. Two missed years mean default: written off, 10% of income garnished each year, credit frozen 7 years.",
-null,
-null,
+"金利は変動します。2年返済できないと債務不履行となり、残債は償却、毎年収入の10%が差し押さえられ、信用は7年間凍結されます。",
+"금리는 변동합니다. 2년 연체하면 채무 불이행이 되어 잔액은 상각되고, 매년 소득의 10%가 압류되며 신용은 7년간 동결됩니다.",
 null
 ],
 "loanAmtErr": [
 "金額需介於 1 與 {max} 之間",
 "Amount must be between 1 and {max}",
-null,
-null,
+"金額は1〜{max}の範囲で入力してください",
+"금액은 1~{max} 사이여야 합니다",
 null
 ],
 "loanTermErr": [
 "年限需為 1–7 的整數",
 "Term must be a whole number 1–7",
-null,
-null,
+"期間は1〜7の整数で入力してください",
+"기간은 1~7 사이의 정수여야 합니다",
 null
 ],
 "annuityTitle": [
 "終身年金",
 "Life annuity",
-null,
-null,
+"終身年金",
+"종신 연금",
 null
 ],
 "annuityHelp": [
 "把一筆現金交給保險公司，換成每年給付直到過世（依你出生年的生命表定價，已含 5% 附加費用）。",
 "Hand cash to an insurer for a yearly payment until death (priced from your cohort's life table, 5% loading).",
-null,
-null,
+"現金を保険会社に預け、亡くなるまで毎年受け取ります（同世代の生命表で価格を決め、手数料5%）。",
+"현금을 보험사에 맡기고 사망할 때까지 매년 받습니다(같은 세대 생명표로 가격 산정, 수수료 5%).",
 null
 ],
 "annuityRate": [
 "每投入 US$10,000，每年可領 {amount}。",
 "Each US$10,000 pays {amount} a year.",
-null,
-null,
+"1万米ドルごとに年 {amount} を受け取れます。",
+"1만 달러당 연 {amount}를 받습니다.",
 null
 ],
 "annuityAmt": [
 "投入金額",
 "Amount",
-null,
-null,
+"金額",
+"금액",
 null
 ],
 "annuityHave": [
 "目前每年年金給付：{amount}",
 "Current annuity: {amount} a year",
-null,
-null,
+"現在の年金：年 {amount}",
+"현재 연금: 연 {amount}",
 null
 ],
 "w5_age": [
 "年齡未達門檻",
 "Below the age threshold",
-null,
-null,
+"年齢が基準に達していません",
+"나이 기준에 미달합니다",
 null
 ],
 "w5_owned": [
 "已經有房子了",
 "You already own a home",
-null,
-null,
+"すでに持ち家があります",
+"이미 집을 소유하고 있습니다",
 null
 ],
 "w5_frozen": [
 "信用凍結中",
 "Credit frozen",
-null,
-null,
+"信用が凍結されています",
+"신용이 동결되었습니다",
 null
 ],
 "w5_noincome": [
 "目前沒有工作收入",
 "No earned income right now",
-null,
-null,
+"現在、勤労収入がありません",
+"현재 근로 소득이 없습니다",
 null
 ],
 "w5_nodown": [
 "現金不夠付頭期款",
 "Not enough cash for the down payment",
-null,
-null,
+"頭金にする現金が足りません",
+"계약금으로 쓸 현금이 부족합니다",
 null
 ],
 "w5_dsr": [
 "負債比過高（每年本息會超過收入的 40%）",
 "Debt service would exceed 40% of income",
-null,
-null,
+"返済額が収入の40%を超えます",
+"상환액이 소득의 40%를 넘습니다",
 null
 ],
 "w5_nodata": [
 "沒有房價資料",
 "No house price data",
-null,
-null,
+"住宅価格データがありません",
+"주택 가격 데이터가 없습니다",
 null
 ],
 "w5_country": [
 "這個國家／年代的信貸規則資料不足，暫不開放",
 "Not enough credit-rule data for this country/era yet",
-null,
-null,
+"この国・時代の与信ルールのデータがまだ足りません",
+"이 나라·시대의 신용 규정 데이터가 아직 부족합니다",
 null
 ],
 "w5_minincome": [
 "收入未達法定門檻",
 "Income below the legal minimum",
-null,
-null,
+"収入が法定の最低額に届きません",
+"소득이 법정 최저 기준에 못 미칩니다",
 null
 ],
 "w5_cap": [
 "已達可貸上限",
 "At the borrowing limit",
-null,
-null,
+"借入上限に達しています",
+"대출 한도에 도달했습니다",
 null
 ],
 "w5_nocash": [
 "沒有可投入的現金",
 "No cash to invest",
-null,
-null,
+"投資できる現金がありません",
+"투자할 현금이 없습니다",
 null
 ],
 "lifePension": [
 "一生領到的退休金",
 "Lifetime pension received",
-null,
-null,
+"生涯に受け取った年金",
+"생애 받은 연금",
 null
 ],
 "defaults": [
 "違約次數",
 "Defaults",
-null,
-null,
+"債務不履行の回数",
+"채무 불이행 횟수",
 null
 ],
 "chartDebt": [
 "負債（實質）",
 "Debt (real)",
-null,
-null,
+"負債（実質）",
+"부채(실질)",
 null
 ],
 "aboutM5": [
 "房價：OECD 實質房價指數；退休年齡與所得替代率：OECD《Pensions at a Glance》；信貸額度：台灣、日本、南韓、新加坡、中國依各國主管機關的公開規定，其餘國家以參數推估。房價水準、頭期款比例、利差等尚無公開資料的參數皆為暫定值。稅率、生活開銷、房租、養育成本為依世界銀行資料與參數推估，並以 OECD 家戶財富資料庫校準。",
 "House prices: OECD real house price index; retirement ages and replacement rates: OECD Pensions at a Glance 2024; credit limits follow published rules in Taiwan, Japan, Korea, Singapore and China, parameters elsewhere. Taxes, living costs, rent and child costs are estimated from World Bank data and calibrated to the OECD wealth database.",
-null,
-null,
+"住宅価格：OECD 実質住宅価格指数。退職年齢と所得代替率：OECD「Pensions at a Glance 2024」。借入上限は台湾・日本・韓国・シンガポール・中国の公表ルールに従い、その他の国はパラメータで設定。税、生活費、家賃、子育て費用は世界銀行データから推計し、OECD 資産データベースで調整しています。",
+"주택 가격: OECD 실질 주택가격지수. 은퇴 연령과 소득대체율: OECD 「Pensions at a Glance 2024」. 대출 한도는 대만·일본·한국·싱가포르·중국의 공표 규정을 따르고, 그 밖의 나라는 매개변수로 정합니다. 세금, 생활비, 집세, 양육비는 세계은행 데이터로 추정하고 OECD 자산 데이터베이스로 보정했습니다.",
 null
 ],
 "countryPick": [
 "出生國家／地區",
 "Birth country / area",
-null,
-null,
+"出生国・地域",
+"출생 국가·지역",
 null
 ],
 "countryRandom": [
 "隨機（依當年各國出生人數）",
 "Random (by births that year)",
-null,
-null,
+"ランダム（その年の出生数で重み付け）",
+"무작위(그해 출생아 수로 가중)",
 null
 ],
 "countryNote": [
 "指定國家只決定出生地；結算時仍與同國、同年出生的人比較。",
 "Picking a country only sets the birthplace; you are still compared with peers born the same year there.",
-null,
-null,
+"国を指定しても出生地が決まるだけで、比較は同じ国・同じ年に生まれた人たちが対象です。",
+"국가를 지정해도 출생지만 정해지며, 비교는 같은 나라·같은 해 출생자와 합니다.",
 null
 ],
 "nameLabel": [
 "名字",
 "Name",
-null,
-null,
+"名前",
+"이름",
 null
 ],
 "familyLabel": [
 "家人",
 "Family",
-null,
-null,
+"家族",
+"가족",
 null
 ],
 "familyLine": [
 "爸爸 {father}（{fa} 歲）、媽媽 {mother}（{ma} 歲）",
 "Father {father} ({fa}), mother {mother} ({ma})",
-null,
-null,
+"父 {father}（{fa}歳）、母 {mother}（{ma}歳）",
+"아버지 {father}({fa}세), 어머니 {mother}({ma}세)",
 null
 ],
 "siblingsLine": [
 "兄弟姊妹 {n} 人：{names}",
 "{n} siblings: {names}",
-null,
-null,
+"きょうだい {n} 人：{names}",
+"형제자매 {n}명: {names}",
 null
 ],
 "siblingsNone": [
 "獨生子女",
 "Only child",
-null,
-null,
+"ひとりっ子",
+"외동",
 null
 ],
 "reroll": [
@@ -1223,743 +1230,743 @@ null
 "eduLabel": [
 "學歷",
 "Education",
-null,
-null,
+"学歴",
+"학력",
 null
 ],
 "trackLabel": [
 "工作型態",
 "Work",
-null,
-null,
+"働き方",
+"일하는 방식",
 null
 ],
 "spouseLabel": [
 "配偶",
 "Spouse",
-null,
-null,
+"配偶者",
+"배우자",
 null
 ],
 "childrenLabel": [
 "子女",
 "Children",
-null,
-null,
+"子ども",
+"자녀",
 null
 ],
 "edu_none": [
 "未受正式教育",
 "No schooling",
-null,
-null,
+"正式な教育なし",
+"정규 교육 없음",
 null
 ],
 "edu_primary": [
 "小學",
 "Primary",
-null,
-null,
+"小学校",
+"초등학교",
 null
 ],
 "edu_secondary": [
 "高中",
 "High school",
-null,
-null,
+"高校",
+"고등학교",
 null
 ],
 "edu_vocational": [
 "職業學校",
 "Vocational school",
-null,
-null,
+"職業学校",
+"직업학교",
 null
 ],
 "edu_tertiary": [
 "大學",
 "University",
-null,
-null,
+"大学",
+"대학교",
 null
 ],
 "edu_graduate": [
 "研究所",
 "Graduate school",
-null,
-null,
+"大学院",
+"대학원",
 null
 ],
 "track_stable": [
 "穩定工作",
 "Stable job",
-null,
-null,
+"安定した仕事",
+"안정적인 직장",
 null
 ],
 "track_private": [
 "民間企業",
 "Private sector",
-null,
-null,
+"民間企業",
+"민간 기업",
 null
 ],
 "track_startup": [
 "創業",
 "Own business",
-null,
-null,
+"自営・起業",
+"자영업·창업",
 null
 ],
 "track_informal": [
 "非正式工作",
 "Informal work",
-null,
-null,
+"インフォーマルな仕事",
+"비공식 일자리",
 null
 ],
 "studying": [
 "求學中",
 "Studying",
-null,
-null,
+"在学中",
+"공부 중",
 null
 ],
 "studyingWork": [
 "求學中（打工）",
 "Studying (part-time job)",
-null,
-null,
+"在学中（アルバイト）",
+"공부 중(아르바이트)",
 null
 ],
 "choiceKicker": [
 "人生抉擇",
 "Life choice",
-null,
-null,
+"人生の選択",
+"인생의 선택",
 null
 ],
 "choicePick": [
 "選這個",
 "Choose this",
-null,
-null,
+"これを選ぶ",
+"이것을 선택",
 null
 ],
 "ct_vaccine": [
 "要帶孩子去打疫苗嗎？（父母的選擇）",
 "Take the child for vaccination? (parents' choice)",
-null,
-null,
+"子どもに予防接種を受けさせますか？（親の選択）",
+"아이에게 예방접종을 맞힐까요? (부모의 선택)",
 null
 ],
 "cb_vaccine": [
 "最近的診所要走上大半天。",
 "The nearest clinic is most of a day's walk away.",
-null,
-null,
+"いちばん近い診療所まで、歩いてほぼ丸一日かかります。",
+"가장 가까운 진료소까지 걸어서 거의 하루가 걸립니다.",
 null
 ],
 "ct_school": [
 "要送孩子去上學嗎？（父母的選擇）",
 "Send the child to school? (parents' choice)",
-null,
-null,
+"子どもを学校に通わせますか？（親の選択）",
+"아이를 학교에 보낼까요? (부모의 선택)",
 null
 ],
 "cb_school": [
 "家裡的農活和弟妹都需要人手。",
 "The farm work and the younger ones need hands at home.",
-null,
-null,
+"畑仕事や下の子の世話に、家では人手が必要です。",
+"농사일과 동생들 돌보기에 집에서 일손이 필요합니다.",
 null
 ],
 "ct_hs": [
 "國中畢業了，接下來呢？",
 "Middle school is done. What next?",
-null,
-null,
+"中学校を終えました。次はどうしますか？",
+"중학교를 마쳤습니다. 다음은 어떻게 할까요?",
 null
 ],
 "cb_hs": [
 "這會決定你什麼時候開始全職工作，以及往後的起薪。",
 "This sets when full-time work starts and your starting pay.",
-null,
-null,
+"フルタイムで働き始める時期と初任給が決まります。",
+"정규직으로 일을 시작하는 시기와 첫 급여가 정해집니다.",
 null
 ],
 "ct_uni": [
 "高中（職）畢業了，要讀大學嗎？",
 "High school is done. Go to university?",
-null,
-null,
+"高校を終えました。大学に進みますか？",
+"고등학교를 마쳤습니다. 대학에 진학할까요?",
 null
 ],
 "cb_uni": [
 "大學畢業的薪水平均高出不少，但要多花 4 年。",
 "Graduates earn clearly more on average, but it takes 4 more years.",
-null,
-null,
+"大卒は平均して明らかに稼ぎが多いですが、あと4年かかります。",
+"대졸자는 평균적으로 확실히 더 벌지만 4년이 더 걸립니다.",
 null
 ],
 "ct_grad": [
 "大學畢業了，要繼續念研究所嗎？",
 "University is done. Graduate school?",
-null,
-null,
+"大学を終えました。大学院に進みますか？",
+"대학을 마쳤습니다. 대학원에 갈까요?",
 null
 ],
 "cb_grad": [
 "再讀 2 年，薪水起點更高，但晚 2 年賺錢。",
 "Two more years: a higher starting salary, but earning starts later.",
-null,
-null,
+"あと2年。初任給は高くなりますが、稼ぎ始めるのは遅くなります。",
+"2년 더. 첫 급여는 높아지지만 돈을 버는 시기는 늦어집니다.",
 null
 ],
 "ct_career": [
 "要找哪一種工作？",
 "What kind of work?",
-null,
-null,
+"どんな働き方をしますか？",
+"어떤 일을 할까요?",
 null
 ],
 "cb_career": [
 "工作型態會影響薪水、被裁員的機率和升遷。",
 "The type of work affects pay, layoff risk and promotions.",
-null,
-null,
+"働き方によって給料、失業リスク、昇進が変わります。",
+"일의 종류에 따라 급여, 실직 위험, 승진이 달라집니다.",
 null
 ],
 "ct_move": [
 "要不要搬到大城市？",
 "Move to a big city?",
-null,
-null,
+"大都市に引っ越しますか？",
+"대도시로 이사할까요?",
 null
 ],
 "cb_move": [
 "大城市機會多，但房租和生活費也高。",
 "More opportunity in the city, but rent and living costs are higher.",
-null,
-null,
+"都会はチャンスが多い一方、家賃と生活費も高くなります。",
+"도시는 기회가 많지만 집세와 생활비도 더 비쌉니다.",
 null
 ],
 "ct_marry": [
 "有人想和你共度一生。",
 "Someone wants to spend their life with you.",
-null,
-null,
+"あなたと人生を共にしたいという人がいます。",
+"당신과 평생을 함께하고 싶어 하는 사람이 있습니다.",
 null
 ],
 "cb_marry": [
 "結婚會帶來陪伴，也會帶來開銷與責任。",
 "Marriage brings company — and costs and responsibilities.",
-null,
-null,
+"結婚は伴侶をもたらし、同時に費用と責任ももたらします。",
+"결혼은 동반자와 함께 비용과 책임도 가져옵니다.",
 null
 ],
 "ct_child": [
 "要再迎接一個孩子嗎？",
 "Welcome another child?",
-null,
-null,
+"もう一人子どもを迎えますか？",
+"아이를 한 명 더 맞이할까요?",
 null
 ],
 "cb_child": [
 "每個孩子到 18 歲前，每年都會增加家裡的開銷。",
 "Each child adds to household costs every year until 18.",
-null,
-null,
+"子どもが一人増えるごとに、18歳まで毎年の家計負担が増えます。",
+"아이가 한 명 늘 때마다 18세까지 매년 가계 비용이 늘어납니다.",
 null
 ],
 "ct_parents": [
 "父母年紀大了，需要人照顧。",
 "Your parents are old and need care.",
-null,
-null,
+"親が年老いて介護が必要になりました。",
+"부모님이 연로해 돌봄이 필요해졌습니다.",
 null
 ],
 "cb_parents": [
 "照顧家人需要時間，也需要錢。",
 "Caring takes time and money.",
-null,
-null,
+"介護には時間とお金がかかります。",
+"돌봄에는 시간과 돈이 듭니다.",
 null
 ],
 "ct_treat": [
 "你被診斷出重病。",
 "You are diagnosed with a serious illness.",
-null,
-null,
+"重い病気と診断されました。",
+"중병 진단을 받았습니다.",
 null
 ],
 "cb_treat": [
 "治療方式會影響花費和之後的健康。",
 "The treatment affects the cost and your health afterwards.",
-null,
-null,
+"治療法によって費用とその後の健康が変わります。",
+"치료 방법에 따라 비용과 이후 건강이 달라집니다.",
 null
 ],
 "o_vaccine_go": [
 "帶去打疫苗",
 "Get the vaccine",
-null,
-null,
+"接種を受ける",
+"접종 받기",
 null
 ],
 "c_vaccine_go": [
 "健康 +6；要請一天假。",
 "Health +6; a day off work.",
-null,
-null,
+"健康 +6。仕事を1日休みます。",
+"건강 +6. 일을 하루 쉽니다.",
 null
 ],
 "o_vaccine_skip": [
 "這次先不去",
 "Not this time",
-null,
-null,
+"今回は見送る",
+"이번엔 넘어가기",
 null
 ],
 "c_vaccine_skip": [
 "沒有花費，也沒有保護。",
 "No cost, no protection.",
-null,
-null,
+"費用はかかりませんが、予防もできません。",
+"비용은 없지만 예방도 되지 않습니다.",
 null
 ],
 "o_school_school": [
 "送去上學",
 "Send to school",
-null,
-null,
+"学校に通わせる",
+"학교에 보내기",
 null
 ],
 "c_school_school": [
 "學識會增加，以後的工作選擇更多。",
 "Knowledge grows; more job choices later.",
-null,
-null,
+"知識が伸び、将来の仕事の選択肢が広がります。",
+"지식이 늘고 나중에 일자리 선택지가 넓어집니다.",
 null
 ],
 "o_school_help": [
 "留在家幫忙",
 "Keep at home to help",
-null,
-null,
+"家に残して手伝わせる",
+"집에 남겨 돕게 하기",
 null
 ],
 "c_school_help": [
 "學識 −8；15 歲起只能做零工或農事，薪水偏低。",
 "Knowledge −8; from 15 only casual or farm work, low pay.",
-null,
-null,
+"知識 −8。15歳からは日雇いや農作業しかできず、収入は低めです。",
+"지식 −8. 15세부터 일용직이나 농사일만 할 수 있고 소득이 낮습니다.",
 null
 ],
 "o_hs_academic": [
 "讀高中",
 "High school",
-null,
-null,
+"高校",
+"고등학교",
 null
 ],
 "c_hs_academic": [
 "3 年沒有全職收入（可打工）；之後可以考大學。",
 "3 years without full-time income (part-time possible); university afterwards.",
-null,
-null,
+"3年間はフルタイムの収入なし（アルバイトは可）。その後大学に進めます。",
+"3년간 정규 소득 없음(아르바이트 가능). 이후 대학 진학이 가능합니다.",
 null
 ],
 "o_hs_vocational": [
 "讀職業學校",
 "Vocational school",
-null,
-null,
+"職業学校",
+"직업학교",
 null
 ],
 "c_hs_vocational": [
 "3 年沒有全職收入；畢業後起薪略高於高中，但較少人升大學。",
 "3 years without full-time income; slightly higher start pay, fewer go to university.",
-null,
-null,
+"3年間はフルタイムの収入なし。初任給はやや高めで、大学へ進む人は少なめです。",
+"3년간 정규 소득 없음. 첫 급여는 조금 높고 대학 진학자는 적습니다.",
 null
 ],
 "o_hs_work": [
 "開始工作",
 "Start working",
-null,
-null,
+"働き始める",
+"일 시작하기",
 null
 ],
 "c_hs_work": [
 "馬上有收入，但學歷只有國中／小學，薪水成長有限。",
 "Income now, but limited pay growth.",
-null,
-null,
+"すぐに収入が入りますが、昇給は限られます。",
+"바로 소득이 생기지만 급여 상승은 제한적입니다.",
 null
 ],
 "o_uni_uni": [
 "讀大學",
 "University",
-null,
-null,
+"大学",
+"대학교",
 null
 ],
 "c_uni_uni": [
 "再 4 年沒有全職收入；學費由家裡負擔。畢業後平均薪水約為高中學歷的 1.5 倍，失業率較低。",
 "4 more years without full-time income, fees paid by family. Graduates earn about 1.5× and face less unemployment.",
-null,
-null,
+"あと4年はフルタイムの収入なし、学費は家族が負担。大卒の稼ぎは約1.5倍で、失業もしにくくなります。",
+"4년 더 정규 소득 없음, 학비는 가족 부담. 대졸자는 약 1.5배를 벌고 실업도 적습니다.",
 null
 ],
 "o_uni_work": [
 "直接就業",
 "Start working",
-null,
-null,
+"働き始める",
+"일 시작하기",
 null
 ],
 "c_uni_work": [
 "提早 4 年開始賺錢與累積年資。",
 "Start earning and building experience 4 years earlier.",
-null,
-null,
+"4年早く稼ぎ始め、経験を積めます。",
+"4년 일찍 돈을 벌고 경력을 쌓습니다.",
 null
 ],
 "o_grad_grad": [
 "念研究所",
 "Graduate school",
-null,
-null,
+"大学院",
+"대학원",
 null
 ],
 "c_grad_grad": [
 "再 2 年沒有全職收入；之後薪水更高。",
 "2 more years without full-time income; higher pay afterwards.",
-null,
-null,
+"あと2年はフルタイムの収入なし。その後の給料は高くなります。",
+"2년 더 정규 소득 없음. 이후 급여가 높아집니다.",
 null
 ],
 "o_grad_work": [
 "先去工作",
 "Work first",
-null,
-null,
+"先に働く",
+"먼저 일하기",
 null
 ],
 "c_grad_work": [
 "現在就開始賺錢。",
 "Start earning now.",
-null,
-null,
+"今すぐ稼ぎ始めます。",
+"지금 바로 돈을 벌기 시작합니다.",
 null
 ],
 "o_career_stable": [
 "穩定工作（公職或大企業）",
 "Stable job (public sector / large firm)",
-null,
-null,
+"安定した仕事（公務員・大企業）",
+"안정적인 직장(공공 부문·대기업)",
 null
 ],
 "c_career_stable": [
 "薪水略低（−5%），失業機率減半。",
 "Pay −5%, half the layoff risk.",
-null,
-null,
+"給料 −5%、失業リスクは半分。",
+"급여 −5%, 실직 위험은 절반.",
 null
 ],
 "o_career_private": [
 "民間企業",
 "Private company",
-null,
-null,
+"民間企業",
+"민간 기업",
 null
 ],
 "c_career_private": [
 "一般薪水與升遷機會。",
 "Ordinary pay and promotions.",
-null,
-null,
+"給料も昇進も標準的。",
+"급여와 승진이 보통 수준.",
 null
 ],
 "o_career_startup": [
 "創業",
 "Start a business",
-null,
-null,
+"起業する",
+"창업하기",
 null
 ],
 "c_career_startup": [
 "收入每年大起大落，失業風險較高，但可能翻倍。",
 "Income swings each year, higher risk, could double.",
-null,
-null,
+"収入は毎年大きく変動し、リスクは高めですが、倍になることもあります。",
+"소득이 해마다 크게 출렁이고 위험이 높지만 두 배가 될 수도 있습니다.",
 null
 ],
 "o_career_informal": [
 "做零工或農事",
 "Casual or farm work",
-null,
-null,
+"日雇い・農作業",
+"일용직·농사일",
 null
 ],
 "c_career_informal": [
 "不太會失業，但收入只有一般的七成。",
 "Rarely unemployed, but about 70% of typical pay.",
-null,
-null,
+"失業はほとんどありませんが、給料は標準の約70%です。",
+"실직은 거의 없지만 급여는 보통의 약 70%입니다.",
 null
 ],
 "o_move_city": [
 "搬去大城市",
 "Move to the city",
-null,
-null,
+"都会に引っ越す",
+"도시로 이사하기",
 null
 ],
 "c_move_city": [
 "薪水 +15%；房租 ×1.4；人際 −4。",
 "Pay +15%; rent ×1.4; social −4.",
-null,
-null,
+"給料 +15%、家賃 ×1.4、人間関係 −4。",
+"급여 +15%, 집세 ×1.4, 인간관계 −4.",
 null
 ],
 "o_move_stay": [
 "留在家鄉",
 "Stay home",
-null,
-null,
+"地元に残る",
+"고향에 남기",
 null
 ],
 "c_move_stay": [
 "開銷較低，離家人近（快樂 +2）。",
 "Lower costs, close to family (happiness +2).",
-null,
-null,
+"費用が安く、家族の近くにいられます（幸福 +2）。",
+"비용이 적고 가족 곁에 있습니다(행복 +2).",
 null
 ],
 "o_marry_marry": [
 "結婚",
 "Marry",
-null,
-null,
+"結婚する",
+"결혼하기",
 null
 ],
 "c_marry_marry": [
 "婚禮花費約 3 個月收入；兩人分攤房租，但之後孩子的開銷也會增加。",
 "Wedding costs about 3 months of income; rent shared, child costs may follow.",
-null,
-null,
+"結婚費用は収入の約3か月分。家賃は分担になり、子育て費用がかかることもあります。",
+"결혼 비용은 소득의 약 3개월치. 집세는 나누고 양육비가 생길 수 있습니다.",
 null
 ],
 "o_marry_wait": [
 "再等等",
 "Wait",
-null,
-null,
+"まだ待つ",
+"좀 더 기다리기",
 null
 ],
 "c_marry_wait": [
 "保持單身，以後還可能遇到。",
 "Stay single for now; there may be others.",
-null,
-null,
+"今は独身のまま。ほかの出会いがあるかもしれません。",
+"지금은 혼자 지냅니다. 다른 인연이 있을지도 모릅니다.",
 null
 ],
 "o_child_have": [
 "生",
 "Yes",
-null,
-null,
+"迎える",
+"맞이하기",
 null
 ],
 "c_child_have": [
 "快樂 +7；到 18 歲前每年多一筆養育費用。",
 "Happiness +7; a yearly child cost until 18.",
-null,
-null,
+"幸福 +7。18歳まで毎年子育て費用がかかります。",
+"행복 +7. 18세까지 매년 양육비가 듭니다.",
 null
 ],
 "o_child_notnow": [
 "先不要",
 "Not now",
-null,
-null,
+"今はやめておく",
+"지금은 아니야",
 null
 ],
 "c_child_notnow": [
 "維持現在的開銷。",
 "Keep costs as they are.",
-null,
-null,
+"費用はそのまま。",
+"비용은 그대로 유지됩니다.",
 null
 ],
 "o_parents_self": [
 "自己照顧",
 "Care for them yourself",
-null,
-null,
+"自分で介護する",
+"직접 돌보기",
 null
 ],
 "c_parents_self": [
 "兩年內收入 −30%；快樂 −3、人際 +3。",
 "Income −30% for two years; happiness −3, social +3.",
-null,
-null,
+"2年間収入 −30%。幸福 −3、人間関係 +3。",
+"2년간 소득 −30%. 행복 −3, 인간관계 +3.",
 null
 ],
 "o_parents_hire": [
 "請看護",
 "Hire a carer",
-null,
-null,
+"介護者を雇う",
+"간병인 고용하기",
 null
 ],
 "c_parents_hire": [
 "三年內每年多一筆約 4 個月收入的開銷。",
 "About 4 months of income a year for three years.",
-null,
-null,
+"3年間、毎年収入の約4か月分。",
+"3년간 매년 소득의 약 4개월치.",
 null
 ],
 "o_parents_siblings": [
 "交給兄弟姊妹",
 "Leave it to siblings",
-null,
-null,
+"きょうだいに任せる",
+"형제자매에게 맡기기",
 null
 ],
 "c_parents_siblings": [
 "沒有花費；人際 −6。",
 "No cost; social −6.",
-null,
-null,
+"費用なし。人間関係 −6。",
+"비용 없음. 인간관계 −6.",
 null
 ],
 "o_treat_treat": [
 "積極治療",
 "Aggressive treatment",
-null,
-null,
+"積極的な治療",
+"적극적 치료",
 null
 ],
 "c_treat_treat": [
 "自付費用約 7 個月收入（有健保的國家較少）；健康 −6。",
 "Out-of-pocket about 7 months of income (less with public insurance); health −6.",
-null,
-null,
+"自己負担は収入の約7か月分（公的保険があれば軽減）。健康 −6。",
+"본인 부담은 소득의 약 7개월치(공적 보험이 있으면 줄어듦). 건강 −6.",
 null
 ],
 "o_treat_basic": [
 "保守治療",
 "Conservative treatment",
-null,
-null,
+"保存的な治療",
+"보존적 치료",
 null
 ],
 "c_treat_basic": [
 "費用較少；健康 −18。",
 "Cheaper; health −18.",
-null,
-null,
+"費用は安め。健康 −18。",
+"비용이 적음. 건강 −18.",
 null
 ],
 "nudge_invest": [
 "第一份薪水入帳了！要不要開始把一部分收入拿去投資？",
 "First paycheck is in! Start investing part of your income?",
-null,
-null,
+"初めての給料が入りました！収入の一部を投資に回しますか？",
+"첫 월급이 들어왔습니다! 소득 일부를 투자해 볼까요?",
 null
 ],
 "nudge_house": [
 "成家了。要不要看看買房需要多少頭期款和收入？",
 "You've started a family. See what a home would take?",
-null,
-null,
+"家庭を持ちました。家を買うには何が必要か見てみますか？",
+"가정을 꾸렸습니다. 집을 사려면 무엇이 필요한지 볼까요?",
 null
 ],
 "nudge_annuity": [
 "快退休了。可以考慮把部分存款換成每年給付的終身年金。",
 "Retirement is near. Consider turning savings into a life annuity.",
-null,
-null,
+"退職が近づいています。貯蓄を終身年金に替えることも検討してみては。",
+"은퇴가 가까워졌습니다. 저축을 종신 연금으로 바꾸는 것도 생각해 보세요.",
 null
 ],
 "nudge_loan": [
 "現金快不夠用了，可以看看信貸能借多少。",
 "Cash is running low. See how much you could borrow.",
-null,
-null,
+"現金が少なくなってきました。いくら借りられるか見てみますか。",
+"현금이 부족해지고 있습니다. 얼마나 빌릴 수 있는지 확인해 볼까요.",
 null
 ],
 "nudgeOpen": [
 "打開看看",
 "Take a look",
-null,
-null,
+"見てみる",
+"살펴보기",
 null
 ],
 "nudgeLater": [
 "之後再說",
 "Later",
-null,
-null,
+"あとで",
+"나중에",
 null
 ],
 "termLabel": [
 "房貸年限",
 "Mortgage term",
-null,
-null,
+"ローン期間",
+"대출 기간",
 null
 ],
 "termYears": [
 "{n} 年",
 "{n} years",
-null,
-null,
+"{n}年",
+"{n}년",
 null
 ],
 "needIncome": [
 "需要的年收入",
 "Income needed",
-null,
-null,
+"必要な収入",
+"필요한 소득",
 null
 ],
 "needIncomeNote": [
 "每年房貸本息不能超過收入的 40%。",
 "Mortgage payments may not exceed 40% of income.",
-null,
-null,
+"住宅ローンの返済は収入の40%を超えられません。",
+"주택담보대출 상환액은 소득의 40%를 넘을 수 없습니다.",
 null
 ],
 "needDown": [
 "需要的頭期款",
 "Down payment needed",
-null,
-null,
+"必要な頭金",
+"필요한 계약금",
 null
 ],
 "yourIncome": [
 "你目前的工作年收入",
 "Your current earned income",
-null,
-null,
+"現在の勤労収入",
+"현재 근로 소득",
 null
 ],
 "recTitle": [
 "人生紀錄卡",
 "Life record card",
-null,
-null,
+"人生記録カード",
+"인생 기록 카드",
 null
 ],
 "bornDied": [
 "{born}–{died}",
 "{born}–{died}",
-null,
-null,
+"{born}–{died}",
+"{born}–{died}",
 null
 ],
 "happiest": [
@@ -1972,8 +1979,8 @@ null
 "happiestLine": [
 "{age} 歲（{year} 年）",
 "Age {age} ({year})",
-null,
-null,
+"{age}歳（{year}年）",
+"{age}세({year}년)",
 null
 ],
 "deathCause": [
@@ -1993,260 +2000,260 @@ null
 "pctNA": [
 "—（未成年即離世，不比較）",
 "— (died before adulthood; not compared)",
-null,
-null,
+"—（成年前に亡くなったため比較なし）",
+"—(성년 전에 사망하여 비교하지 않음)",
 null
 ],
 "beatsNote": [
 "「勝過」只計算嚴格低於你的人，同分不算；金額只和活到 18 歲以上的人比較。",
 "\"Beats\" counts only people strictly below you; money is compared only with those who reached 18.",
-null,
-null,
+"「上回る」は自分より厳密に低い人だけを数え、同点は含みません。金額は18歳まで生きた人とのみ比較します。",
+"'앞선다'는 자신보다 엄격히 낮은 사람만 세며 동점은 제외합니다. 금액은 18세까지 산 사람과만 비교합니다.",
 null
 ],
 "dc_neonatal": [
 "新生兒疾病",
 "Newborn illness",
-null,
-null,
+"新生児の病気",
+"신생아 질환",
 null
 ],
 "dc_infection": [
 "感染症",
 "Infection",
-null,
-null,
+"感染症",
+"감염병",
 null
 ],
 "dc_malaria": [
 "瘧疾等熱帶疾病",
 "Malaria or tropical disease",
-null,
-null,
+"マラリアなどの熱帯病",
+"말라리아 등 열대병",
 null
 ],
 "dc_accident": [
 "意外",
 "Accident",
-null,
-null,
+"事故",
+"사고",
 null
 ],
 "dc_illness": [
 "急病",
 "Sudden illness",
-null,
-null,
+"急病",
+"급병",
 null
 ],
 "dc_violence": [
 "暴力事件",
 "Violence",
-null,
-null,
+"暴力事件",
+"폭력 사건",
 null
 ],
 "dc_heart": [
 "心臟病",
 "Heart disease",
-null,
-null,
+"心臓病",
+"심장병",
 null
 ],
 "dc_cancer": [
 "癌症",
 "Cancer",
-null,
-null,
+"がん",
+"암",
 null
 ],
 "dc_stroke": [
 "中風",
 "Stroke",
-null,
-null,
+"脳卒中",
+"뇌졸중",
 null
 ],
 "dc_pneumonia": [
 "肺炎",
 "Pneumonia",
-null,
-null,
+"肺炎",
+"폐렴",
 null
 ],
 "dc_oldage": [
 "衰老",
 "Old age",
-null,
-null,
+"老衰",
+"노환",
 null
 ],
 "lw_infant": [
 "（來不及說話。家人記得你小小的手。）",
 "(Too young to speak. The family remembers your tiny hands.)",
-null,
-null,
+"（話すには幼すぎた。家族はあなたの小さな手を覚えている。）",
+"(말을 하기엔 너무 어렸다. 가족은 당신의 작은 손을 기억한다.)",
 null
 ],
 "lw_kids": [
 "「{child}，要好好吃飯，別太晚睡。」",
 "\"{child}, eat properly and don't stay up too late.\"",
-null,
-null,
+"「{child}、ちゃんと食べて、夜ふかししないでね。」",
+"\"{child}, 밥 잘 챙겨 먹고 너무 늦게 자지 마.\"",
 null
 ],
 "lw_spouse": [
 "「{spouse}，謝謝你陪我走了這麼久。」",
 "\"{spouse}, thank you for walking with me so long.\"",
-null,
-null,
+"「{spouse}、こんなに長く一緒に歩いてくれてありがとう。」",
+"\"{spouse}, 오래도록 함께 걸어줘서 고마워.\"",
 null
 ],
 "lw_home": [
 "「替我回老家看看，那條路應該還在。」",
 "\"Go back home for me. That road should still be there.\"",
-null,
-null,
+"「私の代わりに故郷へ帰ってみて。あの道はまだあるはず。」",
+"\"나 대신 고향에 가봐. 그 길은 아직 있을 거야.\"",
 null
 ],
 "lw_work": [
 "「那份交接表……在第二個抽屜。」",
 "\"The handover notes… second drawer.\"",
-null,
-null,
+"「引き継ぎ書は……二番目の引き出しに。」",
+"\"인수인계서는… 두 번째 서랍에 있어.\"",
 null
 ],
 "lw_young": [
 "「我還想再長大一點。」",
 "\"I wanted to grow up a little more.\"",
-null,
-null,
+"「もう少しだけ大人になりたかった。」",
+"\"조금만 더 자라고 싶었어.\"",
 null
 ],
 "lw_rich": [
 "「錢都留下了，帶走的是那些一起吃過的飯。」",
 "\"The money stays. What I take are the meals we shared.\"",
-null,
-null,
+"「お金は残る。持っていくのは一緒に食べた食卓の記憶だけ。」",
+"\"돈은 남는다. 내가 가져가는 건 함께 나눈 밥상뿐이야.\"",
 null
 ],
 "lw_poor": [
 "「日子苦過，也甜過，夠了。」",
 "\"Hard days, sweet days. It was enough.\"",
-null,
-null,
+"「苦しい日も、甘い日もあった。それで十分。」",
+"\"힘든 날도, 달콤한 날도 있었다. 그걸로 충분해.\"",
 null
 ],
 "lw_dream": [
 "「如果能重來，我還是會去試試看。」",
 "\"If I could do it again, I'd still give it a try.\"",
-null,
-null,
+"「もう一度やり直せるなら、それでも挑戦する。」",
+"\"다시 태어나도, 나는 또 도전할 거야.\"",
 null
 ],
 "lw_generic1": [
 "「窗外的天氣真好。」",
 "\"The weather outside is lovely.\"",
-null,
-null,
+"「窓の外はいい天気だ。」",
+"\"창밖 날씨가 참 좋구나.\"",
 null
 ],
 "lw_generic2": [
 "「別難過，我只是先走一步。」",
 "\"Don't be sad. I'm just going ahead.\"",
-null,
-null,
+"「悲しまないで。私は一足先に行くだけ。」",
+"\"슬퍼하지 마. 나는 먼저 가는 것뿐이야.\"",
 null
 ],
 "taxPaid": [
 "一生繳的稅",
 "Lifetime taxes",
-null,
-null,
+"生涯納めた税",
+"생애 낸 세금",
 null
 ],
 "rentPaid": [
 "一生付的房租",
 "Lifetime rent",
-null,
-null,
+"生涯払った家賃",
+"생애 낸 집세",
 null
 ],
 "rn_country": [
 "這個國家目前還沒有足夠的信貸法規資料，所以暫不開放信貸。",
 "Not enough credit-rule data for this country yet, so loans are closed.",
-null,
-null,
+"この国の与信ルールのデータがまだ足りないため、ローンは利用できません。",
+"이 나라의 신용 규정 데이터가 아직 부족해 대출을 이용할 수 없습니다.",
 null
 ],
 "rn_pre1970": [
 "1970 年以前，一般人很難取得消費信貸，所以暫不開放。",
 "Before 1970 consumer credit was hard to get, so loans are closed.",
-null,
-null,
+"1970年以前は消費者向けの借入が難しかったため、ローンは利用できません。",
+"1970년 이전에는 소비자 대출이 어려웠기 때문에 대출을 이용할 수 없습니다.",
 null
 ],
 "rn_proxy": [
 "這個國家沒有明確的法定額度，先以年收入的一半估算上限（推估）。",
 "No legal cap here; the limit is estimated at half a year's income (est.).",
-null,
-null,
+"ここには法定の上限がないため、上限は年収の半分と推計しています（推計）。",
+"이곳에는 법정 한도가 없어 한도를 연 소득의 절반으로 추정합니다(추정).",
 null
 ],
 "rn_tw": [
 "台灣規定：無擔保借款總額不能超過月收入的 22 倍。",
 "Taiwan: unsecured borrowing may not exceed 22× monthly income.",
-null,
-null,
+"台湾：無担保の借入は月収の22倍まで。",
+"대만: 무담보 대출은 월 소득의 22배까지.",
 null
 ],
 "rn_jp": [
 "日本規定：向貸款業者借的總額不能超過年收入的三分之一。",
 "Japan: money-lender borrowing may not exceed one third of annual income.",
-null,
-null,
+"日本：貸金業者からの借入は年収の3分の1まで。",
+"일본: 대부업체 대출은 연 소득의 3분의 1까지.",
 null
 ],
 "rn_kr": [
 "南韓規定：信用貸款總額不能超過年收入。",
 "Korea: credit loans may not exceed annual income.",
-null,
-null,
+"韓国：信用ローンは年収まで。",
+"한국: 신용대출은 연 소득까지.",
 null
 ],
 "rn_sgLow": [
 "新加坡規定：年收入未滿 2 萬新幣，不能申請無擔保信貸。",
 "Singapore: under S$20,000 a year, no unsecured credit.",
-null,
-null,
+"シンガポール：年収2万シンガポールドル未満は無担保信用なし。",
+"싱가포르: 연 소득 2만 싱가포르달러 미만은 무담보 신용 불가.",
 null
 ],
 "rn_sg2": [
 "新加坡規定：年收入 2 萬到 3 萬新幣，額度最多 2 個月收入。",
 "Singapore: S$20,000–30,000 a year, up to 2 months' income.",
-null,
-null,
+"シンガポール：年収2万〜3万シンガポールドルは月収の2か月分まで。",
+"싱가포르: 연 소득 2만~3만 싱가포르달러는 월 소득 2개월치까지.",
 null
 ],
 "rn_sg4": [
 "新加坡規定：年收入 3 萬到 12 萬新幣，額度最多 4 個月收入。",
 "Singapore: S$30,000–120,000 a year, up to 4 months' income.",
-null,
-null,
+"シンガポール：年収3万〜12万シンガポールドルは月収の4か月分まで。",
+"싱가포르: 연 소득 3만~12만 싱가포르달러는 월 소득 4개월치까지.",
 null
 ],
 "rn_sgHigh": [
 "新加坡規定：年收入 12 萬新幣以上沒有法定上限（先以年收入的一半估算）。",
 "Singapore: above S$120,000 no legal cap (estimated at half a year's income).",
-null,
-null,
+"シンガポール：年収12万シンガポールドル超は法定上限なし（年収の半分と推計）。",
+"싱가포르: 연 소득 12만 싱가포르달러 초과는 법정 한도 없음(연 소득의 절반으로 추정).",
 null
 ],
 "rn_cn": [
 "中國規定：網路消費貸款額度最多 20 萬人民幣。",
 "China: online consumer loans up to CNY 200,000.",
-null,
-null,
+"中国：オンライン消費者ローンは20万人民元まで。",
+"중국: 온라인 소비자 대출은 20만 위안까지.",
 null
 ],
 "rn_none": [
@@ -2329,15 +2336,15 @@ null
 "oddsCaption": [
 "聯合國《世界人口展望 2024》（CC BY 3.0 IGO）· 以約 {total} 名新生兒計算",
 "UN World Population Prospects 2024 (CC BY 3.0 IGO) · based on about {total} births",
-null,
-null,
+"国連「世界人口推計 2024」（CC BY 3.0 IGO）· 約 {total} 人の出生に基づく",
+"유엔 「세계인구전망 2024」(CC BY 3.0 IGO) · 약 {total}명 출생 기준",
 null
 ],
 "oddsCaptionFuture": [
 "聯合國《世界人口展望 2024》中推估（CC BY 3.0 IGO）· 以約 {total} 名新生兒計算",
 "UN World Population Prospects 2024, medium projection (CC BY 3.0 IGO) · about {total} births",
-null,
-null,
+"国連「世界人口推計 2024」中位推計（CC BY 3.0 IGO）· 約 {total} 人の出生",
+"유엔 「세계인구전망 2024」중위 추계(CC BY 3.0 IGO) · 약 {total}명 출생",
 null
 ],
 "oddsOther": [
@@ -2406,8 +2413,8 @@ null
 "sortBy": [
 "排序",
 "Sort",
-null,
-null,
+"並べ替え",
+"정렬",
 null
 ],
 "eraLabel": [
@@ -2448,29 +2455,29 @@ null
 "eraHint_past": [
 "從 1950 年到去年，挑一個年份，或依當年出生人數隨機抽一年。之後每一年都照真實歷史發生。",
 "Pick a year from 1950 to last year, or draw one weighted by births. Every year then follows real history.",
-null,
-null,
+"1950年から昨年までの年を選ぶか、その年の出生数で重み付けしてランダムに引きます。その後は毎年、実際の歴史どおりに進みます。",
+"1950년부터 지난해까지 연도를 고르거나, 그해 출생아 수로 가중해 무작위로 뽑습니다. 이후 매년 실제 역사를 따릅니다.",
 null
 ],
 "eraHint_now": [
 "就是今年。從今年起的經濟與市場以歷史資料重抽推估。",
 "This year. From now on, economy and markets are resampled from history.",
-null,
-null,
+"今年です。今年以降の経済と市場は歴史データから再抽出して推計します。",
+"올해입니다. 올해부터의 경제와 시장은 역사 데이터에서 다시 추출해 추정합니다.",
 null
 ],
 "eraHint_future": [
 "出生在接下來幾年，人口用聯合國推估，經濟與市場以歷史重抽，全部標示推估。",
 "Born in the next few years: UN population projections, economy resampled from history, all marked as estimates.",
-null,
-null,
+"今後数年の出生は、人口が国連推計、経済と市場は歴史から再抽出し、すべて推計として示します。",
+"앞으로 몇 년 안에 태어나면 인구는 유엔 추계, 경제와 시장은 역사에서 다시 추출하며 모두 추정으로 표시합니다.",
 null
 ],
 "eraHint_any": [
 "先隨機決定過去、現在或未來，再決定年份。",
 "First draw past, present or future, then the year.",
-null,
-null,
+"まず過去・現在・未来をランダムに決め、次に年を決めます。",
+"먼저 과거·현재·미래를 무작위로 정한 뒤 연도를 정합니다.",
 null
 ],
 "yearRandom": [
@@ -2525,15 +2532,15 @@ null
 "resumeTitle": [
 "上次的人生還沒過完",
 "Your last life isn't over",
-null,
-null,
+"前回の人生はまだ途中です",
+"지난 인생이 아직 끝나지 않았습니다",
 null
 ],
 "resumeAt": [
 "停在第 {n} 年",
 "Stopped at year {n}",
-null,
-null,
+"{n} 年で停止中",
+"{n}년에서 멈춤",
 null
 ],
 "rollCaption": [
@@ -2546,8 +2553,8 @@ null
 "rollProb": [
 "機率 {p}",
 "odds {p}",
-null,
-null,
+"確率 {p}",
+"확률 {p}",
 null
 ],
 "certTitle": [
@@ -2560,43 +2567,43 @@ null
 "certNo": [
 "No. {no}",
 "No. {no}",
-null,
-null,
+"No. {no}",
+"No. {no}",
 null
 ],
 "certStory": [
 "{year} 年，你出生在{country}的{place}，是個{sex}孩。家裡的收入在全國{q}。{sib}",
 "In {year} you were born in {place} {country}, a {sex}. Your family's income was in the {q} of the country. {sib}",
-null,
-null,
+"{year}年、あなたは{country}の{place}で{sex}として生まれました。家庭の所得は国の{q}でした。{sib}",
+"{year}년, 당신은 {country}의 {place}에서 {sex}로 태어났습니다. 가정 소득은 전국 {q}에 해당했습니다. {sib}",
 null
 ],
 "certSib": [
 "上面有 {n} 個兄弟姊妹。",
 "You have {n} older siblings.",
-null,
-null,
+"上にきょうだいが {n} 人います。",
+"위로 형제자매가 {n}명 있습니다.",
 null
 ],
 "certOnly": [
 "你是家裡第一個孩子。",
 "You are the first child.",
-null,
-null,
+"あなたは家の第一子です。",
+"당신은 집안의 첫째입니다.",
 null
 ],
 "certPace": [
 "照平均壽命，這一生大約要 {min} 分鐘（1 年 ≈ {sec} 秒）。進度會存在這個瀏覽器裡，關掉也能回來接著過。",
 "At average life expectancy this life takes about {min} minutes (1 year ≈ {sec} s). Progress is saved in this browser.",
-null,
-null,
+"平均余命どおりなら、この人生はおよそ {min} 分（1年 ≈ {sec} 秒）です。進行状況はこのブラウザに保存され、閉じても続きから再開できます。",
+"평균 수명대로라면 이 인생은 약 {min}분(1년 ≈ {sec}초)입니다. 진행 상황은 이 브라우저에 저장되어 닫아도 이어서 할 수 있습니다.",
 null
 ],
 "certOdds": [
 "同一年出生的嬰兒中，約 {p} 生在{country}，大約每 {n} 個新生兒就有 1 個。",
 "Of the babies born that year about {p} were born in {country} — roughly 1 in {n}.",
-null,
-null,
+"その年に生まれた赤ちゃんのうち約 {p} が{country}で生まれ、およそ {n} 人に1人の割合です。",
+"그해 태어난 아기 중 약 {p}가 {country}에서 태어나, 대략 {n}명 중 1명꼴입니다.",
 null
 ],
 "f_sex": [
@@ -2665,15 +2672,15 @@ null
 "parentsAges": [
 "母親 {ma} 歲 · 父親 {fa} 歲",
 "Mother {ma} · father {fa}",
-null,
-null,
+"母 {ma}歳 · 父 {fa}歳",
+"어머니 {ma}세 · 아버지 {fa}세",
 null
 ],
 "quintileOf": [
 "第 {q} 級（共 5 級）",
 "Level {q} of 5",
-null,
-null,
+"第 {q} 階級（全5段階）",
+"{q}단계(전체 5단계)",
 null
 ],
 "girl": [
@@ -2770,8 +2777,8 @@ null
 "toastTragic": [
 "停下來了：{what}",
 "Paused: {what}",
-null,
-null,
+"一時停止：{what}",
+"일시 정지: {what}",
 null
 ],
 "yearOf": [
@@ -2819,8 +2826,8 @@ null
 "f_name": [
 "姓名",
 "Name",
-null,
-null,
+"氏名",
+"이름",
 null
 ],
 "statusTitle": [
@@ -2840,8 +2847,8 @@ null
 "statsExplainBody": [
 "四個數值都是 0–100。健康影響生病的機率，快樂會被生活事件和選擇推高或拉低，學識影響升學與工作，人際影響結婚與交朋友。它們不會改變真實的死亡率資料。",
 "All four run 0–100. Health affects illness, happiness moves with events and choices, knowledge affects school and work, social affects marriage and friends. None of them change the real mortality data.",
-null,
-null,
+"4つの数値はすべて0〜100です。健康は病気の確率に、幸福は出来事や選択に、知識は進学と仕事に、人間関係は結婚や友人関係に影響します。どれも実際の死亡率データを変えるものではありません。",
+"네 수치는 모두 0~100입니다. 건강은 질병 확률에, 행복은 사건과 선택에, 지식은 진학과 일에, 인간관계는 결혼과 친구 관계에 영향을 줍니다. 어느 것도 실제 사망률 데이터를 바꾸지 않습니다.",
 null
 ],
 "famTitle": [
@@ -2980,8 +2987,8 @@ null
 "star": [
 "標記這一行",
 "Star this line",
-null,
-null,
+"この一行に星をつける",
+"이 줄에 별표",
 null
 ],
 "endSkipArm": [
@@ -3008,64 +3015,64 @@ null
 "cap_born": [
 "{year} 年，出生在{country}",
 "{year}, born in {country}",
-null,
-null,
+"{year}年、{country}で誕生",
+"{year}년, {country}에서 출생",
 null
 ],
 "cap_graduated": [
 "{age} 歲，畢業了",
 "Age {age}, graduated",
-null,
-null,
+"{age}歳、卒業",
+"{age}세, 졸업",
 null
 ],
 "cap_first_paycheck": [
 "{age} 歲，第一份薪水",
 "Age {age}, first paycheck",
-null,
-null,
+"{age}歳、初めての給料",
+"{age}세, 첫 월급",
 null
 ],
 "cap_wedding": [
 "{age} 歲，結婚",
 "Age {age}, married",
-null,
-null,
+"{age}歳、結婚",
+"{age}세, 결혼",
 null
 ],
 "cap_child": [
 "{age} 歲，孩子出生",
 "Age {age}, a child is born",
-null,
-null,
+"{age}歳、子どもが誕生",
+"{age}세, 아이가 태어남",
 null
 ],
 "cap_promotion": [
 "{age} 歲，升遷",
 "Age {age}, promoted",
-null,
-null,
+"{age}歳、昇進",
+"{age}세, 승진",
 null
 ],
 "cap_retire": [
 "{age} 歲，退休",
 "Age {age}, retired",
-null,
-null,
+"{age}歳、引退",
+"{age}세, 은퇴",
 null
 ],
 "cap_happiest": [
 "{age} 歲，最快樂的一年",
 "Age {age}, the happiest year",
-null,
-null,
+"{age}歳、いちばん幸せな年",
+"{age}세, 가장 행복한 해",
 null
 ],
 "cap_final": [
 "{age} 歲，因{cause}離開",
 "Age {age}, gone — {cause}",
-null,
-null,
+"{age}歳、死去 — {cause}",
+"{age}세, 세상을 떠남 — {cause}",
 null
 ],
 "deathRecTitle": [
@@ -3078,71 +3085,71 @@ null
 "deathStory": [
 "{name}在 {year} 年出生於{country}，活了 {age} 年。{edu}{work}{family}",
 "{name} was born in {country} in {year} and lived {age} years. {edu}{work}{family}",
-null,
-null,
+"{name}は{year}年に{country}で生まれ、{age}年生きました。{edu}{work}{family}",
+"{name}은(는) {year}년 {country}에서 태어나 {age}년을 살았습니다. {edu}{work}{family}",
 null
 ],
 "ds_edu": [
 "讀到{edu}。",
 "Studied up to {edu}. ",
-null,
-null,
+"{edu}まで学びました。",
+"{edu}까지 공부했습니다. ",
 null
 ],
 "ds_work": [
 "工作是{track}。",
 "Worked in: {track}. ",
-null,
-null,
+"仕事は{track}でした。",
+"직업: {track}. ",
 null
 ],
 "ds_family_kids": [
 "和{spouse}有 {n} 個孩子。",
 "Had {n} children with {spouse}.",
-null,
-null,
+"{spouse}との間に {n} 人の子どもがいました。",
+"{spouse}와(과) 아이 {n}명을 두었습니다.",
 null
 ],
 "ds_family_spouse": [
 "和{spouse}共度了一段人生。",
 "Shared a life with {spouse}.",
-null,
-null,
+"{spouse}と人生を共にしました。",
+"{spouse}와(과) 한평생을 함께했습니다.",
 null
 ],
 "ctxLonger": [
 "同國同年出生的模擬人生中，有 {p} 活得比你久。",
 "Among simulated peers born the same year and place, {p} lived longer.",
-null,
-null,
+"同じ国・同じ年に生まれた模擬人生のうち、{p} があなたより長生きしました。",
+"같은 나라·같은 해에 태어난 모의 인생 중 {p}가 당신보다 오래 살았습니다.",
 null
 ],
 "ctxVsE0": [
 "你出生時當地的平均餘命是 {e0} 歲，你{diff}。",
 "Life expectancy where you were born was {e0}; you {diff}.",
-null,
-null,
+"あなたが生まれた土地の平均余命は {e0} 歳で、あなたは{diff}。",
+"당신이 태어난 곳의 기대수명은 {e0}세였고, 당신은 {diff}.",
 null
 ],
 "ctxMore": [
 "多活了 {n} 年",
 "lived {n} years longer",
-null,
-null,
+"{n} 年長く生きました",
+"{n}년 더 살았습니다",
 null
 ],
 "ctxLess": [
 "少了 {n} 年",
 "fell {n} years short",
-null,
-null,
+"{n} 年届きませんでした",
+"{n}년 덜 살았습니다",
 null
 ],
 "ctxSame": [
 "剛好活到平均",
 "matched it exactly",
-null,
-null,
+"ちょうど平均どおりでした",
+"정확히 평균과 같았습니다",
 null
 ],
 "g_span": [
@@ -3246,15 +3253,15 @@ null
 "copiedText": [
 "已複製",
 "Copied",
-null,
-null,
+"コピーしました",
+"복사됨",
 null
 ],
 "longPress": [
 "在手機上可以長按圖片儲存。",
 "On a phone, long-press the image to save it.",
-null,
-null,
+"スマートフォンでは画像を長押しして保存できます。",
+"휴대폰에서는 이미지를 길게 눌러 저장할 수 있습니다.",
 null
 ],
 "shareOpen": [
@@ -3267,29 +3274,29 @@ null
 "shareTextT": [
 "{name}（{born}–{died}），{country}，享年 {age} 歲。{cause}。—— {app}",
 "{name} ({born}–{died}), {country}, aged {age}. {cause}. — {app}",
-null,
-null,
+"{name}（{born}–{died}）、{country}、{age}歳。{cause}。—— {app}",
+"{name}({born}–{died}), {country}, {age}세. {cause}. — {app}",
 null
 ],
 "shareFact1": [
 "一生總收入 {v}",
 "Lifetime income {v}",
-null,
-null,
+"生涯総収入 {v}",
+"생애 총소득 {v}",
 null
 ],
 "shareFact2": [
 "最快樂：{age} 歲",
 "Happiest: age {age}",
-null,
-null,
+"いちばん幸せ：{age}歳",
+"가장 행복: {age}세",
 null
 ],
 "shareFact3": [
 "活得比 {p} 的同齡人久",
 "Outlived {p} of peers",
-null,
-null,
+"同世代の {p} より長生き",
+"동년배의 {p}보다 오래 삶",
 null
 ],
 "focusTitle": [
@@ -3414,372 +3421,372 @@ null
 "it_library": [
 "去圖書館",
 "Visit the library",
-null,
-null,
+"図書館に行く",
+"도서관 가기",
 null
 ],
 "it_parkWalk": [
 "到公園散步",
 "Walk in the park",
-null,
-null,
+"公園を散歩する",
+"공원 산책",
 null
 ],
 "it_callFriend": [
 "打電話給老朋友",
 "Call an old friend",
-null,
-null,
+"旧友に電話する",
+"옛 친구에게 전화",
 null
 ],
 "it_toys": [
 "買玩具",
 "Toys",
-null,
-null,
+"おもちゃ",
+"장난감",
 null
 ],
 "it_bike": [
 "一台腳踏車",
 "A bicycle",
-null,
-null,
+"自転車",
+"자전거",
 null
 ],
 "it_tutor": [
 "請家教",
 "Private tutor",
-null,
-null,
+"家庭教師",
+"개인 과외",
 null
 ],
 "it_summerCamp": [
 "暑期營隊",
 "Summer camp",
-null,
-null,
+"サマーキャンプ",
+"여름 캠프",
 null
 ],
 "it_musicLessons": [
 "學樂器課",
 "Music lessons",
-null,
-null,
+"音楽のレッスン",
+"음악 레슨",
 null
 ],
 "it_sportsClub": [
 "加入運動社團",
 "Sports club",
-null,
-null,
+"スポーツクラブ",
+"스포츠 클럽",
 null
 ],
 "it_console": [
 "遊戲機",
 "Game console",
-null,
-null,
+"ゲーム機",
+"게임기",
 null
 ],
 "it_phone": [
 "換新手機",
 "New phone",
-null,
-null,
+"新しいスマートフォン",
+"새 휴대폰",
 null
 ],
 "it_laptop": [
 "買筆電",
 "Laptop",
-null,
-null,
+"ノートパソコン",
+"노트북",
 null
 ],
 "it_onlineCourse": [
 "線上課程",
 "Online course",
-null,
-null,
+"オンライン講座",
+"온라인 강좌",
 null
 ],
 "it_languageCourse": [
 "語言班",
 "Language class",
-null,
-null,
+"語学教室",
+"어학 수업",
 null
 ],
 "it_license": [
 "考駕照",
 "Driving licence",
-null,
-null,
+"運転免許",
+"운전면허",
 null
 ],
 "it_car": [
 "買車",
 "Car",
-null,
-null,
+"自動車",
+"자동차",
 null
 ],
 "it_motorbike": [
 "買機車",
 "Motorbike",
-null,
-null,
+"バイク",
+"오토바이",
 null
 ],
 "it_ebike": [
 "電動腳踏車",
 "E-bike",
-null,
-null,
+"電動自転車",
+"전기자전거",
 null
 ],
 "it_tripHome": [
 "國內小旅行",
 "Short trip at home",
-null,
-null,
+"国内の小旅行",
+"국내 짧은 여행",
 null
 ],
 "it_tripAbroad": [
 "出國旅行",
 "Trip abroad",
-null,
-null,
+"海外旅行",
+"해외여행",
 null
 ],
 "it_cruise": [
 "郵輪假期",
 "Cruise",
-null,
-null,
+"クルーズ",
+"크루즈",
 null
 ],
 "it_concert": [
 "看演唱會",
 "Concert",
-null,
-null,
+"コンサート",
+"콘서트",
 null
 ],
 "it_dining": [
 "吃頓好的",
 "A good meal out",
-null,
-null,
+"ちょっといい外食",
+"근사한 외식",
 null
 ],
 "it_spa": [
 "按摩放鬆",
 "Massage & spa",
-null,
-null,
+"マッサージ・スパ",
+"마사지·스파",
 null
 ],
 "it_camera": [
 "相機",
 "Camera",
-null,
-null,
+"カメラ",
+"카메라",
 null
 ],
 "it_instrument": [
 "買一把樂器",
 "An instrument",
-null,
-null,
+"楽器",
+"악기",
 null
 ],
 "it_artClass": [
 "畫畫課",
 "Art class",
-null,
-null,
+"絵画教室",
+"미술 수업",
 null
 ],
 "it_collection": [
 "收藏嗜好",
 "A collection",
-null,
-null,
+"コレクション",
+"수집",
 null
 ],
 "it_gym": [
 "健身房會員",
 "Gym membership",
-null,
-null,
+"ジムの会員",
+"헬스장 회원권",
 null
 ],
 "it_checkup": [
 "健康檢查",
 "Health check-up",
-null,
-null,
+"健康診断",
+"건강검진",
 null
 ],
 "it_dental": [
 "看牙醫",
 "Dentist",
-null,
-null,
+"歯科",
+"치과",
 null
 ],
 "it_laser": [
 "近視雷射",
 "Eye laser surgery",
-null,
-null,
+"視力矯正レーザー手術",
+"시력 교정 레이저 수술",
 null
 ],
 "it_therapy": [
 "心理諮商",
 "Counselling",
-null,
-null,
+"カウンセリング",
+"상담 치료",
 null
 ],
 "it_hearingAid": [
 "助聽器",
 "Hearing aid",
-null,
-null,
+"補聴器",
+"보청기",
 null
 ],
 "it_scooter": [
 "代步車",
 "Mobility scooter",
-null,
-null,
+"電動カート",
+"전동 스쿠터",
 null
 ],
 "it_banquet": [
 "辦喜宴",
 "Wedding banquet",
-null,
-null,
+"結婚披露宴",
+"결혼 피로연",
 null
 ],
 "it_honeymoon": [
 "蜜月旅行",
 "Honeymoon",
-null,
-null,
+"新婚旅行",
+"신혼여행",
 null
 ],
 "it_anniversary": [
 "紀念日禮物",
 "Anniversary gift",
-null,
-null,
+"記念日のプレゼント",
+"기념일 선물",
 null
 ],
 "it_eduFund": [
 "孩子教育基金",
 "Child's education fund",
-null,
-null,
+"子どもの教育資金",
+"자녀 교육 자금",
 null
 ],
 "it_familyPhoto": [
 "拍全家福",
 "Family portrait",
-null,
-null,
+"家族写真",
+"가족사진",
 null
 ],
 "it_pet": [
 "養寵物",
 "Adopt a pet",
-null,
-null,
+"ペットを迎える",
+"반려동물 입양",
 null
 ],
 "it_giftParents": [
 "孝親紅包",
 "Gift money for parents",
-null,
-null,
+"親へのお小遣い",
+"부모님 용돈",
 null
 ],
 "it_tripParents": [
 "帶爸媽出遊",
 "Trip with parents",
-null,
-null,
+"親と旅行",
+"부모님과 여행",
 null
 ],
 "it_parentsCare": [
 "爸媽的醫療費",
 "Parents' medical bills",
-null,
-null,
+"親の医療費",
+"부모님 의료비",
 null
 ],
 "it_donateSmall": [
 "小額捐款",
 "Small donation",
-null,
-null,
+"少額の寄付",
+"소액 기부",
 null
 ],
 "it_donateBig": [
 "大筆捐款",
 "Large donation",
-null,
-null,
+"多額の寄付",
+"고액 기부",
 null
 ],
 "it_renovate": [
 "裝修房子",
 "Renovate the home",
-null,
-null,
+"家のリフォーム",
+"집 리모델링",
 null
 ],
 "it_furniture": [
 "換家具",
 "New furniture",
-null,
-null,
+"新しい家具",
+"새 가구",
 null
 ],
 "it_biggerFlat": [
 "租大一點的房子",
 "Rent a bigger flat",
-null,
-null,
+"広い部屋を借りる",
+"더 넓은 집 임대",
 null
 ],
 "it_garden": [
 "整理庭院",
 "Tend the garden",
-null,
-null,
+"庭の手入れ",
+"정원 가꾸기",
 null
 ],
 "it_mba": [
 "讀在職碩士",
 "Part-time master's",
-null,
-null,
+"社会人大学院（修士）",
+"야간 석사 과정",
 null
 ],
 "it_certificate": [
 "專業證照",
 "Professional certificate",
-null,
-null,
+"専門資格",
+"전문 자격증",
 null
 ],
 "it_seniorUni": [
 "樂齡大學",
 "Senior university",
-null,
-null,
+"シニア大学",
+"노인 대학",
 null
 ],
 "spendBtn": [
@@ -3848,8 +3855,8 @@ null
 "spendBought": [
 "已完成：{name}",
 "Done: {name}",
-null,
-null,
+"完了：{name}",
+"완료: {name}",
 null
 ],
 "why_need": [
@@ -3876,92 +3883,92 @@ null
 "lsSavings": [
 "存款放在哪裡",
 "Where savings sit",
-null,
-null,
+"貯蓄の置き場所",
+"저축 보관처",
 null
 ],
 "lsSavingsBtn": [
 "打開投資配置",
 "Open investments",
-null,
-null,
+"投資を開く",
+"투자 열기",
 null
 ],
 "ls_diet": [
 "飲食",
 "Diet",
-null,
-null,
+"食生活",
+"식생활",
 null
 ],
 "ls_diet_frugal": [
 "省吃儉用",
 "Frugal",
-null,
-null,
+"節約",
+"절약",
 null
 ],
 "ls_diet_normal": [
 "一般",
 "Normal",
-null,
-null,
+"普通",
+"보통",
 null
 ],
 "ls_diet_healthy": [
 "吃得健康",
 "Healthy",
-null,
-null,
+"健康的",
+"건강식",
 null
 ],
 "ls_gifts": [
 "紅白包",
 "Wedding & funeral gifts",
-null,
-null,
+"冠婚葬祭のお祝い・香典",
+"경조사비",
 null
 ],
 "ls_gifts_low": [
 "少包",
 "Small",
-null,
-null,
+"少なめ",
+"적게",
 null
 ],
 "ls_gifts_normal": [
 "一般",
 "Normal",
-null,
-null,
+"普通",
+"보통",
 null
 ],
 "ls_gifts_generous": [
 "大方",
 "Generous",
-null,
-null,
+"多め",
+"넉넉히",
 null
 ],
 "ls_insure": [
 "保險",
 "Insurance",
-null,
-null,
+"保険",
+"보험",
 null
 ],
 "ls_insure_none": [
 "不買",
 "None",
-null,
-null,
+"なし",
+"없음",
 null
 ],
 "ls_insure_basic": [
 "基本醫療險",
 "Basic medical",
-null,
-null,
+"基本の医療保険",
+"기본 의료보험",
 null
 ],
 "lsRoutines": [
@@ -3974,8 +3981,8 @@ null
 "lsNote": [
 "設定從今年起生效，直到你改掉。",
 "Settings apply from this year until you change them.",
-null,
-null,
+"設定は今年から、変更するまで適用されます。",
+"설정은 올해부터 바꿀 때까지 적용됩니다.",
 null
 ],
 "peersTitle": [
@@ -4072,127 +4079,127 @@ null
 "fact_q5": [
 "{year} 年前後，{name}每 1,000 名新生兒約有 {n} 名活不到 5 歲。",
 "Around {year}, about {n} of every 1,000 babies in {name} did not live to 5.",
-null,
-null,
+"{year}年ごろ、{name}では赤ちゃん1,000人のうち約 {n} 人が5歳まで生きられませんでした。",
+"{year}년경 {name}에서는 아기 1,000명 중 약 {n}명이 5세를 넘기지 못했습니다.",
 null
 ],
 "fact_sec": [
 "{name}的中學毛入學率約 {p}（毛入學率可能超過 100%，因為包含重讀與超齡學生）。",
 "Gross secondary enrolment in {name} was about {p} (it can exceed 100% because it counts repeaters and over-age pupils).",
-null,
-null,
+"{name}の中等教育の総就学率は約 {p} でした（留年者や年齢超過の生徒も数えるため100%を超えることがあります）。",
+"{name}의 중등교육 총취학률은 약 {p}였습니다(유급생과 초과 연령 학생도 세므로 100%를 넘을 수 있습니다).",
 null
 ],
 "fact_ter": [
 "{name}的高等教育毛入學率約 {p}。",
 "Gross tertiary enrolment in {name} was about {p}.",
-null,
-null,
+"{name}の高等教育の総就学率は約 {p} でした。",
+"{name}의 고등교육 총취학률은 약 {p}였습니다.",
 null
 ],
 "fact_unemp": [
 "{name}當年的失業率約 {p}。",
 "Unemployment in {name} that year was about {p}.",
-null,
-null,
+"その年の{name}の失業率は約 {p} でした。",
+"그해 {name}의 실업률은 약 {p}였습니다.",
 null
 ],
 "fact_urban": [
 "{name}約有 {p} 的人住在都市地區。",
 "About {p} of people in {name} lived in urban areas.",
-null,
-null,
+"{name}の人口の約 {p} が都市部に住んでいました。",
+"{name} 인구의 약 {p}가 도시에 살았습니다.",
 null
 ],
 "fact_e0": [
 "{year} 年前後，{name}的出生時平均餘命約 {v} 歲。",
 "Around {year}, life expectancy at birth in {name} was about {v} years.",
-null,
-null,
+"{year}年ごろ、{name}の出生時平均余命は約 {v} 歳でした。",
+"{year}년경 {name}의 출생 시 기대수명은 약 {v}세였습니다.",
 null
 ],
 "fact_tfr": [
 "{year} 年前後，{name}平均每位女性一生約生 {v} 個孩子。",
 "Around {year}, women in {name} had about {v} children each over a lifetime.",
-null,
-null,
+"{year}年ごろ、{name}の女性は生涯に平均約 {v} 人の子どもを産みました。",
+"{year}년경 {name}의 여성은 평생 평균 약 {v}명의 아이를 낳았습니다.",
 null
 ],
 "fact_gdp": [
 "{name}當年的人均 GDP（購買力平價，2021 年國際元）約 {v}。",
 "GDP per capita in {name} that year (PPP, 2021 international $) was about {v}.",
-null,
-null,
+"その年の{name}の1人当たりGDP（PPP、2021年国際ドル）は約 {v} でした。",
+"그해 {name}의 1인당 GDP(PPP, 2021년 국제달러)는 약 {v}였습니다.",
 null
 ],
 "fact_gini": [
 "{name}的吉尼係數約 {v}（0 代表完全平均，100 代表完全集中）。",
 "The Gini index in {name} was about {v} (0 = perfectly equal, 100 = all to one).",
-null,
-null,
+"{name}のジニ指数は約 {v} でした（0＝完全に平等、100＝一人がすべてを持つ）。",
+"{name}의 지니지수는 약 {v}였습니다(0 = 완전 평등, 100 = 한 사람이 전부 소유).",
 null
 ],
 "cite_wdi": [
 "世界銀行 WDI {code}（CC BY 4.0）",
 "World Bank WDI {code} (CC BY 4.0)",
-null,
-null,
+"世界銀行 WDI {code}（CC BY 4.0）",
+"세계은행 WDI {code}(CC BY 4.0)",
 null
 ],
 "cite_wpp": [
 "聯合國《世界人口展望 2024》（CC BY 3.0 IGO）",
 "UN World Population Prospects 2024 (CC BY 3.0 IGO)",
-null,
-null,
+"国連「世界人口推計 2024」（CC BY 3.0 IGO）",
+"유엔 「세계인구전망 2024」(CC BY 3.0 IGO)",
 null
 ],
 "seedBad": [
 "種子格式不正確：",
 "Invalid seed: ",
-null,
-null,
+"シードの形式が正しくありません：",
+"시드 형식이 올바르지 않습니다: ",
 null
 ],
 "termLeft": [
 "（{n} 年）",
 " ({n} years)",
-null,
-null,
+"（残り {n} 年）",
+" (남은 기간 {n}년)",
 null
 ],
 "rateTitle": [
 "放款利率＋利差參數",
 "Lending rate + spread parameter",
-null,
-null,
+"貸出金利＋スプレッドのパラメータ",
+"대출 금리 + 가산 금리 매개변수",
 null
 ],
 "causeTitle": [
 "依年齡、國家所得與健康狀態推估",
 "Estimated from age, national income and health",
-null,
-null,
+"年齢・国の所得・健康状態から推計",
+"나이·국가 소득·건강 상태로 추정",
 null
 ],
 "peersLine": [
 "比較對象：同國、同年出生的 {n} 段模擬人生。",
 "Compared with {n} simulated lives born the same year in the same country.",
-null,
-null,
+"比較対象：同じ国・同じ年に生まれた {n} 件の模擬人生。",
+"비교 대상: 같은 나라·같은 해에 태어난 모의 인생 {n}개.",
 null
 ],
 "peersEst": [
 "其中 {n} 年使用了推估資料。",
 " {n} of those years used estimated data.",
-null,
-null,
+"うち {n} 年は推計データを使用しました。",
+"그중 {n}년은 추정 데이터를 사용했습니다.",
 null
 ],
 "wdiCite": [
 "世界銀行 WDI（CC BY 4.0）",
 "World Bank WDI (CC BY 4.0)",
-null,
-null,
+"世界銀行 WDI（CC BY 4.0）",
+"세계은행 WDI(CC BY 4.0)",
 null
 ],
 "livedN": [
@@ -4933,99 +4940,99 @@ null
 "ct_switch": [
 "要轉換跑道嗎？",
 "Change careers?",
-null,
-null,
+"転職しますか？",
+"이직할까요?",
 null
 ],
 "cb_switch": [
 "有機會換到相關的工作。換工作通常要從比較低的位階做起。",
 "A related job is open. Switching usually means starting a rung lower.",
-null,
-null,
+"関連する仕事に空きがあります。転職すると、たいてい一段下から始めることになります。",
+"관련 일자리가 났습니다. 이직하면 보통 한 단계 아래에서 시작합니다.",
 null
 ],
 "o_switch_stay": [
 "留在原本的工作",
 "Stay where you are",
-null,
-null,
+"今の仕事を続ける",
+"지금 자리에 머물기",
 null
 ],
 "ct_startup": [
 "要拿出積蓄創業嗎？",
 "Put your savings into a startup?",
-null,
-null,
+"貯金をスタートアップにつぎ込みますか？",
+"저축을 스타트업에 쏟아부을까요?",
 null
 ],
 "cb_startup": [
 "多數新創撐不過五年（推估存活率依美國勞工統計局 BED 曲線）。失敗會賠掉本錢。",
-"Most startups do not last five years (推估 survival shaped on the US BLS BED curve). Failure loses the capital.",
-null,
-null,
+"Most startups do not last five years (estimated survival shaped on the US BLS BED curve). Failure loses the capital.",
+"ほとんどのスタートアップは5年もちません（生存率は米国 BLS BED の曲線をもとにした推計）。失敗すれば資本を失います。",
+"대부분의 스타트업은 5년을 버티지 못합니다(생존율은 미국 BLS BED 곡선을 바탕으로 한 추정). 실패하면 자본을 잃습니다.",
 null
 ],
 "o_startup_stay": [
 "不了，維持現狀",
 "No, keep things as they are",
-null,
-null,
+"やめて、今のままにする",
+"아니, 지금 그대로 두기",
 null
 ],
 "ct_illicit": [
 "有人提供來路不明的差事",
 "Someone offers you shady work",
-null,
-null,
+"怪しい仕事を持ちかけられました",
+"수상한 일을 제안받았습니다",
 null
 ],
 "cb_illicit": [
 "失業又負債時，有人找上門。這類工作的被捕、受傷和入獄風險很高，平均收入其實比正當工作低（數字為推估）。",
-"Unemployed and in debt, you are approached. The risk of arrest, injury and prison is high and average pay is below legitimate work (numbers 推估).",
-null,
-null,
+"Unemployed and in debt, you are approached. The risk of arrest, injury and prison is high and average pay is below legitimate work (numbers estimated).",
+"失業して借金を抱えたあなたに声がかかりました。逮捕・負傷・服役のリスクは高く、平均収入はまっとうな仕事より低いです（数値は推計）。",
+"실직하고 빚을 진 당신에게 접근해 왔습니다. 체포·부상·수감 위험이 높고 평균 소득은 정상적인 일보다 낮습니다(수치는 추정).",
 null
 ],
 "o_illicit_refuse": [
 "拒絕",
 "Refuse",
-null,
-null,
+"断る",
+"거절하기",
 null
 ],
 "o_illicit_accept": [
 "答應",
 "Accept",
-null,
-null,
+"引き受ける",
+"받아들이기",
 null
 ],
 "ct_illicit_exit": [
 "要抽身離開嗎？",
 "Walk away?",
-null,
-null,
+"足を洗いますか？",
+"손을 뗄까요?",
 null
 ],
 "cb_illicit_exit": [
 "每一年你都可以選擇離開，回頭找正當工作。",
 "Every year you can choose to leave and look for legitimate work.",
-null,
-null,
+"毎年、抜け出してまっとうな仕事を探すことを選べます。",
+"매년 그만두고 정상적인 일을 찾는 것을 선택할 수 있습니다.",
 null
 ],
 "o_illicit_exit_leave": [
 "離開",
 "Leave",
-null,
-null,
+"抜ける",
+"그만두기",
 null
 ],
 "o_illicit_exit_stay": [
 "繼續",
 "Stay",
-null,
-null,
+"続ける",
+"계속하기",
 null
 ],
 "occEst": [
@@ -5038,8 +5045,8 @@ null
 "occSrc": [
 "職業資料：薪資倍數仍為設計推估（careers-draft，執行長核可）；入行機率的性別權重來自 ILOSTAT（CC BY 4.0）",
 "Occupation data: wage multipliers are still design estimates (careers-draft, approved); sex weights in entry odds come from ILOSTAT (CC BY 4.0)",
-null,
-null,
+"職業データ：賃金倍率はまだ設計上の推計です（careers-draft、承認済み）。就職確率の性別による重みは ILOSTAT（CC BY 4.0）に基づきます。",
+"직업 데이터: 임금 배수는 아직 설계상 추정입니다(careers-draft, 승인됨). 취업 확률의 성별 가중치는 ILOSTAT(CC BY 4.0)에 근거합니다.",
 null
 ],
 "f_job": [
@@ -5087,29 +5094,29 @@ null
 "occIloSrc": [
 "入行機率依性別加權，反映觀察到的資料：ILOSTAT 各國依性別與職業（ISCO 大類）的就業資料，{year} 年（CC BY 4.0，國際勞工組織；經本遊戲改寫）。只是機率權重，不會限制任何人選擇。",
 "Entry odds are weighted by sex to reflect observed data: ILOSTAT employment by sex and occupation (ISCO major groups), {year} (CC BY 4.0, International Labour Organization; adapted). A probability weight only — it never blocks a choice.",
-null,
-null,
+"就職確率は観測データを反映するため性別で重み付けしています：ILOSTAT 性別・職業別（ISCO 大分類）就業者数、{year}年（CC BY 4.0、国際労働機関、改変あり）。確率の重みにすぎず、選択を妨げることはありません。",
+"취업 확률은 관측 데이터를 반영해 성별로 가중합니다: ILOSTAT 성별·직업별(ISCO 대분류) 취업자 수, {year}년(CC BY 4.0, 국제노동기구, 수정함). 확률 가중치일 뿐 선택을 막지 않습니다.",
 null
 ],
 "occSexEst": [
 "入行機率的性別權重：此國沒有 ILOSTAT 資料，使用設計推估。",
 "Sex weight in entry odds: no ILOSTAT data for this country, design estimate used.",
-null,
-null,
+"就職確率の性別の重み：この国の ILOSTAT データがないため、設計上の推計を使っています。",
+"취업 확률의 성별 가중치: 이 나라의 ILOSTAT 데이터가 없어 설계상 추정을 씁니다.",
 null
 ],
 "eqModel": [
 "推估：美國與世界股價沒有可公開使用的指數資料，改用模型——股價水準跟著名目 GDP（美元，世界銀行 WDI，CC BY 4.0）走；年內最低點用隨機路徑估計。",
 "Estimate: no openly licensed index exists for US and world stocks, so a model is used — the price level follows nominal GDP in USD (World Bank WDI, CC BY 4.0); the intra-year low is simulated.",
-null,
-null,
+"推計：米国株と世界株にはオープンライセンスの指数がないため、モデルを使います。価格水準は米ドル建て名目GDP（世界銀行 WDI、CC BY 4.0）に連動し、年内の安値はシミュレーションです。",
+"추정: 미국 주식과 세계 주식에는 공개 라이선스 지수가 없어 모델을 씁니다. 가격 수준은 달러 기준 명목 GDP(세계은행 WDI, CC BY 4.0)를 따르며 연중 저점은 시뮬레이션입니다.",
 null
 ],
 "aboutL1": [
 "職業與制度資料：國際勞工組織 ILOSTAT（依性別×職業的就業、非正式就業率；CC BY 4.0，經本遊戲改寫，ILO 不為改寫背書）；OECD《Pensions at a Glance 2025》（只用 OECD 年金模型指標，CC BY 4.0；本改寫不代表 OECD 或其會員國的官方觀點）；UNESCO 統計研究所 UIS 高等教育毛入學率——此資料放在獨立檔案 data/sa/uis-tertiary.json，該檔以 CC BY-SA 4.0 授權（相同方式分享）。",
 "Occupation and institution data: International Labour Organization, ILOSTAT (employment by sex × occupation, informal employment rate; CC BY 4.0, adapted — the ILO does not endorse this adaptation); OECD, Pensions at a Glance 2025 (OECD pension-model indicators only, CC BY 4.0; this adaptation does not represent the official views of the OECD or its member countries); UNESCO Institute for Statistics (UIS) tertiary gross enrolment — kept in its own file data/sa/uis-tertiary.json, which is licensed CC BY-SA 4.0 (share-alike).",
-null,
-null,
+"職業・制度データ：国際労働機関 ILOSTAT（性別×職業別就業者数、インフォーマル就業率。CC BY 4.0、改変あり。ILO はこの改変を承認していません）、OECD「Pensions at a Glance 2025」（OECD 年金モデル指標のみ、CC BY 4.0。この改変は OECD または加盟国の公式見解を示すものではありません）、ユネスコ統計研究所（UIS）高等教育総就学率（data/sa/uis-tertiary.json に分けて収録し、CC BY-SA 4.0（継承）でライセンス）。",
+"직업·제도 데이터: 국제노동기구 ILOSTAT(성별×직업별 취업자 수, 비공식 고용률. CC BY 4.0, 수정함. ILO는 이 수정본을 보증하지 않습니다), OECD 「Pensions at a Glance 2025」(OECD 연금 모델 지표만, CC BY 4.0. 이 수정본은 OECD 또는 회원국의 공식 견해가 아닙니다), 유네스코 통계연구소(UIS) 고등교육 총취학률(data/sa/uis-tertiary.json에 따로 수록, CC BY-SA 4.0(동일조건변경허락) 라이선스).",
 null
 ],
 "f_service": [
@@ -5122,15 +5129,15 @@ null
 "csServing": [
 "服義務役中（役期 {months} 個月）",
 "In compulsory service ({months} months)",
-null,
-"복무 중 ({months}개월)",
+"兵役中（{months}か月）",
+"군 복무 중({months}개월)",
 null
 ],
 "csAltServing": [
 "服替代役中（役期 {months} 個月）",
 "In alternative service ({months} months)",
-null,
-"대체복무 중 ({months}개월)",
+"代替役務中（{months}か月）",
+"대체 복무 중({months}개월)",
 null
 ],
 "csEstNote": [
@@ -5151,14 +5158,14 @@ null
 "正職",
 "Regular staff",
 "正社員",
-null,
+"정규직",
 null
 ],
 "jpNonReg": [
 "非正職",
 "Non-regular",
 "非正規",
-null,
+"비정규직",
 null
 ],
 "aboutL2": [
