@@ -244,13 +244,13 @@ blockquote { margin: 12px 0 0; padding: 8px 14px; border-left: 3px solid var(--g
   .home-controls { grid-template-columns: 1fr; }
   .seg { display: flex; } .seg button { flex: 1 1 auto; }
   .cta-row .cta { width: 100%; }
-  .topbar { margin: -12px -12px 14px; padding: 6px 12px; min-height: 52px; }
+  .topbar { margin: -12px -12px 14px; padding: 6px 12px; min-height: 52px; flex-wrap: wrap; }
   .tb-mark, .tb-speeds, #skip-dec, .tb-prog { display: none; }
   .tb-compact { display: inline-flex; gap: 4px; align-items: center; }
   .tb-compact .pill { display: inline-flex; min-height: 44px; min-width: 44px; padding: 8px 12px; font-size: 14px; }
   .tb-age { font-size: 26px; }
   .tb-name { font-size: 12px; max-width: none; }
-  .topbar .tb-left { flex: 1 1 auto; gap: 8px; } .topbar .tb-right { flex: 0 0 auto; }
+  .topbar .tb-left { flex: 1 1 100%; gap: 8px; } .topbar .tb-right { flex: 1 1 100%; justify-content: flex-end; }
   .tb-who { flex: 1 1 auto; min-width: 7em; } .tb-meta { flex: 0 1 auto; min-width: 0; overflow: hidden; }
   .play { grid-template-columns: 1fr; }
   /* 0b: ID card + status first on phones, then the log, then family/map */
