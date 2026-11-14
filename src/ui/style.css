@@ -380,3 +380,11 @@ dialog.spend details { margin-top: 10px; } dialog.spend summary { cursor: pointe
 /* v0.9.0 update prompt: top-left under the top bar (toasts are top-right); full width under the top bar at 390, never over decision buttons */
 .update-bar { position: fixed; left: 16px; top: 76px; z-index: 60; display: flex; align-items: center; gap: 8px; background: var(--card); color: var(--ink); border: 1px solid var(--rule); border-left: 4px solid var(--gold); border-radius: 4px; padding: 8px 10px 8px 12px; font-size: 14px; box-shadow: 0 6px 20px rgba(0,0,0,.14); max-width: calc(100vw - 32px); }
 @media (max-width: 440px) { .update-bar { top: 64px; bottom: auto; left: 12px; right: 12px; } }
+/* v0.13.0 compare card on the death record */
+.compare h2 { margin-top: 0; }
+.compare label { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.compare select { max-width: 100%; min-height: 44px; }
+.cmp-table { width: 100%; border-collapse: collapse; font-size: .9rem; table-layout: fixed; }
+.cmp-table th, .cmp-table td { padding: .3rem .25rem; text-align: right; overflow-wrap: anywhere; }
+.cmp-table th:first-child, .cmp-table td:first-child { text-align: left; width: 42%; }
+.cmp-table td { font-variant-numeric: tabular-nums; } .cmp-table tr + tr td, .cmp-table thead + tbody td { border-top: 1px solid var(--rule); }

@@ -3138,6 +3138,76 @@ null
 "당신이 태어난 곳의 기대수명은 {e0}세였고, 당신은 {diff}.",
 null
 ],
+"cmpTitle": [
+"如果你出生在別處",
+"If you had been born elsewhere",
+"もし別の国で生まれていたら",
+"다른 나라에서 태어났다면",
+null
+],
+"cmpPick": [
+"比較的國家",
+"Compare with",
+"比べる国",
+"비교할 나라",
+null
+],
+"cmpE0": [
+"出生時平均餘命",
+"Life expectancy at birth",
+"出生時の平均余命",
+"출생 시 기대수명",
+null
+],
+"cmpQ5": [
+"五歲前死亡（每千人）",
+"Deaths before age 5 (per 1,000)",
+"5歳未満の死亡（千人あたり）",
+"5세 미만 사망(1,000명당)",
+null
+],
+"cmpGdp": [
+"人均 GDP（購買力平價）",
+"GDP per person (PPP)",
+"1人あたりGDP（購買力平価）",
+"1인당 GDP(구매력평가)",
+null
+],
+"cmpMore": [
+"同一年（{year}）出生在{country}，平均可多活 {n} 年。",
+"Born in {country} the same year ({year}), you could expect {n} more years.",
+"同じ年（{year}）に{country}で生まれていれば、平均で {n} 年長く生きられました。",
+"같은 해({year}) {country}에서 태어났다면 평균 {n}년 더 살 수 있었습니다.",
+null
+],
+"cmpLess": [
+"同一年（{year}）出生在{country}，平均會少活 {n} 年。",
+"Born in {country} the same year ({year}), you could expect {n} fewer years.",
+"同じ年（{year}）に{country}で生まれていれば、平均で {n} 年短くなりました。",
+"같은 해({year}) {country}에서 태어났다면 평균 {n}년 덜 살았을 것입니다.",
+null
+],
+"cmpEqual": [
+"同一年（{year}）出生在{country}，平均餘命差不多。",
+"Born in {country} the same year ({year}), life expectancy was about the same.",
+"同じ年（{year}）に{country}で生まれても、平均余命はほぼ同じでした。",
+"같은 해({year}) {country}에서 태어났어도 기대수명은 비슷했습니다.",
+null
+],
+"cmpSame": [
+"你就出生在{country}。換一個國家看看差多少。",
+"You were born in {country}. Pick another country to see the gap.",
+"あなたは{country}で生まれました。別の国を選ぶと差がわかります。",
+"당신은 {country}에서 태어났습니다. 다른 나라를 골라 차이를 보세요.",
+null
+],
+"cmpSrc": [
+"出生年的全國平均。資料：聯合國《世界人口展望 2024》、世界銀行 WDI。",
+"National averages for the birth year. Data: UN World Population Prospects 2024, World Bank WDI.",
+"出生年の全国平均。データ：国連『世界人口推計2024』、世界銀行 WDI。",
+"출생 연도의 국가 평균. 자료: 유엔 세계인구전망 2024, 세계은행 WDI.",
+null
+],
 "ctxMore": [
 "多活了 {n} 年",
 "lived {n} years longer",

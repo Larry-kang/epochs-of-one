@@ -44,6 +44,7 @@ import { parseTheme, nextTheme } from './logic/theme.ts';
 import { journalKey, parseJournal, setEntry, entries } from './logic/journal.ts';
 import { milestonesIn } from './logic/milestones.ts';
 import { playCue, setSfx, sfxOn } from './sfx.ts';
+import { compareRows, e0Diff, DEFAULT_MY_COUNTRY, type CompareRow } from './logic/compare.ts';
 
 interface Run { s: LifeState; cfg: LifeConfig; paceMin: 30 | 60 | 90; speed: Speed; paused: boolean; acc: number; yearSec: number; raf: number; last: number; skipping: boolean }
 let run: Run | null = null;
@@ -1116,6 +1117,11 @@ function death(withEnding = false, reopened = false, rec?: PastRecord): void {
     family: s.family.spouse ? (s.family.children.length ? t('ds_family_kids', { spouse: pn(s.family.spouse.name), n: s.family.children.length }) : t('ds_family_spouse', { spouse: pn(s.family.spouse.name) })) : '' });
   const longer = 1 - rk.lifespan;
   const countries = [...new Set([s.born.iso, s.cur])].map(nameOf).join('、');
+  // v0.13.0: "compare with my country" card — remembered choice, else the UI language's default
+  const hasIso = (iso: string) => index.countries.some((c) => c.iso === iso);
+  const myCountry = (): string => { const v = pref.get('epochs.mycountry.v1'); if (v && hasIso(v)) return v; const d = DEFAULT_MY_COUNTRY[getLang()]; return hasIso(d) ? d : 'USA'; };
+  let myIso = myCountry();
+  const cmpOptions = [...index.countries].map((c) => ({ iso: c.iso, n: nameOf(c.iso) })).sort((a, b) => a.n.localeCompare(b.n, locale())).map((c) => `<option value="${c.iso}" ${c.iso === myIso ? 'selected' : ''}>${esc(c.n)}</option>`).join('');
   view(`<div class="death-page">
 <div class="dp-top"><button class="ghost" id="home-top">${esc(t('homeBack'))}</button></div>
 <h1 tabindex="-1" class="sr-only">${esc(t('deathPage'))}</h1>
@@ -1142,6 +1148,7 @@ function death(withEnding = false, reopened = false, rec?: PastRecord): void {
   </div>
 </article>
 <div class="dp-actions"><button class="ghost" id="share-open">${esc(t('shareOpen'))}</button><button class="ghost" id="replay-end">${esc(t('endReplay'))}</button></div>
+<section class="card compare" id="compare" aria-live="polite"><h2 class="serif">${esc(t('cmpTitle'))}</h2><label class="small">${esc(t('cmpPick'))} <select id="cmp-country">${cmpOptions}</select></label><div id="cmp-body"></div><p class="muted small">${esc(t('cmpSrc'))}</p></section>
 ${epilogueHtml(s)}
 <section class="card after">
 <h2 class="serif">${esc(t('deathTitle'))}</h2>
@@ -1168,6 +1175,27 @@ ${lineChart(s.years.map((y) => y.income), { label: t('chartIncome'), color: '#B8
 <div class="row end-row"><button class="cta" id="again">${esc(t('again'))} <span aria-hidden="true">→</span></button><button class="ghost" id="home">${esc(t('home'))}</button></div>
 <div class="sticky-foot"><button class="ghost" id="share-foot">${esc(t('shareOpen'))}</button><button class="cta" id="again-foot">${esc(t('again'))}</button></div>
 </div>`);
+  // v0.13.0: fill the compare card (WPP data loads in the background; '—' until then)
+  const drawCompare = (): void => {
+    const w = wppLoaded();
+    if (!w) void loadWpp().then(drawCompare).catch(() => { /* offline without the WPP file: keep '—' */ });
+    const rows = compareRows(index, w, s.born.iso, myIso, s.born.year);
+    const myName = nameOf(myIso);
+    const labelOf = (k: CompareRow['key']) => t((k === 'e0' ? 'cmpE0' : k === 'q5' ? 'cmpQ5' : 'cmpGdp') as 'cmpE0');
+    const val = (v: number | null, k: CompareRow['key']): string =>
+      v === null ? '—' : k === 'e0' ? t('years', { n: v.toFixed(1) }) : k === 'q5' ? String(Math.round(v)) : moneyUsd(v);
+    const rowHtml = (r: CompareRow): string => `<tr><td>${esc(labelOf(r.key))}</td><td>${esc(val(r.born, r.key))}</td><td>${esc(val(r.mine, r.key))}</td></tr>`;
+    const diff = e0Diff(rows);
+    const line = diff === null ? '' : s.born.iso === myIso ? t('cmpSame', { country: myName })
+      : diff > 0 ? t('cmpMore', { country: myName, year: s.born.year, n: diff.toFixed(1) })
+      : diff < 0 ? t('cmpLess', { country: myName, year: s.born.year, n: (-diff).toFixed(1) })
+      : t('cmpEqual', { country: myName, year: s.born.year });
+    const body = root.querySelector('#cmp-body') as HTMLElement | null;
+    if (body) body.innerHTML = `<p id="cmp-line">${esc(line)}</p><table class="cmp-table"><thead><tr><th></th><th>${esc(nameOf(s.born.iso))}</th><th>${esc(myName)}</th></tr></thead><tbody>${rows.map(rowHtml).join('')}</tbody></table>`;
+  };
+  const cmpSel = root.querySelector('#cmp-country') as HTMLSelectElement | null;
+  cmpSel?.addEventListener('change', () => { pref.set('epochs.mycountry.v1', cmpSel.value); myIso = cmpSel.value; drawCompare(); });
+  drawCompare();
   const card: ShareCard = { app: APP.title, title: t('deathRecTitle'), name: pn(s.name.full), span: `${s.born.year}–${d.year} · ${t('years', { n: d.age })}`, country, cause, e0,
     facts: [t('shareFact1', { v: money(me.lifetimeIncome) }), hap ? t('shareFact2', { age: hap.age }) : edu, t('shareFact3', { p: pctText(rk.lifespan) })], map: s.years.map((y) => y.stats.happy),
     text: t('shareTextT', { name: pn(s.name.full), born: s.born.year, died: d.year, country, age: d.age, cause, app: APP.title }) };
