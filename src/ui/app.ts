@@ -5,6 +5,7 @@ import { APP, NOW_YEAR, ENGINE_VERSION, APP_VERSION, BTC_FUTURE_DAMPENED } from 
 import { loadIndex, preloadDemography, bundle, loadFinance, loadWpp, wppLoaded } from './data.ts';
 import { wppAt } from '../engine/life/fertility.ts';
 import { t, tMaybe, compact, locale, LANGS, LANG_NAMES, getLang, setLang, type Lang, eventText, esc, contentLangAttr, contentTranslated, countryName, money, moneyUsd, setMoneyCountry, pctText } from './i18n.ts';
+import { lifeMapTitle } from './lifemap-title.ts';
 import { lineChart } from './charts.ts';
 import { drawBirth, newLife, advanceYear, applyAction, decisionQuote, tableFor, pendingOffers, MORTGAGE_TERMS, type LifeConfig } from '../engine/life/sim.ts';
 import { migrateSaveCfg, migrateSaveCfgL2, occById, occName, iloCell } from '../engine/life/occupation.ts';
@@ -782,11 +783,11 @@ function renderFamily(): void {
 }
 function lifeMapHtml(s: LifeState, e0: number): string {
   const n = Math.max(Math.ceil(e0) + 1, s.years.length + 1, 60);
-  const keyLine = (age: number) => { const e = s.events.find((x) => x.age === age); return e ? eventText(e.id, {}).replace(/\{\w+\}/g, '…') : ''; };
+  const keyLine = (age: number) => { const e = s.events.find((x) => x.age === age); return e ? evLine(e) : ''; };
   return Array.from({ length: Math.min(n, 120) }, (_, i) => {
     const y = s.years[i];
     const cls = `cell${y ? ' on' : ''}${i === Math.round(e0) ? ' e0' : ''}`;
-    return `<span class="${cls}" ${y ? `style="opacity:${(0.25 + 0.75 * y.stats.happy / 100).toFixed(2)}" title="${esc(t('years', { n: i }))} ${esc(keyLine(i))}"` : ''}></span>`;
+    return `<span class="${cls}" ${y ? `style="opacity:${(0.25 + 0.75 * y.stats.happy / 100).toFixed(2)}" title="${lifeMapTitle(i, keyLine(i))}"` : ''}></span>`;
   }).join('');
 }
 function renderMap(): void {
