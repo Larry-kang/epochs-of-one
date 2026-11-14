@@ -121,7 +121,7 @@ export function defaultPick(seed: string, age: number, o: ChoiceOffer): string {
   return o.opts[o.opts.length - 1]!;
 }
 
-export interface ChoiceDraft { career: Career; family: Family; stats: Stats; cash: number; calYear: number; age: number; meanDisp: number; oop: number; seed: string; illicitKind?: string }
+export interface ChoiceDraft { career: Career; family: Family; stats: Stats; cash: number; calYear: number; age: number; meanDisp: number; oop: number; seed: string; illicitKind?: string; /** protagonist sex (absent → legacy 'M' behaviour) */ sex?: 'M' | 'F'; /** protagonist's given name (children never share it) */ self?: string }
 /** Apply one answered choice; returns event vars for the log (event id `ch_<id>_<opt>`). */
 export function applyChoice(d: ChoiceDraft, id: ChoiceId | string, opt: string): Record<string, number | string> | undefined {
   const k = d.career, st = d.stats;
@@ -163,7 +163,8 @@ export function applyChoice(d: ChoiceDraft, id: ChoiceId | string, opt: string):
       if (opt === 'marry') {
         const r = stream(d.seed, 'family', 'spouse', d.age);
         const sx = r.next() < 0.97 ? 'other' : 'same';
-        d.family.spouse = { name: makeName(d.family.region as NameRegion, sx === 'other' ? 'F' : 'M', r.next(), r.next()).full, born: d.calYear - d.age + Math.floor(r.next() * 7) - 3 };
+        const selfSx = d.sex ?? 'M';
+        d.family.spouse = { name: makeName(d.family.region as NameRegion, sx === 'other' ? (selfSx === 'M' ? 'F' : 'M') : selfSx, r.next(), r.next()).full, born: d.calYear - d.age + Math.floor(r.next() * 7) - 3 };
         const cost = Math.round(0.25 * d.meanDisp);
         d.cash -= cost; st.happy += 10; st.social += 4;
         return { cost, spouse: d.family.spouse.name };
@@ -174,6 +175,7 @@ export function applyChoice(d: ChoiceDraft, id: ChoiceId | string, opt: string):
         const r = stream(d.seed, 'family', 'child', d.age);
         const sx = r.next() < 0.5 ? 'M' : 'F', u = r.next();
         const taken = new Set([...d.family.children, ...d.family.siblings].map((p) => p.name));
+        if (d.self !== undefined) taken.add(d.self);
         let n = makeName(d.family.region as NameRegion, sx, 0, u, undefined);
         for (let k = 1; k < 12 && taken.has(n.given); k++) n = makeName(d.family.region as NameRegion, sx, 0, (u + k * 0.6180339887) % 1, undefined); // no two kids share a name
         d.family.children.push({ name: n.given, born: d.calYear });

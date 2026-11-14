@@ -169,7 +169,7 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
   for (const o of offersAt({ s, c, calYear, meanIncome: d.mean, tfr: cohortTfr(data.wpp, s.born.iso, s.born.year), ...(fx0 ? { focus: fx0 } : {}) })) {
     const rec = s.actions.find((x) => x.t === 'choice' && x.age === age && x.id === o.id);
     const opt = rec && rec.t === 'choice' && o.opts.includes(rec.opt) ? rec.opt : defaultPick(s.seed, age, o);
-    const draft = { career, family, stats, cash, calYear, age, meanDisp, oop, seed: s.seed, ...(o.vars?.occ ? { illicitKind: String(o.vars.occ) } : {}) };
+    const draft = { career, family, stats, cash, calYear, age, meanDisp, oop, seed: s.seed, sex: s.born.sex, self: s.name.given, ...(o.vars?.occ ? { illicitKind: String(o.vars.occ) } : {}) };
     const vars = applyChoice(draft, o.id, opt);
     cash = draft.cash;
     if (o.id === 'career' && occById(opt)) { flags.occIg = incomeGroup(seriesAt(c.series.gdpPcPpp, calYear).v); emit('oc_enter', vars); }
