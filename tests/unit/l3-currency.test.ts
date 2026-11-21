@@ -9,16 +9,16 @@ describe('L3 currency display', () => {
     expect(cur.source).toBe('wdi'); expect(cur.indicator).toBe('PA.NUS.PPP'); expect(cur.year).toBe(2021); expect(cur.licence).toBe('CC BY 4.0');
     const r = cur.rates as Record<string, { c: string; r: number }>;
     expect(r.USA).toEqual({ c: 'USD', r: 1 }); expect(r.JPN!.c).toBe('JPY'); expect(r.KOR!.c).toBe('KRW'); expect(r.DEU!.c).toBe('EUR');
-    expect(r.TWN).toBeUndefined(); // Taiwan is not in WDI → labelled US$
+    expect(r.TWN!.c).toBe('TWD'); // v0.18.0: Taiwan is not in WDI → World Bank ICP 2021 supplement (dec2-twd.test.ts)
     for (const v of Object.values(r)) expect(v.r).toBeGreaterThan(0);
   });
-  it('labels US$, converts JP ¥ and KR ₩, falls back to US$ for Taiwan', () => {
+  it('labels US$, converts JP ¥ and KR ₩, falls back to US$ for countries without a factor', () => {
     setLang('en');
     setMoneyCountry('USA'); expect(money(1234)).toBe('US$1,234'); expect(money(-5)).toBe('−US$5');
     setMoneyCountry('JPN'); expect(money(1000)).toMatch(/^¥\d{2,3},\d{3}$/);
     expect(money(1000)).toBe(`¥${Math.round(1000 * currencyOf('JPN').rate).toLocaleString('en-US')}`);
     setMoneyCountry('KOR'); expect(money(1000)).toMatch(/^₩\d{3},\d{3}$/);
-    setMoneyCountry('TWN'); expect(money(1000)).toBe('US$1,000');
+    setMoneyCountry('VEN'); expect(money(1000)).toBe('US$1,000');
     expect(money(1000, 'JPN')).toMatch(/^¥/); expect(moneyUsd(1000)).toBe('US$1,000');
   });
   it('never touches the engine amount (pure formatting)', () => {

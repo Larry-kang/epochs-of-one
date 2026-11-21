@@ -1,0 +1,16 @@
+{
+ "note": "Display factors for countries missing from WDI PA.NUS.PPP. Same concept (GDP PPP, LCU per international $, 2021) taken from the World Bank ICP 2021 source the WDI factors come from.",
+ "rates": [
+  {
+   "iso": "TWN",
+   "c": "TWD",
+   "r": 14.3962,
+   "source": "World Bank, ICP 2021 (International Comparison Program) — GDP, Purchasing power parity (PPP) (US$ = 1), Taiwan, China, 2021 (value 14.3962383270264)",
+   "url": "https://api.worldbank.org/v2/sources/90/country/TWN/series/1000000/classification/PPPGlob/time/YR2021?format=json",
+   "catalog": "https://datacatalog.worldbank.org/search/dataset/0066092/international-comparison-program-2021",
+   "licence": "CC BY 4.0",
+   "retrieved": "2026-11-21",
+   "crossCheck": "Central Bank of the ROC (Taiwan), interbank NTD/USD closing rate, 2021 annual average 28.022 (data.gov.tw dataset 7232, Open Government Data License v1.0, retrieved 2026-11-21) → implied price level 0.51 of the US; not used for conversion (market rate, not PPP)"
+  }
+ ]
+}
