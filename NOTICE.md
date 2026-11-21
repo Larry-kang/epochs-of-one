@@ -26,3 +26,7 @@ BTC：依 2026-10-16 使用者決定重新啟用（`FEATURES.btc = true`），�
 股市（v0.10.0）：沒有可公開授權的美國或世界股價指數（OECD 股價的指數屬第三方指數公司；WDI CM.MKT.INDX.ZG 為 S&P 資料），因此**美國與世界股價改用推估模型**：股價水準跟著名目 GDP（美元，WDI NY.GDP.MKTP.CD，CC BY 4.0）走，年內最低點用隨機路徑估計；遊戲中標示「推估」。台股仍用自行整理的 TAIEX 年收盤價；其他國家的本國股市以世界指數代理（推估）。
 
 M5：房價變動取自 OECD Analytical House Price Database（實質指數 RHP）；退休年齡與所得替代率取自 OECD *Pensions at a Glance 2024*（DF_PAG：CRPLF22、GPRR100），皆依 OECD 條款署名。信貸規則為各國主管機關公開規定的人工整理（數值規則，不複製任何資料庫），出處列於。
+
+**第三方程式庫（v0.21.0 起，隨網站一起發布）：** `uqr` 0.1.3（https://github.com/unjs/uqr ），MIT License，Copyright (c) Project Nayuki 與 unjs 貢獻者；用於在瀏覽器內產生分享卡上的 QR code，沒有網路呼叫。
+
+**今日主題的避開清單（v0.20.0）：** `src/content/daily-crises.json` 為自編事實清單（年份與國家），逐筆對照英文 Wikipedia 條目（2026-11-21 查核）；只取事實，不複製條目文字。
