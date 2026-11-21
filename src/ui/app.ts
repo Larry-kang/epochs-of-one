@@ -20,7 +20,7 @@ import { LAST_DATA_YEAR, type PriceAsset } from '../engine/finance/returns.ts';
 import { investedValue } from '../engine/finance/portfolio.ts';
 import { lifeExpectancy } from '../engine/demography/lifeTable.ts';
 import { contentEvents } from '../engine/content/registry.ts';
-import { ITEMS, itemById, itemState, lifestyleAt, LIFESTYLE, ROUTINES, spendOpen, situationSort, sellState, owned, heavyDebt, parentOld, autoHabits, bondOf, type Item } from '../engine/life/spend.ts';
+import { ITEMS, itemById, itemState, lifestyleAt, LIFESTYLE, ROUTINES, spendOpen, situationSort, sellState, owned, heavyDebt, parentOld, autoHabits, bondOf, showInvestPrompt, type Item } from '../engine/life/spend.ts';
 import { sameSecondConfigs, sameSecond, statusAt } from '../engine/life/sameSecond.ts';
 import { startMusic, stopMusic, musicOn } from './music.ts';
 import { focusStage, chipsFor, activeAlloc, mapToStage, focusEffects, autoAlloc, single, type Stage } from '../engine/life/focus.ts';
@@ -45,6 +45,7 @@ import { journalKey, parseJournal, setEntry, entries } from './logic/journal.ts'
 import { milestonesIn } from './logic/milestones.ts';
 import { playCue, setSfx, sfxOn } from './sfx.ts';
 import { compareRows, e0Diff, DEFAULT_MY_COUNTRY, type CompareRow } from './logic/compare.ts';
+import { enCountry, enEdu } from './logic/story-grammar.ts';
 
 interface Run { s: LifeState; cfg: LifeConfig; paceMin: 30 | 60 | 90; speed: Speed; paused: boolean; acc: number; yearSec: number; raf: number; last: number; skipping: boolean }
 let run: Run | null = null;
@@ -664,7 +665,7 @@ function spendSheet(tab0: 'spend' | 'fin' | 'habits' = 'spend'): void {
     const habits = auto ? autoHabits(s) : [];
     const tabs = open ? `<div class="tabs seg" role="tablist">${(['spend', 'fin', 'habits'] as const).map((k) => `<button role="tab" data-tab="${k}" aria-selected="${tab === k}">${esc(t(k === 'spend' ? 'tabSpend' : k === 'fin' ? 'tabFinance' : 'tabHabits'))}</button>`).join('')}</div>` : '';
     const hint = heavyDebt(bundle(), s) ? t('spendHintDebt') : parentOld(s) && sorted[0] === 'allowance' ? t('spendHintOld') : '';
-    const invRow = open && bundle().markets && !Object.keys(s.portfolio.target).length
+    const invRow = open && showInvestPrompt(s, !!bundle().markets)
       ? `<div class="spend-invest card-lite"><div><b>${esc(t('spendInvestRow'))}</b><p class="muted small">${esc(t('spendInvestHint'))}</p></div><button class="small primary" data-fin="invest" id="spend-invest">${esc(t('investBtn'))}</button></div>` : '';
     const body = tab === 'spend' ? `${hint ? `<p class="spend-hint small">${esc(hint)}</p>` : ''}${invRow}<h3>${esc(t('spendNow'))}</h3><ul class="items" id="spend-list">${[...shown, ...houseRow].map(row).join('')}</ul>
         <details${more ? ' open' : ''} id="spend-more"><summary>${esc(t('spendMore', { n: sorted.length - shown.length + rest.length }))}</summary><ul class="items">${[...sorted.slice(8), ...rest].map(row).join('')}</ul></details>`
@@ -1107,13 +1108,15 @@ function death(withEnding = false, reopened = false, rec?: PastRecord): void {
   const hapEv = hap?.eventId ? s.events.find((e) => e.age === hap.age && e.id === hap.eventId) ?? { id: hap.eventId } : undefined;
   const hapLine = hapEv ? evLine(hapEv).replace(/\{\w+\}/g, '').replace(/[（(]\s*[）)]/g, '') : '';
   const country = nameOf(s.born.iso);
+  const en = getLang() === 'en';
   const cause = t(('dc_' + end.cause) as 'dc_heart');
   const e0 = lifeExpectancy(tableFor(bundle(), { ...s, age: 0 }));
   const diff = Math.round(d.age - e0);
   const edu = t(('edu_' + s.career.plan) as 'edu_none');
+  const eduLine = s.career.plan === 'none' ? t('ds_edu_none') : t('ds_edu', { edu: en ? enEdu(s.career.plan, edu) : edu });
   const track = s.career.occ && occById(s.career.occ) ? occN(s.career.occ) : s.career.trackSet ? t(('track_' + s.career.track) as 'track_private') : '';
-  const story = t('deathStory', { name: pn(s.name.full), year: s.born.year, country, age: d.age,
-    edu: adult ? t('ds_edu', { edu }) : '', work: adult && track ? t('ds_work', { track }) : '',
+  const story = t('deathStory', { name: pn(s.name.full), year: s.born.year, country: en ? enCountry(country) : country, age: d.age,
+    edu: adult ? eduLine : '', work: adult && track ? t('ds_work', { track }) : '',
     family: s.family.spouse ? (s.family.children.length ? t('ds_family_kids', { spouse: pn(s.family.spouse.name), n: s.family.children.length }) : t('ds_family_spouse', { spouse: pn(s.family.spouse.name) })) : '' });
   const longer = 1 - rk.lifespan;
   const countries = [...new Set([s.born.iso, s.cur])].map(nameOf).join('、');

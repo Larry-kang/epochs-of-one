@@ -3103,9 +3103,16 @@ null
 "{edu}까지 공부했습니다. ",
 null
 ],
+"ds_edu_none": [
+"沒有受過正式教育。",
+"Never went to school. ",
+"正式な教育は受けませんでした。",
+"정규 교육은 받지 못했습니다. ",
+null
+],
 "ds_work": [
 "工作是{track}。",
-"Worked in: {track}. ",
+"Work: {track}. ",
 "仕事は{track}でした。",
 "직업: {track}. ",
 null

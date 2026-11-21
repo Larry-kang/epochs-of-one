@@ -133,6 +133,10 @@ export function sell(data: DataBundle, s: LifeState, id: string): { cash: number
 export function parentOld(s: LifeState): boolean {
   const y = s.born.year + s.age; return s.family.parentsAlive && (y - s.family.mother.born >= 70 || y - s.family.father.born >= 70);
 }
+/** v0.13.1: the "invest your savings" row only makes sense with positive savings, markets, and no target yet */
+export function showInvestPrompt(s: { econ: { cash: number }; portfolio: { target: Record<string, number> } }, hasMarkets: boolean): boolean {
+  return hasMarkets && !Object.keys(s.portfolio.target).length && s.econ.cash > 0;
+}
 export function heavyDebt(data: DataBundle, s: LifeState): boolean {
   const loans = s.loans.reduce((a, l) => a + Math.max(0, Number((l as unknown as { balance?: number }).balance ?? 0)), 0);
   return Math.max(0, -s.econ.cash) + loans > 2 * Math.max(s.econ.incomeReal, 0.5 * priceUnit(data, s));
