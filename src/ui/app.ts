@@ -28,7 +28,7 @@ import { companions, ranks, summarize } from '../engine/life/companions.ts';
 import { seedFromBytes, SEED_RE } from '../engine/rng/streams.ts';
 import { PARAMS } from '../engine/params.ts';
 import { loadSave, writeSave, clearSave, pastLives, addPastLife, storageAvailable, type PastLife, type PastRecord } from '../storage/save.ts';
-import type { CountryIndex } from '../engine/data/types.ts';
+import type { CountryIndex, CountryRec } from '../engine/data/types.ts';
 import { birthShares, allShares, sharePct } from './logic/odds.ts';
 import { ERA_CHOICES, resolveEra, oddsRange, type EraChoice } from './logic/era.ts';
 import { rollIntervals, rollSequence } from './logic/roll.ts';
@@ -117,7 +117,7 @@ function intro(): void {
 </section>
 <details class="advanced"><summary>${esc(t('advanced'))}</summary>
   <form id="f" novalidate>
-  <label class="block">${esc(t('countryPick'))} <select name="country" id="country"><option value="">${esc(t('countryRandom'))}</option>${[...index.countries].map((c) => ({ iso: c.iso, n: nameOf(c.iso) })).sort((a, b) => a.n.localeCompare(b.n, locale())).map((c) => `<option value="${c.iso}">${esc(c.n)}</option>`).join('')}</select></label>
+  <label class="block">${esc(t('countryPick'))} <select name="country" id="country"><option value="">${esc(t('countryRandom'))}</option><option value="@pop">${esc(t('countryRandomPop'))}</option>${[...index.countries].map((c) => ({ iso: c.iso, n: nameOf(c.iso) })).sort((a, b) => a.n.localeCompare(b.n, locale())).map((c) => `<option value="${c.iso}">${esc(c.n)}</option>`).join('')}</select></label>
   <p class="muted small">${esc(t('countryNote'))}</p>
   <label class="block">${esc(t('seed'))} <input name="seed" maxlength="64" autocomplete="off" placeholder="${esc(t('seedHint'))}"></label>
   </form>
@@ -150,6 +150,7 @@ ${!contentTranslated() ? `<p class="muted small content-note">${esc(t('contentNo
     root.querySelectorAll('[data-pace]').forEach((x) => x.setAttribute('aria-checked', String(x === b)));
   }));
   (root.querySelector('#year') as HTMLSelectElement).addEventListener('change', (e) => { const v = (e.target as HTMLSelectElement).value; home.year = v === 'random' ? 'random' : Number(v); renderOdds(); });
+  root.querySelector('#country')?.addEventListener('change', renderOdds);
   on('#go', submitHome);
   on('#cont', () => { if (save) void resume(save); });
   on('#about', about);
@@ -158,22 +159,29 @@ ${!contentTranslated() ? `<p class="muted small content-note">${esc(t('contentNo
   root.querySelectorAll<HTMLButtonElement>('.past-open').forEach((b) => b.addEventListener('click', () => { const l = lives[Number(b.dataset.i)]; if (l) void reopen(l); }));
 }
 
+// v0.18.0 (item 4): "@pop" in the country picker = random birthplace weighted by mid-year population (WPP 2024)
+const POP = '@pop';
+const homeByPop = (): boolean => (root.querySelector('#country') as HTMLSelectElement | null)?.value === POP;
+const popWeight = (c: CountryRec, y: number): number => { const w = wppLoaded(); const v = w?.pop?.[c.iso]; return v && w ? v[Math.min(Math.max(y - w.from, 0), v.length - 1)]! : 0; };
+const weightFor = (pop: boolean) => (pop ? popWeight : undefined);
 function renderOdds(): void {
   const box = root.querySelector('#odds') as HTMLElement | null; if (!box) return;
   const [from, to] = oddsRange(home.era, home.year, NOW_YEAR, index.birthYears);
-  const o = birthShares(index, from, to);
+  const pop = homeByPop();
+  if (pop && !wppLoaded()) { void loadWpp().then(renderOdds); return; }
+  const o = birthShares(index, from, to, 9, weightFor(pop));
   const lead = o.rows[0]?.share ?? 1;
   const title = home.era === 'now' ? t('oddsTitleNow') : from === to ? t('oddsTitleYear', { year: from }) : t('oddsTitleRange', { from, to });
   box.innerHTML = `<h2 class="serif">${esc(title)}</h2>
-  <p class="mono cap">${esc(t(from > NOW_YEAR ? 'oddsCaptionFuture' : 'oddsCaption', { total: fmtThousands(o.total) }))}</p>
+  <p class="mono cap">${esc(t(pop ? 'oddsCaptionPop' : from > NOW_YEAR ? 'oddsCaptionFuture' : 'oddsCaption', { total: fmtThousands(o.total) }))}</p>
   <ol class="bars">${o.rows.map((r) => `<li><span class="nm">${esc(nameOf(r.iso))}</span><span class="bar"><i style="width:${((r.share / lead) * 100).toFixed(1)}%"></i></span><span class="mono pc">${sharePct(r.share)}</span></li>`).join('')}
   <li class="other"><span class="nm">${esc(t('oddsOther', { n: o.otherN }))}</span><span class="bar"><i style="width:100%"></i></span><span class="mono pc">${sharePct(o.otherShare)}</span></li></ol>
   <button class="ghost small" id="odds-all">${esc(t('oddsAll', { n: o.rows.length + o.otherN }))}</button>`;
-  on('#odds-all', () => oddsTable(from, to));
+  on('#odds-all', () => oddsTable(from, to, pop));
 }
 
-function oddsTable(from: number, to: number): void {
-  const rows = allShares(index, from, to).map((r) => ({ ...r, gdp: seriesAt(index.countries.find((c) => c.iso === r.iso)!.series.gdpPcPpp, Math.min(to, NOW_YEAR)).v, n: nameOf(r.iso) }));
+function oddsTable(from: number, to: number, pop = false): void {
+  const rows = allShares(index, from, to, weightFor(pop)).map((r) => ({ ...r, gdp: seriesAt(index.countries.find((c) => c.iso === r.iso)!.series.gdpPcPpp, Math.min(to, NOW_YEAR)).v, n: nameOf(r.iso) }));
   const mid = Math.round((from + to) / 2);
   const ext = (iso: (typeof rows)[number]['iso']) => ({ e0: wppAt(wppLoaded(), 'e0', iso, mid) ?? -1, q5: wppAt(wppLoaded(), 'q5', iso, mid) ?? -1 });
   const dlg = document.createElement('dialog'); dlg.className = 'sheet'; dlg.id = 'odds-table';
@@ -206,9 +214,10 @@ function submitHome(): void {
   if (errs.length) { (root.querySelector('.advanced') as HTMLDetailsElement).open = true; return; }
   if (!seed) seed = seedFromBytes(crypto.getRandomValues(new Uint8Array(10)));
   const era = resolveEra(home.era, home.year, crypto.getRandomValues(new Uint32Array(1))[0]! / 2 ** 32);
-  const iso = String(fd.get('country') ?? '');
+  const pick = String(fd.get('country') ?? '');
+  const byPop = pick === POP; const iso = byPop ? '' : pick;
   const constraints = iso ? { country: { kind: 'fixed' as const, value: iso }, sex: { kind: 'random' as const }, quintile: { kind: 'random' as const }, urban: { kind: 'random' as const } } : undefined;
-  void birth({ seed, era, nowYear: NOW_YEAR, engineVersion: ENGINE_VERSION, occ: true, l2: true, ...(constraints ? { constraints } : {}) }, home.pace, true);
+  void birth({ seed, era, nowYear: NOW_YEAR, engineVersion: ENGINE_VERSION, occ: true, l2: true, ...(constraints ? { constraints } : {}), ...(byPop ? { by: 'pop' as const } : {}) }, home.pace, true);
 }
 
 // v0.16.0 (item 3): one-time content notice + official help lines (sources checked 2026-11-21, see logic/help.ts)
@@ -251,12 +260,12 @@ ${BTC_FUTURE_DAMPENED ? `<p id="btc-future-about">${esc(t('aboutBtcFuture'))}</p
 }
 
 // ---------- roll (B1) + birth record (B2, B5)
-function yearShare(iso: string, year: number): { p: number; one: number } {
-  const o = birthShares(index, year, year, Infinity); const r = o.rows.find((x) => x.iso === iso);
+function yearShare(iso: string, year: number, pop = false): { p: number; one: number } {
+  const o = birthShares(index, year, year, Infinity, weightFor(pop)); const r = o.rows.find((x) => x.iso === iso);
   const p = r ? r.share : 0; return { p, one: p > 0 ? Math.round(1 / p) : 0 };
 }
-async function rollAnim(year: number, iso: string): Promise<void> {
-  const o = birthShares(index, year, year, 40);
+async function rollAnim(year: number, iso: string, pop = false): Promise<void> {
+  const o = birthShares(index, year, year, 40, weightFor(pop));
   const seq = rollSequence(o.rows, iso, () => crypto.getRandomValues(new Uint32Array(1))[0]! / 2 ** 32);
   const iv = rollIntervals();
   view(`<section class="roll" aria-live="polite"><p class="mono cap">${esc(t('rollCaption'))}</p><h1 tabindex="-1" class="serif roll-name" id="roll-name">&nbsp;</h1><p class="mono" id="roll-p">&nbsp;</p></section>`);
@@ -266,18 +275,19 @@ async function rollAnim(year: number, iso: string): Promise<void> {
     el.textContent = nameOf(seq[i]!);
     await new Promise((r) => setTimeout(r, iv[i]));
   }
-  pe.textContent = t('rollProb', { p: sharePct(yearShare(iso, year).p) });
+  pe.textContent = t('rollProb', { p: sharePct(yearShare(iso, year, pop).p) });
   await new Promise((r) => setTimeout(r, 450));
 }
 
 async function birth(cfg: LifeConfig, paceMin: 30 | 60 | 90, animate = false): Promise<void> {
-  const b = drawBirth(index, cfg);
+  if (cfg.by === 'pop') await loadWpp();
+  const b = drawBirth(index, cfg, undefined, wppLoaded());
   if ('infeasible' in b) { alert(b.reason); return; }
   await preloadDemography(b.iso);
   const s = newLife(bundle(), cfg);
   if ('infeasible' in s) { alert(s.reason); return; }
   setMoneyCountry(s.born.iso);
-  if (animate) await rollAnim(s.born.year, s.born.iso);
+  if (animate) await rollAnim(s.born.year, s.born.iso, cfg.by === 'pop');
   const tbl = tableFor(bundle(), s);
   const e0 = lifeExpectancy(tbl);
   const demo = bundle().demography(s.born.iso);
@@ -1077,7 +1087,8 @@ function persist(): void {
 }
 
 async function replay(cfg: LifeConfig, years: number, acts: Action[]): Promise<LifeState | null> {
-  const b = drawBirth(index, cfg);
+  if (cfg.by === 'pop') await loadWpp();
+  const b = drawBirth(index, cfg, undefined, wppLoaded());
   if ('infeasible' in b) return null;
   await preloadDemography(b.iso);
   let s = newLife(bundle(), cfg);

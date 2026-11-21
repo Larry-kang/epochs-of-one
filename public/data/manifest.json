@@ -4299,7 +4299,7 @@
   },
   {
    "path": "wpp-extra.json",
-   "sha256": "012f01e8853a7d3acd980991694d48443769e75b1aef631b55b563c8ae04d33b",
+   "sha256": "79c4d25f7fb8e47b0d1c8738d6341b774fbcabe79a63f2b9544beeff41dcd5fd",
    "src": [
     "wpp2024"
    ],
@@ -4312,7 +4312,7 @@
    ],
    "schema": "wpp-extra.schema.json",
    "rows": 237,
-   "transform": "pipeline/wpp-extra.mjs: WPP 2024 TFR / mean age at childbearing → per-country series; values copied"
+   "transform": "pipeline/wpp-extra.mjs: WPP 2024 TFR, life expectancy, under-5 mortality and mid-year total population (TPopulation1July, thousands) → per-country series; values copied"
   },
   {
    "path": "l1/ilostat-occ.json",
