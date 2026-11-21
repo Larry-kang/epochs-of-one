@@ -13,12 +13,26 @@ type Row = (string | null)[];
 const S = table.strings as unknown as Record<'ui' | 'events' | 'decisions' | 'pool', Record<string, Row>>;
 type UiKey = keyof typeof table.strings.ui;
 
+/** v0.14.0: first visit — the first browser language we support (any zh → zh-TW); other languages → English;
+ *  no browser information (tests, node) → zh-TW as before. The guess is not saved; only a manual switch is. */
+export function pickLang(langs: readonly string[] | undefined): Lang {
+  if (!langs?.length) return 'zh-TW';
+  for (const raw of langs) {
+    const base = raw.toLowerCase().split('-')[0];
+    if (base === 'zh') return 'zh-TW';
+    const hit = LANGS.find((l) => l === base);
+    if (hit) return hit;
+  }
+  return 'en';
+}
 function detect(): Lang {
   try {
     const v = globalThis.localStorage?.getItem(K_LANG);
     if (v && (LANGS as readonly string[]).includes(v)) return v as Lang;
   } catch { /* storage off */ }
-  return 'zh-TW';
+  // browsers only: Node 21+ also has navigator.language ('en-US'), which must not change the CLI/test default
+  const nav = typeof window !== 'undefined' ? (globalThis.navigator as Navigator | undefined) : undefined;
+  return pickLang(nav?.languages?.length ? nav.languages : nav?.language ? [nav.language] : undefined);
 }
 let lang: Lang = detect();
 let col = LANGS.indexOf(lang);
