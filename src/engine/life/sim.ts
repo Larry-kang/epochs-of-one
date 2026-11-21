@@ -51,7 +51,7 @@ export function makeBundle(index: CountryIndex, demo: (iso: Iso3) => Demography,
 
 /** 'future' (batch 1): births after nowYear up to the last projected WPP year (UN medium variant → 推估). */
 export type Era = { kind: 'now' } | { kind: 'past'; year: number | 'random' } | { kind: 'future'; year: number | 'random' };
-export interface LifeConfig { seed: string; era: Era; nowYear: number; constraints?: BirthConstraints; id?: string; engineVersion: string; /** v0.8.0: auto focus policy (comparison lives, MC) */ autoFocus?: boolean; /** v0.8.0: auto spending habits */ autoSpend?: boolean; /** C0: occupation system (v0.9.0) */ occ?: boolean; /** C0: legacy save continues in the occupation system from this age */ occFrom?: number; /** L2/L3 (v0.11.0): conscription + institutions marker for new lives */ l2?: boolean; /** L2/L3: a pre-v0.11.0 save gets conscription + institutions only from this age (replayed years stay identical) */ l2From?: number }
+export interface LifeConfig { seed: string; era: Era; nowYear: number; constraints?: BirthConstraints; id?: string; engineVersion: string; /** v0.8.0: auto focus policy (comparison lives, MC) */ autoFocus?: boolean; /** v0.8.0: auto spending habits */ autoSpend?: boolean; /** C0: occupation system (v0.9.0) */ occ?: boolean; /** C0: legacy save continues in the occupation system from this age */ occFrom?: number; /** L2/L3 (v0.11.0): conscription + institutions marker for new lives */ l2?: boolean; /** L2/L3: a pre-v0.11.0 save gets conscription + institutions only from this age (replayed years stay identical) */ l2From?: number; /** v0.17.0 (item 4): random birthplace weighted by mid-year population instead of births */ by?: 'pop' }
 
 const tableCache = new Map<string, AnnualTable>();
 export function tableFor(data: DataBundle, s: LifeState): AnnualTable {
@@ -71,7 +71,7 @@ export function incomeDist(c: CountryRec, year: number): { d: IncomeDist; est: s
 }
 
 /** First part of the birth stream: year + birth attributes. Needs only the country index (UI uses it to preload demography). */
-export function drawBirth(index: CountryIndex, cfg: LifeConfig, rng = stream(cfg.seed, 'birth')): Birth | Infeasible {
+export function drawBirth(index: CountryIndex, cfg: LifeConfig, rng = stream(cfg.seed, 'birth'), wpp?: WppExtra): Birth | Infeasible {
   const K = cfg.constraints ?? NO_CONSTRAINTS;
   const [b0, b1] = index.birthYears;
   const fixed = K.country.kind === 'fixed' ? K.country.value : undefined;
@@ -79,12 +79,14 @@ export function drawBirth(index: CountryIndex, cfg: LifeConfig, rng = stream(cfg
     : cfg.era.year !== 'random' ? cfg.era.year
     : cfg.era.kind === 'past' ? sampleYear(index, b0, cfg.nowYear - 1, rng, fixed)
     : sampleYear(index, Math.min(cfg.nowYear + 1, b1), b1, rng, fixed);
-  return sampleBirth(index, year, K, rng);
+  if (cfg.by === 'pop' && !wpp?.pop) return { infeasible: true, field: 'country', reason: 'population data not loaded' };
+  const popOf = cfg.by === 'pop' ? (iso: string, y: number) => { const v = wpp!.pop![iso]; return v ? v[Math.min(Math.max(y - wpp!.from, 0), v.length - 1)]! : 0; } : undefined;
+  return sampleBirth(index, year, K, rng, popOf);
 }
 
 export function newLife(data: DataBundle, cfg: LifeConfig): LifeState | Infeasible {
   const rng = stream(cfg.seed, 'birth');
-  const b = drawBirth(data.index, cfg, rng);
+  const b = drawBirth(data.index, cfg, rng, data.wpp);
   if ('infeasible' in b) return b;
   const year = b.year;
   const d = data.demography(b.iso);

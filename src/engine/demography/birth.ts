@@ -39,7 +39,8 @@ export function birthsIn(c: CountryRec, y: number): number {
   return i >= 0 && i < c.births.v.length ? c.births.v[i]! : 0;
 }
 
-export function sampleBirth(idx: CountryIndex, year: number, K: BirthConstraints, rng: Rng): Birth | Infeasible {
+/** `popOf` (v0.17.0, item 4): weight countries by population instead of births; same draws, same order. */
+export function sampleBirth(idx: CountryIndex, year: number, K: BirthConstraints, rng: Rng, popOf?: (iso: string, year: number) => number): Birth | Infeasible {
   if (year < idx.birthYears[0] || year > idx.birthYears[1]) return { infeasible: true, field: 'year', reason: `year must be within ${idx.birthYears[0]}–${idx.birthYears[1]}` };
   const cs = idx.countries;
   const w = new Float64Array(cs.length);
@@ -49,7 +50,7 @@ export function sampleBirth(idx: CountryIndex, year: number, K: BirthConstraints
     const B = birthsIn(c, year);
     totB += B;
     if (K.country.kind === 'fixed' && c.iso !== K.country.value) continue;
-    w[i] = B * pSex(c, year, K.sex) * pQ(K.quintile) * pU(c, year, K.quintile, K.urban);
+    w[i] = (popOf ? popOf(c.iso, year) : B) * pSex(c, year, K.sex) * pQ(K.quintile) * pU(c, year, K.quintile, K.urban);
     tot += w[i]!;
   }
   if (!(tot > 0)) {
