@@ -27,6 +27,16 @@ for (const [tag, vp] of [['desktop', { width: 1280, height: 860 }], ['m390', { w
   });
 }
 
+test('Escape closes the help dialog and returns focus to its button', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('epochs.lang.v1', 'ja'));
+  await page.goto('./');
+  await page.locator('#help-btn').click();
+  await expect(page.locator('#help-page a[href="tel:0570064556"]')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#help-page')).toHaveCount(0);
+  await expect(page.locator('#help-btn')).toBeFocused();
+});
+
 test('Korean UI lists 109 first', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('epochs.lang.v1', 'ko'));
   await page.goto('./');

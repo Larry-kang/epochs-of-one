@@ -216,15 +216,16 @@ const K_NOTICE = 'epochs.notice.v1';
 function noticeSeen(): boolean { try { return localStorage.getItem(K_NOTICE) === '1'; } catch { return false; } }
 function markNoticeSeen(): void { try { localStorage.setItem(K_NOTICE, '1'); } catch { /* storage off: shows again next visit */ } }
 function openHelp(): void {
+  const opener = document.activeElement as HTMLElement | null;
   document.querySelector('#help-page')?.remove();
   const l = getLang();
   const dlg = document.createElement('dialog');
   dlg.id = 'help-page'; dlg.className = 'help-page card'; dlg.setAttribute('aria-labelledby', 'help-h');
   dlg.innerHTML = `<h2 id="help-h" class="serif">${esc(t('helpTitle'))}</h2><p class="small">${esc(t('helpIntro'))}</p>
-<ul class="help-list">${helpOrder(l).map((h) => `<li class="help-item"><b>${esc(h.name[l])}</b> <a class="help-tel mono" href="tel:${esc(h.tel)}">${esc(h.tel)}</a><br><span class="muted small">${esc(h.note[l])} · <a class="help-src" href="${esc(h.url)}" target="_blank" rel="noopener noreferrer">${esc(t('helpChecked', { d: h.checked }))}</a></span></li>`).join('')}</ul>
+<ul class="help-list">${helpOrder(l).map((h) => `<li class="help-item"><b>${esc(h.name[l])}</b> <a class="help-tel mono" href="tel:${h.tel.replace(/[^\d+]/g, '')}">${esc(h.tel)}</a><br><span class="muted small">${esc(h.note[l])} · <a class="help-src" href="${esc(h.url)}" target="_blank" rel="noopener noreferrer">${esc(t('helpChecked', { d: h.checked }))}</a></span></li>`).join('')}</ul>
 <p class="muted small">${esc(t('helpNone'))}</p><button id="back" class="ghost">${esc(t('back'))}</button>`;
   document.body.append(dlg);
-  const close = (): void => { dlg.close(); dlg.remove(); };
+  const close = (): void => { dlg.close(); dlg.remove(); if (opener?.isConnected) opener.focus(); };
   dlg.querySelector('#back')!.addEventListener('click', close);
   dlg.addEventListener('cancel', (e) => { e.preventDefault(); close(); });
   dlg.showModal();
