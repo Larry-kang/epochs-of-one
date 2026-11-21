@@ -62,7 +62,19 @@ export function poolText(id: string): string { return pickContent(S.pool[id]) ??
 /** share of the UI table translated into a language (About page / tests) */
 export function coverage(l: Lang): number { const i = LANGS.indexOf(l); const rows = Object.values(S.ui).filter((r) => r[0]); return rows.filter((r) => r[i]).length / rows.length; }
 function fill(s: string, vars: Record<string, string | number>): string {
-  return s.replace(/\{(\w+)\}/g, (_, k: string) => String(vars[k] ?? ''));
+  const out = s.replace(/\{(\w+)\}/g, (_, k: string) => String(vars[k] ?? ''));
+  return lang === 'ko' ? koParticles(out) : out;
+}
+// v0.13.1: Korean particles written as 은(는)/와(과)/(으)로… are resolved from the final consonant (받침) of the preceding
+// Hangul syllable. Anything else before the particle (Latin names, digits) keeps the dual form rather than guessing.
+const KO_PAIRS: Record<string, [string, string]> = { '은(는)': ['은', '는'], '는(은)': ['은', '는'], '이(가)': ['이', '가'], '가(이)': ['이', '가'], '을(를)': ['을', '를'], '를(을)': ['을', '를'], '과(와)': ['과', '와'], '와(과)': ['과', '와'] };
+export function koParticles(s: string): string {
+  return s.replace(/([\uAC00-\uD7A3])(은\(는\)|는\(은\)|이\(가\)|가\(이\)|을\(를\)|를\(을\)|과\(와\)|와\(과\)|\(으\)로)/g, (_, ch: string, p: string) => {
+    const jong = (ch.charCodeAt(0) - 0xac00) % 28;
+    if (p === '(으)로') return ch + (jong === 0 || jong === 8 ? '로' : '으로');
+    const [withCoda, noCoda] = KO_PAIRS[p]!;
+    return ch + (jong ? withCoda : noCoda);
+  });
 }
 export function esc(s: string): string {
   return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);

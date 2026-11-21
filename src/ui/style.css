@@ -166,8 +166,9 @@ blockquote { margin: 12px 0 0; padding: 8px 14px; border-left: 3px solid var(--g
 .kv dt { color: var(--ink3); }
 .kv dd { margin: 0; }
 .folio { font-size: 11px; letter-spacing: .08em; color: var(--ink2); border-top: 1px dashed var(--rule); margin: 0; padding: 8px 14px; overflow: hidden; white-space: nowrap; }
-.stats { display: grid; gap: 8px; }
-.stat { display: grid; grid-template-columns: 3.4em 1fr 2.2em; align-items: center; gap: 8px; font-size: 14px; }
+/* v0.13.1: the label column fits the longest label (en "Knowledge" overflowed a fixed 3.4em); subgrid keeps bars aligned */
+.stats { display: grid; grid-template-columns: minmax(3.4em, max-content) 1fr 2.2em; gap: 8px; }
+.stat { display: grid; grid-column: 1 / -1; grid-template-columns: subgrid; align-items: center; gap: 8px; font-size: 14px; }
 .stat .bar { height: 8px; background: var(--rule); border-radius: 1px; overflow: hidden; }
 .stat .bar i { display: block; height: 100%; transition: width .4s ease; }
 .stat b { text-align: right; font-weight: 500; }
