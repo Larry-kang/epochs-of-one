@@ -46,6 +46,7 @@ import { milestonesIn } from './logic/milestones.ts';
 import { playCue, setSfx, sfxOn } from './sfx.ts';
 import { compareRows, e0Diff, DEFAULT_MY_COUNTRY, type CompareRow } from './logic/compare.ts';
 import { enCountry, enEdu } from './logic/story-grammar.ts';
+import { helpOrder } from './logic/help.ts';
 
 interface Run { s: LifeState; cfg: LifeConfig; paceMin: 30 | 60 | 90; speed: Speed; paused: boolean; acc: number; yearSec: number; raf: number; last: number; skipping: boolean }
 let run: Run | null = null;
@@ -122,6 +123,7 @@ function intro(): void {
   </form>
 </details>
 <ul class="errors" id="errs" role="alert"></ul>
+${noticeSeen() ? '' : `<aside class="card notice" id="notice" aria-labelledby="notice-h"><h2 id="notice-h" class="small">${esc(t('noticeTitle'))}</h2><p class="small">${esc(t('noticeBody'))}</p><div class="row"><button class="link" id="notice-help">${esc(t('helpBtn'))}</button><button class="ghost" id="notice-ok">${esc(t('noticeOk'))}</button></div></aside>`}
 <div class="cta-row">
   <button class="cta" id="go">${esc(t('bornCta'))} <span aria-hidden="true">→</span></button>
   ${save ? `<button class="ghost" id="cont">${esc(t('continue'))} <small>${esc(t('resumeAt', { n: save.years }))}</small></button>` : ''}
@@ -130,7 +132,7 @@ ${storageAvailable() ? '' : `<p class="warn">${esc(t('storageOff'))}</p>`}
 <section class="past-lives card"><h2>${esc(t('pastLives'))}</h2>
   ${lives.length ? `<ol class="past">${lives.slice(0, 10).map((l, i) => `<li><button class="link past-open" data-i="${i}" ${l.cfg ? '' : 'disabled'}>${esc(pastName(l))} · ${l.year}–${l.at} · ${esc(t('years', { n: l.age }))}</button> <span class="mono small">${esc(money(l.netWorth, l.iso))}</span></li>`).join('')}</ol>` : `<p class="muted">${esc(t('noPast'))}</p>`}
 </section>
-${!contentTranslated() ? `<p class="muted small content-note">${esc(t('contentNote'))}</p>` : ''}<footer class="foot"><button id="about" class="ghost">${esc(t('about'))}</button>${musicBtn()}${sfxBtn()}${themeBtn()}${langPicker()}<span class="muted small" id="app-ver">v${esc(APP_VERSION)}</span></footer>
+${!contentTranslated() ? `<p class="muted small content-note">${esc(t('contentNote'))}</p>` : ''}<footer class="foot"><button id="about" class="ghost">${esc(t('about'))}</button><button id="help-btn" class="ghost">${esc(t('helpBtn'))}</button>${musicBtn()}${sfxBtn()}${themeBtn()}${langPicker()}<span class="muted small" id="app-ver">v${esc(APP_VERSION)}</span></footer>
 </div>`);
   renderOdds();
   const ctr = root.querySelector('#ctr-born') as HTMLElement;
@@ -151,6 +153,8 @@ ${!contentTranslated() ? `<p class="muted small content-note">${esc(t('contentNo
   on('#go', submitHome);
   on('#cont', () => { if (save) void resume(save); });
   on('#about', about);
+  on('#help-btn', openHelp); on('#notice-help', openHelp);
+  on('#notice-ok', () => { markNoticeSeen(); root.querySelector('#notice')?.remove(); });
   root.querySelectorAll<HTMLButtonElement>('.past-open').forEach((b) => b.addEventListener('click', () => { const l = lives[Number(b.dataset.i)]; if (l) void reopen(l); }));
 }
 
@@ -205,6 +209,27 @@ function submitHome(): void {
   const iso = String(fd.get('country') ?? '');
   const constraints = iso ? { country: { kind: 'fixed' as const, value: iso }, sex: { kind: 'random' as const }, quintile: { kind: 'random' as const }, urban: { kind: 'random' as const } } : undefined;
   void birth({ seed, era, nowYear: NOW_YEAR, engineVersion: ENGINE_VERSION, occ: true, l2: true, ...(constraints ? { constraints } : {}) }, home.pace, true);
+}
+
+// v0.16.0 (item 3): one-time content notice + official help lines (sources checked 2026-11-21, see logic/help.ts)
+const K_NOTICE = 'epochs.notice.v1';
+function noticeSeen(): boolean { try { return localStorage.getItem(K_NOTICE) === '1'; } catch { return false; } }
+function markNoticeSeen(): void { try { localStorage.setItem(K_NOTICE, '1'); } catch { /* storage off: shows again next visit */ } }
+function openHelp(): void {
+  const opener = document.activeElement as HTMLElement | null;
+  document.querySelector('#help-page')?.remove();
+  const l = getLang();
+  const dlg = document.createElement('dialog');
+  dlg.id = 'help-page'; dlg.className = 'help-page card'; dlg.setAttribute('aria-labelledby', 'help-h');
+  dlg.innerHTML = `<h2 id="help-h" class="serif">${esc(t('helpTitle'))}</h2><p class="small">${esc(t('helpIntro'))}</p>
+<ul class="help-list">${helpOrder(l).map((h) => `<li class="help-item"><b>${esc(h.name[l])}</b> <a class="help-tel mono" href="tel:${h.tel.replace(/[^\d+]/g, '')}">${esc(h.tel)}</a><br><span class="muted small">${esc(h.note[l])} · <a class="help-src" href="${esc(h.url)}" target="_blank" rel="noopener noreferrer">${esc(t('helpChecked', { d: h.checked }))}</a></span></li>`).join('')}</ul>
+<p class="muted small">${esc(t('helpNone'))}</p><button id="back" class="ghost">${esc(t('back'))}</button>`;
+  document.body.append(dlg);
+  const close = (): void => { dlg.close(); dlg.remove(); if (opener?.isConnected) opener.focus(); };
+  dlg.querySelector('#back')!.addEventListener('click', close);
+  dlg.addEventListener('cancel', (e) => { e.preventDefault(); close(); });
+  dlg.showModal();
+  (dlg.querySelector('#back') as HTMLElement).focus();
 }
 
 function about(): void {
@@ -1175,6 +1200,7 @@ ${lineChart(s.years.map((y) => y.income), { label: t('chartIncome'), color: '#B8
 <p class="muted">${esc(t('money'))}</p>
 <p class="muted">${esc(t('seedWord'))} <code id="seed">${esc(s.seed)}</code> <button id="copy" class="link">${esc(t('copySeed'))}</button></p>
 </section>
+<p class="muted small death-help"><button class="link" id="death-help">${esc(t('deathHelp'))}</button></p>
 <div class="row end-row"><button class="cta" id="again">${esc(t('again'))} <span aria-hidden="true">→</span></button><button class="ghost" id="home">${esc(t('home'))}</button></div>
 <div class="sticky-foot"><button class="ghost" id="share-foot">${esc(t('shareOpen'))}</button><button class="cta" id="again-foot">${esc(t('again'))}</button></div>
 </div>`);
@@ -1203,7 +1229,7 @@ ${lineChart(s.years.map((y) => y.income), { label: t('chartIncome'), color: '#B8
     facts: [t('shareFact1', { v: money(me.lifetimeIncome) }), hap ? t('shareFact2', { age: hap.age }) : edu, t('shareFact3', { p: pctText(rk.lifespan) })], map: s.years.map((y) => y.stats.happy),
     text: t('shareTextT', { name: pn(s.name.full), born: s.born.year, died: d.year, country, age: d.age, cause, app: APP.title }) };
   const again = () => { run = null; intro(); };
-  on('#again', again); on('#again-foot', again);
+  on('#again', again); on('#again-foot', again); on('#death-help', openHelp);
   on('#home', () => { run = null; intro(); }); on('#home-top', () => { run = null; intro(); });
   on('#copy', () => { void navigator.clipboard?.writeText(s.seed).then(() => { (root.querySelector('#copy') as HTMLElement).textContent = t('copied'); }); });
   on('#share-open', () => shareSheet(card)); on('#share-foot', () => shareSheet(card));
