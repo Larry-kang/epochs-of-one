@@ -5342,6 +5342,55 @@ null
 "台湾の人生の新台湾ドル表示：世界銀行 国際比較プログラム ICP 2021 の台湾 GDP 購買力平価で換算（1 国際ドル ≈ NT$14.40、CC BY 4.0、2026-11-21 取得）。表示のみ。",
 "대만 인생의 신타이완달러 금액: 세계은행 국제비교프로그램 ICP 2021 대만 GDP 구매력평가로 환산(1 국제달러 ≈ NT$14.40, CC BY 4.0, 2026-11-21 수집). 표시 전용.",
 "Số tiền Đài tệ (NT$) cho cuộc đời ở Đài Loan: quy đổi theo sức mua tương đương GDP của Đài Loan, Chương trình So sánh Quốc tế ICP 2021 của Ngân hàng Thế giới (1 đô la quốc tế ≈ NT$14,40, CC BY 4.0, lấy ngày 2026-11-21); chỉ để hiển thị."
+],
+"dailyTitle": [
+"今日主題",
+"Today's life",
+"今日のテーマ",
+"오늘의 인생",
+"Cuộc đời hôm nay"
+],
+"dailyBody": [
+"{day}（UTC）的每個人，都從同一個出生開始：{year} 年。之後怎麼活，由你決定。",
+"Everyone on {day} (UTC) starts from the same birth: {year}. How it goes from there is up to you.",
+"{day}（UTC）は誰もが同じ誕生から始まります：{year} 年。その先はあなた次第。",
+"{day}(UTC)에는 모두가 같은 출생에서 시작합니다: {year}년. 그다음은 당신의 선택입니다.",
+"Ngày {day} (UTC), mọi người cùng bắt đầu từ một lần chào đời: năm {year}. Phần còn lại tùy bạn."
+],
+"dailyGo": [
+"開始今日的人生",
+"Start today's life",
+"今日の人生を始める",
+"오늘의 인생 시작",
+"Bắt đầu cuộc đời hôm nay"
+],
+"dailyAgain": [
+"再活一次今日的人生",
+"Live today's life again",
+"今日の人生をもう一度",
+"오늘의 인생 다시 살기",
+"Sống lại cuộc đời hôm nay"
+],
+"dailyDone": [
+"你今天的那一生：活到 {n} 歲。",
+"Your life today: you lived to {n}.",
+"今日のあなたの人生：{n} 歳まで生きた。",
+"오늘 당신의 인생: {n}세까지 살았습니다.",
+"Cuộc đời hôm nay của bạn: sống đến {n} tuổi."
+],
+"dailyTag": [
+"今日主題",
+"Daily",
+"今日のテーマ",
+"오늘의 인생",
+"Hôm nay"
+],
+"dailySource": [
+"今日主題的出生年份會避開出生地正在經歷戰爭、饑荒、種族滅絕或重大災害的年份，以及全球大流行年份（自編事實清單 {n} 筆，1950–2025，逐筆對照英文 Wikipedia 條目，{d} 查核）。日期以 UTC 計。",
+"The daily theme's birth year skips years when the birthplace was in a war, famine, genocide or major disaster, and global pandemic years (self-compiled list of {n} facts, 1950–2025, each checked against its English Wikipedia article on {d}). Days follow UTC.",
+"今日のテーマの誕生年は、出生地が戦争・飢饉・ジェノサイド・大災害の中にあった年と世界的なパンデミックの年を避けます（自作の事実リスト {n} 件、1950–2025、各項目を英語版 Wikipedia の記事と照合、{d} 確認）。日付は UTC。",
+"오늘의 인생 출생 연도는 출생지가 전쟁·기근·집단학살·대형 재난을 겪던 해와 세계적 대유행 해를 피합니다(자체 작성 사실 목록 {n}건, 1950–2025, 항목마다 영어 Wikipedia 문서와 대조, {d} 확인). 날짜는 UTC 기준입니다.",
+"Năm sinh của chủ đề hôm nay tránh những năm nơi sinh đang có chiến tranh, nạn đói, diệt chủng hoặc thảm họa lớn, và các năm đại dịch toàn cầu (danh sách tự biên soạn {n} mục, 1950–2025, đối chiếu từng mục với bài Wikipedia tiếng Anh, kiểm tra ngày {d}). Ngày tính theo UTC."
 ]
 },
 "events": {
