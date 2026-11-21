@@ -1,4 +1,4 @@
-// v0.17.0 (item 4): random birthplace can be weighted by population (WPP 2024 mid-year population, CC BY 3.0 IGO).
+// v0.18.0 (item 4): random birthplace can be weighted by population (WPP 2024 mid-year population, CC BY 3.0 IGO).
 import { test, expect } from '@playwright/test';
 
 for (const [tag, vp] of [['desktop', { width: 1280, height: 860 }], ['m390', { width: 390, height: 844 }]] as const) {

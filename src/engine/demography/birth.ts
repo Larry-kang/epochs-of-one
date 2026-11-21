@@ -39,7 +39,7 @@ export function birthsIn(c: CountryRec, y: number): number {
   return i >= 0 && i < c.births.v.length ? c.births.v[i]! : 0;
 }
 
-/** `popOf` (v0.17.0, item 4): weight countries by population instead of births; same draws, same order. */
+/** `popOf` (v0.18.0, item 4): weight countries by population instead of births; same draws, same order. */
 export function sampleBirth(idx: CountryIndex, year: number, K: BirthConstraints, rng: Rng, popOf?: (iso: string, year: number) => number): Birth | Infeasible {
   if (year < idx.birthYears[0] || year > idx.birthYears[1]) return { infeasible: true, field: 'year', reason: `year must be within ${idx.birthYears[0]}–${idx.birthYears[1]}` };
   const cs = idx.countries;

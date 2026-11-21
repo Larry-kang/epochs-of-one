@@ -159,7 +159,7 @@ ${!contentTranslated() ? `<p class="muted small content-note">${esc(t('contentNo
   root.querySelectorAll<HTMLButtonElement>('.past-open').forEach((b) => b.addEventListener('click', () => { const l = lives[Number(b.dataset.i)]; if (l) void reopen(l); }));
 }
 
-// v0.17.0 (item 4): "@pop" in the country picker = random birthplace weighted by mid-year population (WPP 2024)
+// v0.18.0 (item 4): "@pop" in the country picker = random birthplace weighted by mid-year population (WPP 2024)
 const POP = '@pop';
 const homeByPop = (): boolean => (root.querySelector('#country') as HTMLSelectElement | null)?.value === POP;
 const popWeight = (c: CountryRec, y: number): number => { const w = wppLoaded(); const v = w?.pop?.[c.iso]; return v && w ? v[Math.min(Math.max(y - w.from, 0), v.length - 1)]! : 0; };

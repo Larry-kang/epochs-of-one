@@ -1,4 +1,4 @@
-// Item 4 (v0.17.0): optional birthplace draw weighted by mid-year population (WPP 2024 TPopulation1July, CC BY 3.0 IGO).
+// Item 4 (v0.18.0): optional birthplace draw weighted by mid-year population (WPP 2024 TPopulation1July, CC BY 3.0 IGO).
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { loadBundleFromDisk } from '../../src/engine/data/nodeLoader.ts';

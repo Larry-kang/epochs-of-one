@@ -1,6 +1,6 @@
 // WPP 2024 extra layer (batch 2): period TFR (fertility calibration) and e0 / under-5 mortality (home odds table),
 // one small file so the home page does not need the 237 per-country demography files.
-// v0.17.0 (item 4): + pop = mid-year total population (TPopulation1July, thousands) for the population-weighted birthplace option.
+// v0.18.0 (item 4): + pop = mid-year total population (TPopulation1July, thousands) for the population-weighted birthplace option.
 // Source: data-raw/wpp/di.csv.gz (UN WPP 2024 demographic indicators, estimates + medium variant), CC BY 3.0 IGO.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';

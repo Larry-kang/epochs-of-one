@@ -9,7 +9,7 @@ export function birthsOf(c: CountryRec, y: number): number {
   return i >= 0 && i < c.births.v.length ? c.births.v[i]! : 0;
 }
 /** top-N countries by births share in [from, to] (inclusive); the rest is lumped into "other". Births are in thousands. */
-/** v0.17.0 (item 4): `weight` replaces births (e.g. mid-year population, thousands) for the population-weighted option */
+/** v0.18.0 (item 4): `weight` replaces births (e.g. mid-year population, thousands) for the population-weighted option */
 export function birthShares(index: CountryIndex, from: number, to: number, top = 9, weight: (c: CountryRec, y: number) => number = birthsOf): Odds {
   const all = index.countries.map((c) => { let b = 0; for (let y = from; y <= to; y++) b += weight(c, y); return { iso: c.iso, births: b }; }).filter((r) => r.births > 0);
   const total = all.reduce((a, r) => a + r.births, 0);

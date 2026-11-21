@@ -15,6 +15,7 @@ import type { HousingPension, MarketsData } from '../finance/marketData.ts';
 import { available, type InvestAsset } from '../finance/access.ts';
 import { yearReturns, sigmaOf, lendingRate } from '../finance/returns.ts';
 import { marketStep, rebalanceStep, investedValue, type Portfolio } from '../finance/portfolio.ts';
+import { autoInvestTarget } from '../finance/autoInvest.ts';
 import { clampStat, type Action, type House, type LifeState, type YearRow } from './state.ts';
 import type { PersonalLoan } from '../finance/types.ts';
 import { pmt, creditRule, annuityPayout, houseReturn, pensionFor } from '../finance/credit.ts';
@@ -51,7 +52,7 @@ export function makeBundle(index: CountryIndex, demo: (iso: Iso3) => Demography,
 
 /** 'future' (batch 1): births after nowYear up to the last projected WPP year (UN medium variant → 推估). */
 export type Era = { kind: 'now' } | { kind: 'past'; year: number | 'random' } | { kind: 'future'; year: number | 'random' };
-export interface LifeConfig { seed: string; era: Era; nowYear: number; constraints?: BirthConstraints; id?: string; engineVersion: string; /** v0.8.0: auto focus policy (comparison lives, MC) */ autoFocus?: boolean; /** v0.8.0: auto spending habits */ autoSpend?: boolean; /** C0: occupation system (v0.9.0) */ occ?: boolean; /** C0: legacy save continues in the occupation system from this age */ occFrom?: number; /** L2/L3 (v0.11.0): conscription + institutions marker for new lives */ l2?: boolean; /** L2/L3: a pre-v0.11.0 save gets conscription + institutions only from this age (replayed years stay identical) */ l2From?: number; /** v0.17.0 (item 4): random birthplace weighted by mid-year population instead of births */ by?: 'pop' }
+export interface LifeConfig { seed: string; era: Era; nowYear: number; constraints?: BirthConstraints; id?: string; engineVersion: string; /** v0.8.0: auto focus policy (comparison lives, MC) */ autoFocus?: boolean; /** v0.8.0: auto spending habits */ autoSpend?: boolean; /** C0: occupation system (v0.9.0) */ occ?: boolean; /** C0: legacy save continues in the occupation system from this age */ occFrom?: number; /** L2/L3 (v0.11.0): conscription + institutions marker for new lives */ l2?: boolean; /** L2/L3: a pre-v0.11.0 save gets conscription + institutions only from this age (replayed years stay identical) */ l2From?: number; /** v0.18.0 (item 4): random birthplace weighted by mid-year population instead of births */ by?: 'pop' }
 
 const tableCache = new Map<string, AnnualTable>();
 export function tableFor(data: DataBundle, s: LifeState): AnnualTable {
@@ -448,8 +449,11 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
     }
   }
   loans = loans.filter((l) => l.status === 'active' || calYear - l.startYear < 1);
-  if (m && active && !dies) {
+  // Item 6 (v0.15.0): auto-decide sets the year-end target itself until the player allocates by hand (pure policy, no RNG)
+  const autoInv = !!m && !dies && ls.auto === 'on' && independent && !s.actions.some((a) => a.t === 'alloc');
+  if (m && (active || autoInv) && !dies) {
     const canBuy = (a: InvestAsset) => available(m, a, s.cur, calYear, age, { levBase: portfolio.levBase, cooldownUntil: portfolio.cooldownUntil, frozenUntil: credit.frozenUntil }).ok;
+    if (autoInv) portfolio = { ...portfolio, rebalance: true, target: autoInvestTarget({ cash, invested: investedValue(portfolio), consumption: cons, age, debt: credit.unsecuredDebt, canBuy }) };
     const rb = rebalanceStep(portfolio, cash, canBuy);
     portfolio = rb.p; cash = rb.cash;
     for (const e of rb.events) emit(e.id, e.vars);

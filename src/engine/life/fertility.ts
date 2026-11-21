@@ -4,7 +4,7 @@
 // player's own answers still decide. Source: public/data/wpp-extra.json (CC BY 3.0 IGO).
 import type { Iso3 } from '../data/types.ts';
 
-export interface WppExtra { note: string; from: number; tfr: Record<Iso3, number[]>; e0: Record<Iso3, number[]>; q5: Record<Iso3, number[]>; /** v0.17.0: mid-year total population, thousands (WPP 2024 TPopulation1July) */ pop?: Record<Iso3, number[]> }
+export interface WppExtra { note: string; from: number; tfr: Record<Iso3, number[]>; e0: Record<Iso3, number[]>; q5: Record<Iso3, number[]>; /** v0.18.0: mid-year total population, thousands (WPP 2024 TPopulation1July) */ pop?: Record<Iso3, number[]> }
 /** years without the child card after answering "not now" */
 export const CHILD_COOLDOWN = 3;
 /** years without the child card after a birth (spacing) */
