@@ -48,6 +48,7 @@ import { compareRows, e0Diff, DEFAULT_MY_COUNTRY, type CompareRow } from './logi
 import { enCountry, enEdu } from './logic/story-grammar.ts';
 import { helpOrder } from './logic/help.ts';
 import { utcDay, dailySeed, pickDaily, CRISES } from './logic/daily.ts';
+import { payloadFrom, cfgFrom, replayLink, readHash, QR_MAX } from './logic/replay-link.ts';
 
 interface Run { s: LifeState; cfg: LifeConfig; paceMin: 30 | 60 | 90; speed: Speed; paused: boolean; acc: number; yearSec: number; raf: number; last: number; skipping: boolean }
 let run: Run | null = null;
@@ -80,7 +81,26 @@ export async function start(el: HTMLElement): Promise<void> {
   index = await loadIndex();
   await loadFinance();
   document.addEventListener('keydown', onKey);
+  if (location.hash.startsWith('#r=')) { await openShared(location.hash); return; }
   intro();
+}
+
+// v0.21.0 (item 5 P1, B1): a shared life opened from its link — replayed read-only (never saved as a past life, the
+// local save is untouched). Links from another version are refused (user decision: no old-version paths kept).
+let sharedLife = false;
+const appBase = () => location.origin + location.pathname + location.search;
+async function openShared(hash: string): Promise<void> {
+  history.replaceState(null, '', appBase());
+  const r = await readHash(hash, APP_VERSION);
+  const fail = (msg: string) => { intro(); const n = document.createElement('p'); n.className = 'warn replay-notice'; n.id = 'replay-notice'; n.setAttribute('role', 'alert'); n.textContent = msg; root.querySelector('.home')?.prepend(n); };
+  if (!r.ok) { fail(r.reason === 'version' ? t('replayOld', { v: r.v ?? '?', cur: APP_VERSION }) : t('replayBad')); return; }
+  const cfg = cfgFrom(r.p, NOW_YEAR, ENGINE_VERSION);
+  let s = await replay(cfg, 200, r.p.actions).catch(() => null);
+  for (let i = 0; s && i < 200 && !s.death; i++) s = advanceYear(bundle(), s, contentEvents);
+  if (!s?.death) { fail(t('replayBad')); return; }
+  run = { s, cfg, paceMin: r.p.pace, speed: 1, paused: true, acc: 0, yearSec: 1, raf: 0, last: 0, skipping: false };
+  sharedLife = true;
+  death(false, true);
 }
 
 function view(html: string, focusSel = 'h1'): void {
@@ -98,6 +118,7 @@ const fmtThousands = (k: number) => compact(k);
 
 // ---------- home (H1, H4–H6, H8, H9, H11, X4)
 function intro(): void {
+  sharedLife = false;
   const save = loadSave();
   const lives = pastLives();
   const dt = dailyToday();
@@ -1182,6 +1203,7 @@ function death(withEnding = false, reopened = false, rec?: PastRecord): void {
   const cmpOptions = [...index.countries].map((c) => ({ iso: c.iso, n: nameOf(c.iso) })).sort((a, b) => a.n.localeCompare(b.n, locale())).map((c) => `<option value="${c.iso}" ${c.iso === myIso ? 'selected' : ''}>${esc(c.n)}</option>`).join('');
   view(`<div class="death-page">
 <div class="dp-top"><button class="ghost" id="home-top">${esc(t('homeBack'))}</button></div>
+${sharedLife ? `<p class="card replay-banner" id="replay-banner" role="status">${esc(t('replayBanner'))}</p>` : ''}
 <h1 tabindex="-1" class="sr-only">${esc(t('deathPage'))}</h1>
 <article class="cert death-cert" id="record" aria-label="${esc(t('recTitle'))}">
   <header class="band dark"><span class="serif">${esc(t('deathRecTitle'))}</span><span class="mono">${esc(t('certNo', { no: registryNo(s.born.iso, s.born.year, s.seed, 'D') }))}</span></header>
@@ -1262,14 +1284,15 @@ ${lineChart(s.years.map((y) => y.income), { label: t('chartIncome'), color: '#B8
   on('#again', again); on('#again-foot', again); on('#death-help', openHelp);
   on('#home', () => { run = null; intro(); }); on('#home-top', () => { run = null; intro(); });
   on('#copy', () => { void navigator.clipboard?.writeText(s.seed).then(() => { (root.querySelector('#copy') as HTMLElement).textContent = t('copied'); }); });
-  on('#share-open', () => shareSheet(card)); on('#share-foot', () => shareSheet(card));
+  const link = () => replayLink(appBase(), payloadFrom(r.cfg, r.paceMin, s.actions, APP_VERSION));
+  on('#share-open', () => void shareSheet(card, link)); on('#share-foot', () => void shareSheet(card, link));
   const fm = finalMoments(s, country, hap);
   const endingIn: EndingIn = { years: s.years.map((y) => y.calYear), portrait: portraitOf(s, 192), captions: fm.map((m) => m.caption), final: t('cap_final', { age: d.age, cause }), labels: { arm: t('endSkipArm'), done: t('endDone') },
     moments: fm.map((m) => ({ ...m, portrait: portraitOf({ ...s, age: m.age }, 192) })),
     lived: { n: esc(t('livedN', { n: d.age })), label: esc(t('livedLabel')), sub: esc(t('livedSub', { name: pn(s.name.full), born: s.born.year, died: d.year, country })) } };
   if (peers.length && peers[0] && run?.s.seed === s.seed) renderPeers('#dp-peers'); else void loadPeers(s);
   on('#replay-end', () => { playEnding(document.body, endingIn, () => undefined); });
-  if (withEnding) playEnding(document.body, endingIn, (skipped) => { if (!skipped) shareSheet(card); });
+  if (withEnding) playEnding(document.body, endingIn, (skipped) => { if (!skipped) void shareSheet(card, link); });
 }
 function epilogueHtml(s: LifeState): string {
   const relName = (m: Mourner) => (m.rel === 'friends' ? t('friendsN', { n: m.n ?? 0 }) : `${t(('rel_' + m.rel) as 'rel_child')} ${pn(m.name)}`);
@@ -1299,17 +1322,23 @@ function finalMoments(s: LifeState, country: string, hap: { age: number } | unde
   if (hap) out.push({ age: hap.age, caption: t('cap_happiest', { age: hap.age }) });
   return out.sort((a, b) => a.age - b.age).slice(0, 7);
 }
-function shareSheet(card: ShareCard): void {
+async function shareSheet(card: ShareCard, linkFor?: () => Promise<string | null>): Promise<void> {
+  // v0.21.0 (B1+B2): death records get a replay link; the QR encodes it when short enough, else the site address
+  const link = linkFor ? await linkFor().catch(() => null) : null;
+  if (linkFor) card = { ...card, qr: link && link.length <= QR_MAX ? { text: link, label: t('qrReplay'), kind: 'replay' } : { text: appBase(), label: t('qrSite'), kind: 'site' } };
+  document.querySelector('#share-sheet')?.remove();
   const dlg = document.createElement('dialog'); dlg.className = 'sheet share'; dlg.id = 'share-sheet';
   const cv = document.createElement('canvas');
   drawShareCard(cv, card);
+  const linkHtml = !linkFor ? '' : link ? `<label class="block small share-link">${esc(t('shareLink'))}<input id="sh-link-url" readonly value="${esc(link)}"></label><button class="ghost" id="sh-link">${esc(t('copyLink'))}</button>` : `<p class="muted small" id="sh-link-long">${esc(t('linkTooLong'))}</p>`;
   const url = cv.toDataURL('image/png');
-  dlg.innerHTML = `<div class="share-grid"><img id="share-img" alt="${esc(card.name)}" src="${url}"><div><h2 class="serif">${esc(t('shareTitle'))}</h2><p class="small">${esc(card.text)}</p>
-    <div class="col-btns"><button class="cta" id="sh-share">${esc(t('shareImage'))}</button><a class="btn ghost" id="sh-save" download="${esc(card.name)}.png" href="${url}">${esc(t('saveImage'))}</a><button class="ghost" id="sh-copy">${esc(t('copyText'))}</button><button class="ghost" id="sh-close">${esc(t('close'))}</button></div>
+  dlg.innerHTML = `<div class="share-grid"><img id="share-img" alt="${esc(card.name)}" src="${url}"${card.qr ? ` data-qr="${card.qr.kind}"` : ''}><div><h2 class="serif">${esc(t('shareTitle'))}</h2><p class="small">${esc(card.text)}</p>
+    <div class="col-btns"><button class="cta" id="sh-share">${esc(t('shareImage'))}</button><a class="btn ghost" id="sh-save" download="${esc(card.name)}.png" href="${url}">${esc(t('saveImage'))}</a><button class="ghost" id="sh-copy">${esc(t('copyText'))}</button><button class="ghost" id="sh-close">${esc(t('close'))}</button></div>${linkHtml}
     <p class="muted small">${esc(t('longPress'))}</p></div></div>`;
   dlg.addEventListener('close', () => dlg.remove());
   root.appendChild(dlg); dlg.showModal();
   dlg.querySelector('#sh-close')!.addEventListener('click', () => dlg.close());
+  dlg.querySelector('#sh-link')?.addEventListener('click', () => { void navigator.clipboard?.writeText(link ?? '').then(() => { (dlg.querySelector('#sh-link') as HTMLElement).textContent = t('linkCopied'); }); });
   dlg.querySelector('#sh-copy')!.addEventListener('click', () => { void navigator.clipboard?.writeText(card.text).then(() => { (dlg.querySelector('#sh-copy') as HTMLElement).textContent = t('copiedText'); }); });
   dlg.querySelector('#sh-share')!.addEventListener('click', () => {
     cv.toBlob((b) => {

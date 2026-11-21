@@ -5391,6 +5391,69 @@ null
 "今日のテーマの誕生年は、出生地が戦争・飢饉・ジェノサイド・大災害の中にあった年と世界的なパンデミックの年を避けます（自作の事実リスト {n} 件、1950–2025、各項目を英語版 Wikipedia の記事と照合、{d} 確認）。日付は UTC。",
 "오늘의 인생 출생 연도는 출생지가 전쟁·기근·집단학살·대형 재난을 겪던 해와 세계적 대유행 해를 피합니다(자체 작성 사실 목록 {n}건, 1950–2025, 항목마다 영어 Wikipedia 문서와 대조, {d} 확인). 날짜는 UTC 기준입니다.",
 "Năm sinh của chủ đề hôm nay tránh những năm nơi sinh đang có chiến tranh, nạn đói, diệt chủng hoặc thảm họa lớn, và các năm đại dịch toàn cầu (danh sách tự biên soạn {n} mục, 1950–2025, đối chiếu từng mục với bài Wikipedia tiếng Anh, kiểm tra ngày {d}). Ngày tính theo UTC."
+],
+"shareLink": [
+"重播連結（不含日記）",
+"Replay link (no journal)",
+"再生リンク（日記は含みません）",
+"다시보기 링크(일기 제외)",
+"Liên kết xem lại (không kèm nhật ký)"
+],
+"copyLink": [
+"複製重播連結",
+"Copy replay link",
+"再生リンクをコピー",
+"다시보기 링크 복사",
+"Sao chép liên kết xem lại"
+],
+"linkCopied": [
+"已複製連結",
+"Link copied",
+"リンクをコピーしました",
+"링크를 복사했습니다",
+"Đã sao chép liên kết"
+],
+"linkTooLong": [
+"這一生的選擇太多，連結會太長；請改分享圖片或 seed。",
+"This life has too many choices for a link; share the image or the seed instead.",
+"この人生は選択が多すぎてリンクが長くなりすぎます。画像か seed を共有してください。",
+"이 인생은 선택이 너무 많아 링크가 너무 깁니다. 이미지나 seed를 공유하세요.",
+"Cuộc đời này có quá nhiều lựa chọn nên liên kết quá dài; hãy chia sẻ ảnh hoặc seed."
+],
+"qrReplay": [
+"掃描重播這一生",
+"Scan to replay this life",
+"スキャンしてこの人生を再生",
+"스캔해서 이 인생 다시 보기",
+"Quét để xem lại cuộc đời này"
+],
+"qrSite": [
+"掃描開啟時代人生",
+"Scan to open Epochs of One",
+"スキャンして時代人生を開く",
+"스캔해서 시대인생 열기",
+"Quét để mở Epochs of One"
+],
+"replayBanner": [
+"這是別人分享的人生重播（唯讀）：不會存進你的過去人生，也不含對方的日記。",
+"Shared life replay (read-only): it is not saved to your past lives and carries no journal.",
+"共有された人生の再生（閲覧のみ）：あなたの過去の人生には保存されず、日記も含みません。",
+"공유된 인생 다시보기(읽기 전용): 지난 인생에 저장되지 않으며 일기도 포함하지 않습니다.",
+"Xem lại cuộc đời được chia sẻ (chỉ xem): không lưu vào các cuộc đời trước của bạn và không kèm nhật ký."
+],
+"replayOld": [
+"此連結來自 v{v}，目前是 v{cur}，不同版本無法重播這一生。",
+"This link is from v{v}; this is v{cur}. Lives can't be replayed across versions.",
+"このリンクは v{v} のものです（現在は v{cur}）。バージョンが違うと再生できません。",
+"이 링크는 v{v}에서 만들어졌습니다(현재 v{cur}). 버전이 다르면 다시 볼 수 없습니다.",
+"Liên kết này từ v{v}; hiện là v{cur}. Không thể xem lại giữa các phiên bản."
+],
+"replayBad": [
+"這個分享連結無法讀取，可能不完整。",
+"This share link can't be read; it may be incomplete.",
+"この共有リンクは読み取れません。不完全な可能性があります。",
+"이 공유 링크를 읽을 수 없습니다. 불완전할 수 있습니다.",
+"Không đọc được liên kết chia sẻ này; có thể bị thiếu."
 ]
 },
 "events": {

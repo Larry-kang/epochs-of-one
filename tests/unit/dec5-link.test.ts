@@ -7,7 +7,7 @@ import type { Action } from '../../src/engine/life/state.ts';
 
 const cfg: LifeConfig = { seed: 'abcDEF2345', era: { kind: 'past', year: 1987 }, nowYear: 2026, engineVersion: '0.10.0', occ: true, l2: true, id: 'local-id',
   constraints: { country: { kind: 'fixed', value: 'TWN' }, sex: { kind: 'random' }, quintile: { kind: 'random' }, urban: { kind: 'random' } } };
-const acts: Action[] = [{ t: 'choice', age: 18, id: 'ch_uni', opt: 'go' }, { t: 'alloc', age: 25, target: { world: 0.6 } }, { t: 'life', age: 15, key: 'auto', value: 'on' }];
+const acts: Action[] = [{ t: 'choice', age: 18, id: 'ch_uni', opt: 'go' }, { t: 'alloc', age: 25, target: { eqWorld: 0.6 } }, { t: 'life', age: 15, key: 'auto', value: 'on' }];
 const BASE = 'https://larry-kang.github.io/epochs-of-one/';
 
 describe('replay link', () => {

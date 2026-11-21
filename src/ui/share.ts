@@ -1,10 +1,12 @@
-// E4 shareable image card, drawn client-side on a canvas (1080×1350). No network, no third-party code.
-export interface ShareCard { app: string; title: string; name: string; span: string; country: string; cause: string; facts: string[]; map: number[]; e0: number; text: string }
+// E4 shareable image card, drawn client-side on a canvas (1080×1350; 1080×1600 with a QR). No network.
+// v0.21.0 (item 5 P1, B2): optional QR (replay link or site address), modules from uqr (MIT) via logic/qr.ts.
+import { qrModules } from './logic/qr.ts';
+export interface ShareCard { app: string; title: string; name: string; span: string; country: string; cause: string; facts: string[]; map: number[]; e0: number; text: string; qr?: { text: string; label: string; kind: 'replay' | 'site' } }
 const C = { paper: '#F6F1E7', card: '#FFFDF8', ink: '#1F2433', ink2: '#4A5063', rule: '#E3DACB', accent: '#C2671D', stamp: '#2F5D8A', gold: '#B8902E' };
 const SERIF = '"EO Serif TC", "EO Fraunces", serif', SANS = '"EO Inter", "Noto Sans TC", sans-serif', MONO = '"EO Mono", monospace';
 
 export function drawShareCard(cv: HTMLCanvasElement, d: ShareCard): void {
-  const W = 1080, H = 1350; cv.width = W; cv.height = H;
+  const W = 1080, H = d.qr ? 1600 : 1350; cv.width = W; cv.height = H;
   const g = cv.getContext('2d'); if (!g) return;
   g.fillStyle = C.paper; g.fillRect(0, 0, W, H);
   // ledger rules
@@ -31,5 +33,13 @@ export function drawShareCard(cv: HTMLCanvasElement, d: ShareCard): void {
     else { g.strokeStyle = C.rule; g.lineWidth = 2; g.strokeRect(x, y, cell, h); }
     if (i === Math.round(d.e0)) { g.strokeStyle = C.accent; g.lineWidth = 4; g.strokeRect(x - 2, y - 2, cell + 4, h + 4); }
   }
-  g.fillStyle = C.ink2; g.font = `400 26px ${MONO}`; g.fillText('1 □ = 1 yr', 100, H - 100);
+  g.fillStyle = C.ink2; g.font = `400 26px ${MONO}`; g.fillText('1 □ = 1 yr', 100, d.qr ? 1250 : H - 100);
+  if (d.qr) drawQr(g, d.qr, 100, 1275, 240);
+}
+function drawQr(g: CanvasRenderingContext2D, qr: NonNullable<ShareCard['qr']>, x: number, y: number, box: number): void {
+  const m = qrModules(qr.text), n = m.size + 8, px = Math.max(1, Math.floor(box / n)), side = px * n;
+  g.fillStyle = '#FFFFFF'; g.fillRect(x, y, side, side);
+  g.fillStyle = '#000000';
+  for (let j = 0; j < m.size; j++) for (let i = 0; i < m.size; i++) if (m.on(i, j)) g.fillRect(x + (i + 4) * px, y + (j + 4) * px, px, px);
+  g.fillStyle = C.ink; g.font = `600 34px ${SANS}`; g.fillText(qr.label, x + side + 40, y + side / 2, 1080 - x - side - 140);
 }

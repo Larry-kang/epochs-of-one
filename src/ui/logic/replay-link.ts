@@ -10,7 +10,7 @@ import { SEED_RE } from '../../engine/rng/streams.ts';
 export const MAX_LINK = 8000;
 export const QR_MAX = 1200;
 const MAX_JSON = 256 * 1024;
-export const XKEYS = ['constraints', 'by', 'occ', 'occFrom', 'l2', 'l2From', 'autoFocus', 'autoSpend'] as const;
+export const XKEYS = ['nowYear', 'engineVersion', 'constraints', 'by', 'occ', 'occFrom', 'l2', 'l2From', 'autoFocus', 'autoSpend'] as const;
 type XKey = (typeof XKEYS)[number];
 export interface ReplayPayload { v: string; seed: string; era: Era; pace: 30 | 60 | 90; actions: Action[]; x?: Partial<Pick<LifeConfig, XKey>> }
 export type ReadResult = { ok: true; p: ReplayPayload } | { ok: false; reason: 'bad' | 'version'; v?: string };

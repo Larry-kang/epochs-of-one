@@ -402,3 +402,8 @@ dialog.spend details { margin-top: 10px; } dialog.spend summary { cursor: pointe
 .daily { grid-column: 1 / -1; margin: 0; }
 .daily h2 { margin: 0 0 .25rem; font-size: 1rem; }
 .daily p { margin: 0 0 .5rem; overflow-wrap: anywhere; }
+/* v0.21.0 (item 5 P1): shared-life replay banner/notice + replay link field */
+.replay-banner { margin: 0 0 12px; font-size: 14px; }
+.replay-notice { grid-column: 1 / -1; margin: 0; }
+.share-link { margin-top: 12px; }
+.share-link input { width: 100%; font: 12px var(--mono); }
