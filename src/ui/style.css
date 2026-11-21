@@ -398,3 +398,7 @@ dialog.spend details { margin-top: 10px; } dialog.spend summary { cursor: pointe
 .help-page::backdrop { background: rgb(0 0 0 / .45); }
 .help-list { list-style: none; padding: 0; margin: .75rem 0; display: grid; gap: .75rem; }
 .help-tel { white-space: nowrap; }
+/* v0.20.0 (item 5 P1): daily theme card */
+.daily { grid-column: 1 / -1; margin: 0; }
+.daily h2 { margin: 0 0 .25rem; font-size: 1rem; }
+.daily p { margin: 0 0 .5rem; overflow-wrap: anywhere; }

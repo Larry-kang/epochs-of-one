@@ -47,6 +47,7 @@ import { playCue, setSfx, sfxOn } from './sfx.ts';
 import { compareRows, e0Diff, DEFAULT_MY_COUNTRY, type CompareRow } from './logic/compare.ts';
 import { enCountry, enEdu } from './logic/story-grammar.ts';
 import { helpOrder } from './logic/help.ts';
+import { utcDay, dailySeed, pickDaily, CRISES } from './logic/daily.ts';
 
 interface Run { s: LifeState; cfg: LifeConfig; paceMin: 30 | 60 | 90; speed: Speed; paused: boolean; acc: number; yearSec: number; raf: number; last: number; skipping: boolean }
 let run: Run | null = null;
@@ -99,6 +100,7 @@ const fmtThousands = (k: number) => compact(k);
 function intro(): void {
   const save = loadSave();
   const lives = pastLives();
+  const dt = dailyToday();
   const [b0] = index.birthYears;
   const perSec = (birthShares(index, NOW_YEAR, NOW_YEAR).total * 1000) / (365.25 * 86400);
   view(`<div class="home">
@@ -123,6 +125,7 @@ function intro(): void {
   </form>
 </details>
 <ul class="errors" id="errs" role="alert"></ul>
+${dailyCard(dt, lives)}
 ${noticeSeen() ? '' : `<aside class="card notice" id="notice" aria-labelledby="notice-h"><h2 id="notice-h" class="small">${esc(t('noticeTitle'))}</h2><p class="small">${esc(t('noticeBody'))}</p><div class="row"><button class="link" id="notice-help">${esc(t('helpBtn'))}</button><button class="ghost" id="notice-ok">${esc(t('noticeOk'))}</button></div></aside>`}
 <div class="cta-row">
   <button class="cta" id="go">${esc(t('bornCta'))} <span aria-hidden="true">→</span></button>
@@ -130,7 +133,7 @@ ${noticeSeen() ? '' : `<aside class="card notice" id="notice" aria-labelledby="n
 </div>
 ${storageAvailable() ? '' : `<p class="warn">${esc(t('storageOff'))}</p>`}
 <section class="past-lives card"><h2>${esc(t('pastLives'))}</h2>
-  ${lives.length ? `<ol class="past">${lives.slice(0, 10).map((l, i) => `<li><button class="link past-open" data-i="${i}" ${l.cfg ? '' : 'disabled'}>${esc(pastName(l))} · ${l.year}–${l.at} · ${esc(t('years', { n: l.age }))}</button> <span class="mono small">${esc(money(l.netWorth, l.iso))}</span></li>`).join('')}</ol>` : `<p class="muted">${esc(t('noPast'))}</p>`}
+  ${lives.length ? `<ol class="past">${lives.slice(0, 10).map((l, i) => `<li><button class="link past-open" data-i="${i}" ${l.cfg ? '' : 'disabled'}>${esc(pastName(l))}${l.seed.startsWith('daily-') ? ` <span class="badge">${esc(t('dailyTag'))}</span>` : ''} · ${l.year}–${l.at} · ${esc(t('years', { n: l.age }))}</button> <span class="mono small">${esc(money(l.netWorth, l.iso))}</span></li>`).join('')}</ol>` : `<p class="muted">${esc(t('noPast'))}</p>`}
 </section>
 ${!contentTranslated() ? `<p class="muted small content-note">${esc(t('contentNote'))}</p>` : ''}<footer class="foot"><button id="about" class="ghost">${esc(t('about'))}</button><button id="help-btn" class="ghost">${esc(t('helpBtn'))}</button>${musicBtn()}${sfxBtn()}${themeBtn()}${langPicker()}<span class="muted small" id="app-ver">v${esc(APP_VERSION)}</span></footer>
 </div>`);
@@ -152,6 +155,7 @@ ${!contentTranslated() ? `<p class="muted small content-note">${esc(t('contentNo
   (root.querySelector('#year') as HTMLSelectElement).addEventListener('change', (e) => { const v = (e.target as HTMLSelectElement).value; home.year = v === 'random' ? 'random' : Number(v); renderOdds(); });
   root.querySelector('#country')?.addEventListener('change', renderOdds);
   on('#go', submitHome);
+  on('#daily-go', () => void birth(dailyCfg(dt.seed, dt.year), home.pace, true));
   on('#cont', () => { if (save) void resume(save); });
   on('#about', about);
   on('#help-btn', openHelp); on('#notice-help', openHelp);
@@ -220,6 +224,19 @@ function submitHome(): void {
   void birth({ seed, era, nowYear: NOW_YEAR, engineVersion: ENGINE_VERSION, occ: true, l2: true, ...(constraints ? { constraints } : {}), ...(byPop ? { by: 'pop' as const } : {}) }, home.pace, true);
 }
 
+// v0.20.0 (item 5 P1, A1): daily theme — same seed and birth year for everyone on a UTC day; never a crisis (year, birthplace)
+const dailyCfg = (seed: string, year: number): LifeConfig => ({ seed, era: { kind: 'past', year }, nowYear: NOW_YEAR, engineVersion: ENGINE_VERSION, occ: true, l2: true });
+function dailyToday(): { day: string; seed: string; year: number } {
+  const day = utcDay(new Date()), seed = dailySeed(day);
+  return pickDaily(day, index.birthYears[0], NOW_YEAR - 1, (y) => { const b = drawBirth(index, dailyCfg(seed, y)); return 'infeasible' in b ? null : b.iso; });
+}
+function dailyCard(dt: { day: string; seed: string; year: number }, lives: PastLife[]): string {
+  const done = lives.find((l) => l.seed === dt.seed);
+  return `<section class="card daily" id="daily" data-seed="${esc(dt.seed)}" data-year="${dt.year}" aria-labelledby="daily-h"><h2 id="daily-h" class="small">${esc(t('dailyTitle'))} · <span class="mono">${esc(dt.day)}</span></h2>
+<p class="small">${esc(t('dailyBody', { day: dt.day, year: dt.year }))}</p>${done ? `<p class="small" id="daily-done">${esc(t('dailyDone', { n: done.age }))}</p>` : ''}
+<button class="ghost" id="daily-go">${esc(t(done ? 'dailyAgain' : 'dailyGo'))}</button></section>`;
+}
+
 // v0.16.0 (item 3): one-time content notice + official help lines (sources checked 2026-11-21, see logic/help.ts)
 const K_NOTICE = 'epochs.notice.v1';
 function noticeSeen(): boolean { try { return localStorage.getItem(K_NOTICE) === '1'; } catch { return false; } }
@@ -252,6 +269,7 @@ function about(): void {
 <p id="l1-sources">${esc(t('aboutL1'))}</p>
 <p id="l2-sources">${esc(t('aboutL2'))}</p>
 <p id="twd-source">${esc(t('aboutTwd'))}</p>
+<p id="daily-source">${esc(t('dailySource', { n: CRISES.length, d: '2026-11-21' }))}</p>
 ${BTC_FUTURE_DAMPENED ? `<p id="btc-future-about">${esc(t('aboutBtcFuture'))}</p>` : ''}
 <p>${esc(t('aboutOffline'))}</p>
 <p class="muted">${esc(t('money'))} ${esc(t('estNote'))}</p>
