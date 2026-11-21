@@ -5258,6 +5258,69 @@ null
 "兵役・制度（v0.11.0）：各国の法令に基づく事実（期間・開始年）。招集割合・給与・試験の確率などは推估。",
 "병역·제도 (v0.11.0): 각국 법령에 따른 사실(기간·시행 연도). 징집 비율·급여·시험 확률 등은 추정.",
 null
+],
+"noticeTitle": [
+"內容提醒",
+"Content note",
+"内容についてのお知らせ",
+"콘텐츠 안내",
+"Lưu ý nội dung"
+],
+"noticeBody": [
+"人生裡可能出現疾病、死亡、失去親人、暴力與戰爭等情節。如果你正在經歷難過的事，可以找人談談。",
+"A life here can include illness, death, losing loved ones, violence and war. If you are going through something hard, you can talk to someone.",
+"この人生には病気、死、大切な人との別れ、暴力や戦争などが含まれることがあります。つらいときは誰かに相談できます。",
+"이 인생에는 질병, 죽음, 가족과의 이별, 폭력과 전쟁 같은 장면이 나올 수 있습니다. 힘든 일을 겪고 있다면 누군가와 이야기할 수 있습니다.",
+"Một cuộc đời ở đây có thể có bệnh tật, cái chết, mất người thân, bạo lực và chiến tranh. Nếu bạn đang gặp chuyện khó khăn, bạn có thể tìm người trò chuyện."
+],
+"noticeOk": [
+"知道了",
+"Got it",
+"わかりました",
+"확인",
+"Đã hiểu"
+],
+"helpBtn": [
+"求助資源",
+"Help lines",
+"相談窓口",
+"도움받을 곳",
+"Đường dây hỗ trợ"
+],
+"helpTitle": [
+"求助資源",
+"Help lines",
+"相談窓口",
+"도움받을 곳",
+"Đường dây hỗ trợ"
+],
+"helpIntro": [
+"以下是政府營運或列名的專線。如有立即危險，請撥打當地緊急電話（台灣 110／119）。",
+"These are government-run or government-listed lines. If you are in immediate danger, call your local emergency number.",
+"以下は政府が運営・掲載している窓口です。命の危険が迫っているときは、地域の緊急通報番号に電話してください。",
+"아래는 정부가 운영하거나 안내하는 상담전화입니다. 긴급한 위험이 있다면 지역 긴급전화로 연락하세요.",
+"Đây là các đường dây do nhà nước vận hành hoặc liệt kê. Nếu đang gặp nguy hiểm ngay lập tức, hãy gọi số khẩn cấp tại nơi bạn ở."
+],
+"helpChecked": [
+"資料來源，查核日期 {d}",
+"source, checked {d}",
+"出典（{d} 確認）",
+"출처, {d} 확인",
+"nguồn, kiểm tra ngày {d}"
+],
+"helpNone": [
+"其他國家或地區：我們尚未找到可驗證的官方全國專線，請聯絡當地緊急服務或醫療機構。",
+"Other countries: we have not yet verified an official national line; please contact local emergency services or a health provider.",
+"その他の国・地域：公的な全国窓口をまだ確認できていません。地域の緊急サービスや医療機関に連絡してください。",
+"기타 국가: 공식 전국 상담전화를 아직 확인하지 못했습니다. 지역 긴급서비스나 의료기관에 연락하세요.",
+"Các quốc gia khác: chúng tôi chưa xác minh được đường dây quốc gia chính thức; hãy liên hệ dịch vụ khẩn cấp hoặc cơ sở y tế tại chỗ."
+],
+"deathHelp": [
+"如果這段人生讓你想起難過的事：求助資源",
+"If this life brought up something painful: help lines",
+"この人生でつらいことを思い出したら：相談窓口",
+"이 인생이 아픈 기억을 떠올리게 했다면: 도움받을 곳",
+"Nếu cuộc đời này gợi lại điều đau buồn: đường dây hỗ trợ"
 ]
 },
 "events": {

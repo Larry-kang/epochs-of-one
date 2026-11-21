@@ -389,3 +389,12 @@ dialog.spend details { margin-top: 10px; } dialog.spend summary { cursor: pointe
 .cmp-table th, .cmp-table td { padding: .3rem .25rem; text-align: right; overflow-wrap: anywhere; }
 .cmp-table th:first-child, .cmp-table td:first-child { text-align: left; width: 42%; }
 .cmp-table td { font-variant-numeric: tabular-nums; } .cmp-table tr + tr td, .cmp-table thead + tbody td { border-top: 1px solid var(--rule); }
+
+/* v0.16.0 (item 3): content notice + help lines */
+.notice { margin: 0 0 1rem; }
+.notice h2 { margin: 0 0 .25rem; font-size: 1rem; }
+.notice .row { gap: .75rem; justify-content: flex-end; align-items: center; flex-wrap: wrap; }
+.help-page { max-width: min(36rem, calc(100vw - 2rem)); overflow-wrap: anywhere; }
+.help-page::backdrop { background: rgb(0 0 0 / .45); }
+.help-list { list-style: none; padding: 0; margin: .75rem 0; display: grid; gap: .75rem; }
+.help-tel { white-space: nowrap; }
