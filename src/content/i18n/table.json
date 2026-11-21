@@ -5428,11 +5428,11 @@ null
 "Quét để xem lại cuộc đời này"
 ],
 "qrSite": [
-"掃描開啟時代人生",
-"Scan to open Epochs of One",
-"スキャンして時代人生を開く",
-"스캔해서 시대인생 열기",
-"Quét để mở Epochs of One"
+"掃描開啟{app}",
+"Scan to open {app}",
+"スキャンして{app}を開く",
+"스캔해서 {app} 열기",
+"Quét để mở {app}"
 ],
 "replayBanner": [
 "這是別人分享的人生重播（唯讀）：不會存進你的過去人生，也不含對方的日記。",

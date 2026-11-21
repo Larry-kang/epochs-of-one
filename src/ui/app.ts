@@ -95,8 +95,8 @@ async function openShared(hash: string): Promise<void> {
   const fail = (msg: string) => { intro(); const n = document.createElement('p'); n.className = 'warn replay-notice'; n.id = 'replay-notice'; n.setAttribute('role', 'alert'); n.textContent = msg; root.querySelector('.home')?.prepend(n); };
   if (!r.ok) { fail(r.reason === 'version' ? t('replayOld', { v: r.v ?? '?', cur: APP_VERSION }) : t('replayBad')); return; }
   const cfg = cfgFrom(r.p, NOW_YEAR, ENGINE_VERSION);
-  let s = await replay(cfg, 200, r.p.actions).catch(() => null);
-  for (let i = 0; s && i < 200 && !s.death; i++) s = advanceYear(bundle(), s, contentEvents);
+  let s: LifeState | null;
+  try { s = await replay(cfg, 200, r.p.actions); for (let i = 0; s && i < 200 && !s.death; i++) s = advanceYear(bundle(), s, contentEvents); } catch { s = null; } // malformed actions → notice, never a blank page
   if (!s?.death) { fail(t('replayBad')); return; }
   run = { s, cfg, paceMin: r.p.pace, speed: 1, paused: true, acc: 0, yearSec: 1, raf: 0, last: 0, skipping: false };
   sharedLife = true;
@@ -1325,7 +1325,7 @@ function finalMoments(s: LifeState, country: string, hap: { age: number } | unde
 async function shareSheet(card: ShareCard, linkFor?: () => Promise<string | null>): Promise<void> {
   // v0.21.0 (B1+B2): death records get a replay link; the QR encodes it when short enough, else the site address
   const link = linkFor ? await linkFor().catch(() => null) : null;
-  if (linkFor) card = { ...card, qr: link && link.length <= QR_MAX ? { text: link, label: t('qrReplay'), kind: 'replay' } : { text: appBase(), label: t('qrSite'), kind: 'site' } };
+  if (linkFor) card = { ...card, qr: link && link.length <= QR_MAX ? { text: link, label: t('qrReplay'), kind: 'replay' } : { text: appBase(), label: t('qrSite', { app: APP.nameEn }), kind: 'site' } };
   document.querySelector('#share-sheet')?.remove();
   const dlg = document.createElement('dialog'); dlg.className = 'sheet share'; dlg.id = 'share-sheet';
   const cv = document.createElement('canvas');
