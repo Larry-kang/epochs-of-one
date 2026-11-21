@@ -49,6 +49,7 @@ import { enCountry, enEdu } from './logic/story-grammar.ts';
 import { helpOrder } from './logic/help.ts';
 import { utcDay, dailySeed, pickDaily, CRISES } from './logic/daily.ts';
 import { payloadFrom, cfgFrom, replayLink, readHash, QR_MAX } from './logic/replay-link.ts';
+import { EPITAPH_MAX, epitaphKey, cleanEpitaph } from './logic/epitaph.ts';
 
 interface Run { s: LifeState; cfg: LifeConfig; paceMin: 30 | 60 | 90; speed: Speed; paused: boolean; acc: number; yearSec: number; raf: number; last: number; skipping: boolean }
 let run: Run | null = null;
@@ -154,6 +155,7 @@ ${noticeSeen() ? '' : `<aside class="card notice" id="notice" aria-labelledby="n
 </div>
 ${storageAvailable() ? '' : `<p class="warn">${esc(t('storageOff'))}</p>`}
 <section class="past-lives card"><h2>${esc(t('pastLives'))}</h2>
+  ${lives.length ? `<p><button class="ghost" id="hall-open">${esc(t('hallOpen'))}</button></p>` : ''}
   ${lives.length ? `<ol class="past">${lives.slice(0, 10).map((l, i) => `<li><button class="link past-open" data-i="${i}" ${l.cfg ? '' : 'disabled'}>${esc(pastName(l))}${l.seed.startsWith('daily-') ? ` <span class="badge">${esc(t('dailyTag'))}</span>` : ''} · ${l.year}–${l.at} · ${esc(t('years', { n: l.age }))}</button> <span class="mono small">${esc(money(l.netWorth, l.iso))}</span></li>`).join('')}</ol>` : `<p class="muted">${esc(t('noPast'))}</p>`}
 </section>
 ${!contentTranslated() ? `<p class="muted small content-note">${esc(t('contentNote'))}</p>` : ''}<footer class="foot"><button id="about" class="ghost">${esc(t('about'))}</button><button id="help-btn" class="ghost">${esc(t('helpBtn'))}</button>${musicBtn()}${sfxBtn()}${themeBtn()}${langPicker()}<span class="muted small" id="app-ver">v${esc(APP_VERSION)}</span></footer>
@@ -179,6 +181,7 @@ ${!contentTranslated() ? `<p class="muted small content-note">${esc(t('contentNo
   on('#daily-go', () => void birth(dailyCfg(dt.seed, dt.year), home.pace, true));
   on('#cont', () => { if (save) void resume(save); });
   on('#about', about);
+  on('#hall-open', hall);
   on('#help-btn', openHelp); on('#notice-help', openHelp);
   on('#notice-ok', () => { markNoticeSeen(); root.querySelector('#notice')?.remove(); });
   root.querySelectorAll<HTMLButtonElement>('.past-open').forEach((b) => b.addEventListener('click', () => { const l = lives[Number(b.dataset.i)]; if (l) void reopen(l); }));
@@ -277,6 +280,29 @@ function openHelp(): void {
   dlg.addEventListener('cancel', (e) => { e.preventDefault(); close(); });
   dlg.showModal();
   (dlg.querySelector('#back') as HTMLElement).focus();
+}
+
+// v0.22.0 (item 5 P1, C1): local memorial hall — past lives as stones; epitaphs only in this browser's localStorage
+const epitaph = { get: (id: string) => cleanEpitaph(pref.get(epitaphKey(APP.storagePrefix, id)) ?? ''),
+  set: (id: string, v: string) => { const k = epitaphKey(APP.storagePrefix, id); const c = cleanEpitaph(v); try { if (c) localStorage.setItem(k, c); else localStorage.removeItem(k); } catch { /* storage off */ } return c; } };
+function hall(): void {
+  const lives = pastLives();
+  view(`${header()}
+<section class="hall-page" id="hall"><h1 tabindex="-1" class="serif">${esc(t('hallTitle'))}</h1>
+<p class="small" id="hall-local">${esc(t('hallIntro'))}</p>
+${lives.length ? `<ol class="hall">${lives.map((l, i) => { const ep = epitaph.get(l.id); return `<li class="stone card" data-id="${esc(l.id)}">
+  <h2 class="serif stone-name">${esc(pastName(l))}</h2>
+  <p class="mono small">${l.year}–${l.at} · ${esc(t('years', { n: l.age }))} · ${esc(money(l.netWorth, l.iso))}</p>
+  <p class="epitaph serif${ep ? '' : ' muted'}">${esc(ep || t('hallNoEpitaph'))}</p>
+  <label class="block small">${esc(t('epitaphLabel', { n: EPITAPH_MAX }))}<input class="ep-input" maxlength="${EPITAPH_MAX}" value="${esc(ep)}" autocomplete="off"></label>
+  <div class="row"><button class="ghost ep-save">${esc(t('epitaphSave'))}</button><button class="link hall-reopen" data-i="${i}" ${l.cfg ? '' : 'disabled'}>${esc(t('hallReopen'))}</button></div></li>`; }).join('')}</ol>` : `<p class="muted">${esc(t('noPast'))}</p>`}
+<button id="back" class="ghost">${esc(t('back'))}</button></section>`);
+  on('#back', intro);
+  root.querySelectorAll<HTMLLIElement>('.stone').forEach((li) => {
+    const id = li.dataset.id!, out = li.querySelector('.epitaph') as HTMLElement, inp = li.querySelector('.ep-input') as HTMLInputElement;
+    li.querySelector('.ep-save')!.addEventListener('click', () => { const c = epitaph.set(id, inp.value); inp.value = c; out.textContent = c || t('hallNoEpitaph'); out.classList.toggle('muted', !c); });
+  });
+  root.querySelectorAll<HTMLButtonElement>('.hall-reopen').forEach((b) => b.addEventListener('click', () => { const l = lives[Number(b.dataset.i)]; if (l) void reopen(l); }));
 }
 
 function about(): void {

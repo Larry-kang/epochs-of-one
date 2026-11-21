@@ -407,3 +407,11 @@ dialog.spend details { margin-top: 10px; } dialog.spend summary { cursor: pointe
 .replay-notice { grid-column: 1 / -1; margin: 0; }
 .share-link { margin-top: 12px; }
 .share-link input { width: 100%; font: 12px var(--mono); }
+/* v0.22.0 (item 5 P1): local memorial hall */
+.hall-page { max-width: 860px; margin: 0 auto; }
+.hall { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.stone { border-radius: 40% 40% 6px 6px / 22% 22% 6px 6px; text-align: center; padding: 28px 18px 18px; }
+.stone-name { font-size: 20px; margin: 0 0 4px; overflow-wrap: anywhere; }
+.stone .epitaph { font-size: 16px; min-height: 1.6em; overflow-wrap: anywhere; }
+.stone .ep-input { width: 100%; }
+.stone .row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }

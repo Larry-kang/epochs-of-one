@@ -5454,6 +5454,55 @@ null
 "この共有リンクは読み取れません。不完全な可能性があります。",
 "이 공유 링크를 읽을 수 없습니다. 불완전할 수 있습니다.",
 "Không đọc được liên kết chia sẻ này; có thể bị thiếu."
+],
+"hallOpen": [
+"走進追思館",
+"Enter the memorial hall",
+"追悼館に入る",
+"추모관 들어가기",
+"Vào nhà tưởng niệm"
+],
+"hallTitle": [
+"追思館",
+"Memorial hall",
+"追悼館",
+"추모관",
+"Nhà tưởng niệm"
+],
+"hallIntro": [
+"這裡的每一塊碑都是你活過的一生。墓誌銘只存在這台裝置的瀏覽器裡，不會上傳、不會放進分享圖片或連結。",
+"Each stone here is a life you lived. Epitaphs stay in this browser on this device only — never uploaded, never put in a share image or link.",
+"ここにある碑はどれも、あなたが生きた人生です。墓碑銘はこの端末のブラウザにだけ保存され、アップロードも共有画像やリンクへの記載もされません。",
+"이곳의 비석 하나하나가 당신이 살아낸 인생입니다. 묘비명은 이 기기의 브라우저에만 저장되며, 업로드되거나 공유 이미지·링크에 들어가지 않습니다.",
+"Mỗi tấm bia ở đây là một cuộc đời bạn đã sống. Văn bia chỉ lưu trong trình duyệt trên thiết bị này — không tải lên, không đưa vào ảnh hay liên kết chia sẻ."
+],
+"hallNoEpitaph": [
+"（尚未寫下墓誌銘）",
+"(no epitaph yet)",
+"（墓碑銘はまだありません）",
+"(아직 묘비명이 없습니다)",
+"(chưa có văn bia)"
+],
+"epitaphLabel": [
+"墓誌銘（最多 {n} 字，只存本機）",
+"Epitaph (up to {n} characters, this device only)",
+"墓碑銘（{n} 文字まで、この端末のみ）",
+"묘비명(최대 {n}자, 이 기기에만 저장)",
+"Văn bia (tối đa {n} ký tự, chỉ trên thiết bị này)"
+],
+"epitaphSave": [
+"刻上",
+"Engrave",
+"刻む",
+"새기기",
+"Khắc"
+],
+"hallReopen": [
+"翻開死亡紀錄",
+"Open the record",
+"死亡記録を開く",
+"사망 기록 열기",
+"Mở hồ sơ"
 ]
 },
 "events": {
