@@ -5335,6 +5335,13 @@ null
 "国連「世界人口推計 2024」年央人口（CC BY 3.0 IGO）· 約 {total} 人の人口に基づく",
 "유엔 「세계인구전망 2024」 연앙인구(CC BY 3.0 IGO) · 약 {total}명 인구 기준",
 "Dân số giữa năm, Triển vọng Dân số Thế giới 2024 của LHQ (CC BY 3.0 IGO) · khoảng {total} người"
+],
+"aboutTwd": [
+"台灣人生的新臺幣金額：以世界銀行國際比較計畫 ICP 2021 的台灣 GDP 購買力平價換算（1 國際元 ≈ NT$14.40，CC BY 4.0，2026-11-21 取得），僅用於顯示。",
+"NT$ amounts for Taiwan lives use the World Bank International Comparison Program (ICP) 2021 GDP PPP for Taiwan (1 international $ ≈ NT$14.40, CC BY 4.0, retrieved 2026-11-21); display only.",
+"台湾の人生の新台湾ドル表示：世界銀行 国際比較プログラム ICP 2021 の台湾 GDP 購買力平価で換算（1 国際ドル ≈ NT$14.40、CC BY 4.0、2026-11-21 取得）。表示のみ。",
+"대만 인생의 신타이완달러 금액: 세계은행 국제비교프로그램 ICP 2021 대만 GDP 구매력평가로 환산(1 국제달러 ≈ NT$14.40, CC BY 4.0, 2026-11-21 수집). 표시 전용.",
+"Số tiền Đài tệ (NT$) cho cuộc đời ở Đài Loan: quy đổi theo sức mua tương đương GDP của Đài Loan, Chương trình So sánh Quốc tế ICP 2021 của Ngân hàng Thế giới (1 đô la quốc tế ≈ NT$14,40, CC BY 4.0, lấy ngày 2026-11-21); chỉ để hiển thị."
 ]
 },
 "events": {

@@ -251,6 +251,7 @@ function about(): void {
 <p id="m5-sources">${esc(t('aboutM5'))}</p>
 <p id="l1-sources">${esc(t('aboutL1'))}</p>
 <p id="l2-sources">${esc(t('aboutL2'))}</p>
+<p id="twd-source">${esc(t('aboutTwd'))}</p>
 ${BTC_FUTURE_DAMPENED ? `<p id="btc-future-about">${esc(t('aboutBtcFuture'))}</p>` : ''}
 <p>${esc(t('aboutOffline'))}</p>
 <p class="muted">${esc(t('money'))} ${esc(t('estNote'))}</p>
