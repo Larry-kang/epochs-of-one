@@ -15,6 +15,7 @@ import type { HousingPension, MarketsData } from '../finance/marketData.ts';
 import { available, type InvestAsset } from '../finance/access.ts';
 import { yearReturns, sigmaOf, lendingRate } from '../finance/returns.ts';
 import { marketStep, rebalanceStep, investedValue, type Portfolio } from '../finance/portfolio.ts';
+import { autoInvestTarget } from '../finance/autoInvest.ts';
 import { clampStat, type Action, type House, type LifeState, type YearRow } from './state.ts';
 import type { PersonalLoan } from '../finance/types.ts';
 import { pmt, creditRule, annuityPayout, houseReturn, pensionFor } from '../finance/credit.ts';
@@ -446,8 +447,11 @@ export function advanceYear(data: DataBundle, s: LifeState, events?: EventSystem
     }
   }
   loans = loans.filter((l) => l.status === 'active' || calYear - l.startYear < 1);
-  if (m && active && !dies) {
+  // Item 6 (v0.15.0): auto-decide sets the year-end target itself until the player allocates by hand (pure policy, no RNG)
+  const autoInv = !!m && !dies && ls.auto === 'on' && independent && !s.actions.some((a) => a.t === 'alloc');
+  if (m && (active || autoInv) && !dies) {
     const canBuy = (a: InvestAsset) => available(m, a, s.cur, calYear, age, { levBase: portfolio.levBase, cooldownUntil: portfolio.cooldownUntil, frozenUntil: credit.frozenUntil }).ok;
+    if (autoInv) portfolio = { ...portfolio, rebalance: true, target: autoInvestTarget({ cash, invested: investedValue(portfolio), consumption: cons, age, debt: credit.unsecuredDebt, canBuy }) };
     const rb = rebalanceStep(portfolio, cash, canBuy);
     portfolio = rb.p; cash = rb.cash;
     for (const e of rb.events) emit(e.id, e.vars);
