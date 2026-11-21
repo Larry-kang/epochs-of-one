@@ -30,6 +30,11 @@ describe('item 4: population-weighted birthplace', () => {
     const fx = drawBirth(data.index, { ...cfg('z', 'pop'), constraints: { country: { kind: 'fixed', value: 'TWN' }, sex: { kind: 'random' }, quintile: { kind: 'random' }, urban: { kind: 'random' } } }, undefined, wpp);
     expect('infeasible' in fx ? '' : fx.iso).toBe('TWN');
   });
+  it('pop mode is deterministic per seed and refuses to draw without population data', () => {
+    for (const s of ['r1', 'r2', 'r3']) expect(drawBirth(data.index, cfg(s, 'pop'), undefined, wpp)).toEqual(drawBirth(data.index, cfg(s, 'pop'), undefined, wpp));
+    const r = drawBirth(data.index, cfg('nodata', 'pop'));
+    expect('infeasible' in r && r.field).toBe('country');
+  });
   it('newLife uses the bundle population in pop mode', () => {
     const s = newLife(data, cfg('nl', 'pop'));
     expect('infeasible' in s).toBe(false);
